@@ -26,7 +26,7 @@ export class EditorComponent {
     return [
       this.getClassElement(),
       <pre>
-        &lt;script src="http://unpkg.com/bodinaren/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+        &lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
         <br />
         { this.chartHtml || this.getDefaultChartHtml() }
       </pre>,
