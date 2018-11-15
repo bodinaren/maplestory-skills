@@ -1,0 +1,22 @@
+
+:host {
+  width: 108px;
+  height: 33px;
+}
+
+.minus, .plus {
+  position: absolute;
+  width: 30px;
+  height: 33px;
+}
+
+.minus {
+  left: 0;
+  
+  &:not(.disabled) { background: url(assets/minus.png); }
+}
+.plus {
+  right: 0;
+  
+  &:not(.disabled) { background: url(assets/plus.png); }
+}

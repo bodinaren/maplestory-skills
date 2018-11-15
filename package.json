@@ -1,0 +1,40 @@
+{
+  "name": "maplestory-skills",
+  "version": "0.0.1",
+  "description": "Web components to display MapleStory skill charts.",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "docs": "stencil build --docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "^0.15.2",
+    "@stencil/sass": "^0.1.1",
+    "@types/jest": "23.3.9",
+    "@types/puppeteer": "1.6.4",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "puppeteer": "1.8.0",
+    "tslint": "^5.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bodinaren/maplestory-skills.git"
+  },
+  "author": "Marcus Bodin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bodinaren/maplestory-skills"
+  },
+  "homepage": "https://github.com/bodinaren/maplestory-skills"
+}

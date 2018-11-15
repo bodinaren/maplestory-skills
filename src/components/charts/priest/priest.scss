@@ -1,0 +1,73 @@
+
+.priest {
+  background-image: url(assets/priest.png);
+}
+
+ms-heavenly-wings {
+	@include chart-row(1);
+	@include chart-column(4);
+}
+ms-steadfast-faith {
+	@include chart-row(1);
+	@include chart-column(3);
+}
+ms-celestial-light {
+	@include chart-row(1);
+	@include chart-column(1);
+}
+ms-holy-blast {
+	@include chart-row(2);
+	@include chart-column(1);
+}
+ms-healing-prayer {
+	@include chart-row(3);
+	@include chart-column(2);
+}
+ms-scepter-mastery {
+	@include chart-row(3);
+	@include chart-column(4);
+}
+ms-celestial-guardian {
+	@include chart-row(3);
+	@include chart-column(3);
+}
+ms-shield-of-the-archon {
+	@include chart-row(3);
+	@include chart-column(1);
+}
+ms-scourging-wave {
+	@include chart-row(4);
+	@include chart-column(2);
+}
+ms-celestial-blessings {
+	@include chart-row(4);
+	@include chart-column(3);
+}
+ms-holy-relic {
+	@include chart-row(4);
+	@include chart-column(1);
+}
+ms-sanctuary {
+	@include chart-row(5);
+	@include chart-column(2);
+}
+ms-holy-symbol {
+	@include chart-row(5);
+	@include chart-column(3);
+}
+ms-healing-mastery {
+	@include chart-row(5);
+	@include chart-column(4);
+}
+ms-smiting-aura {
+	@include chart-row(6);
+	@include chart-column(2);
+}
+ms-disciple {
+	@include chart-row(6);
+	@include chart-column(3);
+}
+ms-angelic-ray {
+	@include chart-row(6);
+	@include chart-column(4);
+}

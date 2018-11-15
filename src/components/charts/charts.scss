@@ -1,0 +1,30 @@
+
+.chart {
+  position: relative;
+  cursor: url(assets/cursor.png), auto;
+  width: 819px;
+  height: 776px;
+  color: white;
+  font-family: Roboto, Arial;
+  
+  // &:active {
+  //   cursor: url(assets/cursor-down.png), auto;
+  // }
+}
+
+.chart > * {
+  position: absolute;
+  height: 50px;
+  width: 44px;
+
+  &:after {
+    content: attr(level) "/" attr(max);
+    position: absolute;
+    top: calc(100% + 19px);
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: .9em;
+    pointer-events: none;
+  }
+}

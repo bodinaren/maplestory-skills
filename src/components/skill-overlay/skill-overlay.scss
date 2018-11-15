@@ -1,0 +1,98 @@
+
+:host {
+  color: white;
+  z-index: 100;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid #2C2C2C;
+  pointer-events: none;
+  font-size: .8em;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 3px 1px black;
+}
+
+h1 {
+  text-transform: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3em;
+  margin: 0;
+  padding: .5em .7em;
+  background: #1F1F1F;
+  font-weight: normal;
+  text-shadow: 1px 1px 1px black;
+
+  .element {
+    font-size: .7em;
+  }
+}
+
+:host([element="Holy"]) h1 {
+  background: linear-gradient(to right, #3C1E04 0%, #3C1E04 70%, #7C4D01 100%);
+}
+
+.content {
+  padding: 10px 0 5px;
+}
+
+.content > div {
+  clear: both;
+  padding: 5px 15px 5px;
+
+  &:not(:first-child) {
+    border-top: 1px solid #212121;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid black;
+  }
+}
+
+.content-header {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.icon {
+  margin-right: 15px;
+  width: 44px;
+  height: 50px;
+  background-color: #434343;
+  position: relative;
+  padding: 2px 5px;
+  border-radius: 3px;
+
+  &:before {
+    $border: 2px;
+
+    content: ' ';
+    position: absolute;
+    top: -$border; bottom: -$border;
+    left: -$border; right: -$border;
+    z-index: -1;
+    background: linear-gradient(to bottom, #1b1b1b 0%,#343434 100%);;
+    border-radius: 3px;
+  }
+}
+
+.infoAndLevel {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+.level {
+  font-size: 1.5em;
+}
+.requirements {
+  clear: both;
+
+  p:not(:first-child) {
+    color: #ECC400;
+
+    &.fail { color: #CE3434; }
+  }
+}
+

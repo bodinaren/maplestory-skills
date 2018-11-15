@@ -1,0 +1,76 @@
+
+ms-level-control {
+  position: absolute;
+  margin-top: 68px;
+  margin-left: -23px;
+  z-index: 1;
+}
+
+.heavenlyWings {
+	@include chart-row(1);
+	@include chart-column(4);
+}
+.steadfastFaith {
+	@include chart-row(1);
+	@include chart-column(3);
+}
+.celestialLight {
+	@include chart-row(1);
+	@include chart-column(1);
+}
+.holyBlast {
+	@include chart-row(2);
+	@include chart-column(1);
+}
+.healingPrayer {
+	@include chart-row(3);
+	@include chart-column(2);
+}
+.scepterMastery {
+	@include chart-row(3);
+	@include chart-column(4);
+}
+.celestialGuardian {
+	@include chart-row(3);
+	@include chart-column(3);
+}
+.shieldOfTheArchon {
+	@include chart-row(3);
+	@include chart-column(1);
+}
+.scourgingWave {
+	@include chart-row(4);
+	@include chart-column(2);
+}
+.celestialBlessings {
+	@include chart-row(4);
+	@include chart-column(3);
+}
+.holyRelic {
+	@include chart-row(4);
+	@include chart-column(1);
+}
+.sanctuary {
+	@include chart-row(5);
+	@include chart-column(2);
+}
+.holySymbol {
+	@include chart-row(5);
+	@include chart-column(3);
+}
+.healingMastery {
+	@include chart-row(5);
+	@include chart-column(4);
+}
+.smitingAura {
+	@include chart-row(6);
+	@include chart-column(2);
+}
+.disciple {
+	@include chart-row(6);
+	@include chart-column(3);
+}
+.angelicRay {
+	@include chart-row(6);
+	@include chart-column(4);
+}
