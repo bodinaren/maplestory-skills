@@ -17,7 +17,7 @@ export class HeavenlyWingsComponent {
     return (
       <div>
         { (this.showImage) &&
-          <img src="assets/heavenly-wings.png" />
+          <ms-icon slot="icon" name="heavenly-wings"></ms-icon>
         }
         <ms-skill-overlay heading="Heavenly Wings"
                           element="Holy"

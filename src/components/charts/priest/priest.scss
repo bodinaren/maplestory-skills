@@ -1,6 +1,10 @@
 
+:host {
+  --priest-image-url: "";
+}
+
 .priest {
-  background-image: url(assets/priest.png);
+  background-image: var(--priest-image-url);
 }
 
 ms-heavenly-wings {

@@ -17,11 +17,11 @@ export const config: Config = {
       serviceWorker: null
     }
   ],
-  globalStyle: "src/global/variables.css",
+  globalStyle: "src/global/styles.css",
   plugins: [
     sass({
       injectGlobalPaths: [
-        "src/global/styles.scss",
+        "src/global/helpers.scss",
       ]
     })
   ]

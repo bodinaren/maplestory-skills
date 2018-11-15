@@ -1,6 +1,7 @@
 
 :host {
-  cursor: url(assets/cursor.png), auto;
+  cursor: url($maple-cursor), auto;
+  position: relative;
 }
 
 pre {

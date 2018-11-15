@@ -6,17 +6,14 @@
 
 .minus, .plus {
   position: absolute;
+  display: inline-block;
   width: 30px;
   height: 33px;
 }
 
 .minus {
   left: 0;
-  
-  &:not(.disabled) { background: url(assets/minus.png); }
 }
 .plus {
   right: 0;
-  
-  &:not(.disabled) { background: url(assets/plus.png); }
 }

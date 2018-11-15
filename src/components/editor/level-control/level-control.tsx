@@ -3,6 +3,7 @@ import { Component, Prop, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "ms-level-control",
   styleUrl: "level-control.scss",
+  assetsDir: "assets",
   shadow: true
 })
 export class LevelControlComponent {
@@ -10,6 +11,8 @@ export class LevelControlComponent {
   @Prop({ reflectToAttr: true, mutable: true }) level: number = 0;
   @Prop() min: number;
   @Prop() max: number;
+
+  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Event({ eventName: "levelchanged" }) onLevelChanged: EventEmitter<number>;
 
@@ -34,17 +37,15 @@ export class LevelControlComponent {
 
   render() {
     return ([
-      <div class={{
-             "minus": true,
-             "disabled": this.level <= this.min,
-           }}
-           onClick={ () => this.minus() }>
+      <div class="minus" onClick={ () => this.minus() }>
+        { this.level > this.min &&
+          <img src={ this.publicPath + `assets/minus.png` } />
+        }
       </div>,
-      <div class={{
-             "plus": true,
-             "disabled": this.level >= this.max,
-           }}
-           onClick={ () => this.plus() }>
+      <div class="plus" onClick={ () => this.plus() }>
+        { this.level < this.max &&
+          <img src={ this.publicPath + `assets/plus.png` } />
+        }
       </div>
     ]);
   }

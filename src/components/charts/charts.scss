@@ -1,7 +1,10 @@
 
+:host {
+  cursor: url($maple-cursor), auto;
+}
+
 .chart {
   position: relative;
-  cursor: url(assets/cursor.png), auto;
   width: 819px;
   height: 776px;
   color: white;

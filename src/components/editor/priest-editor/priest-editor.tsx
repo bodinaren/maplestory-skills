@@ -14,7 +14,7 @@ export class PriestEditorComponent {
 
   levelChanged(skillName: string, level: number) {
     this.priestChart[skillName] = level;
-    console.log(this.toString());
+
     this.onSkillChanged.emit(this.toString());
   }
 

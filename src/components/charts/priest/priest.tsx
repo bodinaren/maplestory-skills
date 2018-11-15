@@ -1,12 +1,16 @@
-import { Component, Prop } from "@stencil/core";
+import { Component, Prop, Element } from "@stencil/core";
 import * as PriestValues from "../../../global/values/priest";
 
 @Component({
   tag: "ms-priest",
   styleUrls: ["../charts.scss", "priest.scss"],
+  assetsDir: "assets",
   shadow: true
 })
 export class PriestComponent {
+
+  @Element() private host: HTMLStencilElement;
+  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestValues.HeavenlyWingsValues.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestValues.SteadfastFaithValues.minLevel;
@@ -25,6 +29,10 @@ export class PriestComponent {
   @Prop({ mutable: true }) smitingAura: number = PriestValues.SmitingAuraValues.minLevel;
   @Prop({ mutable: true }) disciple: number = PriestValues.DiscipleValues.minLevel;
   @Prop({ mutable: true }) angelicRay: number = PriestValues.AngelicRayValues.minLevel;
+
+  componentWillLoad() {
+    this.host.style.setProperty("--priest-image-url", `url(${ this.publicPath }assets/priest.jpg)`);
+  }
 
   render() {
     return (
