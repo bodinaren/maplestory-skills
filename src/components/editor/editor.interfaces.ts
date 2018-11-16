@@ -1,1 +1,1 @@
-export type PlayerClass = "priest";
+export type MapleStoryClass = "priest";

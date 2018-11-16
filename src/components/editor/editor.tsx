@@ -1,5 +1,5 @@
-import { Component, Prop, State } from "@stencil/core";
-import { PlayerClass } from "./editor.interfaces";
+import { Component, Prop, Event, EventEmitter, Method } from "@stencil/core";
+import { MapleStoryClass } from "./editor.interfaces";
 
 @Component({
   tag: "ms-editor",
@@ -8,11 +8,20 @@ import { PlayerClass } from "./editor.interfaces";
 })
 export class EditorComponent {
 
-  @Prop({ mutable: true }) playerClass: PlayerClass;
-  @State() chartHtml: string;
+  private classEditor!: any;
+
+  @Prop({ mutable: true }) msClass: MapleStoryClass;
+
+  @Event({ eventName: "changed" }) onChanged: EventEmitter<string>;
+
+  @Method()
+  toHtmlString(): string {
+    if (!this.classEditor) return "";
+    return this.classEditor.toHtmlString();
+  }
 
   render() {
-    if (this.playerClass) {
+    if (this.msClass) {
       return this.renderSkillSelection();
     } else {
       return this.renderClassSelection();
@@ -24,25 +33,12 @@ export class EditorComponent {
   }
 
   private renderSkillSelection(): JSX.Element {
-    return [
-      this.getClassElement(),
-      <pre>
-        &lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-        <br />
-        { this.chartHtml || this.getDefaultChartHtml() }
-      </pre>,
-    ];
-  }
-
-  private getClassElement(): JSX.Element {
-    switch (this.playerClass) {
-      case "priest": return (<ms-priest-editor onSkillchanged={ (evt) => this.chartHtml = evt.detail }></ms-priest-editor>);
+    switch (this.msClass) {
+      case "priest": return (<ms-priest-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-priest-editor>);
     }
   }
 
-  private getDefaultChartHtml(): string {
-    switch (this.playerClass) {
-      case "priest": return "<ms-priest></ms-priest>";
-    }
+  private editorValueChanged(evt) {
+    this.onChanged.emit(evt.detail);
   }
 }

@@ -6,12 +6,29 @@
   <title>Maplestory 2 Skills</title>
   <script src="/build/maplestory-skills.js"></script>
 
+  <style>
+    ms-editor-outlet {
+      box-sizing: border-box;
+      width: 819px;
+      height: 110px;
+      white-space: pre-wrap;
+      background-color: #292929;
+      color: white;
+      padding: 5px;
+      font-size: 16px;
+    }
+  </style>
+
 </head>
 <body>
 
-  <ms-editor player-class="priest"></ms-editor>
-  
-  <ms-priest celestial-light="4"
+  <code>
+    <ms-editor-outlet editor="priest">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+  </code>
+
+  <ms-editor id="priest" ms-class="priest"></ms-editor>
+
+  <!-- <ms-priest celestial-light="4"
              holy-blast="10"
              healing-prayer="6"
              scourging-wave="3"
@@ -22,7 +39,6 @@
              disciple="1"
              scepter-mastery="5"
              angelic-ray="1">
-  </ms-priest>
-
+  </ms-priest> -->
 </body>
 </html>

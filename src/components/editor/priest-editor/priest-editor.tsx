@@ -15,11 +15,11 @@ export class PriestEditorComponent {
   levelChanged(skillName: string, level: number) {
     this.priestChart[skillName] = level;
 
-    this.onSkillChanged.emit(this.toString());
+    this.onSkillChanged.emit(this.toHtmlString());
   }
 
   @Method()
-  toString(): string {
+  toHtmlString(): string {
     let props = [
       this.priestChart.celestialLight > PriestValues.CelestialLightValues.minLevel && `celestial-light="${ this.priestChart.celestialLight }"`,
       this.priestChart.holyBlast > PriestValues.HolyBlastValues.minLevel && `holy-blast="${ this.priestChart.holyBlast }"`,

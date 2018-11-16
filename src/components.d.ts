@@ -9,8 +9,8 @@ import '@stencil/core';
 
 
 import {
-  PlayerClass,
-} from './components/editor/editor';
+  MapleStoryClass,
+} from './components/editor/editor.interfaces';
 
 
 export namespace Components {
@@ -54,11 +54,20 @@ export namespace Components {
     'steadfastFaith'?: number;
   }
 
+  interface MsEditorOutlet {
+    'editor': string;
+  }
+  interface MsEditorOutletAttributes extends StencilHTMLAttributes {
+    'editor'?: string;
+  }
+
   interface MsEditor {
-    'playerClass': PlayerClass;
+    'msClass': MapleStoryClass;
+    'toHtmlString': () => string;
   }
   interface MsEditorAttributes extends StencilHTMLAttributes {
-    'playerClass'?: PlayerClass;
+    'msClass'?: MapleStoryClass;
+    'onChanged'?: (event: CustomEvent<string>) => void;
   }
 
   interface MsLevelControl {
@@ -74,7 +83,7 @@ export namespace Components {
   }
 
   interface MsPriestEditor {
-    'toString': () => string;
+    'toHtmlString': () => string;
   }
   interface MsPriestEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
@@ -269,6 +278,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'MsPriest': Components.MsPriest;
+    'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
     'MsLevelControl': Components.MsLevelControl;
     'MsPriestEditor': Components.MsPriestEditor;
@@ -295,6 +305,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'ms-priest': Components.MsPriestAttributes;
+    'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
     'ms-level-control': Components.MsLevelControlAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
@@ -324,6 +335,12 @@ declare global {
   var HTMLMsPriestElement: {
     prototype: HTMLMsPriestElement;
     new (): HTMLMsPriestElement;
+  };
+
+  interface HTMLMsEditorOutletElement extends Components.MsEditorOutlet, HTMLStencilElement {}
+  var HTMLMsEditorOutletElement: {
+    prototype: HTMLMsEditorOutletElement;
+    new (): HTMLMsEditorOutletElement;
   };
 
   interface HTMLMsEditorElement extends Components.MsEditor, HTMLStencilElement {}
@@ -460,6 +477,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'ms-priest': HTMLMsPriestElement
+    'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
     'ms-level-control': HTMLMsLevelControlElement
     'ms-priest-editor': HTMLMsPriestEditorElement
@@ -486,6 +504,7 @@ declare global {
 
   interface ElementTagNameMap {
     'ms-priest': HTMLMsPriestElement;
+    'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
     'ms-level-control': HTMLMsLevelControlElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
