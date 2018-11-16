@@ -115,188 +115,154 @@ export namespace Components {
   interface MsAngelicRay {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsAngelicRayAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsCelestialBlessings {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsCelestialBlessingsAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsCelestialGuardian {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsCelestialGuardianAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsCelestialLight {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsCelestialLightAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsDisciple {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsDiscipleAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHealingMastery {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHealingMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHealingPrayer {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHealingPrayerAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHeavenlyWings {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHeavenlyWingsAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHolyBlast {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHolyBlastAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHolyRelic {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHolyRelicAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsHolySymbol {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsHolySymbolAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsSanctuary {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsSanctuaryAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsScepterMastery {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsScepterMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsScourgingWave {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsScourgingWaveAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsShieldOfTheArchon {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsShieldOfTheArchonAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsSmitingAura {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsSmitingAuraAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 
   interface MsSteadfastFaith {
     'level': number;
     'max': number;
-    'showImage': boolean;
   }
   interface MsSteadfastFaithAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
-    'showImage'?: boolean;
   }
 }
 
