@@ -1,31 +1,72 @@
-
 <html>
   <head>
+	<title>MapleStory 2 Skill Charts</title>
     <style>
       body {
         font-family: Verdana;
         font-size: .8em;
+		background-color: #292929;
+		color: white;
+      }
+	  
+	  ms-editor-outlet {
+        box-sizing: border-box;
+        width: 819px;
+        height: 110px;
+        white-space: pre-wrap;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 14px;
       }
       
       ms-editor { font-size: 1rem; }
+	  
+	  .container { margin: auto; max-width: 820px; }
+	  .container img { display: block; margin: auto; }
+	  
+	  blockquote {
+        font-style: italic;
+        padding: 5px 5px 5px 10px;
+        border-left: 3px solid white;
+		margin-left: 10px;
+      }
+	  blockquote.warn { border-left-color: #ffcc00; }
     </style>
   </head>
   <body>
 
-    <h1>Welcome to the MapleStory 2 Skill Charts.</h1>
-    
-    <p>
-      MapleStory 2 Skill Charts is a set of web components which, with very little effort,
-      let you add an interactive skill chart to your website or blog.
-      This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives.
-    </p>
+	<div class="container">
+  
+	  <img src="https://nxcache.nexon.net/maplestory2/landing/v2/img/logo/logo.png" />
+	  
+	  <h1>Welcome to the MapleStory 2 Skill Charts</h1>
+	  
+	  <p>
+	    MapleStory 2 Skill Charts is a set of web components which, with very little effort,
+	    let you add an interactive skill chart to your website or blog.
+	    This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives.
+	    So much better than just a screenshot!
+	  </p>
+	  
+	  <blockquote class="warn">
+		At this point only <u>priests</u> are available. More classes to come soon!
+	  </blockquote>
+      
+	  <h2>Priest</h2>
+	  
+	  <p>Select the skills you want and then copy the code at the end to your website or blog.</p>
+      
+	  <code>
+	    <ms-editor-outlet editor="editor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+	  </code>
+	  
+	  <ms-editor id="editor" ms-class="priest"></ms-editor>
 
-    <h2>Priest</h2>
-    
-    <p>Select the skills you want and then copy the code at the end to your website or blog.</p>
+	</div>
+	
+	<script src="./maplestory-skills/maplestory-skills.js"></script><!---->
 
-    <ms-editor ms-class="priest"></ms-editor>
-    
-    <script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"></script>
+    <!--<script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"></script><!---->
   </body>
 </html>
