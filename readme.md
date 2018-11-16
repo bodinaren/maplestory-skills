@@ -11,7 +11,7 @@ The recommended way is heading to the [GitHub Pages](http://bodinaren.github.io/
 The slightly more cumbersome way is to write it yourself. Here's an example for the priest:
 
 ```html
-<script src="http://unpkg.com/bodinaren/maplestory-skills@^0/dist/maplestory-skills.js"></script>
+<script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"></script>
 <ms-priest celestial-light="1" holy-blast="1" shield-of-the-archon="1" holy-relic="1" healing-prayer="1" scourging-wave="1" sanctuary="1" smiting-aura="1" celestial-guardian="1" celestial-blessings="1" holy-symbol="1" disciple="1" scepter-mastery="1" healing-mastery="1" angelic-ray="1"></ms-priest>
 ```
 
