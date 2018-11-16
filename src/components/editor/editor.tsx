@@ -1,4 +1,5 @@
 import { Component, Prop, State } from "@stencil/core";
+import { PlayerClass } from "./editor.interfaces";
 
 @Component({
   tag: "ms-editor",
@@ -45,5 +46,3 @@ export class EditorComponent {
     }
   }
 }
-
-export type PlayerClass = "priest";
