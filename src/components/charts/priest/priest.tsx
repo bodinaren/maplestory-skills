@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from "@stencil/core";
+import { Component, Prop } from "@stencil/core";
 import * as PriestValues from "../../../global/values/priest";
 
 @Component({
@@ -9,7 +9,6 @@ import * as PriestValues from "../../../global/values/priest";
 })
 export class PriestComponent {
 
-  @Element() private host: HTMLStencilElement;
   @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestValues.HeavenlyWingsValues.minLevel;
@@ -30,13 +29,9 @@ export class PriestComponent {
   @Prop({ mutable: true }) disciple: number = PriestValues.DiscipleValues.minLevel;
   @Prop({ mutable: true }) angelicRay: number = PriestValues.AngelicRayValues.minLevel;
 
-  componentWillLoad() {
-    this.host.style.setProperty("--priest-image-url", `url(${ this.publicPath }assets/priest.jpg)`);
-  }
-
   render() {
     return (
-      <div class="chart priest">
+      <div class="chart priest" style={{ backgroundImage: `url(${ this.publicPath }assets/priest.jpg)` }}>
         <ms-heavenly-wings level={ this.heavenlyWings }></ms-heavenly-wings>
         <ms-steadfast-faith level={ this.steadfastFaith }></ms-steadfast-faith>
         <ms-celestial-light level={ this.celestialLight }></ms-celestial-light>

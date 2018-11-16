@@ -7,5 +7,5 @@ $maple-cursor: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAuCAYAAAC1ZT
   left: -28px + ($column * 180px);
 }
 @mixin chart-row($row) {
-  top: -94px + ($row * 128px);
+  top: -96px + ($row * 128px);
 }

@@ -1,12 +1,4 @@
 
-:host {
-  --priest-image-url: "";
-}
-
-.priest {
-  background-image: var(--priest-image-url);
-}
-
 ms-heavenly-wings {
 	@include chart-row(1);
 	@include chart-column(4);
