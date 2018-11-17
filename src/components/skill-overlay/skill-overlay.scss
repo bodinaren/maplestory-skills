@@ -96,3 +96,9 @@ h1 {
   }
 }
 
+p {
+  /* margin: 4px 0; // replaced by line-height below */
+  color: #999999;
+  margin: 1px 0;
+  line-height: 1.6em;
+}

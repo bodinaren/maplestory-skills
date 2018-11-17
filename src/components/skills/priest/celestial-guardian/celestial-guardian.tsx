@@ -3,7 +3,7 @@ import { CelestialGuardianValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-celestial-guardian",
-  styleUrls: ["../skills.scss", "celestial-guardian.scss"],
+  styleUrls: ["../../skills.scss", "celestial-guardian.scss"],
   shadow: true
 })
 export class CelestialGuardianComponent {

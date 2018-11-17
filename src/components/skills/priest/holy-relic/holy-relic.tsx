@@ -3,7 +3,7 @@ import { HolyRelicValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-holy-relic",
-  styleUrls: ["../skills.scss", "holy-relic.scss"],
+  styleUrls: ["../../skills.scss", "holy-relic.scss"],
   shadow: true
 })
 export class HolyRelicComponent {

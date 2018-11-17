@@ -3,7 +3,7 @@ import { HealingMasteryValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-healing-mastery",
-  styleUrls: ["../skills.scss", "healing-mastery.scss"],
+  styleUrls: ["../../skills.scss", "healing-mastery.scss"],
   shadow: true
 })
 export class HealingMasteryComponent {

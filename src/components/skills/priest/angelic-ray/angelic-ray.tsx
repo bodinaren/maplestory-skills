@@ -3,7 +3,7 @@ import { AngelicRayValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-angelic-ray",
-  styleUrls: ["../skills.scss", "angelic-ray.scss"],
+  styleUrls: ["../../skills.scss", "angelic-ray.scss"],
   shadow: true
 })
 export class AngelicRayComponent {

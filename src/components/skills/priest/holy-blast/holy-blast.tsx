@@ -3,7 +3,7 @@ import { HolyBlastValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-holy-blast",
-  styleUrls: ["../skills.scss", "holy-blast.scss"],
+  styleUrls: ["../../skills.scss", "holy-blast.scss"],
   shadow: true
 })
 export class HolyBlastComponent {

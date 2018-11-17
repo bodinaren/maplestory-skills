@@ -3,7 +3,7 @@ import { ShieldOfTheArchonValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-shield-of-the-archon",
-  styleUrls: ["../skills.scss", "shield-of-the-archon.scss"],
+  styleUrls: ["../../skills.scss", "shield-of-the-archon.scss"],
   shadow: true
 })
 export class ShieldOfTheArchonComponent {

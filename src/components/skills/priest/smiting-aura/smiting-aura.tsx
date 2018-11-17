@@ -3,7 +3,7 @@ import { SmitingAuraValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-smiting-aura",
-  styleUrls: ["../skills.scss", "smiting-aura.scss"],
+  styleUrls: ["../../skills.scss", "smiting-aura.scss"],
   shadow: true
 })
 export class SmitingAuraComponent {

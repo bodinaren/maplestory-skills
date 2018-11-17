@@ -17,7 +17,6 @@ export const config: Config = {
       serviceWorker: null
     }
   ],
-  globalStyle: "src/global/styles.css",
   plugins: [
     sass({
       injectGlobalPaths: [

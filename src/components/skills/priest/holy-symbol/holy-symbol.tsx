@@ -3,7 +3,7 @@ import { HolySymbolValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-holy-symbol",
-  styleUrls: ["../skills.scss", "holy-symbol.scss"],
+  styleUrls: ["../../skills.scss", "holy-symbol.scss"],
   shadow: true
 })
 export class HolySymbolComponent {

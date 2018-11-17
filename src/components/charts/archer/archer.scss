@@ -1,0 +1,84 @@
+ms-agile-archer {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-arrow-barrage {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-arrow-storm {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+ms-arrow-stream {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-bow-swing {
+  @include chart-row(6);
+  @include chart-column(2);
+}
+
+ms-bronze-eagle {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-conditioning {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-eagle-claw {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-eagle-glide {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-eagles-majesty {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-evasive-salvo {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-ice-arrow {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-precision-shooter {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-rapid-shot {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-screwdriver-shot {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-sharp-eyes {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-snipe {
+  @include chart-row(1);
+  @include chart-column(3);
+}

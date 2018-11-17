@@ -15,6 +15,45 @@ import {
 
 export namespace Components {
 
+  interface MsArcher {
+    'agileArcher': number;
+    'arrowBarrage': number;
+    'arrowStorm': number;
+    'arrowStream': number;
+    'bowSwing': number;
+    'bronzeEagle': number;
+    'conditioning': number;
+    'eagleClaw': number;
+    'eagleGlide': number;
+    'eaglesMajesty': number;
+    'evasiveSalvo': number;
+    'iceArrow': number;
+    'precisionShooter': number;
+    'rapidShot': number;
+    'screwdriverShot': number;
+    'sharpEyes': number;
+    'snipe': number;
+  }
+  interface MsArcherAttributes extends StencilHTMLAttributes {
+    'agileArcher'?: number;
+    'arrowBarrage'?: number;
+    'arrowStorm'?: number;
+    'arrowStream'?: number;
+    'bowSwing'?: number;
+    'bronzeEagle'?: number;
+    'conditioning'?: number;
+    'eagleClaw'?: number;
+    'eagleGlide'?: number;
+    'eaglesMajesty'?: number;
+    'evasiveSalvo'?: number;
+    'iceArrow'?: number;
+    'precisionShooter'?: number;
+    'rapidShot'?: number;
+    'screwdriverShot'?: number;
+    'sharpEyes'?: number;
+    'snipe'?: number;
+  }
+
   interface MsPriest {
     'angelicRay': number;
     'celestialBlessings': number;
@@ -52,6 +91,13 @@ export namespace Components {
     'shieldOfTheArchon'?: number;
     'smitingAura'?: number;
     'steadfastFaith'?: number;
+  }
+
+  interface MsArcherEditor {
+    'toHtmlString': () => string;
+  }
+  interface MsArcherEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
   interface MsEditorOutlet {
@@ -119,6 +165,159 @@ export namespace Components {
     'spirit'?: number;
     'type'?: string;
     'weaponRequired'?: string;
+  }
+
+  interface MsAgileArcher {
+    'level': number;
+    'max': number;
+  }
+  interface MsAgileArcherAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsArrowBarrage {
+    'level': number;
+    'max': number;
+  }
+  interface MsArrowBarrageAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsArrowStorm {
+    'level': number;
+    'max': number;
+  }
+  interface MsArrowStormAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsArrowStream {
+    'level': number;
+    'max': number;
+  }
+  interface MsArrowStreamAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBowSwing {
+    'level': number;
+    'max': number;
+  }
+  interface MsBowSwingAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBronzeEagle {
+    'level': number;
+    'max': number;
+  }
+  interface MsBronzeEagleAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsConditioning {
+    'level': number;
+    'max': number;
+  }
+  interface MsConditioningAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsEagleClaw {
+    'level': number;
+    'max': number;
+  }
+  interface MsEagleClawAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsEagleGlide {
+    'level': number;
+    'max': number;
+  }
+  interface MsEagleGlideAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsEaglesMajesty {
+    'level': number;
+    'max': number;
+  }
+  interface MsEaglesMajestyAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsEvasiveSalvo {
+    'level': number;
+    'max': number;
+  }
+  interface MsEvasiveSalvoAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIceArrow {
+    'level': number;
+    'max': number;
+  }
+  interface MsIceArrowAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsPrecisionShooter {
+    'level': number;
+    'max': number;
+  }
+  interface MsPrecisionShooterAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRapidShot {
+    'level': number;
+    'max': number;
+  }
+  interface MsRapidShotAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsScrewdriverShot {
+    'level': number;
+    'max': number;
+  }
+  interface MsScrewdriverShotAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSharpEyes {
+    'level': number;
+    'max': number;
+  }
+  interface MsSharpEyesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSnipe {
+    'level': number;
+    'max': number;
+  }
+  interface MsSnipeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
   }
 
   interface MsAngelicRay {
@@ -220,15 +419,6 @@ export namespace Components {
     'max'?: number;
   }
 
-  interface MsSanctuary {
-    'level': number;
-    'max': number;
-  }
-  interface MsSanctuaryAttributes extends StencilHTMLAttributes {
-    'level'?: number;
-    'max'?: number;
-  }
-
   interface MsScepterMastery {
     'level': number;
     'max': number;
@@ -277,13 +467,32 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'MsArcher': Components.MsArcher;
     'MsPriest': Components.MsPriest;
+    'MsArcherEditor': Components.MsArcherEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
     'MsLevelControl': Components.MsLevelControl;
     'MsPriestEditor': Components.MsPriestEditor;
     'MsIcon': Components.MsIcon;
     'MsSkillOverlay': Components.MsSkillOverlay;
+    'MsAgileArcher': Components.MsAgileArcher;
+    'MsArrowBarrage': Components.MsArrowBarrage;
+    'MsArrowStorm': Components.MsArrowStorm;
+    'MsArrowStream': Components.MsArrowStream;
+    'MsBowSwing': Components.MsBowSwing;
+    'MsBronzeEagle': Components.MsBronzeEagle;
+    'MsConditioning': Components.MsConditioning;
+    'MsEagleClaw': Components.MsEagleClaw;
+    'MsEagleGlide': Components.MsEagleGlide;
+    'MsEaglesMajesty': Components.MsEaglesMajesty;
+    'MsEvasiveSalvo': Components.MsEvasiveSalvo;
+    'MsIceArrow': Components.MsIceArrow;
+    'MsPrecisionShooter': Components.MsPrecisionShooter;
+    'MsRapidShot': Components.MsRapidShot;
+    'MsScrewdriverShot': Components.MsScrewdriverShot;
+    'MsSharpEyes': Components.MsSharpEyes;
+    'MsSnipe': Components.MsSnipe;
     'MsAngelicRay': Components.MsAngelicRay;
     'MsCelestialBlessings': Components.MsCelestialBlessings;
     'MsCelestialGuardian': Components.MsCelestialGuardian;
@@ -295,7 +504,6 @@ declare global {
     'MsHolyBlast': Components.MsHolyBlast;
     'MsHolyRelic': Components.MsHolyRelic;
     'MsHolySymbol': Components.MsHolySymbol;
-    'MsSanctuary': Components.MsSanctuary;
     'MsScepterMastery': Components.MsScepterMastery;
     'MsScourgingWave': Components.MsScourgingWave;
     'MsShieldOfTheArchon': Components.MsShieldOfTheArchon;
@@ -304,13 +512,32 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
+    'ms-archer': Components.MsArcherAttributes;
     'ms-priest': Components.MsPriestAttributes;
+    'ms-archer-editor': Components.MsArcherEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
     'ms-level-control': Components.MsLevelControlAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
+    'ms-agile-archer': Components.MsAgileArcherAttributes;
+    'ms-arrow-barrage': Components.MsArrowBarrageAttributes;
+    'ms-arrow-storm': Components.MsArrowStormAttributes;
+    'ms-arrow-stream': Components.MsArrowStreamAttributes;
+    'ms-bow-swing': Components.MsBowSwingAttributes;
+    'ms-bronze-eagle': Components.MsBronzeEagleAttributes;
+    'ms-conditioning': Components.MsConditioningAttributes;
+    'ms-eagle-claw': Components.MsEagleClawAttributes;
+    'ms-eagle-glide': Components.MsEagleGlideAttributes;
+    'ms-eagles-majesty': Components.MsEaglesMajestyAttributes;
+    'ms-evasive-salvo': Components.MsEvasiveSalvoAttributes;
+    'ms-ice-arrow': Components.MsIceArrowAttributes;
+    'ms-precision-shooter': Components.MsPrecisionShooterAttributes;
+    'ms-rapid-shot': Components.MsRapidShotAttributes;
+    'ms-screwdriver-shot': Components.MsScrewdriverShotAttributes;
+    'ms-sharp-eyes': Components.MsSharpEyesAttributes;
+    'ms-snipe': Components.MsSnipeAttributes;
     'ms-angelic-ray': Components.MsAngelicRayAttributes;
     'ms-celestial-blessings': Components.MsCelestialBlessingsAttributes;
     'ms-celestial-guardian': Components.MsCelestialGuardianAttributes;
@@ -322,7 +549,6 @@ declare global {
     'ms-holy-blast': Components.MsHolyBlastAttributes;
     'ms-holy-relic': Components.MsHolyRelicAttributes;
     'ms-holy-symbol': Components.MsHolySymbolAttributes;
-    'ms-sanctuary': Components.MsSanctuaryAttributes;
     'ms-scepter-mastery': Components.MsScepterMasteryAttributes;
     'ms-scourging-wave': Components.MsScourgingWaveAttributes;
     'ms-shield-of-the-archon': Components.MsShieldOfTheArchonAttributes;
@@ -331,10 +557,22 @@ declare global {
   }
 
 
+  interface HTMLMsArcherElement extends Components.MsArcher, HTMLStencilElement {}
+  var HTMLMsArcherElement: {
+    prototype: HTMLMsArcherElement;
+    new (): HTMLMsArcherElement;
+  };
+
   interface HTMLMsPriestElement extends Components.MsPriest, HTMLStencilElement {}
   var HTMLMsPriestElement: {
     prototype: HTMLMsPriestElement;
     new (): HTMLMsPriestElement;
+  };
+
+  interface HTMLMsArcherEditorElement extends Components.MsArcherEditor, HTMLStencilElement {}
+  var HTMLMsArcherEditorElement: {
+    prototype: HTMLMsArcherEditorElement;
+    new (): HTMLMsArcherEditorElement;
   };
 
   interface HTMLMsEditorOutletElement extends Components.MsEditorOutlet, HTMLStencilElement {}
@@ -371,6 +609,108 @@ declare global {
   var HTMLMsSkillOverlayElement: {
     prototype: HTMLMsSkillOverlayElement;
     new (): HTMLMsSkillOverlayElement;
+  };
+
+  interface HTMLMsAgileArcherElement extends Components.MsAgileArcher, HTMLStencilElement {}
+  var HTMLMsAgileArcherElement: {
+    prototype: HTMLMsAgileArcherElement;
+    new (): HTMLMsAgileArcherElement;
+  };
+
+  interface HTMLMsArrowBarrageElement extends Components.MsArrowBarrage, HTMLStencilElement {}
+  var HTMLMsArrowBarrageElement: {
+    prototype: HTMLMsArrowBarrageElement;
+    new (): HTMLMsArrowBarrageElement;
+  };
+
+  interface HTMLMsArrowStormElement extends Components.MsArrowStorm, HTMLStencilElement {}
+  var HTMLMsArrowStormElement: {
+    prototype: HTMLMsArrowStormElement;
+    new (): HTMLMsArrowStormElement;
+  };
+
+  interface HTMLMsArrowStreamElement extends Components.MsArrowStream, HTMLStencilElement {}
+  var HTMLMsArrowStreamElement: {
+    prototype: HTMLMsArrowStreamElement;
+    new (): HTMLMsArrowStreamElement;
+  };
+
+  interface HTMLMsBowSwingElement extends Components.MsBowSwing, HTMLStencilElement {}
+  var HTMLMsBowSwingElement: {
+    prototype: HTMLMsBowSwingElement;
+    new (): HTMLMsBowSwingElement;
+  };
+
+  interface HTMLMsBronzeEagleElement extends Components.MsBronzeEagle, HTMLStencilElement {}
+  var HTMLMsBronzeEagleElement: {
+    prototype: HTMLMsBronzeEagleElement;
+    new (): HTMLMsBronzeEagleElement;
+  };
+
+  interface HTMLMsConditioningElement extends Components.MsConditioning, HTMLStencilElement {}
+  var HTMLMsConditioningElement: {
+    prototype: HTMLMsConditioningElement;
+    new (): HTMLMsConditioningElement;
+  };
+
+  interface HTMLMsEagleClawElement extends Components.MsEagleClaw, HTMLStencilElement {}
+  var HTMLMsEagleClawElement: {
+    prototype: HTMLMsEagleClawElement;
+    new (): HTMLMsEagleClawElement;
+  };
+
+  interface HTMLMsEagleGlideElement extends Components.MsEagleGlide, HTMLStencilElement {}
+  var HTMLMsEagleGlideElement: {
+    prototype: HTMLMsEagleGlideElement;
+    new (): HTMLMsEagleGlideElement;
+  };
+
+  interface HTMLMsEaglesMajestyElement extends Components.MsEaglesMajesty, HTMLStencilElement {}
+  var HTMLMsEaglesMajestyElement: {
+    prototype: HTMLMsEaglesMajestyElement;
+    new (): HTMLMsEaglesMajestyElement;
+  };
+
+  interface HTMLMsEvasiveSalvoElement extends Components.MsEvasiveSalvo, HTMLStencilElement {}
+  var HTMLMsEvasiveSalvoElement: {
+    prototype: HTMLMsEvasiveSalvoElement;
+    new (): HTMLMsEvasiveSalvoElement;
+  };
+
+  interface HTMLMsIceArrowElement extends Components.MsIceArrow, HTMLStencilElement {}
+  var HTMLMsIceArrowElement: {
+    prototype: HTMLMsIceArrowElement;
+    new (): HTMLMsIceArrowElement;
+  };
+
+  interface HTMLMsPrecisionShooterElement extends Components.MsPrecisionShooter, HTMLStencilElement {}
+  var HTMLMsPrecisionShooterElement: {
+    prototype: HTMLMsPrecisionShooterElement;
+    new (): HTMLMsPrecisionShooterElement;
+  };
+
+  interface HTMLMsRapidShotElement extends Components.MsRapidShot, HTMLStencilElement {}
+  var HTMLMsRapidShotElement: {
+    prototype: HTMLMsRapidShotElement;
+    new (): HTMLMsRapidShotElement;
+  };
+
+  interface HTMLMsScrewdriverShotElement extends Components.MsScrewdriverShot, HTMLStencilElement {}
+  var HTMLMsScrewdriverShotElement: {
+    prototype: HTMLMsScrewdriverShotElement;
+    new (): HTMLMsScrewdriverShotElement;
+  };
+
+  interface HTMLMsSharpEyesElement extends Components.MsSharpEyes, HTMLStencilElement {}
+  var HTMLMsSharpEyesElement: {
+    prototype: HTMLMsSharpEyesElement;
+    new (): HTMLMsSharpEyesElement;
+  };
+
+  interface HTMLMsSnipeElement extends Components.MsSnipe, HTMLStencilElement {}
+  var HTMLMsSnipeElement: {
+    prototype: HTMLMsSnipeElement;
+    new (): HTMLMsSnipeElement;
   };
 
   interface HTMLMsAngelicRayElement extends Components.MsAngelicRay, HTMLStencilElement {}
@@ -439,12 +779,6 @@ declare global {
     new (): HTMLMsHolySymbolElement;
   };
 
-  interface HTMLMsSanctuaryElement extends Components.MsSanctuary, HTMLStencilElement {}
-  var HTMLMsSanctuaryElement: {
-    prototype: HTMLMsSanctuaryElement;
-    new (): HTMLMsSanctuaryElement;
-  };
-
   interface HTMLMsScepterMasteryElement extends Components.MsScepterMastery, HTMLStencilElement {}
   var HTMLMsScepterMasteryElement: {
     prototype: HTMLMsScepterMasteryElement;
@@ -476,13 +810,32 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'ms-archer': HTMLMsArcherElement
     'ms-priest': HTMLMsPriestElement
+    'ms-archer-editor': HTMLMsArcherEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
     'ms-level-control': HTMLMsLevelControlElement
     'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-icon': HTMLMsIconElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
+    'ms-agile-archer': HTMLMsAgileArcherElement
+    'ms-arrow-barrage': HTMLMsArrowBarrageElement
+    'ms-arrow-storm': HTMLMsArrowStormElement
+    'ms-arrow-stream': HTMLMsArrowStreamElement
+    'ms-bow-swing': HTMLMsBowSwingElement
+    'ms-bronze-eagle': HTMLMsBronzeEagleElement
+    'ms-conditioning': HTMLMsConditioningElement
+    'ms-eagle-claw': HTMLMsEagleClawElement
+    'ms-eagle-glide': HTMLMsEagleGlideElement
+    'ms-eagles-majesty': HTMLMsEaglesMajestyElement
+    'ms-evasive-salvo': HTMLMsEvasiveSalvoElement
+    'ms-ice-arrow': HTMLMsIceArrowElement
+    'ms-precision-shooter': HTMLMsPrecisionShooterElement
+    'ms-rapid-shot': HTMLMsRapidShotElement
+    'ms-screwdriver-shot': HTMLMsScrewdriverShotElement
+    'ms-sharp-eyes': HTMLMsSharpEyesElement
+    'ms-snipe': HTMLMsSnipeElement
     'ms-angelic-ray': HTMLMsAngelicRayElement
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement
@@ -494,7 +847,6 @@ declare global {
     'ms-holy-blast': HTMLMsHolyBlastElement
     'ms-holy-relic': HTMLMsHolyRelicElement
     'ms-holy-symbol': HTMLMsHolySymbolElement
-    'ms-sanctuary': HTMLMsSanctuaryElement
     'ms-scepter-mastery': HTMLMsScepterMasteryElement
     'ms-scourging-wave': HTMLMsScourgingWaveElement
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement
@@ -503,13 +855,32 @@ declare global {
   }
 
   interface ElementTagNameMap {
+    'ms-archer': HTMLMsArcherElement;
     'ms-priest': HTMLMsPriestElement;
+    'ms-archer-editor': HTMLMsArcherEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
     'ms-level-control': HTMLMsLevelControlElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-icon': HTMLMsIconElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
+    'ms-agile-archer': HTMLMsAgileArcherElement;
+    'ms-arrow-barrage': HTMLMsArrowBarrageElement;
+    'ms-arrow-storm': HTMLMsArrowStormElement;
+    'ms-arrow-stream': HTMLMsArrowStreamElement;
+    'ms-bow-swing': HTMLMsBowSwingElement;
+    'ms-bronze-eagle': HTMLMsBronzeEagleElement;
+    'ms-conditioning': HTMLMsConditioningElement;
+    'ms-eagle-claw': HTMLMsEagleClawElement;
+    'ms-eagle-glide': HTMLMsEagleGlideElement;
+    'ms-eagles-majesty': HTMLMsEaglesMajestyElement;
+    'ms-evasive-salvo': HTMLMsEvasiveSalvoElement;
+    'ms-ice-arrow': HTMLMsIceArrowElement;
+    'ms-precision-shooter': HTMLMsPrecisionShooterElement;
+    'ms-rapid-shot': HTMLMsRapidShotElement;
+    'ms-screwdriver-shot': HTMLMsScrewdriverShotElement;
+    'ms-sharp-eyes': HTMLMsSharpEyesElement;
+    'ms-snipe': HTMLMsSnipeElement;
     'ms-angelic-ray': HTMLMsAngelicRayElement;
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement;
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement;
@@ -521,7 +892,6 @@ declare global {
     'ms-holy-blast': HTMLMsHolyBlastElement;
     'ms-holy-relic': HTMLMsHolyRelicElement;
     'ms-holy-symbol': HTMLMsHolySymbolElement;
-    'ms-sanctuary': HTMLMsSanctuaryElement;
     'ms-scepter-mastery': HTMLMsScepterMasteryElement;
     'ms-scourging-wave': HTMLMsScourgingWaveElement;
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement;
