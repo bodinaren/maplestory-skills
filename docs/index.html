@@ -247,11 +247,15 @@
 				document.querySelectorAll("#editors div").forEach((el) => {
 					el.style.display = "none";
 				});
+				document.querySelectorAll("#toggles a").forEach((el) => {
+					el.classList.remove("active");
+				});
 			}
 	
 			function toggle(msClass) {
 				hideAll();
 				document.querySelector("#" + msClass).style.display = "block";
+      document.querySelector(`[ms-class="${ msClass }"]`).classList.add("active");
 			}
 	
 			hideAll();
