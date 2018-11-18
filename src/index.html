@@ -7,73 +7,69 @@
   <script src="/build/maplestory-skills.js"></script>
 
   <style>
-      body {
-        font-family: Verdana;
-        font-size: .8em;
-				background-color: #292929;
-				color: white;
-			}
-			
-			.container { margin: auto; max-width: 820px; }
-			.logo { display: block; margin: auto; }
-			
-      #toggles {
-        text-align: center;
-        width: 700px;
-        margin: auto;
-      }
-      #toggles a {
-        color: white;
-        text-decoration: none;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-      }
-      #toggles a:nth-child(-n+5) { flex-direction: column-reverse; }
-      #toggles a > * { margin: 5px; }
-      #toggles a:not(.active) img.active { display: none; }
-      #toggles a.active img.inactive { display: none; }
+    body {
+      font-family: Verdana;
+      font-size: .8em;
+      background-color: #292929;
+      color: white;
+    }
     
-      #toggles .unavailable { color: #666; }
-      #toggles .unavailable:after {
-        content: 'X';
-        color: #999;
-        font-size: 96px;
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-      }
-      #toggles a.unavailable:nth-child(n+6):after {
-        margin-top: -10px;
-      }
-      #toggles .active.unavailable:after { color: red; }
-      #editors {
-        min-height: 300px;
-      }
-      
-	  	ms-editor-outlet {
-        box-sizing: border-box;
-        width: 819px;
-        height: 110px;
-        white-space: pre-wrap;
-        background-color: black;
-        color: white;
-        padding: 5px;
-        font-size: 14px;
-      }
-      
-      ms-editor { font-size: 1rem; }
-	  
-			blockquote {
-        font-style: italic;
-        padding: 5px 5px 5px 10px;
-        border-left: 3px solid white;
-				margin-left: 10px;
-      }
-	  	blockquote.warn { border-left-color: #ffcc00; }
-    </style>
+    .container { margin: auto; max-width: 820px; }
+    .logo { display: block; margin: auto; }
+    
+    #toggles {
+      text-align: center;
+    }
+    #toggles a {
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #toggles a > * { margin: 5px; }
+    #toggles a:not(.active) img.active { display: none; }
+    #toggles a.active img.inactive { display: none; }
+    #toggles img { width: 75px; }
+  
+    #toggles .unavailable { color: #666; }
+    #toggles .unavailable:after {
+      content: 'X';
+      color: #999;
+      font-size: 96px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+      margin-top: -10px;
+    }
+    #toggles .active.unavailable:after { color: red; }
+    #editors {
+      min-height: 300px;
+    }
+    
+    ms-editor-outlet {
+      box-sizing: border-box;
+      width: 819px;
+      height: 110px;
+      white-space: pre-wrap;
+      background-color: black;
+      color: white;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    ms-editor { font-size: 1rem; }
+  
+    blockquote {
+      font-style: italic;
+      padding: 5px 5px 5px 10px;
+      border-left: 3px solid white;
+      margin-left: 10px;
+    }
+    blockquote.warn { border-left-color: #ffcc00; }
+  </style>
 
 </head>
 <body>

@@ -14,8 +14,6 @@
 			
       #toggles {
         text-align: center;
-        width: 700px;
-        margin: auto;
       }
       #toggles a {
         color: white;
@@ -26,10 +24,10 @@
         position: relative;
         overflow: hidden;
       }
-      #toggles a:nth-child(-n+5) { flex-direction: column-reverse; }
       #toggles a > * { margin: 5px; }
       #toggles a:not(.active) img.active { display: none; }
-      #toggles a.active img.inactive { display: none; }
+			#toggles a.active img.inactive { display: none; }
+			#toggles img { width: 75px; }
     
       #toggles .unavailable { color: #666; }
       #toggles .unavailable:after {
@@ -38,10 +36,8 @@
         font-size: 96px;
         position: absolute;
         width: 100%;
-        z-index: 1;
-      }
-      #toggles a.unavailable:nth-child(n+6):after {
-        margin-top: -10px;
+				z-index: 1;
+				margin-top: -10px;
       }
       #toggles .active.unavailable:after { color: red; }
       #editors {
