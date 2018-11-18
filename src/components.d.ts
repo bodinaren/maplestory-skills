@@ -94,14 +94,14 @@ export namespace Components {
   }
 
   interface MsArcherEditor {
-    'toHtmlString': () => string;
+    'toHtmlString': () => Promise<string>;
   }
   interface MsArcherEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
   interface MsPriestEditor {
-    'toHtmlString': () => string;
+    'toHtmlString': () => Promise<string>;
   }
   interface MsPriestEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
