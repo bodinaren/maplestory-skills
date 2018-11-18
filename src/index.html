@@ -22,27 +22,82 @@
 </head>
 <body>
 
-  <code>
-    <ms-editor-outlet editor="priest">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
-  </code>
+  <a href="javascript:void(0)" onclick="toggle('archer')">Archer</a>
+  <a href="javascript:void(0)" onclick="toggle('priest')">Priest</a>
 
-  <ms-editor id="priest" ms-class="priest"></ms-editor>
+  <div id="archer">
+    <code>
+      <ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+    </code>
 
-  <ms-archer arrow-stream="3"
-             arrow-barrage="5"
-             rapid-shot="8"
-             arrow-storm="1"
-             screwdriver-shot="1"
-             evasive-salvo="6"
-             ice-arrow="4"
-             agile-archer="3"
-             bow-swing="1"
-             bronze-eagle="7"
-             eagle-claw="3"
-             eagles-majesty="1"
-             conditioning="6"
-             sharp-eyes="1"
-             precision-shooter="1">
-  </ms-archer>
+    <ms-editor id="archerEditor" ms-class="archer"></ms-editor>
+
+    <h3>Example chart</h3>
+
+    <ms-archer arrow-stream="3"
+               arrow-barrage="5"
+               rapid-shot="8"
+               arrow-storm="1"
+               screwdriver-shot="1"
+               evasive-salvo="6"
+               ice-arrow="4"
+               agile-archer="3"
+               bow-swing="1"
+               bronze-eagle="7"
+               eagle-claw="3"
+               eagles-majesty="1"
+               conditioning="6"
+               sharp-eyes="1"
+               precision-shooter="1">
+    </ms-archer>
+  </div>
+
+  <div id="priest">
+    <h2>Priest</h2>
+    <h3>Editor</h3>
+
+    <code>
+      <ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+    </code>
+
+    <ms-editor id="priestEditor" ms-class="priest"></ms-editor>
+
+    <h3>Example chart</h3>
+
+    <ms-priest celestial-light="4"
+               holy-blast="10"
+               healing-prayer="6"
+               scourging-wave="3"
+               sanctuary="8"
+               celestial-guardian="10"
+               celestial-blessings="10"
+               holy-symbol="10"
+               disciple="1"
+               scepter-mastery="5"
+               angelic-ray="1"
+               shield-of-the-archon="3"
+               holy-relic="1"
+               smiting-aura="1"
+               healing-mastery="1"
+               angelic-ray="1">
+    </ms-priest>
+  </div>
+
+  
+  <script>
+    function hideAll() {
+      document.querySelectorAll("body div").forEach((el) => {
+        el.style.display = "none";
+      });
+    }
+
+    function toggle(msClass) {
+      hideAll();
+      document.querySelector("#" + msClass).style.display = "block";
+    }
+
+    hideAll();
+  </script>
+  
 </body>
 </html>

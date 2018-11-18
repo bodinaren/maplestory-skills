@@ -1,85 +1,95 @@
+:host {
+	display: block;
+}
 
-ms-agile-archer {
+ms-level-control {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: -31px;
+  z-index: 1;
+}
+
+.agileArcher {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-arrow-barrage {
+.arrowBarrage {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-arrow-storm {
+.arrowStorm {
   @include chart-row(4);
   @include chart-column(1);
 }
 
-ms-arrow-stream {
+.arrowStream {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-bow-swing {
+.bowSwing {
   @include chart-row(6);
   @include chart-column(2);
 }
 
-ms-bronze-eagle {
+.bronzeEagle {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-conditioning {
+.conditioning {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-eagle-claw {
+.eagleClaw {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-eagle-glide {
+.eagleGlide {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-eagles-majesty {
+.eaglesMajesty {
   @include chart-row(5);
   @include chart-column(3);
 }
 
-ms-evasive-salvo {
+.evasiveSalvo {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-ice-arrow {
+.iceArrow {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-precision-shooter {
+.precisionShooter {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-rapid-shot {
+.rapidShot {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-screwdriver-shot {
+.screwdriverShot {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-sharp-eyes {
+.sharpEyes {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-snipe {
+.snipe {
   @include chart-row(1);
   @include chart-column(3);
 }

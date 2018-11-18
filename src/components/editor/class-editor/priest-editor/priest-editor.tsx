@@ -1,12 +1,12 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
-import * as PriestValues from "../../../global/values/priest";
+import * as PriestValues from "../../../../global/values/priest";
 
 @Component({
-  tag: "ms-archer-editor",
-  styleUrl: "archer-editor.scss",
+  tag: "ms-priest-editor",
+  styleUrl: "priest-editor.scss",
   shadow: true
 })
-export class ArcherEditorComponent {
+export class PriestEditorComponent {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
 

@@ -100,6 +100,13 @@ export namespace Components {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
+  interface MsPriestEditor {
+    'toHtmlString': () => string;
+  }
+  interface MsPriestEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
   interface MsEditorOutlet {
     'editor': string;
   }
@@ -126,13 +133,6 @@ export namespace Components {
     'max'?: number;
     'min'?: number;
     'onLevelchanged'?: (event: CustomEvent<number>) => void;
-  }
-
-  interface MsPriestEditor {
-    'toHtmlString': () => string;
-  }
-  interface MsPriestEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
   interface MsIcon {
@@ -419,6 +419,15 @@ export namespace Components {
     'max'?: number;
   }
 
+  interface MsSanctuary {
+    'level': number;
+    'max': number;
+  }
+  interface MsSanctuaryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
   interface MsScepterMastery {
     'level': number;
     'max': number;
@@ -470,10 +479,10 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsPriest': Components.MsPriest;
     'MsArcherEditor': Components.MsArcherEditor;
+    'MsPriestEditor': Components.MsPriestEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
     'MsLevelControl': Components.MsLevelControl;
-    'MsPriestEditor': Components.MsPriestEditor;
     'MsIcon': Components.MsIcon;
     'MsSkillOverlay': Components.MsSkillOverlay;
     'MsAgileArcher': Components.MsAgileArcher;
@@ -504,6 +513,7 @@ declare global {
     'MsHolyBlast': Components.MsHolyBlast;
     'MsHolyRelic': Components.MsHolyRelic;
     'MsHolySymbol': Components.MsHolySymbol;
+    'MsSanctuary': Components.MsSanctuary;
     'MsScepterMastery': Components.MsScepterMastery;
     'MsScourgingWave': Components.MsScourgingWave;
     'MsShieldOfTheArchon': Components.MsShieldOfTheArchon;
@@ -515,10 +525,10 @@ declare global {
     'ms-archer': Components.MsArcherAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-archer-editor': Components.MsArcherEditorAttributes;
+    'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
     'ms-level-control': Components.MsLevelControlAttributes;
-    'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
     'ms-agile-archer': Components.MsAgileArcherAttributes;
@@ -549,6 +559,7 @@ declare global {
     'ms-holy-blast': Components.MsHolyBlastAttributes;
     'ms-holy-relic': Components.MsHolyRelicAttributes;
     'ms-holy-symbol': Components.MsHolySymbolAttributes;
+    'ms-sanctuary': Components.MsSanctuaryAttributes;
     'ms-scepter-mastery': Components.MsScepterMasteryAttributes;
     'ms-scourging-wave': Components.MsScourgingWaveAttributes;
     'ms-shield-of-the-archon': Components.MsShieldOfTheArchonAttributes;
@@ -575,6 +586,12 @@ declare global {
     new (): HTMLMsArcherEditorElement;
   };
 
+  interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
+  var HTMLMsPriestEditorElement: {
+    prototype: HTMLMsPriestEditorElement;
+    new (): HTMLMsPriestEditorElement;
+  };
+
   interface HTMLMsEditorOutletElement extends Components.MsEditorOutlet, HTMLStencilElement {}
   var HTMLMsEditorOutletElement: {
     prototype: HTMLMsEditorOutletElement;
@@ -591,12 +608,6 @@ declare global {
   var HTMLMsLevelControlElement: {
     prototype: HTMLMsLevelControlElement;
     new (): HTMLMsLevelControlElement;
-  };
-
-  interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
-  var HTMLMsPriestEditorElement: {
-    prototype: HTMLMsPriestEditorElement;
-    new (): HTMLMsPriestEditorElement;
   };
 
   interface HTMLMsIconElement extends Components.MsIcon, HTMLStencilElement {}
@@ -779,6 +790,12 @@ declare global {
     new (): HTMLMsHolySymbolElement;
   };
 
+  interface HTMLMsSanctuaryElement extends Components.MsSanctuary, HTMLStencilElement {}
+  var HTMLMsSanctuaryElement: {
+    prototype: HTMLMsSanctuaryElement;
+    new (): HTMLMsSanctuaryElement;
+  };
+
   interface HTMLMsScepterMasteryElement extends Components.MsScepterMastery, HTMLStencilElement {}
   var HTMLMsScepterMasteryElement: {
     prototype: HTMLMsScepterMasteryElement;
@@ -813,10 +830,10 @@ declare global {
     'ms-archer': HTMLMsArcherElement
     'ms-priest': HTMLMsPriestElement
     'ms-archer-editor': HTMLMsArcherEditorElement
+    'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
     'ms-level-control': HTMLMsLevelControlElement
-    'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-icon': HTMLMsIconElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
     'ms-agile-archer': HTMLMsAgileArcherElement
@@ -847,6 +864,7 @@ declare global {
     'ms-holy-blast': HTMLMsHolyBlastElement
     'ms-holy-relic': HTMLMsHolyRelicElement
     'ms-holy-symbol': HTMLMsHolySymbolElement
+    'ms-sanctuary': HTMLMsSanctuaryElement
     'ms-scepter-mastery': HTMLMsScepterMasteryElement
     'ms-scourging-wave': HTMLMsScourgingWaveElement
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement
@@ -858,10 +876,10 @@ declare global {
     'ms-archer': HTMLMsArcherElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-archer-editor': HTMLMsArcherEditorElement;
+    'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
     'ms-level-control': HTMLMsLevelControlElement;
-    'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-icon': HTMLMsIconElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
     'ms-agile-archer': HTMLMsAgileArcherElement;
@@ -892,6 +910,7 @@ declare global {
     'ms-holy-blast': HTMLMsHolyBlastElement;
     'ms-holy-relic': HTMLMsHolyRelicElement;
     'ms-holy-symbol': HTMLMsHolySymbolElement;
+    'ms-sanctuary': HTMLMsSanctuaryElement;
     'ms-scepter-mastery': HTMLMsScepterMasteryElement;
     'ms-scourging-wave': HTMLMsScourgingWaveElement;
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement;
