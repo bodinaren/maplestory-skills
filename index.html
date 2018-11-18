@@ -63,28 +63,30 @@
 			<a href="javascript:void(0)" onclick="toggle('archer')">Archer</a>
 			<a href="javascript:void(0)" onclick="toggle('priest')">Priest</a>
 		
-			<div id="archer">
-				<h2>Archer</h2>
-			
-				<p>Select the skills you want and then copy the code below to your website or blog.</p>
-					
-				<code>
-					<ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
-				</code>
+			<div id="editors">
+				<div id="archer">
+					<h2>Archer</h2>
 				
-				<ms-editor id="archerEditor" ms-class="archer"></ms-editor>
-			</div>
+					<p>Select the skills you want and then copy the code below to your website or blog.</p>
+						
+					<code>
+						<ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+					</code>
+					
+					<ms-editor id="archerEditor" ms-class="archer"></ms-editor>
+				</div>
 
-			<div id="priest">
-				<h2>Priest</h2>
-			
-				<p>Select the skills you want and then copy the code below to your website or blog.</p>
-					
-				<code>
-					<ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
-				</code>
+				<div id="priest">
+					<h2>Priest</h2>
 				
-				<ms-editor id="priestEditor" ms-class="priest"></ms-editor>
+					<p>Select the skills you want and then copy the code below to your website or blog.</p>
+						
+					<code>
+						<ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+					</code>
+					
+					<ms-editor id="priestEditor" ms-class="priest"></ms-editor>
+				</div>
 			</div>
 		</div>
 	
@@ -92,7 +94,7 @@
 
 		<script>
 			function hideAll() {
-				document.querySelectorAll("body div").forEach((el) => {
+				document.querySelectorAll("#editors div").forEach((el) => {
 					el.style.display = "none";
 				});
 			}
