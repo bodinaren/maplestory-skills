@@ -9,7 +9,7 @@ export const AgileArcherValues = {
 export const ArrowBarrageValues = {
   minLevel: 1,
   maxLevel: 10,
-  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
   firstDamage: [153, 153, 164, 175, 186, 197, 208, 219, 230, 241, 252],
   thirdDamage: [82, 82, 87, 92, 97, 102, 107, 112, 117, 122, 127],
 };
@@ -17,15 +17,15 @@ export const ArrowBarrageValues = {
 export const ArrowStormValues = {
   minLevel: 0,
   maxLevel: 10,
-  levelRequirement: [25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
-  damage: [39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
+  levelRequirement: [25, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
+  damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
 };
 
 export const ArrowStreamValues = {
   minLevel: 1,
   maxLevel: 10,
-  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
-  damage: [32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
+  damage: [32, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
   hits: [3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5],
 };
 
@@ -84,8 +84,8 @@ export const EvasiveSalvoValues = {
 export const IceArrowValues = {
   minLevel: 0,
   maxLevel: 10,
-  levelRequirement: [22, 24, 26, 28, 30, 32, 34, 36, 38, 40],
-  damage: [58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+  levelRequirement: [22, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40],
+  damage: [58, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
 };
 
 export const PrecisionShooterValues = {
