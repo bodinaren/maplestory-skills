@@ -69,6 +69,10 @@ h1 {
   padding: 2px 5px;
   border-radius: 3px;
 
+  ::slotted(ms-icon) {
+    margin-left: -7px;
+  }
+
   &:before {
     $border: 2px;
 
