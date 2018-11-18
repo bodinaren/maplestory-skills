@@ -13,6 +13,8 @@
       background-color: #292929;
       color: white;
     }
+
+    a { color: white; }
     
     .container { margin: auto; max-width: 820px; }
     .logo { display: block; margin: auto; }
@@ -69,6 +71,25 @@
       margin-left: 10px;
     }
     blockquote.warn { border-left-color: #ffcc00; }
+
+    dl div {
+      border-left: 3px solid #ccc;
+      padding: 3px 0 3px 20px;
+    }
+    dl div:not(:first-child) { margin-top: 15px; }
+    dl dt {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    dl dd {
+      margin-left: 0;
+    }
+    dl pre {
+      font-size: 1rem;
+      background-color: black;
+      margin-left: 20px;
+      padding: 0 5px 5px;
+    }
   </style>
 
 </head>
@@ -240,6 +261,33 @@
       </div>
               
     </div>
+
+    <h2>FAQ</h2>
+    <dl>
+      <div>
+        <dt>The skill charts are too big!</dt>
+        <dd>
+          You can make them smaller with transform.
+          <pre>
+ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
+ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
+{
+  transform: scale(0.8);         /* adapt margin below if you change this */
+  transform-origin: top center;  /* or "top left" if you don't wanna center it */
+  margin-bottom: -20%;           /* to remove empty space at the bottom, or */
+  margin-right: -20%;            /* if you use "top left" for transform-origin */
+}</pre>
+        </dd>
+      </div>
+
+      <div>
+        <dt>More questions?</dt>
+        <dd>
+          Don't hesitate to ask me questions on GitHub:
+          <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Ask a question</a>
+        </dd>
+      </div>
+    </dl>
   </div>
   
   <script>
