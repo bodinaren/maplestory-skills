@@ -7,15 +7,24 @@
         font-size: .8em;
 				background-color: #292929;
 				color: white;
+				line-height: 1.6em;
 			}
 			
 			a { color: white; }
     
+			blockquote {
+				font-style: italic;
+				padding: 5px 5px 5px 10px;
+				border-left: 3px solid white;
+				margin-left: 10px;
+			}
+
 			.container { margin: auto; max-width: 820px; }
 			.logo { display: block; margin: auto; }
 			
       #toggles {
         text-align: center;
+      	margin-bottom: 30px;
       }
       #toggles a {
         color: white;
@@ -59,14 +68,6 @@
       
       ms-editor { font-size: 1rem; }
 	  
-			blockquote {
-        font-style: italic;
-        padding: 5px 5px 5px 10px;
-        border-left: 3px solid white;
-				margin-left: 10px;
-      }
-			blockquote.warn { border-left-color: #ffcc00; }
-			
 			dl div {
 				border-left: 3px solid #ccc;
 				padding: 3px 0 3px 20px;
@@ -102,11 +103,12 @@
 				So much better than just a screenshot!
 			</p>
 			
-			<blockquote class="warn">
-				At this point only <u>Archer</u> and <u>Priest</u> are available.
-				More classes to come soon!
-			</blockquote>
-			
+      <h2>How do I put this one my site or blog?</h2>
+      <p>
+        Select a class and the skills you want to show and then copy the code below into your site or blog.
+      </p>
+      <blockquote>What you see below is an editor. When you use this on your site or blog the skills will no longer be editable.</blockquote>
+      
 			<hr />
 		
 			<p id="toggles">
@@ -159,98 +161,48 @@
 
 			<div id="editors">
 				<div id="archer">
-					<h2>Archer</h2>
-					<h3>Editor</h3>
-				
+					
 					<code>
 						<ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
 					</code>
 
 					<ms-editor id="archerEditor" ms-class="archer"></ms-editor>
-
-					<h3>Example chart</h3>
-
-					<ms-archer arrow-stream="3"
-										arrow-barrage="5"
-										rapid-shot="8"
-										arrow-storm="1"
-										screwdriver-shot="1"
-										evasive-salvo="6"
-										ice-arrow="4"
-										agile-archer="3"
-										bow-swing="1"
-										bronze-eagle="7"
-										eagle-claw="3"
-										eagles-majesty="1"
-										conditioning="6"
-										sharp-eyes="1"
-										precision-shooter="1">
-					</ms-archer>
 				</div>
 
 				<div id="assassin">
-					<h2>Assassin</h2>
 					<p>The assassin class is not yet available. It's coming soon!</p>
 				</div>
 
 				<div id="berserker">
-					<h2>Berserker</h2>
 					<p>The berserker class is not yet available. It's coming soon!</p>
 				</div>
 
 				<div id="heavy-gunner">
-					<h2>Heavy Gunner</h2>
 					<p>The Heavy Gunner class is not yet available. It's coming soon!</p>
 				</div>
 
 				<div id="knight">
-					<h2>Knight</h2>
 					<p>The knight class is not yet available. It's coming soon!</p>
 				</div>
 				
 				<div id="priest">
-					<h2>Priest</h2>
-					<h3>Editor</h3>
-
+					
 					<code>
 						<ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
 					</code>
 
 					<ms-editor id="priestEditor" ms-class="priest"></ms-editor>
-
-					<h3>Example chart</h3>
-
-					<ms-priest celestial-light="4"
-										holy-blast="10"
-										healing-prayer="6"
-										scourging-wave="3"
-										sanctuary="8"
-										celestial-guardian="10"
-										celestial-blessings="10"
-										holy-symbol="10"
-										disciple="1"
-										scepter-mastery="5"
-										angelic-ray="1"
-										shield-of-the-archon="3"
-										holy-relic="1"
-										smiting-aura="1"
-										healing-mastery="1"
-										angelic-ray="1">
-					</ms-priest>
 				</div>
 				
 				<div id="runeblade">
-					<h2>Runeblade</h2>
 					<p>The runeblade class is not yet available. It's coming soon!</p>
 				</div>
 					
 				<div id="thief">
-					<h2>Thief</h2>
 					<p>The thief class is not yet available. It's coming soon!</p>
 				</div>
 					
 				<div id="wizard">
-					<h2>Wizard</h2>
 					<p>The wizard class is not yet available. It's coming soon!</p>
 				</div>
 								
@@ -263,14 +215,14 @@
 					<dd>
 						You can make them smaller with transform.
 						<pre>
-	ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
-	ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
-	{
-		transform: scale(0.8);         /* adapt margin below if you change this */
-		transform-origin: top center;  /* or "top left" if you don't wanna center it */
-		margin-bottom: -20%;           /* to remove empty space at the bottom, or */
-		margin-right: -20%;            /* if you use "top left" for transform-origin */
-	}</pre>
+ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
+ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
+{
+	transform: scale(0.8);         /* adapt margin below if you change this */
+	transform-origin: top center;  /* or "top left" if you don't wanna center it */
+	margin-bottom: -20%;           /* to remove empty space at the bottom, or */
+	margin-right: -20%;            /* if you use "top left" for transform-origin */
+}</pre>
 					</dd>
 				</div>
 	
@@ -299,7 +251,7 @@
 			function toggle(msClass) {
 				hideAll();
 				document.querySelector("#" + msClass).style.display = "block";
-      document.querySelector(`[ms-class="${ msClass }"]`).classList.add("active");
+      	document.querySelector(`[ms-class="${ msClass }"]`).classList.add("active");
 			}
 	
 			hideAll();
