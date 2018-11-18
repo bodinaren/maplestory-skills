@@ -1,0 +1,261 @@
+<html>
+  <head>
+	<title>MapleStory 2 Skill Charts</title>
+    <style>
+      body {
+        font-family: Verdana;
+        font-size: .8em;
+				background-color: #292929;
+				color: white;
+			}
+			
+			.container { margin: auto; max-width: 820px; }
+			.logo { display: block; margin: auto; }
+			
+      #toggles {
+        text-align: center;
+        width: 700px;
+        margin: auto;
+      }
+      #toggles a {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      #toggles a:nth-child(-n+5) { flex-direction: column-reverse; }
+      #toggles a > * { margin: 5px; }
+      #toggles a:not(.active) img.active { display: none; }
+      #toggles a.active img.inactive { display: none; }
+    
+      #toggles .unavailable { color: #666; }
+      #toggles .unavailable:after {
+        content: 'X';
+        color: #999;
+        font-size: 96px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+      #toggles a.unavailable:nth-child(n+6):after {
+        margin-top: -10px;
+      }
+      #toggles .active.unavailable:after { color: red; }
+      #editors {
+        min-height: 300px;
+      }
+      
+	  	ms-editor-outlet {
+        box-sizing: border-box;
+        width: 819px;
+        height: 110px;
+        white-space: pre-wrap;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+      }
+      
+      ms-editor { font-size: 1rem; }
+	  
+			blockquote {
+        font-style: italic;
+        padding: 5px 5px 5px 10px;
+        border-left: 3px solid white;
+				margin-left: 10px;
+      }
+	  	blockquote.warn { border-left-color: #ffcc00; }
+    </style>
+  </head>
+  <body>
+
+		<div class="container">
+		
+			<img class="logo" src="assets/logo.png" />
+			
+			<h1>Welcome to the MapleStory 2 Skill Charts</h1>
+			
+			<p>
+				MapleStory 2 Skill Charts is a set of web components which, with very little effort,
+				let you add an interactive skill chart to your website or blog.
+				This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives.
+				So much better than just a screenshot!
+			</p>
+			
+			<blockquote class="warn">
+				At this point only <u>Archer</u> and <u>Priest</u> are available.
+				More classes to come soon!
+			</blockquote>
+			
+			<hr />
+		
+			<p id="toggles">
+				<a href="javascript:void(0)" ms-class="archer" onclick="toggle('archer')">
+					<img class="active" src="assets/archer.png" />
+					<img class="inactive" src="assets/archer_bw.png" />
+					Archer
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="assassin" onclick="toggle('assassin')">
+					<img class="active" src="assets/assassin.png" />
+					<img class="inactive" src="assets/assassin_bw.png" />
+					Assassin
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="berserker" onclick="toggle('berserker')">
+					<img class="active" src="assets/berserker.png" />
+					<img class="inactive" src="assets/berserker_bw.png" />
+					Berserker
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
+					<img class="active" src="assets/heavy-gunner.png" />
+					<img class="inactive" src="assets/heavy-gunner_bw.png" />
+					Heavy Gunner
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
+					<img class="active" src="assets/knight.png" />
+					<img class="inactive" src="assets/knight_bw.png" />
+					Knight
+				</a>
+				<a href="javascript:void(0)" ms-class="priest" onclick="toggle('priest')">
+					<img class="active" src="assets/priest.png" />
+					<img class="inactive" src="assets/priest_bw.png" />
+					Priest
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
+					<img class="active" src="assets/runeblade.png" />
+					<img class="inactive" src="assets/runeblade_bw.png" />
+					Runeblade
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
+					<img class="active" src="assets/thief.png" />
+					<img class="inactive" src="assets/thief_bw.png" />
+					Thief
+				</a>
+				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
+					<img class="active" src="assets/wizard.png" />
+					<img class="inactive" src="assets/wizard_bw.png" />
+					Wizard
+				</a>
+			</p>
+
+			<div id="editors">
+				<div id="archer">
+					<h2>Archer</h2>
+					<h3>Editor</h3>
+				
+					<code>
+						<ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+					</code>
+
+					<ms-editor id="archerEditor" ms-class="archer"></ms-editor>
+
+					<h3>Example chart</h3>
+
+					<ms-archer arrow-stream="3"
+										arrow-barrage="5"
+										rapid-shot="8"
+										arrow-storm="1"
+										screwdriver-shot="1"
+										evasive-salvo="6"
+										ice-arrow="4"
+										agile-archer="3"
+										bow-swing="1"
+										bronze-eagle="7"
+										eagle-claw="3"
+										eagles-majesty="1"
+										conditioning="6"
+										sharp-eyes="1"
+										precision-shooter="1">
+					</ms-archer>
+				</div>
+
+				<div id="assassin">
+					<h2>Assassin</h2>
+					<p>The assassin class is not yet available. It's coming soon!</p>
+				</div>
+
+				<div id="berserker">
+					<h2>Berserker</h2>
+					<p>The berserker class is not yet available. It's coming soon!</p>
+				</div>
+
+				<div id="heavy-gunner">
+					<h2>Heavy Gunner</h2>
+					<p>The Heavy Gunner class is not yet available. It's coming soon!</p>
+				</div>
+
+				<div id="knight">
+					<h2>Knight</h2>
+					<p>The knight class is not yet available. It's coming soon!</p>
+				</div>
+				
+				<div id="priest">
+					<h2>Priest</h2>
+					<h3>Editor</h3>
+
+					<code>
+						<ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+					</code>
+
+					<ms-editor id="priestEditor" ms-class="priest"></ms-editor>
+
+					<h3>Example chart</h3>
+
+					<ms-priest celestial-light="4"
+										holy-blast="10"
+										healing-prayer="6"
+										scourging-wave="3"
+										sanctuary="8"
+										celestial-guardian="10"
+										celestial-blessings="10"
+										holy-symbol="10"
+										disciple="1"
+										scepter-mastery="5"
+										angelic-ray="1"
+										shield-of-the-archon="3"
+										holy-relic="1"
+										smiting-aura="1"
+										healing-mastery="1"
+										angelic-ray="1">
+					</ms-priest>
+				</div>
+				
+				<div id="runeblade">
+					<h2>Runeblade</h2>
+					<p>The runeblade class is not yet available. It's coming soon!</p>
+				</div>
+					
+				<div id="thief">
+					<h2>Thief</h2>
+					<p>The thief class is not yet available. It's coming soon!</p>
+				</div>
+					
+				<div id="wizard">
+					<h2>Wizard</h2>
+					<p>The wizard class is not yet available. It's coming soon!</p>
+				</div>
+								
+			</div>
+  	</div>
+	
+		<script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"></script>
+
+		<script>
+			function hideAll() {
+				document.querySelectorAll("#editors div").forEach((el) => {
+					el.style.display = "none";
+				});
+			}
+	
+			function toggle(msClass) {
+				hideAll();
+				document.querySelector("#" + msClass).style.display = "block";
+			}
+	
+			hideAll();
+			toggle("archer");
+		</script>
+  </body>
+</html>
