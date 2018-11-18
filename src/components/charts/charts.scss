@@ -19,7 +19,7 @@
 .chart > * {
   position: absolute;
   height: 50px;
-  width: 44px;
+  width: 58px;
 
   &:after {
     content: attr(level) "/" attr(max);
