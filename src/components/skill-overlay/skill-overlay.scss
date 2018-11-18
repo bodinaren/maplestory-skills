@@ -32,6 +32,12 @@ h1 {
 :host([element="Holy"]) h1 {
   background: linear-gradient(to right, #3C1E04 0%, #3C1E04 70%, #7C4D01 100%);
 }
+:host([element="Ice"]) h1 {
+  background: linear-gradient(to right, #3C1E04 0%, #3C1E04 70%, #7C4D01 100%);
+}
+:host([element="Fire"]) h1 {
+  background: linear-gradient(to right, #3C1E04 0%, #3C1E04 70%, #7C4D01 100%);
+}
 
 .content {
   padding: 10px 0 5px;
@@ -96,3 +102,9 @@ h1 {
   }
 }
 
+p {
+  /* margin: 4px 0; // replaced by line-height below */
+  color: #999999;
+  margin: 1px 0;
+  line-height: 1.6em;
+}

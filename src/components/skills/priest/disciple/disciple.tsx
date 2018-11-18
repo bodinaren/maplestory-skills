@@ -3,7 +3,7 @@ import { DiscipleValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-disciple",
-  styleUrls: ["../skills.scss", "disciple.scss"],
+  styleUrls: ["../../skills.scss", "disciple.scss"],
   shadow: true
 })
 export class DiscipleComponent {

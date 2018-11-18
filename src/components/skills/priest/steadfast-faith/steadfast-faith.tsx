@@ -3,7 +3,7 @@ import { SteadfastFaithValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-steadfast-faith",
-  styleUrls: ["../skills.scss", "steadfast-faith.scss"],
+  styleUrls: ["../../skills.scss", "steadfast-faith.scss"],
   shadow: true
 })
 export class SteadfastFaithComponent {

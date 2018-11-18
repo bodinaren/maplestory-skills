@@ -3,7 +3,7 @@ import { ScourgingWaveValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-scourging-wave",
-  styleUrls: ["../skills.scss", "scourging-wave.scss"],
+  styleUrls: ["../../skills.scss", "scourging-wave.scss"],
   shadow: true
 })
 export class ScourgingWaveComponent {

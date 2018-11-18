@@ -3,7 +3,7 @@ import { ScepterMasteryValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-scepter-mastery",
-  styleUrls: ["../skills.scss", "scepter-mastery.scss"],
+  styleUrls: ["../../skills.scss", "scepter-mastery.scss"],
   shadow: true
 })
 export class ScepterMasteryComponent {

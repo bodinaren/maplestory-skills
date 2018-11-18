@@ -3,7 +3,7 @@ import { HeavenlyWingsValues } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-heavenly-wings",
-  styleUrls: ["../skills.scss", "heavenly-wings.scss"],
+  styleUrls: ["../../skills.scss", "heavenly-wings.scss"],
   shadow: true
 })
 export class HeavenlyWingsComponent {
