@@ -12,14 +12,14 @@ export class PriestEditorComponent {
 
   priestChart!: HTMLMsPriestElement;
 
-  levelChanged(skillName: string, level: number) {
+  async levelChanged(skillName: string, level: number) {
     this.priestChart[skillName] = level;
 
-    this.onSkillChanged.emit(this.toHtmlString());
+    this.onSkillChanged.emit(await this.toHtmlString());
   }
 
   @Method()
-  toHtmlString(): string {
+  toHtmlString(): Promise<string> {
     let props = [
       this.priestChart.celestialLight > PriestValues.CelestialLightValues.minLevel && `celestial-light="${ this.priestChart.celestialLight }"`,
       this.priestChart.holyBlast > PriestValues.HolyBlastValues.minLevel && `holy-blast="${ this.priestChart.holyBlast }"`,
@@ -38,7 +38,7 @@ export class PriestEditorComponent {
       this.priestChart.angelicRay > PriestValues.AngelicRayValues.minLevel && `angelic-ray="${ this.priestChart.angelicRay }"`,
     ];
 
-    return `<ms-priest ${ props.filter(x => x).join(" ") }></ms-priest>`;
+    return Promise.resolve(`<ms-priest ${ props.filter(x => x).join(" ") }></ms-priest>`);
   }
 
   render() {

@@ -12,14 +12,14 @@ export class ArcherEditorComponent {
 
   archerChart!: HTMLMsArcherElement;
 
-  levelChanged(skillName: string, level: number) {
+  async levelChanged(skillName: string, level: number) {
     this.archerChart[skillName] = level;
 
-    this.onSkillChanged.emit(this.toHtmlString());
+    this.onSkillChanged.emit(await this.toHtmlString());
   }
 
   @Method()
-  toHtmlString(): string {
+  toHtmlString(): Promise<string> {
     let props = [
       this.archerChart.agileArcher > ArcherValues.AgileArcherValues.minLevel && `agile-archer="${ this.archerChart.agileArcher }"`,
       this.archerChart.arrowBarrage > ArcherValues.ArrowBarrageValues.minLevel && `arrow-barrage="${ this.archerChart.arrowBarrage }"`,
@@ -38,7 +38,7 @@ export class ArcherEditorComponent {
       this.archerChart.screwdriverShot > ArcherValues.ScrewdriverShotValues.minLevel && `screwdriver-shot="${ this.archerChart.screwdriverShot }"`,
     ];
 
-    return `<ms-archer ${ props.filter(x => x).join(" ") }></ms-archer>`;
+    return Promise.resolve(`<ms-archer ${ props.filter(x => x).join(" ") }></ms-archer>`);
   }
 
   render() {
