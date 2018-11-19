@@ -33,6 +33,11 @@ export class FlameTornadoComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="flame-tornado"></ms-icon>
         <div slot="description">
+          Gather fire energy from your surroundings to create a huge flame
+          whirlwind <span>4.5</span> m in front of you. The flame whirlwind lasts for <span>1.5</span> sec,
+          dealing <span>{ FlameTornadoValues.damage[this.level] }%</span> fire damage
+          to <span>8</span> enemies within <span>3</span> m every <span>0.3</span> sec.
+          Consumes <span>40</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

@@ -33,6 +33,13 @@ export class ChainLightningComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="chain-lightning"></ms-icon>
         <div slot="description">
+          Release an intense electric load that
+          deals <span>{ ChainLightningValues.damage[this.level] }%</span> electric damage
+          to 8 enemies up to <span>8</span> m in front of you.
+          Enemies hit with this skill <span>5</span> times pulse with electric energy,
+          attracting a bolt that deals an
+          additional <span>{ ChainLightningValues.additionalDamage[this.level] }%</span> electric damage.
+          Consumes <span>15</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

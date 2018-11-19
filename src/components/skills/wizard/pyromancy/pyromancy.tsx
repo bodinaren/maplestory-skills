@@ -33,6 +33,8 @@ export class PyromancyComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="pyromancy"></ms-icon>
         <div slot="description">
+          An advanced fire technique taught to only the top students of the Ellinel Magic Academy.
+          Increases all fire damage by <span>{ PyromancyValues.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

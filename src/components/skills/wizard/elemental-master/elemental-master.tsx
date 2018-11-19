@@ -33,6 +33,8 @@ export class ElementalMasterComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="elemental-master"></ms-icon>
         <div slot="description">
+          Asimov's high-level instruction teaches you how to harmoniously balance of fire, ice, and electric magic.
+          Increases fire, ice, and electric damage by <span>{ ElementalMasterValues.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

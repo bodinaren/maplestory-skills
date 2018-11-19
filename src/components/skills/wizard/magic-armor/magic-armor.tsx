@@ -33,6 +33,9 @@ export class MagicArmorComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="magic-armor"></ms-icon>
         <div slot="description">
+          Envelop your body with a magical aura, creating a barrier that absorbs damage
+          up to <span>{ MagicArmorValues.barrier[this.level] }%</span> of your max health for <span>10</span> sec.
+          Cannot be combined with other barrier effects.
         </div>
       </ms-skill-overlay>
     ];

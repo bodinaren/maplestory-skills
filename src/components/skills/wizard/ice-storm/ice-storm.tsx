@@ -33,6 +33,11 @@ export class IceStormComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="ice-storm"></ms-icon>
         <div slot="description">
+          Blast <span>4</span> ice crystals toward enemies up to <span>8</span> m in front of you,
+          surrounding the targets with a cold front that generates a giant shard of ice.
+          The shard deals <span>{ IceStormValues.damage[this.level] }%</span> ice damage
+          to 8 enemies within <span>3</span> m every <span>0.3</span> sec.
+          Consumes <span>40</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

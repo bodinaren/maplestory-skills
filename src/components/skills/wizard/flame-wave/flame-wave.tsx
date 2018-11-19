@@ -33,6 +33,12 @@ export class FlameWaveComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="flame-wave"></ms-icon>
         <div slot="description">
+          Gather fire energy in your staff to fling a
+          flame wave up to <span>8</span> m in front of you,
+          dealing <span>{ FlameWaveValues.damage[this.level] }%</span> fire damage
+          to enemies caught in it and setting them on fire, which deals an
+          additional <span>{ FlameWaveValues.dot[this.level] }%</span> every second
+          for <span>10</span> sec. Consumes <span>20</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

@@ -22,7 +22,7 @@ export class ArcaneBlastComponent {
   render() {
     return [
       <ms-icon name="arcane-blast"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
+      <ms-skill-overlay heading="Arcane Blast"
                         element="¤¤¤¤"
                         level={ this.level }
                         type="¤¤¤¤"
@@ -33,6 +33,10 @@ export class ArcaneBlastComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="arcane-blast"></ms-icon>
         <div slot="description">
+          Focus a magical aura on a spot <span>4.5</span> m in front of you,
+          creating an explosion of energy that
+          deals <span>{ ArcaneBlastValues.damage[this.level] }%</span> damage to enemies
+          within <span>3</span> m and knocks them back <span>1</span> m.
         </div>
       </ms-skill-overlay>
     ];

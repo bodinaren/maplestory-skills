@@ -33,6 +33,8 @@ export class ElectromancyComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="electromancy"></ms-icon>
         <div slot="description">
+          An advanced electric technique taught to only the top students of the Ellinel Magic Academy.
+          Increases all electric damage by <span>{ ElectromancyValues.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

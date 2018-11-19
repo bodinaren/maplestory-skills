@@ -33,6 +33,8 @@ export class CryomancyComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="cryomancy"></ms-icon>
         <div slot="description">
+          An advanced ice technique taught to only the top students of the Ellinel Magic Academy.
+          Increases all ice damage by <span>{ CryomancyValues.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];
