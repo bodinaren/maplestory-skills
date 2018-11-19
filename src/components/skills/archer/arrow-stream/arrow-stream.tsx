@@ -13,9 +13,11 @@ export class ArrowStreamComponent {
   @Prop({ reflectToAttr: true }) private max: number = ArrowStreamValues.maxLevel;
 
   getRequirements(): string[] {
-    return [
-      `Level ${ ArrowStreamValues.levelRequirement[this.level] }+`,
-    ];
+    if (ArrowStreamValues.levelRequirement[this.level] > 0) {
+      return [
+        `Level ${ ArrowStreamValues.levelRequirement[this.level] }+`,
+      ];
+    }
   }
 
   render() {

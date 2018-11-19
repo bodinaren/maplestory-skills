@@ -54,6 +54,45 @@ export namespace Components {
     'snipe'?: number;
   }
 
+  interface MsAssassin {
+    'darkCloak': number;
+    'dash': number;
+    'deathSentence': number;
+    'fatalStrikes': number;
+    'fragmentedStar': number;
+    'luckyStars': number;
+    'markOfDeath': number;
+    'mirrorImageDarkBlade': number;
+    'shadowArts': number;
+    'shadowBurst': number;
+    'shadowChaser': number;
+    'shadowCutter': number;
+    'shadowWeb': number;
+    'soulGrind': number;
+    'starChaser': number;
+    'starFlurry': number;
+    'thrownWeaponMastery': number;
+  }
+  interface MsAssassinAttributes extends StencilHTMLAttributes {
+    'darkCloak'?: number;
+    'dash'?: number;
+    'deathSentence'?: number;
+    'fatalStrikes'?: number;
+    'fragmentedStar'?: number;
+    'luckyStars'?: number;
+    'markOfDeath'?: number;
+    'mirrorImageDarkBlade'?: number;
+    'shadowArts'?: number;
+    'shadowBurst'?: number;
+    'shadowChaser'?: number;
+    'shadowCutter'?: number;
+    'shadowWeb'?: number;
+    'soulGrind'?: number;
+    'starChaser'?: number;
+    'starFlurry'?: number;
+    'thrownWeaponMastery'?: number;
+  }
+
   interface MsPriest {
     'angelicRay': number;
     'celestialBlessings': number;
@@ -100,6 +139,13 @@ export namespace Components {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
+  interface MsAssassinEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsAssassinEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
   interface MsPriestEditor {
     'toHtmlString': () => Promise<string>;
   }
@@ -116,7 +162,7 @@ export namespace Components {
 
   interface MsEditor {
     'msClass': MapleStoryClass;
-    'toHtmlString': () => string;
+    'toHtmlString': () => Promise<string>;
   }
   interface MsEditorAttributes extends StencilHTMLAttributes {
     'msClass'?: MapleStoryClass;
@@ -320,6 +366,159 @@ export namespace Components {
     'max'?: number;
   }
 
+  interface MsDarkCloak {
+    'level': number;
+    'max': number;
+  }
+  interface MsDarkCloakAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDash {
+    'level': number;
+    'max': number;
+  }
+  interface MsDashAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDeathSentence {
+    'level': number;
+    'max': number;
+  }
+  interface MsDeathSentenceAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFatalStrikes {
+    'level': number;
+    'max': number;
+  }
+  interface MsFatalStrikesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFragmentedStar {
+    'level': number;
+    'max': number;
+  }
+  interface MsFragmentedStarAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsLuckyStars {
+    'level': number;
+    'max': number;
+  }
+  interface MsLuckyStarsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMarkOfDeath {
+    'level': number;
+    'max': number;
+  }
+  interface MsMarkOfDeathAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMirrorImageDarkBlade {
+    'level': number;
+    'max': number;
+  }
+  interface MsMirrorImageDarkBladeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShadowArts {
+    'level': number;
+    'max': number;
+  }
+  interface MsShadowArtsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShadowBurst {
+    'level': number;
+    'max': number;
+  }
+  interface MsShadowBurstAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShadowChaser {
+    'level': number;
+    'max': number;
+  }
+  interface MsShadowChaserAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShadowCutter {
+    'level': number;
+    'max': number;
+  }
+  interface MsShadowCutterAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShadowWeb {
+    'level': number;
+    'max': number;
+  }
+  interface MsShadowWebAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSoulGrind {
+    'level': number;
+    'max': number;
+  }
+  interface MsSoulGrindAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsStarChaser {
+    'level': number;
+    'max': number;
+  }
+  interface MsStarChaserAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsStarFlurry {
+    'level': number;
+    'max': number;
+  }
+  interface MsStarFlurryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsThrownWeaponMastery {
+    'level': number;
+    'max': number;
+  }
+  interface MsThrownWeaponMasteryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
   interface MsAngelicRay {
     'level': number;
     'max': number;
@@ -477,8 +676,10 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'MsArcher': Components.MsArcher;
+    'MsAssassin': Components.MsAssassin;
     'MsPriest': Components.MsPriest;
     'MsArcherEditor': Components.MsArcherEditor;
+    'MsAssassinEditor': Components.MsAssassinEditor;
     'MsPriestEditor': Components.MsPriestEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
@@ -502,6 +703,23 @@ declare global {
     'MsScrewdriverShot': Components.MsScrewdriverShot;
     'MsSharpEyes': Components.MsSharpEyes;
     'MsSnipe': Components.MsSnipe;
+    'MsDarkCloak': Components.MsDarkCloak;
+    'MsDash': Components.MsDash;
+    'MsDeathSentence': Components.MsDeathSentence;
+    'MsFatalStrikes': Components.MsFatalStrikes;
+    'MsFragmentedStar': Components.MsFragmentedStar;
+    'MsLuckyStars': Components.MsLuckyStars;
+    'MsMarkOfDeath': Components.MsMarkOfDeath;
+    'MsMirrorImageDarkBlade': Components.MsMirrorImageDarkBlade;
+    'MsShadowArts': Components.MsShadowArts;
+    'MsShadowBurst': Components.MsShadowBurst;
+    'MsShadowChaser': Components.MsShadowChaser;
+    'MsShadowCutter': Components.MsShadowCutter;
+    'MsShadowWeb': Components.MsShadowWeb;
+    'MsSoulGrind': Components.MsSoulGrind;
+    'MsStarChaser': Components.MsStarChaser;
+    'MsStarFlurry': Components.MsStarFlurry;
+    'MsThrownWeaponMastery': Components.MsThrownWeaponMastery;
     'MsAngelicRay': Components.MsAngelicRay;
     'MsCelestialBlessings': Components.MsCelestialBlessings;
     'MsCelestialGuardian': Components.MsCelestialGuardian;
@@ -523,8 +741,10 @@ declare global {
 
   interface StencilIntrinsicElements {
     'ms-archer': Components.MsArcherAttributes;
+    'ms-assassin': Components.MsAssassinAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-archer-editor': Components.MsArcherEditorAttributes;
+    'ms-assassin-editor': Components.MsAssassinEditorAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
@@ -548,6 +768,23 @@ declare global {
     'ms-screwdriver-shot': Components.MsScrewdriverShotAttributes;
     'ms-sharp-eyes': Components.MsSharpEyesAttributes;
     'ms-snipe': Components.MsSnipeAttributes;
+    'ms-dark-cloak': Components.MsDarkCloakAttributes;
+    'ms-dash': Components.MsDashAttributes;
+    'ms-death-sentence': Components.MsDeathSentenceAttributes;
+    'ms-fatal-strikes': Components.MsFatalStrikesAttributes;
+    'ms-fragmented-star': Components.MsFragmentedStarAttributes;
+    'ms-lucky-stars': Components.MsLuckyStarsAttributes;
+    'ms-mark-of-death': Components.MsMarkOfDeathAttributes;
+    'ms-mirror-image-dark-blade': Components.MsMirrorImageDarkBladeAttributes;
+    'ms-shadow-arts': Components.MsShadowArtsAttributes;
+    'ms-shadow-burst': Components.MsShadowBurstAttributes;
+    'ms-shadow-chaser': Components.MsShadowChaserAttributes;
+    'ms-shadow-cutter': Components.MsShadowCutterAttributes;
+    'ms-shadow-web': Components.MsShadowWebAttributes;
+    'ms-soul-grind': Components.MsSoulGrindAttributes;
+    'ms-star-chaser': Components.MsStarChaserAttributes;
+    'ms-star-flurry': Components.MsStarFlurryAttributes;
+    'ms-thrown-weapon-mastery': Components.MsThrownWeaponMasteryAttributes;
     'ms-angelic-ray': Components.MsAngelicRayAttributes;
     'ms-celestial-blessings': Components.MsCelestialBlessingsAttributes;
     'ms-celestial-guardian': Components.MsCelestialGuardianAttributes;
@@ -574,6 +811,12 @@ declare global {
     new (): HTMLMsArcherElement;
   };
 
+  interface HTMLMsAssassinElement extends Components.MsAssassin, HTMLStencilElement {}
+  var HTMLMsAssassinElement: {
+    prototype: HTMLMsAssassinElement;
+    new (): HTMLMsAssassinElement;
+  };
+
   interface HTMLMsPriestElement extends Components.MsPriest, HTMLStencilElement {}
   var HTMLMsPriestElement: {
     prototype: HTMLMsPriestElement;
@@ -584,6 +827,12 @@ declare global {
   var HTMLMsArcherEditorElement: {
     prototype: HTMLMsArcherEditorElement;
     new (): HTMLMsArcherEditorElement;
+  };
+
+  interface HTMLMsAssassinEditorElement extends Components.MsAssassinEditor, HTMLStencilElement {}
+  var HTMLMsAssassinEditorElement: {
+    prototype: HTMLMsAssassinEditorElement;
+    new (): HTMLMsAssassinEditorElement;
   };
 
   interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
@@ -724,6 +973,108 @@ declare global {
     new (): HTMLMsSnipeElement;
   };
 
+  interface HTMLMsDarkCloakElement extends Components.MsDarkCloak, HTMLStencilElement {}
+  var HTMLMsDarkCloakElement: {
+    prototype: HTMLMsDarkCloakElement;
+    new (): HTMLMsDarkCloakElement;
+  };
+
+  interface HTMLMsDashElement extends Components.MsDash, HTMLStencilElement {}
+  var HTMLMsDashElement: {
+    prototype: HTMLMsDashElement;
+    new (): HTMLMsDashElement;
+  };
+
+  interface HTMLMsDeathSentenceElement extends Components.MsDeathSentence, HTMLStencilElement {}
+  var HTMLMsDeathSentenceElement: {
+    prototype: HTMLMsDeathSentenceElement;
+    new (): HTMLMsDeathSentenceElement;
+  };
+
+  interface HTMLMsFatalStrikesElement extends Components.MsFatalStrikes, HTMLStencilElement {}
+  var HTMLMsFatalStrikesElement: {
+    prototype: HTMLMsFatalStrikesElement;
+    new (): HTMLMsFatalStrikesElement;
+  };
+
+  interface HTMLMsFragmentedStarElement extends Components.MsFragmentedStar, HTMLStencilElement {}
+  var HTMLMsFragmentedStarElement: {
+    prototype: HTMLMsFragmentedStarElement;
+    new (): HTMLMsFragmentedStarElement;
+  };
+
+  interface HTMLMsLuckyStarsElement extends Components.MsLuckyStars, HTMLStencilElement {}
+  var HTMLMsLuckyStarsElement: {
+    prototype: HTMLMsLuckyStarsElement;
+    new (): HTMLMsLuckyStarsElement;
+  };
+
+  interface HTMLMsMarkOfDeathElement extends Components.MsMarkOfDeath, HTMLStencilElement {}
+  var HTMLMsMarkOfDeathElement: {
+    prototype: HTMLMsMarkOfDeathElement;
+    new (): HTMLMsMarkOfDeathElement;
+  };
+
+  interface HTMLMsMirrorImageDarkBladeElement extends Components.MsMirrorImageDarkBlade, HTMLStencilElement {}
+  var HTMLMsMirrorImageDarkBladeElement: {
+    prototype: HTMLMsMirrorImageDarkBladeElement;
+    new (): HTMLMsMirrorImageDarkBladeElement;
+  };
+
+  interface HTMLMsShadowArtsElement extends Components.MsShadowArts, HTMLStencilElement {}
+  var HTMLMsShadowArtsElement: {
+    prototype: HTMLMsShadowArtsElement;
+    new (): HTMLMsShadowArtsElement;
+  };
+
+  interface HTMLMsShadowBurstElement extends Components.MsShadowBurst, HTMLStencilElement {}
+  var HTMLMsShadowBurstElement: {
+    prototype: HTMLMsShadowBurstElement;
+    new (): HTMLMsShadowBurstElement;
+  };
+
+  interface HTMLMsShadowChaserElement extends Components.MsShadowChaser, HTMLStencilElement {}
+  var HTMLMsShadowChaserElement: {
+    prototype: HTMLMsShadowChaserElement;
+    new (): HTMLMsShadowChaserElement;
+  };
+
+  interface HTMLMsShadowCutterElement extends Components.MsShadowCutter, HTMLStencilElement {}
+  var HTMLMsShadowCutterElement: {
+    prototype: HTMLMsShadowCutterElement;
+    new (): HTMLMsShadowCutterElement;
+  };
+
+  interface HTMLMsShadowWebElement extends Components.MsShadowWeb, HTMLStencilElement {}
+  var HTMLMsShadowWebElement: {
+    prototype: HTMLMsShadowWebElement;
+    new (): HTMLMsShadowWebElement;
+  };
+
+  interface HTMLMsSoulGrindElement extends Components.MsSoulGrind, HTMLStencilElement {}
+  var HTMLMsSoulGrindElement: {
+    prototype: HTMLMsSoulGrindElement;
+    new (): HTMLMsSoulGrindElement;
+  };
+
+  interface HTMLMsStarChaserElement extends Components.MsStarChaser, HTMLStencilElement {}
+  var HTMLMsStarChaserElement: {
+    prototype: HTMLMsStarChaserElement;
+    new (): HTMLMsStarChaserElement;
+  };
+
+  interface HTMLMsStarFlurryElement extends Components.MsStarFlurry, HTMLStencilElement {}
+  var HTMLMsStarFlurryElement: {
+    prototype: HTMLMsStarFlurryElement;
+    new (): HTMLMsStarFlurryElement;
+  };
+
+  interface HTMLMsThrownWeaponMasteryElement extends Components.MsThrownWeaponMastery, HTMLStencilElement {}
+  var HTMLMsThrownWeaponMasteryElement: {
+    prototype: HTMLMsThrownWeaponMasteryElement;
+    new (): HTMLMsThrownWeaponMasteryElement;
+  };
+
   interface HTMLMsAngelicRayElement extends Components.MsAngelicRay, HTMLStencilElement {}
   var HTMLMsAngelicRayElement: {
     prototype: HTMLMsAngelicRayElement;
@@ -828,8 +1179,10 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'ms-archer': HTMLMsArcherElement
+    'ms-assassin': HTMLMsAssassinElement
     'ms-priest': HTMLMsPriestElement
     'ms-archer-editor': HTMLMsArcherEditorElement
+    'ms-assassin-editor': HTMLMsAssassinEditorElement
     'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
@@ -853,6 +1206,23 @@ declare global {
     'ms-screwdriver-shot': HTMLMsScrewdriverShotElement
     'ms-sharp-eyes': HTMLMsSharpEyesElement
     'ms-snipe': HTMLMsSnipeElement
+    'ms-dark-cloak': HTMLMsDarkCloakElement
+    'ms-dash': HTMLMsDashElement
+    'ms-death-sentence': HTMLMsDeathSentenceElement
+    'ms-fatal-strikes': HTMLMsFatalStrikesElement
+    'ms-fragmented-star': HTMLMsFragmentedStarElement
+    'ms-lucky-stars': HTMLMsLuckyStarsElement
+    'ms-mark-of-death': HTMLMsMarkOfDeathElement
+    'ms-mirror-image-dark-blade': HTMLMsMirrorImageDarkBladeElement
+    'ms-shadow-arts': HTMLMsShadowArtsElement
+    'ms-shadow-burst': HTMLMsShadowBurstElement
+    'ms-shadow-chaser': HTMLMsShadowChaserElement
+    'ms-shadow-cutter': HTMLMsShadowCutterElement
+    'ms-shadow-web': HTMLMsShadowWebElement
+    'ms-soul-grind': HTMLMsSoulGrindElement
+    'ms-star-chaser': HTMLMsStarChaserElement
+    'ms-star-flurry': HTMLMsStarFlurryElement
+    'ms-thrown-weapon-mastery': HTMLMsThrownWeaponMasteryElement
     'ms-angelic-ray': HTMLMsAngelicRayElement
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement
@@ -874,8 +1244,10 @@ declare global {
 
   interface ElementTagNameMap {
     'ms-archer': HTMLMsArcherElement;
+    'ms-assassin': HTMLMsAssassinElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-archer-editor': HTMLMsArcherEditorElement;
+    'ms-assassin-editor': HTMLMsAssassinEditorElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
@@ -899,6 +1271,23 @@ declare global {
     'ms-screwdriver-shot': HTMLMsScrewdriverShotElement;
     'ms-sharp-eyes': HTMLMsSharpEyesElement;
     'ms-snipe': HTMLMsSnipeElement;
+    'ms-dark-cloak': HTMLMsDarkCloakElement;
+    'ms-dash': HTMLMsDashElement;
+    'ms-death-sentence': HTMLMsDeathSentenceElement;
+    'ms-fatal-strikes': HTMLMsFatalStrikesElement;
+    'ms-fragmented-star': HTMLMsFragmentedStarElement;
+    'ms-lucky-stars': HTMLMsLuckyStarsElement;
+    'ms-mark-of-death': HTMLMsMarkOfDeathElement;
+    'ms-mirror-image-dark-blade': HTMLMsMirrorImageDarkBladeElement;
+    'ms-shadow-arts': HTMLMsShadowArtsElement;
+    'ms-shadow-burst': HTMLMsShadowBurstElement;
+    'ms-shadow-chaser': HTMLMsShadowChaserElement;
+    'ms-shadow-cutter': HTMLMsShadowCutterElement;
+    'ms-shadow-web': HTMLMsShadowWebElement;
+    'ms-soul-grind': HTMLMsSoulGrindElement;
+    'ms-star-chaser': HTMLMsStarChaserElement;
+    'ms-star-flurry': HTMLMsStarFlurryElement;
+    'ms-thrown-weapon-mastery': HTMLMsThrownWeaponMasteryElement;
     'ms-angelic-ray': HTMLMsAngelicRayElement;
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement;
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement;

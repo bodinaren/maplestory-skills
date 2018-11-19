@@ -15,9 +15,9 @@ export class EditorOutletComponent {
   componentDidLoad() {
     let el = document.getElementById(this.editor) as HTMLStencilElement;
 
-    el.componentOnReady().then((editor: HTMLMsEditorElement) => {
+    el.componentOnReady().then(async (editor: HTMLMsEditorElement) => {
       this._editor = editor;
-      this._htmlString = editor.toHtmlString();
+      this._htmlString = await editor.toHtmlString();
 
       this._editor.addEventListener("changed", (evt) => {
         this._htmlString = (evt as any).detail;

@@ -1,0 +1,84 @@
+ms-dark-cloak {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-dash {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-death-sentence {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-fatal-strikes {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-fragmented-star {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-lucky-stars {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-mark-of-death {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-mirror-image-dark-blade {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-shadow-arts {
+  @include chart-row(6);
+  @include chart-column(2);
+}
+
+ms-shadow-burst {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-shadow-chaser {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-shadow-cutter {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-shadow-web {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-soul-grind {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-star-chaser {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-star-flurry {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+ms-thrown-weapon-mastery {
+  @include chart-row(6);
+  @include chart-column(1);
+}

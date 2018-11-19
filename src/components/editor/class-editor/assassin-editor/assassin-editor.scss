@@ -1,0 +1,95 @@
+:host {
+	display: block;
+}
+
+ms-level-control {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: -25px;
+  z-index: 1;
+}
+
+.darkCloak {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+.dash {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+.deathSentence {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+.fatalStrikes {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+.fragmentedStar {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+.luckyStars {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+.markOfDeath {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+.mirrorImageDarkBlade {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+.shadowArts {
+  @include chart-row(6);
+  @include chart-column(2);
+}
+
+.shadowBurst {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+.shadowChaser {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+.shadowCutter {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+.shadowWeb {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+.soulGrind {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+.starChaser {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+.starFlurry {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+.thrownWeaponMastery {
+  @include chart-row(6);
+  @include chart-column(1);
+}
