@@ -163,7 +163,7 @@
           <img class="inactive" src="assets/thief_bw.png" />
           Thief
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
+        <a href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
           <img class="active" src="assets/wizard.png" />
           <img class="inactive" src="assets/wizard_bw.png" />
           Wizard
@@ -172,7 +172,6 @@
 
       <div id="editors">
         <div id="archer">
-          
           <code>
             <ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -181,7 +180,6 @@
         </div>
 
         <div id="assassin">
-          
           <code>
             <ms-editor-outlet editor="assassinEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -202,7 +200,6 @@
         </div>
         
         <div id="priest">
-          
           <code>
             <ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -219,7 +216,11 @@
         </div>
           
         <div id="wizard">
-          <p>The wizard class is not yet available. It's coming soon!</p>
+          <code>
+            <ms-editor-outlet editor="wizardEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="wizardEditor" ms-class="wizard"></ms-editor>
         </div>
                 
       </div>
