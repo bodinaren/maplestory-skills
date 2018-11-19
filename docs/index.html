@@ -166,7 +166,6 @@
 
 			<div id="editors">
 				<div id="archer">
-					
 					<code>
 						<ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
 					</code>
@@ -175,7 +174,6 @@
 				</div>
 
 				<div id="assassin">
-          
           <code>
             <ms-editor-outlet editor="assassinEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -196,7 +194,6 @@
 				</div>
 				
 				<div id="priest">
-					
 					<code>
 						<ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
 					</code>
@@ -214,8 +211,7 @@
 					
 				<div id="wizard">
 					<p>The wizard class is not yet available. It's coming soon!</p>
-				</div>
-								
+				</div>	
 			</div>
 
 			<h2>FAQ</h2>
@@ -223,14 +219,14 @@
 				<div>
 					<dt>The skill charts are too big!</dt>
 					<dd>
-						You can make them smaller with transform.
+						You can make them smaller with CSS transformations.
 						<pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 {
 	transform: scale(0.8);         /* adapt margin below if you change this */
 	transform-origin: top center;  /* or "top left" if you don't wanna center it */
-	margin-bottom: -20%;           /* to remove empty space at the bottom, or */
+	margin-bottom: -20%;           /* to remove empty space at the bottom */
 	margin-right: -20%;            /* if you use "top left" for transform-origin */
 }</pre>
 					</dd>
@@ -239,7 +235,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 				<div>
 					<dt>More questions?</dt>
 					<dd>
-						Don't hesitate to ask me questions on GitHub:
+						Don't hesitate to ask me questions by opening a new issue in the issue tracker:
 						<a href="https://www.github.com/bodinaren/maplestory-skills/issues">Ask a question</a>
 					</dd>
 				</div>
