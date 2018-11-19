@@ -13,9 +13,11 @@ export class ArrowBarrageComponent {
   @Prop({ reflectToAttr: true }) private max: number = ArrowBarrageValues.maxLevel;
 
   getRequirements(): string[] {
-    return [
-      `Level ${ ArrowBarrageValues.levelRequirement[this.level] }+`,
-    ];
+    if (ArrowBarrageValues.levelRequirement[this.level] > 0) {
+      return [
+        `Level ${ ArrowBarrageValues.levelRequirement[this.level] }+`,
+      ];
+    }
   }
 
   render() {
