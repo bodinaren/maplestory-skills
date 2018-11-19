@@ -4,7 +4,7 @@
 
 MapleStory 2 Skill Charts is a set of web components which, with very little effort, let you add an interactive skill chart to your website or blog. This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives. So much better than just a screenshot!
 
-[Demo](http://bodinaren.github.io/maplestory-skills)
+[Try it out!](http://bodinaren.github.io/maplestory-skills)
 
 
 ## How do I put this one my site or blog?
