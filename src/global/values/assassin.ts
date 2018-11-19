@@ -70,10 +70,8 @@ export const ShadowBurstValues = {
 };
 
 export const ShadowChaserValues = {
-  minLevel: 0,
-  maxLevel: 10,
-  levelRequirement: [19, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37],
-  damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
+  minLevel: 1,
+  maxLevel: 1,
 };
 
 export const ShadowCutterValues = {
@@ -100,8 +98,10 @@ export const SoulGrindValues = {
 };
 
 export const StarChaserValues = {
-  minLevel: 1,
-  maxLevel: 1,
+  minLevel: 0,
+  maxLevel: 10,
+  levelRequirement: [19, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37],
+  damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
 };
 
 export const StarFlurryValues = {
