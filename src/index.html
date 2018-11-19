@@ -133,7 +133,7 @@
           <img class="inactive" src="assets/assassin_bw.png" />
           Assassin
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="berserker" onclick="toggle('berserker')">
+        <a href="javascript:void(0)" ms-class="berserker" onclick="toggle('berserker')">
           <img class="active" src="assets/berserker.png" />
           <img class="inactive" src="assets/berserker_bw.png" />
           Berserker
@@ -172,7 +172,6 @@
 
       <div id="editors">
         <div id="archer">
-          
           <code>
             <ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -181,7 +180,6 @@
         </div>
 
         <div id="assassin">
-          
           <code>
             <ms-editor-outlet editor="assassinEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
@@ -190,7 +188,11 @@
         </div>
 
         <div id="berserker">
-          <p>The berserker class is not yet available. It's coming soon!</p>
+          <code>
+            <ms-editor-outlet editor="berserkerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="berserkerEditor" ms-class="berserker"></ms-editor>
         </div>
 
         <div id="heavy-gunner">
@@ -202,7 +204,6 @@
         </div>
         
         <div id="priest">
-          
           <code>
             <ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
           </code>
