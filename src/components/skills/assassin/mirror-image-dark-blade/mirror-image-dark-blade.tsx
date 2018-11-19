@@ -35,7 +35,7 @@ export class MirrorImageDarkBladeComponent {
           dealing <span>{ MirrorImageDarkBladeValues.damage[this.level] }%</span> dark damage
           to <span>3</span> enemies within the mark by sending a mirror image to attack them.
           This skill also brands enemies, reducing their accuracy by <span>20</span> for <span>10</span> sec.
-          All attacks dealt to branded enemies have a 30% chance to summon additional
+          All attacks dealt to branded enemies have a <span>30%</span> chance to summon additional
           mirror images to attack them for <span>23%</span> dark damage <span>4</span> times.
           Summoned mirror images can only appear once every <span>1.5</span> sec.
           The accuracy reduction does not stack.

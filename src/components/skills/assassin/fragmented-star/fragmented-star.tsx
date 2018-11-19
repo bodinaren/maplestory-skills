@@ -13,9 +13,11 @@ export class FragmentedStarComponent {
   @Prop({ reflectToAttr: true }) private max: number = FragmentedStarValues.maxLevel;
 
   getRequirements(): string[] {
-    return [
-      `Level ${ FragmentedStarValues.levelRequirement[this.level] }+`,
-    ];
+    if (FragmentedStarValues.levelRequirement[this.level] > 0) {
+      return [
+        `Level ${ FragmentedStarValues.levelRequirement[this.level] }+`,
+      ];
+    }
   }
 
   render() {

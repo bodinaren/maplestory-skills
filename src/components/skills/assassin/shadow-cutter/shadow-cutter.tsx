@@ -31,6 +31,11 @@ export class ShadowCutterComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="shadow-cutter"></ms-icon>
         <div slot="description">
+          Throw your weapon forward <span>8</span> m with a strong spin to
+          deal <span>{ ShadowCutterValues.damage[this.level] }%</span> dark
+          damage <span>2</span> times to <span>8</span> enemies in its path both ways.
+          The damage of this attack is affected by the weapon in your right hand.
+          Consumes <span>13</span> spirit
         </div>
       </ms-skill-overlay>
     ];

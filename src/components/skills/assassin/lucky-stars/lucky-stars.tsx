@@ -13,9 +13,11 @@ export class LuckyStarsComponent {
   @Prop({ reflectToAttr: true }) private max: number = LuckyStarsValues.maxLevel;
 
   getRequirements(): string[] {
-    return [
-      `Level ${ LuckyStarsValues.levelRequirement[this.level] }+`,
-    ];
+    if (LuckyStarsValues.levelRequirement[this.level] > 0) {
+      return [
+        `Level ${ LuckyStarsValues.levelRequirement[this.level] }+`,
+      ];
+    }
   }
 
   render() {
