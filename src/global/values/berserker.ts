@@ -117,7 +117,7 @@ export const WarriorsInstinctValues = {
   piercing: [1.0, 1.0, 1.6, 2.2, 2.8, 3.4, 4.0, 4.6, 5.2, 5.8, 6.4],
 };
 
-export const XslashValues = {
+export const XSlashValues = {
   minLevel: 1,
   maxLevel: 1,
 };
