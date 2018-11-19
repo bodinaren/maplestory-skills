@@ -6,7 +6,7 @@ import * as AssassinValues from "../../../../global/values/assassin";
   styleUrl: "assassin-editor.scss",
   shadow: true
 })
-export class ArcherEditorComponent {
+export class AssassinEditorComponent {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
 
