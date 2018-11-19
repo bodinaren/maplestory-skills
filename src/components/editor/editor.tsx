@@ -15,9 +15,10 @@ export class EditorComponent {
   @Event({ eventName: "changed" }) onChanged: EventEmitter<string>;
 
   @Method()
-  toHtmlString(): string {
-    if (!this.classEditor) return "";
-    return this.classEditor.toHtmlString();
+  toHtmlString(): Promise<string> {
+    return Promise.resolve(
+      this.classEditor && this.classEditor.toHtmlString() || ""
+    );
   }
 
   render() {

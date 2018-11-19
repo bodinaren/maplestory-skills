@@ -1,4 +1,5 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
+import { ClassProperties, renderProperties, renderLevelControls } from "../class-editor-helpers";
 import * as PriestValues from "../../../../global/values/priest";
 
 @Component({
@@ -12,6 +13,26 @@ export class PriestEditorComponent {
 
   priestChart!: HTMLMsPriestElement;
 
+  private properties: ClassProperties[] = [
+    ["angelic-ray", "angelicRay", PriestValues.AngelicRayValues, true],
+    ["celestial-blessings", "celestialBlessings", PriestValues.CelestialBlessingsValues, true],
+    ["celestial-guardian", "celestialGuardian", PriestValues.CelestialGuardianValues, true],
+    ["celestial-light", "celestialLight", PriestValues.CelestialLightValues, true],
+    ["disciple", "disciple", PriestValues.DiscipleValues, true],
+    ["healing-mastery", "healingMastery", PriestValues.HealingMasteryValues, true],
+    ["healing-prayer", "healingPrayer", PriestValues.HealingPrayerValues, true],
+    ["heavenly-wings", "heavenlyWings", PriestValues.HeavenlyWingsValues, false],
+    ["holy-blast", "holyBlast", PriestValues.HolyBlastValues, true],
+    ["holy-relic", "holyRelic", PriestValues.HolyRelicValues, true],
+    ["holy-symbol", "holySymbol", PriestValues.HolySymbolValues, true],
+    ["sanctuary", "sanctuary", PriestValues.SanctuaryValues, true],
+    ["scepter-mastery", "scepterMastery", PriestValues.ScepterMasteryValues, true],
+    ["scourging-wave", "scourgingWave", PriestValues.ScourgingWaveValues, true],
+    ["shield-of-the-archon", "shieldOfTheArchon", PriestValues.ShieldOfTheArchonValues, true],
+    ["smiting-aura", "smitingAura", PriestValues.SmitingAuraValues, true],
+    ["steadfast-faith", "steadfastFaith", PriestValues.SteadfastFaithValues, false],
+  ];
+
   async levelChanged(skillName: string, level: number) {
     this.priestChart[skillName] = level;
 
@@ -20,105 +41,13 @@ export class PriestEditorComponent {
 
   @Method()
   toHtmlString(): Promise<string> {
-    let props = [
-      this.priestChart.celestialLight > PriestValues.CelestialLightValues.minLevel && `celestial-light="${ this.priestChart.celestialLight }"`,
-      this.priestChart.holyBlast > PriestValues.HolyBlastValues.minLevel && `holy-blast="${ this.priestChart.holyBlast }"`,
-      this.priestChart.shieldOfTheArchon > PriestValues.ShieldOfTheArchonValues.minLevel && `shield-of-the-archon="${ this.priestChart.shieldOfTheArchon }"`,
-      this.priestChart.holyRelic > PriestValues.HolyRelicValues.minLevel && `holy-relic="${ this.priestChart.holyRelic }"`,
-      this.priestChart.healingPrayer > PriestValues.HealingPrayerValues.minLevel && `healing-prayer="${ this.priestChart.healingPrayer }"`,
-      this.priestChart.scourgingWave > PriestValues.ScourgingWaveValues.minLevel && `scourging-wave="${ this.priestChart.scourgingWave }"`,
-      this.priestChart.sanctuary > PriestValues.SanctuaryValues.minLevel && `sanctuary="${ this.priestChart.sanctuary }"`,
-      this.priestChart.smitingAura > PriestValues.SmitingAuraValues.minLevel && `smiting-aura="${ this.priestChart.smitingAura }"`,
-      this.priestChart.celestialGuardian > PriestValues.CelestialGuardianValues.minLevel && `celestial-guardian="${ this.priestChart.celestialGuardian }"`,
-      this.priestChart.celestialBlessings > PriestValues.CelestialBlessingsValues.minLevel && `celestial-blessings="${ this.priestChart.celestialBlessings }"`,
-      this.priestChart.holySymbol > PriestValues.HolySymbolValues.minLevel && `holy-symbol="${ this.priestChart.holySymbol }"`,
-      this.priestChart.disciple > PriestValues.DiscipleValues.minLevel && `disciple="${ this.priestChart.disciple }"`,
-      this.priestChart.scepterMastery > PriestValues.ScepterMasteryValues.minLevel && `scepter-mastery="${ this.priestChart.scepterMastery }"`,
-      this.priestChart.healingMastery > PriestValues.HealingMasteryValues.minLevel && `healing-mastery="${ this.priestChart.healingMastery }"`,
-      this.priestChart.angelicRay > PriestValues.AngelicRayValues.minLevel && `angelic-ray="${ this.priestChart.angelicRay }"`,
-    ];
-
-    return Promise.resolve(`<ms-priest ${ props.filter(x => x).join(" ") }></ms-priest>`);
+    return Promise.resolve(`<ms-priest ${ renderProperties(this.priestChart, this.properties) }></ms-priest>`);
   }
 
   render() {
-    return ([
-      <ms-level-control class="celestialLight"
-                        onLevelchanged={ (evt) => this.levelChanged("celestialLight", evt.detail) }
-                        min={ PriestValues.CelestialLightValues.minLevel }
-                        max={ PriestValues.CelestialLightValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="holyBlast"
-                        onLevelchanged={ (evt) => this.levelChanged("holyBlast", evt.detail) }
-                        min={ PriestValues.HolyBlastValues.minLevel }
-                        max={ PriestValues.HolyBlastValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="shieldOfTheArchon"
-                        onLevelchanged={ (evt) => this.levelChanged("shieldOfTheArchon", evt.detail) }
-                        min={ PriestValues.ShieldOfTheArchonValues.minLevel }
-                        max={ PriestValues.ShieldOfTheArchonValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="holyRelic"
-                        onLevelchanged={ (evt) => this.levelChanged("holyRelic", evt.detail) }
-                        min={ PriestValues.HolyRelicValues.minLevel }
-                        max={ PriestValues.HolyRelicValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="healingPrayer"
-                        onLevelchanged={ (evt) => this.levelChanged("healingPrayer", evt.detail) }
-                        min={ PriestValues.HealingPrayerValues.minLevel }
-                        max={ PriestValues.HealingPrayerValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="scourgingWave"
-                        onLevelchanged={ (evt) => this.levelChanged("scourgingWave", evt.detail) }
-                        min={ PriestValues.ScourgingWaveValues.minLevel }
-                        max={ PriestValues.ScourgingWaveValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="sanctuary"
-                        onLevelchanged={ (evt) => this.levelChanged("sanctuary", evt.detail) }
-                        min={ PriestValues.SanctuaryValues.minLevel }
-                        max={ PriestValues.SanctuaryValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="smitingAura"
-                        onLevelchanged={ (evt) => this.levelChanged("smitingAura", evt.detail) }
-                        min={ PriestValues.SmitingAuraValues.minLevel }
-                        max={ PriestValues.SmitingAuraValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="celestialGuardian"
-                        onLevelchanged={ (evt) => this.levelChanged("celestialGuardian", evt.detail) }
-                        min={ PriestValues.CelestialGuardianValues.minLevel }
-                        max={ PriestValues.CelestialGuardianValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="celestialBlessings"
-                        onLevelchanged={ (evt) => this.levelChanged("celestialBlessings", evt.detail) }
-                        min={ PriestValues.CelestialBlessingsValues.minLevel }
-                        max={ PriestValues.CelestialBlessingsValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="holySymbol"
-                        onLevelchanged={ (evt) => this.levelChanged("holySymbol", evt.detail) }
-                        min={ PriestValues.HolySymbolValues.minLevel }
-                        max={ PriestValues.HolySymbolValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="disciple"
-                        onLevelchanged={ (evt) => this.levelChanged("disciple", evt.detail) }
-                        min={ PriestValues.DiscipleValues.minLevel }
-                        max={ PriestValues.DiscipleValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="scepterMastery"
-                        onLevelchanged={ (evt) => this.levelChanged("scepterMastery", evt.detail) }
-                        min={ PriestValues.ScepterMasteryValues.minLevel }
-                        max={ PriestValues.ScepterMasteryValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="healingMastery"
-                        onLevelchanged={ (evt) => this.levelChanged("healingMastery", evt.detail) }
-                        min={ PriestValues.HealingMasteryValues.minLevel }
-                        max={ PriestValues.HealingMasteryValues.maxLevel }>
-      </ms-level-control>,
-      <ms-level-control class="angelicRay"
-                        onLevelchanged={ (evt) => this.levelChanged("angelicRay", evt.detail) }
-                        min={ PriestValues.AngelicRayValues.minLevel }
-                        max={ PriestValues.AngelicRayValues.maxLevel }>
-      </ms-level-control>,
+    return [
+      ...renderLevelControls(this, this.properties),
       <ms-priest ref={(el) => this.priestChart = el as HTMLMsPriestElement }></ms-priest>,
-    ]);
+    ];
   }
 }

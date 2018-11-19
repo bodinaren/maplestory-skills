@@ -162,7 +162,7 @@ export namespace Components {
 
   interface MsEditor {
     'msClass': MapleStoryClass;
-    'toHtmlString': () => string;
+    'toHtmlString': () => Promise<string>;
   }
   interface MsEditorAttributes extends StencilHTMLAttributes {
     'msClass'?: MapleStoryClass;
