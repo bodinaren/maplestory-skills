@@ -25,7 +25,7 @@ h1 {
   text-shadow: 1px 1px 1px black;
 
   .element {
-    font-size: .7em;
+    font-size: .8em;
   }
 }
 
@@ -37,6 +37,9 @@ h1 {
 }
 :host([element="Fire"]) h1 {
   background: linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%);
+}
+:host([element="Dark"]) h1 {
+  background: linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%);
 }
 
 .content {
