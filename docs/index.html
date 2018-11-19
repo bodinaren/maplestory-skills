@@ -122,7 +122,7 @@
 					<img class="inactive" src="assets/archer_bw.png" />
 					Archer
 				</a>
-				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="assassin" onclick="toggle('assassin')">
+				<a href="javascript:void(0)" ms-class="assassin" onclick="toggle('assassin')">
 					<img class="active" src="assets/assassin.png" />
 					<img class="inactive" src="assets/assassin_bw.png" />
 					Assassin
@@ -175,7 +175,12 @@
 				</div>
 
 				<div id="assassin">
-					<p>The assassin class is not yet available. It's coming soon!</p>
+          
+          <code>
+            <ms-editor-outlet editor="assassinEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="assassinEditor" ms-class="assassin"></ms-editor>
 				</div>
 
 				<div id="berserker">
