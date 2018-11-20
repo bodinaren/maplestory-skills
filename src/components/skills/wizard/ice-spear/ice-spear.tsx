@@ -15,21 +15,19 @@ export class IceSpearComponent {
   getRequirements(): string[] {
     return [
       `Level ${ IceSpearValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="ice-spear"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Ice Spear"
+                        element="Ice"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        spirit={ 20 }
                         max={ this.max }>
         <ms-icon slot="icon" name="ice-spear"></ms-icon>
         <div slot="description">
@@ -37,7 +35,7 @@ export class IceSpearComponent {
           at the closest enemy up to <span>8</span> m in front of you.
           The spear of ice breaks on impact, its shards
           dealing <span>{ IceSpearValues.damage[this.level] }%</span> ice damage
-          to 8 enemies within 2.5 m and decreasing movement speed by <span>10%</span> for <span>3</span> sec.
+          to <span>8</span> enemies within <span>2.5</span> m and decreasing movement speed by <span>10%</span> for <span>3</span> sec.
           This cold effect can stack up to <span>6</span> times.
           Enemies at max stacks are frozen for <span>1</span> sec.
           Consumes <span>20</span> spirit.

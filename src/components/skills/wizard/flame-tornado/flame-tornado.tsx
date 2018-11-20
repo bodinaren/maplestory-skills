@@ -15,21 +15,21 @@ export class FlameTornadoComponent {
   getRequirements(): string[] {
     return [
       `Level ${ FlameTornadoValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
+      `Flame Wave [Level 4+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="flame-tornado"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Flame Tornado"
+                        element="Fire"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        spirit={ 40 }
+                        cooldown={ 16 }
                         max={ this.max }>
         <ms-icon slot="icon" name="flame-tornado"></ms-icon>
         <div slot="description">

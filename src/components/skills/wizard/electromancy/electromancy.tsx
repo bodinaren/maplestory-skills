@@ -15,21 +15,19 @@ export class ElectromancyComponent {
   getRequirements(): string[] {
     return [
       `Level ${ ElectromancyValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
+      `Chain Lightning [Level 5+]`,
+      `Thunderbolt [Level 5+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="electromancy"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Electromancy"
+                        element="Electric"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
                         max={ this.max }>
         <ms-icon slot="icon" name="electromancy"></ms-icon>
         <div slot="description">

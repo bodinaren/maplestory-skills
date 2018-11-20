@@ -13,23 +13,22 @@ export class ArcaneBlastComponent {
   @Prop({ reflectToAttr: true }) private max: number = ArcaneBlastValues.maxLevel;
 
   getRequirements(): string[] {
-    return [
-      `Level ${ ArcaneBlastValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
-    ];
+    if (ArcaneBlastValues.levelRequirement[this.level] > 0) {
+      return [
+        `Level ${ ArcaneBlastValues.levelRequirement[this.level] }+`,
+      ];
+    }
   }
 
   render() {
     return [
       <ms-icon name="arcane-blast"></ms-icon>,
       <ms-skill-overlay heading="Arcane Blast"
-                        element="¤¤¤¤"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        cooldown={ 6 }
                         max={ this.max }>
         <ms-icon slot="icon" name="arcane-blast"></ms-icon>
         <div slot="description">

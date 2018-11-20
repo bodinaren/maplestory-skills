@@ -15,21 +15,19 @@ export class ManaClawComponent {
   getRequirements(): string[] {
     return [
       `Level ${ ManaClawValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
+      `Arcane Blast [Level 3+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="mana-claw"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Mana Claw"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        spirit={ 15 }
                         max={ this.max }>
         <ms-icon slot="icon" name="mana-claw"></ms-icon>
         <div slot="description">

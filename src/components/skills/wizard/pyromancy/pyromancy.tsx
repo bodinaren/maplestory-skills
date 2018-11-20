@@ -15,21 +15,19 @@ export class PyromancyComponent {
   getRequirements(): string[] {
     return [
       `Level ${ PyromancyValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
+      `Flame Wave [Level 5+]`,
+      `Flame Tornado [Level 5+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="pyromancy"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Pyromancy"
+                        element="Fire"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
                         max={ this.max }>
         <ms-icon slot="icon" name="pyromancy"></ms-icon>
         <div slot="description">
