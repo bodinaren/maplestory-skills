@@ -15,7 +15,7 @@ export class EarthquakeComponent {
   getRequirements(): string[] {
     return [
       `Level ${ EarthquakeValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Deep Wounds [Level 2+]`,
     ];
   }
 
@@ -24,14 +24,17 @@ export class EarthquakeComponent {
       <ms-icon name="earthquake"></ms-icon>,
       <ms-skill-overlay heading="Earthquake"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        type="Physical"
+                        weaponRequired="Two-handed Greatsword"
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
+                        cooldown={ 60 }
                         max={ this.max }>
         <ms-icon slot="icon" name="earthquake"></ms-icon>
         <div slot="description">
+          Drive your greatsword into the ground, creating an
+          earthquake <span>9</span> tiles around you for <span>5</span> sec.
+          Enemies caught in the quake are stunned and
+          take <span>{ EarthquakeValues.damage[this.level] }%</span> damage every second.
         </div>
       </ms-skill-overlay>
     ];

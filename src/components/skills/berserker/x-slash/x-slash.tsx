@@ -17,13 +17,16 @@ export class XSlashComponent {
       <ms-icon name="x-slash"></ms-icon>,
       <ms-skill-overlay heading="X-Slash"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
-                        spirit={ -1 }
-                        cooldown={ -1 }
+                        type="Close Range / Physical"
+                        weaponRequired="Two-handed Greatsword"
                         max={ this.max }>
         <ms-icon slot="icon" name="x-slash"></ms-icon>
         <div slot="description">
+          Swing your greatsword in an X as you charge forward <span>4.5</span> m,
+          dealing <span>75%</span> damage <span>2</span> times to <span>5</span> enemies in your path.
+          This skill can cancel other skills.
+          You will be immune to knockback while this skill is active.
+          Consumes <span>40</span> stamina.
         </div>
       </ms-skill-overlay>
     ];

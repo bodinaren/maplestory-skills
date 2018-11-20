@@ -15,7 +15,7 @@ export class BloodlustComponent {
   getRequirements(): string[] {
     return [
       `Level ${ BloodlustValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Raging Slash [Level 2+]`,
     ];
   }
 
@@ -23,15 +23,20 @@ export class BloodlustComponent {
     return [
       <ms-icon name="bloodlust"></ms-icon>,
       <ms-skill-overlay heading="Bloodlust"
+                        element="Dark"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        type="Close Range / Physical"
+                        weaponRequired="Two-handed Greatsword"
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
+                        cooldown={ 8 }
                         max={ this.max }>
         <ms-icon slot="icon" name="bloodlust"></ms-icon>
         <div slot="description">
+          Thrust your darkened greatsword into <span>2</span> enemies up to <span>3</span> m in front of you,
+          then pull it out to deal <span>{ BloodlustValues.damage[this.level] }%</span> damage <span>2</span> times.
+          The stab attack is always a critical, and pulling the sword out steals health from the enemy,
+          restoring <span>{ BloodlustValues.health[this.level] }%</span> of your max health.
+          In PvP zones, the amount restored is halved.
         </div>
       </ms-skill-overlay>
     ];

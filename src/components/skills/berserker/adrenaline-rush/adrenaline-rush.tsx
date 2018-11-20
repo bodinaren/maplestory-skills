@@ -15,7 +15,7 @@ export class AdrenalineRushComponent {
   getRequirements(): string[] {
     return [
       `Level ${ AdrenalineRushValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Bloodlust [Level 4+]`,
     ];
   }
 
@@ -23,15 +23,17 @@ export class AdrenalineRushComponent {
     return [
       <ms-icon name="adrenaline-rush"></ms-icon>,
       <ms-skill-overlay heading="Adrenaline Rush"
+                        element="Dark"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
                         max={ this.max }>
         <ms-icon slot="icon" name="adrenaline-rush"></ms-icon>
         <div slot="description">
+          Your Dark Aura goes crazy as you're pushed into a corner, increasing the amount of spirit restored
+          by <span>{ AdrenalineRushValues.stage1[this.level] }</span> when your health is at <span>60%</span> or less,
+          by <span>{ AdrenalineRushValues.stage2[this.level] }</span> at <span>45%</span> or less,
+          and by <span>{ AdrenalineRushValues.stage3[this.level] }</span> at <span>30%</span> or less.
         </div>
       </ms-skill-overlay>
     ];

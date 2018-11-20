@@ -15,7 +15,8 @@ export class InhumanEnduranceComponent {
   getRequirements(): string[] {
     return [
       `Level ${ InhumanEnduranceValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Adrenaline Rush [Level 3+]`,
+      `Blood Price [Level 1+]`,
     ];
   }
 
@@ -24,14 +25,15 @@ export class InhumanEnduranceComponent {
       <ms-icon name="inhuman-endurance"></ms-icon>,
       <ms-skill-overlay heading="Inhuman Endurance"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
                         max={ this.max }>
         <ms-icon slot="icon" name="inhuman-endurance"></ms-icon>
         <div slot="description">
+          Dire conditions strengthen your resolve.
+          Your physical resistance and magic resistance increase
+          by <span>{ InhumanEnduranceValues.resistance[this.level] }</span> when
+          your health is less than <span>30%</span>.
         </div>
       </ms-skill-overlay>
     ];

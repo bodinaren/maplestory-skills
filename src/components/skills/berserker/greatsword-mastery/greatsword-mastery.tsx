@@ -15,7 +15,7 @@ export class GreatswordMasteryComponent {
   getRequirements(): string[] {
     return [
       `Level ${ GreatswordMasteryValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Raging Slash [Level 3+]`,
     ];
   }
 
@@ -24,14 +24,13 @@ export class GreatswordMasteryComponent {
       <ms-icon name="greatsword-mastery"></ms-icon>,
       <ms-skill-overlay heading="Greatsword Mastery"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
                         max={ this.max }>
         <ms-icon slot="icon" name="greatsword-mastery"></ms-icon>
         <div slot="description">
+          Ten's lessons on asceticism increase your skill with a greatsword.
+          Your weapon attack increases by <span>{ GreatswordMasteryValues.attack[this.level] }%</span> when you have a greatsword equipped.
         </div>
       </ms-skill-overlay>
     ];

@@ -15,7 +15,7 @@ export class IntimidationComponent {
   getRequirements(): string[] {
     return [
       `Level ${ IntimidationValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Greatsword Master [Level 4+]`,
     ];
   }
 
@@ -24,14 +24,20 @@ export class IntimidationComponent {
       <ms-icon name="intimidation"></ms-icon>,
       <ms-skill-overlay heading="Intimidation"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        type="Close Range / Physical"
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
+                        cooldown={ 16 }
                         max={ this.max }>
         <ms-icon slot="icon" name="intimidation"></ms-icon>
         <div slot="description">
+          Overwhelm enemies with a show of force,
+          dealing <span>{ IntimidationValues.damage[this.level] }%</span> damage
+          to <span>5</span> enemies within <span>3</span> m.
+          Enemies lost the will to fight, reducing their
+          physical attack and magic attack by <span>{ IntimidationValues.attack[this.level] }%</span> and
+          their movement speed and jump power by <span>{ IntimidationValues.movement[this.level] }%</span> for <span>4</span> sec.
+          When at max stacks, Dark Aura is consumed to trigger a more powerful version of this skill.
+          Some powerful enemies are immune.
         </div>
       </ms-skill-overlay>
     ];

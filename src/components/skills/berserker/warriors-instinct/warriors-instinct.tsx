@@ -15,23 +15,24 @@ export class WarriorsInstinctComponent {
   getRequirements(): string[] {
     return [
       `Level ${ WarriorsInstinctValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Void Slash [Level 6+]`,
+      `Dark Breaker [Level 5+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="warriors-instinct"></ms-icon>,
-      <ms-skill-overlay heading="Warriors Instinct"
+      <ms-skill-overlay heading="Warrior's Instinct"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
                         max={ this.max }>
         <ms-icon slot="icon" name="warriors-instinct"></ms-icon>
         <div slot="description">
+          Surrender yourself to your natural combat instinct.
+          Increases physical resistance by <span>{ WarriorsInstinctValues.resistance[this.level] }</span> and
+          piercing by <span>{ WarriorsInstinctValues.piercing[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

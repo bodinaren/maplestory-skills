@@ -16,14 +16,15 @@ export class DarkAuraComponent {
     return [
       <ms-icon name="dark-aura"></ms-icon>,
       <ms-skill-overlay heading="Dark Aura"
+                        element="Dark"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
-                        spirit={ -1 }
-                        cooldown={ -1 }
+                        passive={ true }
                         max={ this.max }>
         <ms-icon slot="icon" name="dark-aura"></ms-icon>
         <div slot="description">
+          Your latent dark power restores <span>10</span> spirit every second.
+          Dark Aura stacks on hit, up to once per second, up to <span>10</span> times total.
+          Each stack increases the amount restored by an additional <span>1</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

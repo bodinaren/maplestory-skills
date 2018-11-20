@@ -15,7 +15,8 @@ export class DeepWoundsComponent {
   getRequirements(): string[] {
     return [
       `Level ${ DeepWoundsValues.levelRequirement[this.level] }+`,
-      `¤¤¤`,
+      `Greatsword Mastery [Level 6+]`,
+      `Intimidation [Level 4+]`,
     ];
   }
 
@@ -24,14 +25,15 @@ export class DeepWoundsComponent {
       <ms-icon name="deep-wounds"></ms-icon>,
       <ms-skill-overlay heading="Deep Wounds"
                         level={ this.level }
-                        type="¤¤¤"
-                        weaponRequired="¤¤¤"
+                        passive={ true }
+                        type="Physical"
                         requirements={ this.getRequirements() }
-                        spirit={ -1 }
-                        cooldown={ -1 }
                         max={ this.max }>
         <ms-icon slot="icon" name="deep-wounds"></ms-icon>
         <div slot="description">
+          Critical attacks inflicted with a greatsword make the enemy bleed,
+          dealing <span>{ DeepWoundsValues.damage[this.level] }%</span> damage
+          every second for <span>10</span> sec.
         </div>
       </ms-skill-overlay>
     ];
