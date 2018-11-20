@@ -1,0 +1,84 @@
+ms-adrenaline-rush {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-blood-price {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-bloodlust {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-dark-aura {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-dark-breaker {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-dark-might {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-death-spin {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-deep-wounds {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-earthquake {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-greatsword-mastery {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-ground-breaker {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-inhuman-endurance {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-intimidation {
+  @include chart-row(4);
+  @include chart-column(4);
+}
+
+ms-raging-slash {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-void-slash {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-warriors-instinct {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-x-slash {
+  @include chart-row(1);
+  @include chart-column(4);
+}
