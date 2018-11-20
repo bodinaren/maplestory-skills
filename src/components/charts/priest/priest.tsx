@@ -37,7 +37,6 @@ export class PriestComponent {
         <ms-celestial-light level={ this.celestialLight }></ms-celestial-light>
         <ms-holy-blast level={ this.holyBlast }></ms-holy-blast>
         <ms-healing-prayer level={ this.healingPrayer }></ms-healing-prayer>
-        <ms-healing-prayer level={ this.healingPrayer }></ms-healing-prayer>
         <ms-scepter-mastery level={ this.scepterMastery }></ms-scepter-mastery>
         <ms-celestial-guardian level={ this.celestialGuardian }></ms-celestial-guardian>
         <ms-shield-of-the-archon level={ this.shieldOfTheArchon }></ms-shield-of-the-archon>
