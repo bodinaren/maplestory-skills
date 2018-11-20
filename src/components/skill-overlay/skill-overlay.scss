@@ -38,6 +38,9 @@ h1 {
 :host([element="Fire"]) h1 {
   background: linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%);
 }
+:host([element="Electric"]) h1 {
+  background: linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%);
+}
 :host([element="Dark"]) h1 {
   background: linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%);
 }
