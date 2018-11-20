@@ -147,7 +147,7 @@
 					<img class="inactive" src="assets/priest_bw.png" />
 					Priest
 				</a>
-				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
+				<a href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
 					<img class="active" src="assets/runeblade.png" />
 					<img class="inactive" src="assets/runeblade_bw.png" />
 					Runeblade
@@ -157,7 +157,7 @@
 					<img class="inactive" src="assets/thief_bw.png" />
 					Thief
 				</a>
-				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
+				<a href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
 					<img class="active" src="assets/wizard.png" />
 					<img class="inactive" src="assets/wizard_bw.png" />
 					Wizard
@@ -206,7 +206,11 @@
 				</div>
 				
 				<div id="runeblade">
-					<p>The runeblade class is not yet available. It's coming soon!</p>
+          <code>
+            <ms-editor-outlet editor="runebladeEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="runebladeEditor" ms-class="runeblade"></ms-editor>
 				</div>
 					
 				<div id="thief">
@@ -214,7 +218,11 @@
 				</div>
 					
 				<div id="wizard">
-					<p>The wizard class is not yet available. It's coming soon!</p>
+          <code>
+            <ms-editor-outlet editor="wizardEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="wizardEditor" ms-class="wizard"></ms-editor>
 				</div>	
 			</div>
 
