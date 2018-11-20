@@ -1,0 +1,85 @@
+
+ms-blade-chasm {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-blade-mastery {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-blink {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-echoing-blade {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-elemental-potency {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-flame-sigil {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-flurry {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-frost-sigil {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-gravity-rune {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-honing-runes {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-illusory-blades {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-impact {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-rune-balance {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-rune-focus {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+ms-storm-sigil {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-warding-rune {
+  @include chart-row(4);
+  @include chart-column(4);
+}
+
+ms-whirling-blades {
+  @include chart-row(3);
+  @include chart-column(2);
+}

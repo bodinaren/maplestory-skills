@@ -147,7 +147,7 @@
 					<img class="inactive" src="assets/priest_bw.png" />
 					Priest
 				</a>
-				<a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
+				<a href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
 					<img class="active" src="assets/runeblade.png" />
 					<img class="inactive" src="assets/runeblade_bw.png" />
 					Runeblade
@@ -202,7 +202,11 @@
 				</div>
 				
 				<div id="runeblade">
-					<p>The runeblade class is not yet available. It's coming soon!</p>
+          <code>
+            <ms-editor-outlet editor="runebladeEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="runebladeEditor" ms-class="runeblade"></ms-editor>
 				</div>
 					
 				<div id="thief">
