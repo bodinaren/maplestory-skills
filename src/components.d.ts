@@ -132,6 +132,84 @@ export namespace Components {
     'steadfastFaith'?: number;
   }
 
+  interface MsRuneblade {
+    'bladeChasm': number;
+    'bladeMastery': number;
+    'blink': number;
+    'echoingBlade': number;
+    'elementalPotency': number;
+    'flameSigil': number;
+    'flurry': number;
+    'frostSigil': number;
+    'gravityRune': number;
+    'honingRunes': number;
+    'illusoryBlades': number;
+    'impact': number;
+    'runeBalance': number;
+    'runeFocus': number;
+    'stormSigil': number;
+    'wardingRune': number;
+    'whirlingBlades': number;
+  }
+  interface MsRunebladeAttributes extends StencilHTMLAttributes {
+    'bladeChasm'?: number;
+    'bladeMastery'?: number;
+    'blink'?: number;
+    'echoingBlade'?: number;
+    'elementalPotency'?: number;
+    'flameSigil'?: number;
+    'flurry'?: number;
+    'frostSigil'?: number;
+    'gravityRune'?: number;
+    'honingRunes'?: number;
+    'illusoryBlades'?: number;
+    'impact'?: number;
+    'runeBalance'?: number;
+    'runeFocus'?: number;
+    'stormSigil'?: number;
+    'wardingRune'?: number;
+    'whirlingBlades'?: number;
+  }
+
+  interface MsWizard {
+    'arcaneBlast': number;
+    'chainLightning': number;
+    'cryomancy': number;
+    'electromancy': number;
+    'elementalMaster': number;
+    'flameTornado': number;
+    'flameWave': number;
+    'focusSeal': number;
+    'iceSpear': number;
+    'iceStorm': number;
+    'magicArmor': number;
+    'manaClaw': number;
+    'manaFont': number;
+    'phantomClaw': number;
+    'pyromancy': number;
+    'teleport': number;
+    'thunderbolt': number;
+  }
+  interface MsWizardAttributes extends StencilHTMLAttributes {
+    'arcaneBlast'?: number;
+    'chainLightning'?: number;
+    'cryomancy'?: number;
+    'electromancy'?: number;
+    'elementalMaster'?: number;
+    'flameTornado'?: number;
+    'flameWave'?: number;
+    'focusSeal'?: number;
+    'iceSpear'?: number;
+    'iceStorm'?: number;
+    'magicArmor'?: number;
+    'manaClaw'?: number;
+    'manaFont'?: number;
+    'phantomClaw'?: number;
+    'pyromancy'?: number;
+    'teleport'?: number;
+    'thunderbolt'?: number;
+  }
+
   interface MsArcherEditor {
     'toHtmlString': () => Promise<string>;
   }
@@ -150,6 +228,20 @@ export namespace Components {
     'toHtmlString': () => Promise<string>;
   }
   interface MsPriestEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
+  interface MsRunebladeEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsRunebladeEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
+  interface MsWizardEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsWizardEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
@@ -671,6 +763,312 @@ export namespace Components {
     'level'?: number;
     'max'?: number;
   }
+
+  interface MsBladeChasm {
+    'level': number;
+    'max': number;
+  }
+  interface MsBladeChasmAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBladeMastery {
+    'level': number;
+    'max': number;
+  }
+  interface MsBladeMasteryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBlink {
+    'level': number;
+    'max': number;
+  }
+  interface MsBlinkAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsEchoingBlade {
+    'level': number;
+    'max': number;
+  }
+  interface MsEchoingBladeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsElementalPotency {
+    'level': number;
+    'max': number;
+  }
+  interface MsElementalPotencyAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFlameSigil {
+    'level': number;
+    'max': number;
+  }
+  interface MsFlameSigilAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFlurry {
+    'level': number;
+    'max': number;
+  }
+  interface MsFlurryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFrostSigil {
+    'level': number;
+    'max': number;
+  }
+  interface MsFrostSigilAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsGravityRune {
+    'level': number;
+    'max': number;
+  }
+  interface MsGravityRuneAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsHoningRunes {
+    'level': number;
+    'max': number;
+  }
+  interface MsHoningRunesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIllusoryBlades {
+    'level': number;
+    'max': number;
+  }
+  interface MsIllusoryBladesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsImpact {
+    'level': number;
+    'max': number;
+  }
+  interface MsImpactAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRuneBalance {
+    'level': number;
+    'max': number;
+  }
+  interface MsRuneBalanceAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRuneFocus {
+    'level': number;
+    'max': number;
+  }
+  interface MsRuneFocusAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsStormSigil {
+    'level': number;
+    'max': number;
+  }
+  interface MsStormSigilAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsWardingRune {
+    'level': number;
+    'max': number;
+  }
+  interface MsWardingRuneAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsWhirlingBlades {
+    'level': number;
+    'max': number;
+  }
+  interface MsWhirlingBladesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsArcaneBlast {
+    'level': number;
+    'max': number;
+  }
+  interface MsArcaneBlastAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsChainLightning {
+    'level': number;
+    'max': number;
+  }
+  interface MsChainLightningAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsCryomancy {
+    'level': number;
+    'max': number;
+  }
+  interface MsCryomancyAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsElectromancy {
+    'level': number;
+    'max': number;
+  }
+  interface MsElectromancyAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsElementalMaster {
+    'level': number;
+    'max': number;
+  }
+  interface MsElementalMasterAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFlameTornado {
+    'level': number;
+    'max': number;
+  }
+  interface MsFlameTornadoAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFlameWave {
+    'level': number;
+    'max': number;
+  }
+  interface MsFlameWaveAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsFocusSeal {
+    'level': number;
+    'max': number;
+  }
+  interface MsFocusSealAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIceSpear {
+    'level': number;
+    'max': number;
+  }
+  interface MsIceSpearAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIceStorm {
+    'level': number;
+    'max': number;
+  }
+  interface MsIceStormAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMagicArmor {
+    'level': number;
+    'max': number;
+  }
+  interface MsMagicArmorAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsManaClaw {
+    'level': number;
+    'max': number;
+  }
+  interface MsManaClawAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsManaFont {
+    'level': number;
+    'max': number;
+  }
+  interface MsManaFontAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsPhantomClaw {
+    'level': number;
+    'max': number;
+  }
+  interface MsPhantomClawAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsPyromancy {
+    'level': number;
+    'max': number;
+  }
+  interface MsPyromancyAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsTeleport {
+    'level': number;
+    'max': number;
+  }
+  interface MsTeleportAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsThunderbolt {
+    'level': number;
+    'max': number;
+  }
+  interface MsThunderboltAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
 }
 
 declare global {
@@ -678,9 +1076,13 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsAssassin': Components.MsAssassin;
     'MsPriest': Components.MsPriest;
+    'MsRuneblade': Components.MsRuneblade;
+    'MsWizard': Components.MsWizard;
     'MsArcherEditor': Components.MsArcherEditor;
     'MsAssassinEditor': Components.MsAssassinEditor;
     'MsPriestEditor': Components.MsPriestEditor;
+    'MsRunebladeEditor': Components.MsRunebladeEditor;
+    'MsWizardEditor': Components.MsWizardEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
     'MsLevelControl': Components.MsLevelControl;
@@ -737,15 +1139,53 @@ declare global {
     'MsShieldOfTheArchon': Components.MsShieldOfTheArchon;
     'MsSmitingAura': Components.MsSmitingAura;
     'MsSteadfastFaith': Components.MsSteadfastFaith;
+    'MsBladeChasm': Components.MsBladeChasm;
+    'MsBladeMastery': Components.MsBladeMastery;
+    'MsBlink': Components.MsBlink;
+    'MsEchoingBlade': Components.MsEchoingBlade;
+    'MsElementalPotency': Components.MsElementalPotency;
+    'MsFlameSigil': Components.MsFlameSigil;
+    'MsFlurry': Components.MsFlurry;
+    'MsFrostSigil': Components.MsFrostSigil;
+    'MsGravityRune': Components.MsGravityRune;
+    'MsHoningRunes': Components.MsHoningRunes;
+    'MsIllusoryBlades': Components.MsIllusoryBlades;
+    'MsImpact': Components.MsImpact;
+    'MsRuneBalance': Components.MsRuneBalance;
+    'MsRuneFocus': Components.MsRuneFocus;
+    'MsStormSigil': Components.MsStormSigil;
+    'MsWardingRune': Components.MsWardingRune;
+    'MsWhirlingBlades': Components.MsWhirlingBlades;
+    'MsArcaneBlast': Components.MsArcaneBlast;
+    'MsChainLightning': Components.MsChainLightning;
+    'MsCryomancy': Components.MsCryomancy;
+    'MsElectromancy': Components.MsElectromancy;
+    'MsElementalMaster': Components.MsElementalMaster;
+    'MsFlameTornado': Components.MsFlameTornado;
+    'MsFlameWave': Components.MsFlameWave;
+    'MsFocusSeal': Components.MsFocusSeal;
+    'MsIceSpear': Components.MsIceSpear;
+    'MsIceStorm': Components.MsIceStorm;
+    'MsMagicArmor': Components.MsMagicArmor;
+    'MsManaClaw': Components.MsManaClaw;
+    'MsManaFont': Components.MsManaFont;
+    'MsPhantomClaw': Components.MsPhantomClaw;
+    'MsPyromancy': Components.MsPyromancy;
+    'MsTeleport': Components.MsTeleport;
+    'MsThunderbolt': Components.MsThunderbolt;
   }
 
   interface StencilIntrinsicElements {
     'ms-archer': Components.MsArcherAttributes;
     'ms-assassin': Components.MsAssassinAttributes;
     'ms-priest': Components.MsPriestAttributes;
+    'ms-runeblade': Components.MsRunebladeAttributes;
+    'ms-wizard': Components.MsWizardAttributes;
     'ms-archer-editor': Components.MsArcherEditorAttributes;
     'ms-assassin-editor': Components.MsAssassinEditorAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
+    'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
+    'ms-wizard-editor': Components.MsWizardEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
     'ms-level-control': Components.MsLevelControlAttributes;
@@ -802,6 +1242,40 @@ declare global {
     'ms-shield-of-the-archon': Components.MsShieldOfTheArchonAttributes;
     'ms-smiting-aura': Components.MsSmitingAuraAttributes;
     'ms-steadfast-faith': Components.MsSteadfastFaithAttributes;
+    'ms-blade-chasm': Components.MsBladeChasmAttributes;
+    'ms-blade-mastery': Components.MsBladeMasteryAttributes;
+    'ms-blink': Components.MsBlinkAttributes;
+    'ms-echoing-blade': Components.MsEchoingBladeAttributes;
+    'ms-elemental-potency': Components.MsElementalPotencyAttributes;
+    'ms-flame-sigil': Components.MsFlameSigilAttributes;
+    'ms-flurry': Components.MsFlurryAttributes;
+    'ms-frost-sigil': Components.MsFrostSigilAttributes;
+    'ms-gravity-rune': Components.MsGravityRuneAttributes;
+    'ms-honing-runes': Components.MsHoningRunesAttributes;
+    'ms-illusory-blades': Components.MsIllusoryBladesAttributes;
+    'ms-impact': Components.MsImpactAttributes;
+    'ms-rune-balance': Components.MsRuneBalanceAttributes;
+    'ms-rune-focus': Components.MsRuneFocusAttributes;
+    'ms-storm-sigil': Components.MsStormSigilAttributes;
+    'ms-warding-rune': Components.MsWardingRuneAttributes;
+    'ms-whirling-blades': Components.MsWhirlingBladesAttributes;
+    'ms-arcane-blast': Components.MsArcaneBlastAttributes;
+    'ms-chain-lightning': Components.MsChainLightningAttributes;
+    'ms-cryomancy': Components.MsCryomancyAttributes;
+    'ms-electromancy': Components.MsElectromancyAttributes;
+    'ms-elemental-master': Components.MsElementalMasterAttributes;
+    'ms-flame-tornado': Components.MsFlameTornadoAttributes;
+    'ms-flame-wave': Components.MsFlameWaveAttributes;
+    'ms-focus-seal': Components.MsFocusSealAttributes;
+    'ms-ice-spear': Components.MsIceSpearAttributes;
+    'ms-ice-storm': Components.MsIceStormAttributes;
+    'ms-magic-armor': Components.MsMagicArmorAttributes;
+    'ms-mana-claw': Components.MsManaClawAttributes;
+    'ms-mana-font': Components.MsManaFontAttributes;
+    'ms-phantom-claw': Components.MsPhantomClawAttributes;
+    'ms-pyromancy': Components.MsPyromancyAttributes;
+    'ms-teleport': Components.MsTeleportAttributes;
+    'ms-thunderbolt': Components.MsThunderboltAttributes;
   }
 
 
@@ -823,6 +1297,18 @@ declare global {
     new (): HTMLMsPriestElement;
   };
 
+  interface HTMLMsRunebladeElement extends Components.MsRuneblade, HTMLStencilElement {}
+  var HTMLMsRunebladeElement: {
+    prototype: HTMLMsRunebladeElement;
+    new (): HTMLMsRunebladeElement;
+  };
+
+  interface HTMLMsWizardElement extends Components.MsWizard, HTMLStencilElement {}
+  var HTMLMsWizardElement: {
+    prototype: HTMLMsWizardElement;
+    new (): HTMLMsWizardElement;
+  };
+
   interface HTMLMsArcherEditorElement extends Components.MsArcherEditor, HTMLStencilElement {}
   var HTMLMsArcherEditorElement: {
     prototype: HTMLMsArcherEditorElement;
@@ -839,6 +1325,18 @@ declare global {
   var HTMLMsPriestEditorElement: {
     prototype: HTMLMsPriestEditorElement;
     new (): HTMLMsPriestEditorElement;
+  };
+
+  interface HTMLMsRunebladeEditorElement extends Components.MsRunebladeEditor, HTMLStencilElement {}
+  var HTMLMsRunebladeEditorElement: {
+    prototype: HTMLMsRunebladeEditorElement;
+    new (): HTMLMsRunebladeEditorElement;
+  };
+
+  interface HTMLMsWizardEditorElement extends Components.MsWizardEditor, HTMLStencilElement {}
+  var HTMLMsWizardEditorElement: {
+    prototype: HTMLMsWizardEditorElement;
+    new (): HTMLMsWizardEditorElement;
   };
 
   interface HTMLMsEditorOutletElement extends Components.MsEditorOutlet, HTMLStencilElement {}
@@ -1177,13 +1675,221 @@ declare global {
     new (): HTMLMsSteadfastFaithElement;
   };
 
+  interface HTMLMsBladeChasmElement extends Components.MsBladeChasm, HTMLStencilElement {}
+  var HTMLMsBladeChasmElement: {
+    prototype: HTMLMsBladeChasmElement;
+    new (): HTMLMsBladeChasmElement;
+  };
+
+  interface HTMLMsBladeMasteryElement extends Components.MsBladeMastery, HTMLStencilElement {}
+  var HTMLMsBladeMasteryElement: {
+    prototype: HTMLMsBladeMasteryElement;
+    new (): HTMLMsBladeMasteryElement;
+  };
+
+  interface HTMLMsBlinkElement extends Components.MsBlink, HTMLStencilElement {}
+  var HTMLMsBlinkElement: {
+    prototype: HTMLMsBlinkElement;
+    new (): HTMLMsBlinkElement;
+  };
+
+  interface HTMLMsEchoingBladeElement extends Components.MsEchoingBlade, HTMLStencilElement {}
+  var HTMLMsEchoingBladeElement: {
+    prototype: HTMLMsEchoingBladeElement;
+    new (): HTMLMsEchoingBladeElement;
+  };
+
+  interface HTMLMsElementalPotencyElement extends Components.MsElementalPotency, HTMLStencilElement {}
+  var HTMLMsElementalPotencyElement: {
+    prototype: HTMLMsElementalPotencyElement;
+    new (): HTMLMsElementalPotencyElement;
+  };
+
+  interface HTMLMsFlameSigilElement extends Components.MsFlameSigil, HTMLStencilElement {}
+  var HTMLMsFlameSigilElement: {
+    prototype: HTMLMsFlameSigilElement;
+    new (): HTMLMsFlameSigilElement;
+  };
+
+  interface HTMLMsFlurryElement extends Components.MsFlurry, HTMLStencilElement {}
+  var HTMLMsFlurryElement: {
+    prototype: HTMLMsFlurryElement;
+    new (): HTMLMsFlurryElement;
+  };
+
+  interface HTMLMsFrostSigilElement extends Components.MsFrostSigil, HTMLStencilElement {}
+  var HTMLMsFrostSigilElement: {
+    prototype: HTMLMsFrostSigilElement;
+    new (): HTMLMsFrostSigilElement;
+  };
+
+  interface HTMLMsGravityRuneElement extends Components.MsGravityRune, HTMLStencilElement {}
+  var HTMLMsGravityRuneElement: {
+    prototype: HTMLMsGravityRuneElement;
+    new (): HTMLMsGravityRuneElement;
+  };
+
+  interface HTMLMsHoningRunesElement extends Components.MsHoningRunes, HTMLStencilElement {}
+  var HTMLMsHoningRunesElement: {
+    prototype: HTMLMsHoningRunesElement;
+    new (): HTMLMsHoningRunesElement;
+  };
+
+  interface HTMLMsIllusoryBladesElement extends Components.MsIllusoryBlades, HTMLStencilElement {}
+  var HTMLMsIllusoryBladesElement: {
+    prototype: HTMLMsIllusoryBladesElement;
+    new (): HTMLMsIllusoryBladesElement;
+  };
+
+  interface HTMLMsImpactElement extends Components.MsImpact, HTMLStencilElement {}
+  var HTMLMsImpactElement: {
+    prototype: HTMLMsImpactElement;
+    new (): HTMLMsImpactElement;
+  };
+
+  interface HTMLMsRuneBalanceElement extends Components.MsRuneBalance, HTMLStencilElement {}
+  var HTMLMsRuneBalanceElement: {
+    prototype: HTMLMsRuneBalanceElement;
+    new (): HTMLMsRuneBalanceElement;
+  };
+
+  interface HTMLMsRuneFocusElement extends Components.MsRuneFocus, HTMLStencilElement {}
+  var HTMLMsRuneFocusElement: {
+    prototype: HTMLMsRuneFocusElement;
+    new (): HTMLMsRuneFocusElement;
+  };
+
+  interface HTMLMsStormSigilElement extends Components.MsStormSigil, HTMLStencilElement {}
+  var HTMLMsStormSigilElement: {
+    prototype: HTMLMsStormSigilElement;
+    new (): HTMLMsStormSigilElement;
+  };
+
+  interface HTMLMsWardingRuneElement extends Components.MsWardingRune, HTMLStencilElement {}
+  var HTMLMsWardingRuneElement: {
+    prototype: HTMLMsWardingRuneElement;
+    new (): HTMLMsWardingRuneElement;
+  };
+
+  interface HTMLMsWhirlingBladesElement extends Components.MsWhirlingBlades, HTMLStencilElement {}
+  var HTMLMsWhirlingBladesElement: {
+    prototype: HTMLMsWhirlingBladesElement;
+    new (): HTMLMsWhirlingBladesElement;
+  };
+
+  interface HTMLMsArcaneBlastElement extends Components.MsArcaneBlast, HTMLStencilElement {}
+  var HTMLMsArcaneBlastElement: {
+    prototype: HTMLMsArcaneBlastElement;
+    new (): HTMLMsArcaneBlastElement;
+  };
+
+  interface HTMLMsChainLightningElement extends Components.MsChainLightning, HTMLStencilElement {}
+  var HTMLMsChainLightningElement: {
+    prototype: HTMLMsChainLightningElement;
+    new (): HTMLMsChainLightningElement;
+  };
+
+  interface HTMLMsCryomancyElement extends Components.MsCryomancy, HTMLStencilElement {}
+  var HTMLMsCryomancyElement: {
+    prototype: HTMLMsCryomancyElement;
+    new (): HTMLMsCryomancyElement;
+  };
+
+  interface HTMLMsElectromancyElement extends Components.MsElectromancy, HTMLStencilElement {}
+  var HTMLMsElectromancyElement: {
+    prototype: HTMLMsElectromancyElement;
+    new (): HTMLMsElectromancyElement;
+  };
+
+  interface HTMLMsElementalMasterElement extends Components.MsElementalMaster, HTMLStencilElement {}
+  var HTMLMsElementalMasterElement: {
+    prototype: HTMLMsElementalMasterElement;
+    new (): HTMLMsElementalMasterElement;
+  };
+
+  interface HTMLMsFlameTornadoElement extends Components.MsFlameTornado, HTMLStencilElement {}
+  var HTMLMsFlameTornadoElement: {
+    prototype: HTMLMsFlameTornadoElement;
+    new (): HTMLMsFlameTornadoElement;
+  };
+
+  interface HTMLMsFlameWaveElement extends Components.MsFlameWave, HTMLStencilElement {}
+  var HTMLMsFlameWaveElement: {
+    prototype: HTMLMsFlameWaveElement;
+    new (): HTMLMsFlameWaveElement;
+  };
+
+  interface HTMLMsFocusSealElement extends Components.MsFocusSeal, HTMLStencilElement {}
+  var HTMLMsFocusSealElement: {
+    prototype: HTMLMsFocusSealElement;
+    new (): HTMLMsFocusSealElement;
+  };
+
+  interface HTMLMsIceSpearElement extends Components.MsIceSpear, HTMLStencilElement {}
+  var HTMLMsIceSpearElement: {
+    prototype: HTMLMsIceSpearElement;
+    new (): HTMLMsIceSpearElement;
+  };
+
+  interface HTMLMsIceStormElement extends Components.MsIceStorm, HTMLStencilElement {}
+  var HTMLMsIceStormElement: {
+    prototype: HTMLMsIceStormElement;
+    new (): HTMLMsIceStormElement;
+  };
+
+  interface HTMLMsMagicArmorElement extends Components.MsMagicArmor, HTMLStencilElement {}
+  var HTMLMsMagicArmorElement: {
+    prototype: HTMLMsMagicArmorElement;
+    new (): HTMLMsMagicArmorElement;
+  };
+
+  interface HTMLMsManaClawElement extends Components.MsManaClaw, HTMLStencilElement {}
+  var HTMLMsManaClawElement: {
+    prototype: HTMLMsManaClawElement;
+    new (): HTMLMsManaClawElement;
+  };
+
+  interface HTMLMsManaFontElement extends Components.MsManaFont, HTMLStencilElement {}
+  var HTMLMsManaFontElement: {
+    prototype: HTMLMsManaFontElement;
+    new (): HTMLMsManaFontElement;
+  };
+
+  interface HTMLMsPhantomClawElement extends Components.MsPhantomClaw, HTMLStencilElement {}
+  var HTMLMsPhantomClawElement: {
+    prototype: HTMLMsPhantomClawElement;
+    new (): HTMLMsPhantomClawElement;
+  };
+
+  interface HTMLMsPyromancyElement extends Components.MsPyromancy, HTMLStencilElement {}
+  var HTMLMsPyromancyElement: {
+    prototype: HTMLMsPyromancyElement;
+    new (): HTMLMsPyromancyElement;
+  };
+
+  interface HTMLMsTeleportElement extends Components.MsTeleport, HTMLStencilElement {}
+  var HTMLMsTeleportElement: {
+    prototype: HTMLMsTeleportElement;
+    new (): HTMLMsTeleportElement;
+  };
+
+  interface HTMLMsThunderboltElement extends Components.MsThunderbolt, HTMLStencilElement {}
+  var HTMLMsThunderboltElement: {
+    prototype: HTMLMsThunderboltElement;
+    new (): HTMLMsThunderboltElement;
+  };
+
   interface HTMLElementTagNameMap {
     'ms-archer': HTMLMsArcherElement
     'ms-assassin': HTMLMsAssassinElement
     'ms-priest': HTMLMsPriestElement
+    'ms-runeblade': HTMLMsRunebladeElement
+    'ms-wizard': HTMLMsWizardElement
     'ms-archer-editor': HTMLMsArcherEditorElement
     'ms-assassin-editor': HTMLMsAssassinEditorElement
     'ms-priest-editor': HTMLMsPriestEditorElement
+    'ms-runeblade-editor': HTMLMsRunebladeEditorElement
+    'ms-wizard-editor': HTMLMsWizardEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
     'ms-level-control': HTMLMsLevelControlElement
@@ -1240,15 +1946,53 @@ declare global {
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement
     'ms-smiting-aura': HTMLMsSmitingAuraElement
     'ms-steadfast-faith': HTMLMsSteadfastFaithElement
+    'ms-blade-chasm': HTMLMsBladeChasmElement
+    'ms-blade-mastery': HTMLMsBladeMasteryElement
+    'ms-blink': HTMLMsBlinkElement
+    'ms-echoing-blade': HTMLMsEchoingBladeElement
+    'ms-elemental-potency': HTMLMsElementalPotencyElement
+    'ms-flame-sigil': HTMLMsFlameSigilElement
+    'ms-flurry': HTMLMsFlurryElement
+    'ms-frost-sigil': HTMLMsFrostSigilElement
+    'ms-gravity-rune': HTMLMsGravityRuneElement
+    'ms-honing-runes': HTMLMsHoningRunesElement
+    'ms-illusory-blades': HTMLMsIllusoryBladesElement
+    'ms-impact': HTMLMsImpactElement
+    'ms-rune-balance': HTMLMsRuneBalanceElement
+    'ms-rune-focus': HTMLMsRuneFocusElement
+    'ms-storm-sigil': HTMLMsStormSigilElement
+    'ms-warding-rune': HTMLMsWardingRuneElement
+    'ms-whirling-blades': HTMLMsWhirlingBladesElement
+    'ms-arcane-blast': HTMLMsArcaneBlastElement
+    'ms-chain-lightning': HTMLMsChainLightningElement
+    'ms-cryomancy': HTMLMsCryomancyElement
+    'ms-electromancy': HTMLMsElectromancyElement
+    'ms-elemental-master': HTMLMsElementalMasterElement
+    'ms-flame-tornado': HTMLMsFlameTornadoElement
+    'ms-flame-wave': HTMLMsFlameWaveElement
+    'ms-focus-seal': HTMLMsFocusSealElement
+    'ms-ice-spear': HTMLMsIceSpearElement
+    'ms-ice-storm': HTMLMsIceStormElement
+    'ms-magic-armor': HTMLMsMagicArmorElement
+    'ms-mana-claw': HTMLMsManaClawElement
+    'ms-mana-font': HTMLMsManaFontElement
+    'ms-phantom-claw': HTMLMsPhantomClawElement
+    'ms-pyromancy': HTMLMsPyromancyElement
+    'ms-teleport': HTMLMsTeleportElement
+    'ms-thunderbolt': HTMLMsThunderboltElement
   }
 
   interface ElementTagNameMap {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-priest': HTMLMsPriestElement;
+    'ms-runeblade': HTMLMsRunebladeElement;
+    'ms-wizard': HTMLMsWizardElement;
     'ms-archer-editor': HTMLMsArcherEditorElement;
     'ms-assassin-editor': HTMLMsAssassinEditorElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
+    'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
+    'ms-wizard-editor': HTMLMsWizardEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
     'ms-level-control': HTMLMsLevelControlElement;
@@ -1305,6 +2049,40 @@ declare global {
     'ms-shield-of-the-archon': HTMLMsShieldOfTheArchonElement;
     'ms-smiting-aura': HTMLMsSmitingAuraElement;
     'ms-steadfast-faith': HTMLMsSteadfastFaithElement;
+    'ms-blade-chasm': HTMLMsBladeChasmElement;
+    'ms-blade-mastery': HTMLMsBladeMasteryElement;
+    'ms-blink': HTMLMsBlinkElement;
+    'ms-echoing-blade': HTMLMsEchoingBladeElement;
+    'ms-elemental-potency': HTMLMsElementalPotencyElement;
+    'ms-flame-sigil': HTMLMsFlameSigilElement;
+    'ms-flurry': HTMLMsFlurryElement;
+    'ms-frost-sigil': HTMLMsFrostSigilElement;
+    'ms-gravity-rune': HTMLMsGravityRuneElement;
+    'ms-honing-runes': HTMLMsHoningRunesElement;
+    'ms-illusory-blades': HTMLMsIllusoryBladesElement;
+    'ms-impact': HTMLMsImpactElement;
+    'ms-rune-balance': HTMLMsRuneBalanceElement;
+    'ms-rune-focus': HTMLMsRuneFocusElement;
+    'ms-storm-sigil': HTMLMsStormSigilElement;
+    'ms-warding-rune': HTMLMsWardingRuneElement;
+    'ms-whirling-blades': HTMLMsWhirlingBladesElement;
+    'ms-arcane-blast': HTMLMsArcaneBlastElement;
+    'ms-chain-lightning': HTMLMsChainLightningElement;
+    'ms-cryomancy': HTMLMsCryomancyElement;
+    'ms-electromancy': HTMLMsElectromancyElement;
+    'ms-elemental-master': HTMLMsElementalMasterElement;
+    'ms-flame-tornado': HTMLMsFlameTornadoElement;
+    'ms-flame-wave': HTMLMsFlameWaveElement;
+    'ms-focus-seal': HTMLMsFocusSealElement;
+    'ms-ice-spear': HTMLMsIceSpearElement;
+    'ms-ice-storm': HTMLMsIceStormElement;
+    'ms-magic-armor': HTMLMsMagicArmorElement;
+    'ms-mana-claw': HTMLMsManaClawElement;
+    'ms-mana-font': HTMLMsManaFontElement;
+    'ms-phantom-claw': HTMLMsPhantomClawElement;
+    'ms-pyromancy': HTMLMsPyromancyElement;
+    'ms-teleport': HTMLMsTeleportElement;
+    'ms-thunderbolt': HTMLMsThunderboltElement;
   }
 
 

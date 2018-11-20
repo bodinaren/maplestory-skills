@@ -1,1 +1,1 @@
-export type MapleStoryClass = "archer" | "assassin" | "priest";
+export type MapleStoryClass = "archer" | "assassin" | "priest" | "runeblade" | "wizard";

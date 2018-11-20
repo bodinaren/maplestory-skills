@@ -1,0 +1,85 @@
+
+ms-arcane-blast {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-chain-lightning {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-cryomancy {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-electromancy {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-elemental-master {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-flame-tornado {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+ms-flame-wave {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-focus-seal {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-ice-spear {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-ice-storm {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-magic-armor {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-mana-claw {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-mana-font {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-phantom-claw {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-pyromancy {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+ms-teleport {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-thunderbolt {
+  @include chart-row(4);
+  @include chart-column(3);
+}

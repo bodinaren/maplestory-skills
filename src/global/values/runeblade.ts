@@ -95,6 +95,7 @@ export const RuneFocusValues = {
   damage: [1, 1, 1.6, 2.4, 2.8, 3.4, 4.0, 4.6, 5.2, 5.8, 6.4],
   defence: [1, 1, 1.4, 1.8, 2.2, 2.6, 3.0, 3.4, 3.8, 4.2, 4.6],
   movement: [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  evasion: [1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4],
 };
 
 export const StormSigilValues = {
