@@ -15,21 +15,21 @@ export class ThunderboltComponent {
   getRequirements(): string[] {
     return [
       `Level ${ ThunderboltValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
+      `Chain Lightning [Level 4+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="thunderbolt"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Thunderbolt"
+                        element="Electric"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        spirit={ 40 }
+                        cooldown={ 16 }
                         max={ this.max }>
         <ms-icon slot="icon" name="thunderbolt"></ms-icon>
         <div slot="description">

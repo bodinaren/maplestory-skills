@@ -15,21 +15,16 @@ export class ElementalMasterComponent {
   getRequirements(): string[] {
     return [
       `Level ${ ElementalMasterValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="elemental-master"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Elemental Master"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        passive={ true }
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
                         max={ this.max }>
         <ms-icon slot="icon" name="elemental-master"></ms-icon>
         <div slot="description">

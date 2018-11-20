@@ -15,21 +15,19 @@ export class FlameWaveComponent {
   getRequirements(): string[] {
     return [
       `Level ${ FlameWaveValues.levelRequirement[this.level] }+`,
-      `Shadow Cutter [Level 4+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="flame-wave"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
-                        element="¤¤¤¤"
+      <ms-skill-overlay heading="Flame Wave"
+                        element="Fire"
                         level={ this.level }
-                        type="¤¤¤¤"
-                        weaponRequired="¤¤¤¤"
+                        type="Long Range / Magic"
+                        weaponRequired="Two-handed Staff"
                         requirements={ this.getRequirements() }
-                        spirit={ 11111 }
-                        cooldown={ 11111 }
+                        spirit={ 20 }
                         max={ this.max }>
         <ms-icon slot="icon" name="flame-wave"></ms-icon>
         <div slot="description">
