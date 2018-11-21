@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -267,26 +267,31 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         </div>
       </dl>
     </div>
-    
+
     <script>
+      var editors = document.querySelectorAll("#editors > div");
+      var toggles = document.querySelectorAll("#toggles > a");
+
       function hideAll() {
-        document.querySelectorAll("#editors > div").forEach(function(el) {
-          el.style.display = "none";
-        });
-        document.querySelectorAll("#toggles > a").forEach(function(el) {
-          el.classList.remove("active");
-        });
+        for (var prop in editors) {
+          if (editors.hasOwnProperty(prop))
+            editors[prop].style.display = "none";
+        }
+        for (var prop in toggles) {
+          if (toggles.hasOwnProperty(prop))
+            toggles[prop].classList.remove("active");
+        }
       }
 
       function toggle(msClass) {
         hideAll();
         document.querySelector("#" + msClass).style.display = "block";
-        document.querySelector(`[ms-class="${ msClass }"]`).classList.add("active");
+        document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
       }
 
       hideAll();
       toggle("archer");
     </script>
-    
+
   </body>
 </html>
