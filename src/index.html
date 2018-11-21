@@ -15,10 +15,10 @@
         line-height: 1.6em;
       }
 
-			h1 { margin-top: 50px; }
-			h2 { margin-top: 30px; }
+      h1 { margin-top: 50px; }
+      h2 { margin-top: 30px; }
       a { color: white; }
-      
+
       blockquote {
         font-style: italic;
         padding: 5px 5px 5px 10px;
@@ -62,16 +62,18 @@
         min-height: 300px;
       }
       
-      ms-editor-outlet {
+      code {
+        display: block;
         box-sizing: border-box;
         width: 819px;
         height: 110px;
-        white-space: pre-wrap;
         background-color: black;
         color: white;
         padding: 5px;
         font-size: 14px;
+        margin: 1em 0;
       }
+      ms-editor-outlet { display: block; }
       
       ms-editor { font-size: 1rem; }
 
@@ -173,7 +175,8 @@
       <div id="editors">
         <div id="archer">
           <code>
-            <ms-editor-outlet editor="archerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="archerEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="archerEditor" ms-class="archer"></ms-editor>
@@ -181,7 +184,8 @@
 
         <div id="assassin">
           <code>
-            <ms-editor-outlet editor="assassinEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="assassinEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="assassinEditor" ms-class="assassin"></ms-editor>
@@ -189,7 +193,8 @@
 
         <div id="berserker">
           <code>
-            <ms-editor-outlet editor="berserkerEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="berserkerEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="berserkerEditor" ms-class="berserker"></ms-editor>
@@ -205,7 +210,8 @@
         
         <div id="priest">
           <code>
-            <ms-editor-outlet editor="priestEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="priestEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="priestEditor" ms-class="priest"></ms-editor>
@@ -213,7 +219,8 @@
         
         <div id="runeblade">
           <code>
-            <ms-editor-outlet editor="runebladeEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="runebladeEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="runebladeEditor" ms-class="runeblade"></ms-editor>
@@ -225,12 +232,12 @@
           
         <div id="wizard">
           <code>
-            <ms-editor-outlet editor="wizardEditor">&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br/></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="wizardEditor"></ms-editor-outlet>
           </code>
 
           <ms-editor id="wizardEditor" ms-class="wizard"></ms-editor>
         </div>
-                
       </div>
 
       <h2>FAQ</h2>
@@ -238,7 +245,7 @@
         <div>
           <dt>The skill charts are too big!</dt>
           <dd>
-            You can make them smaller with transform.
+            You can make them smaller with CSS transformations.
             <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
@@ -263,10 +270,10 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
     
     <script>
       function hideAll() {
-        document.querySelectorAll("#editors div").forEach(function(el) {
+        document.querySelectorAll("#editors > div").forEach(function(el) {
           el.style.display = "none";
         });
-        document.querySelectorAll("#toggles a").forEach(function(el) {
+        document.querySelectorAll("#toggles > a").forEach(function(el) {
           el.classList.remove("active");
         });
       }

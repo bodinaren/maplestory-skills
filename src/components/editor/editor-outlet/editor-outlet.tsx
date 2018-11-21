@@ -27,10 +27,10 @@ export class EditorOutletComponent {
 
   render() {
     return [
-      <slot name="before"></slot>,
+      <slot name="first"></slot>,
       <slot></slot>,
       this._htmlString,
-      <slot name="after"></slot>
+      <slot name="last"></slot>
     ];
   }
 }
