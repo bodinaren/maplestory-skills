@@ -31,6 +31,7 @@ export class PriestComponent {
 
   render() {
     return [
+      <ms-footer></ms-footer>,
       <div class="chart priest" style={{ backgroundImage: `url(${ this.publicPath }assets/priest.jpg)` }}>
         <ms-heavenly-wings level={ this.heavenlyWings }></ms-heavenly-wings>
         <ms-steadfast-faith level={ this.steadfastFaith }></ms-steadfast-faith>
@@ -49,8 +50,7 @@ export class PriestComponent {
         <ms-smiting-aura level={ this.smitingAura }></ms-smiting-aura>
         <ms-disciple level={ this.disciple }></ms-disciple>
         <ms-angelic-ray level={ this.angelicRay }></ms-angelic-ray>
-      </div>,
-      <ms-footer></ms-footer>
+      </div>
     ];
   }
 }
