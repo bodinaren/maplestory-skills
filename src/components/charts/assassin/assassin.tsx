@@ -30,7 +30,7 @@ export class AssassinComponent {
   @Prop({ mutable: true }) thrownWeaponMastery: number = AssassinValues.ThrownWeaponMasteryValues.minLevel;
 
   render() {
-    return (
+    return [
       <div class="chart assassin" style={{ backgroundImage: `url(${ this.publicPath }assets/assassin.jpg)` }}>
         <ms-dark-cloak level={ this.darkCloak }></ms-dark-cloak>
         <ms-dash level={ this.dash }></ms-dash>
@@ -49,7 +49,8 @@ export class AssassinComponent {
         <ms-star-chaser level={ this.starChaser }></ms-star-chaser>
         <ms-star-flurry level={ this.starFlurry }></ms-star-flurry>
         <ms-thrown-weapon-mastery level={ this.thrownWeaponMastery }></ms-thrown-weapon-mastery>
-      </div>
-    );
+      </div>,
+      <ms-footer></ms-footer>
+    ];
   }
 }

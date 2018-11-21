@@ -1,0 +1,21 @@
+
+:host {
+  font-family: Roboto;
+  position: absolute;
+  top: 100%;
+  right: 1px;
+  color: white;
+  text-align: center;
+  font-size: .7em;
+
+  background-color: #555555;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  padding: 0 5px 2px;
+}
+
+a {
+  cursor: inherit;
+  color: white;
+}

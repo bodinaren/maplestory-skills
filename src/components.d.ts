@@ -319,6 +319,9 @@ export namespace Components {
     'onLevelchanged'?: (event: CustomEvent<number>) => void;
   }
 
+  interface MsFooter {}
+  interface MsFooterAttributes extends StencilHTMLAttributes {}
+
   interface MsIcon {
     'name': string;
   }
@@ -1287,6 +1290,7 @@ declare global {
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
     'MsLevelControl': Components.MsLevelControl;
+    'MsFooter': Components.MsFooter;
     'MsIcon': Components.MsIcon;
     'MsSkillOverlay': Components.MsSkillOverlay;
     'MsAgileArcher': Components.MsAgileArcher;
@@ -1409,6 +1413,7 @@ declare global {
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
     'ms-level-control': Components.MsLevelControlAttributes;
+    'ms-footer': Components.MsFooterAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
     'ms-agile-archer': Components.MsAgileArcherAttributes;
@@ -1604,6 +1609,12 @@ declare global {
   var HTMLMsLevelControlElement: {
     prototype: HTMLMsLevelControlElement;
     new (): HTMLMsLevelControlElement;
+  };
+
+  interface HTMLMsFooterElement extends Components.MsFooter, HTMLStencilElement {}
+  var HTMLMsFooterElement: {
+    prototype: HTMLMsFooterElement;
+    new (): HTMLMsFooterElement;
   };
 
   interface HTMLMsIconElement extends Components.MsIcon, HTMLStencilElement {}
@@ -2246,6 +2257,7 @@ declare global {
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
     'ms-level-control': HTMLMsLevelControlElement
+    'ms-footer': HTMLMsFooterElement
     'ms-icon': HTMLMsIconElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
     'ms-agile-archer': HTMLMsAgileArcherElement
@@ -2368,6 +2380,7 @@ declare global {
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
     'ms-level-control': HTMLMsLevelControlElement;
+    'ms-footer': HTMLMsFooterElement;
     'ms-icon': HTMLMsIconElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
     'ms-agile-archer': HTMLMsAgileArcherElement;

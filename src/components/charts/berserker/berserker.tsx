@@ -30,7 +30,7 @@ export class BerserkerComponent {
   @Prop({ mutable: true }) xSlash: number = BerserkerValues.XSlashValues.minLevel;
 
   render() {
-    return (
+    return [
       <div class="chart archer" style={{ backgroundImage: `url(${this.publicPath}assets/berserker.jpg)` }}>
         <ms-adrenaline-rush level={ this.adrenalineRush }></ms-adrenaline-rush>
         <ms-blood-price level={ this.bloodPrice }></ms-blood-price>
@@ -49,7 +49,8 @@ export class BerserkerComponent {
         <ms-void-slash level={ this.voidSlash }></ms-void-slash>
         <ms-warriors-instinct level={ this.warriorsInstinct }></ms-warriors-instinct>
         <ms-x-slash level={ this.xSlash }></ms-x-slash>
-      </div>
-    );
+      </div>,
+      <ms-footer></ms-footer>
+    ];
   }
 }

@@ -30,7 +30,7 @@ export class WizardComponent {
   @Prop({ mutable: true }) thunderbolt: number = WizardValues.ThunderboltValues.minLevel;
 
   render() {
-    return (
+    return [
       <div class="chart wizard" style={{ backgroundImage: `url(${ this.publicPath }assets/wizard.jpg)` }}>
         <ms-arcane-blast level={ this.arcaneBlast }></ms-arcane-blast>
         <ms-chain-lightning level={ this.chainLightning }></ms-chain-lightning>
@@ -49,7 +49,8 @@ export class WizardComponent {
         <ms-pyromancy level={ this.pyromancy }></ms-pyromancy>
         <ms-teleport level={ this.teleport }></ms-teleport>
         <ms-thunderbolt level={ this.thunderbolt }></ms-thunderbolt>
-      </div>
-    );
+      </div>,
+      <ms-footer></ms-footer>
+    ];
   }
 }

@@ -1,13 +1,16 @@
 
 :host {
   display: block;
+  width: 818px;
+  height: 775px;
   cursor: url($maple-cursor), auto;
 }
 
 .chart {
   position: relative;
-  width: 819px;
-  height: 776px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   color: white;
   font-family: Roboto, Arial;
   
@@ -16,7 +19,7 @@
   // }
 }
 
-.chart > * {
+.chart > *:not(ms-footer) {
   position: absolute;
   height: 50px;
   width: 58px;
@@ -31,4 +34,13 @@
     font-size: .9em;
     pointer-events: none;
   }
+}
+
+ms-footer {
+  margin-top: -30px;
+  transition: .3s margin-top ease-in-out;
+}
+
+:host(:hover) ms-footer {
+  margin-top: 0;
 }

@@ -30,7 +30,7 @@ export class ArcherComponent {
   @Prop({ mutable: true }) snipe: number = ArcherValues.SnipeValues.minLevel;
 
   render() {
-    return (
+    return [
       <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/archer.jpg)` }}>
         <ms-agile-archer level={ this.agileArcher }></ms-agile-archer>
         <ms-arrow-barrage level={ this.arrowBarrage }></ms-arrow-barrage>
@@ -49,7 +49,8 @@ export class ArcherComponent {
         <ms-screwdriver-shot level={ this.screwdriverShot }></ms-screwdriver-shot>
         <ms-sharp-eyes level={ this.sharpEyes }></ms-sharp-eyes>
         <ms-snipe level={ this.snipe }></ms-snipe>
-      </div>
-    );
+      </div>,
+      <ms-footer></ms-footer>
+    ];
   }
 }

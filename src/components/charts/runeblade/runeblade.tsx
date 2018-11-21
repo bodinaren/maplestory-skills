@@ -30,7 +30,7 @@ export class RunebladeComponent {
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeValues.WhirlingBladesValues.minLevel;
 
   render() {
-    return (
+    return [
       <div class="chart runeblade" style={{ backgroundImage: `url(${ this.publicPath }assets/runeblade.jpg)` }}>
         <ms-blade-chasm level={ this.bladeChasm }></ms-blade-chasm>
         <ms-blade-mastery level={ this.bladeMastery }></ms-blade-mastery>
@@ -49,7 +49,8 @@ export class RunebladeComponent {
         <ms-storm-sigil level={ this.stormSigil }></ms-storm-sigil>
         <ms-warding-rune level={ this.wardingRune }></ms-warding-rune>
         <ms-whirling-blades level={ this.whirlingBlades }></ms-whirling-blades>
-      </div>
-    );
+      </div>,
+      <ms-footer></ms-footer>
+    ];
   }
 }
