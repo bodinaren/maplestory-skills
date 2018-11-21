@@ -263,10 +263,10 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
     
     <script>
       function hideAll() {
-        document.querySelectorAll("#editors div").forEach((el) => {
+        document.querySelectorAll("#editors div").forEach(function(el) {
           el.style.display = "none";
         });
-        document.querySelectorAll("#toggles a").forEach((el) => {
+        document.querySelectorAll("#toggles a").forEach(function(el) {
           el.classList.remove("active");
         });
       }

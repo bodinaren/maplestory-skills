@@ -5,6 +5,7 @@
   height: 775px;
   cursor: url($maple-cursor), auto;
 }
+_:-ms-lang(x), :host { cursor: auto; }
 
 .chart {
   position: absolute;
