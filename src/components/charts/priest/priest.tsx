@@ -4,7 +4,6 @@ import * as PriestValues from "../../../global/values/priest";
 @Component({
   tag: "ms-priest",
   styleUrls: ["../charts.scss", "priest.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class PriestComponent {
@@ -32,7 +31,7 @@ export class PriestComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart priest" style={{ backgroundImage: `url(${ this.publicPath }assets/priest.jpg)` }}>
+      <div class="chart priest" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/priest.jpg)` }}>
         <ms-heavenly-wings level={ this.heavenlyWings }></ms-heavenly-wings>
         <ms-steadfast-faith level={ this.steadfastFaith }></ms-steadfast-faith>
         <ms-celestial-light level={ this.celestialLight }></ms-celestial-light>

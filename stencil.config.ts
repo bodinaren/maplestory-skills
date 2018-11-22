@@ -13,9 +13,12 @@ export const config: Config = {
     { components: ["ms-wizard", "ms-arcane-blast", "ms-chain-lightning", "ms-cryomancy", "ms-electromancy", "ms-elemental-master", "ms-flame-tornado", "ms-flame-wave", "ms-focus-seal", "ms-ice-spear", "ms-ice-storm", "ms-magic-armor", "ms-mana-claw", "ms-mana-font", "ms-phantom-claw", "ms-pyromancy", "ms-teleport", "ms-thunderbolt"] },
     { components: ["ms-footer", "ms-icon", "ms-skill-overlay"] },
   ],
+  copy: [
+    { src: "assets", dest: "build/maplestory-skills/assets" },
+  ],
   outputTargets: [
     {
-      type: "dist"
+      type: "dist",
     },
     {
       type: "www",

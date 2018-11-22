@@ -4,7 +4,6 @@ import * as ArcherValues from "../../../global/values/archer";
 @Component({
   tag: "ms-archer",
   styleUrls: ["../charts.scss", "archer.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class ArcherComponent {
@@ -32,7 +31,7 @@ export class ArcherComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/archer.jpg)` }}>
+      <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/archer.jpg)` }}>
         <ms-agile-archer level={ this.agileArcher }></ms-agile-archer>
         <ms-arrow-barrage level={ this.arrowBarrage }></ms-arrow-barrage>
         <ms-arrow-storm level={ this.arrowStorm }></ms-arrow-storm>

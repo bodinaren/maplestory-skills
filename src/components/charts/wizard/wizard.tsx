@@ -4,7 +4,6 @@ import * as WizardValues from "../../../global/values/wizard";
 @Component({
   tag: "ms-wizard",
   styleUrls: ["../charts.scss", "wizard.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class WizardComponent {
@@ -32,7 +31,7 @@ export class WizardComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart wizard" style={{ backgroundImage: `url(${ this.publicPath }assets/wizard.jpg)` }}>
+      <div class="chart wizard" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/wizard.jpg)` }}>
         <ms-arcane-blast level={ this.arcaneBlast }></ms-arcane-blast>
         <ms-chain-lightning level={ this.chainLightning }></ms-chain-lightning>
         <ms-cryomancy level={ this.cryomancy }></ms-cryomancy>

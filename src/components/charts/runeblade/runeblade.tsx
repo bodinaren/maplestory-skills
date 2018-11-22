@@ -4,7 +4,6 @@ import * as RunebladeValues from "../../../global/values/runeblade";
 @Component({
   tag: "ms-runeblade",
   styleUrls: ["../charts.scss", "runeblade.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class RunebladeComponent {
@@ -32,7 +31,7 @@ export class RunebladeComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart runeblade" style={{ backgroundImage: `url(${ this.publicPath }assets/runeblade.jpg)` }}>
+      <div class="chart runeblade" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/runeblade.jpg)` }}>
         <ms-blade-chasm level={ this.bladeChasm }></ms-blade-chasm>
         <ms-blade-mastery level={ this.bladeMastery }></ms-blade-mastery>
         <ms-blink level={ this.blink }></ms-blink>

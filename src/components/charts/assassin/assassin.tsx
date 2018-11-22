@@ -4,7 +4,6 @@ import * as AssassinValues from "../../../global/values/assassin";
 @Component({
   tag: "ms-assassin",
   styleUrls: ["../charts.scss", "assassin.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class AssassinComponent {
@@ -32,7 +31,7 @@ export class AssassinComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart assassin" style={{ backgroundImage: `url(${ this.publicPath }assets/assassin.jpg)` }}>
+      <div class="chart assassin" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/assassin.jpg)` }}>
         <ms-dark-cloak level={ this.darkCloak }></ms-dark-cloak>
         <ms-dash level={ this.dash }></ms-dash>
         <ms-death-sentence level={ this.deathSentence }></ms-death-sentence>

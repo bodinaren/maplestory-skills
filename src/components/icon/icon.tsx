@@ -3,7 +3,6 @@ import { Component, Prop } from "@stencil/core";
 @Component({
   tag: "ms-icon",
   styleUrl: "icon.scss",
-  assetsDir: "assets",
   shadow: true
 })
 export class IconComponent {
@@ -14,7 +13,7 @@ export class IconComponent {
 
   render() {
     return (
-      <img src={ `${ this.publicPath }assets/${this.name}.png` } />
+      <img src={ `${ this.publicPath }assets/skills/${this.name}.png` } />
     );
   }
 }

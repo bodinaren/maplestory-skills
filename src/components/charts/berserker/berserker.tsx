@@ -4,7 +4,6 @@ import * as BerserkerValues from "../../../global/values/berserker";
 @Component({
   tag: "ms-berserker",
   styleUrls: ["../charts.scss", "berserker.scss"],
-  assetsDir: "assets",
   shadow: true
 })
 export class BerserkerComponent {
@@ -32,7 +31,7 @@ export class BerserkerComponent {
   render() {
     return [
       <ms-footer></ms-footer>,
-      <div class="chart archer" style={{ backgroundImage: `url(${this.publicPath}assets/berserker.jpg)` }}>
+      <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/berserker.jpg)` }}>
         <ms-adrenaline-rush level={ this.adrenalineRush }></ms-adrenaline-rush>
         <ms-blood-price level={ this.bloodPrice }></ms-blood-price>
         <ms-bloodlust level={ this.bloodlust }></ms-bloodlust>
