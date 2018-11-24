@@ -3,6 +3,7 @@
   display: block;
   width: 108px;
   height: 33px;
+  user-select: none;
 }
 
 .minus, .plus {
@@ -10,12 +11,11 @@
   display: inline-block;
   width: 30px;
   height: 33px;
+  
+  &:not(:hover) :last-child { display: none; }
+  &:hover :first-child { display: none; }
 }
 _:-ms-lang(x), .minus img, .plus img { cursor: pointer; }
 
-.minus {
-  left: 0;
-}
-.plus {
-  right: 0;
-}
+.minus { left: -1px; }
+.plus { right: 0; }

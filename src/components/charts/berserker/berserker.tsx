@@ -3,12 +3,10 @@ import * as BerserkerValues from "../../../global/values/berserker";
 
 @Component({
   tag: "ms-berserker",
-  styleUrls: ["../charts.scss", "berserker.scss"],
+  styleUrls: ["berserker.scss"],
   shadow: true
 })
 export class BerserkerComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerValues.AdrenalineRushValues.minLevel;
   @Prop({ mutable: true }) bloodPrice: number = BerserkerValues.BloodPriceValues.minLevel;
@@ -29,9 +27,8 @@ export class BerserkerComponent {
   @Prop({ mutable: true }) xSlash: number = BerserkerValues.XSlashValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/charts/berserker.jpg)` }}>
+    return (
+      <ms-chart msClass="berserker">
         <ms-adrenaline-rush level={ this.adrenalineRush }></ms-adrenaline-rush>
         <ms-blood-price level={ this.bloodPrice }></ms-blood-price>
         <ms-bloodlust level={ this.bloodlust }></ms-bloodlust>
@@ -49,7 +46,7 @@ export class BerserkerComponent {
         <ms-void-slash level={ this.voidSlash }></ms-void-slash>
         <ms-warriors-instinct level={ this.warriorsInstinct }></ms-warriors-instinct>
         <ms-x-slash level={ this.xSlash }></ms-x-slash>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

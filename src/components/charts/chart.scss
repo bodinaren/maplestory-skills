@@ -1,0 +1,58 @@
+
+:host {
+  display: block;
+  width: $chart-width;
+  height: $chart-height;
+  position: relative;
+}
+_:-ms-lang(x), :host { cursor: auto; }
+_:-ms-lang(x), :host(:active) { cursor: auto; }
+
+.chart {
+  position: absolute;
+  width: $chart-width;
+  height: $chart-height;
+  color: white;
+  font-family: Roboto, Arial;
+}
+
+.chart > div {
+  width: $chart-width;
+  height: $chart-height;
+}
+
+ms-footer {
+  margin-top: -30px;
+  transition: .3s margin-top ease-in-out;
+}
+
+:host(:hover) ms-footer {
+  margin-top: 0;
+}
+
+
+::slotted(*) {
+  position: absolute;
+  box-sizing: border-box;
+  height: 84px;
+  width: 72px;
+
+  margin-top: -19px;
+  margin-left: -7px;
+  padding-top: 17px;
+  padding-left: 6px;
+
+  &:after {
+    content: attr(level) "/" attr(max);
+    position: absolute;
+    top: calc(100% + -5px);
+    left: -19px;
+    width: 109px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9em;
+    pointer-events: none;
+  }
+}

@@ -132,6 +132,13 @@ export namespace Components {
     'xSlash'?: number;
   }
 
+  interface MsChart {
+    'msClass': MapleStoryClass;
+  }
+  interface MsChartAttributes extends StencilHTMLAttributes {
+    'msClass'?: MapleStoryClass;
+  }
+
   interface MsPriest {
     'angelicRay': number;
     'celestialBlessings': number;
@@ -1278,6 +1285,7 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsAssassin': Components.MsAssassin;
     'MsBerserker': Components.MsBerserker;
+    'MsChart': Components.MsChart;
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
     'MsWizard': Components.MsWizard;
@@ -1401,6 +1409,7 @@ declare global {
     'ms-archer': Components.MsArcherAttributes;
     'ms-assassin': Components.MsAssassinAttributes;
     'ms-berserker': Components.MsBerserkerAttributes;
+    'ms-chart': Components.MsChartAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-wizard': Components.MsWizardAttributes;
@@ -1537,6 +1546,12 @@ declare global {
   var HTMLMsBerserkerElement: {
     prototype: HTMLMsBerserkerElement;
     new (): HTMLMsBerserkerElement;
+  };
+
+  interface HTMLMsChartElement extends Components.MsChart, HTMLStencilElement {}
+  var HTMLMsChartElement: {
+    prototype: HTMLMsChartElement;
+    new (): HTMLMsChartElement;
   };
 
   interface HTMLMsPriestElement extends Components.MsPriest, HTMLStencilElement {}
@@ -2245,6 +2260,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement
     'ms-assassin': HTMLMsAssassinElement
     'ms-berserker': HTMLMsBerserkerElement
+    'ms-chart': HTMLMsChartElement
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-wizard': HTMLMsWizardElement
@@ -2368,6 +2384,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-berserker': HTMLMsBerserkerElement;
+    'ms-chart': HTMLMsChartElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-wizard': HTMLMsWizardElement;

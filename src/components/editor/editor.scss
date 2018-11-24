@@ -1,9 +1,9 @@
 
 :host {
-  cursor: url($maple-cursor), auto;
   position: relative;
   display: block;
   width: 818px;
   height: 775px;
 }
 _:-ms-lang(x), :host { cursor: auto; }
+_:-ms-lang(x), :host(:active) { cursor: auto; }

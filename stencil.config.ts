@@ -1,5 +1,6 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
+import { base64css } from "./scripts/base64css";
 
 export const config: Config = {
   namespace: "maplestory-skills",
@@ -11,10 +12,11 @@ export const config: Config = {
     { components: ["ms-priest", "ms-angelic-ray", "ms-celestial-blessings", "ms-celestial-guardian", "ms-celestial-light", "ms-disciple", "ms-healing-mastery", "ms-healing-prayer", "ms-heavenly-wings", "ms-holy-blast", "ms-holy-relic", "ms-holy-symbol", "ms-sanctuary", "ms-scepter-mastery", "ms-scourging-wave", "ms-shield-of-the-archon", "ms-smiting-aura", "ms-steadfast-faith"] },
     { components: ["ms-runeblade", "ms-blade-chasm", "ms-blade-mastery", "ms-blink", "ms-elemental-potency", "ms-echoing-blade", "ms-flame-sigil", "ms-flurry", "ms-frost-sigil", "ms-gravity-rune", "ms-honing-runes", "ms-illusory-blades", "ms-impact", "ms-rune-balance", "ms-rune-focus", "ms-storm-sigil", "ms-warding-rune", "ms-whirling-blades"] },
     { components: ["ms-wizard", "ms-arcane-blast", "ms-chain-lightning", "ms-cryomancy", "ms-electromancy", "ms-elemental-master", "ms-flame-tornado", "ms-flame-wave", "ms-focus-seal", "ms-ice-spear", "ms-ice-storm", "ms-magic-armor", "ms-mana-claw", "ms-mana-font", "ms-phantom-claw", "ms-pyromancy", "ms-teleport", "ms-thunderbolt"] },
-    { components: ["ms-footer", "ms-icon", "ms-skill-overlay"] },
+    { components: ["ms-chart", "ms-footer", "ms-icon", "ms-skill-overlay"] },
   ],
   copy: [
     { src: "assets", dest: "build/maplestory-skills/assets" },
+    { src: "../docs/assets", dest: "assets" },
   ],
   outputTargets: [
     {
@@ -30,6 +32,7 @@ export const config: Config = {
       injectGlobalPaths: [
         "src/global/helpers.scss",
       ]
-    })
+    }),
+    base64css()
   ]
 };
