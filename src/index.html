@@ -160,7 +160,7 @@
           <img class="inactive" src="assets/runeblade_bw.png" />
           Runeblade
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
+        <a href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
           <img class="active" src="assets/thief.png" />
           <img class="inactive" src="assets/thief_bw.png" />
           Thief
@@ -232,7 +232,12 @@
         </div>
           
         <div id="thief">
-          <p>The thief class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="thiefEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="thiefEditor" ms-class="thief"></ms-editor>
         </div>
           
         <div id="wizard">

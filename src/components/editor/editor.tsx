@@ -41,6 +41,7 @@ export class EditorComponent {
       case "knight": return (<ms-knight-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-knight-editor>);
       case "priest": return (<ms-priest-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-priest-editor>);
       case "runeblade": return (<ms-runeblade-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-runeblade-editor>);
+      case "thief": return (<ms-thief-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-thief-editor>);
       case "wizard": return (<ms-wizard-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-wizard-editor>);
     }
   }
