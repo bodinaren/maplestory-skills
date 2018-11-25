@@ -5,4 +5,5 @@ export type MapleStoryClass =
   "knight" |
   "priest" |
   "runeblade" |
+  "thief" |
   "wizard";

@@ -1,0 +1,96 @@
+:host {
+	display: block;
+}
+
+ms-level-control {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: -25px;
+  z-index: 1;
+}
+
+
+.bladeDance {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+.cunningTactics {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+.deftCombatant {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+.doubleSlash {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+.haste {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+.mesoguardPlus {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+.mindBreaker {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+.mindStealer {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+.poisonEdge {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+.poisonVial {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+.quickStep {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+.retaliation {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+.ruthlessGuile {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+.somersaultKick {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+.spiritThief {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+.surpriseAttack {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+.viciousCuts {
+  @include chart-row(4);
+  @include chart-column(4);
+}

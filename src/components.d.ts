@@ -249,6 +249,45 @@ export namespace Components {
     'whirlingBlades'?: number;
   }
 
+  interface MsThief {
+    'bladeDance': number;
+    'cunningTactics': number;
+    'deftCombatant': number;
+    'doubleSlash': number;
+    'haste': number;
+    'mesoguardPlus': number;
+    'mindBreaker': number;
+    'mindStealer': number;
+    'poisonEdge': number;
+    'poisonVial': number;
+    'quickStep': number;
+    'retaliation': number;
+    'ruthlessGuile': number;
+    'somersaultKick': number;
+    'spiritThief': number;
+    'surpriseAttack': number;
+    'viciousCuts': number;
+  }
+  interface MsThiefAttributes extends StencilHTMLAttributes {
+    'bladeDance'?: number;
+    'cunningTactics'?: number;
+    'deftCombatant'?: number;
+    'doubleSlash'?: number;
+    'haste'?: number;
+    'mesoguardPlus'?: number;
+    'mindBreaker'?: number;
+    'mindStealer'?: number;
+    'poisonEdge'?: number;
+    'poisonVial'?: number;
+    'quickStep'?: number;
+    'retaliation'?: number;
+    'ruthlessGuile'?: number;
+    'somersaultKick'?: number;
+    'spiritThief'?: number;
+    'surpriseAttack'?: number;
+    'viciousCuts'?: number;
+  }
+
   interface MsWizard {
     'arcaneBlast': number;
     'chainLightning': number;
@@ -327,6 +366,13 @@ export namespace Components {
     'toHtmlString': () => Promise<string>;
   }
   interface MsRunebladeEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
+  interface MsThiefEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsThiefEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
@@ -1318,6 +1364,159 @@ export namespace Components {
     'max'?: number;
   }
 
+  interface MsBladeDance {
+    'level': number;
+    'max': number;
+  }
+  interface MsBladeDanceAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsCunningTactics {
+    'level': number;
+    'max': number;
+  }
+  interface MsCunningTacticsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDeftCombatant {
+    'level': number;
+    'max': number;
+  }
+  interface MsDeftCombatantAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDoubleSlash {
+    'level': number;
+    'max': number;
+  }
+  interface MsDoubleSlashAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsHaste {
+    'level': number;
+    'max': number;
+  }
+  interface MsHasteAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMesoguardPlus {
+    'level': number;
+    'max': number;
+  }
+  interface MsMesoguardPlusAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMindBreaker {
+    'level': number;
+    'max': number;
+  }
+  interface MsMindBreakerAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMindStealer {
+    'level': number;
+    'max': number;
+  }
+  interface MsMindStealerAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsPoisonEdge {
+    'level': number;
+    'max': number;
+  }
+  interface MsPoisonEdgeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsPoisonVial {
+    'level': number;
+    'max': number;
+  }
+  interface MsPoisonVialAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsQuickStep {
+    'level': number;
+    'max': number;
+  }
+  interface MsQuickStepAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRetaliation {
+    'level': number;
+    'max': number;
+  }
+  interface MsRetaliationAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRuthlessGuile {
+    'level': number;
+    'max': number;
+  }
+  interface MsRuthlessGuileAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSomersaultKick {
+    'level': number;
+    'max': number;
+  }
+  interface MsSomersaultKickAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSpiritThief {
+    'level': number;
+    'max': number;
+  }
+  interface MsSpiritThiefAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSurpriseAttack {
+    'level': number;
+    'max': number;
+  }
+  interface MsSurpriseAttackAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsViciousCuts {
+    'level': number;
+    'max': number;
+  }
+  interface MsViciousCutsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
   interface MsArcaneBlast {
     'level': number;
     'max': number;
@@ -1480,6 +1679,7 @@ declare global {
     'MsKnight': Components.MsKnight;
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
+    'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
     'MsArcherEditor': Components.MsArcherEditor;
     'MsAssassinEditor': Components.MsAssassinEditor;
@@ -1487,6 +1687,7 @@ declare global {
     'MsKnightEditor': Components.MsKnightEditor;
     'MsPriestEditor': Components.MsPriestEditor;
     'MsRunebladeEditor': Components.MsRunebladeEditor;
+    'MsThiefEditor': Components.MsThiefEditor;
     'MsWizardEditor': Components.MsWizardEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
@@ -1596,6 +1797,23 @@ declare global {
     'MsStormSigil': Components.MsStormSigil;
     'MsWardingRune': Components.MsWardingRune;
     'MsWhirlingBlades': Components.MsWhirlingBlades;
+    'MsBladeDance': Components.MsBladeDance;
+    'MsCunningTactics': Components.MsCunningTactics;
+    'MsDeftCombatant': Components.MsDeftCombatant;
+    'MsDoubleSlash': Components.MsDoubleSlash;
+    'MsHaste': Components.MsHaste;
+    'MsMesoguardPlus': Components.MsMesoguardPlus;
+    'MsMindBreaker': Components.MsMindBreaker;
+    'MsMindStealer': Components.MsMindStealer;
+    'MsPoisonEdge': Components.MsPoisonEdge;
+    'MsPoisonVial': Components.MsPoisonVial;
+    'MsQuickStep': Components.MsQuickStep;
+    'MsRetaliation': Components.MsRetaliation;
+    'MsRuthlessGuile': Components.MsRuthlessGuile;
+    'MsSomersaultKick': Components.MsSomersaultKick;
+    'MsSpiritThief': Components.MsSpiritThief;
+    'MsSurpriseAttack': Components.MsSurpriseAttack;
+    'MsViciousCuts': Components.MsViciousCuts;
     'MsArcaneBlast': Components.MsArcaneBlast;
     'MsChainLightning': Components.MsChainLightning;
     'MsCryomancy': Components.MsCryomancy;
@@ -1622,6 +1840,7 @@ declare global {
     'ms-knight': Components.MsKnightAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
+    'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
     'ms-archer-editor': Components.MsArcherEditorAttributes;
     'ms-assassin-editor': Components.MsAssassinEditorAttributes;
@@ -1629,6 +1848,7 @@ declare global {
     'ms-knight-editor': Components.MsKnightEditorAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
+    'ms-thief-editor': Components.MsThiefEditorAttributes;
     'ms-wizard-editor': Components.MsWizardEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
@@ -1738,6 +1958,23 @@ declare global {
     'ms-storm-sigil': Components.MsStormSigilAttributes;
     'ms-warding-rune': Components.MsWardingRuneAttributes;
     'ms-whirling-blades': Components.MsWhirlingBladesAttributes;
+    'ms-blade-dance': Components.MsBladeDanceAttributes;
+    'ms-cunning-tactics': Components.MsCunningTacticsAttributes;
+    'ms-deft-combatant': Components.MsDeftCombatantAttributes;
+    'ms-double-slash': Components.MsDoubleSlashAttributes;
+    'ms-haste': Components.MsHasteAttributes;
+    'ms-mesoguard-plus': Components.MsMesoguardPlusAttributes;
+    'ms-mind-breaker': Components.MsMindBreakerAttributes;
+    'ms-mind-stealer': Components.MsMindStealerAttributes;
+    'ms-poison-edge': Components.MsPoisonEdgeAttributes;
+    'ms-poison-vial': Components.MsPoisonVialAttributes;
+    'ms-quick-step': Components.MsQuickStepAttributes;
+    'ms-retaliation': Components.MsRetaliationAttributes;
+    'ms-ruthless-guile': Components.MsRuthlessGuileAttributes;
+    'ms-somersault-kick': Components.MsSomersaultKickAttributes;
+    'ms-spirit-thief': Components.MsSpiritThiefAttributes;
+    'ms-surprise-attack': Components.MsSurpriseAttackAttributes;
+    'ms-vicious-cuts': Components.MsViciousCutsAttributes;
     'ms-arcane-blast': Components.MsArcaneBlastAttributes;
     'ms-chain-lightning': Components.MsChainLightningAttributes;
     'ms-cryomancy': Components.MsCryomancyAttributes;
@@ -1794,6 +2031,12 @@ declare global {
     new (): HTMLMsRunebladeElement;
   };
 
+  interface HTMLMsThiefElement extends Components.MsThief, HTMLStencilElement {}
+  var HTMLMsThiefElement: {
+    prototype: HTMLMsThiefElement;
+    new (): HTMLMsThiefElement;
+  };
+
   interface HTMLMsWizardElement extends Components.MsWizard, HTMLStencilElement {}
   var HTMLMsWizardElement: {
     prototype: HTMLMsWizardElement;
@@ -1834,6 +2077,12 @@ declare global {
   var HTMLMsRunebladeEditorElement: {
     prototype: HTMLMsRunebladeEditorElement;
     new (): HTMLMsRunebladeEditorElement;
+  };
+
+  interface HTMLMsThiefEditorElement extends Components.MsThiefEditor, HTMLStencilElement {}
+  var HTMLMsThiefEditorElement: {
+    prototype: HTMLMsThiefEditorElement;
+    new (): HTMLMsThiefEditorElement;
   };
 
   interface HTMLMsWizardEditorElement extends Components.MsWizardEditor, HTMLStencilElement {}
@@ -2490,6 +2739,108 @@ declare global {
     new (): HTMLMsWhirlingBladesElement;
   };
 
+  interface HTMLMsBladeDanceElement extends Components.MsBladeDance, HTMLStencilElement {}
+  var HTMLMsBladeDanceElement: {
+    prototype: HTMLMsBladeDanceElement;
+    new (): HTMLMsBladeDanceElement;
+  };
+
+  interface HTMLMsCunningTacticsElement extends Components.MsCunningTactics, HTMLStencilElement {}
+  var HTMLMsCunningTacticsElement: {
+    prototype: HTMLMsCunningTacticsElement;
+    new (): HTMLMsCunningTacticsElement;
+  };
+
+  interface HTMLMsDeftCombatantElement extends Components.MsDeftCombatant, HTMLStencilElement {}
+  var HTMLMsDeftCombatantElement: {
+    prototype: HTMLMsDeftCombatantElement;
+    new (): HTMLMsDeftCombatantElement;
+  };
+
+  interface HTMLMsDoubleSlashElement extends Components.MsDoubleSlash, HTMLStencilElement {}
+  var HTMLMsDoubleSlashElement: {
+    prototype: HTMLMsDoubleSlashElement;
+    new (): HTMLMsDoubleSlashElement;
+  };
+
+  interface HTMLMsHasteElement extends Components.MsHaste, HTMLStencilElement {}
+  var HTMLMsHasteElement: {
+    prototype: HTMLMsHasteElement;
+    new (): HTMLMsHasteElement;
+  };
+
+  interface HTMLMsMesoguardPlusElement extends Components.MsMesoguardPlus, HTMLStencilElement {}
+  var HTMLMsMesoguardPlusElement: {
+    prototype: HTMLMsMesoguardPlusElement;
+    new (): HTMLMsMesoguardPlusElement;
+  };
+
+  interface HTMLMsMindBreakerElement extends Components.MsMindBreaker, HTMLStencilElement {}
+  var HTMLMsMindBreakerElement: {
+    prototype: HTMLMsMindBreakerElement;
+    new (): HTMLMsMindBreakerElement;
+  };
+
+  interface HTMLMsMindStealerElement extends Components.MsMindStealer, HTMLStencilElement {}
+  var HTMLMsMindStealerElement: {
+    prototype: HTMLMsMindStealerElement;
+    new (): HTMLMsMindStealerElement;
+  };
+
+  interface HTMLMsPoisonEdgeElement extends Components.MsPoisonEdge, HTMLStencilElement {}
+  var HTMLMsPoisonEdgeElement: {
+    prototype: HTMLMsPoisonEdgeElement;
+    new (): HTMLMsPoisonEdgeElement;
+  };
+
+  interface HTMLMsPoisonVialElement extends Components.MsPoisonVial, HTMLStencilElement {}
+  var HTMLMsPoisonVialElement: {
+    prototype: HTMLMsPoisonVialElement;
+    new (): HTMLMsPoisonVialElement;
+  };
+
+  interface HTMLMsQuickStepElement extends Components.MsQuickStep, HTMLStencilElement {}
+  var HTMLMsQuickStepElement: {
+    prototype: HTMLMsQuickStepElement;
+    new (): HTMLMsQuickStepElement;
+  };
+
+  interface HTMLMsRetaliationElement extends Components.MsRetaliation, HTMLStencilElement {}
+  var HTMLMsRetaliationElement: {
+    prototype: HTMLMsRetaliationElement;
+    new (): HTMLMsRetaliationElement;
+  };
+
+  interface HTMLMsRuthlessGuileElement extends Components.MsRuthlessGuile, HTMLStencilElement {}
+  var HTMLMsRuthlessGuileElement: {
+    prototype: HTMLMsRuthlessGuileElement;
+    new (): HTMLMsRuthlessGuileElement;
+  };
+
+  interface HTMLMsSomersaultKickElement extends Components.MsSomersaultKick, HTMLStencilElement {}
+  var HTMLMsSomersaultKickElement: {
+    prototype: HTMLMsSomersaultKickElement;
+    new (): HTMLMsSomersaultKickElement;
+  };
+
+  interface HTMLMsSpiritThiefElement extends Components.MsSpiritThief, HTMLStencilElement {}
+  var HTMLMsSpiritThiefElement: {
+    prototype: HTMLMsSpiritThiefElement;
+    new (): HTMLMsSpiritThiefElement;
+  };
+
+  interface HTMLMsSurpriseAttackElement extends Components.MsSurpriseAttack, HTMLStencilElement {}
+  var HTMLMsSurpriseAttackElement: {
+    prototype: HTMLMsSurpriseAttackElement;
+    new (): HTMLMsSurpriseAttackElement;
+  };
+
+  interface HTMLMsViciousCutsElement extends Components.MsViciousCuts, HTMLStencilElement {}
+  var HTMLMsViciousCutsElement: {
+    prototype: HTMLMsViciousCutsElement;
+    new (): HTMLMsViciousCutsElement;
+  };
+
   interface HTMLMsArcaneBlastElement extends Components.MsArcaneBlast, HTMLStencilElement {}
   var HTMLMsArcaneBlastElement: {
     prototype: HTMLMsArcaneBlastElement;
@@ -2599,6 +2950,7 @@ declare global {
     'ms-knight': HTMLMsKnightElement
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
+    'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
     'ms-archer-editor': HTMLMsArcherEditorElement
     'ms-assassin-editor': HTMLMsAssassinEditorElement
@@ -2606,6 +2958,7 @@ declare global {
     'ms-knight-editor': HTMLMsKnightEditorElement
     'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement
+    'ms-thief-editor': HTMLMsThiefEditorElement
     'ms-wizard-editor': HTMLMsWizardEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
@@ -2715,6 +3068,23 @@ declare global {
     'ms-storm-sigil': HTMLMsStormSigilElement
     'ms-warding-rune': HTMLMsWardingRuneElement
     'ms-whirling-blades': HTMLMsWhirlingBladesElement
+    'ms-blade-dance': HTMLMsBladeDanceElement
+    'ms-cunning-tactics': HTMLMsCunningTacticsElement
+    'ms-deft-combatant': HTMLMsDeftCombatantElement
+    'ms-double-slash': HTMLMsDoubleSlashElement
+    'ms-haste': HTMLMsHasteElement
+    'ms-mesoguard-plus': HTMLMsMesoguardPlusElement
+    'ms-mind-breaker': HTMLMsMindBreakerElement
+    'ms-mind-stealer': HTMLMsMindStealerElement
+    'ms-poison-edge': HTMLMsPoisonEdgeElement
+    'ms-poison-vial': HTMLMsPoisonVialElement
+    'ms-quick-step': HTMLMsQuickStepElement
+    'ms-retaliation': HTMLMsRetaliationElement
+    'ms-ruthless-guile': HTMLMsRuthlessGuileElement
+    'ms-somersault-kick': HTMLMsSomersaultKickElement
+    'ms-spirit-thief': HTMLMsSpiritThiefElement
+    'ms-surprise-attack': HTMLMsSurpriseAttackElement
+    'ms-vicious-cuts': HTMLMsViciousCutsElement
     'ms-arcane-blast': HTMLMsArcaneBlastElement
     'ms-chain-lightning': HTMLMsChainLightningElement
     'ms-cryomancy': HTMLMsCryomancyElement
@@ -2741,6 +3111,7 @@ declare global {
     'ms-knight': HTMLMsKnightElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
+    'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
     'ms-archer-editor': HTMLMsArcherEditorElement;
     'ms-assassin-editor': HTMLMsAssassinEditorElement;
@@ -2748,6 +3119,7 @@ declare global {
     'ms-knight-editor': HTMLMsKnightEditorElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
+    'ms-thief-editor': HTMLMsThiefEditorElement;
     'ms-wizard-editor': HTMLMsWizardEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
@@ -2857,6 +3229,23 @@ declare global {
     'ms-storm-sigil': HTMLMsStormSigilElement;
     'ms-warding-rune': HTMLMsWardingRuneElement;
     'ms-whirling-blades': HTMLMsWhirlingBladesElement;
+    'ms-blade-dance': HTMLMsBladeDanceElement;
+    'ms-cunning-tactics': HTMLMsCunningTacticsElement;
+    'ms-deft-combatant': HTMLMsDeftCombatantElement;
+    'ms-double-slash': HTMLMsDoubleSlashElement;
+    'ms-haste': HTMLMsHasteElement;
+    'ms-mesoguard-plus': HTMLMsMesoguardPlusElement;
+    'ms-mind-breaker': HTMLMsMindBreakerElement;
+    'ms-mind-stealer': HTMLMsMindStealerElement;
+    'ms-poison-edge': HTMLMsPoisonEdgeElement;
+    'ms-poison-vial': HTMLMsPoisonVialElement;
+    'ms-quick-step': HTMLMsQuickStepElement;
+    'ms-retaliation': HTMLMsRetaliationElement;
+    'ms-ruthless-guile': HTMLMsRuthlessGuileElement;
+    'ms-somersault-kick': HTMLMsSomersaultKickElement;
+    'ms-spirit-thief': HTMLMsSpiritThiefElement;
+    'ms-surprise-attack': HTMLMsSurpriseAttackElement;
+    'ms-vicious-cuts': HTMLMsViciousCutsElement;
     'ms-arcane-blast': HTMLMsArcaneBlastElement;
     'ms-chain-lightning': HTMLMsChainLightningElement;
     'ms-cryomancy': HTMLMsCryomancyElement;
