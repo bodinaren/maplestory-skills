@@ -31,6 +31,8 @@ export class CrossCutComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="cross-cut"></ms-icon>
         <div slot="description">
+          A swing of your sword deals <span>{ CrossCutValues.damage[this.level] }%</span> damage <span>2</span> times
+          to <span>5</span> enemies up to <span>3</span> m in front of you.
         </div>
       </ms-skill-overlay>
     ];

@@ -28,6 +28,12 @@ export class IronShieldComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="iron-shield"></ms-icon>
         <div slot="description">
+          Adopt a defensive stance with your shield, reducing incoming damage
+          by <span>{ IronShieldValues.reduction[this.level] }%</span>.
+          The skill lasts while the skill key is held down,
+          although powerful attacks may break the skill early.
+          This skill can cancel other skills.
+          In PvP zones, the damage reduction is halved.
         </div>
       </ms-skill-overlay>
     ];

@@ -32,6 +32,11 @@ export class StingingFlurryComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="stinging-flurry"></ms-icon>
         <div slot="description">
+          Captain Allon's special skill stabs quickly,
+          dealing <span>{ StingingFlurryValues.damage[this.level] }%</span> damage <span>3</span> times
+          to <span>3</span> enemies up to <span>3</span> m in front of you.
+          The skill lasts while the skill key is held down.
+          Consumes <span>13</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

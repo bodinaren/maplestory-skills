@@ -1,85 +1,85 @@
 
-ms-agile-archer {
+ms-bulwark {
   @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-cross-cut {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-defender-of-the-faith {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-divine-strike {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-drill-thrust {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+ms-iron-defense {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-iron-shield {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-longsword-mastery {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-shield-booster {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-shield-charge {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-shield-mastery {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-shield-toss {
+  @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-arrow-barrage {
+ms-shield-wall {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-stinging-flurry {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+ms-tornado-slash {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-arrow-storm {
-  @include chart-row(4);
-  @include chart-column(1);
-}
-
-ms-arrow-stream {
-  @include chart-row(1);
-  @include chart-column(1);
-}
-
-ms-bow-swing {
-  @include chart-row(6);
-  @include chart-column(2);
-}
-
-ms-bronze-eagle {
-  @include chart-row(3);
-  @include chart-column(3);
-}
-
-ms-conditioning {
-  @include chart-row(3);
-  @include chart-column(4);
-}
-
-ms-eagle-claw {
-  @include chart-row(4);
-  @include chart-column(3);
-}
-
-ms-eagle-glide {
-  @include chart-row(1);
-  @include chart-column(4);
-}
-
-ms-eagles-majesty {
-  @include chart-row(5);
-  @include chart-column(3);
-}
-
-ms-evasive-salvo {
+ms-typhoon-slash {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-ice-arrow {
+ms-warhorn {
   @include chart-row(4);
-  @include chart-column(2);
-}
-
-ms-precision-shooter {
-  @include chart-row(6);
   @include chart-column(4);
-}
-
-ms-rapid-shot {
-  @include chart-row(3);
-  @include chart-column(1);
-}
-
-ms-screwdriver-shot {
-  @include chart-row(6);
-  @include chart-column(1);
-}
-
-ms-sharp-eyes {
-  @include chart-row(5);
-  @include chart-column(4);
-}
-
-ms-snipe {
-  @include chart-row(1);
-  @include chart-column(3);
 }

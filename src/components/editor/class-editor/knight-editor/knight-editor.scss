@@ -9,87 +9,88 @@ ms-level-control {
   z-index: 1;
 }
 
-.agileArcher {
+
+.bulwark {
   @include chart-row(5);
+  @include chart-column(4);
+}
+
+.crossCut {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+.defenderOfTheFaith {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+.divineStrike {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+.drillThrust {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+.ironDefense {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+.ironShield {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+.longswordMastery {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+.shieldBooster {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+.shieldCharge {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+.shieldMastery {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+.shieldToss {
+  @include chart-row(4);
   @include chart-column(2);
 }
 
-.arrowBarrage {
+.shieldWall {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+.stingingFlurry {
+  @include chart-row(4);
+  @include chart-column(1);
+}
+
+.tornadoSlash {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-.arrowStorm {
-  @include chart-row(4);
-  @include chart-column(1);
-}
-
-.arrowStream {
-  @include chart-row(1);
-  @include chart-column(1);
-}
-
-.bowSwing {
-  @include chart-row(6);
-  @include chart-column(2);
-}
-
-.bronzeEagle {
-  @include chart-row(3);
-  @include chart-column(3);
-}
-
-.conditioning {
-  @include chart-row(3);
-  @include chart-column(4);
-}
-
-.eagleClaw {
-  @include chart-row(4);
-  @include chart-column(3);
-}
-
-.eagleGlide {
-  @include chart-row(1);
-  @include chart-column(4);
-}
-
-.eaglesMajesty {
-  @include chart-row(5);
-  @include chart-column(3);
-}
-
-.evasiveSalvo {
+.typhoonSlash {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-.iceArrow {
+.warhorn {
   @include chart-row(4);
-  @include chart-column(2);
-}
-
-.precisionShooter {
-  @include chart-row(6);
   @include chart-column(4);
-}
-
-.rapidShot {
-  @include chart-row(3);
-  @include chart-column(1);
-}
-
-.screwdriverShot {
-  @include chart-row(6);
-  @include chart-column(1);
-}
-
-.sharpEyes {
-  @include chart-row(5);
-  @include chart-column(4);
-}
-
-.snipe {
-  @include chart-row(1);
-  @include chart-column(3);
 }

@@ -30,6 +30,10 @@ export class WarhornComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="warhorn"></ms-icon>
         <div slot="description">
+          Shout to raise morale, increasing the physical attack and magic attack
+          of <span>{ WarhornValues.allies[this.level] }%</span> within <span>3</span> m,
+          plus yourself, by <span>{ WarhornValues.increase[this.level] }%</span> for <span>10</span> sec.
+          Consumes <span>40</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

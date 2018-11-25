@@ -28,10 +28,13 @@ export class BulwarkComponent {
                         level={ this.level }
                         weaponRequired="Off-hand Shield"
                         requirements={ this.getRequirements() }
-                        cooldown={ 130 }
+                        cooldown={ BulwarkValues.cooldown[this.level] }
                         max={ this.max }>
         <ms-icon slot="icon" name="bulwark"></ms-icon>
         <div slot="description">
+          Create a protective barrier for <span>3</span> sec to
+          make <span>{ BulwarkValues.allies[this.level] }</span> allies, including yourself,
+          invulnerable to enemy attacks. Some attacks cannot be blocked.
         </div>
       </ms-skill-overlay>
     ];

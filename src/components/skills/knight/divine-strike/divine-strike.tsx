@@ -33,6 +33,10 @@ export class DivineStrikeComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="divine-strike"></ms-icon>
         <div slot="description">
+          Gathers light and smashes it down, creating a shockwave that
+          deals <span>{ DivineStrikeValues.damage[this.level] }%</span> holy damage
+          to <span>8</span> enemies and knocks them back <span>2</span> m.
+          Enemy attacks will not push you back while this skill is active.
         </div>
       </ms-skill-overlay>
     ];

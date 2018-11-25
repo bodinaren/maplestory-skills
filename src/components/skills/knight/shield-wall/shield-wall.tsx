@@ -30,6 +30,9 @@ export class ShieldWallComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="shield-wall"></ms-icon>
         <div slot="description">
+          Create a <span>3</span> m holy field around you for <span>10</span> sec,
+          increasing the physical resistance and magic resistance of <span>10</span> allies,
+          including yourself, by <span>{ ShieldWallValues.resistance[this.level] }</span>.
         </div>
       </ms-skill-overlay>
     ];

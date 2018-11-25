@@ -29,6 +29,12 @@ export class ShieldMasteryComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="shield-mastery"></ms-icon>
         <div slot="description">
+          Your fervent desire to protect others increases your shield mastery,
+          increasing critical evasion by <span>{ ShieldMasteryValues.evasion[this.level] }</span> and
+          perfect guard chance by <span>{ ShieldMasteryValues.perfectGuard[this.level] }%</span> when
+          you have a shield equipped when using Iron Shield. Blocking an attack grants
+          a <span>{ ShieldMasteryValues.increaseChance[this.level] }%</span> chance to increase your damage
+          by <span>{ ShieldMasteryValues.damage[this.level] }%</span> for <span>10</span> sec.
         </div>
       </ms-skill-overlay>
     ];

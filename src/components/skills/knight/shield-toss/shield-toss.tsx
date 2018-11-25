@@ -28,10 +28,15 @@ export class ShieldTossComponent {
                         type="Long Range / Physical"
                         weaponRequired="Off-hand Shield"
                         requirements={ this.getRequirements() }
-                        spirit={ 16 }
+                        spirit={ 12 }
                         max={ this.max }>
         <ms-icon slot="icon" name="shield-toss"></ms-icon>
         <div slot="description">
+          Toss your shield <span>7.5</span> m forward like a boomerang,
+          dealing <span>{ ShieldTossValues.damage[this.level] }%</span> damage <span>2</span> times
+          to <span>8</span> enemies and reducing their defense
+          by <span>{ ShieldTossValues.reduction[this.level] }%</span> for <span>12</span> sec.
+          Consumes <span>16</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

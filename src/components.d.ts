@@ -132,6 +132,45 @@ export namespace Components {
     'xSlash'?: number;
   }
 
+  interface MsKnight {
+    'bulwark': number;
+    'crossCut': number;
+    'defenderOfTheFaith': number;
+    'divineStrike': number;
+    'drillThrust': number;
+    'ironDefense': number;
+    'ironShield': number;
+    'longswordMastery': number;
+    'shieldBooster': number;
+    'shieldCharge': number;
+    'shieldMastery': number;
+    'shieldToss': number;
+    'shieldWall': number;
+    'stingingFlurry': number;
+    'tornadoSlash': number;
+    'typhoonSlash': number;
+    'warhorn': number;
+  }
+  interface MsKnightAttributes extends StencilHTMLAttributes {
+    'bulwark'?: number;
+    'crossCut'?: number;
+    'defenderOfTheFaith'?: number;
+    'divineStrike'?: number;
+    'drillThrust'?: number;
+    'ironDefense'?: number;
+    'ironShield'?: number;
+    'longswordMastery'?: number;
+    'shieldBooster'?: number;
+    'shieldCharge'?: number;
+    'shieldMastery'?: number;
+    'shieldToss'?: number;
+    'shieldWall'?: number;
+    'stingingFlurry'?: number;
+    'tornadoSlash'?: number;
+    'typhoonSlash'?: number;
+    'warhorn'?: number;
+  }
+
   interface MsPriest {
     'angelicRay': number;
     'celestialBlessings': number;
@@ -267,6 +306,13 @@ export namespace Components {
     'toHtmlString': () => Promise<string>;
   }
   interface MsBerserkerEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
+  interface MsKnightEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsKnightEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
@@ -813,6 +859,159 @@ export namespace Components {
     'max'?: number;
   }
 
+  interface MsBulwark {
+    'level': number;
+    'max': number;
+  }
+  interface MsBulwarkAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsCrossCut {
+    'level': number;
+    'max': number;
+  }
+  interface MsCrossCutAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDefenderOfTheFaith {
+    'level': number;
+    'max': number;
+  }
+  interface MsDefenderOfTheFaithAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDivineStrike {
+    'level': number;
+    'max': number;
+  }
+  interface MsDivineStrikeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsDrillThrust {
+    'level': number;
+    'max': number;
+  }
+  interface MsDrillThrustAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIronDefense {
+    'level': number;
+    'max': number;
+  }
+  interface MsIronDefenseAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsIronShield {
+    'level': number;
+    'max': number;
+  }
+  interface MsIronShieldAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsLongswordMastery {
+    'level': number;
+    'max': number;
+  }
+  interface MsLongswordMasteryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShieldBooster {
+    'level': number;
+    'max': number;
+  }
+  interface MsShieldBoosterAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShieldCharge {
+    'level': number;
+    'max': number;
+  }
+  interface MsShieldChargeAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShieldMastery {
+    'level': number;
+    'max': number;
+  }
+  interface MsShieldMasteryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShieldToss {
+    'level': number;
+    'max': number;
+  }
+  interface MsShieldTossAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsShieldWall {
+    'level': number;
+    'max': number;
+  }
+  interface MsShieldWallAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsStingingFlurry {
+    'level': number;
+    'max': number;
+  }
+  interface MsStingingFlurryAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsTornadoSlash {
+    'level': number;
+    'max': number;
+  }
+  interface MsTornadoSlashAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsTyphoonSlash {
+    'level': number;
+    'max': number;
+  }
+  interface MsTyphoonSlashAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsWarhorn {
+    'level': number;
+    'max': number;
+  }
+  interface MsWarhornAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
   interface MsAngelicRay {
     'level': number;
     'max': number;
@@ -1278,12 +1477,14 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsAssassin': Components.MsAssassin;
     'MsBerserker': Components.MsBerserker;
+    'MsKnight': Components.MsKnight;
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
     'MsWizard': Components.MsWizard;
     'MsArcherEditor': Components.MsArcherEditor;
     'MsAssassinEditor': Components.MsAssassinEditor;
     'MsBerserkerEditor': Components.MsBerserkerEditor;
+    'MsKnightEditor': Components.MsKnightEditor;
     'MsPriestEditor': Components.MsPriestEditor;
     'MsRunebladeEditor': Components.MsRunebladeEditor;
     'MsWizardEditor': Components.MsWizardEditor;
@@ -1344,6 +1545,23 @@ declare global {
     'MsVoidSlash': Components.MsVoidSlash;
     'MsWarriorsInstinct': Components.MsWarriorsInstinct;
     'MsXSlash': Components.MsXSlash;
+    'MsBulwark': Components.MsBulwark;
+    'MsCrossCut': Components.MsCrossCut;
+    'MsDefenderOfTheFaith': Components.MsDefenderOfTheFaith;
+    'MsDivineStrike': Components.MsDivineStrike;
+    'MsDrillThrust': Components.MsDrillThrust;
+    'MsIronDefense': Components.MsIronDefense;
+    'MsIronShield': Components.MsIronShield;
+    'MsLongswordMastery': Components.MsLongswordMastery;
+    'MsShieldBooster': Components.MsShieldBooster;
+    'MsShieldCharge': Components.MsShieldCharge;
+    'MsShieldMastery': Components.MsShieldMastery;
+    'MsShieldToss': Components.MsShieldToss;
+    'MsShieldWall': Components.MsShieldWall;
+    'MsStingingFlurry': Components.MsStingingFlurry;
+    'MsTornadoSlash': Components.MsTornadoSlash;
+    'MsTyphoonSlash': Components.MsTyphoonSlash;
+    'MsWarhorn': Components.MsWarhorn;
     'MsAngelicRay': Components.MsAngelicRay;
     'MsCelestialBlessings': Components.MsCelestialBlessings;
     'MsCelestialGuardian': Components.MsCelestialGuardian;
@@ -1401,12 +1619,14 @@ declare global {
     'ms-archer': Components.MsArcherAttributes;
     'ms-assassin': Components.MsAssassinAttributes;
     'ms-berserker': Components.MsBerserkerAttributes;
+    'ms-knight': Components.MsKnightAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-wizard': Components.MsWizardAttributes;
     'ms-archer-editor': Components.MsArcherEditorAttributes;
     'ms-assassin-editor': Components.MsAssassinEditorAttributes;
     'ms-berserker-editor': Components.MsBerserkerEditorAttributes;
+    'ms-knight-editor': Components.MsKnightEditorAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
     'ms-wizard-editor': Components.MsWizardEditorAttributes;
@@ -1467,6 +1687,23 @@ declare global {
     'ms-void-slash': Components.MsVoidSlashAttributes;
     'ms-warriors-instinct': Components.MsWarriorsInstinctAttributes;
     'ms-x-slash': Components.MsXSlashAttributes;
+    'ms-bulwark': Components.MsBulwarkAttributes;
+    'ms-cross-cut': Components.MsCrossCutAttributes;
+    'ms-defender-of-the-faith': Components.MsDefenderOfTheFaithAttributes;
+    'ms-divine-strike': Components.MsDivineStrikeAttributes;
+    'ms-drill-thrust': Components.MsDrillThrustAttributes;
+    'ms-iron-defense': Components.MsIronDefenseAttributes;
+    'ms-iron-shield': Components.MsIronShieldAttributes;
+    'ms-longsword-mastery': Components.MsLongswordMasteryAttributes;
+    'ms-shield-booster': Components.MsShieldBoosterAttributes;
+    'ms-shield-charge': Components.MsShieldChargeAttributes;
+    'ms-shield-mastery': Components.MsShieldMasteryAttributes;
+    'ms-shield-toss': Components.MsShieldTossAttributes;
+    'ms-shield-wall': Components.MsShieldWallAttributes;
+    'ms-stinging-flurry': Components.MsStingingFlurryAttributes;
+    'ms-tornado-slash': Components.MsTornadoSlashAttributes;
+    'ms-typhoon-slash': Components.MsTyphoonSlashAttributes;
+    'ms-warhorn': Components.MsWarhornAttributes;
     'ms-angelic-ray': Components.MsAngelicRayAttributes;
     'ms-celestial-blessings': Components.MsCelestialBlessingsAttributes;
     'ms-celestial-guardian': Components.MsCelestialGuardianAttributes;
@@ -1539,6 +1776,12 @@ declare global {
     new (): HTMLMsBerserkerElement;
   };
 
+  interface HTMLMsKnightElement extends Components.MsKnight, HTMLStencilElement {}
+  var HTMLMsKnightElement: {
+    prototype: HTMLMsKnightElement;
+    new (): HTMLMsKnightElement;
+  };
+
   interface HTMLMsPriestElement extends Components.MsPriest, HTMLStencilElement {}
   var HTMLMsPriestElement: {
     prototype: HTMLMsPriestElement;
@@ -1573,6 +1816,12 @@ declare global {
   var HTMLMsBerserkerEditorElement: {
     prototype: HTMLMsBerserkerEditorElement;
     new (): HTMLMsBerserkerEditorElement;
+  };
+
+  interface HTMLMsKnightEditorElement extends Components.MsKnightEditor, HTMLStencilElement {}
+  var HTMLMsKnightEditorElement: {
+    prototype: HTMLMsKnightEditorElement;
+    new (): HTMLMsKnightEditorElement;
   };
 
   interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
@@ -1935,6 +2184,108 @@ declare global {
     new (): HTMLMsXSlashElement;
   };
 
+  interface HTMLMsBulwarkElement extends Components.MsBulwark, HTMLStencilElement {}
+  var HTMLMsBulwarkElement: {
+    prototype: HTMLMsBulwarkElement;
+    new (): HTMLMsBulwarkElement;
+  };
+
+  interface HTMLMsCrossCutElement extends Components.MsCrossCut, HTMLStencilElement {}
+  var HTMLMsCrossCutElement: {
+    prototype: HTMLMsCrossCutElement;
+    new (): HTMLMsCrossCutElement;
+  };
+
+  interface HTMLMsDefenderOfTheFaithElement extends Components.MsDefenderOfTheFaith, HTMLStencilElement {}
+  var HTMLMsDefenderOfTheFaithElement: {
+    prototype: HTMLMsDefenderOfTheFaithElement;
+    new (): HTMLMsDefenderOfTheFaithElement;
+  };
+
+  interface HTMLMsDivineStrikeElement extends Components.MsDivineStrike, HTMLStencilElement {}
+  var HTMLMsDivineStrikeElement: {
+    prototype: HTMLMsDivineStrikeElement;
+    new (): HTMLMsDivineStrikeElement;
+  };
+
+  interface HTMLMsDrillThrustElement extends Components.MsDrillThrust, HTMLStencilElement {}
+  var HTMLMsDrillThrustElement: {
+    prototype: HTMLMsDrillThrustElement;
+    new (): HTMLMsDrillThrustElement;
+  };
+
+  interface HTMLMsIronDefenseElement extends Components.MsIronDefense, HTMLStencilElement {}
+  var HTMLMsIronDefenseElement: {
+    prototype: HTMLMsIronDefenseElement;
+    new (): HTMLMsIronDefenseElement;
+  };
+
+  interface HTMLMsIronShieldElement extends Components.MsIronShield, HTMLStencilElement {}
+  var HTMLMsIronShieldElement: {
+    prototype: HTMLMsIronShieldElement;
+    new (): HTMLMsIronShieldElement;
+  };
+
+  interface HTMLMsLongswordMasteryElement extends Components.MsLongswordMastery, HTMLStencilElement {}
+  var HTMLMsLongswordMasteryElement: {
+    prototype: HTMLMsLongswordMasteryElement;
+    new (): HTMLMsLongswordMasteryElement;
+  };
+
+  interface HTMLMsShieldBoosterElement extends Components.MsShieldBooster, HTMLStencilElement {}
+  var HTMLMsShieldBoosterElement: {
+    prototype: HTMLMsShieldBoosterElement;
+    new (): HTMLMsShieldBoosterElement;
+  };
+
+  interface HTMLMsShieldChargeElement extends Components.MsShieldCharge, HTMLStencilElement {}
+  var HTMLMsShieldChargeElement: {
+    prototype: HTMLMsShieldChargeElement;
+    new (): HTMLMsShieldChargeElement;
+  };
+
+  interface HTMLMsShieldMasteryElement extends Components.MsShieldMastery, HTMLStencilElement {}
+  var HTMLMsShieldMasteryElement: {
+    prototype: HTMLMsShieldMasteryElement;
+    new (): HTMLMsShieldMasteryElement;
+  };
+
+  interface HTMLMsShieldTossElement extends Components.MsShieldToss, HTMLStencilElement {}
+  var HTMLMsShieldTossElement: {
+    prototype: HTMLMsShieldTossElement;
+    new (): HTMLMsShieldTossElement;
+  };
+
+  interface HTMLMsShieldWallElement extends Components.MsShieldWall, HTMLStencilElement {}
+  var HTMLMsShieldWallElement: {
+    prototype: HTMLMsShieldWallElement;
+    new (): HTMLMsShieldWallElement;
+  };
+
+  interface HTMLMsStingingFlurryElement extends Components.MsStingingFlurry, HTMLStencilElement {}
+  var HTMLMsStingingFlurryElement: {
+    prototype: HTMLMsStingingFlurryElement;
+    new (): HTMLMsStingingFlurryElement;
+  };
+
+  interface HTMLMsTornadoSlashElement extends Components.MsTornadoSlash, HTMLStencilElement {}
+  var HTMLMsTornadoSlashElement: {
+    prototype: HTMLMsTornadoSlashElement;
+    new (): HTMLMsTornadoSlashElement;
+  };
+
+  interface HTMLMsTyphoonSlashElement extends Components.MsTyphoonSlash, HTMLStencilElement {}
+  var HTMLMsTyphoonSlashElement: {
+    prototype: HTMLMsTyphoonSlashElement;
+    new (): HTMLMsTyphoonSlashElement;
+  };
+
+  interface HTMLMsWarhornElement extends Components.MsWarhorn, HTMLStencilElement {}
+  var HTMLMsWarhornElement: {
+    prototype: HTMLMsWarhornElement;
+    new (): HTMLMsWarhornElement;
+  };
+
   interface HTMLMsAngelicRayElement extends Components.MsAngelicRay, HTMLStencilElement {}
   var HTMLMsAngelicRayElement: {
     prototype: HTMLMsAngelicRayElement;
@@ -2245,12 +2596,14 @@ declare global {
     'ms-archer': HTMLMsArcherElement
     'ms-assassin': HTMLMsAssassinElement
     'ms-berserker': HTMLMsBerserkerElement
+    'ms-knight': HTMLMsKnightElement
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-wizard': HTMLMsWizardElement
     'ms-archer-editor': HTMLMsArcherEditorElement
     'ms-assassin-editor': HTMLMsAssassinEditorElement
     'ms-berserker-editor': HTMLMsBerserkerEditorElement
+    'ms-knight-editor': HTMLMsKnightEditorElement
     'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement
     'ms-wizard-editor': HTMLMsWizardEditorElement
@@ -2311,6 +2664,23 @@ declare global {
     'ms-void-slash': HTMLMsVoidSlashElement
     'ms-warriors-instinct': HTMLMsWarriorsInstinctElement
     'ms-x-slash': HTMLMsXSlashElement
+    'ms-bulwark': HTMLMsBulwarkElement
+    'ms-cross-cut': HTMLMsCrossCutElement
+    'ms-defender-of-the-faith': HTMLMsDefenderOfTheFaithElement
+    'ms-divine-strike': HTMLMsDivineStrikeElement
+    'ms-drill-thrust': HTMLMsDrillThrustElement
+    'ms-iron-defense': HTMLMsIronDefenseElement
+    'ms-iron-shield': HTMLMsIronShieldElement
+    'ms-longsword-mastery': HTMLMsLongswordMasteryElement
+    'ms-shield-booster': HTMLMsShieldBoosterElement
+    'ms-shield-charge': HTMLMsShieldChargeElement
+    'ms-shield-mastery': HTMLMsShieldMasteryElement
+    'ms-shield-toss': HTMLMsShieldTossElement
+    'ms-shield-wall': HTMLMsShieldWallElement
+    'ms-stinging-flurry': HTMLMsStingingFlurryElement
+    'ms-tornado-slash': HTMLMsTornadoSlashElement
+    'ms-typhoon-slash': HTMLMsTyphoonSlashElement
+    'ms-warhorn': HTMLMsWarhornElement
     'ms-angelic-ray': HTMLMsAngelicRayElement
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement
@@ -2368,12 +2738,14 @@ declare global {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-berserker': HTMLMsBerserkerElement;
+    'ms-knight': HTMLMsKnightElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-wizard': HTMLMsWizardElement;
     'ms-archer-editor': HTMLMsArcherEditorElement;
     'ms-assassin-editor': HTMLMsAssassinEditorElement;
     'ms-berserker-editor': HTMLMsBerserkerEditorElement;
+    'ms-knight-editor': HTMLMsKnightEditorElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
     'ms-wizard-editor': HTMLMsWizardEditorElement;
@@ -2434,6 +2806,23 @@ declare global {
     'ms-void-slash': HTMLMsVoidSlashElement;
     'ms-warriors-instinct': HTMLMsWarriorsInstinctElement;
     'ms-x-slash': HTMLMsXSlashElement;
+    'ms-bulwark': HTMLMsBulwarkElement;
+    'ms-cross-cut': HTMLMsCrossCutElement;
+    'ms-defender-of-the-faith': HTMLMsDefenderOfTheFaithElement;
+    'ms-divine-strike': HTMLMsDivineStrikeElement;
+    'ms-drill-thrust': HTMLMsDrillThrustElement;
+    'ms-iron-defense': HTMLMsIronDefenseElement;
+    'ms-iron-shield': HTMLMsIronShieldElement;
+    'ms-longsword-mastery': HTMLMsLongswordMasteryElement;
+    'ms-shield-booster': HTMLMsShieldBoosterElement;
+    'ms-shield-charge': HTMLMsShieldChargeElement;
+    'ms-shield-mastery': HTMLMsShieldMasteryElement;
+    'ms-shield-toss': HTMLMsShieldTossElement;
+    'ms-shield-wall': HTMLMsShieldWallElement;
+    'ms-stinging-flurry': HTMLMsStingingFlurryElement;
+    'ms-tornado-slash': HTMLMsTornadoSlashElement;
+    'ms-typhoon-slash': HTMLMsTyphoonSlashElement;
+    'ms-warhorn': HTMLMsWarhornElement;
     'ms-angelic-ray': HTMLMsAngelicRayElement;
     'ms-celestial-blessings': HTMLMsCelestialBlessingsElement;
     'ms-celestial-guardian': HTMLMsCelestialGuardianElement;

@@ -32,6 +32,10 @@ export class TornadoSlashComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="tornado-slash"></ms-icon>
         <div slot="description">
+          Perform a spin slash,
+          dealing <span>{ TornadoSlashValues.damage[this.level] }%</span> damage <span>3</span> times
+          to <span>8</span> enemies within <span>3</span> m and pulling them in <span>1</span> m.
+          Consumes <span>12</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

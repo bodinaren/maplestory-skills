@@ -30,6 +30,8 @@ export class LongswordMasteryComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="longsword-mastery"></ms-icon>
         <div slot="description">
+          Captain Allon's secret training improves your swordsmanship, increasing your weapon attack
+          by <span>{ LongswordMasteryValues.attack[this.level] }%</span> when you have a longsword equipped.
         </div>
       </ms-skill-overlay>
     ];

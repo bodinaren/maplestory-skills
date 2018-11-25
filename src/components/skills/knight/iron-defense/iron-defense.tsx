@@ -22,6 +22,9 @@ export class IronDefenseComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="iron-defense"></ms-icon>
         <div slot="description">
+          Adopt a knightly defensive stance, restoring <span>4</span> spirit every <span>0.3</span> sec
+          and decreasing damage taken by <span>10%</span>, but also reducing physical and magic attack by <span>25%</span>.
+          Press the skill key again to toggle the stance.
         </div>
       </ms-skill-overlay>
     ];
