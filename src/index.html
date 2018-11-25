@@ -145,7 +145,7 @@
           <img class="inactive" src="assets/heavy-gunner_bw.png" />
           Heavy Gunner
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
+        <a href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
           <img class="active" src="assets/knight.png" />
           <img class="inactive" src="assets/knight_bw.png" />
           Knight
@@ -205,7 +205,12 @@
         </div>
 
         <div id="knight">
-          <p>The knight class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="knightEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="knightEditor" ms-class="knight"></ms-editor>
         </div>
         
         <div id="priest">
