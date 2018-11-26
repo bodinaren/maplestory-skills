@@ -132,6 +132,45 @@ export namespace Components {
     'xSlash'?: number;
   }
 
+  interface MsHeavyGunner {
+    'advancedBullets': number;
+    'advancedMissiles': number;
+    'advancedPulseWeapons': number;
+    'blastChargeKit': number;
+    'bulletSpray': number;
+    'electricBlast': number;
+    'gatlingFire': number;
+    'homingMissiles': number;
+    'jetBoots': number;
+    'lockOn': number;
+    'mBomb': number;
+    'magneticBomb': number;
+    'medKit': number;
+    'reload': number;
+    'rocketLauncher': number;
+    'stunGrenades': number;
+    'suborbitalBombardment': number;
+  }
+  interface MsHeavyGunnerAttributes extends StencilHTMLAttributes {
+    'advancedBullets'?: number;
+    'advancedMissiles'?: number;
+    'advancedPulseWeapons'?: number;
+    'blastChargeKit'?: number;
+    'bulletSpray'?: number;
+    'electricBlast'?: number;
+    'gatlingFire'?: number;
+    'homingMissiles'?: number;
+    'jetBoots'?: number;
+    'lockOn'?: number;
+    'mBomb'?: number;
+    'magneticBomb'?: number;
+    'medKit'?: number;
+    'reload'?: number;
+    'rocketLauncher'?: number;
+    'stunGrenades'?: number;
+    'suborbitalBombardment'?: number;
+  }
+
   interface MsKnight {
     'bulwark': number;
     'crossCut': number;
@@ -345,6 +384,13 @@ export namespace Components {
     'toHtmlString': () => Promise<string>;
   }
   interface MsBerserkerEditorAttributes extends StencilHTMLAttributes {
+    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+  }
+
+  interface MsHeavyGunnerEditor {
+    'toHtmlString': () => Promise<string>;
+  }
+  interface MsHeavyGunnerEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
   }
 
@@ -901,6 +947,159 @@ export namespace Components {
     'max': number;
   }
   interface MsXSlashAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsAdvancedBullets {
+    'level': number;
+    'max': number;
+  }
+  interface MsAdvancedBulletsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsAdvancedMissiles {
+    'level': number;
+    'max': number;
+  }
+  interface MsAdvancedMissilesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsAdvancedPulseWeapons {
+    'level': number;
+    'max': number;
+  }
+  interface MsAdvancedPulseWeaponsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBlastChargeKit {
+    'level': number;
+    'max': number;
+  }
+  interface MsBlastChargeKitAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsBulletSpray {
+    'level': number;
+    'max': number;
+  }
+  interface MsBulletSprayAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsElectricBlast {
+    'level': number;
+    'max': number;
+  }
+  interface MsElectricBlastAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsGatlingFire {
+    'level': number;
+    'max': number;
+  }
+  interface MsGatlingFireAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsHomingMissiles {
+    'level': number;
+    'max': number;
+  }
+  interface MsHomingMissilesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsJetBoots {
+    'level': number;
+    'max': number;
+  }
+  interface MsJetBootsAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsLockOn {
+    'level': number;
+    'max': number;
+  }
+  interface MsLockOnAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMBomb {
+    'level': number;
+    'max': number;
+  }
+  interface MsMBombAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMagneticBomb {
+    'level': number;
+    'max': number;
+  }
+  interface MsMagneticBombAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsMedKit {
+    'level': number;
+    'max': number;
+  }
+  interface MsMedKitAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsReload {
+    'level': number;
+    'max': number;
+  }
+  interface MsReloadAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsRocketLauncher {
+    'level': number;
+    'max': number;
+  }
+  interface MsRocketLauncherAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsStunGrenades {
+    'level': number;
+    'max': number;
+  }
+  interface MsStunGrenadesAttributes extends StencilHTMLAttributes {
+    'level'?: number;
+    'max'?: number;
+  }
+
+  interface MsSuborbitalBombardment {
+    'level': number;
+    'max': number;
+  }
+  interface MsSuborbitalBombardmentAttributes extends StencilHTMLAttributes {
     'level'?: number;
     'max'?: number;
   }
@@ -1676,6 +1875,7 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsAssassin': Components.MsAssassin;
     'MsBerserker': Components.MsBerserker;
+    'MsHeavyGunner': Components.MsHeavyGunner;
     'MsKnight': Components.MsKnight;
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
@@ -1684,6 +1884,7 @@ declare global {
     'MsArcherEditor': Components.MsArcherEditor;
     'MsAssassinEditor': Components.MsAssassinEditor;
     'MsBerserkerEditor': Components.MsBerserkerEditor;
+    'MsHeavyGunnerEditor': Components.MsHeavyGunnerEditor;
     'MsKnightEditor': Components.MsKnightEditor;
     'MsPriestEditor': Components.MsPriestEditor;
     'MsRunebladeEditor': Components.MsRunebladeEditor;
@@ -1746,6 +1947,23 @@ declare global {
     'MsVoidSlash': Components.MsVoidSlash;
     'MsWarriorsInstinct': Components.MsWarriorsInstinct;
     'MsXSlash': Components.MsXSlash;
+    'MsAdvancedBullets': Components.MsAdvancedBullets;
+    'MsAdvancedMissiles': Components.MsAdvancedMissiles;
+    'MsAdvancedPulseWeapons': Components.MsAdvancedPulseWeapons;
+    'MsBlastChargeKit': Components.MsBlastChargeKit;
+    'MsBulletSpray': Components.MsBulletSpray;
+    'MsElectricBlast': Components.MsElectricBlast;
+    'MsGatlingFire': Components.MsGatlingFire;
+    'MsHomingMissiles': Components.MsHomingMissiles;
+    'MsJetBoots': Components.MsJetBoots;
+    'MsLockOn': Components.MsLockOn;
+    'MsMBomb': Components.MsMBomb;
+    'MsMagneticBomb': Components.MsMagneticBomb;
+    'MsMedKit': Components.MsMedKit;
+    'MsReload': Components.MsReload;
+    'MsRocketLauncher': Components.MsRocketLauncher;
+    'MsStunGrenades': Components.MsStunGrenades;
+    'MsSuborbitalBombardment': Components.MsSuborbitalBombardment;
     'MsBulwark': Components.MsBulwark;
     'MsCrossCut': Components.MsCrossCut;
     'MsDefenderOfTheFaith': Components.MsDefenderOfTheFaith;
@@ -1837,6 +2055,7 @@ declare global {
     'ms-archer': Components.MsArcherAttributes;
     'ms-assassin': Components.MsAssassinAttributes;
     'ms-berserker': Components.MsBerserkerAttributes;
+    'ms-heavy-gunner': Components.MsHeavyGunnerAttributes;
     'ms-knight': Components.MsKnightAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
@@ -1845,6 +2064,7 @@ declare global {
     'ms-archer-editor': Components.MsArcherEditorAttributes;
     'ms-assassin-editor': Components.MsAssassinEditorAttributes;
     'ms-berserker-editor': Components.MsBerserkerEditorAttributes;
+    'ms-heavy-gunner-editor': Components.MsHeavyGunnerEditorAttributes;
     'ms-knight-editor': Components.MsKnightEditorAttributes;
     'ms-priest-editor': Components.MsPriestEditorAttributes;
     'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
@@ -1907,6 +2127,23 @@ declare global {
     'ms-void-slash': Components.MsVoidSlashAttributes;
     'ms-warriors-instinct': Components.MsWarriorsInstinctAttributes;
     'ms-x-slash': Components.MsXSlashAttributes;
+    'ms-advanced-bullets': Components.MsAdvancedBulletsAttributes;
+    'ms-advanced-missiles': Components.MsAdvancedMissilesAttributes;
+    'ms-advanced-pulse-weapons': Components.MsAdvancedPulseWeaponsAttributes;
+    'ms-blast-charge-kit': Components.MsBlastChargeKitAttributes;
+    'ms-bullet-spray': Components.MsBulletSprayAttributes;
+    'ms-electric-blast': Components.MsElectricBlastAttributes;
+    'ms-gatling-fire': Components.MsGatlingFireAttributes;
+    'ms-homing-missiles': Components.MsHomingMissilesAttributes;
+    'ms-jet-boots': Components.MsJetBootsAttributes;
+    'ms-lock-on': Components.MsLockOnAttributes;
+    'ms-m-bomb': Components.MsMBombAttributes;
+    'ms-magnetic-bomb': Components.MsMagneticBombAttributes;
+    'ms-med-kit': Components.MsMedKitAttributes;
+    'ms-reload': Components.MsReloadAttributes;
+    'ms-rocket-launcher': Components.MsRocketLauncherAttributes;
+    'ms-stun-grenades': Components.MsStunGrenadesAttributes;
+    'ms-suborbital-bombardment': Components.MsSuborbitalBombardmentAttributes;
     'ms-bulwark': Components.MsBulwarkAttributes;
     'ms-cross-cut': Components.MsCrossCutAttributes;
     'ms-defender-of-the-faith': Components.MsDefenderOfTheFaithAttributes;
@@ -2013,6 +2250,12 @@ declare global {
     new (): HTMLMsBerserkerElement;
   };
 
+  interface HTMLMsHeavyGunnerElement extends Components.MsHeavyGunner, HTMLStencilElement {}
+  var HTMLMsHeavyGunnerElement: {
+    prototype: HTMLMsHeavyGunnerElement;
+    new (): HTMLMsHeavyGunnerElement;
+  };
+
   interface HTMLMsKnightElement extends Components.MsKnight, HTMLStencilElement {}
   var HTMLMsKnightElement: {
     prototype: HTMLMsKnightElement;
@@ -2059,6 +2302,12 @@ declare global {
   var HTMLMsBerserkerEditorElement: {
     prototype: HTMLMsBerserkerEditorElement;
     new (): HTMLMsBerserkerEditorElement;
+  };
+
+  interface HTMLMsHeavyGunnerEditorElement extends Components.MsHeavyGunnerEditor, HTMLStencilElement {}
+  var HTMLMsHeavyGunnerEditorElement: {
+    prototype: HTMLMsHeavyGunnerEditorElement;
+    new (): HTMLMsHeavyGunnerEditorElement;
   };
 
   interface HTMLMsKnightEditorElement extends Components.MsKnightEditor, HTMLStencilElement {}
@@ -2431,6 +2680,108 @@ declare global {
   var HTMLMsXSlashElement: {
     prototype: HTMLMsXSlashElement;
     new (): HTMLMsXSlashElement;
+  };
+
+  interface HTMLMsAdvancedBulletsElement extends Components.MsAdvancedBullets, HTMLStencilElement {}
+  var HTMLMsAdvancedBulletsElement: {
+    prototype: HTMLMsAdvancedBulletsElement;
+    new (): HTMLMsAdvancedBulletsElement;
+  };
+
+  interface HTMLMsAdvancedMissilesElement extends Components.MsAdvancedMissiles, HTMLStencilElement {}
+  var HTMLMsAdvancedMissilesElement: {
+    prototype: HTMLMsAdvancedMissilesElement;
+    new (): HTMLMsAdvancedMissilesElement;
+  };
+
+  interface HTMLMsAdvancedPulseWeaponsElement extends Components.MsAdvancedPulseWeapons, HTMLStencilElement {}
+  var HTMLMsAdvancedPulseWeaponsElement: {
+    prototype: HTMLMsAdvancedPulseWeaponsElement;
+    new (): HTMLMsAdvancedPulseWeaponsElement;
+  };
+
+  interface HTMLMsBlastChargeKitElement extends Components.MsBlastChargeKit, HTMLStencilElement {}
+  var HTMLMsBlastChargeKitElement: {
+    prototype: HTMLMsBlastChargeKitElement;
+    new (): HTMLMsBlastChargeKitElement;
+  };
+
+  interface HTMLMsBulletSprayElement extends Components.MsBulletSpray, HTMLStencilElement {}
+  var HTMLMsBulletSprayElement: {
+    prototype: HTMLMsBulletSprayElement;
+    new (): HTMLMsBulletSprayElement;
+  };
+
+  interface HTMLMsElectricBlastElement extends Components.MsElectricBlast, HTMLStencilElement {}
+  var HTMLMsElectricBlastElement: {
+    prototype: HTMLMsElectricBlastElement;
+    new (): HTMLMsElectricBlastElement;
+  };
+
+  interface HTMLMsGatlingFireElement extends Components.MsGatlingFire, HTMLStencilElement {}
+  var HTMLMsGatlingFireElement: {
+    prototype: HTMLMsGatlingFireElement;
+    new (): HTMLMsGatlingFireElement;
+  };
+
+  interface HTMLMsHomingMissilesElement extends Components.MsHomingMissiles, HTMLStencilElement {}
+  var HTMLMsHomingMissilesElement: {
+    prototype: HTMLMsHomingMissilesElement;
+    new (): HTMLMsHomingMissilesElement;
+  };
+
+  interface HTMLMsJetBootsElement extends Components.MsJetBoots, HTMLStencilElement {}
+  var HTMLMsJetBootsElement: {
+    prototype: HTMLMsJetBootsElement;
+    new (): HTMLMsJetBootsElement;
+  };
+
+  interface HTMLMsLockOnElement extends Components.MsLockOn, HTMLStencilElement {}
+  var HTMLMsLockOnElement: {
+    prototype: HTMLMsLockOnElement;
+    new (): HTMLMsLockOnElement;
+  };
+
+  interface HTMLMsMBombElement extends Components.MsMBomb, HTMLStencilElement {}
+  var HTMLMsMBombElement: {
+    prototype: HTMLMsMBombElement;
+    new (): HTMLMsMBombElement;
+  };
+
+  interface HTMLMsMagneticBombElement extends Components.MsMagneticBomb, HTMLStencilElement {}
+  var HTMLMsMagneticBombElement: {
+    prototype: HTMLMsMagneticBombElement;
+    new (): HTMLMsMagneticBombElement;
+  };
+
+  interface HTMLMsMedKitElement extends Components.MsMedKit, HTMLStencilElement {}
+  var HTMLMsMedKitElement: {
+    prototype: HTMLMsMedKitElement;
+    new (): HTMLMsMedKitElement;
+  };
+
+  interface HTMLMsReloadElement extends Components.MsReload, HTMLStencilElement {}
+  var HTMLMsReloadElement: {
+    prototype: HTMLMsReloadElement;
+    new (): HTMLMsReloadElement;
+  };
+
+  interface HTMLMsRocketLauncherElement extends Components.MsRocketLauncher, HTMLStencilElement {}
+  var HTMLMsRocketLauncherElement: {
+    prototype: HTMLMsRocketLauncherElement;
+    new (): HTMLMsRocketLauncherElement;
+  };
+
+  interface HTMLMsStunGrenadesElement extends Components.MsStunGrenades, HTMLStencilElement {}
+  var HTMLMsStunGrenadesElement: {
+    prototype: HTMLMsStunGrenadesElement;
+    new (): HTMLMsStunGrenadesElement;
+  };
+
+  interface HTMLMsSuborbitalBombardmentElement extends Components.MsSuborbitalBombardment, HTMLStencilElement {}
+  var HTMLMsSuborbitalBombardmentElement: {
+    prototype: HTMLMsSuborbitalBombardmentElement;
+    new (): HTMLMsSuborbitalBombardmentElement;
   };
 
   interface HTMLMsBulwarkElement extends Components.MsBulwark, HTMLStencilElement {}
@@ -2947,6 +3298,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement
     'ms-assassin': HTMLMsAssassinElement
     'ms-berserker': HTMLMsBerserkerElement
+    'ms-heavy-gunner': HTMLMsHeavyGunnerElement
     'ms-knight': HTMLMsKnightElement
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
@@ -2955,6 +3307,7 @@ declare global {
     'ms-archer-editor': HTMLMsArcherEditorElement
     'ms-assassin-editor': HTMLMsAssassinEditorElement
     'ms-berserker-editor': HTMLMsBerserkerEditorElement
+    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement
     'ms-knight-editor': HTMLMsKnightEditorElement
     'ms-priest-editor': HTMLMsPriestEditorElement
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement
@@ -3017,6 +3370,23 @@ declare global {
     'ms-void-slash': HTMLMsVoidSlashElement
     'ms-warriors-instinct': HTMLMsWarriorsInstinctElement
     'ms-x-slash': HTMLMsXSlashElement
+    'ms-advanced-bullets': HTMLMsAdvancedBulletsElement
+    'ms-advanced-missiles': HTMLMsAdvancedMissilesElement
+    'ms-advanced-pulse-weapons': HTMLMsAdvancedPulseWeaponsElement
+    'ms-blast-charge-kit': HTMLMsBlastChargeKitElement
+    'ms-bullet-spray': HTMLMsBulletSprayElement
+    'ms-electric-blast': HTMLMsElectricBlastElement
+    'ms-gatling-fire': HTMLMsGatlingFireElement
+    'ms-homing-missiles': HTMLMsHomingMissilesElement
+    'ms-jet-boots': HTMLMsJetBootsElement
+    'ms-lock-on': HTMLMsLockOnElement
+    'ms-m-bomb': HTMLMsMBombElement
+    'ms-magnetic-bomb': HTMLMsMagneticBombElement
+    'ms-med-kit': HTMLMsMedKitElement
+    'ms-reload': HTMLMsReloadElement
+    'ms-rocket-launcher': HTMLMsRocketLauncherElement
+    'ms-stun-grenades': HTMLMsStunGrenadesElement
+    'ms-suborbital-bombardment': HTMLMsSuborbitalBombardmentElement
     'ms-bulwark': HTMLMsBulwarkElement
     'ms-cross-cut': HTMLMsCrossCutElement
     'ms-defender-of-the-faith': HTMLMsDefenderOfTheFaithElement
@@ -3108,6 +3478,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-berserker': HTMLMsBerserkerElement;
+    'ms-heavy-gunner': HTMLMsHeavyGunnerElement;
     'ms-knight': HTMLMsKnightElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
@@ -3116,6 +3487,7 @@ declare global {
     'ms-archer-editor': HTMLMsArcherEditorElement;
     'ms-assassin-editor': HTMLMsAssassinEditorElement;
     'ms-berserker-editor': HTMLMsBerserkerEditorElement;
+    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement;
     'ms-knight-editor': HTMLMsKnightEditorElement;
     'ms-priest-editor': HTMLMsPriestEditorElement;
     'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
@@ -3178,6 +3550,23 @@ declare global {
     'ms-void-slash': HTMLMsVoidSlashElement;
     'ms-warriors-instinct': HTMLMsWarriorsInstinctElement;
     'ms-x-slash': HTMLMsXSlashElement;
+    'ms-advanced-bullets': HTMLMsAdvancedBulletsElement;
+    'ms-advanced-missiles': HTMLMsAdvancedMissilesElement;
+    'ms-advanced-pulse-weapons': HTMLMsAdvancedPulseWeaponsElement;
+    'ms-blast-charge-kit': HTMLMsBlastChargeKitElement;
+    'ms-bullet-spray': HTMLMsBulletSprayElement;
+    'ms-electric-blast': HTMLMsElectricBlastElement;
+    'ms-gatling-fire': HTMLMsGatlingFireElement;
+    'ms-homing-missiles': HTMLMsHomingMissilesElement;
+    'ms-jet-boots': HTMLMsJetBootsElement;
+    'ms-lock-on': HTMLMsLockOnElement;
+    'ms-m-bomb': HTMLMsMBombElement;
+    'ms-magnetic-bomb': HTMLMsMagneticBombElement;
+    'ms-med-kit': HTMLMsMedKitElement;
+    'ms-reload': HTMLMsReloadElement;
+    'ms-rocket-launcher': HTMLMsRocketLauncherElement;
+    'ms-stun-grenades': HTMLMsStunGrenadesElement;
+    'ms-suborbital-bombardment': HTMLMsSuborbitalBombardmentElement;
     'ms-bulwark': HTMLMsBulwarkElement;
     'ms-cross-cut': HTMLMsCrossCutElement;
     'ms-defender-of-the-faith': HTMLMsDefenderOfTheFaithElement;

@@ -1,0 +1,85 @@
+
+ms-advanced-bullets {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+ms-advanced-missiles {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-advanced-pulse-weapons {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-blast-charge-kit {
+  @include chart-row(6);
+  @include chart-column(2);
+}
+
+ms-bullet-spray {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-electric-blast {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-gatling-fire {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-homing-missiles {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-jet-boots {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-lock-on {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-m-bomb {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+ms-magnetic-bomb {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-med-kit {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-reload {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-rocket-launcher {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-stun-grenades {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-suborbital-bombardment {
+  @include chart-row(4);
+  @include chart-column(4);
+}

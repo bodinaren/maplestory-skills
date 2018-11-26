@@ -1,0 +1,96 @@
+:host {
+	display: block;
+}
+
+ms-level-control {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: -25px;
+  z-index: 1;
+}
+
+
+.advancedBullets {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+.advancedMissiles {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+.advancedPulseWeapons {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+.blastChargeKit {
+  @include chart-row(6);
+  @include chart-column(2);
+}
+
+.bulletSpray {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+.electricBlast {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+.gatlingFire {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+.homingMissiles {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+.jetBoots {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+.lockOn {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+.magneticBomb {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+.mBomb {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+.medKit {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+.reload {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+.rocketLauncher {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+.stunGrenades {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+.suborbitalBombardment {
+  @include chart-row(4);
+  @include chart-column(4);
+}
