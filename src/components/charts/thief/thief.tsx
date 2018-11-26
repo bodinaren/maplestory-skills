@@ -3,13 +3,10 @@ import * as ThiefValues from "../../../global/values/thief";
 
 @Component({
   tag: "ms-thief",
-  styleUrls: ["../charts.scss", "thief.scss"],
-  assetsDir: "assets",
+  styleUrls: ["thief.scss"],
   shadow: true
 })
 export class ThiefComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) bladeDance: number = ThiefValues.BladeDanceValues.minLevel;
   @Prop({ mutable: true }) cunningTactics: number = ThiefValues.CunningTacticsValues.minLevel;
@@ -30,9 +27,8 @@ export class ThiefComponent {
   @Prop({ mutable: true }) viciousCuts: number = ThiefValues.ViciousCutsValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart thief" style={{ backgroundImage: `url(${ this.publicPath }assets/thief.jpg)` }}>
+    return (
+      <ms-chart msClass="thief">
         <ms-blade-dance level={ this.bladeDance }></ms-blade-dance>
         <ms-cunning-tactics level={ this.cunningTactics }></ms-cunning-tactics>
         <ms-deft-combatant level={ this.deftCombatant }></ms-deft-combatant>
@@ -50,7 +46,7 @@ export class ThiefComponent {
         <ms-spirit-thief level={ this.spiritThief }></ms-spirit-thief>
         <ms-surprise-attack level={ this.surpriseAttack }></ms-surprise-attack>
         <ms-vicious-cuts level={ this.viciousCuts }></ms-vicious-cuts>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

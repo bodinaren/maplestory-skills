@@ -3,13 +3,10 @@ import * as HeavyGunnerValues from "../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-heavy-gunner",
-  styleUrls: ["../charts.scss", "heavy-gunner.scss"],
-  assetsDir: "assets",
+  styleUrls: ["heavy-gunner.scss"],
   shadow: true
 })
 export class HeavyGunnerComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerValues.AdvancedBulletsValues.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerValues.AdvancedMissilesValues.minLevel;
@@ -30,9 +27,8 @@ export class HeavyGunnerComponent {
   @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerValues.SuborbitalBombardmentValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart heavy-gunner" style={{ backgroundImage: `url(${ this.publicPath }assets/heavy-gunner.jpg)` }}>
+    return (
+      <ms-chart msClass="heavy-gunner">
         <ms-advanced-bullets level={ this.advancedBullets }></ms-advanced-bullets>
         <ms-advanced-missiles level={ this.advancedMissiles }></ms-advanced-missiles>
         <ms-advanced-pulse-weapons level={ this.advancedPulseWeapons }></ms-advanced-pulse-weapons>
@@ -50,7 +46,7 @@ export class HeavyGunnerComponent {
         <ms-rocket-launcher level={ this.rocketLauncher }></ms-rocket-launcher>
         <ms-stun-grenades level={ this.stunGrenades }></ms-stun-grenades>
         <ms-suborbital-bombardment level={ this.suborbitalBombardment }></ms-suborbital-bombardment>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

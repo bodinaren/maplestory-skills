@@ -19,6 +19,8 @@ export class GreatswordMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="greatsword-mastery"></ms-icon>,

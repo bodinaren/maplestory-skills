@@ -10,6 +10,8 @@ import { Component, Prop } from "@stencil/core";
 })
 export class SkillOverlayComponent {
 
+  @Prop({ context: "publicPath" }) private publicPath: string;
+
   @Prop() heading: string;
   @Prop({ reflectToAttr: true }) element: string = "";
   @Prop({ reflectToAttr: true }) level: number = 0;
@@ -24,7 +26,9 @@ export class SkillOverlayComponent {
   render() {
     return (
       <div>
-        <h1>
+        <h1 style={ this.element && {
+          "background-image": `url(${ this.publicPath }assets/${ this.element.toLowerCase() }.jpg)`
+        }}>
           { this.heading }
           { this.element &&
             <span class="element">{ this.element }</span>

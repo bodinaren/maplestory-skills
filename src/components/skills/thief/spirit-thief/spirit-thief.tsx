@@ -12,14 +12,16 @@ export class SpiritThiefComponent {
 
   @Prop({ reflectToAttr: true }) private max: number = SpiritThiefValues.maxLevel;
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
-      <ms-icon name="spirit-thief"></ms-icon>,
+      <ms-icon name="spirit-thief" sp={ true }></ms-icon>,
       <ms-skill-overlay heading="Spirit Thief"
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>
-        <ms-icon slot="icon" name="spirit-thief"></ms-icon>
+        <ms-icon slot="icon" name="spirit-thief" sp={ true }></ms-icon>
         <div slot="description">
           Steal from an enemy. When successful, attacks restore <span>4</span> spirit on hit.
         </div>

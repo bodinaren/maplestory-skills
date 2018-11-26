@@ -19,6 +19,8 @@ export class AgileArcherComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="agile-archer"></ms-icon>,

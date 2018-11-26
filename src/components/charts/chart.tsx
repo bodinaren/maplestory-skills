@@ -32,6 +32,9 @@ export class ChartComponent {
         ::slotted(*) {
           background-image: url(${ this.publicPath }assets/skill-shield.png);
         }
+        ::slotted([passive]) {
+          background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
+        }
         ::slotted(*):after {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
         }

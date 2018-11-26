@@ -1,6 +1,5 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
-import { base64css } from "./scripts/base64css";
 
 export const config: Config = {
   namespace: "maplestory-skills",
@@ -35,7 +34,6 @@ export const config: Config = {
       injectGlobalPaths: [
         "src/global/helpers.scss",
       ]
-    }),
-    base64css()
+    })
   ]
 };

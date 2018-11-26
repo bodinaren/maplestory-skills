@@ -19,6 +19,8 @@ export class MarkOfDeathComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="mark-of-death"></ms-icon>,

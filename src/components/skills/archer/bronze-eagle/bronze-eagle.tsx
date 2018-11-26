@@ -18,6 +18,8 @@ export class BronzeEagleComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="bronze-eagle"></ms-icon>,

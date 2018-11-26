@@ -20,6 +20,8 @@ export class ThrownWeaponMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="thrown-weapon-mastery"></ms-icon>,

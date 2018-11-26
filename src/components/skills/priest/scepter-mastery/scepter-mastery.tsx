@@ -18,6 +18,8 @@ export class ScepterMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="scepter-mastery"></ms-icon>,

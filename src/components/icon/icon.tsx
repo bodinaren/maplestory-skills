@@ -8,12 +8,14 @@ import { Component, Prop } from "@stencil/core";
 export class IconComponent {
 
   @Prop() name: string;
+  @Prop() sp: boolean = false;
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 
   render() {
-    return (
-      <img src={ `${ this.publicPath }assets/skills/${this.name}.png` } />
-    );
+    return [
+      <img src={ `${ this.publicPath }assets/skills/${this.name}.png` } />,
+      this.sp && <img src={ `${ this.publicPath }assets/sp.png` } />,
+    ];
   }
 }

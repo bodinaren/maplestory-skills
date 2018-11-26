@@ -19,6 +19,8 @@ export class RetaliationComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="retaliation"></ms-icon>,

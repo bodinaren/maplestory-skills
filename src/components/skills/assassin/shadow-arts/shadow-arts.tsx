@@ -20,6 +20,8 @@ export class ShadowArtsComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="shadow-arts"></ms-icon>,

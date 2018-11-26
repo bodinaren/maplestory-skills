@@ -19,6 +19,8 @@ export class AdrenalineRushComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="adrenaline-rush"></ms-icon>,

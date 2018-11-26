@@ -20,6 +20,8 @@ export class InhumanEnduranceComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="inhuman-endurance"></ms-icon>,

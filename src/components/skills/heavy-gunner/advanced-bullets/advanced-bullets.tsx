@@ -20,6 +20,8 @@ export class AdvancedBulletsComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="advanced-bullets"></ms-icon>,

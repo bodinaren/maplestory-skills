@@ -19,6 +19,8 @@ export class AdvancedPulseWeaponsComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="advanced-pulse-weapons"></ms-icon>,
