@@ -35,13 +35,13 @@ export class ElectricBlastComponent {
           Activate the compact particle accelerator on your cannon to gather electricity and shoot,
           dealing <span>{ ElectricBlastValues.stage1[this.level] }%</span> electric damage
           to <span>3</span> enemies up to <span>9</span> m in front of you and knocking them back <span>1.5</span> m.
-          Hold the skill key down for <span>0.5</span> sec to enhance the effect to Stage 2 and
+          After starting to gather electricity, hold the skill key down for <span>0.5</span> sec to enhance the effect to <span>Stage 2</span> and
           deal <span>{ ElectricBlastValues.stage2[this.level] }%</span> electric damage <span>2</span> times
           to <span>5</span> enemies up to <span>9</span> m in front of you and knock them back <span>3</span> m.
-          Hold the skill key down for <span>0.5</span> sec at Stage 2 to enhance the effect to Stage 3 and
+          Hold the skill key down for <span>0.5</span> sec at <span>Stage 2</span> to enhance the effect to <span>Stage 3</span> and
           deal <span>{ ElectricBlastValues.stage3[this.level] }%</span> electric damage <span>3</span> times
           to <span>8</span> enemies up to <span>9</span> m in front of you and knock them back <span>4.5</span> m.
-          You will fire automatically when the skill key is held down for <span>3</span> sec at Stage 3.
+          You will fire automatically when the skill key is held down for <span>3</span> sec at <span>Stage 3</span>.
         </div>
       </ms-skill-overlay>
     ];

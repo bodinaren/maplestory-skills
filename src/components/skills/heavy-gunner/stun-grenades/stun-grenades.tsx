@@ -33,7 +33,7 @@ export class StunGrenadesComponent {
         <div slot="description">
           Toss two grenades <span>3</span> m in front of you that explode after <span>0.5</span> sec,
           dealing <span>{ StunGrenadesValues.damage[this.level] }%</span> fire damage
-          to <span>5</span> enemies within <span>{ StunGrenadesValues.range[this.level] }%</span> m
+          to <span>5</span> enemies within <span>{ StunGrenadesValues.range[this.level] }</span> m
           and has a <span>{ StunGrenadesValues.stun[this.level] }%</span> chance to stun.
           Consumes <span>6</span> spirit.
         </div>

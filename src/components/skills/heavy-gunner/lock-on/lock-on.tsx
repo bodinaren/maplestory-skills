@@ -37,7 +37,7 @@ export class LockOnComponent {
           front of you and shooting a special bullet that
           deals <span>{ LockOnValues.damage[this.level] }%</span> damage,
           pierces the target up to <span>8</span> times, and can damage enemies behind the target.
-          Consumes <span>5</span>1 spirit.
+          Consumes <span>15</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

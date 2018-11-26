@@ -29,7 +29,7 @@ export const BlastChargeKitValues = {
 export const BulletSprayValues = {
   minLevel: 1,
   maxLevel: 10,
-  levelRequirement: [10, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
   damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
 };
 
@@ -45,7 +45,7 @@ export const ElectricBlastValues = {
 export const GatlingFireValues = {
   minLevel: 1,
   maxLevel: 10,
-  levelRequirement: [10, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
   damage: [44, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80],
 };
 
