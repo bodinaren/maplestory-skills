@@ -139,7 +139,7 @@
           <img class="inactive" src="assets/berserker_bw.png" />
           Berserker
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
+        <a href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
           <img class="active" src="assets/heavy-gunner.png" />
           <img class="inactive" src="assets/heavy-gunner_bw.png" />
           Heavy Gunner
@@ -200,7 +200,12 @@
         </div>
 
         <div id="heavy-gunner">
-          <p>The Heavy Gunner class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="heavyGunnerEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="heavyGunnerEditor" ms-class="heavy-gunner"></ms-editor>
         </div>
 
         <div id="knight">
