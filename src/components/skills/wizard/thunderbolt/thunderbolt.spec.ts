@@ -1,7 +1,7 @@
-import { spirit={ 11111 }Component } from "./spirit={ 11111 }";
+import { ThunderboltComponent } from "./thunderbolt";
 
-describe("spirit={ 11111 }", () => {
+describe("thunderbolt", () => {
   it("builds", () => {
-    expect(new spirit={ 11111 }Component()).toBeTruthy();
+    expect(new ThunderboltComponent()).toBeTruthy();
   });
 });
