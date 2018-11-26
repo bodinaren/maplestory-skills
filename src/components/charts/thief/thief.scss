@@ -1,0 +1,85 @@
+
+ms-blade-dance {
+  @include chart-row(4);
+  @include chart-column(2);
+}
+
+ms-cunning-tactics {
+  @include chart-row(3);
+  @include chart-column(2);
+}
+
+ms-deft-combatant {
+  @include chart-row(6);
+  @include chart-column(4);
+}
+
+ms-double-slash {
+  @include chart-row(1);
+  @include chart-column(1);
+}
+
+ms-haste {
+  @include chart-row(5);
+  @include chart-column(4);
+}
+
+ms-mesoguard-plus {
+  @include chart-row(6);
+  @include chart-column(3);
+}
+
+ms-mind-breaker {
+  @include chart-row(3);
+  @include chart-column(4);
+}
+
+ms-mind-stealer {
+  @include chart-row(1);
+  @include chart-column(4);
+}
+
+ms-poison-edge {
+  @include chart-row(2);
+  @include chart-column(1);
+}
+
+ms-poison-vial {
+  @include chart-row(3);
+  @include chart-column(1);
+}
+
+ms-quick-step {
+  @include chart-row(4);
+  @include chart-column(3);
+}
+
+ms-retaliation {
+  @include chart-row(5);
+  @include chart-column(2);
+}
+
+ms-ruthless-guile {
+  @include chart-row(6);
+  @include chart-column(1);
+}
+
+ms-somersault-kick {
+  @include chart-row(3);
+  @include chart-column(3);
+}
+
+ms-spirit-thief {
+  @include chart-row(1);
+  @include chart-column(3);
+}
+
+ms-surprise-attack {
+  @include chart-row(5);
+  @include chart-column(1);
+}
+
+ms-vicious-cuts {
+  @include chart-row(4);
+  @include chart-column(4);
+}

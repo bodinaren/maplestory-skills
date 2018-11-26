@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <title>Maplestory 2 Skills</title>
+    <title>Maplestory 2 Interactive Skill Charts</title>
     <script src="/build/maplestory-skills.js"></script>
 
     <style>
@@ -107,10 +107,10 @@
 
       <img class="logo" src="assets/logo.png" />
       
-      <h1>Welcome to the MapleStory 2 Skill Charts</h1>
+      <h1>Welcome to the MapleStory 2 Interactive Skill Charts</h1>
       
       <p>
-        MapleStory 2 Skill Charts is a set of web components which, with very little effort,
+        MapleStory 2 Interactive Skill Charts is a set of web components which, with very little effort,
         let you add an interactive skill chart to your website or blog.
         This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives.
         So much better than just a screenshot!
@@ -140,12 +140,12 @@
           <img class="inactive" src="assets/berserker_bw.png" />
           Berserker
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
+        <a href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
           <img class="active" src="assets/heavy-gunner.png" />
           <img class="inactive" src="assets/heavy-gunner_bw.png" />
           Heavy Gunner
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
+        <a href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
           <img class="active" src="assets/knight.png" />
           <img class="inactive" src="assets/knight_bw.png" />
           Knight
@@ -160,7 +160,7 @@
           <img class="inactive" src="assets/runeblade_bw.png" />
           Runeblade
         </a>
-        <a class="unavailable" title="Coming soon" href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
+        <a href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
           <img class="active" src="assets/thief.png" />
           <img class="inactive" src="assets/thief_bw.png" />
           Thief
@@ -175,7 +175,7 @@
       <div id="editors">
         <div id="archer">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="archerEditor"></ms-editor-outlet>
           </code>
 
@@ -184,7 +184,7 @@
 
         <div id="assassin">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="assassinEditor"></ms-editor-outlet>
           </code>
 
@@ -193,7 +193,7 @@
 
         <div id="berserker">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="berserkerEditor"></ms-editor-outlet>
           </code>
 
@@ -201,16 +201,26 @@
         </div>
 
         <div id="heavy-gunner">
-          <p>The Heavy Gunner class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="heavyGunnerEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="heavyGunnerEditor" ms-class="heavy-gunner"></ms-editor>
         </div>
 
         <div id="knight">
-          <p>The knight class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="knightEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="knightEditor" ms-class="knight"></ms-editor>
         </div>
         
         <div id="priest">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="priestEditor"></ms-editor-outlet>
           </code>
 
@@ -219,7 +229,7 @@
         
         <div id="runeblade">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="runebladeEditor"></ms-editor-outlet>
           </code>
 
@@ -227,12 +237,17 @@
         </div>
           
         <div id="thief">
-          <p>The thief class is not yet available. It's coming soon!</p>
+          <code>
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+<ms-editor-outlet editor="thiefEditor"></ms-editor-outlet>
+          </code>
+
+          <ms-editor id="thiefEditor" ms-class="thief"></ms-editor>
         </div>
           
         <div id="wizard">
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^0/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
 <ms-editor-outlet editor="wizardEditor"></ms-editor-outlet>
           </code>
 

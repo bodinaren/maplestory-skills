@@ -51,7 +51,7 @@ export const LongswordMasteryValues = {
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [43, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61],
-  increase: [1.0, 1.0, 1.6, 2.2, 2.8, 3.4, 4.0, 4.6, 5.2, 5.8, 6.4],
+  attack: [1.0, 1.0, 1.6, 2.2, 2.8, 3.4, 4.0, 4.6, 5.2, 5.8, 6.4],
 };
 
 export const ShieldBoosterValues = {

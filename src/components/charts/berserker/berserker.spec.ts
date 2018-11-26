@@ -1,7 +1,7 @@
-import { ArcherComponent } from "./archer";
+import { BerserkerComponent } from "./berserker";
 
-describe("archer", () => {
+describe("berserker", () => {
   it("builds", () => {
-    expect(new ArcherComponent()).toBeTruthy();
+    expect(new BerserkerComponent()).toBeTruthy();
   });
 });
