@@ -9,20 +9,9 @@ MapleStory 2 Skill Charts is a set of web components which, with very little eff
 
 ## How do I put this one my site or blog?
 
-Head over to the [GitHub Pages](http://bodinaren.github.io/maplestory-skills) and use the editor to generate your own skill chart. Just paste the resulting code into your website or blog and you're good to go!
+Head over to the [website](http://bodinaren.github.io/maplestory-skills) and use the editor to generate your own skill chart. Just paste the resulting code into your website or blog and you're good to go!
 
 
 ## Contributing
 
-So you want to help out? Thanks!
-At this stage of the project, the most valuable things is filling in all the values for the skills. Here's how you can help:
-
-### Send me the values (non-coders)
-
-Create a [New Issue](https://github.com/bodinaren/maplestory-skills/issues/new) where you send me all the numbers you have.
-
-### Fill them in yourself (coders)
-
-If you're feeling like being more hands-on and submitting a PR you can [find the values here](/src/global/values). Add the correct values everywhere you can see `[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]`.
-
->Each array has 11 values, which hold the values for what's shown for each level of the skill, starting on level 0. Since on level 0 we actually show the values for level 1 the first two values will always be the same (even on skills that actually can never be 0). This may seem pointless, but it actually keeps the code much cleaner.
+Create a [New Issue](https://github.com/bodinaren/maplestory-skills/issues/new) where you outline your intentions. After an agreement fork this repository, create a new branch, make your changes and then submit a pull request.
