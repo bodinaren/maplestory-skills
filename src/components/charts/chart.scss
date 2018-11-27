@@ -21,8 +21,7 @@ _:-ms-lang(x), :host(:active) { cursor: auto; }
   background-repeat: no-repeat;
   background-position: calc(50% + 34px) calc(50% - 18px);
 }
-
-.chart > div:not(.class-icon) {
+.chart > .class-icon > div {
   width: $chart-width;
   height: $chart-height;
   background-position: 171px 88px;

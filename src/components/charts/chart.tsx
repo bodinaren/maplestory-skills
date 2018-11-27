@@ -27,7 +27,7 @@ export class ChartComponent {
         .class-icon {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-icon.png)
         }
-        .chart > div:not(.class-icon) {
+        .chart > .class-icon > div {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
         }
         ::slotted(*) {
@@ -42,9 +42,10 @@ export class ChartComponent {
       `}</style>,
       <ms-footer></ms-footer>,
       <div class="chart">
-        <div class="class-icon"></div>
-        <div class={ this.msClass }>
-          <slot></slot>
+        <div class="class-icon">
+          <div class={ this.msClass }>
+            <slot></slot>
+          </div>
         </div>
       </div>
     ];
