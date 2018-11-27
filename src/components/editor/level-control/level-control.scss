@@ -8,12 +8,25 @@
 
 .minus, .plus {
   position: absolute;
-  display: inline-block;
   width: 30px;
   height: 33px;
-  
-  &:not(:hover) :last-child { display: none; }
-  &:hover :first-child { display: none; }
+
+  &:not([hidden]) { display: inline-block; }
+
+  img {
+    display: none;
+    position: absolute;
+  }
+
+  &:not(:hover):not(:active) {
+    img:nth-child(1) { display: inline; }
+  }
+  &:hover {
+    img:nth-child(2) { display: inline; }
+  }
+  &:active {
+    img:nth-child(3) { display: inline; }
+  }
 }
 _:-ms-lang(x), .minus img, .plus img { cursor: pointer; }
 

@@ -14,11 +14,24 @@ _:-ms-lang(x), :host(:active) { cursor: auto; }
   height: $chart-height;
   color: white;
   font-family: Roboto, Arial;
+  z-index: 0;
+}
+.chart > div:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 34px) calc(50% - 18px);
 }
 
 .chart > div {
   width: $chart-width;
   height: $chart-height;
+  background-position: 171px 88px;
+  background-repeat: no-repeat;
 }
 
 ms-footer {

@@ -15,19 +15,20 @@ export class ChartComponent {
   render() {
     return [
       <style>{`
-        :host {
-          cursor: url(${ this.publicPath }assets/cursor.png), auto;
+        :host, :host(:hover) {
+          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
         }
         :host(:active) {
-          cursor: url(${ this.publicPath }assets/cursor-down.png), auto;
+          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
         }
         .chart {
           background-image: url(${ this.publicPath }assets/charts/chart.jpg);
         }
+        .chart > div:before {
+          background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-icon.png)
+        }
         .chart > div {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
-          background-position: 171px 88px;
-          background-repeat: no-repeat;
         }
         ::slotted(*) {
           background-image: url(${ this.publicPath }assets/skill-shield.png);

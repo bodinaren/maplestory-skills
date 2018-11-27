@@ -35,11 +35,11 @@ export class EditorComponent {
   render() {
     return [
       <style>{`
-        :host {
-          cursor: url('${ this.publicPath }assets/cursor.png'), auto;
+        :host, :host(:hover) {
+          cursor: url('${ this.publicPath }assets/cursor.png') 5 8, auto;
         }
         :host(:active) {
-          cursor: url('${ this.publicPath }assets/cursor-down.png'), auto;
+          cursor: url('${ this.publicPath }assets/cursor-down.png') 5 8, auto;
         }
       `}</style>,
       (this.msClass)
