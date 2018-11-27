@@ -20,6 +20,8 @@ export class WarriorsInstinctComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="warriors-instinct"></ms-icon>,

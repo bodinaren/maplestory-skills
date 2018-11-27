@@ -18,6 +18,8 @@ export class ConditioningComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="conditioning"></ms-icon>,

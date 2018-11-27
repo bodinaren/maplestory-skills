@@ -3,13 +3,10 @@ import * as AssassinValues from "../../../global/values/assassin";
 
 @Component({
   tag: "ms-assassin",
-  styleUrls: ["../charts.scss", "assassin.scss"],
-  assetsDir: "assets",
+  styleUrls: ["assassin.scss"],
   shadow: true
 })
 export class AssassinComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) darkCloak: number = AssassinValues.DarkCloakValues.minLevel;
   @Prop({ mutable: true }) dash: number = AssassinValues.DashValues.minLevel;
@@ -30,9 +27,8 @@ export class AssassinComponent {
   @Prop({ mutable: true }) thrownWeaponMastery: number = AssassinValues.ThrownWeaponMasteryValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart assassin" style={{ backgroundImage: `url(${ this.publicPath }assets/assassin.jpg)` }}>
+    return (
+      <ms-chart msClass="assassin">
         <ms-dark-cloak level={ this.darkCloak }></ms-dark-cloak>
         <ms-dash level={ this.dash }></ms-dash>
         <ms-death-sentence level={ this.deathSentence }></ms-death-sentence>
@@ -50,7 +46,7 @@ export class AssassinComponent {
         <ms-star-chaser level={ this.starChaser }></ms-star-chaser>
         <ms-star-flurry level={ this.starFlurry }></ms-star-flurry>
         <ms-thrown-weapon-mastery level={ this.thrownWeaponMastery }></ms-thrown-weapon-mastery>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

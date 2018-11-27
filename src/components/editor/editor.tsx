@@ -12,7 +12,14 @@ export class EditorComponent {
 
   @Prop({ mutable: true }) msClass: MapleStoryClass;
 
+  @Prop({ context: "publicPath" }) private publicPath: string;
+
   @Event({ eventName: "changed" }) onChanged: EventEmitter<string>;
+
+  async componentDidUpdate() {
+    let htmlString = await this.toHtmlString();
+    this.onChanged.emit(htmlString);
+  }
 
   @Method()
   toHtmlString(): Promise<string> {
@@ -21,12 +28,24 @@ export class EditorComponent {
     );
   }
 
+  private editorValueChanged(evt) {
+    this.onChanged.emit(evt.detail);
+  }
+
   render() {
-    if (this.msClass) {
-      return this.renderSkillSelection();
-    } else {
-      return this.renderClassSelection();
-    }
+    return [
+      <style>{`
+        :host, :host(:hover) {
+          cursor: url('${ this.publicPath }assets/cursor.png') 5 8, auto;
+        }
+        :host(:active) {
+          cursor: url('${ this.publicPath }assets/cursor-down.png') 5 8, auto;
+        }
+      `}</style>,
+      (this.msClass)
+        && this.renderSkillSelection()
+        || this.renderClassSelection()
+    ];
   }
 
   private renderClassSelection(): JSX.Element {
@@ -45,9 +64,5 @@ export class EditorComponent {
       case "thief": return (<ms-thief-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-thief-editor>);
       case "wizard": return (<ms-wizard-editor onSkillchanged={ (evt) => this.editorValueChanged(evt) } ref={(el) => this.classEditor = el as any }></ms-wizard-editor>);
     }
-  }
-
-  private editorValueChanged(evt) {
-    this.onChanged.emit(evt.detail);
   }
 }

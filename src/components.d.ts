@@ -132,6 +132,13 @@ export namespace Components {
     'xSlash'?: number;
   }
 
+  interface MsChart {
+    'msClass': MapleStoryClass;
+  }
+  interface MsChartAttributes extends StencilHTMLAttributes {
+    'msClass'?: MapleStoryClass;
+  }
+
   interface MsHeavyGunner {
     'advancedBullets': number;
     'advancedMissiles': number;
@@ -462,9 +469,11 @@ export namespace Components {
 
   interface MsIcon {
     'name': string;
+    'sp': boolean;
   }
   interface MsIconAttributes extends StencilHTMLAttributes {
     'name'?: string;
+    'sp'?: boolean;
   }
 
   interface MsSkillOverlay {
@@ -1875,6 +1884,7 @@ declare global {
     'MsArcher': Components.MsArcher;
     'MsAssassin': Components.MsAssassin;
     'MsBerserker': Components.MsBerserker;
+    'MsChart': Components.MsChart;
     'MsHeavyGunner': Components.MsHeavyGunner;
     'MsKnight': Components.MsKnight;
     'MsPriest': Components.MsPriest;
@@ -2055,6 +2065,7 @@ declare global {
     'ms-archer': Components.MsArcherAttributes;
     'ms-assassin': Components.MsAssassinAttributes;
     'ms-berserker': Components.MsBerserkerAttributes;
+    'ms-chart': Components.MsChartAttributes;
     'ms-heavy-gunner': Components.MsHeavyGunnerAttributes;
     'ms-knight': Components.MsKnightAttributes;
     'ms-priest': Components.MsPriestAttributes;
@@ -2248,6 +2259,12 @@ declare global {
   var HTMLMsBerserkerElement: {
     prototype: HTMLMsBerserkerElement;
     new (): HTMLMsBerserkerElement;
+  };
+
+  interface HTMLMsChartElement extends Components.MsChart, HTMLStencilElement {}
+  var HTMLMsChartElement: {
+    prototype: HTMLMsChartElement;
+    new (): HTMLMsChartElement;
   };
 
   interface HTMLMsHeavyGunnerElement extends Components.MsHeavyGunner, HTMLStencilElement {}
@@ -3298,6 +3315,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement
     'ms-assassin': HTMLMsAssassinElement
     'ms-berserker': HTMLMsBerserkerElement
+    'ms-chart': HTMLMsChartElement
     'ms-heavy-gunner': HTMLMsHeavyGunnerElement
     'ms-knight': HTMLMsKnightElement
     'ms-priest': HTMLMsPriestElement
@@ -3478,6 +3496,7 @@ declare global {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-berserker': HTMLMsBerserkerElement;
+    'ms-chart': HTMLMsChartElement;
     'ms-heavy-gunner': HTMLMsHeavyGunnerElement;
     'ms-knight': HTMLMsKnightElement;
     'ms-priest': HTMLMsPriestElement;

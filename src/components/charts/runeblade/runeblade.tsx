@@ -3,13 +3,10 @@ import * as RunebladeValues from "../../../global/values/runeblade";
 
 @Component({
   tag: "ms-runeblade",
-  styleUrls: ["../charts.scss", "runeblade.scss"],
-  assetsDir: "assets",
+  styleUrls: ["runeblade.scss"],
   shadow: true
 })
 export class RunebladeComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) bladeChasm: number = RunebladeValues.BladeChasmValues.minLevel;
   @Prop({ mutable: true }) bladeMastery: number = RunebladeValues.BladeMasteryValues.minLevel;
@@ -30,9 +27,8 @@ export class RunebladeComponent {
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeValues.WhirlingBladesValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart runeblade" style={{ backgroundImage: `url(${ this.publicPath }assets/runeblade.jpg)` }}>
+    return (
+      <ms-chart msClass="runeblade">
         <ms-blade-chasm level={ this.bladeChasm }></ms-blade-chasm>
         <ms-blade-mastery level={ this.bladeMastery }></ms-blade-mastery>
         <ms-blink level={ this.blink }></ms-blink>
@@ -50,7 +46,7 @@ export class RunebladeComponent {
         <ms-storm-sigil level={ this.stormSigil }></ms-storm-sigil>
         <ms-warding-rune level={ this.wardingRune }></ms-warding-rune>
         <ms-whirling-blades level={ this.whirlingBlades }></ms-whirling-blades>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

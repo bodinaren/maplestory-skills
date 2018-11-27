@@ -19,6 +19,8 @@ export class BlastChargeKitComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="blast-charge-kit"></ms-icon>,

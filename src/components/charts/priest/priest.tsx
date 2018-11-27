@@ -3,13 +3,10 @@ import * as PriestValues from "../../../global/values/priest";
 
 @Component({
   tag: "ms-priest",
-  styleUrls: ["../charts.scss", "priest.scss"],
-  assetsDir: "assets",
+  styleUrls: ["priest.scss"],
   shadow: true
 })
 export class PriestComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestValues.HeavenlyWingsValues.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestValues.SteadfastFaithValues.minLevel;
@@ -30,9 +27,8 @@ export class PriestComponent {
   @Prop({ mutable: true }) angelicRay: number = PriestValues.AngelicRayValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart priest" style={{ backgroundImage: `url(${ this.publicPath }assets/priest.jpg)` }}>
+    return (
+      <ms-chart msClass="priest">
         <ms-heavenly-wings level={ this.heavenlyWings }></ms-heavenly-wings>
         <ms-steadfast-faith level={ this.steadfastFaith }></ms-steadfast-faith>
         <ms-celestial-light level={ this.celestialLight }></ms-celestial-light>
@@ -50,7 +46,7 @@ export class PriestComponent {
         <ms-smiting-aura level={ this.smitingAura }></ms-smiting-aura>
         <ms-disciple level={ this.disciple }></ms-disciple>
         <ms-angelic-ray level={ this.angelicRay }></ms-angelic-ray>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

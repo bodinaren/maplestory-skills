@@ -14,11 +14,15 @@ export const config: Config = {
     { components: ["ms-runeblade", "ms-blade-chasm", "ms-blade-mastery", "ms-blink", "ms-elemental-potency", "ms-echoing-blade", "ms-flame-sigil", "ms-flurry", "ms-frost-sigil", "ms-gravity-rune", "ms-honing-runes", "ms-illusory-blades", "ms-impact", "ms-rune-balance", "ms-rune-focus", "ms-storm-sigil", "ms-warding-rune", "ms-whirling-blades"] },
     { components: ["ms-thief", "ms-blade-dance", "ms-cunning-tactics", "ms-deft-combatant", "ms-double-slash", "ms-haste", "ms-mesoguard-plus", "ms-mind-breaker", "ms-mind-stealer", "ms-poison-edge", "ms-poison-vial", "ms-quick-step", "ms-retaliation", "ms-ruthless-guile", "ms-somersault-kick", "ms-spirit-thief", "ms-surprise-attack", "ms-vicious-cuts"] },
     { components: ["ms-wizard", "ms-arcane-blast", "ms-chain-lightning", "ms-cryomancy", "ms-electromancy", "ms-elemental-master", "ms-flame-tornado", "ms-flame-wave", "ms-focus-seal", "ms-ice-spear", "ms-ice-storm", "ms-magic-armor", "ms-mana-claw", "ms-mana-font", "ms-phantom-claw", "ms-pyromancy", "ms-teleport", "ms-thunderbolt"] },
-    { components: ["ms-footer", "ms-icon", "ms-skill-overlay"] },
+    { components: ["ms-chart", "ms-footer", "ms-icon", "ms-skill-overlay"] },
+  ],
+  copy: [
+    { src: "assets", dest: "build/maplestory-skills/assets" },
+    { src: "../docs/assets", dest: "assets" },
   ],
   outputTargets: [
     {
-      type: "dist"
+      type: "dist",
     },
     {
       type: "www",

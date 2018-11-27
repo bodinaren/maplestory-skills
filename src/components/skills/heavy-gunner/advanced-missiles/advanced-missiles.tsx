@@ -19,6 +19,8 @@ export class AdvancedMissilesComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="advanced-missiles"></ms-icon>,

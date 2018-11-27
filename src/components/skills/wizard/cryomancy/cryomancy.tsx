@@ -20,6 +20,8 @@ export class CryomancyComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="cryomancy"></ms-icon>,

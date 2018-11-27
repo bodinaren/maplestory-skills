@@ -14,13 +14,13 @@ export class ShadowChaserComponent {
 
   render() {
     return [
-      <ms-icon name="shadow-chaser"></ms-icon>,
+      <ms-icon name="shadow-chaser" sp={ true }></ms-icon>,
       <ms-skill-overlay heading="Shadow Chaser"
                         element="Dark"
                         level={ this.level }
                         type="Long Range / Physical"
                         max={ this.max }>
-        <ms-icon slot="icon" name="shadow-chaser"></ms-icon>
+        <ms-icon slot="icon" name="shadow-chaser" sp={ true }></ms-icon>
         <div slot="description">
           Send your mirror image to the nearest enemy within <span>8</span> m in front of you,
           dealing <span>23%</span> damage and marking them with Assassin's Brand,

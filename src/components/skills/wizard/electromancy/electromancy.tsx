@@ -20,6 +20,8 @@ export class ElectromancyComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="electromancy"></ms-icon>,

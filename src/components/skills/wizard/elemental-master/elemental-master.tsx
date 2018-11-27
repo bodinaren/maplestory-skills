@@ -18,6 +18,8 @@ export class ElementalMasterComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="elemental-master"></ms-icon>,

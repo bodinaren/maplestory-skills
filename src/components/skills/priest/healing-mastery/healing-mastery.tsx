@@ -19,6 +19,8 @@ export class HealingMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="healing-mastery"></ms-icon>,

@@ -3,13 +3,10 @@ import * as ArcherValues from "../../../global/values/archer";
 
 @Component({
   tag: "ms-archer",
-  styleUrls: ["../charts.scss", "archer.scss"],
-  assetsDir: "assets",
+  styleUrls: ["archer.scss"],
   shadow: true
 })
 export class ArcherComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherValues.AgileArcherValues.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherValues.ArrowBarrageValues.minLevel;
@@ -31,8 +28,7 @@ export class ArcherComponent {
 
   render() {
     return [
-      <ms-footer></ms-footer>,
-      <div class="chart archer" style={{ backgroundImage: `url(${ this.publicPath }assets/archer.jpg)` }}>
+      <ms-chart msClass="archer">
         <ms-agile-archer level={ this.agileArcher }></ms-agile-archer>
         <ms-arrow-barrage level={ this.arrowBarrage }></ms-arrow-barrage>
         <ms-arrow-storm level={ this.arrowStorm }></ms-arrow-storm>
@@ -50,7 +46,7 @@ export class ArcherComponent {
         <ms-screwdriver-shot level={ this.screwdriverShot }></ms-screwdriver-shot>
         <ms-sharp-eyes level={ this.sharpEyes }></ms-sharp-eyes>
         <ms-snipe level={ this.snipe }></ms-snipe>
-      </div>
+      </ms-chart>
     ];
   }
 }

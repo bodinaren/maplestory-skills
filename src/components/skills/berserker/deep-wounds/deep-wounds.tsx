@@ -20,6 +20,8 @@ export class DeepWoundsComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="deep-wounds"></ms-icon>,

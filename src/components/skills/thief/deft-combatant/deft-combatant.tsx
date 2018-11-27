@@ -20,6 +20,8 @@ export class DeftCombatantComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="deft-combatant"></ms-icon>,

@@ -18,6 +18,8 @@ export class PrecisionShooterComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="precision-shooter"></ms-icon>,

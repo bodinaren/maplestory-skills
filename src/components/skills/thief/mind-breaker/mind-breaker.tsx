@@ -18,6 +18,8 @@ export class MindBreakerComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="mind-breaker"></ms-icon>,

@@ -20,6 +20,8 @@ export class PyromancyComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="pyromancy"></ms-icon>,

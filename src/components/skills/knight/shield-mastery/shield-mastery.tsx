@@ -19,6 +19,8 @@ export class ShieldMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="shield-mastery"></ms-icon>,

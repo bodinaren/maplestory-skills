@@ -3,13 +3,10 @@ import * as WizardValues from "../../../global/values/wizard";
 
 @Component({
   tag: "ms-wizard",
-  styleUrls: ["../charts.scss", "wizard.scss"],
-  assetsDir: "assets",
+  styleUrls: ["wizard.scss"],
   shadow: true
 })
 export class WizardComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardValues.ArcaneBlastValues.minLevel;
   @Prop({ mutable: true }) chainLightning: number = WizardValues.ChainLightningValues.minLevel;
@@ -30,9 +27,8 @@ export class WizardComponent {
   @Prop({ mutable: true }) thunderbolt: number = WizardValues.ThunderboltValues.minLevel;
 
   render() {
-    return [
-      <ms-footer></ms-footer>,
-      <div class="chart wizard" style={{ backgroundImage: `url(${ this.publicPath }assets/wizard.jpg)` }}>
+    return (
+      <ms-chart msClass="wizard">
         <ms-arcane-blast level={ this.arcaneBlast }></ms-arcane-blast>
         <ms-chain-lightning level={ this.chainLightning }></ms-chain-lightning>
         <ms-cryomancy level={ this.cryomancy }></ms-cryomancy>
@@ -50,7 +46,7 @@ export class WizardComponent {
         <ms-pyromancy level={ this.pyromancy }></ms-pyromancy>
         <ms-teleport level={ this.teleport }></ms-teleport>
         <ms-thunderbolt level={ this.thunderbolt }></ms-thunderbolt>
-      </div>
-    ];
+      </ms-chart>
+    );
   }
 }

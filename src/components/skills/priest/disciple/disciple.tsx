@@ -20,6 +20,8 @@ export class DiscipleComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="disciple"></ms-icon>,

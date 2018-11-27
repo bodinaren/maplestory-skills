@@ -20,6 +20,8 @@ export class LongswordMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="longsword-mastery"></ms-icon>,

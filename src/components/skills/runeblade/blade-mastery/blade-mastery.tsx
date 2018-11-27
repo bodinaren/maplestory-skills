@@ -20,6 +20,8 @@ export class BladeMasteryComponent {
     ];
   }
 
+  hostData() { return { "passive": "true" }; }
+
   render() {
     return [
       <ms-icon name="blade-mastery"></ms-icon>,

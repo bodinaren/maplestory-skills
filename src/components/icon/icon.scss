@@ -1,7 +1,14 @@
 
 :host {
   display: inline-flex;
-  width: 58px;
+  position: relative;
+  width: 43px;
   height: 50px;
   justify-content: center;
+}
+
+img:nth-of-type(2) {
+  position: absolute;
+  bottom: 1px;
+  left: -4px;
 }
