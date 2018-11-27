@@ -173,85 +173,13 @@
       </p>
 
       <div id="editors">
-        <div id="archer">
+        <div>
           <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="archerEditor"></ms-editor-outlet>
+  &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+  <ms-editor-outlet editor="editor"></ms-editor-outlet>
           </code>
 
-          <ms-editor id="archerEditor" ms-class="archer"></ms-editor>
-        </div>
-
-        <div id="assassin">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="assassinEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="assassinEditor" ms-class="assassin"></ms-editor>
-        </div>
-
-        <div id="berserker">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="berserkerEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="berserkerEditor" ms-class="berserker"></ms-editor>
-        </div>
-
-        <div id="heavy-gunner">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="heavyGunnerEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="heavyGunnerEditor" ms-class="heavy-gunner"></ms-editor>
-        </div>
-
-        <div id="knight">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="knightEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="knightEditor" ms-class="knight"></ms-editor>
-        </div>
-        
-        <div id="priest">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="priestEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="priestEditor" ms-class="priest"></ms-editor>
-        </div>
-        
-        <div id="runeblade">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="runebladeEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="runebladeEditor" ms-class="runeblade"></ms-editor>
-        </div>
-          
-        <div id="thief">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="thiefEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="thiefEditor" ms-class="thief"></ms-editor>
-        </div>
-          
-        <div id="wizard">
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-<ms-editor-outlet editor="wizardEditor"></ms-editor-outlet>
-          </code>
-
-          <ms-editor id="wizardEditor" ms-class="wizard"></ms-editor>
+          <ms-editor id="editor" ms-class="archer"></ms-editor>
         </div>
       </div>
 
@@ -284,27 +212,18 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
     </div>
 
     <script>
-      var editors = document.querySelectorAll("#editors > div");
       var toggles = document.querySelectorAll("#toggles > a");
 
-      function hideAll() {
-        for (var prop in editors) {
-          if (editors.hasOwnProperty(prop))
-            editors[prop].style.display = "none";
-        }
+      function toggle(msClass) {
         for (var prop in toggles) {
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
         }
-      }
 
-      function toggle(msClass) {
-        hideAll();
-        document.querySelector("#" + msClass).style.display = "block";
         document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
+        document.querySelector("ms-editor").msClass = msClass;
       }
 
-      hideAll();
       toggle("archer");
     </script>
 
