@@ -46,8 +46,8 @@ export class PriestEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-priest ref={(el) => this.priestChart = el as HTMLMsPriestElement }></ms-priest>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

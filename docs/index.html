@@ -96,6 +96,7 @@
         background-color: black;
         margin-left: 20px;
         padding: 0 5px 5px;
+        overflow-x: auto;
       }
     </style>
 
@@ -192,10 +193,10 @@
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 {
-  transform: scale(0.8);         /* adapt margin below if you change this */
-  transform-origin: top center;  /* or "top left" if you don't wanna center it */
-  margin-bottom: -20%;           /* to remove empty space at the bottom, or */
-  margin-right: -20%;            /* if you use "top left" for transform-origin */
+  transform: scale(0.8);              /* adapt margin below if you change this */
+  transform-origin: top center;       /* or "top left" if you don't wanna center it */
+  margin-bottom: calc(-770px * 0.2);  /* to remove empty space at the bottom, or */
+  margin-right: calc(-815px * 0.2);   /* if you use "top left" for transform-origin */
 }</pre>
           </dd>
         </div>

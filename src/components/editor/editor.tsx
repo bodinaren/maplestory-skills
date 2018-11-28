@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Method } from "@stencil/core";
+import { Component, Prop, Event, EventEmitter, Method, Listen, Element } from "@stencil/core";
 import { MapleStoryClass } from "./editor.interfaces";
 
 @Component({
@@ -10,6 +10,8 @@ export class EditorComponent {
 
   private classEditor!: any;
 
+  @Element() host: HTMLStencilElement;
+
   @Prop({ mutable: true }) msClass: MapleStoryClass;
 
   @Prop({ context: "publicPath" }) private publicPath: string;
@@ -19,6 +21,29 @@ export class EditorComponent {
   async componentDidUpdate() {
     let htmlString = await this.toHtmlString();
     this.onChanged.emit(htmlString);
+  }
+
+  componentDidLoad() {
+    this.resize();
+  }
+
+  @Listen("window:resize")
+  resize() {
+    let parent = this.host.parentNode as HTMLElement;
+    let parentWidth = parent.offsetWidth;
+    let hostWidth = this.host.offsetWidth;
+
+    let scale = parentWidth / hostWidth;
+
+    if (scale < 1) {
+      this.host.style.transform = `scale(${ scale })`;
+      this.host.style.marginBottom = `-${ 770 - (770 * scale) }px`;
+      this.host.style.marginRight = `-${ 815 - (815 * scale) }px`;
+    } else {
+      this.host.style.transform = null;
+      this.host.style.marginBottom = null;
+      this.host.style.marginRight = null;
+    }
   }
 
   @Method()

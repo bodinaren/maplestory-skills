@@ -46,8 +46,8 @@ export class KnightEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-knight ref={(el) => this.knightChart = el as HTMLMsKnightElement }></ms-knight>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }
