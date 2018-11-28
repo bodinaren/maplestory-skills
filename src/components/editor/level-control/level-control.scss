@@ -6,22 +6,26 @@
   user-select: none;
 }
 
-.minus, .plus {
+button {
   position: absolute;
   width: 30px;
   height: 33px;
+  background: unset;
+  border: unset;
+  padding: 0;
+  outline: 0;
+  cursor: inherit;
+
+  &:active { cursor: inherit; }
 
   &:not([hidden]) { display: inline-block; }
 
-  img {
-    display: none;
-    position: absolute;
-  }
+  img { display: none; }
 
-  &:not(:hover):not(:active) {
+  &:not(:hover):not(:active):not(:focus) {
     img:nth-child(1) { display: inline; }
   }
-  &:hover {
+  &:hover:not(:active), &:focus:not(:active) {
     img:nth-child(2) { display: inline; }
   }
   &:active {

@@ -36,16 +36,16 @@ export class LevelControlComponent {
 
   render() {
     return [
-      <div class="minus" onClick={ () => this.minus() } hidden={ this.level === this.min }>
+      <button class="minus" onClick={ () => this.minus() } hidden={ this.level === this.min }>
         <img src={ `${ this.publicPath }assets/minus.png` } />
         <img src={ `${ this.publicPath }assets/minus-hover.png` } />
         <img src={ `${ this.publicPath }assets/minus-active.png` } />
-      </div>,
-      <div class="plus" onClick={ () => this.plus() } hidden={ this.level === this.max }>
+      </button>,
+      <button class="plus" onClick={ () => this.plus() } hidden={ this.level === this.max }>
         <img src={ `${ this.publicPath }assets/plus.png` } />
         <img src={ `${ this.publicPath }assets/plus-hover.png` } />
         <img src={ `${ this.publicPath }assets/plus-active.png` } />
-      </div>
+      </button>
     ];
   }
 }
