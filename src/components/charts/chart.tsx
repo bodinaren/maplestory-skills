@@ -14,8 +14,14 @@ export class ChartComponent {
 
   render() {
     return [
-      <style>{`
-        :host, :host(:hover) {
+      <style type="text/css">{`
+        ms-chart {
+          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
+        }
+        ms-chart:active {
+          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
+        }
+        :host, :host(:hover), ms-chart {
           cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
         }
         :host(:active) {
@@ -27,8 +33,17 @@ export class ChartComponent {
         .class-icon {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-icon.png)
         }
-        .chart > .class-icon > div {
+        .chart-class {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
+        }
+        .chart-class > * {
+          background-image: url(${ this.publicPath }assets/skill-shield.png);
+        }
+        .chart-class > [passive] {
+          background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
+        }
+        .chart-class > *::after {
+          background-image: url(${ this.publicPath }assets/skill-bar.png);
         }
         ::slotted(*) {
           background-image: url(${ this.publicPath }assets/skill-shield.png);
@@ -36,14 +51,14 @@ export class ChartComponent {
         ::slotted([passive]) {
           background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
         }
-        ::slotted(*):after {
+        ::slotted(*)::after {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
         }
       `}</style>,
       <ms-footer></ms-footer>,
       <div class="chart">
         <div class="class-icon">
-          <div class={ this.msClass }>
+          <div class={ "chart-class " + this.msClass }>
             <slot></slot>
           </div>
         </div>
