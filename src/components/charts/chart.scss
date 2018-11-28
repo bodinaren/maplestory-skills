@@ -4,6 +4,8 @@
   width: $chart-width;
   height: $chart-height;
   position: relative;
+  transform-origin: top left;
+  font-size: 1rem;
 }
 _:-ms-lang(x), :host { cursor: auto; }
 _:-ms-lang(x), :host(:active) { cursor: auto; }
@@ -59,7 +61,7 @@ ms-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .95em;
+    font-size: .9em;
     pointer-events: none;
   }
 }

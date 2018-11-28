@@ -1,4 +1,4 @@
-import { Component, Method, Event, EventEmitter } from "@stencil/core";
+import { Component, Method, Event, EventEmitter, Prop } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
 import * as ArcherValues from "../../../../global/values/archer";
 
@@ -10,6 +10,8 @@ import * as ArcherValues from "../../../../global/values/archer";
 export class ArcherEditorComponent {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+
+  @Prop() scale: number;
 
   archerChart!: HTMLMsArcherElement;
 

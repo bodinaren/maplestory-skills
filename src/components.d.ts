@@ -374,10 +374,12 @@ export namespace Components {
   }
 
   interface MsArcherEditor {
+    'scale': number;
     'toHtmlString': () => Promise<string>;
   }
   interface MsArcherEditorAttributes extends StencilHTMLAttributes {
     'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'scale'?: number;
   }
 
   interface MsAssassinEditor {

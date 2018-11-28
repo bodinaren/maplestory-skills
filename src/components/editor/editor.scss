@@ -2,6 +2,9 @@
 :host {
   position: relative;
   display: block;
+  width: $chart-width;
+  height: $chart-height;
+  transform-origin: top left;
 }
 _:-ms-lang(x), :host { cursor: auto; }
 _:-ms-lang(x), :host(:active) { cursor: auto; }
