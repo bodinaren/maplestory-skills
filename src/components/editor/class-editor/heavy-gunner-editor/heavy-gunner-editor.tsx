@@ -46,8 +46,8 @@ export class HeavyGunnerEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-heavy-gunner ref={(el) => this.heavyGunnerChart = el as HTMLMsHeavyGunnerElement }></ms-heavy-gunner>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

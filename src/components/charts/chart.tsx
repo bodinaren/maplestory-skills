@@ -20,7 +20,9 @@ export class ChartComponent {
 
   @Listen("window:resize")
   resize() {
-    let parent = (this.host.parentNode as ShadowRoot).host as HTMLElement;
+    let parent = this.host.parentNode as any;
+    if (parent.host) parent = parent.host;
+
     let parentWidth = parent.offsetWidth;
 
     let scale = parentWidth / 815;
@@ -34,8 +36,6 @@ export class ChartComponent {
       this.host.style.marginBottom = null;
       this.host.style.marginRight = null;
     }
-
-    // let scale = parent.getBoundingClientRect().width / this.host.getBoundingClientRect().width;
   }
 
   render() {

@@ -46,8 +46,8 @@ export class RunebladeEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-runeblade ref={(el) => this.runebladeChart = el as HTMLMsRunebladeElement }></ms-runeblade>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

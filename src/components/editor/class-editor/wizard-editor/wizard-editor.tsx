@@ -46,8 +46,8 @@ export class WizardEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-wizard ref={(el) => this.wizardChart = el as HTMLMsWizardElement }></ms-wizard>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

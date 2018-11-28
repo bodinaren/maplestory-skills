@@ -46,8 +46,8 @@ export class ThiefEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-thief ref={(el) => this.thiefChart = el as HTMLMsThiefElement }></ms-thief>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

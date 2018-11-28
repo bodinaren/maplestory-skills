@@ -46,8 +46,8 @@ export class BerserkerEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-berserker ref={(el) => this.berserkerChart = el as HTMLMsBerserkerElement }></ms-berserker>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }

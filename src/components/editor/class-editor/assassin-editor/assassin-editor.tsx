@@ -47,8 +47,8 @@ export class AssassinEditorComponent {
   render() {
 
     return [
+      <ms-assassin ref={(el) => this.assassinChart = el as HTMLMsAssassinElement }></ms-assassin>,
       ...renderLevelControls(this, this.properties),
-      <ms-assassin ref={(el) => this.assassinChart = el as HTMLMsAssassinElement }></ms-assassin>
     ];
   }
 }

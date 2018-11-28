@@ -30,22 +30,19 @@ export class EditorComponent {
   @Listen("window:resize")
   resize() {
     let parent = this.host.parentNode as HTMLElement;
-    let scale = parent.getBoundingClientRect().width / this.host.offsetWidth;
-    let chart = (this.host.shadowRoot.lastChild as HTMLStencilElement).shadowRoot.lastChild as HTMLStencilElement;
+    let parentWidth = parent.offsetWidth;
+    let hostWidth = this.host.offsetWidth;
+
+    let scale = parentWidth / hostWidth;
 
     if (scale < 1) {
       this.host.style.transform = `scale(${ scale })`;
       this.host.style.marginBottom = `-${ 770 - (770 * scale) }px`;
       this.host.style.marginRight = `-${ 815 - (815 * scale) }px`;
-
-      chart.style.transform = `scale(1)`; //${ 1 / (1 - (1 - scale) / 2) })`;
-      chart.style.transformOrigin = `top left`;
     } else {
       this.host.style.transform = null;
       this.host.style.marginBottom = null;
       this.host.style.marginRight = null;
-
-      chart.style.transform = null;
     }
   }
 

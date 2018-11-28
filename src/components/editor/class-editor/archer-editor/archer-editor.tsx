@@ -48,8 +48,8 @@ export class ArcherEditorComponent {
 
   render() {
     return [
-      ...renderLevelControls(this, this.properties),
       <ms-archer ref={(el) => this.archerChart = el as HTMLMsArcherElement }></ms-archer>,
+      ...renderLevelControls(this, this.properties),
     ];
   }
 }
