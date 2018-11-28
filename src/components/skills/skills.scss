@@ -16,3 +16,18 @@ ms-skill-overlay {
 [slot="description"] span {
   color: #0099CC;
 }
+
+// TODO: This is a temporary hack until Firefox fixes ::slotted(*):after in Firefox 65: https://bugzilla.mozilla.org/show_bug.cgi?id=1502617
+:host:after {
+  content: attr(level) "/" attr(max);
+  position: absolute;
+  top: calc(100% + -5px);
+  left: -19px;
+  width: 109px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9em;
+  pointer-events: none;
+}
