@@ -15,28 +15,30 @@ export class EnergyStreamComponent {
   getRequirements(): string[] {
     return [
       `Level ${ EnergyStreamValues.levelRequirement[this.level] }+`,
-      `AgileArcher [Level 3+]`,
+      `Split Barrier [Level 3+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="energy-stream"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
+      <ms-skill-overlay heading="Energy Stream"
                         level={ this.level }
                         type="Long Range / Magic"
                         weaponRequired="Two-handed Orb"
                         requirements={ this.getRequirements() }
-                        spirit={ 0000 }
-                        cooldown={ 0000 }
+                        spirit={ 5 }
+                        cooldown={ 16 }
                         max={ this.max }>
         <ms-icon slot="icon" name="energy-stream"></ms-icon>
         <div slot="description">
-          Swing your bow wildly as you spin,
-          dealing <span>{ EnergyStreamValues.damage[this.level] }%</span> damage
-          to <span>8</span> enemies within <span>3</span> m. Deals an
-          additional <span>{ EnergyStreamValues.additionalDamage[this.level] }%</span> ice damage
-          to targets frozen by the Ice Arrow debuff and consumes the effect.
+          Use the power of animus to cast magic within a <span>7.5</span> m radius,
+          exhausting the vitality of <span>8</span> enemies within range,
+          dealing <span>{ EnergyStreamValues.damage[this.level] }%</span> damage,
+          and reducing both defense and movement speed
+          by <span>{ EnergyStreamValues.reduction[this.level] }%</span> for <span>10</span> sec.
+          The enhancement level changes and activates depending on the number of Mantra Cores.
+          Consumes <span>15</span> spirit.
         </div>
       </ms-skill-overlay>
     ];

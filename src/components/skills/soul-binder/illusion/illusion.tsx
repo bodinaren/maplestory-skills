@@ -12,31 +12,20 @@ export class IllusionComponent {
 
   @Prop({ reflectToAttr: true }) private max: number = IllusionValues.maxLevel;
 
-  getRequirements(): string[] {
-    return [
-      `Level ${ IllusionValues.levelRequirement[this.level] }+`,
-      `AgileArcher [Level 3+]`,
-    ];
-  }
-
   render() {
     return [
       <ms-icon name="illusion"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
+      <ms-skill-overlay heading="Illusion"
                         level={ this.level }
-                        type="Long Range / Magic"
-                        weaponRequired="Two-handed Orb"
-                        requirements={ this.getRequirements() }
-                        spirit={ 0000 }
-                        cooldown={ 0000 }
                         max={ this.max }>
         <ms-icon slot="icon" name="illusion"></ms-icon>
         <div slot="description">
-          Swing your bow wildly as you spin,
-          dealing <span>{ IllusionValues.damage[this.level] }%</span> damage
-          to <span>8</span> enemies within <span>3</span> m. Deals an
-          additional <span>{ IllusionValues.additionalDamage[this.level] }%</span> ice damage
-          to targets frozen by the Ice Arrow debuff and consumes the effect.
+          Release a mysterious aura from the body,
+          flying forward <span>4.5</span> m and leaving an afterimage in your wake.
+          Increases evasion by <span>50</span> while moving.
+          The skill can be both canceled and triggered immediately while using other skills.
+          You are immune to knockback while this skill is active.
+          Consumes <span>40</span> stamina.
         </div>
       </ms-skill-overlay>
     ];

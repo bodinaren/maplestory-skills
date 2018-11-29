@@ -15,28 +15,33 @@ export class ExpansionBallComponent {
   getRequirements(): string[] {
     return [
       `Level ${ ExpansionBallValues.levelRequirement[this.level] }+`,
-      `AgileArcher [Level 3+]`,
+      `Chain Spear [Level 2+]`,
+      `Ray Storm [Level 2+]`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="expansion-ball"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
+      <ms-skill-overlay heading="Expansion Ball"
                         level={ this.level }
                         type="Long Range / Magic"
                         weaponRequired="Two-handed Orb"
                         requirements={ this.getRequirements() }
-                        spirit={ 0000 }
-                        cooldown={ 0000 }
+                        spirit={ 4 }
+                        cooldown={ 8 }
                         max={ this.max }>
         <ms-icon slot="icon" name="expansion-ball"></ms-icon>
         <div slot="description">
-          Swing your bow wildly as you spin,
+          Condense the energy of Narubashan into a powerful one-meter-wide
+          electric energy orb and send it <span>7.5</span> m forward,
           dealing <span>{ ExpansionBallValues.damage[this.level] }%</span> damage
-          to <span>8</span> enemies within <span>3</span> m. Deals an
-          additional <span>{ ExpansionBallValues.additionalDamage[this.level] }%</span> ice damage
-          to targets frozen by the Ice Arrow debuff and consumes the effect.
+          to <span>8</span> enemies within its path.
+          The electric energy orb shocks targets, dealing an
+          additional <span>20%</span> electric damage
+          every sec for <span>3</span> sec.
+          The enhancement level changes and activates depending on the number of Mantra Cores.
+          Consumes <span>4</span> spirit.
         </div>
       </ms-skill-overlay>
     ];
