@@ -1,5 +1,4 @@
 import { Component, Prop, Element, Listen } from "@stencil/core";
-import { MapleStoryClass } from "../editor/editor.interfaces";
 
 @Component({
   tag: "ms-chart",
@@ -10,7 +9,7 @@ export class ChartComponent {
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 
-  @Prop() msClass: MapleStoryClass;
+  @Prop() msClass: string;
 
   @Element() host: HTMLStencilElement;
 

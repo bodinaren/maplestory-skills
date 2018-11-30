@@ -8,9 +8,6 @@
 import '@stencil/core';
 
 
-import {
-  MapleStoryClass,
-} from './components/editor/editor.interfaces';
 
 
 export namespace Components {
@@ -145,10 +142,10 @@ export namespace Components {
   }
 
   interface MsChart {
-    'msClass': MapleStoryClass;
+    'msClass': string;
   }
   interface MsChartAttributes extends StencilHTMLAttributes {
-    'msClass'?: MapleStoryClass;
+    'msClass'?: string;
   }
 
   interface MsHeavyGunner {
@@ -407,80 +404,6 @@ export namespace Components {
     'pyromancy'?: number;
     'teleport'?: number;
     'thunderbolt'?: number;
-  }
-
-  interface MsArcherEditor {
-    'scale': number;
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsArcherEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-    'scale'?: number;
-  }
-
-  interface MsAssassinEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsAssassinEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsBerserkerEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsBerserkerEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsHeavyGunnerEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsHeavyGunnerEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsKnightEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsKnightEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsPriestEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsPriestEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsRunebladeEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsRunebladeEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsThiefEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsThiefEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsWizardEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsWizardEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsEditor {
-    'msClass': MapleStoryClass;
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsEditorAttributes extends StencilHTMLAttributes {
-    'msClass'?: MapleStoryClass;
-    'onChanged'?: (event: CustomEvent<string>) => void;
   }
 
   interface MsFooter {}
@@ -1937,16 +1860,6 @@ declare global {
     'MsRuneblade': Components.MsRuneblade;
     'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
-    'MsArcherEditor': Components.MsArcherEditor;
-    'MsAssassinEditor': Components.MsAssassinEditor;
-    'MsBerserkerEditor': Components.MsBerserkerEditor;
-    'MsHeavyGunnerEditor': Components.MsHeavyGunnerEditor;
-    'MsKnightEditor': Components.MsKnightEditor;
-    'MsPriestEditor': Components.MsPriestEditor;
-    'MsRunebladeEditor': Components.MsRunebladeEditor;
-    'MsThiefEditor': Components.MsThiefEditor;
-    'MsWizardEditor': Components.MsWizardEditor;
-    'MsEditor': Components.MsEditor;
     'MsFooter': Components.MsFooter;
     'MsIcon': Components.MsIcon;
     'MsOutlet': Components.MsOutlet;
@@ -2118,16 +2031,6 @@ declare global {
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
-    'ms-archer-editor': Components.MsArcherEditorAttributes;
-    'ms-assassin-editor': Components.MsAssassinEditorAttributes;
-    'ms-berserker-editor': Components.MsBerserkerEditorAttributes;
-    'ms-heavy-gunner-editor': Components.MsHeavyGunnerEditorAttributes;
-    'ms-knight-editor': Components.MsKnightEditorAttributes;
-    'ms-priest-editor': Components.MsPriestEditorAttributes;
-    'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
-    'ms-thief-editor': Components.MsThiefEditorAttributes;
-    'ms-wizard-editor': Components.MsWizardEditorAttributes;
-    'ms-editor': Components.MsEditorAttributes;
     'ms-footer': Components.MsFooterAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-outlet': Components.MsOutletAttributes;
@@ -2347,66 +2250,6 @@ declare global {
   var HTMLMsWizardElement: {
     prototype: HTMLMsWizardElement;
     new (): HTMLMsWizardElement;
-  };
-
-  interface HTMLMsArcherEditorElement extends Components.MsArcherEditor, HTMLStencilElement {}
-  var HTMLMsArcherEditorElement: {
-    prototype: HTMLMsArcherEditorElement;
-    new (): HTMLMsArcherEditorElement;
-  };
-
-  interface HTMLMsAssassinEditorElement extends Components.MsAssassinEditor, HTMLStencilElement {}
-  var HTMLMsAssassinEditorElement: {
-    prototype: HTMLMsAssassinEditorElement;
-    new (): HTMLMsAssassinEditorElement;
-  };
-
-  interface HTMLMsBerserkerEditorElement extends Components.MsBerserkerEditor, HTMLStencilElement {}
-  var HTMLMsBerserkerEditorElement: {
-    prototype: HTMLMsBerserkerEditorElement;
-    new (): HTMLMsBerserkerEditorElement;
-  };
-
-  interface HTMLMsHeavyGunnerEditorElement extends Components.MsHeavyGunnerEditor, HTMLStencilElement {}
-  var HTMLMsHeavyGunnerEditorElement: {
-    prototype: HTMLMsHeavyGunnerEditorElement;
-    new (): HTMLMsHeavyGunnerEditorElement;
-  };
-
-  interface HTMLMsKnightEditorElement extends Components.MsKnightEditor, HTMLStencilElement {}
-  var HTMLMsKnightEditorElement: {
-    prototype: HTMLMsKnightEditorElement;
-    new (): HTMLMsKnightEditorElement;
-  };
-
-  interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
-  var HTMLMsPriestEditorElement: {
-    prototype: HTMLMsPriestEditorElement;
-    new (): HTMLMsPriestEditorElement;
-  };
-
-  interface HTMLMsRunebladeEditorElement extends Components.MsRunebladeEditor, HTMLStencilElement {}
-  var HTMLMsRunebladeEditorElement: {
-    prototype: HTMLMsRunebladeEditorElement;
-    new (): HTMLMsRunebladeEditorElement;
-  };
-
-  interface HTMLMsThiefEditorElement extends Components.MsThiefEditor, HTMLStencilElement {}
-  var HTMLMsThiefEditorElement: {
-    prototype: HTMLMsThiefEditorElement;
-    new (): HTMLMsThiefEditorElement;
-  };
-
-  interface HTMLMsWizardEditorElement extends Components.MsWizardEditor, HTMLStencilElement {}
-  var HTMLMsWizardEditorElement: {
-    prototype: HTMLMsWizardEditorElement;
-    new (): HTMLMsWizardEditorElement;
-  };
-
-  interface HTMLMsEditorElement extends Components.MsEditor, HTMLStencilElement {}
-  var HTMLMsEditorElement: {
-    prototype: HTMLMsEditorElement;
-    new (): HTMLMsEditorElement;
   };
 
   interface HTMLMsFooterElement extends Components.MsFooter, HTMLStencilElement {}
@@ -3368,16 +3211,6 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
-    'ms-archer-editor': HTMLMsArcherEditorElement
-    'ms-assassin-editor': HTMLMsAssassinEditorElement
-    'ms-berserker-editor': HTMLMsBerserkerEditorElement
-    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement
-    'ms-knight-editor': HTMLMsKnightEditorElement
-    'ms-priest-editor': HTMLMsPriestEditorElement
-    'ms-runeblade-editor': HTMLMsRunebladeEditorElement
-    'ms-thief-editor': HTMLMsThiefEditorElement
-    'ms-wizard-editor': HTMLMsWizardEditorElement
-    'ms-editor': HTMLMsEditorElement
     'ms-footer': HTMLMsFooterElement
     'ms-icon': HTMLMsIconElement
     'ms-outlet': HTMLMsOutletElement
@@ -3549,16 +3382,6 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
-    'ms-archer-editor': HTMLMsArcherEditorElement;
-    'ms-assassin-editor': HTMLMsAssassinEditorElement;
-    'ms-berserker-editor': HTMLMsBerserkerEditorElement;
-    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement;
-    'ms-knight-editor': HTMLMsKnightEditorElement;
-    'ms-priest-editor': HTMLMsPriestEditorElement;
-    'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
-    'ms-thief-editor': HTMLMsThiefEditorElement;
-    'ms-wizard-editor': HTMLMsWizardEditorElement;
-    'ms-editor': HTMLMsEditorElement;
     'ms-footer': HTMLMsFooterElement;
     'ms-icon': HTMLMsIconElement;
     'ms-outlet': HTMLMsOutletElement;
