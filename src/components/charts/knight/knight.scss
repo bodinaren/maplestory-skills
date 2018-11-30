@@ -1,3 +1,6 @@
+:host {
+  display: block;
+}
 
 ms-bulwark {
   @include chart-row(5);

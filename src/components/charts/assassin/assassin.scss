@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 ms-dark-cloak {
   @include chart-row(3);
   @include chart-column(3);

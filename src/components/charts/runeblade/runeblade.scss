@@ -1,3 +1,6 @@
+:host {
+  display: block;
+}
 
 ms-blade-chasm {
   @include chart-row(6);

@@ -1,3 +1,6 @@
+:host {
+  display: block;
+}
 
 ms-arcane-blast {
   @include chart-row(2);
