@@ -58,9 +58,8 @@
       }
       #toggles .active.unavailable:after { color: red; }
 
-      #editors { min-height: 300px; }
       #editors > div { max-width: 819px; margin: auto; }
-      
+
       code {
         display: block;
         box-sizing: border-box;
@@ -173,11 +172,10 @@
       <div id="editors">
         <div>
           <code>
-  &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-  <ms-editor-outlet editor="editor"></ms-editor-outlet>
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br />
           </code>
 
-          <ms-editor id="editor" ms-class="archer"></ms-editor>
+          <div id="chartHolder"></div>
         </div>
       </div>
 
@@ -219,9 +217,25 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
         }
-
         document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
-        document.querySelector("ms-editor").msClass = msClass;
+
+        var chartHolder = document.querySelector("#chartHolder");
+        var codeHolder = chartHolder.previousElementSibling;
+        var outlet = codeHolder.querySelector("ms-outlet");
+        
+        if (chartHolder.firstElementChild) {
+          chartHolder.firstElementChild.remove();
+        }
+        if (outlet) outlet.remove();
+        
+        var editor = document.createElement("ms-" + msClass);
+        editor.id = "editor";
+        editor.editable = true;
+        chartHolder.appendChild(editor);
+
+        outlet = document.createElement("ms-outlet");
+        outlet.editor = "editor";
+        codeHolder.appendChild(outlet);
       }
 
       toggle("archer");
