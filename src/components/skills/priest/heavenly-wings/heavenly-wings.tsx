@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { HeavenlyWingsValues } from "../../../../global/values/priest";
+import { HeavenlyWings } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-heavenly-wings",
@@ -8,14 +8,14 @@ import { HeavenlyWingsValues } from "../../../../global/values/priest";
 })
 export class HeavenlyWingsComponent {
 
-  @Prop({ reflectToAttr: true, mutable: true }) level: number = HeavenlyWingsValues.minLevel;
+  @Prop({ reflectToAttr: true, mutable: true }) level: number = HeavenlyWings.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = HeavenlyWingsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = HeavenlyWings.maxLevel;
 
   render() {
     return [
       <ms-icon slot="icon" name="heavenly-wings"></ms-icon>,
-      <ms-skill-overlay heading="Heavenly Wings"
+      <ms-skill-overlay heading={ HeavenlyWings.name }
                         element="Holy"
                         level={ this.level }
                         weaponRequired="Off-hand Codex"

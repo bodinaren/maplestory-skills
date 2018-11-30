@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls } from "../class-editor-helpers";
-import * as PriestValues from "../../../../global/values/priest";
+import * as PriestSkills from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-priest-editor",
@@ -14,23 +14,23 @@ export class PriestEditorComponent {
   priestChart!: HTMLMsPriestElement;
 
   private properties: ClassProperties[] = [
-    ["angelic-ray", "angelicRay", PriestValues.AngelicRayValues, true],
-    ["celestial-blessings", "celestialBlessings", PriestValues.CelestialBlessingsValues, true],
-    ["celestial-guardian", "celestialGuardian", PriestValues.CelestialGuardianValues, true],
-    ["celestial-light", "celestialLight", PriestValues.CelestialLightValues, true],
-    ["disciple", "disciple", PriestValues.DiscipleValues, true],
-    ["healing-mastery", "healingMastery", PriestValues.HealingMasteryValues, true],
-    ["healing-prayer", "healingPrayer", PriestValues.HealingPrayerValues, true],
-    ["heavenly-wings", "heavenlyWings", PriestValues.HeavenlyWingsValues, false],
-    ["holy-blast", "holyBlast", PriestValues.HolyBlastValues, true],
-    ["holy-relic", "holyRelic", PriestValues.HolyRelicValues, true],
-    ["holy-symbol", "holySymbol", PriestValues.HolySymbolValues, true],
-    ["sanctuary", "sanctuary", PriestValues.SanctuaryValues, true],
-    ["scepter-mastery", "scepterMastery", PriestValues.ScepterMasteryValues, true],
-    ["scourging-wave", "scourgingWave", PriestValues.ScourgingWaveValues, true],
-    ["shield-of-the-archon", "shieldOfTheArchon", PriestValues.ShieldOfTheArchonValues, true],
-    ["smiting-aura", "smitingAura", PriestValues.SmitingAuraValues, true],
-    ["steadfast-faith", "steadfastFaith", PriestValues.SteadfastFaithValues, false],
+    ["angelic-ray", "angelicRay", PriestSkills.AngelicRay, true],
+    ["celestial-blessings", "celestialBlessings", PriestSkills.CelestialBlessings, true],
+    ["celestial-guardian", "celestialGuardian", PriestSkills.CelestialGuardian, true],
+    ["celestial-light", "celestialLight", PriestSkills.CelestialLight, true],
+    ["disciple", "disciple", PriestSkills.Disciple, true],
+    ["healing-mastery", "healingMastery", PriestSkills.HealingMastery, true],
+    ["healing-prayer", "healingPrayer", PriestSkills.HealingPrayer, true],
+    ["heavenly-wings", "heavenlyWings", PriestSkills.HeavenlyWings, false],
+    ["holy-blast", "holyBlast", PriestSkills.HolyBlast, true],
+    ["holy-relic", "holyRelic", PriestSkills.HolyRelic, true],
+    ["holy-symbol", "holySymbol", PriestSkills.HolySymbol, true],
+    ["sanctuary", "sanctuary", PriestSkills.Sanctuary, true],
+    ["scepter-mastery", "scepterMastery", PriestSkills.ScepterMastery, true],
+    ["scourging-wave", "scourgingWave", PriestSkills.ScourgingWave, true],
+    ["shield-of-the-archon", "shieldOfTheArchon", PriestSkills.ShieldOfTheArchon, true],
+    ["smiting-aura", "smitingAura", PriestSkills.SmitingAura, true],
+    ["steadfast-faith", "steadfastFaith", PriestSkills.SteadfastFaith, false],
   ];
 
   async levelChanged(skillName: string, level: number) {

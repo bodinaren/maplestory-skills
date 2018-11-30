@@ -233,6 +233,7 @@ export namespace Components {
     'celestialGuardian': number;
     'celestialLight': number;
     'disciple': number;
+    'editable': boolean;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
@@ -252,6 +253,7 @@ export namespace Components {
     'celestialGuardian'?: number;
     'celestialLight'?: number;
     'disciple'?: number;
+    'editable'?: boolean;
     'healingMastery'?: number;
     'healingPrayer'?: number;
     'heavenlyWings'?: number;

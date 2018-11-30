@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as KnightValues from "../../../../global/values/knight";
+import * as KnightSkills from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-knight-editor",
@@ -14,23 +14,23 @@ export class KnightEditorComponent {
   knightChart!: HTMLMsKnightElement;
 
   private properties: ClassProperties[] = [
-    ["bulwark", "bulwark", KnightValues.Bulwark, true],
-    ["cross-cut", "crossCut", KnightValues.CrossCut, true],
-    ["defender-of-the-faith", "defenderOfTheFaith", KnightValues.DefenderOfTheFaith, true],
-    ["divine-strike", "divineStrike", KnightValues.DivineStrike, true],
-    ["drill-thrust", "drillThrust", KnightValues.DrillThrust, true],
-    ["iron-defense", "ironDefense", KnightValues.IronDefense, false],
-    ["iron-shield", "ironShield", KnightValues.IronShield, true],
-    ["longsword-mastery", "longswordMastery", KnightValues.LongswordMastery, true],
-    ["shield-booster", "shieldBooster", KnightValues.ShieldBooster, true],
-    ["shield-charge", "shieldCharge", KnightValues.ShieldCharge, false],
-    ["shield-mastery", "shieldMastery", KnightValues.ShieldMastery, true],
-    ["shield-toss", "shieldToss", KnightValues.ShieldToss, true],
-    ["shield-wall", "shieldWall", KnightValues.ShieldWall, true],
-    ["stinging-flurry", "stingingFlurry", KnightValues.StingingFlurry, true],
-    ["tornado-slash", "tornadoSlash", KnightValues.TornadoSlash, true],
-    ["typhoon-slash", "typhoonSlash", KnightValues.TyphoonSlash, true],
-    ["warhorn", "warhorn", KnightValues.Warhorn, true],
+    ["bulwark", "bulwark", KnightSkills.Bulwark, true],
+    ["cross-cut", "crossCut", KnightSkills.CrossCut, true],
+    ["defender-of-the-faith", "defenderOfTheFaith", KnightSkills.DefenderOfTheFaith, true],
+    ["divine-strike", "divineStrike", KnightSkills.DivineStrike, true],
+    ["drill-thrust", "drillThrust", KnightSkills.DrillThrust, true],
+    ["iron-defense", "ironDefense", KnightSkills.IronDefense, false],
+    ["iron-shield", "ironShield", KnightSkills.IronShield, true],
+    ["longsword-mastery", "longswordMastery", KnightSkills.LongswordMastery, true],
+    ["shield-booster", "shieldBooster", KnightSkills.ShieldBooster, true],
+    ["shield-charge", "shieldCharge", KnightSkills.ShieldCharge, false],
+    ["shield-mastery", "shieldMastery", KnightSkills.ShieldMastery, true],
+    ["shield-toss", "shieldToss", KnightSkills.ShieldToss, true],
+    ["shield-wall", "shieldWall", KnightSkills.ShieldWall, true],
+    ["stinging-flurry", "stingingFlurry", KnightSkills.StingingFlurry, true],
+    ["tornado-slash", "tornadoSlash", KnightSkills.TornadoSlash, true],
+    ["typhoon-slash", "typhoonSlash", KnightSkills.TyphoonSlash, true],
+    ["warhorn", "warhorn", KnightSkills.Warhorn, true],
   ];
 
   async levelChanged(skillName: string, level: number) {

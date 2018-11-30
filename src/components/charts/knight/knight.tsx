@@ -1,6 +1,6 @@
 import { Component, Prop, State } from "@stencil/core";
-import * as KnightSkills from "../../../global/values/knight";
 import { processSkills, renderLevelControls } from "../class-chart-helpers";
+import * as KnightSkills from "../../../global/values/knight";
 
 @Component({
   tag: "ms-knight",

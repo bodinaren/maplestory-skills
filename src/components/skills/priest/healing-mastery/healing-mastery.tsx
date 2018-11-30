@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { HealingMasteryValues } from "../../../../global/values/priest";
+import { HealingMastery } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-healing-mastery",
@@ -8,13 +8,13 @@ import { HealingMasteryValues } from "../../../../global/values/priest";
 })
 export class HealingMasteryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = HealingMasteryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = HealingMastery.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = HealingMasteryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = HealingMastery.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ HealingMasteryValues.levelRequirement[this.level] }+`,
+      `Level ${ HealingMastery.levelRequirement[this.level] }+`,
       `Scepter Mastery [Level 4+]`,
     ];
   }
@@ -24,7 +24,7 @@ export class HealingMasteryComponent {
   render() {
     return [
       <ms-icon name="healing-mastery"></ms-icon>,
-      <ms-skill-overlay heading="Healing Mastery"
+      <ms-skill-overlay heading={ HealingMastery.name }
                         element="Holy"
                         level={ this.level }
                         passive={ true }
@@ -33,7 +33,7 @@ export class HealingMasteryComponent {
         <ms-icon slot="icon" name="healing-mastery"></ms-icon>
         <div slot="description">
           Your experience in combat increases the amount of health and spirit restored through recovery skills
-          by <span>{ HealingMasteryValues.recovery[this.level] }%</span>.
+          by <span>{ HealingMastery.values.recovery[this.level] }%</span>.
           This skill does not affect your natural health and spirit regeneration rates.
         </div>
       </ms-skill-overlay>

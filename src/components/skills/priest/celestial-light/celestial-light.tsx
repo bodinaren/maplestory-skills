@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { CelestialLightValues } from "../../../../global/values/priest";
+import { CelestialLight } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-celestial-light",
@@ -8,14 +8,14 @@ import { CelestialLightValues } from "../../../../global/values/priest";
 })
 export class CelestialLightComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = CelestialLightValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = CelestialLight.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = CelestialLightValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = CelestialLight.maxLevel;
 
   getRequirements(): string[] {
-    if (CelestialLightValues.levelRequirement[this.level] > 0) {
+    if (CelestialLight.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ CelestialLightValues.levelRequirement[this.level] }+`
+        `Level ${ CelestialLight.levelRequirement[this.level] }+`
       ];
     }
   }
@@ -23,7 +23,7 @@ export class CelestialLightComponent {
   render() {
     return [
       <ms-icon name="celestial-light"></ms-icon>,
-      <ms-skill-overlay heading="Celestial Light"
+      <ms-skill-overlay heading={ CelestialLight.name }
                         element="Holy"
                         level={ this.level }
                         type="Long Range / Magic"
@@ -33,9 +33,9 @@ export class CelestialLightComponent {
         <ms-icon slot="icon" name="celestial-light"></ms-icon>
         <div slot="description">
           Strikes enemies with holy light,
-          dealing <span>{ CelestialLightValues.damage[this.level] }%</span> holy damage
+          dealing <span>{ CelestialLight.values.damage[this.level] }%</span> holy damage
           to <span>3</span> enemies up to <span>8</span> m in front of you, plus an
-          additional <span>{ CelestialLightValues.additionalDamage[this.level] }%</span> holy damage per sec
+          additional <span>{ CelestialLight.values.additionalDamage[this.level] }%</span> holy damage per sec
           for <span>6</span> sec.
         </div>
       </ms-skill-overlay>

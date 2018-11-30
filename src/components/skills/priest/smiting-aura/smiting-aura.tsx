@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SmitingAuraValues } from "../../../../global/values/priest";
+import { SmitingAura } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-smiting-aura",
@@ -8,13 +8,13 @@ import { SmitingAuraValues } from "../../../../global/values/priest";
 })
 export class SmitingAuraComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SmitingAuraValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = SmitingAura.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SmitingAuraValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = SmitingAura.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ SmitingAuraValues.levelRequirement[this.level] }+`,
+      `Level ${ SmitingAura.levelRequirement[this.level] }+`,
       `Celestial Light [Level 4+]`,
       `Sactuary [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class SmitingAuraComponent {
   render() {
     return [
       <ms-icon name="smiting-aura"></ms-icon>,
-      <ms-skill-overlay heading="Smiting Aura"
+      <ms-skill-overlay heading={ SmitingAura.name }
                         element="Holy"
                         level={ this.level }
                         type="Long Range / Magic"
@@ -32,9 +32,9 @@ export class SmitingAuraComponent {
         <ms-icon slot="icon" name="smiting-aura"></ms-icon>
         <div slot="description">
           Surround the nearest enemy within <span>8</span> m in front of you with holy power,
-          dealing <span>{ SmitingAuraValues.damage[this.level] }%</span> damage to <span>3</span> enemies
+          dealing <span>{ SmitingAura.values.damage[this.level] }%</span> damage to <span>3</span> enemies
           within <span>1.5</span> m of the target and increasing the damage taken
-          by the target by <span>{ SmitingAuraValues.damageIncrease[this.level] }%</span>.
+          by the target by <span>{ SmitingAura.values.damageIncrease[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];
