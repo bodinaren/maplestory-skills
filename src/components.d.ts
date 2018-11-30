@@ -60,6 +60,7 @@ export namespace Components {
     'darkCloak': number;
     'dash': number;
     'deathSentence': number;
+    'editable': boolean;
     'fatalStrikes': number;
     'fragmentedStar': number;
     'luckyStars': number;
@@ -79,6 +80,7 @@ export namespace Components {
     'darkCloak'?: number;
     'dash'?: number;
     'deathSentence'?: number;
+    'editable'?: boolean;
     'fatalStrikes'?: number;
     'fragmentedStar'?: number;
     'luckyStars'?: number;
@@ -105,6 +107,7 @@ export namespace Components {
     'deathSpin': number;
     'deepWounds': number;
     'earthquake': number;
+    'editable': boolean;
     'greatswordMastery': number;
     'groundBreaker': number;
     'inhumanEndurance': number;
@@ -124,6 +127,7 @@ export namespace Components {
     'deathSpin'?: number;
     'deepWounds'?: number;
     'earthquake'?: number;
+    'editable'?: boolean;
     'greatswordMastery'?: number;
     'groundBreaker'?: number;
     'inhumanEndurance'?: number;
@@ -147,6 +151,7 @@ export namespace Components {
     'advancedPulseWeapons': number;
     'blastChargeKit': number;
     'bulletSpray': number;
+    'editable': boolean;
     'electricBlast': number;
     'gatlingFire': number;
     'homingMissiles': number;
@@ -166,6 +171,7 @@ export namespace Components {
     'advancedPulseWeapons'?: number;
     'blastChargeKit'?: number;
     'bulletSpray'?: number;
+    'editable'?: boolean;
     'electricBlast'?: number;
     'gatlingFire'?: number;
     'homingMissiles'?: number;

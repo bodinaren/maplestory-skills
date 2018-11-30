@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter, Prop } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as ArcherValues from "../../../../global/values/archer";
+import * as ArcherSkills from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-archer-editor",
@@ -16,23 +16,23 @@ export class ArcherEditorComponent {
   archerChart!: HTMLMsArcherElement;
 
   private properties: ClassProperties[] = [
-    ["agile-archer", "agileArcher",  ArcherValues.AgileArcher, true],
-    ["arrow-barrage", "arrowBarrage",  ArcherValues.ArrowBarrage, true],
-    ["arrow-storm", "arrowStorm",  ArcherValues.ArrowStorm, true],
-    ["arrow-stream", "arrowStream",  ArcherValues.ArrowStream, true],
-    ["bow-swing", "bowSwing",  ArcherValues.BowSwing, true],
-    ["bronze-eagle", "bronzeEagle",  ArcherValues.BronzeEagle, true],
-    ["conditioning", "conditioning",  ArcherValues.Conditioning, true],
-    ["eagle-claw", "eagleClaw",  ArcherValues.EagleClaw, true],
-    ["eagle-glide", "eagleGlide",  ArcherValues.EagleGlide, false],
-    ["eagles-majesty", "eaglesMajesty",  ArcherValues.EaglesMajesty, true],
-    ["evasive-salvo", "evasiveSalvo",  ArcherValues.EvasiveSalvo, true],
-    ["ice-arrow", "iceArrow",  ArcherValues.IceArrow, true],
-    ["precision-shooter", "precisionShooter",  ArcherValues.PrecisionShooter, true],
-    ["rapid-shot", "rapidShot",  ArcherValues.RapidShot, true],
-    ["screwdriver-shot", "screwdriverShot",  ArcherValues.ScrewdriverShot, true],
-    ["sharp-eyes", "sharpEyes",  ArcherValues.SharpEyes, true],
-    ["snipe", "snipe",  ArcherValues.Snipe, false],
+    ["agile-archer", "agileArcher",  ArcherSkills.AgileArcher, true],
+    ["arrow-barrage", "arrowBarrage",  ArcherSkills.ArrowBarrage, true],
+    ["arrow-storm", "arrowStorm",  ArcherSkills.ArrowStorm, true],
+    ["arrow-stream", "arrowStream",  ArcherSkills.ArrowStream, true],
+    ["bow-swing", "bowSwing",  ArcherSkills.BowSwing, true],
+    ["bronze-eagle", "bronzeEagle",  ArcherSkills.BronzeEagle, true],
+    ["conditioning", "conditioning",  ArcherSkills.Conditioning, true],
+    ["eagle-claw", "eagleClaw",  ArcherSkills.EagleClaw, true],
+    ["eagle-glide", "eagleGlide",  ArcherSkills.EagleGlide, false],
+    ["eagles-majesty", "eaglesMajesty",  ArcherSkills.EaglesMajesty, true],
+    ["evasive-salvo", "evasiveSalvo",  ArcherSkills.EvasiveSalvo, true],
+    ["ice-arrow", "iceArrow",  ArcherSkills.IceArrow, true],
+    ["precision-shooter", "precisionShooter",  ArcherSkills.PrecisionShooter, true],
+    ["rapid-shot", "rapidShot",  ArcherSkills.RapidShot, true],
+    ["screwdriver-shot", "screwdriverShot",  ArcherSkills.ScrewdriverShot, true],
+    ["sharp-eyes", "sharpEyes",  ArcherSkills.SharpEyes, true],
+    ["snipe", "snipe",  ArcherSkills.Snipe, false],
   ];
 
   async levelChanged(skillName: string, level: number) {

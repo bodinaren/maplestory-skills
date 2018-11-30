@@ -38,6 +38,7 @@ export const ArrowBarrage: ISkill = {
   prop: "arrowBarrage",
   minLevel: 1,
   maxLevel: 10,
+  levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
   skillRequirements: [],
   values: {
     levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],

@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as HeavyGunnerValues from "../../../../global/values/heavy-gunner";
+import * as HeavyGunnerSkills from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-heavy-gunner-editor",
@@ -14,23 +14,23 @@ export class HeavyGunnerEditorComponent {
   heavyGunnerChart!: HTMLMsHeavyGunnerElement;
 
   private properties: ClassProperties[] = [
-    ["advanced-bullets", "advancedBullets", HeavyGunnerValues.AdvancedBulletsValues, true],
-    ["advanced-missiles", "advancedMissiles", HeavyGunnerValues.AdvancedMissilesValues, true],
-    ["advanced-pulse-weapons", "advancedPulseWeapons", HeavyGunnerValues.AdvancedPulseWeaponsValues, true],
-    ["blast-charge-kit", "blastChargeKit", HeavyGunnerValues.BlastChargeKitValues, true],
-    ["bullet-spray", "bulletSpray", HeavyGunnerValues.BulletSprayValues, true],
-    ["electric-blast", "electricBlast", HeavyGunnerValues.ElectricBlastValues, true],
-    ["gatling-fire", "gatlingFire", HeavyGunnerValues.GatlingFireValues, true],
-    ["homing-missiles", "homingMissiles", HeavyGunnerValues.HomingMissilesValues, true],
-    ["jet-boots", "jetBoots", HeavyGunnerValues.JetBootsValues, false],
-    ["lock-on", "lockOn", HeavyGunnerValues.LockOnValues, true],
-    ["magnetic-bomb", "magneticBomb", HeavyGunnerValues.MagneticBombValues, true],
-    ["m-bomb", "mBomb", HeavyGunnerValues.MBombValues, true],
-    ["med-kit", "medKit", HeavyGunnerValues.MedKitValues, true],
-    ["reload", "reload", HeavyGunnerValues.ReloadValues, false],
-    ["rocket-launcher", "rocketLauncher", HeavyGunnerValues.RocketLauncherValues, true],
-    ["stun-grenades", "stunGrenades", HeavyGunnerValues.StunGrenadesValues, true],
-    ["suborbital-bombardment", "suborbitalBombardment", HeavyGunnerValues.SuborbitalBombardmentValues, true],
+    ["advanced-bullets", "advancedBullets", HeavyGunnerSkills.AdvancedBullets, true],
+    ["advanced-missiles", "advancedMissiles", HeavyGunnerSkills.AdvancedMissiles, true],
+    ["advanced-pulse-weapons", "advancedPulseWeapons", HeavyGunnerSkills.AdvancedPulseWeapons, true],
+    ["blast-charge-kit", "blastChargeKit", HeavyGunnerSkills.BlastChargeKit, true],
+    ["bullet-spray", "bulletSpray", HeavyGunnerSkills.BulletSpray, true],
+    ["electric-blast", "electricBlast", HeavyGunnerSkills.ElectricBlast, true],
+    ["gatling-fire", "gatlingFire", HeavyGunnerSkills.GatlingFire, true],
+    ["homing-missiles", "homingMissiles", HeavyGunnerSkills.HomingMissiles, true],
+    ["jet-boots", "jetBoots", HeavyGunnerSkills.JetBoots, false],
+    ["lock-on", "lockOn", HeavyGunnerSkills.LockOn, true],
+    ["magnetic-bomb", "magneticBomb", HeavyGunnerSkills.MagneticBomb, true],
+    ["m-bomb", "mBomb", HeavyGunnerSkills.MBomb, true],
+    ["med-kit", "medKit", HeavyGunnerSkills.MedKit, true],
+    ["reload", "reload", HeavyGunnerSkills.Reload, false],
+    ["rocket-launcher", "rocketLauncher", HeavyGunnerSkills.RocketLauncher, true],
+    ["stun-grenades", "stunGrenades", HeavyGunnerSkills.StunGrenades, true],
+    ["suborbital-bombardment", "suborbitalBombardment", HeavyGunnerSkills.SuborbitalBombardment, true],
   ];
 
   async levelChanged(skillName: string, level: number) {

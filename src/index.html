@@ -179,7 +179,10 @@
           </code> -->
 
           <!-- <ms-editor id="editor" ms-class="archer"></ms-editor> -->
-          <ms-archer editable="true"></ms-archer>
+          <!-- <ms-archer editable="true"></ms-archer> -->
+          <div id="chart">
+            <!-- <ms-archer id="editor" editable="true"></ms-archer> -->
+          </div>
         </div>
       </div>
 
@@ -221,10 +224,20 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         }
 
         document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
-        document.querySelector("ms-editor").msClass = msClass;
+        // document.querySelector("ms-editor").msClass = msClass;
+
+        var chartHolder = document.querySelector("#chart");
+        if (chartHolder.firstElementChild) {
+          chartHolder.firstElementChild.remove();
+        }
+
+        var editor = document.createElement("ms-" + msClass);
+        editor.id = "editor";
+        editor.editable = true;
+        chartHolder.appendChild(editor);
       }
 
-      // toggle("archer");
+      toggle("archer");
     </script>
 
   </body>

@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls } from "../class-editor-helpers";
-import * as BerserkerValues from "../../../../global/values/berserker";
+import * as BerserkerSkills from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-berserker-editor",
@@ -14,23 +14,23 @@ export class BerserkerEditorComponent {
   berserkerChart!: HTMLMsBerserkerElement;
 
   private properties: ClassProperties[] = [
-    ["adrenaline-rush", "adrenalineRush", BerserkerValues.AdrenalineRush, true],
-    ["blood-price", "bloodPrice", BerserkerValues.BloodPrice, true],
-    ["bloodlust", "bloodlust", BerserkerValues.Bloodlust, true],
-    ["dark-aura", "darkAura", BerserkerValues.DarkAura, true],
-    ["dark-breaker", "darkBreaker", BerserkerValues.DarkBreaker, true],
-    ["dark-might", "darkMight", BerserkerValues.DarkMight, true],
-    ["death-spin", "deathSpin", BerserkerValues.DeathSpin, true],
-    ["deep-wounds", "deepWounds", BerserkerValues.DeepWounds, true],
-    ["earthquake", "earthquake", BerserkerValues.Earthquake, true],
-    ["greatsword-mastery", "greatswordMastery", BerserkerValues.GreatswordMastery, true],
-    ["ground-breaker", "groundBreaker", BerserkerValues.GroundBreaker, true],
-    ["inhuman-endurance", "inhumanEndurance", BerserkerValues.InhumanEndurance, true],
-    ["intimidation", "intimidation", BerserkerValues.Intimidation, true],
-    ["raging-slash", "ragingSlash", BerserkerValues.RagingSlash, true],
-    ["void-slash", "voidSlash", BerserkerValues.VoidSlash, true],
-    ["warriors-instinct", "warriorsInstinct", BerserkerValues.WarriorsInstinct, true],
-    ["x-slash", "xSlash", BerserkerValues.XSlash, true],
+    ["adrenaline-rush", "adrenalineRush", BerserkerSkills.AdrenalineRush, true],
+    ["blood-price", "bloodPrice", BerserkerSkills.BloodPrice, true],
+    ["bloodlust", "bloodlust", BerserkerSkills.Bloodlust, true],
+    ["dark-aura", "darkAura", BerserkerSkills.DarkAura, true],
+    ["dark-breaker", "darkBreaker", BerserkerSkills.DarkBreaker, true],
+    ["dark-might", "darkMight", BerserkerSkills.DarkMight, true],
+    ["death-spin", "deathSpin", BerserkerSkills.DeathSpin, true],
+    ["deep-wounds", "deepWounds", BerserkerSkills.DeepWounds, true],
+    ["earthquake", "earthquake", BerserkerSkills.Earthquake, true],
+    ["greatsword-mastery", "greatswordMastery", BerserkerSkills.GreatswordMastery, true],
+    ["ground-breaker", "groundBreaker", BerserkerSkills.GroundBreaker, true],
+    ["inhuman-endurance", "inhumanEndurance", BerserkerSkills.InhumanEndurance, true],
+    ["intimidation", "intimidation", BerserkerSkills.Intimidation, true],
+    ["raging-slash", "ragingSlash", BerserkerSkills.RagingSlash, true],
+    ["void-slash", "voidSlash", BerserkerSkills.VoidSlash, true],
+    ["warriors-instinct", "warriorsInstinct", BerserkerSkills.WarriorsInstinct, true],
+    ["x-slash", "xSlash", BerserkerSkills.XSlash, true],
   ];
 
   async levelChanged(skillName: string, level: number) {
