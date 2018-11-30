@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { FlurryValues } from "../../../../global/values/runeblade";
+import { Flurry } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-flurry",
@@ -8,14 +8,14 @@ import { FlurryValues } from "../../../../global/values/runeblade";
 })
 export class FlurryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = FlurryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Flurry.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = FlurryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Flurry.maxLevel;
 
   getRequirements(): string[] {
-    if (FlurryValues.levelRequirement[this.level] > 0) {
+    if (Flurry.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ FlurryValues.levelRequirement[this.level] }+`,
+        `Level ${ Flurry.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class FlurryComponent {
   render() {
     return [
       <ms-icon name="flurry"></ms-icon>,
-      <ms-skill-overlay heading="Flurry"
+      <ms-skill-overlay heading={ Flurry.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Two-handed Blade"
@@ -32,7 +32,7 @@ export class FlurryComponent {
         <ms-icon slot="icon" name="flurry"></ms-icon>
         <div slot="description">
           Attack with <span>3</span> slashes of your blade,
-          each dealing <span>{ FlurryValues.damage[this.level] }%</span> damage
+          each dealing <span>{ Flurry.values.damage[this.level] }%</span> damage
           to <span>5</span> enemies up to <span>3</span> m in front of you.
           This skill attunes with your Flame, Frost, and Storm Sigil skills.
         </div>

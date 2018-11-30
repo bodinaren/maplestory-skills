@@ -273,6 +273,7 @@ export namespace Components {
     'bladeMastery': number;
     'blink': number;
     'echoingBlade': number;
+    'editable': boolean;
     'elementalPotency': number;
     'flameSigil': number;
     'flurry': number;
@@ -292,6 +293,7 @@ export namespace Components {
     'bladeMastery'?: number;
     'blink'?: number;
     'echoingBlade'?: number;
+    'editable'?: boolean;
     'elementalPotency'?: number;
     'flameSigil'?: number;
     'flurry'?: number;

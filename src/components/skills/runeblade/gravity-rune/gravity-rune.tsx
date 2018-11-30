@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { GravityRuneValues } from "../../../../global/values/runeblade";
+import { GravityRune } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-gravity-rune",
@@ -8,20 +8,20 @@ import { GravityRuneValues } from "../../../../global/values/runeblade";
 })
 export class GravityRuneComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = GravityRuneValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = GravityRune.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = GravityRuneValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = GravityRune.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ GravityRuneValues.levelRequirement[this.level] }+`,
+      `Level ${ GravityRune.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="gravity-rune"></ms-icon>,
-      <ms-skill-overlay heading="¤¤¤¤"
+      <ms-skill-overlay heading={ GravityRune.name }
                         level={ this.level }
                         type="Long Range / Magic"
                         requirements={ this.getRequirements() }
@@ -30,7 +30,7 @@ export class GravityRuneComponent {
         <ms-icon slot="icon" name="gravity-rune"></ms-icon>
         <div slot="description">
           Summon a rune <span>3</span> m in front of you. The rune pulls enemies into it,
-          dealing <span>{ GravityRuneValues.damage[this.level] }%</span> damage
+          dealing <span>{ GravityRune.values.damage[this.level] }%</span> damage
           to <span>8</span> enemies within <span>3.75</span> m.
         </div>
       </ms-skill-overlay>

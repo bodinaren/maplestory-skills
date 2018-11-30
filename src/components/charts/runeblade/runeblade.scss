@@ -2,87 +2,91 @@
   display: block;
 }
 
-ms-blade-chasm {
+ms-skill {
+  position: absolute;
+}
+
+.bladeChasm {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-blade-mastery {
+.bladeMastery {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-blink {
+.blink {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-echoing-blade {
+.echoingBlade {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-elemental-potency {
+.elementalPotency {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-flame-sigil {
+.flameSigil {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-flurry {
+.flurry {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-frost-sigil {
+.frostSigil {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-gravity-rune {
+.gravityRune {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-honing-runes {
+.honingRunes {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-illusory-blades {
+.illusoryBlades {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-impact {
+.impact {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-rune-balance {
+.runeBalance {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-rune-focus {
+.runeFocus {
   @include chart-row(5);
   @include chart-column(1);
 }
 
-ms-storm-sigil {
+.stormSigil {
   @include chart-row(5);
   @include chart-column(3);
 }
 
-ms-warding-rune {
+.wardingRune {
   @include chart-row(4);
   @include chart-column(4);
 }
 
-ms-whirling-blades {
+.whirlingBlades {
   @include chart-row(3);
   @include chart-column(2);
 }

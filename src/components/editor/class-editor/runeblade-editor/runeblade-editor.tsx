@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as RunebladeValues from "../../../../global/values/runeblade";
+import * as RunebladeSkills from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-runeblade-editor",
@@ -14,23 +14,23 @@ export class RunebladeEditorComponent {
   runebladeChart!: HTMLMsRunebladeElement;
 
   private properties: ClassProperties[] = [
-    ["blade-chasm", "bladeChasm" , RunebladeValues.BladeChasmValues, true],
-    ["blade-mastery", "bladeMastery" , RunebladeValues.BladeMasteryValues, true],
-    ["blink", "blink" , RunebladeValues.BlinkValues, false],
-    ["elemental-potency", "elementalPotency" , RunebladeValues.ElementalPotencyValues, true],
-    ["echoing-blade", "echoingBlade" , RunebladeValues.EchoingBladeValues, true],
-    ["flame-sigil", "flameSigil" , RunebladeValues.FlameSigilValues, true],
-    ["flurry", "flurry" , RunebladeValues.FlurryValues, true],
-    ["frost-sigil", "frostSigil" , RunebladeValues.FrostSigilValues, true],
-    ["gravity-rune", "gravityRune" , RunebladeValues.GravityRuneValues, true],
-    ["honing-runes", "honingRunes" , RunebladeValues.HoningRunesValues, true],
-    ["illusory-blades", "illusoryBlades" , RunebladeValues.IllusoryBladesValues, true],
-    ["impact", "impact" , RunebladeValues.ImpactValues, true],
-    ["rune-balance", "runeBalance" , RunebladeValues.RuneBalanceValues, false],
-    ["rune-focus", "runeFocus" , RunebladeValues.RuneFocusValues, true],
-    ["storm-sigil", "stormSigil" , RunebladeValues.StormSigilValues, true],
-    ["warding-rune", "wardingRune" , RunebladeValues.WardingRuneValues, true],
-    ["whirling-blades", "whirlingBlades" , RunebladeValues.WhirlingBladesValues, true],
+    ["blade-chasm", "bladeChasm" , RunebladeSkills.BladeChasm, true],
+    ["blade-mastery", "bladeMastery" , RunebladeSkills.BladeMastery, true],
+    ["blink", "blink" , RunebladeSkills.Blink, false],
+    ["elemental-potency", "elementalPotency" , RunebladeSkills.ElementalPotency, true],
+    ["echoing-blade", "echoingBlade" , RunebladeSkills.EchoingBlade, true],
+    ["flame-sigil", "flameSigil" , RunebladeSkills.FlameSigil, true],
+    ["flurry", "flurry" , RunebladeSkills.Flurry, true],
+    ["frost-sigil", "frostSigil" , RunebladeSkills.FrostSigil, true],
+    ["gravity-rune", "gravityRune" , RunebladeSkills.GravityRune, true],
+    ["honing-runes", "honingRunes" , RunebladeSkills.HoningRunes, true],
+    ["illusory-blades", "illusoryBlades" , RunebladeSkills.IllusoryBlades, true],
+    ["impact", "impact" , RunebladeSkills.Impact, true],
+    ["rune-balance", "runeBalance" , RunebladeSkills.RuneBalance, false],
+    ["rune-focus", "runeFocus" , RunebladeSkills.RuneFocus, true],
+    ["storm-sigil", "stormSigil" , RunebladeSkills.StormSigil, true],
+    ["warding-rune", "wardingRune" , RunebladeSkills.WardingRune, true],
+    ["whirling-blades", "whirlingBlades" , RunebladeSkills.WhirlingBlades, true],
   ];
 
   async levelChanged(skillName: string, level: number) {
