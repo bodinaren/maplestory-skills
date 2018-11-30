@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DeathSpinValues } from "../../../../global/values/berserker";
+import { DeathSpin } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-death-spin",
@@ -8,14 +8,14 @@ import { DeathSpinValues } from "../../../../global/values/berserker";
 })
 export class DeathSpinComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DeathSpinValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = DeathSpin.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DeathSpinValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = DeathSpin.maxLevel;
 
   getRequirements(): string[] {
-    if (DeathSpinValues.levelRequirement[this.level] > 0) {
+    if (DeathSpin.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ DeathSpinValues.levelRequirement[this.level] }+`,
+        `Level ${ DeathSpin.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class DeathSpinComponent {
   render() {
     return [
       <ms-icon name="death-spin"></ms-icon>,
-      <ms-skill-overlay heading="Death Spin"
+      <ms-skill-overlay heading={ DeathSpin.name }
                         element="Dark"
                         level={ this.level }
                         type="Close Range / Physical"
@@ -33,7 +33,7 @@ export class DeathSpinComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="death-spin"></ms-icon>
         <div slot="description">
-          Spin your greatsword, dealing <span>{ DeathSpinValues.damage[this.level] }%</span> dark damage
+          Spin your greatsword, dealing <span>{ DeathSpin.values.damage[this.level] }%</span> dark damage
           to <span>8</span> enemies within <span>3</span> m.
           During the attack, press a direction key to move <span>1.6</span> m.
           The distance decreases to <span>1.2</span> m on your second spin and

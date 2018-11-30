@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DashValues } from "../../../../global/values/assassin";
+import { Dash } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-dash",
@@ -8,14 +8,14 @@ import { DashValues } from "../../../../global/values/assassin";
 })
 export class DashComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DashValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Dash.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DashValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Dash.maxLevel;
 
   render() {
     return [
       <ms-icon name="dash"></ms-icon>,
-      <ms-skill-overlay heading="Dash"
+      <ms-skill-overlay heading={ Dash.name }
                         level={ this.level }
                         max={ this.max }>
         <ms-icon slot="icon" name="dash"></ms-icon>

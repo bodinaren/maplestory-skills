@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SharpEyesValues } from "../../../../global/values/archer";
+import { SharpEyes } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-sharp-eyes",
@@ -8,13 +8,13 @@ import { SharpEyesValues } from "../../../../global/values/archer";
 })
 export class SharpEyesComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SharpEyesValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = SharpEyes.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SharpEyesValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = SharpEyes.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ SharpEyesValues.levelRequirement[this.level] }+`,
+      `Level ${ SharpEyes.levelRequirement[this.level] }+`,
       `Conditioning [Level 6+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class SharpEyesComponent {
   render() {
     return [
       <ms-icon name="sharp-eyes"></ms-icon>,
-      <ms-skill-overlay heading={ SharpEyesValues.name }
+      <ms-skill-overlay heading={ SharpEyes.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 180 }
@@ -31,10 +31,10 @@ export class SharpEyesComponent {
         <div slot="description">
           Create a magic seal that affects <span>5</span> tiles around you,
           increasing the critical rate of allies who absorb it
-          by <span>{ SharpEyesValues.criticalAllies[this.level] }</span> and
-          their accuracy by <span>{ SharpEyesValues.accuracy[this.level] }</span> for <span>180</span> sec.
+          by <span>{ SharpEyes.values.criticalAllies[this.level] }</span> and
+          their accuracy by <span>{ SharpEyes.values.accuracy[this.level] }</span> for <span>180</span> sec.
           The seal lasts for <span>20</span> sec.
-          Sharp Eyes also increases critical rate by <span>{ SharpEyesValues.criticalSelf[this.level] }</span>.
+          Sharp Eyes also increases critical rate by <span>{ SharpEyes.values.criticalSelf[this.level] }</span>.
         </div>
       </ms-skill-overlay>
     ];

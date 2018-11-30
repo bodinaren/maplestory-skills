@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { BowSwingValues } from "../../../../global/values/archer";
+import { BowSwing } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-bow-swing",
@@ -8,13 +8,13 @@ import { BowSwingValues } from "../../../../global/values/archer";
 })
 export class BowSwingComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = BowSwingValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = BowSwing.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = BowSwingValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = BowSwing.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ BowSwingValues.levelRequirement[this.level] }+`,
+      `Level ${ BowSwing.levelRequirement[this.level] }+`,
       `Agile Archer [Level 3+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class BowSwingComponent {
   render() {
     return [
       <ms-icon name="bow-swing"></ms-icon>,
-      <ms-skill-overlay heading={ BowSwingValues.name }
+      <ms-skill-overlay heading={ BowSwing.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Two-handed Bow"
@@ -32,9 +32,9 @@ export class BowSwingComponent {
         <ms-icon slot="icon" name="bow-swing"></ms-icon>
         <div slot="description">
           Swing your bow wildly as you spin,
-          dealing <span>{ BowSwingValues.damage[this.level] }%</span> damage
+          dealing <span>{ BowSwing.values.damage[this.level] }%</span> damage
           to <span>8</span> enemies within <span>3</span> m. Deals an
-          additional <span>{ BowSwingValues.additionalDamage[this.level] }%</span> ice damage
+          additional <span>{ BowSwing.values.additionalDamage[this.level] }%</span> ice damage
           to targets frozen by the Ice Arrow debuff and consumes the effect.
         </div>
       </ms-skill-overlay>

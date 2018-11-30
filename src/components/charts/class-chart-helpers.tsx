@@ -1,9 +1,9 @@
 
-export function processSkills(chart: any, classValues: any) {
+export function processSkills(chart: any, classSkills: any) {
   let skills = {};
 
-  Object.keys(classValues).forEach((skillKey: string) => {
-    let values = classValues[skillKey];
+  Object.keys(classSkills).forEach((skillKey: string) => {
+    let values = classSkills[skillKey];
 
     skills[values.prop] = {
       locked: false,
@@ -12,8 +12,8 @@ export function processSkills(chart: any, classValues: any) {
     };
   });
 
-  Object.keys(classValues).forEach((skillKey: string) => {
-    let values = classValues[skillKey];
+  Object.keys(classSkills).forEach((skillKey: string) => {
+    let values = classSkills[skillKey];
 
     values.skillRequirements.forEach((req) => {
       if (chart[req.skill.prop] < req.level) {
@@ -25,14 +25,14 @@ export function processSkills(chart: any, classValues: any) {
 
   let sum = 0;
 
-  Object.keys(classValues).forEach((skillKey: string) => {
-    let values = classValues[skillKey];
+  Object.keys(classSkills).forEach((skillKey: string) => {
+    let values = classSkills[skillKey];
     sum += chart[values.prop];
   });
 
   if (sum >= 68 + 4) { // 4 skills are already distributed and can't be removed
-    Object.keys(classValues).forEach((skillKey: string) => {
-      let values = classValues[skillKey];
+    Object.keys(classSkills).forEach((skillKey: string) => {
+      let values = classSkills[skillKey];
       skills[values.prop].limitReached = true;
     });
   }
@@ -40,9 +40,9 @@ export function processSkills(chart: any, classValues: any) {
   chart.skills = skills;
 }
 
-export function toggleSkillRequirements(chart: any, values: any, setActive: boolean) {
+export function toggleSkillRequirements(chart: any, skill: any, setActive: boolean) {
   let didUpdate = false;
-  values.skillRequirements.forEach((req) => {
+  skill.skillRequirements.forEach((req) => {
     if (chart[req.skill.prop] < req.level) {
       let r = (setActive) ? `Level ${ req.level }+` : undefined;
       if (chart.skills[req.skill.prop].required !== r) {

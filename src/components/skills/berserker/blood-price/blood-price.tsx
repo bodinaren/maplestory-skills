@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { BloodPriceValues } from "../../../../global/values/berserker";
+import { BloodPrice } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-blood-price",
@@ -8,13 +8,13 @@ import { BloodPriceValues } from "../../../../global/values/berserker";
 })
 export class BloodPriceComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = BloodPriceValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = BloodPrice.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = BloodPriceValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = BloodPrice.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ BloodPriceValues.levelRequirement[this.level] }+`,
+      `Level ${ BloodPrice.levelRequirement[this.level] }+`,
       `Bloodlust [Level 6+]`,
       `Adrenaline Rush [Level 2+]`,
     ];
@@ -23,7 +23,7 @@ export class BloodPriceComponent {
   render() {
     return [
       <ms-icon name="blood-price"></ms-icon>,
-      <ms-skill-overlay heading="Blood Price"
+      <ms-skill-overlay heading={ BloodPrice.name }
                         element="Dark"
                         level={ this.level }
                         requirements={ this.getRequirements() }
@@ -32,7 +32,7 @@ export class BloodPriceComponent {
         <ms-icon slot="icon" name="blood-price"></ms-icon>
         <div slot="description">
           Darkness fuels you, increasing your damage
-          by <span>{ BloodPriceValues.damage[this.level] }%</span> but
+          by <span>{ BloodPrice.values.damage[this.level] }%</span> but
           depleting your health by <span>1%</span> on hit for <span>30</span> sec.
           This effect will stop consuming health when you get to <span>25%</span> health.
         </div>

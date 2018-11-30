@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { EagleGlideValues } from "../../../../global/values/archer";
+import { EagleGlide } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-eagle-glide",
@@ -8,14 +8,14 @@ import { EagleGlideValues } from "../../../../global/values/archer";
 })
 export class EagleGlideComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = EagleGlideValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = EagleGlide.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = EagleGlideValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = EagleGlide.maxLevel;
 
   render() {
     return [
       <ms-icon name="eagle-glide"></ms-icon>,
-      <ms-skill-overlay heading={ EagleGlideValues.name }
+      <ms-skill-overlay heading={ EagleGlide.name }
                         level={ this.level }
                         max={ this.max }>
         <ms-icon slot="icon" name="eagle-glide"></ms-icon>

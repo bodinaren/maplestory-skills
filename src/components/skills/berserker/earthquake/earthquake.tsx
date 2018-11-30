@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { EarthquakeValues } from "../../../../global/values/berserker";
+import { Earthquake } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-earthquake",
@@ -8,13 +8,13 @@ import { EarthquakeValues } from "../../../../global/values/berserker";
 })
 export class EarthquakeComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = EarthquakeValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Earthquake.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = EarthquakeValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Earthquake.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ EarthquakeValues.levelRequirement[this.level] }+`,
+      `Level ${ Earthquake.levelRequirement[this.level] }+`,
       `Deep Wounds [Level 2+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class EarthquakeComponent {
   render() {
     return [
       <ms-icon name="earthquake"></ms-icon>,
-      <ms-skill-overlay heading="Earthquake"
+      <ms-skill-overlay heading={ Earthquake.name }
                         level={ this.level }
                         type="Physical"
                         weaponRequired="Two-handed Greatsword"
@@ -34,7 +34,7 @@ export class EarthquakeComponent {
           Drive your greatsword into the ground, creating an
           earthquake <span>9</span> tiles around you for <span>5</span> sec.
           Enemies caught in the quake are stunned and
-          take <span>{ EarthquakeValues.damage[this.level] }%</span> damage every second.
+          take <span>{ Earthquake.values.damage[this.level] }%</span> damage every second.
         </div>
       </ms-skill-overlay>
     ];

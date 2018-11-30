@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { GreatswordMasteryValues } from "../../../../global/values/berserker";
+import { GreatswordMastery } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-greatsword-mastery",
@@ -8,13 +8,13 @@ import { GreatswordMasteryValues } from "../../../../global/values/berserker";
 })
 export class GreatswordMasteryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = GreatswordMasteryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = GreatswordMastery.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = GreatswordMasteryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = GreatswordMastery.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ GreatswordMasteryValues.levelRequirement[this.level] }+`,
+      `Level ${ GreatswordMastery.levelRequirement[this.level] }+`,
       `Raging Slash [Level 3+]`,
     ];
   }
@@ -24,7 +24,7 @@ export class GreatswordMasteryComponent {
   render() {
     return [
       <ms-icon name="greatsword-mastery"></ms-icon>,
-      <ms-skill-overlay heading="Greatsword Mastery"
+      <ms-skill-overlay heading={ GreatswordMastery.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -32,7 +32,7 @@ export class GreatswordMasteryComponent {
         <ms-icon slot="icon" name="greatsword-mastery"></ms-icon>
         <div slot="description">
           Ten's lessons on asceticism increase your skill with a greatsword.
-          Your weapon attack increases by <span>{ GreatswordMasteryValues.attack[this.level] }%</span> when you have a greatsword equipped.
+          Your weapon attack increases by <span>{ GreatswordMastery.values.attack[this.level] }%</span> when you have a greatsword equipped.
         </div>
       </ms-skill-overlay>
     ];

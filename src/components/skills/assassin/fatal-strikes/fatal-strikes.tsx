@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { FatalStrikesValues } from "../../../../global/values/assassin";
+import { FatalStrikes } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-fatal-strikes",
@@ -8,20 +8,20 @@ import { FatalStrikesValues } from "../../../../global/values/assassin";
 })
 export class FatalStrikesComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = FatalStrikesValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = FatalStrikes.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = FatalStrikesValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = FatalStrikes.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ FatalStrikesValues.levelRequirement[this.level] }+`,
+      `Level ${ FatalStrikes.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="fatal-strikes"></ms-icon>,
-      <ms-skill-overlay heading="Fatal Strikes"
+      <ms-skill-overlay heading={ FatalStrikes.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 60 }
@@ -30,7 +30,7 @@ export class FatalStrikesComponent {
         <div slot="description">
           Utilize dark magic to strengthen your secret assassin techniques,
           allowing you to identify enemy weak spots.
-          All attacks become critical hits for <span>{ FatalStrikesValues.duration[this.level] }</span> sec.
+          All attacks become critical hits for <span>{ FatalStrikes.values.duration[this.level] }</span> sec.
         </div>
       </ms-skill-overlay>
     ];

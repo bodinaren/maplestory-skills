@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SnipeValues } from "../../../../global/values/archer";
+import { Snipe } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-snipe",
@@ -8,16 +8,16 @@ import { SnipeValues } from "../../../../global/values/archer";
 })
 export class SnipeComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SnipeValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Snipe.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SnipeValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Snipe.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="snipe" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading={ SnipeValues.name }
+      <ms-skill-overlay heading={ Snipe.name }
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>
