@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { IceSpearValues } from "../../../../global/values/wizard";
+import { IceSpear } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-ice-spear",
@@ -8,20 +8,20 @@ import { IceSpearValues } from "../../../../global/values/wizard";
 })
 export class IceSpearComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = IceSpearValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = IceSpear.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = IceSpearValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = IceSpear.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ IceSpearValues.levelRequirement[this.level] }+`,
+      `Level ${ IceSpear.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="ice-spear"></ms-icon>,
-      <ms-skill-overlay heading="Ice Spear"
+      <ms-skill-overlay heading={ IceSpear.name }
                         element="Ice"
                         level={ this.level }
                         type="Long Range / Magic"
@@ -34,7 +34,7 @@ export class IceSpearComponent {
           Gather ice from the moisture in the air to fling
           at the closest enemy up to <span>8</span> m in front of you.
           The spear of ice breaks on impact, its shards
-          dealing <span>{ IceSpearValues.damage[this.level] }%</span> ice damage
+          dealing <span>{ IceSpear.values.damage[this.level] }%</span> ice damage
           to <span>8</span> enemies within <span>2.5</span> m and decreasing movement speed by <span>10%</span> for <span>3</span> sec.
           This cold effect can stack up to <span>6</span> times.
           Enemies at max stacks are frozen for <span>1</span> sec.

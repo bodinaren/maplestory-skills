@@ -354,6 +354,7 @@ export namespace Components {
     'arcaneBlast': number;
     'chainLightning': number;
     'cryomancy': number;
+    'editable': boolean;
     'electromancy': number;
     'elementalMaster': number;
     'flameTornado': number;
@@ -373,6 +374,7 @@ export namespace Components {
     'arcaneBlast'?: number;
     'chainLightning'?: number;
     'cryomancy'?: number;
+    'editable'?: boolean;
     'electromancy'?: number;
     'elementalMaster'?: number;
     'flameTornado'?: number;

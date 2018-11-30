@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as WizardValues from "../../../../global/values/wizard";
+import * as WizardSkills from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-wizard-editor",
@@ -14,23 +14,23 @@ export class WizardEditorComponent {
   wizardChart!: HTMLMsWizardElement;
 
   private properties: ClassProperties[] = [
-    ["arcane-blast", "arcaneBlast", WizardValues.ArcaneBlastValues, true],
-    ["chain-lightning", "chainLightning", WizardValues.ChainLightningValues, true],
-    ["cryomancy", "cryomancy", WizardValues.CryomancyValues, true],
-    ["electromancy", "electromancy", WizardValues.ElectromancyValues, true],
-    ["elemental-master", "elementalMaster", WizardValues.ElementalMasterValues, true],
-    ["flame-tornado", "flameTornado", WizardValues.FlameTornadoValues, true],
-    ["flame-wave", "flameWave", WizardValues.FlameWaveValues, true],
-    ["focus-seal", "focusSeal", WizardValues.FocusSealValues, true],
-    ["ice-spear", "iceSpear", WizardValues.IceSpearValues, true],
-    ["ice-storm", "iceStorm", WizardValues.IceStormValues, true],
-    ["magic-armor", "magicArmor", WizardValues.MagicArmorValues, true],
-    ["mana-claw", "manaClaw", WizardValues.ManaClawValues, true],
-    ["mana-font", "manaFont", WizardValues.ManaFontValues, false],
-    ["phantom-claw", "phantomClaw", WizardValues.PhantomClawValues, true],
-    ["pyromancy", "pyromancy", WizardValues.PyromancyValues, true],
-    ["teleport", "teleport", WizardValues.TeleportValues, false],
-    ["thunderbolt", "thunderbolt", WizardValues.ThunderboltValues, true],
+    ["arcane-blast", "arcaneBlast", WizardSkills.ArcaneBlast, true],
+    ["chain-lightning", "chainLightning", WizardSkills.ChainLightning, true],
+    ["cryomancy", "cryomancy", WizardSkills.Cryomancy, true],
+    ["electromancy", "electromancy", WizardSkills.Electromancy, true],
+    ["elemental-master", "elementalMaster", WizardSkills.ElementalMaster, true],
+    ["flame-tornado", "flameTornado", WizardSkills.FlameTornado, true],
+    ["flame-wave", "flameWave", WizardSkills.FlameWave, true],
+    ["focus-seal", "focusSeal", WizardSkills.FocusSeal, true],
+    ["ice-spear", "iceSpear", WizardSkills.IceSpear, true],
+    ["ice-storm", "iceStorm", WizardSkills.IceStorm, true],
+    ["magic-armor", "magicArmor", WizardSkills.MagicArmor, true],
+    ["mana-claw", "manaClaw", WizardSkills.ManaClaw, true],
+    ["mana-font", "manaFont", WizardSkills.ManaFont, false],
+    ["phantom-claw", "phantomClaw", WizardSkills.PhantomClaw, true],
+    ["pyromancy", "pyromancy", WizardSkills.Pyromancy, true],
+    ["teleport", "teleport", WizardSkills.Teleport, false],
+    ["thunderbolt", "thunderbolt", WizardSkills.Thunderbolt, true],
   ];
 
   async levelChanged(skillName: string, level: number) {

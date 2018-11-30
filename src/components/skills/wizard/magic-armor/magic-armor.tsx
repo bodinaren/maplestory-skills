@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MagicArmorValues } from "../../../../global/values/wizard";
+import { MagicArmor } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-magic-armor",
@@ -8,20 +8,20 @@ import { MagicArmorValues } from "../../../../global/values/wizard";
 })
 export class MagicArmorComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MagicArmorValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MagicArmor.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MagicArmorValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MagicArmor.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ MagicArmorValues.levelRequirement[this.level] }+`,
+      `Level ${ MagicArmor.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="magic-armor"></ms-icon>,
-      <ms-skill-overlay heading="Magic Armor"
+      <ms-skill-overlay heading={ MagicArmor.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 45 }
@@ -29,7 +29,7 @@ export class MagicArmorComponent {
         <ms-icon slot="icon" name="magic-armor"></ms-icon>
         <div slot="description">
           Envelop your body with a magical aura, creating a barrier that absorbs damage
-          up to <span>{ MagicArmorValues.barrier[this.level] }%</span> of your max health for <span>10</span> sec.
+          up to <span>{ MagicArmor.values.barrier[this.level] }%</span> of your max health for <span>10</span> sec.
           Cannot be combined with other barrier effects.
         </div>
       </ms-skill-overlay>
