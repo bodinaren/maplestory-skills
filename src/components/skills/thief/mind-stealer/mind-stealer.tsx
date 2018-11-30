@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MindStealerValues } from "../../../../global/values/thief";
+import { MindStealer } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-mind-stealer",
@@ -8,14 +8,14 @@ import { MindStealerValues } from "../../../../global/values/thief";
 })
 export class MindStealerComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MindStealerValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MindStealer.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MindStealerValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MindStealer.maxLevel;
 
   render() {
     return [
       <ms-icon name="mind-stealer"></ms-icon>,
-      <ms-skill-overlay heading="Mind Stealer"
+      <ms-skill-overlay heading={ MindStealer.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         cooldown={ 3 }

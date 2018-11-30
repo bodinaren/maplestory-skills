@@ -1,6 +1,6 @@
 import { Component, Method, Event, EventEmitter } from "@stencil/core";
 import { ClassProperties, renderProperties, renderLevelControls  } from "../class-editor-helpers";
-import * as ThiefValues from "../../../../global/values/thief";
+import * as ThiefSkills from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-thief-editor",
@@ -14,23 +14,23 @@ export class ThiefEditorComponent {
   thiefChart!: HTMLMsThiefElement;
 
   private properties: ClassProperties[] = [
-    ["blade-dance", "bladeDance", ThiefValues.BladeDanceValues, true],
-    ["cunning-tactics", "cunningTactics", ThiefValues.CunningTacticsValues, true],
-    ["deft-combatant", "deftCombatant", ThiefValues.DeftCombatantValues, true],
-    ["double-slash", "doubleSlash", ThiefValues.DoubleSlashValues, true],
-    ["haste", "haste", ThiefValues.HasteValues, true],
-    ["mesoguard-plus", "mesoguardPlus", ThiefValues.MesoguardPlusValues, true],
-    ["mind-breaker", "mindBreaker", ThiefValues.MindBreakerValues, true],
-    ["mind-stealer", "mindStealer", ThiefValues.MindStealerValues, false],
-    ["poison-edge", "poisonEdge", ThiefValues.PoisonEdgeValues, true],
-    ["poison-vial", "poisonVial", ThiefValues.PoisonVialValues, true],
-    ["quick-step", "quickStep", ThiefValues.QuickStepValues, true],
-    ["retaliation", "retaliation", ThiefValues.RetaliationValues, true],
-    ["ruthless-guile", "ruthlessGuile", ThiefValues.RuthlessGuileValues, true],
-    ["somersault-kick", "somersaultKick", ThiefValues.SomersaultKickValues, true],
-    ["spirit-thief", "spiritThief", ThiefValues.SpiritThiefValues, false],
-    ["surprise-attack", "surpriseAttack", ThiefValues.SurpriseAttackValues, true],
-    ["vicious-cuts", "viciousCuts", ThiefValues.ViciousCutsValues, true],
+    ["blade-dance", "bladeDance", ThiefSkills.BladeDance, true],
+    ["cunning-tactics", "cunningTactics", ThiefSkills.CunningTactics, true],
+    ["deft-combatant", "deftCombatant", ThiefSkills.DeftCombatant, true],
+    ["double-slash", "doubleSlash", ThiefSkills.DoubleSlash, true],
+    ["haste", "haste", ThiefSkills.Haste, true],
+    ["mesoguard-plus", "mesoguardPlus", ThiefSkills.MesoguardPlus, true],
+    ["mind-breaker", "mindBreaker", ThiefSkills.MindBreaker, true],
+    ["mind-stealer", "mindStealer", ThiefSkills.MindStealer, false],
+    ["poison-edge", "poisonEdge", ThiefSkills.PoisonEdge, true],
+    ["poison-vial", "poisonVial", ThiefSkills.PoisonVial, true],
+    ["quick-step", "quickStep", ThiefSkills.QuickStep, true],
+    ["retaliation", "retaliation", ThiefSkills.Retaliation, true],
+    ["ruthless-guile", "ruthlessGuile", ThiefSkills.RuthlessGuile, true],
+    ["somersault-kick", "somersaultKick", ThiefSkills.SomersaultKick, true],
+    ["spirit-thief", "spiritThief", ThiefSkills.SpiritThief, false],
+    ["surprise-attack", "surpriseAttack", ThiefSkills.SurpriseAttack, true],
+    ["vicious-cuts", "viciousCuts", ThiefSkills.ViciousCuts, true],
   ];
 
   async levelChanged(skillName: string, level: number) {

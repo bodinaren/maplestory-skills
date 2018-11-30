@@ -314,6 +314,7 @@ export namespace Components {
     'cunningTactics': number;
     'deftCombatant': number;
     'doubleSlash': number;
+    'editable': boolean;
     'haste': number;
     'mesoguardPlus': number;
     'mindBreaker': number;
@@ -333,6 +334,7 @@ export namespace Components {
     'cunningTactics'?: number;
     'deftCombatant'?: number;
     'doubleSlash'?: number;
+    'editable'?: boolean;
     'haste'?: number;
     'mesoguardPlus'?: number;
     'mindBreaker'?: number;

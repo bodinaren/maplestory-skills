@@ -2,87 +2,91 @@
   display: block;
 }
 
-ms-blade-dance {
+ms-skill {
+  position: absolute;
+}
+
+.bladeDance {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-cunning-tactics {
+.cunningTactics {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-deft-combatant {
+.deftCombatant {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-double-slash {
+.doubleSlash {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-haste {
+.haste {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-mesoguard-plus {
+.mesoguardPlus {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-mind-breaker {
+.mindBreaker {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-mind-stealer {
+.mindStealer {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-poison-edge {
+.poisonEdge {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-poison-vial {
+.poisonVial {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-quick-step {
+.quickStep {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-retaliation {
+.retaliation {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-ruthless-guile {
+.ruthlessGuile {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-somersault-kick {
+.somersaultKick {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-spirit-thief {
+.spiritThief {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-surprise-attack {
+.surpriseAttack {
   @include chart-row(5);
   @include chart-column(1);
 }
 
-ms-vicious-cuts {
+.viciousCuts {
   @include chart-row(4);
   @include chart-column(4);
 }
