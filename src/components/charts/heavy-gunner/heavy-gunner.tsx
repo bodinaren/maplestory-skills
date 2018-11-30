@@ -1,5 +1,6 @@
-import { Component, Prop, State } from "@stencil/core";
-import { processSkills, renderLevelControls } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
+import { processSkills, renderLevelControls, renderProperties } from "../class-chart-helpers";
+import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
 @Component({
@@ -31,62 +32,77 @@ export class HeavyGunnerComponent {
 
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+
   componentWillLoad() {
     processSkills(this, HeavyGunnerSkills);
+  }
+
+  async levelChanged(skill: ISkill, level: number) {
+    this[skill.prop] = level;
+
+    this.onSkillChanged.emit(await this.toHtmlString());
+
+    processSkills(this, HeavyGunnerSkills);
+  }
+
+  @Method()
+  toHtmlString(): Promise<string> {
+    return Promise.resolve(`<ms-heavy-gunner ${ renderProperties(this, HeavyGunnerSkills) }></ms-heavy-gunner>`);
   }
 
   render() {
     return (
       <ms-chart msClass="heavy-gunner">
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.AdvancedBullets, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedBullets, this.editable,
           <ms-advanced-bullets level={ this.advancedBullets }></ms-advanced-bullets>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.AdvancedMissiles, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedMissiles, this.editable,
           <ms-advanced-missiles level={ this.advancedMissiles }></ms-advanced-missiles>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.AdvancedPulseWeapons, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedPulseWeapons, this.editable,
           <ms-advanced-pulse-weapons level={ this.advancedPulseWeapons }></ms-advanced-pulse-weapons>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.BlastChargeKit, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.BlastChargeKit, this.editable,
           <ms-blast-charge-kit level={ this.blastChargeKit }></ms-blast-charge-kit>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.BulletSpray, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.BulletSpray, this.editable,
           <ms-bullet-spray level={ this.bulletSpray }></ms-bullet-spray>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.ElectricBlast, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.ElectricBlast, this.editable,
           <ms-electric-blast level={ this.electricBlast }></ms-electric-blast>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.GatlingFire, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.GatlingFire, this.editable,
           <ms-gatling-fire level={ this.gatlingFire }></ms-gatling-fire>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.HomingMissiles, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.HomingMissiles, this.editable,
           <ms-homing-missiles level={ this.homingMissiles }></ms-homing-missiles>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.JetBoots, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.JetBoots, this.editable,
           <ms-jet-boots level={ this.jetBoots }></ms-jet-boots>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.LockOn, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.LockOn, this.editable,
           <ms-lock-on level={ this.lockOn }></ms-lock-on>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.MagneticBomb, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.MagneticBomb, this.editable,
           <ms-magnetic-bomb level={ this.magneticBomb }></ms-magnetic-bomb>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.MBomb, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.MBomb, this.editable,
           <ms-m-bomb level={ this.mBomb }></ms-m-bomb>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.MedKit, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.MedKit, this.editable,
           <ms-med-kit level={ this.medKit }></ms-med-kit>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.Reload, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.Reload, this.editable,
           <ms-reload level={ this.reload }></ms-reload>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.RocketLauncher, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.RocketLauncher, this.editable,
           <ms-rocket-launcher level={ this.rocketLauncher }></ms-rocket-launcher>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.StunGrenades, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.StunGrenades, this.editable,
           <ms-stun-grenades level={ this.stunGrenades }></ms-stun-grenades>
         )}
-        { renderLevelControls(this, HeavyGunnerSkills, HeavyGunnerSkills.SuborbitalBombardment, this.editable,
+        { renderLevelControls(this, HeavyGunnerSkills.SuborbitalBombardment, this.editable,
           <ms-suborbital-bombardment level={ this.suborbitalBombardment }></ms-suborbital-bombardment>
         )}
       </ms-chart>

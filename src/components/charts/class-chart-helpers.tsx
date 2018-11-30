@@ -1,3 +1,4 @@
+import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 export function processSkills(chart: any, classSkills: any) {
   let skills = {};
@@ -54,7 +55,7 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   if (didUpdate) chart.skills = {...chart.skills};
 }
 
-export function renderLevelControls(chart: any, classValues: any, skillValues: any, editable: boolean, slot: JSX.Element): JSX.Element {
+export function renderLevelControls(chart: any, skillValues: any, editable: boolean, slot: JSX.Element): JSX.Element {
   let skill = chart.skills[skillValues.prop];
 
   return (
@@ -66,10 +67,22 @@ export function renderLevelControls(chart: any, classValues: any, skillValues: a
                       required={ skill.required }
                       limitReached={ skill.limitReached }
                       disabled={ !editable }
-                      onLevelchanged={ (evt) => { chart[skillValues.prop] = evt.detail; processSkills(chart, classValues); } }
+                      onLevelchanged={ (evt) => chart.levelChanged(skillValues, evt.detail) }
                       onMouseEnter={ () => skill.locked && toggleSkillRequirements(chart, skillValues, true) }
                       onMouseLeave={ () => skill.locked && toggleSkillRequirements(chart, skillValues, false) }>
       { slot }
     </ms-skill>
   );
+}
+
+export function renderProperties(chart: any, classSkills: { [skillName: string]: ISkill }): string {
+  return Object.keys(classSkills)
+    .map((skillName) => {
+      let skill = classSkills[skillName];
+      if (chart[skill.prop] > skill.minLevel) {
+        return `${skill.attr}="${ chart[skill.prop] }"`;
+      }
+    }).filter((x) => {
+      return !!x;
+    }).join(" ");
 }

@@ -1,5 +1,6 @@
-import { Component, Prop, State } from "@stencil/core";
-import { processSkills, renderLevelControls } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
+import { processSkills, renderLevelControls, renderProperties } from "../class-chart-helpers";
+import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
 
 @Component({
@@ -31,62 +32,77 @@ export class WizardComponent {
 
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+
   componentWillLoad() {
     processSkills(this, WizardSkills);
+  }
+
+  async levelChanged(skill: ISkill, level: number) {
+    this[skill.prop] = level;
+
+    this.onSkillChanged.emit(await this.toHtmlString());
+
+    processSkills(this, WizardSkills);
+  }
+
+  @Method()
+  toHtmlString(): Promise<string> {
+    return Promise.resolve(`<ms-wizard ${ renderProperties(this, WizardSkills) }></ms-wizard>`);
   }
 
   render() {
     return (
       <ms-chart msClass="wizard">
-        { renderLevelControls(this, WizardSkills, WizardSkills.ArcaneBlast, this.editable,
+        { renderLevelControls(this, WizardSkills.ArcaneBlast, this.editable,
           <ms-arcane-blast level={ this.arcaneBlast }></ms-arcane-blast>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.ChainLightning, this.editable,
+        { renderLevelControls(this, WizardSkills.ChainLightning, this.editable,
           <ms-chain-lightning level={ this.chainLightning }></ms-chain-lightning>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.Cryomancy, this.editable,
+        { renderLevelControls(this, WizardSkills.Cryomancy, this.editable,
           <ms-cryomancy level={ this.cryomancy }></ms-cryomancy>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.Electromancy, this.editable,
+        { renderLevelControls(this, WizardSkills.Electromancy, this.editable,
           <ms-electromancy level={ this.electromancy }></ms-electromancy>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.ElementalMaster, this.editable,
+        { renderLevelControls(this, WizardSkills.ElementalMaster, this.editable,
           <ms-elemental-master level={ this.elementalMaster }></ms-elemental-master>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.FlameTornado, this.editable,
+        { renderLevelControls(this, WizardSkills.FlameTornado, this.editable,
           <ms-flame-tornado level={ this.flameTornado }></ms-flame-tornado>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.FlameWave, this.editable,
+        { renderLevelControls(this, WizardSkills.FlameWave, this.editable,
           <ms-flame-wave level={ this.flameWave }></ms-flame-wave>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.FocusSeal, this.editable,
+        { renderLevelControls(this, WizardSkills.FocusSeal, this.editable,
           <ms-focus-seal level={ this.focusSeal }></ms-focus-seal>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.IceSpear, this.editable,
+        { renderLevelControls(this, WizardSkills.IceSpear, this.editable,
           <ms-ice-spear level={ this.iceSpear }></ms-ice-spear>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.IceStorm, this.editable,
+        { renderLevelControls(this, WizardSkills.IceStorm, this.editable,
           <ms-ice-storm level={ this.iceStorm }></ms-ice-storm>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.MagicArmor, this.editable,
+        { renderLevelControls(this, WizardSkills.MagicArmor, this.editable,
           <ms-magic-armor level={ this.magicArmor }></ms-magic-armor>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.ManaClaw, this.editable,
+        { renderLevelControls(this, WizardSkills.ManaClaw, this.editable,
           <ms-mana-claw level={ this.manaClaw }></ms-mana-claw>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.ManaFont, this.editable,
+        { renderLevelControls(this, WizardSkills.ManaFont, this.editable,
           <ms-mana-font level={ this.manaFont }></ms-mana-font>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.PhantomClaw, this.editable,
+        { renderLevelControls(this, WizardSkills.PhantomClaw, this.editable,
           <ms-phantom-claw level={ this.phantomClaw }></ms-phantom-claw>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.Pyromancy, this.editable,
+        { renderLevelControls(this, WizardSkills.Pyromancy, this.editable,
           <ms-pyromancy level={ this.pyromancy }></ms-pyromancy>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.Teleport, this.editable,
+        { renderLevelControls(this, WizardSkills.Teleport, this.editable,
           <ms-teleport level={ this.teleport }></ms-teleport>
         )}
-        { renderLevelControls(this, WizardSkills, WizardSkills.Thunderbolt, this.editable,
+        { renderLevelControls(this, WizardSkills.Thunderbolt, this.editable,
           <ms-thunderbolt level={ this.thunderbolt }></ms-thunderbolt>
         )}
       </ms-chart>

@@ -1,5 +1,6 @@
-import { Component, Prop, State } from "@stencil/core";
-import { processSkills, renderLevelControls } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
+import { processSkills, renderLevelControls, renderProperties } from "../class-chart-helpers";
+import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 
 @Component({
@@ -31,62 +32,77 @@ export class RunebladeComponent {
 
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+
   componentWillLoad() {
     processSkills(this, RunebladeSkills);
+  }
+
+  async levelChanged(skill: ISkill, level: number) {
+    this[skill.prop] = level;
+
+    this.onSkillChanged.emit(await this.toHtmlString());
+
+    processSkills(this, RunebladeSkills);
+  }
+
+  @Method()
+  toHtmlString(): Promise<string> {
+    return Promise.resolve(`<ms-runeblade ${ renderProperties(this, RunebladeSkills) }></ms-runeblade>`);
   }
 
   render() {
     return (
       <ms-chart msClass="runeblade">
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.BladeChasm, this.editable,
+        { renderLevelControls(this, RunebladeSkills.BladeChasm, this.editable,
           <ms-blade-chasm level={ this.bladeChasm }></ms-blade-chasm>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.BladeMastery, this.editable,
+        { renderLevelControls(this, RunebladeSkills.BladeMastery, this.editable,
           <ms-blade-mastery level={ this.bladeMastery }></ms-blade-mastery>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.Blink, this.editable,
+        { renderLevelControls(this, RunebladeSkills.Blink, this.editable,
           <ms-blink level={ this.blink }></ms-blink>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.ElementalPotency, this.editable,
+        { renderLevelControls(this, RunebladeSkills.ElementalPotency, this.editable,
           <ms-elemental-potency level={ this.elementalPotency }></ms-elemental-potency>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.EchoingBlade, this.editable,
+        { renderLevelControls(this, RunebladeSkills.EchoingBlade, this.editable,
           <ms-echoing-blade level={ this.echoingBlade }></ms-echoing-blade>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.FlameSigil, this.editable,
+        { renderLevelControls(this, RunebladeSkills.FlameSigil, this.editable,
           <ms-flame-sigil level={ this.flameSigil }></ms-flame-sigil>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.Flurry, this.editable,
+        { renderLevelControls(this, RunebladeSkills.Flurry, this.editable,
           <ms-flurry level={ this.flurry }></ms-flurry>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.FrostSigil, this.editable,
+        { renderLevelControls(this, RunebladeSkills.FrostSigil, this.editable,
           <ms-frost-sigil level={ this.frostSigil }></ms-frost-sigil>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.GravityRune, this.editable,
+        { renderLevelControls(this, RunebladeSkills.GravityRune, this.editable,
           <ms-gravity-rune level={ this.gravityRune }></ms-gravity-rune>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.HoningRunes, this.editable,
+        { renderLevelControls(this, RunebladeSkills.HoningRunes, this.editable,
           <ms-honing-runes level={ this.honingRunes }></ms-honing-runes>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.IllusoryBlades, this.editable,
+        { renderLevelControls(this, RunebladeSkills.IllusoryBlades, this.editable,
           <ms-illusory-blades level={ this.illusoryBlades }></ms-illusory-blades>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.Impact, this.editable,
+        { renderLevelControls(this, RunebladeSkills.Impact, this.editable,
           <ms-impact level={ this.impact }></ms-impact>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.RuneBalance, this.editable,
+        { renderLevelControls(this, RunebladeSkills.RuneBalance, this.editable,
           <ms-rune-balance level={ this.runeBalance }></ms-rune-balance>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.RuneFocus, this.editable,
+        { renderLevelControls(this, RunebladeSkills.RuneFocus, this.editable,
           <ms-rune-focus level={ this.runeFocus }></ms-rune-focus>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.StormSigil, this.editable,
+        { renderLevelControls(this, RunebladeSkills.StormSigil, this.editable,
           <ms-storm-sigil level={ this.stormSigil }></ms-storm-sigil>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.WardingRune, this.editable,
+        { renderLevelControls(this, RunebladeSkills.WardingRune, this.editable,
           <ms-warding-rune level={ this.wardingRune }></ms-warding-rune>
         )}
-        { renderLevelControls(this, RunebladeSkills, RunebladeSkills.WhirlingBlades, this.editable,
+        { renderLevelControls(this, RunebladeSkills.WhirlingBlades, this.editable,
           <ms-whirling-blades level={ this.whirlingBlades }></ms-whirling-blades>
         )}
       </ms-chart>

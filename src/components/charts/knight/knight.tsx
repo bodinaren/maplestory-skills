@@ -1,5 +1,6 @@
-import { Component, Prop, State } from "@stencil/core";
-import { processSkills, renderLevelControls } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
+import { processSkills, renderLevelControls, renderProperties } from "../class-chart-helpers";
+import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as KnightSkills from "../../../global/values/knight";
 
 @Component({
@@ -31,62 +32,77 @@ export class KnightComponent {
 
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+
   componentWillLoad() {
     processSkills(this, KnightSkills);
+  }
+
+  async levelChanged(skill: ISkill, level: number) {
+    this[skill.prop] = level;
+
+    this.onSkillChanged.emit(await this.toHtmlString());
+
+    processSkills(this, KnightSkills);
+  }
+
+  @Method()
+  toHtmlString(): Promise<string> {
+    return Promise.resolve(`<ms-knight ${ renderProperties(this, KnightSkills) }></ms-knight>`);
   }
 
   render() {
     return (
       <ms-chart msClass="knight">
-        { renderLevelControls(this, KnightSkills, KnightSkills.Bulwark, this.editable,
+        { renderLevelControls(this, KnightSkills.Bulwark, this.editable,
           <ms-bulwark level={ this.bulwark }></ms-bulwark>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.CrossCut, this.editable,
+        { renderLevelControls(this, KnightSkills.CrossCut, this.editable,
           <ms-cross-cut level={ this.crossCut }></ms-cross-cut>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.DefenderOfTheFaith, this.editable,
+        { renderLevelControls(this, KnightSkills.DefenderOfTheFaith, this.editable,
           <ms-defender-of-the-faith level={ this.defenderOfTheFaith }></ms-defender-of-the-faith>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.DivineStrike, this.editable,
+        { renderLevelControls(this, KnightSkills.DivineStrike, this.editable,
           <ms-divine-strike level={ this.divineStrike }></ms-divine-strike>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.DrillThrust, this.editable,
+        { renderLevelControls(this, KnightSkills.DrillThrust, this.editable,
           <ms-drill-thrust level={ this.drillThrust }></ms-drill-thrust>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.IronDefense, this.editable,
+        { renderLevelControls(this, KnightSkills.IronDefense, this.editable,
           <ms-iron-defense level={ this.ironDefense }></ms-iron-defense>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.IronShield, this.editable,
+        { renderLevelControls(this, KnightSkills.IronShield, this.editable,
           <ms-iron-shield level={ this.ironShield }></ms-iron-shield>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.LongswordMastery, this.editable,
+        { renderLevelControls(this, KnightSkills.LongswordMastery, this.editable,
           <ms-longsword-mastery level={ this.longswordMastery }></ms-longsword-mastery>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.ShieldBooster, this.editable,
+        { renderLevelControls(this, KnightSkills.ShieldBooster, this.editable,
           <ms-shield-booster level={ this.shieldBooster }></ms-shield-booster>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.ShieldCharge, this.editable,
+        { renderLevelControls(this, KnightSkills.ShieldCharge, this.editable,
           <ms-shield-charge level={ this.shieldCharge }></ms-shield-charge>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.ShieldMastery, this.editable,
+        { renderLevelControls(this, KnightSkills.ShieldMastery, this.editable,
           <ms-shield-mastery level={ this.shieldMastery }></ms-shield-mastery>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.ShieldToss, this.editable,
+        { renderLevelControls(this, KnightSkills.ShieldToss, this.editable,
           <ms-shield-toss level={ this.shieldToss }></ms-shield-toss>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.ShieldWall, this.editable,
+        { renderLevelControls(this, KnightSkills.ShieldWall, this.editable,
           <ms-shield-wall level={ this.shieldWall }></ms-shield-wall>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.StingingFlurry, this.editable,
+        { renderLevelControls(this, KnightSkills.StingingFlurry, this.editable,
           <ms-stinging-flurry level={ this.stingingFlurry }></ms-stinging-flurry>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.TornadoSlash, this.editable,
+        { renderLevelControls(this, KnightSkills.TornadoSlash, this.editable,
           <ms-tornado-slash level={ this.tornadoSlash }></ms-tornado-slash>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.TyphoonSlash, this.editable,
+        { renderLevelControls(this, KnightSkills.TyphoonSlash, this.editable,
           <ms-typhoon-slash level={ this.typhoonSlash }></ms-typhoon-slash>
         )}
-        { renderLevelControls(this, KnightSkills, KnightSkills.Warhorn, this.editable,
+        { renderLevelControls(this, KnightSkills.Warhorn, this.editable,
           <ms-warhorn level={ this.warhorn }></ms-warhorn>
         )}
       </ms-chart>
