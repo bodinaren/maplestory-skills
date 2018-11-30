@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 ms-adrenaline-rush {
   @include chart-row(4);
   @include chart-column(3);

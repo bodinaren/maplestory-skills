@@ -1,3 +1,6 @@
+:host {
+  display: block;
+}
 
 ms-blade-dance {
   @include chart-row(4);
