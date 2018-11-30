@@ -22,7 +22,7 @@ export class SharpEyesComponent {
   render() {
     return [
       <ms-icon name="sharp-eyes"></ms-icon>,
-      <ms-skill-overlay heading="Sharp Eyes"
+      <ms-skill-overlay heading={ SharpEyesValues.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 180 }

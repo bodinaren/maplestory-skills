@@ -15,7 +15,7 @@ export class EagleGlideComponent {
   render() {
     return [
       <ms-icon name="eagle-glide"></ms-icon>,
-      <ms-skill-overlay heading="Eagle Glide"
+      <ms-skill-overlay heading={ EagleGlideValues.name }
                         level={ this.level }
                         max={ this.max }>
         <ms-icon slot="icon" name="eagle-glide"></ms-icon>

@@ -24,7 +24,7 @@ export class AgileArcherComponent {
   render() {
     return [
       <ms-icon name="agile-archer"></ms-icon>,
-      <ms-skill-overlay heading="Agile Archer"
+      <ms-skill-overlay heading={ AgileArcherValues.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }

@@ -26,6 +26,7 @@ export namespace Components {
     'eagleClaw': number;
     'eagleGlide': number;
     'eaglesMajesty': number;
+    'editable': boolean;
     'evasiveSalvo': number;
     'iceArrow': number;
     'precisionShooter': number;
@@ -45,6 +46,7 @@ export namespace Components {
     'eagleClaw'?: number;
     'eagleGlide'?: number;
     'eaglesMajesty'?: number;
+    'editable'?: boolean;
     'evasiveSalvo'?: number;
     'iceArrow'?: number;
     'precisionShooter'?: number;
@@ -454,18 +456,6 @@ export namespace Components {
     'onChanged'?: (event: CustomEvent<string>) => void;
   }
 
-  interface MsLevelControl {
-    'level': number;
-    'max': number;
-    'min': number;
-  }
-  interface MsLevelControlAttributes extends StencilHTMLAttributes {
-    'level'?: number;
-    'max'?: number;
-    'min'?: number;
-    'onLevelchanged'?: (event: CustomEvent<number>) => void;
-  }
-
   interface MsFooter {}
   interface MsFooterAttributes extends StencilHTMLAttributes {}
 
@@ -501,6 +491,26 @@ export namespace Components {
     'spirit'?: number;
     'type'?: string;
     'weaponRequired'?: string;
+  }
+
+  interface MsSkill {
+    'disabled': boolean;
+    'level': number;
+    'limitReached': boolean;
+    'locked': boolean;
+    'max': number;
+    'min': number;
+    'required': string;
+  }
+  interface MsSkillAttributes extends StencilHTMLAttributes {
+    'disabled'?: boolean;
+    'level'?: number;
+    'limitReached'?: boolean;
+    'locked'?: boolean;
+    'max'?: number;
+    'min'?: number;
+    'onLevelchanged'?: (event: CustomEvent<number>) => void;
+    'required'?: string;
   }
 
   interface MsAgileArcher {
@@ -1904,10 +1914,10 @@ declare global {
     'MsWizardEditor': Components.MsWizardEditor;
     'MsEditorOutlet': Components.MsEditorOutlet;
     'MsEditor': Components.MsEditor;
-    'MsLevelControl': Components.MsLevelControl;
     'MsFooter': Components.MsFooter;
     'MsIcon': Components.MsIcon;
     'MsSkillOverlay': Components.MsSkillOverlay;
+    'MsSkill': Components.MsSkill;
     'MsAgileArcher': Components.MsAgileArcher;
     'MsArrowBarrage': Components.MsArrowBarrage;
     'MsArrowStorm': Components.MsArrowStorm;
@@ -2085,10 +2095,10 @@ declare global {
     'ms-wizard-editor': Components.MsWizardEditorAttributes;
     'ms-editor-outlet': Components.MsEditorOutletAttributes;
     'ms-editor': Components.MsEditorAttributes;
-    'ms-level-control': Components.MsLevelControlAttributes;
     'ms-footer': Components.MsFooterAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
+    'ms-skill': Components.MsSkillAttributes;
     'ms-agile-archer': Components.MsAgileArcherAttributes;
     'ms-arrow-barrage': Components.MsArrowBarrageAttributes;
     'ms-arrow-storm': Components.MsArrowStormAttributes;
@@ -2371,12 +2381,6 @@ declare global {
     new (): HTMLMsEditorElement;
   };
 
-  interface HTMLMsLevelControlElement extends Components.MsLevelControl, HTMLStencilElement {}
-  var HTMLMsLevelControlElement: {
-    prototype: HTMLMsLevelControlElement;
-    new (): HTMLMsLevelControlElement;
-  };
-
   interface HTMLMsFooterElement extends Components.MsFooter, HTMLStencilElement {}
   var HTMLMsFooterElement: {
     prototype: HTMLMsFooterElement;
@@ -2393,6 +2397,12 @@ declare global {
   var HTMLMsSkillOverlayElement: {
     prototype: HTMLMsSkillOverlayElement;
     new (): HTMLMsSkillOverlayElement;
+  };
+
+  interface HTMLMsSkillElement extends Components.MsSkill, HTMLStencilElement {}
+  var HTMLMsSkillElement: {
+    prototype: HTMLMsSkillElement;
+    new (): HTMLMsSkillElement;
   };
 
   interface HTMLMsAgileArcherElement extends Components.MsAgileArcher, HTMLStencilElement {}
@@ -3335,10 +3345,10 @@ declare global {
     'ms-wizard-editor': HTMLMsWizardEditorElement
     'ms-editor-outlet': HTMLMsEditorOutletElement
     'ms-editor': HTMLMsEditorElement
-    'ms-level-control': HTMLMsLevelControlElement
     'ms-footer': HTMLMsFooterElement
     'ms-icon': HTMLMsIconElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
+    'ms-skill': HTMLMsSkillElement
     'ms-agile-archer': HTMLMsAgileArcherElement
     'ms-arrow-barrage': HTMLMsArrowBarrageElement
     'ms-arrow-storm': HTMLMsArrowStormElement
@@ -3516,10 +3526,10 @@ declare global {
     'ms-wizard-editor': HTMLMsWizardEditorElement;
     'ms-editor-outlet': HTMLMsEditorOutletElement;
     'ms-editor': HTMLMsEditorElement;
-    'ms-level-control': HTMLMsLevelControlElement;
     'ms-footer': HTMLMsFooterElement;
     'ms-icon': HTMLMsIconElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
+    'ms-skill': HTMLMsSkillElement;
     'ms-agile-archer': HTMLMsAgileArcherElement;
     'ms-arrow-barrage': HTMLMsArrowBarrageElement;
     'ms-arrow-storm': HTMLMsArrowStormElement;

@@ -17,7 +17,7 @@ export class SnipeComponent {
   render() {
     return [
       <ms-icon name="snipe" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Snipe"
+      <ms-skill-overlay heading={ SnipeValues.name }
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>

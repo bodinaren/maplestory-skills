@@ -1,4 +1,7 @@
 export const DarkCloakValues = {
+  name: "Dark Cloak",
+  attr: "dark-clock",
+  prop: "darkCloak",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [13, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31],
@@ -7,11 +10,17 @@ export const DarkCloakValues = {
 };
 
 export const DashValues = {
+  name: "Dash",
+  attr: "dash",
+  prop: "dash",
   minLevel: 1,
   maxLevel: 1,
 };
 
 export const DeathSentenceValues = {
+  name: "Death Sentence",
+  attr: "death-sentence",
+  prop: "deathSentence",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [34, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
@@ -19,6 +28,9 @@ export const DeathSentenceValues = {
 };
 
 export const FatalStrikesValues = {
+  name: "Fatl Strikes",
+  attr: "fatal-strikes",
+  prop: "fatalStrikes",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [16, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34],
@@ -26,6 +38,9 @@ export const FatalStrikesValues = {
 };
 
 export const FragmentedStarValues = {
+  name: "Fragmented Star",
+  attr: "fragmented-star",
+  prop: "fragmentedStar",
   minLevel: 1,
   maxLevel: 10,
   levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
@@ -33,6 +48,9 @@ export const FragmentedStarValues = {
 };
 
 export const LuckyStarsValues = {
+  name: "Lucky Stars",
+  attr: "lucky-stars",
+  prop: "luckyStars",
   minLevel: 1,
   maxLevel: 10,
   levelRequirement: [0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 26],
@@ -41,6 +59,9 @@ export const LuckyStarsValues = {
 };
 
 export const MarkOfDeathValues = {
+  name: "Mark of Death",
+  attr: "mark-of-death",
+  prop: "markOfDeath",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [25, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
@@ -48,6 +69,9 @@ export const MarkOfDeathValues = {
 };
 
 export const MirrorImageDarkBladeValues = {
+  name: "Mirror Image: Dark Blade",
+  attr: "mirror-image-dark-blade",
+  prop: "mirrorImageDarkBlade",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [46, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64],
@@ -55,6 +79,9 @@ export const MirrorImageDarkBladeValues = {
 };
 
 export const ShadowArtsValues = {
+  name: "Shadow Arts",
+  attr: "shadow-Arts",
+  prop: "shadowArts",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [43, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61],
@@ -62,6 +89,9 @@ export const ShadowArtsValues = {
 };
 
 export const ShadowBurstValues = {
+  name: "Shadow Burst",
+  attr: "shadow-burst",
+  prop: "shadowBurst",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [22, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40],
@@ -70,11 +100,17 @@ export const ShadowBurstValues = {
 };
 
 export const ShadowChaserValues = {
+  name: "Shadow Chaser",
+  attr: "shadow-chaser",
+  prop: "shadowChaser",
   minLevel: 1,
   maxLevel: 1,
 };
 
 export const ShadowCutterValues = {
+  name: "Shadow Cutter",
+  attr: "shadow-cutter",
+  prop: "shadowCutter",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [10, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
@@ -82,6 +118,9 @@ export const ShadowCutterValues = {
 };
 
 export const ShadowWebValues = {
+  name: "Shadow Web",
+  attr: "shadow-web",
+  prop: "shadowWeb",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [37, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55],
@@ -91,6 +130,9 @@ export const ShadowWebValues = {
 };
 
 export const SoulGrindValues = {
+  name: "Soul Grind",
+  attr: "soul-grind",
+  prop: "soulGrind",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [31, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49],
@@ -98,6 +140,9 @@ export const SoulGrindValues = {
 };
 
 export const StarChaserValues = {
+  name: "Star Chaser",
+  attr: "star-chaser",
+  prop: "starChaser",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [19, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37],
@@ -105,6 +150,9 @@ export const StarChaserValues = {
 };
 
 export const StarFlurryValues = {
+  name: "Star Flurry",
+  attr: "star-flurry",
+  prop: "starFlurry",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [28, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46],
@@ -112,6 +160,9 @@ export const StarFlurryValues = {
 };
 
 export const ThrownWeaponMasteryValues = {
+  name: "Thrown Weapon Mastery",
+  attr: "thrown-weapon-mastery",
+  prop: "thrownWeaponMastery",
   minLevel: 0,
   maxLevel: 10,
   levelRequirement: [40, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58],

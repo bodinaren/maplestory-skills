@@ -23,7 +23,7 @@ export class PrecisionShooterComponent {
   render() {
     return [
       <ms-icon name="precision-shooter"></ms-icon>,
-      <ms-skill-overlay heading="Precision Shooter"
+      <ms-skill-overlay heading={ PrecisionShooterValues.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }

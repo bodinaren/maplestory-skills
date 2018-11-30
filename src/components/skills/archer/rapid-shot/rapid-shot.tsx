@@ -23,7 +23,7 @@ export class RapidShotComponent {
   render() {
     return [
       <ms-icon name="rapid-shot"></ms-icon>,
-      <ms-skill-overlay heading="Rapid Shot"
+      <ms-skill-overlay heading={ RapidShotValues.name }
                         element="Fire"
                         level={ this.level }
                         type="Long Range / Physical"

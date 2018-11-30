@@ -23,7 +23,7 @@ export class ArrowStreamComponent {
   render() {
     return [
       <ms-icon name="arrow-stream"></ms-icon>,
-      <ms-skill-overlay heading="Arrow Stream"
+      <ms-skill-overlay heading={ ArrowStreamValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Bow"

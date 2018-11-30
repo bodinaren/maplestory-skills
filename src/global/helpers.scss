@@ -5,8 +5,8 @@ $chart-width: 815px;
 $chart-height: 770px;
 
 @mixin chart-column($column) {
-  left: -35px + ($column * 180px);
+  left: -42px + ($column * 180px);
 }
 @mixin chart-row($row) {
-  top: -105px + ($row * 128px);
+  top: -124px + ($row * 128px);
 }

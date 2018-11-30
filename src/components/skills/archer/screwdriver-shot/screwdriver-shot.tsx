@@ -22,7 +22,7 @@ export class ScrewdriverShotComponent {
   render() {
     return [
       <ms-icon name="screwdriver-shot"></ms-icon>,
-      <ms-skill-overlay heading="Screwdriver Shot"
+      <ms-skill-overlay heading={ ScrewdriverShotValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Bow"

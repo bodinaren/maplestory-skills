@@ -23,7 +23,7 @@ export class ArrowBarrageComponent {
   render() {
     return [
       <ms-icon name="arrow-barrage"></ms-icon>,
-      <ms-skill-overlay heading="Arrow Barrage"
+      <ms-skill-overlay heading={ ArrowBarrageValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Bow"

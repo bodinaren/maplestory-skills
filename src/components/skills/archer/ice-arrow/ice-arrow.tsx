@@ -22,7 +22,7 @@ export class IceArrowComponent {
   render() {
     return [
       <ms-icon name="ice-arrow"></ms-icon>,
-      <ms-skill-overlay heading="Ice Arrow"
+      <ms-skill-overlay heading={ IceArrowValues.name }
                         element="Ice"
                         level={ this.level }
                         type="Long Range / Physical"

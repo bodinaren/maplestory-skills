@@ -7,11 +7,11 @@ export function renderLevelControls(editor: any, properties: ClassProperties[]):
   }).map((props: ClassProperties) => {
     let property = props[1], values = props[2];
     return (
-      <ms-level-control class={ property }
+      <ms-skill class={ property }
                         onLevelchanged={ (evt) => editor.levelChanged(property, evt.detail) }
                         min={ values.minLevel }
                         max={ values.maxLevel }>
-      </ms-level-control>
+      </ms-skill>
     );
   });
 }

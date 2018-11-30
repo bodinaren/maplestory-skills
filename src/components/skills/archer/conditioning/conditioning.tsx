@@ -23,7 +23,7 @@ export class ConditioningComponent {
   render() {
     return [
       <ms-icon name="conditioning"></ms-icon>,
-      <ms-skill-overlay heading="Conditioning"
+      <ms-skill-overlay heading={ ConditioningValues.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }

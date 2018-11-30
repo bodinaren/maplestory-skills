@@ -21,7 +21,7 @@ export class EvasiveSalvoComponent {
   render() {
     return [
       <ms-icon name="evasive-salvo"></ms-icon>,
-      <ms-skill-overlay heading="Evasive Salvo"
+      <ms-skill-overlay heading={ EvasiveSalvoValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Bow"

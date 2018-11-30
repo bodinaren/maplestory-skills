@@ -173,12 +173,13 @@
 
       <div id="editors">
         <div>
-          <code>
+          <!-- <code>
   &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
   <ms-editor-outlet editor="editor"></ms-editor-outlet>
-          </code>
+          </code> -->
 
-          <ms-editor id="editor" ms-class="archer"></ms-editor>
+          <!-- <ms-editor id="editor" ms-class="archer"></ms-editor> -->
+          <ms-archer editable="true"></ms-archer>
         </div>
       </div>
 
@@ -223,7 +224,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         document.querySelector("ms-editor").msClass = msClass;
       }
 
-      toggle("archer");
+      // toggle("archer");
     </script>
 
   </body>

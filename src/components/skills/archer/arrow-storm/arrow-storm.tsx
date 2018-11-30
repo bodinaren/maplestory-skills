@@ -23,7 +23,7 @@ export class ArrowStormComponent {
   render() {
     return [
       <ms-icon name="arrow-storm"></ms-icon>,
-      <ms-skill-overlay heading="Arrow Storm"
+      <ms-skill-overlay heading={ ArrowStormValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Bow"

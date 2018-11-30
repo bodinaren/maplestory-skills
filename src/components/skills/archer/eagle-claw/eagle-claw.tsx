@@ -22,7 +22,7 @@ export class EagleClawComponent {
   render() {
     return [
       <ms-icon name="eagle-claw"></ms-icon>,
-      <ms-skill-overlay heading="Eagle Claw"
+      <ms-skill-overlay heading={ EagleClawValues.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         requirements={ this.getRequirements() }

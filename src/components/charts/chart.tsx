@@ -62,24 +62,6 @@ export class ChartComponent {
         .chart-class {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
         }
-        .chart-class > * {
-          background-image: url(${ this.publicPath }assets/skill-shield.png);
-        }
-        .chart-class > [passive] {
-          background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
-        }
-        .chart-class > *::after {
-          background-image: url(${ this.publicPath }assets/skill-bar.png);
-        }
-        ::slotted(*) {
-          background-image: url(${ this.publicPath }assets/skill-shield.png);
-        }
-        ::slotted([passive]) {
-          background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
-        }
-        ::slotted(*)::after {
-          background-image: url(${ this.publicPath }assets/skill-bar.png);
-        }
       `}</style>,
       <ms-footer></ms-footer>,
       <div class="chart">

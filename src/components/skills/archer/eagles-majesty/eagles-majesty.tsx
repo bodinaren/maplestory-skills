@@ -22,7 +22,7 @@ export class EaglesMajestyComponent {
   render() {
     return [
       <ms-icon name="eagles-majesty"></ms-icon>,
-      <ms-skill-overlay heading="Eagle's Majesty"
+      <ms-skill-overlay heading={ EaglesMajestyValues.name }
                         level={ this.level }
                         type="Physical"
                         requirements={ this.getRequirements() }

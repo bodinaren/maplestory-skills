@@ -1,11 +1,11 @@
 import { newE2EPage } from "@stencil/core/testing";
 
-describe("ms-level-control", () => {
+describe("ms-skill", () => {
   it("renders", async () => {
     const page = await newE2EPage();
 
-    await page.setContent("<ms-level-control></ms-level-control>");
-    const element = await page.find("ms-level-control");
+    await page.setContent("<ms-skill></ms-skill>");
+    const element = await page.find("ms-skill");
     expect(element).toHaveClass("hydrated");
   });
 

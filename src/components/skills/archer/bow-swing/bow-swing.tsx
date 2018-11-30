@@ -22,7 +22,7 @@ export class BowSwingComponent {
   render() {
     return [
       <ms-icon name="bow-swing"></ms-icon>,
-      <ms-skill-overlay heading="Bow Swing"
+      <ms-skill-overlay heading={ BowSwingValues.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Two-handed Bow"

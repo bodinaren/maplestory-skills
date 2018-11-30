@@ -23,7 +23,7 @@ export class BronzeEagleComponent {
   render() {
     return [
       <ms-icon name="bronze-eagle"></ms-icon>,
-      <ms-skill-overlay heading="Bronze Eagle"
+      <ms-skill-overlay heading={ BronzeEagleValues.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
