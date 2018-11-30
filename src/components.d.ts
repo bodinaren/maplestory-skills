@@ -192,6 +192,7 @@ export namespace Components {
     'defenderOfTheFaith': number;
     'divineStrike': number;
     'drillThrust': number;
+    'editable': boolean;
     'ironDefense': number;
     'ironShield': number;
     'longswordMastery': number;
@@ -211,6 +212,7 @@ export namespace Components {
     'defenderOfTheFaith'?: number;
     'divineStrike'?: number;
     'drillThrust'?: number;
+    'editable'?: boolean;
     'ironDefense'?: number;
     'ironShield'?: number;
     'longswordMastery'?: number;

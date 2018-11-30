@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { BulwarkValues } from "../../../../global/values/knight";
+import { Bulwark } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-bulwark",
@@ -8,13 +8,13 @@ import { BulwarkValues } from "../../../../global/values/knight";
 })
 export class BulwarkComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = BulwarkValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Bulwark.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = BulwarkValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Bulwark.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ BulwarkValues.levelRequirement[this.level] }+`,
+      `Level ${ Bulwark.levelRequirement[this.level] }+`,
       `Shield Wall [Level 4+]`,
       `Warhorn [Level 3+]`,
     ];
@@ -23,17 +23,17 @@ export class BulwarkComponent {
   render() {
     return [
       <ms-icon name="bulwark"></ms-icon>,
-      <ms-skill-overlay heading="Bulwark"
+      <ms-skill-overlay heading={ Bulwark.name }
                         element="Holy"
                         level={ this.level }
                         weaponRequired="Off-hand Shield"
                         requirements={ this.getRequirements() }
-                        cooldown={ BulwarkValues.cooldown[this.level] }
+                        cooldown={ Bulwark.values.cooldown[this.level] }
                         max={ this.max }>
         <ms-icon slot="icon" name="bulwark"></ms-icon>
         <div slot="description">
           Create a protective barrier for <span>3</span> sec to
-          make <span>{ BulwarkValues.allies[this.level] }</span> allies, including yourself,
+          make <span>{ Bulwark.values.allies[this.level] }</span> allies, including yourself,
           invulnerable to enemy attacks. Some attacks cannot be blocked.
         </div>
       </ms-skill-overlay>

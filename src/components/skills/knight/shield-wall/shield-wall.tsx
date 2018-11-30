@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ShieldWallValues } from "../../../../global/values/knight";
+import { ShieldWall } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-shield-wall",
@@ -8,20 +8,20 @@ import { ShieldWallValues } from "../../../../global/values/knight";
 })
 export class ShieldWallComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ShieldWallValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ShieldWall.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ShieldWallValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ShieldWall.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ShieldWallValues.levelRequirement[this.level] }+`,
+      `Level ${ ShieldWall.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="shield-wall"></ms-icon>,
-      <ms-skill-overlay heading="Shield Wall"
+      <ms-skill-overlay heading={ ShieldWall.name }
                         element="Holy"
                         level={ this.level }
                         weaponRequired="Off-hand Shield"
@@ -32,7 +32,7 @@ export class ShieldWallComponent {
         <div slot="description">
           Create a <span>3</span> m holy field around you for <span>10</span> sec,
           increasing the physical resistance and magic resistance of <span>10</span> allies,
-          including yourself, by <span>{ ShieldWallValues.resistance[this.level] }</span>.
+          including yourself, by <span>{ ShieldWall.values.resistance[this.level] }</span>.
         </div>
       </ms-skill-overlay>
     ];

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DrillThrustValues } from "../../../../global/values/knight";
+import { DrillThrust } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-drill-thrust",
@@ -8,13 +8,13 @@ import { DrillThrustValues } from "../../../../global/values/knight";
 })
 export class DrillThrustComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DrillThrustValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = DrillThrust.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DrillThrustValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = DrillThrust.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ DrillThrustValues.levelRequirement[this.level] }+`,
+      `Level ${ DrillThrust.levelRequirement[this.level] }+`,
       `Divine Strike [Level 6+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class DrillThrustComponent {
   render() {
     return [
       <ms-icon name="drill-thrust"></ms-icon>,
-      <ms-skill-overlay heading="Drill Thrust"
+      <ms-skill-overlay heading={ DrillThrust.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Main Hand Longsword"
@@ -33,7 +33,7 @@ export class DrillThrustComponent {
         <div slot="description">
           Strike forth with your weapon, moving you <span>4.5</span> m and creating a whirlwind.
           You pierce enemies in your path,
-          dealing <span>{ DrillThrustValues.damage[this.level] }%</span> damage on up to <span>8</span> enemies.
+          dealing <span>{ DrillThrust.values.damage[this.level] }%</span> damage on up to <span>8</span> enemies.
         </div>
       </ms-skill-overlay>
     ];

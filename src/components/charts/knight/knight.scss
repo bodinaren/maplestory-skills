@@ -2,87 +2,91 @@
   display: block;
 }
 
-ms-bulwark {
+ms-skill {
+  position: absolute;
+}
+
+.bulwark {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-cross-cut {
+.crossCut {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-defender-of-the-faith {
+.defenderOfTheFaith {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-divine-strike {
+.divineStrike {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-drill-thrust {
+.drillThrust {
   @include chart-row(5);
   @include chart-column(1);
 }
 
-ms-iron-defense {
+.ironDefense {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-iron-shield {
+.ironShield {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-longsword-mastery {
+.longswordMastery {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-shield-booster {
+.shieldBooster {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-shield-charge {
+.shieldCharge {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-shield-mastery {
+.shieldMastery {
   @include chart-row(5);
   @include chart-column(3);
 }
 
-ms-shield-toss {
+.shieldToss {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-shield-wall {
+.shieldWall {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-stinging-flurry {
+.stingingFlurry {
   @include chart-row(4);
   @include chart-column(1);
 }
 
-ms-tornado-slash {
+.tornadoSlash {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-typhoon-slash {
+.typhoonSlash {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-warhorn {
+.warhorn {
   @include chart-row(4);
   @include chart-column(4);
 }
