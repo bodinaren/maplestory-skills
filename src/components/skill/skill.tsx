@@ -44,14 +44,17 @@ export class SkillComponent {
         ms-skill .controls {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
         }
-        ms-skill .skill *:first-child {
+        ms-skill .skill > *:first-child {
           background-image: url(${ this.publicPath }assets/skill-shield.png);
         }
-        ms-skill .skill *[passive]:first-child {
+        ms-skill .skill > *[passive]:first-child {
           background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
         }
         ms-skill[locked] .skill:after {
           background-image: url(${ this.publicPath }assets/skill-locked.png);
+        }
+        ms-skill[required]:after {
+          background-image: url(${ this.publicPath }assets/skill-overlay.png);
         }
         :host .controls {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
