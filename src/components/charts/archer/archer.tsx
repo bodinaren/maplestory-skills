@@ -10,7 +10,7 @@ import * as ArcherSkills from "../../../global/values/archer";
 })
 export class ArcherComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherSkills.ArrowBarrage.minLevel;

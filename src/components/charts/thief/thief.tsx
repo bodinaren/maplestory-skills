@@ -10,7 +10,7 @@ import * as ThiefSkills from "../../../global/values/thief";
 })
 export class ThiefComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) bladeDance: number = ThiefSkills.BladeDance.minLevel;
   @Prop({ mutable: true }) cunningTactics: number = ThiefSkills.CunningTactics.minLevel;

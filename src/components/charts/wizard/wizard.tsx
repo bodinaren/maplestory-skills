@@ -10,7 +10,7 @@ import * as WizardSkills from "../../../global/values/wizard";
 })
 export class WizardComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardSkills.ArcaneBlast.minLevel;
   @Prop({ mutable: true }) chainLightning: number = WizardSkills.ChainLightning.minLevel;

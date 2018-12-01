@@ -10,7 +10,7 @@ import * as BerserkerSkills from "../../../global/values/berserker";
 })
 export class BerserkerComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerSkills.AdrenalineRush.minLevel;
   @Prop({ mutable: true }) bloodPrice: number = BerserkerSkills.BloodPrice.minLevel;

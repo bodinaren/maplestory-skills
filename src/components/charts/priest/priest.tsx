@@ -10,7 +10,7 @@ import * as PriestSkills from "../../../global/values/priest";
 })
 export class PriestComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestSkills.HeavenlyWings.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestSkills.SteadfastFaith.minLevel;

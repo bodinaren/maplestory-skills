@@ -10,7 +10,7 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 })
 export class HeavyGunnerComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;

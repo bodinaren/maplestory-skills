@@ -10,7 +10,7 @@ import * as KnightSkills from "../../../global/values/knight";
 })
 export class KnightComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) bulwark: number = KnightSkills.Bulwark.minLevel;
   @Prop({ mutable: true }) crossCut: number = KnightSkills.CrossCut.minLevel;

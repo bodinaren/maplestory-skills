@@ -10,7 +10,7 @@ import * as RunebladeSkills from "../../../global/values/runeblade";
 })
 export class RunebladeComponent {
 
-  @Prop() editable: boolean = false;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
 
   @Prop({ mutable: true }) bladeChasm: number = RunebladeSkills.BladeChasm.minLevel;
   @Prop({ mutable: true }) bladeMastery: number = RunebladeSkills.BladeMastery.minLevel;
