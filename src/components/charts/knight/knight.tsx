@@ -41,9 +41,9 @@ export class KnightComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, KnightSkills));
-
     processSkills(this, KnightSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, KnightSkills));
   }
 
   @Method()

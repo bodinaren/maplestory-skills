@@ -41,9 +41,9 @@ export class BerserkerComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, BerserkerSkills));
-
     processSkills(this, BerserkerSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, BerserkerSkills));
   }
 
   @Method()

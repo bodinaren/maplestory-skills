@@ -41,9 +41,9 @@ export class PriestComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, PriestSkills));
-
     processSkills(this, PriestSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, PriestSkills));
   }
 
   @Method()

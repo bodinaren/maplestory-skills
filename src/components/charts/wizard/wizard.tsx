@@ -41,9 +41,9 @@ export class WizardComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, WizardSkills));
-
     processSkills(this, WizardSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, WizardSkills));
   }
 
   @Method()

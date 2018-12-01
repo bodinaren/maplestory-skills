@@ -41,9 +41,9 @@ export class ThiefComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ThiefSkills));
-
     processSkills(this, ThiefSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, ThiefSkills));
   }
 
   @Method()

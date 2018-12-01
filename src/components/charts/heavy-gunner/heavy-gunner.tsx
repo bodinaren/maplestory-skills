@@ -41,9 +41,9 @@ export class HeavyGunnerComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
-
     processSkills(this, HeavyGunnerSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
   }
 
   @Method()

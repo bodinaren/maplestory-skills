@@ -41,9 +41,9 @@ export class RunebladeComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, RunebladeSkills));
-
     processSkills(this, RunebladeSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, RunebladeSkills));
   }
 
   @Method()

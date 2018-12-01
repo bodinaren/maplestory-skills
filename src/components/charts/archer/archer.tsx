@@ -41,9 +41,9 @@ export class ArcherComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
-
     processSkills(this, ArcherSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
   }
 
   @Method()
