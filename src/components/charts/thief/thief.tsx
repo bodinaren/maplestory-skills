@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, renderProperties, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ThiefSkills from "../../../global/values/thief";
 
@@ -44,11 +44,6 @@ export class ThiefComponent {
     processSkills(this, ThiefSkills);
 
     this.onSkillChanged.emit(toSkillChangeObject(this, ThiefSkills));
-  }
-
-  @Method()
-  toHtmlString(): Promise<string> {
-    return Promise.resolve(`<ms-thief ${ renderProperties(this, ThiefSkills) }></ms-thief>`);
   }
 
   render() {

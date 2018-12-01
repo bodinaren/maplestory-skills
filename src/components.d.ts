@@ -31,7 +31,6 @@ export namespace Components {
     'screwdriverShot': number;
     'sharpEyes': number;
     'snipe': number;
-    'toHtmlString': () => Promise<string>;
   }
   interface MsArcherAttributes extends StencilHTMLAttributes {
     'agileArcher'?: number;
@@ -74,7 +73,6 @@ export namespace Components {
     'starChaser': number;
     'starFlurry': number;
     'thrownWeaponMastery': number;
-    'toHtmlString': () => Promise<string>;
   }
   interface MsAssassinAttributes extends StencilHTMLAttributes {
     'darkCloak'?: number;
@@ -114,7 +112,6 @@ export namespace Components {
     'inhumanEndurance': number;
     'intimidation': number;
     'ragingSlash': number;
-    'toHtmlString': () => Promise<string>;
     'voidSlash': number;
     'warriorsInstinct': number;
     'xSlash': number;
@@ -167,7 +164,6 @@ export namespace Components {
     'rocketLauncher': number;
     'stunGrenades': number;
     'suborbitalBombardment': number;
-    'toHtmlString': () => Promise<string>;
   }
   interface MsHeavyGunnerAttributes extends StencilHTMLAttributes {
     'advancedBullets'?: number;
@@ -207,7 +203,6 @@ export namespace Components {
     'shieldToss': number;
     'shieldWall': number;
     'stingingFlurry': number;
-    'toHtmlString': () => Promise<string>;
     'tornadoSlash': number;
     'typhoonSlash': number;
     'warhorn': number;
@@ -253,7 +248,6 @@ export namespace Components {
     'shieldOfTheArchon': number;
     'smitingAura': number;
     'steadfastFaith': number;
-    'toHtmlString': () => Promise<string>;
   }
   interface MsPriestAttributes extends StencilHTMLAttributes {
     'angelicRay'?: number;
@@ -294,7 +288,6 @@ export namespace Components {
     'runeBalance': number;
     'runeFocus': number;
     'stormSigil': number;
-    'toHtmlString': () => Promise<string>;
     'wardingRune': number;
     'whirlingBlades': number;
   }
@@ -338,7 +331,6 @@ export namespace Components {
     'somersaultKick': number;
     'spiritThief': number;
     'surpriseAttack': number;
-    'toHtmlString': () => Promise<string>;
     'viciousCuts': number;
   }
   interface MsThiefAttributes extends StencilHTMLAttributes {
@@ -382,7 +374,6 @@ export namespace Components {
     'pyromancy': number;
     'teleport': number;
     'thunderbolt': number;
-    'toHtmlString': () => Promise<string>;
   }
   interface MsWizardAttributes extends StencilHTMLAttributes {
     'arcaneBlast'?: number;

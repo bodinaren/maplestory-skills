@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, renderProperties, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
 
@@ -44,11 +44,6 @@ export class WizardComponent {
     processSkills(this, WizardSkills);
 
     this.onSkillChanged.emit(toSkillChangeObject(this, WizardSkills));
-  }
-
-  @Method()
-  toHtmlString(): Promise<string> {
-    return Promise.resolve(`<ms-wizard ${ renderProperties(this, WizardSkills) }></ms-wizard>`);
   }
 
   render() {

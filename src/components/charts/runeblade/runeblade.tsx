@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, renderProperties, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 
@@ -44,11 +44,6 @@ export class RunebladeComponent {
     processSkills(this, RunebladeSkills);
 
     this.onSkillChanged.emit(toSkillChangeObject(this, RunebladeSkills));
-  }
-
-  @Method()
-  toHtmlString(): Promise<string> {
-    return Promise.resolve(`<ms-runeblade ${ renderProperties(this, RunebladeSkills) }></ms-runeblade>`);
   }
 
   render() {

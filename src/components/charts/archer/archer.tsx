@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, renderProperties, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ArcherSkills from "../../../global/values/archer";
 
@@ -44,11 +44,6 @@ export class ArcherComponent {
     processSkills(this, ArcherSkills);
 
     this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
-  }
-
-  @Method()
-  toHtmlString(): Promise<string> {
-    return Promise.resolve(`<ms-archer ${ renderProperties(this, ArcherSkills) }></ms-archer>`);
   }
 
   render() {

@@ -66,25 +66,15 @@ export function renderLevelControls(chart: any, skillValues: any, editable: bool
   );
 }
 
-export function renderProperties(chart: any, classSkills: { [key: string]: ISkill }): string {
-  return Object.keys(classSkills)
-    .map((key) => {
-      let skill = classSkills[key];
-      if (chart[skill.prop] > skill.minLevel) {
-        return `${skill.attr}="${ chart[skill.prop] }"`;
-      }
-    }).filter((x) => {
-      return !!x;
-    }).join(" ");
-}
-
 export function toSkillChangeObject(chart: any, classSkills: { [key: string]: ISkill }): SkillChangeEvent {
   return Object.keys(classSkills)
     .map((key) => {
       let skill = classSkills[key];
       return {
         skill: skill.name,
+        attr: skill.attr,
         level: chart[skill.prop],
+        minLevel: skill.minLevel,
       };
     });
 }
@@ -93,6 +83,12 @@ export type SkillChangeEvent = Array<{
   /** The name of the skill */
   skill: string;
 
+  /** The attribute for the skill */
+  attr: string;
+
   /** How many points were put into the skill */
   level: number;
+
+  /** The minimum amount of points that must be put into the skill */
+  minLevel: number;
 }>;
