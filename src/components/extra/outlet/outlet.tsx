@@ -11,9 +11,8 @@ export class OutletComponent {
   @Prop() editor: string;
 
   @State() _editor: ClassEditorHTMLElement;
-  @State() _htmlString: string;
-
-  private _tagName: string;
+  @State() _skills: SkillChangeEvent = [];
+  @State() _tagName: string;
 
   componentDidLoad() {
     let el = document.getElementById(this.editor) as HTMLStencilElement;
@@ -25,10 +24,9 @@ export class OutletComponent {
 
     el.componentOnReady().then((editor: ClassEditorHTMLElement) => {
       this._editor = editor;
-      this._htmlString = this.getTag();
 
       this._editor.addEventListener("skillchanged", (evt: any) => {
-        this._htmlString = this.getTag(evt.detail);
+        this._skills = evt.detail;
       });
     });
   }
@@ -37,13 +35,13 @@ export class OutletComponent {
     return [
       <slot name="first"></slot>,
       <slot></slot>,
-      this._htmlString,
+      this.getTag(),
       <slot name="last"></slot>
     ];
   }
 
-  private getTag(skillChanges: SkillChangeEvent = []) {
-    return `<${ this._tagName } ${ this.getProperties(skillChanges) }></${ this._tagName }>`;
+  private getTag() {
+    return `<${ this._tagName } ${ this.getProperties(this._skills) }></${ this._tagName }>`;
   }
 
   private getProperties(skillChanges: SkillChangeEvent): string {
