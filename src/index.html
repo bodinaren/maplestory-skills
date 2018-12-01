@@ -45,7 +45,7 @@
       #toggles a > * { margin: 5px; }
       #toggles a:not(.active) img.active { display: none; }
       #toggles a.active img.inactive { display: none; }
-      #toggles img { width: 97px; }
+      #toggles img { width: 96px; }
     
       #toggles .unavailable { color: #666; }
       #toggles .unavailable:after {
@@ -98,7 +98,6 @@
         padding: 0 5px 5px;
         overflow-x: auto;
       }
-      ms-outlet { display: block; }
 
       dl {
         padding-left: 10px;
@@ -271,7 +270,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         var counterHolder = document.querySelector("#remaining .points");
         
         var chart = chartHolder.firstElementChild;
-        var outlet = outletHolder.querySelector("ms-outlet");
+        var outlet = outletHolder.querySelector("ms-extra-outlet");
         var counter = counterHolder.firstElementChild;
 
         // create new editor for the new class.
