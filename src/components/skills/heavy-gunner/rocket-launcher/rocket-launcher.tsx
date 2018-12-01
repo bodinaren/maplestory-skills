@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { RocketLauncherValues } from "../../../../global/values/heavy-gunner";
+import { RocketLauncher } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-rocket-launcher",
@@ -8,20 +8,20 @@ import { RocketLauncherValues } from "../../../../global/values/heavy-gunner";
 })
 export class RocketLauncherComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = RocketLauncherValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = RocketLauncher.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = RocketLauncherValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = RocketLauncher.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ RocketLauncherValues.levelRequirement[this.level] }+`,
+      `Level ${ RocketLauncher.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="rocket-launcher"></ms-icon>,
-      <ms-skill-overlay heading="Rocket Launcher"
+      <ms-skill-overlay heading={ RocketLauncher.name }
                         element="Fire"
                         level={ this.level }
                         type="Long Range / Physical"
@@ -33,13 +33,13 @@ export class RocketLauncherComponent {
         <ms-icon slot="icon" name="rocket-launcher"></ms-icon>
         <div slot="description">
           Fire a missile at the closest enemy up to <span>9</span> m in front of you.
-          The rocket deals <span>{ RocketLauncherValues.damage[this.level] }%</span> fire damage
+          The rocket deals <span>{ RocketLauncher.values.damage[this.level] }%</span> fire damage
           to the target, then explodes to
-          deal <span>{ RocketLauncherValues.aoeDamage[this.level] }%</span> fire damage
+          deal <span>{ RocketLauncher.values.aoeDamage[this.level] }%</span> fire damage
           to <span>8</span> enemies within <span>3</span> m.
           The area of the explosion burns
-          for <span>{ RocketLauncherValues.burnDuration[this.level] }</span> sec,
-          dealing <span>{ RocketLauncherValues.burnDamage[this.level] }%</span> fire damage
+          for <span>{ RocketLauncher.values.burnDuration[this.level] }</span> sec,
+          dealing <span>{ RocketLauncher.values.burnDamage[this.level] }%</span> fire damage
           every second to <span>8</span> enemies.
           Consumes <span>20</span> spirit.
         </div>

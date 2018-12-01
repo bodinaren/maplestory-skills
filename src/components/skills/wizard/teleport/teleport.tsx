@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { TeleportValues } from "../../../../global/values/wizard";
+import { Teleport } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-teleport",
@@ -8,14 +8,14 @@ import { TeleportValues } from "../../../../global/values/wizard";
 })
 export class TeleportComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = TeleportValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Teleport.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = TeleportValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Teleport.maxLevel;
 
   render() {
     return [
       <ms-icon name="teleport"></ms-icon>,
-      <ms-skill-overlay heading="Teleport"
+      <ms-skill-overlay heading={ Teleport.name }
                         level={ this.level }
                         max={ this.max }>
         <ms-icon slot="icon" name="teleport"></ms-icon>

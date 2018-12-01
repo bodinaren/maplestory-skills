@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ElectromancyValues } from "../../../../global/values/wizard";
+import { Electromancy } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-electromancy",
@@ -8,13 +8,13 @@ import { ElectromancyValues } from "../../../../global/values/wizard";
 })
 export class ElectromancyComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ElectromancyValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Electromancy.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ElectromancyValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Electromancy.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ElectromancyValues.levelRequirement[this.level] }+`,
+      `Level ${ Electromancy.levelRequirement[this.level] }+`,
       `Chain Lightning [Level 5+]`,
       `Thunderbolt [Level 5+]`,
     ];
@@ -25,7 +25,7 @@ export class ElectromancyComponent {
   render() {
     return [
       <ms-icon name="electromancy"></ms-icon>,
-      <ms-skill-overlay heading="Electromancy"
+      <ms-skill-overlay heading={ Electromancy.name }
                         element="Electric"
                         level={ this.level }
                         passive={ true }
@@ -34,7 +34,7 @@ export class ElectromancyComponent {
         <ms-icon slot="icon" name="electromancy"></ms-icon>
         <div slot="description">
           An advanced electric technique taught to only the top students of the Ellinel Magic Academy.
-          Increases all electric damage by <span>{ ElectromancyValues.damage[this.level] }%</span>.
+          Increases all electric damage by <span>{ Electromancy.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { WhirlingBladesValues } from "../../../../global/values/runeblade";
+import { WhirlingBlades } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-whirling-blades",
@@ -8,13 +8,13 @@ import { WhirlingBladesValues } from "../../../../global/values/runeblade";
 })
 export class WhirlingBladesComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = WhirlingBladesValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = WhirlingBlades.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = WhirlingBladesValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = WhirlingBlades.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ WhirlingBladesValues.levelRequirement[this.level] }+`,
+      `Level ${ WhirlingBlades.levelRequirement[this.level] }+`,
       `Flurry [Level 2+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class WhirlingBladesComponent {
   render() {
     return [
       <ms-icon name="whirling-blades"></ms-icon>,
-      <ms-skill-overlay heading="Whirling Blades"
+      <ms-skill-overlay heading={ WhirlingBlades.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Blade"
@@ -33,7 +33,7 @@ export class WhirlingBladesComponent {
         <ms-icon slot="icon" name="whirling-blades"></ms-icon>
         <div slot="description">
           Throw <span>3</span> arcane blades at the closest enemy up to <span>7.5</span> m in front of you,
-          dealing <span>{ WhirlingBladesValues.damage[this.level] }%</span> damage.
+          dealing <span>{ WhirlingBlades.values.damage[this.level] }%</span> damage.
           This skill attunes with your Flame, Frost, and Storm sigil skills.
           Consumes <span>40</span> spirit.
         </div>

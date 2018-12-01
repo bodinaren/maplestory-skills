@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ShadowArtsValues } from "../../../../global/values/assassin";
+import { ShadowArts } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-shadow-arts",
@@ -8,13 +8,13 @@ import { ShadowArtsValues } from "../../../../global/values/assassin";
 })
 export class ShadowArtsComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ShadowArtsValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ShadowArts.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ShadowArtsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ShadowArts.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ShadowArtsValues.levelRequirement[this.level] }+`,
+      `Level ${ ShadowArts.levelRequirement[this.level] }+`,
       `Shadow Cutter [Level 5+]`,
       `Soul Grind [Level 4+]`,
     ];
@@ -25,7 +25,7 @@ export class ShadowArtsComponent {
   render() {
     return [
       <ms-icon name="shadow-arts"></ms-icon>,
-      <ms-skill-overlay heading="Shadow Arts"
+      <ms-skill-overlay heading={ ShadowArts.name }
                         element="Dark"
                         level={ this.level }
                         passive={ true }
@@ -35,7 +35,7 @@ export class ShadowArtsComponent {
         <div slot="description">
           Utilize secret assassin techniques to strengthen your command of dark magic.
           Increases the damage of Shadow Burst, Shadow Cutter, Soul Grind, Shadow Web, and Death Sentence
-          by <span>{ ShadowArtsValues.damage[this.level] }%</span>.
+          by <span>{ ShadowArts.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

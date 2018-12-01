@@ -44,7 +44,7 @@
       #toggles a > * { margin: 5px; }
       #toggles a:not(.active) img.active { display: none; }
       #toggles a.active img.inactive { display: none; }
-      #toggles img { width: 97px; }
+      #toggles img { width: 96px; }
     
       #toggles .unavailable { color: #666; }
       #toggles .unavailable:after {
@@ -58,21 +58,41 @@
       }
       #toggles .active.unavailable:after { color: red; }
 
-      #editors { min-height: 300px; }
-      #editors > div { max-width: 819px; margin: auto; }
+      #editors { max-width: 815px; margin: auto; }
       
+      #remaining {
+        margin-top: 5px;
+        display: flex;
+        font-family: Roboto, Verdana;
+      }
+      #remaining > * { margin-right: 5px; }
+      #remaining .points {
+        color: #dcc134;
+        font-size: 1.3rem;
+      }
+
+      ms-extra-outlet { display: block; }
+
       code {
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        margin: 1em 0;
+        padding: 2px;
+      }
+      code.block {
         display: block;
         box-sizing: border-box;
         width: 100%;
-        height: 110px;
-        background-color: black;
-        color: white;
+        min-height: 110px;
         padding: 5px;
-        font-size: 14px;
-        margin: 1em 0;
       }
-      ms-editor-outlet { display: block; }
+      pre {
+        font-size: 1rem;
+        background-color: black;
+        padding: 0 5px 5px;
+        overflow-x: auto;
+      }
 
       dl {
         padding-left: 10px;
@@ -90,11 +110,7 @@
         margin-left: 0;
       }
       dl pre {
-        font-size: 1rem;
-        background-color: black;
         margin-left: 20px;
-        padding: 0 5px 5px;
-        overflow-x: auto;
       }
     </style>
 
@@ -114,13 +130,11 @@
         So much better than just a screenshot!
       </p>
 
-      <h2>How do I put this one my site or blog?</h2>
       <p>
         Select a class and the skills you want to show and then copy the code above the skill chart into your site or blog.
       </p>
-      <blockquote>What you see below is an editor. When you use this on your site or blog the skills will no longer be editable.</blockquote>
       
-      <hr />
+      <br />
     
       <p id="toggles">
         <a href="javascript:void(0)" ms-class="archer" onclick="toggle('archer')">
@@ -171,22 +185,34 @@
       </p>
 
       <div id="editors">
-        <div>
-          <code>
-  &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-  <ms-editor-outlet editor="editor"></ms-editor-outlet>
-          </code>
+        <code class="block" id="code">
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+        </code>
 
-          <ms-editor id="editor" ms-class="archer"></ms-editor>
+        <div id="chartHolder"></div>
+
+        <div id="remaining">
+          <span>Remaining Skill Points:</span>
+          <span class="points"></span>
         </div>
+
+        <p><i>
+          What you see above is the editor mode.
+          When you the code above the skills will no longer be editable,
+          and you won't see the Remaining Skill Points.
+          For information on how to add these features please visit
+          the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a>.
+        </i></p>
+  
       </div>
 
-      <h2>FAQ</h2>
+      <h2 id="faq">FAQ</h2>
       <dl>
         <div>
-          <dt>The skill charts are too big!</dt>
+          <dt>The skill charts are too big/small!</dt>
           <dd>
-            You can make them smaller with CSS transformations.
+            The chart automatically adjust to the size of it's container,
+            but if you still wish to change the size you can do so with CSS transformations.
             <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
@@ -196,6 +222,13 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
   margin-bottom: calc(-770px * 0.2);  /* to remove empty space at the bottom, or */
   margin-right: calc(-815px * 0.2);   /* if you use "top left" for transform-origin */
 }</pre>
+          </dd>
+        </div>
+
+        <div>
+          <dt>Can I let the user change the skills on my site too?</dt>
+          <dd>
+            Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
           </dd>
         </div>
 
@@ -219,9 +252,29 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
         }
-
         document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
-        document.querySelector("ms-editor").msClass = msClass;
+
+        var chartHolder = document.querySelector("#chartHolder");
+        var outletHolder = document.querySelector("#code");
+        var counterHolder = document.querySelector("#remaining .points");
+        
+        var chart = chartHolder.firstElementChild;
+        var outlet = outletHolder.querySelector("ms-extra-outlet");
+        var counter = counterHolder.firstElementChild;
+
+        // create new editor for the new class.
+        if (chart) chart.remove();
+        chart = document.createElement("ms-" + msClass);
+        chart.editable = true;
+        chartHolder.appendChild(chart);
+
+        // re-create the outlet so it can attach to the new editor.
+        if (outlet) outlet.remove();
+        outletHolder.appendChild(document.createElement("ms-extra-outlet"));
+
+        // re-create the counter so it can attach to the new editor.
+        if (counter) counter.remove();
+        counterHolder.appendChild(document.createElement("ms-extra-counter"));
       }
 
       toggle("archer");

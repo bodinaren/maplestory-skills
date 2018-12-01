@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { StingingFlurryValues } from "../../../../global/values/knight";
+import { StingingFlurry } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-stinging-flurry",
@@ -8,13 +8,13 @@ import { StingingFlurryValues } from "../../../../global/values/knight";
 })
 export class StingingFlurryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = StingingFlurryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = StingingFlurry.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = StingingFlurryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = StingingFlurry.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ StingingFlurryValues.levelRequirement[this.level] }+`,
+      `Level ${ StingingFlurry.levelRequirement[this.level] }+`,
       `Cross Cut [Level 5+]`,
       `Divine Strike [Level 5+]`,
     ];
@@ -23,7 +23,7 @@ export class StingingFlurryComponent {
   render() {
     return [
       <ms-icon name="stinging-flurry"></ms-icon>,
-      <ms-skill-overlay heading="Stinging Flurry"
+      <ms-skill-overlay heading={ StingingFlurry.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Main Hand Longsword"
@@ -33,7 +33,7 @@ export class StingingFlurryComponent {
         <ms-icon slot="icon" name="stinging-flurry"></ms-icon>
         <div slot="description">
           Captain Allon's special skill stabs quickly,
-          dealing <span>{ StingingFlurryValues.damage[this.level] }%</span> damage <span>3</span> times
+          dealing <span>{ StingingFlurry.values.damage[this.level] }%</span> damage <span>3</span> times
           to <span>3</span> enemies up to <span>3</span> m in front of you.
           The skill lasts while the skill key is held down.
           Consumes <span>13</span> spirit.

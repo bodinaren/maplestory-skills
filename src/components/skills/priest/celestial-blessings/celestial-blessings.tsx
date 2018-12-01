@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { CelestialBlessingsValues } from "../../../../global/values/priest";
+import { CelestialBlessings } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-celestial-blessings",
@@ -8,13 +8,13 @@ import { CelestialBlessingsValues } from "../../../../global/values/priest";
 })
 export class CelestialBlessingsComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = CelestialBlessingsValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = CelestialBlessings.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = CelestialBlessingsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = CelestialBlessings.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ CelestialBlessingsValues.levelRequirement[this.level] }+`,
+      `Level ${ CelestialBlessings.levelRequirement[this.level] }+`,
       `Celestial Guardian [Level 3+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class CelestialBlessingsComponent {
   render() {
     return [
       <ms-icon name="celestial-blessings"></ms-icon>,
-      <ms-skill-overlay heading="Celestial Blessings"
+      <ms-skill-overlay heading={ CelestialBlessings.name }
                         element="Holy"
                         level={ this.level }
                         type="Long Range / Magic"
@@ -36,9 +36,9 @@ export class CelestialBlessingsComponent {
           With the help of your angel, bless <span>10</span> allies
           within <span>6</span> m for <span>10</span> sec,
           increasing their physical resistance and magic resistance
-          by <span>{ CelestialBlessingsValues.resistance[this.level] }</span> and their physical attack and magic attack
-          by <span>{ CelestialBlessingsValues.attack[this.level] }%</span>. Restores their health
-          by <span>{ CelestialBlessingsValues.healing[this.level] }%</span> of your magic attack.
+          by <span>{ CelestialBlessings.values.resistance[this.level] }</span> and their physical attack and magic attack
+          by <span>{ CelestialBlessings.values.attack[this.level] }%</span>. Restores their health
+          by <span>{ CelestialBlessings.values.healing[this.level] }%</span> of your magic attack.
           Can only be used when your angel is present.
           Consumes <span>45</span> spirit.
         </div>

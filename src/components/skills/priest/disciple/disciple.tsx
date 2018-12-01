@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DiscipleValues } from "../../../../global/values/priest";
+import { Disciple } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-disciple",
@@ -8,13 +8,13 @@ import { DiscipleValues } from "../../../../global/values/priest";
 })
 export class DiscipleComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DiscipleValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Disciple.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DiscipleValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Disciple.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ DiscipleValues.levelRequirement[this.level] }+`,
+      `Level ${ Disciple.levelRequirement[this.level] }+`,
       `Celestial Blessings [Level 6+]`,
       `Holy Symbol [Level 4+]`,
     ];
@@ -25,7 +25,7 @@ export class DiscipleComponent {
   render() {
     return [
       <ms-icon name="disciple"></ms-icon>,
-      <ms-skill-overlay heading="Disciple"
+      <ms-skill-overlay heading={ Disciple.name }
                         element="Holy"
                         level={ this.level }
                         passive={ true }
@@ -35,7 +35,7 @@ export class DiscipleComponent {
         <div slot="description">
           Increases the duration of Celestial Guardian,
           Celestial Blessings, and Holy Symbol buffs
-          by <span>{ DiscipleValues.duration[this.level] }%</span>.
+          by <span>{ Disciple.values.duration[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

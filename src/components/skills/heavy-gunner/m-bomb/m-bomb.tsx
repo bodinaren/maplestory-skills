@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MBombValues } from "../../../../global/values/heavy-gunner";
+import { MBomb } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-m-bomb",
@@ -8,13 +8,13 @@ import { MBombValues } from "../../../../global/values/heavy-gunner";
 })
 export class MBombComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MBombValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MBomb.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MBombValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MBomb.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ MBombValues.levelRequirement[this.level] }+`,
+      `Level ${ MBomb.levelRequirement[this.level] }+`,
       `Homing Missiles [Level 5+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class MBombComponent {
   render() {
     return [
       <ms-icon name="m-bomb"></ms-icon>,
-      <ms-skill-overlay heading="M-Bomb"
+      <ms-skill-overlay heading={ MBomb.name }
                         element="Fire"
                         level={ this.level }
                         type="Long Range / Physical"
@@ -33,10 +33,10 @@ export class MBombComponent {
         <ms-icon slot="icon" name="m-bomb"></ms-icon>
         <div slot="description">
           Call in a high-tech bomb to drop <span>7.5</span> m in front of you,
-          which deals <span>{ MBombValues.damage[this.level] }%</span> fire damage
+          which deals <span>{ MBomb.values.damage[this.level] }%</span> fire damage
           to <span>8</span> enemies within <span>3</span> m.
           A second blast occurs after <span>0.5</span> sec,
-          dealing <span>{ MBombValues.additionalDamage[this.level] }%</span> fire damage
+          dealing <span>{ MBomb.values.additionalDamage[this.level] }%</span> fire damage
           to <span>8</span> enemies within <span>6</span> m.
           Consumes <span>15</span> spirit.
         </div>

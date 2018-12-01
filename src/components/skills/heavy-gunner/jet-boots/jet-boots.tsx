@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { JetBootsValues } from "../../../../global/values/heavy-gunner";
+import { JetBoots } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-jet-boots",
@@ -8,14 +8,14 @@ import { JetBootsValues } from "../../../../global/values/heavy-gunner";
 })
 export class JetBootsComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = JetBootsValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = JetBoots.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = JetBootsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = JetBoots.maxLevel;
 
   render() {
     return [
       <ms-icon name="jet-boots"></ms-icon>,
-      <ms-skill-overlay heading="Jet Boots"
+      <ms-skill-overlay heading={ JetBoots.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         max={ this.max }>

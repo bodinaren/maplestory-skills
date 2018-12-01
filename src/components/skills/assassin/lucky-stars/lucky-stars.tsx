@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { LuckyStarsValues } from "../../../../global/values/assassin";
+import { LuckyStars } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-lucky-stars",
@@ -8,14 +8,14 @@ import { LuckyStarsValues } from "../../../../global/values/assassin";
 })
 export class LuckyStarsComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = LuckyStarsValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = LuckyStars.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = LuckyStarsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = LuckyStars.maxLevel;
 
   getRequirements(): string[] {
-    if (LuckyStarsValues.levelRequirement[this.level] > 0) {
+    if (LuckyStars.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ LuckyStarsValues.levelRequirement[this.level] }+`,
+        `Level ${ LuckyStars.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class LuckyStarsComponent {
   render() {
     return [
       <ms-icon name="lucky-stars"></ms-icon>,
-      <ms-skill-overlay heading="Lucky Stars"
+      <ms-skill-overlay heading={ LuckyStars.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="One-handed Thrown Weapon, One-handed Thrown Weapon"
@@ -32,9 +32,9 @@ export class LuckyStarsComponent {
         <ms-icon slot="icon" name="lucky-stars"></ms-icon>
         <div slot="description">
           Throw your weapons at the closest enemy within <span>8</span> m to
-          deal <span>{ LuckyStarsValues.damage[this.level] }%</span> damage <span>2</span> times.
+          deal <span>{ LuckyStars.values.damage[this.level] }%</span> damage <span>2</span> times.
           Each weapon then ricochets to other enemies within <span>3</span> m and
-          deals <span>{ LuckyStarsValues.aoe[this.level] }%</span> damage <span>2</span> times.
+          deals <span>{ LuckyStars.values.aoe[this.level] }%</span> damage <span>2</span> times.
           The damage of each attack is affected by the weapon in each hand.
         </div>
       </ms-skill-overlay>

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { WarriorsInstinctValues } from "../../../../global/values/berserker";
+import { WarriorsInstinct } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-warriors-instinct",
@@ -8,13 +8,13 @@ import { WarriorsInstinctValues } from "../../../../global/values/berserker";
 })
 export class WarriorsInstinctComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = WarriorsInstinctValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = WarriorsInstinct.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = WarriorsInstinctValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = WarriorsInstinct.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ WarriorsInstinctValues.levelRequirement[this.level] }+`,
+      `Level ${ WarriorsInstinct.levelRequirement[this.level] }+`,
       `Void Slash [Level 6+]`,
       `Dark Breaker [Level 5+]`,
     ];
@@ -25,7 +25,7 @@ export class WarriorsInstinctComponent {
   render() {
     return [
       <ms-icon name="warriors-instinct"></ms-icon>,
-      <ms-skill-overlay heading="Warrior's Instinct"
+      <ms-skill-overlay heading={ WarriorsInstinct.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -33,8 +33,8 @@ export class WarriorsInstinctComponent {
         <ms-icon slot="icon" name="warriors-instinct"></ms-icon>
         <div slot="description">
           Surrender yourself to your natural combat instinct.
-          Increases physical resistance by <span>{ WarriorsInstinctValues.resistance[this.level] }</span> and
-          piercing by <span>{ WarriorsInstinctValues.piercing[this.level] }%</span>.
+          Increases physical resistance by <span>{ WarriorsInstinct.values.resistance[this.level] }</span> and
+          piercing by <span>{ WarriorsInstinct.values.piercing[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

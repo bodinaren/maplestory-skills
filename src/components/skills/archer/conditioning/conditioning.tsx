@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ConditioningValues } from "../../../../global/values/archer";
+import { Conditioning } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-conditioning",
@@ -8,13 +8,13 @@ import { ConditioningValues } from "../../../../global/values/archer";
 })
 export class ConditioningComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ConditioningValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Conditioning.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ConditioningValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Conditioning.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ConditioningValues.levelRequirement[this.level] }+`,
+      `Level ${ Conditioning.levelRequirement[this.level] }+`,
     ];
   }
 
@@ -23,7 +23,7 @@ export class ConditioningComponent {
   render() {
     return [
       <ms-icon name="conditioning"></ms-icon>,
-      <ms-skill-overlay heading="Conditioning"
+      <ms-skill-overlay heading={ Conditioning.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -31,8 +31,8 @@ export class ConditioningComponent {
         <ms-icon slot="icon" name="conditioning"></ms-icon>
         <div slot="description">
           Special training with the Green Hoods permanently increases your
-          physical attack by <span>{ ConditioningValues.attack[this.level] }%</span> and
-          movement speed by <span>{ ConditioningValues.movement[this.level] }%</span>.
+          physical attack by <span>{ Conditioning.values.attack[this.level] }%</span> and
+          movement speed by <span>{ Conditioning.values.movement[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

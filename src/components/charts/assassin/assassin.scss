@@ -2,87 +2,91 @@
   display: block;
 }
 
-ms-dark-cloak {
+ms-skill {
+  position: absolute;
+}
+
+.darkCloak {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-dash {
+.dash {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-death-sentence {
+.deathSentence {
   @include chart-row(5);
   @include chart-column(3);
 }
 
-ms-fatal-strikes {
+.fatalStrikes {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-fragmented-star {
+.fragmentedStar {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-lucky-stars {
+.luckyStars {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-mark-of-death {
+.markOfDeath {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-mirror-image-dark-blade {
+.mirrorImageDarkBlade {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-shadow-arts {
+.shadowArts {
   @include chart-row(6);
   @include chart-column(2);
 }
 
-ms-shadow-burst {
+.shadowBurst {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-shadow-chaser {
+.shadowChaser {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-shadow-cutter {
+.shadowCutter {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-shadow-web {
+.shadowWeb {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-soul-grind {
+.soulGrind {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-star-chaser {
+.starChaser {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-star-flurry {
+.starFlurry {
   @include chart-row(4);
   @include chart-column(1);
 }
 
-ms-thrown-weapon-mastery {
+.thrownWeaponMastery {
   @include chart-row(6);
   @include chart-column(1);
 }

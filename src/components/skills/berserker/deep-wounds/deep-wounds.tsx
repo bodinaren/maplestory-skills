@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DeepWoundsValues } from "../../../../global/values/berserker";
+import { DeepWounds } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-deep-wounds",
@@ -8,13 +8,13 @@ import { DeepWoundsValues } from "../../../../global/values/berserker";
 })
 export class DeepWoundsComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DeepWoundsValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = DeepWounds.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DeepWoundsValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = DeepWounds.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ DeepWoundsValues.levelRequirement[this.level] }+`,
+      `Level ${ DeepWounds.levelRequirement[this.level] }+`,
       `Greatsword Mastery [Level 6+]`,
       `Intimidation [Level 4+]`,
     ];
@@ -25,7 +25,7 @@ export class DeepWoundsComponent {
   render() {
     return [
       <ms-icon name="deep-wounds"></ms-icon>,
-      <ms-skill-overlay heading="Deep Wounds"
+      <ms-skill-overlay heading={ DeepWounds.name }
                         level={ this.level }
                         passive={ true }
                         type="Physical"
@@ -34,7 +34,7 @@ export class DeepWoundsComponent {
         <ms-icon slot="icon" name="deep-wounds"></ms-icon>
         <div slot="description">
           Critical attacks inflicted with a greatsword make the enemy bleed,
-          dealing <span>{ DeepWoundsValues.damage[this.level] }%</span> damage
+          dealing <span>{ DeepWounds.values.damage[this.level] }%</span> damage
           every second for <span>10</span> sec.
         </div>
       </ms-skill-overlay>

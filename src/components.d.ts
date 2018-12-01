@@ -8,9 +8,6 @@
 import '@stencil/core';
 
 
-import {
-  MapleStoryClass,
-} from './components/editor/editor.interfaces';
 
 
 export namespace Components {
@@ -26,6 +23,7 @@ export namespace Components {
     'eagleClaw': number;
     'eagleGlide': number;
     'eaglesMajesty': number;
+    'editable': boolean;
     'evasiveSalvo': number;
     'iceArrow': number;
     'precisionShooter': number;
@@ -45,8 +43,10 @@ export namespace Components {
     'eagleClaw'?: number;
     'eagleGlide'?: number;
     'eaglesMajesty'?: number;
+    'editable'?: boolean;
     'evasiveSalvo'?: number;
     'iceArrow'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'precisionShooter'?: number;
     'rapidShot'?: number;
     'screwdriverShot'?: number;
@@ -58,6 +58,7 @@ export namespace Components {
     'darkCloak': number;
     'dash': number;
     'deathSentence': number;
+    'editable': boolean;
     'fatalStrikes': number;
     'fragmentedStar': number;
     'luckyStars': number;
@@ -77,11 +78,13 @@ export namespace Components {
     'darkCloak'?: number;
     'dash'?: number;
     'deathSentence'?: number;
+    'editable'?: boolean;
     'fatalStrikes'?: number;
     'fragmentedStar'?: number;
     'luckyStars'?: number;
     'markOfDeath'?: number;
     'mirrorImageDarkBlade'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'shadowArts'?: number;
     'shadowBurst'?: number;
     'shadowChaser'?: number;
@@ -103,6 +106,7 @@ export namespace Components {
     'deathSpin': number;
     'deepWounds': number;
     'earthquake': number;
+    'editable': boolean;
     'greatswordMastery': number;
     'groundBreaker': number;
     'inhumanEndurance': number;
@@ -122,10 +126,12 @@ export namespace Components {
     'deathSpin'?: number;
     'deepWounds'?: number;
     'earthquake'?: number;
+    'editable'?: boolean;
     'greatswordMastery'?: number;
     'groundBreaker'?: number;
     'inhumanEndurance'?: number;
     'intimidation'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'ragingSlash'?: number;
     'voidSlash'?: number;
     'warriorsInstinct'?: number;
@@ -133,10 +139,10 @@ export namespace Components {
   }
 
   interface MsChart {
-    'msClass': MapleStoryClass;
+    'msClass': string;
   }
   interface MsChartAttributes extends StencilHTMLAttributes {
-    'msClass'?: MapleStoryClass;
+    'msClass'?: string;
   }
 
   interface MsHeavyGunner {
@@ -145,6 +151,7 @@ export namespace Components {
     'advancedPulseWeapons': number;
     'blastChargeKit': number;
     'bulletSpray': number;
+    'editable': boolean;
     'electricBlast': number;
     'gatlingFire': number;
     'homingMissiles': number;
@@ -164,6 +171,7 @@ export namespace Components {
     'advancedPulseWeapons'?: number;
     'blastChargeKit'?: number;
     'bulletSpray'?: number;
+    'editable'?: boolean;
     'electricBlast'?: number;
     'gatlingFire'?: number;
     'homingMissiles'?: number;
@@ -172,6 +180,7 @@ export namespace Components {
     'mBomb'?: number;
     'magneticBomb'?: number;
     'medKit'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'reload'?: number;
     'rocketLauncher'?: number;
     'stunGrenades'?: number;
@@ -184,6 +193,7 @@ export namespace Components {
     'defenderOfTheFaith': number;
     'divineStrike': number;
     'drillThrust': number;
+    'editable': boolean;
     'ironDefense': number;
     'ironShield': number;
     'longswordMastery': number;
@@ -203,9 +213,11 @@ export namespace Components {
     'defenderOfTheFaith'?: number;
     'divineStrike'?: number;
     'drillThrust'?: number;
+    'editable'?: boolean;
     'ironDefense'?: number;
     'ironShield'?: number;
     'longswordMastery'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'shieldBooster'?: number;
     'shieldCharge'?: number;
     'shieldMastery'?: number;
@@ -223,6 +235,7 @@ export namespace Components {
     'celestialGuardian': number;
     'celestialLight': number;
     'disciple': number;
+    'editable': boolean;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
@@ -242,12 +255,14 @@ export namespace Components {
     'celestialGuardian'?: number;
     'celestialLight'?: number;
     'disciple'?: number;
+    'editable'?: boolean;
     'healingMastery'?: number;
     'healingPrayer'?: number;
     'heavenlyWings'?: number;
     'holyBlast'?: number;
     'holyRelic'?: number;
     'holySymbol'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'sanctuary'?: number;
     'scepterMastery'?: number;
     'scourgingWave'?: number;
@@ -261,6 +276,7 @@ export namespace Components {
     'bladeMastery': number;
     'blink': number;
     'echoingBlade': number;
+    'editable': boolean;
     'elementalPotency': number;
     'flameSigil': number;
     'flurry': number;
@@ -280,6 +296,7 @@ export namespace Components {
     'bladeMastery'?: number;
     'blink'?: number;
     'echoingBlade'?: number;
+    'editable'?: boolean;
     'elementalPotency'?: number;
     'flameSigil'?: number;
     'flurry'?: number;
@@ -288,6 +305,7 @@ export namespace Components {
     'honingRunes'?: number;
     'illusoryBlades'?: number;
     'impact'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'runeBalance'?: number;
     'runeFocus'?: number;
     'stormSigil'?: number;
@@ -300,6 +318,7 @@ export namespace Components {
     'cunningTactics': number;
     'deftCombatant': number;
     'doubleSlash': number;
+    'editable': boolean;
     'haste': number;
     'mesoguardPlus': number;
     'mindBreaker': number;
@@ -319,10 +338,12 @@ export namespace Components {
     'cunningTactics'?: number;
     'deftCombatant'?: number;
     'doubleSlash'?: number;
+    'editable'?: boolean;
     'haste'?: number;
     'mesoguardPlus'?: number;
     'mindBreaker'?: number;
     'mindStealer'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'poisonEdge'?: number;
     'poisonVial'?: number;
     'quickStep'?: number;
@@ -338,6 +359,7 @@ export namespace Components {
     'arcaneBlast': number;
     'chainLightning': number;
     'cryomancy': number;
+    'editable': boolean;
     'electromancy': number;
     'elementalMaster': number;
     'flameTornado': number;
@@ -357,6 +379,7 @@ export namespace Components {
     'arcaneBlast'?: number;
     'chainLightning'?: number;
     'cryomancy'?: number;
+    'editable'?: boolean;
     'electromancy'?: number;
     'elementalMaster'?: number;
     'flameTornado'?: number;
@@ -367,103 +390,25 @@ export namespace Components {
     'magicArmor'?: number;
     'manaClaw'?: number;
     'manaFont'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'phantomClaw'?: number;
     'pyromancy'?: number;
     'teleport'?: number;
     'thunderbolt'?: number;
   }
 
-  interface MsArcherEditor {
-    'scale': number;
-    'toHtmlString': () => Promise<string>;
+  interface MsExtraCounter {
+    'editor'?: string;
   }
-  interface MsArcherEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-    'scale'?: number;
-  }
-
-  interface MsAssassinEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsAssassinEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsBerserkerEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsBerserkerEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsHeavyGunnerEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsHeavyGunnerEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsKnightEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsKnightEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsPriestEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsPriestEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsRunebladeEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsRunebladeEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsThiefEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsThiefEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsWizardEditor {
-    'toHtmlString': () => Promise<string>;
-  }
-  interface MsWizardEditorAttributes extends StencilHTMLAttributes {
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsEditorOutlet {
-    'editor': string;
-  }
-  interface MsEditorOutletAttributes extends StencilHTMLAttributes {
+  interface MsExtraCounterAttributes extends StencilHTMLAttributes {
     'editor'?: string;
   }
 
-  interface MsEditor {
-    'msClass': MapleStoryClass;
-    'toHtmlString': () => Promise<string>;
+  interface MsExtraOutlet {
+    'editor': string;
   }
-  interface MsEditorAttributes extends StencilHTMLAttributes {
-    'msClass'?: MapleStoryClass;
-    'onChanged'?: (event: CustomEvent<string>) => void;
-  }
-
-  interface MsLevelControl {
-    'level': number;
-    'max': number;
-    'min': number;
-  }
-  interface MsLevelControlAttributes extends StencilHTMLAttributes {
-    'level'?: number;
-    'max'?: number;
-    'min'?: number;
-    'onLevelchanged'?: (event: CustomEvent<number>) => void;
+  interface MsExtraOutletAttributes extends StencilHTMLAttributes {
+    'editor'?: string;
   }
 
   interface MsFooter {}
@@ -501,6 +446,26 @@ export namespace Components {
     'spirit'?: number;
     'type'?: string;
     'weaponRequired'?: string;
+  }
+
+  interface MsSkill {
+    'disabled': boolean;
+    'level': number;
+    'limitReached': boolean;
+    'locked': boolean;
+    'max': number;
+    'min': number;
+    'required': string;
+  }
+  interface MsSkillAttributes extends StencilHTMLAttributes {
+    'disabled'?: boolean;
+    'level'?: number;
+    'limitReached'?: boolean;
+    'locked'?: boolean;
+    'max'?: number;
+    'min'?: number;
+    'onLevelchanged'?: (event: CustomEvent<number>) => void;
+    'required'?: string;
   }
 
   interface MsAgileArcher {
@@ -1893,21 +1858,12 @@ declare global {
     'MsRuneblade': Components.MsRuneblade;
     'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
-    'MsArcherEditor': Components.MsArcherEditor;
-    'MsAssassinEditor': Components.MsAssassinEditor;
-    'MsBerserkerEditor': Components.MsBerserkerEditor;
-    'MsHeavyGunnerEditor': Components.MsHeavyGunnerEditor;
-    'MsKnightEditor': Components.MsKnightEditor;
-    'MsPriestEditor': Components.MsPriestEditor;
-    'MsRunebladeEditor': Components.MsRunebladeEditor;
-    'MsThiefEditor': Components.MsThiefEditor;
-    'MsWizardEditor': Components.MsWizardEditor;
-    'MsEditorOutlet': Components.MsEditorOutlet;
-    'MsEditor': Components.MsEditor;
-    'MsLevelControl': Components.MsLevelControl;
+    'MsExtraCounter': Components.MsExtraCounter;
+    'MsExtraOutlet': Components.MsExtraOutlet;
     'MsFooter': Components.MsFooter;
     'MsIcon': Components.MsIcon;
     'MsSkillOverlay': Components.MsSkillOverlay;
+    'MsSkill': Components.MsSkill;
     'MsAgileArcher': Components.MsAgileArcher;
     'MsArrowBarrage': Components.MsArrowBarrage;
     'MsArrowStorm': Components.MsArrowStorm;
@@ -2074,21 +2030,12 @@ declare global {
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
-    'ms-archer-editor': Components.MsArcherEditorAttributes;
-    'ms-assassin-editor': Components.MsAssassinEditorAttributes;
-    'ms-berserker-editor': Components.MsBerserkerEditorAttributes;
-    'ms-heavy-gunner-editor': Components.MsHeavyGunnerEditorAttributes;
-    'ms-knight-editor': Components.MsKnightEditorAttributes;
-    'ms-priest-editor': Components.MsPriestEditorAttributes;
-    'ms-runeblade-editor': Components.MsRunebladeEditorAttributes;
-    'ms-thief-editor': Components.MsThiefEditorAttributes;
-    'ms-wizard-editor': Components.MsWizardEditorAttributes;
-    'ms-editor-outlet': Components.MsEditorOutletAttributes;
-    'ms-editor': Components.MsEditorAttributes;
-    'ms-level-control': Components.MsLevelControlAttributes;
+    'ms-extra-counter': Components.MsExtraCounterAttributes;
+    'ms-extra-outlet': Components.MsExtraOutletAttributes;
     'ms-footer': Components.MsFooterAttributes;
     'ms-icon': Components.MsIconAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
+    'ms-skill': Components.MsSkillAttributes;
     'ms-agile-archer': Components.MsAgileArcherAttributes;
     'ms-arrow-barrage': Components.MsArrowBarrageAttributes;
     'ms-arrow-storm': Components.MsArrowStormAttributes;
@@ -2305,76 +2252,16 @@ declare global {
     new (): HTMLMsWizardElement;
   };
 
-  interface HTMLMsArcherEditorElement extends Components.MsArcherEditor, HTMLStencilElement {}
-  var HTMLMsArcherEditorElement: {
-    prototype: HTMLMsArcherEditorElement;
-    new (): HTMLMsArcherEditorElement;
+  interface HTMLMsExtraCounterElement extends Components.MsExtraCounter, HTMLStencilElement {}
+  var HTMLMsExtraCounterElement: {
+    prototype: HTMLMsExtraCounterElement;
+    new (): HTMLMsExtraCounterElement;
   };
 
-  interface HTMLMsAssassinEditorElement extends Components.MsAssassinEditor, HTMLStencilElement {}
-  var HTMLMsAssassinEditorElement: {
-    prototype: HTMLMsAssassinEditorElement;
-    new (): HTMLMsAssassinEditorElement;
-  };
-
-  interface HTMLMsBerserkerEditorElement extends Components.MsBerserkerEditor, HTMLStencilElement {}
-  var HTMLMsBerserkerEditorElement: {
-    prototype: HTMLMsBerserkerEditorElement;
-    new (): HTMLMsBerserkerEditorElement;
-  };
-
-  interface HTMLMsHeavyGunnerEditorElement extends Components.MsHeavyGunnerEditor, HTMLStencilElement {}
-  var HTMLMsHeavyGunnerEditorElement: {
-    prototype: HTMLMsHeavyGunnerEditorElement;
-    new (): HTMLMsHeavyGunnerEditorElement;
-  };
-
-  interface HTMLMsKnightEditorElement extends Components.MsKnightEditor, HTMLStencilElement {}
-  var HTMLMsKnightEditorElement: {
-    prototype: HTMLMsKnightEditorElement;
-    new (): HTMLMsKnightEditorElement;
-  };
-
-  interface HTMLMsPriestEditorElement extends Components.MsPriestEditor, HTMLStencilElement {}
-  var HTMLMsPriestEditorElement: {
-    prototype: HTMLMsPriestEditorElement;
-    new (): HTMLMsPriestEditorElement;
-  };
-
-  interface HTMLMsRunebladeEditorElement extends Components.MsRunebladeEditor, HTMLStencilElement {}
-  var HTMLMsRunebladeEditorElement: {
-    prototype: HTMLMsRunebladeEditorElement;
-    new (): HTMLMsRunebladeEditorElement;
-  };
-
-  interface HTMLMsThiefEditorElement extends Components.MsThiefEditor, HTMLStencilElement {}
-  var HTMLMsThiefEditorElement: {
-    prototype: HTMLMsThiefEditorElement;
-    new (): HTMLMsThiefEditorElement;
-  };
-
-  interface HTMLMsWizardEditorElement extends Components.MsWizardEditor, HTMLStencilElement {}
-  var HTMLMsWizardEditorElement: {
-    prototype: HTMLMsWizardEditorElement;
-    new (): HTMLMsWizardEditorElement;
-  };
-
-  interface HTMLMsEditorOutletElement extends Components.MsEditorOutlet, HTMLStencilElement {}
-  var HTMLMsEditorOutletElement: {
-    prototype: HTMLMsEditorOutletElement;
-    new (): HTMLMsEditorOutletElement;
-  };
-
-  interface HTMLMsEditorElement extends Components.MsEditor, HTMLStencilElement {}
-  var HTMLMsEditorElement: {
-    prototype: HTMLMsEditorElement;
-    new (): HTMLMsEditorElement;
-  };
-
-  interface HTMLMsLevelControlElement extends Components.MsLevelControl, HTMLStencilElement {}
-  var HTMLMsLevelControlElement: {
-    prototype: HTMLMsLevelControlElement;
-    new (): HTMLMsLevelControlElement;
+  interface HTMLMsExtraOutletElement extends Components.MsExtraOutlet, HTMLStencilElement {}
+  var HTMLMsExtraOutletElement: {
+    prototype: HTMLMsExtraOutletElement;
+    new (): HTMLMsExtraOutletElement;
   };
 
   interface HTMLMsFooterElement extends Components.MsFooter, HTMLStencilElement {}
@@ -2393,6 +2280,12 @@ declare global {
   var HTMLMsSkillOverlayElement: {
     prototype: HTMLMsSkillOverlayElement;
     new (): HTMLMsSkillOverlayElement;
+  };
+
+  interface HTMLMsSkillElement extends Components.MsSkill, HTMLStencilElement {}
+  var HTMLMsSkillElement: {
+    prototype: HTMLMsSkillElement;
+    new (): HTMLMsSkillElement;
   };
 
   interface HTMLMsAgileArcherElement extends Components.MsAgileArcher, HTMLStencilElement {}
@@ -3324,21 +3217,12 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
-    'ms-archer-editor': HTMLMsArcherEditorElement
-    'ms-assassin-editor': HTMLMsAssassinEditorElement
-    'ms-berserker-editor': HTMLMsBerserkerEditorElement
-    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement
-    'ms-knight-editor': HTMLMsKnightEditorElement
-    'ms-priest-editor': HTMLMsPriestEditorElement
-    'ms-runeblade-editor': HTMLMsRunebladeEditorElement
-    'ms-thief-editor': HTMLMsThiefEditorElement
-    'ms-wizard-editor': HTMLMsWizardEditorElement
-    'ms-editor-outlet': HTMLMsEditorOutletElement
-    'ms-editor': HTMLMsEditorElement
-    'ms-level-control': HTMLMsLevelControlElement
+    'ms-extra-counter': HTMLMsExtraCounterElement
+    'ms-extra-outlet': HTMLMsExtraOutletElement
     'ms-footer': HTMLMsFooterElement
     'ms-icon': HTMLMsIconElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
+    'ms-skill': HTMLMsSkillElement
     'ms-agile-archer': HTMLMsAgileArcherElement
     'ms-arrow-barrage': HTMLMsArrowBarrageElement
     'ms-arrow-storm': HTMLMsArrowStormElement
@@ -3505,21 +3389,12 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
-    'ms-archer-editor': HTMLMsArcherEditorElement;
-    'ms-assassin-editor': HTMLMsAssassinEditorElement;
-    'ms-berserker-editor': HTMLMsBerserkerEditorElement;
-    'ms-heavy-gunner-editor': HTMLMsHeavyGunnerEditorElement;
-    'ms-knight-editor': HTMLMsKnightEditorElement;
-    'ms-priest-editor': HTMLMsPriestEditorElement;
-    'ms-runeblade-editor': HTMLMsRunebladeEditorElement;
-    'ms-thief-editor': HTMLMsThiefEditorElement;
-    'ms-wizard-editor': HTMLMsWizardEditorElement;
-    'ms-editor-outlet': HTMLMsEditorOutletElement;
-    'ms-editor': HTMLMsEditorElement;
-    'ms-level-control': HTMLMsLevelControlElement;
+    'ms-extra-counter': HTMLMsExtraCounterElement;
+    'ms-extra-outlet': HTMLMsExtraOutletElement;
     'ms-footer': HTMLMsFooterElement;
     'ms-icon': HTMLMsIconElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
+    'ms-skill': HTMLMsSkillElement;
     'ms-agile-archer': HTMLMsAgileArcherElement;
     'ms-arrow-barrage': HTMLMsArrowBarrageElement;
     'ms-arrow-storm': HTMLMsArrowStormElement;

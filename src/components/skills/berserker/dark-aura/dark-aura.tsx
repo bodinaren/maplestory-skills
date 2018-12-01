@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DarkAuraValues } from "../../../../global/values/berserker";
+import { DarkAura } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-dark-aura",
@@ -8,16 +8,16 @@ import { DarkAuraValues } from "../../../../global/values/berserker";
 })
 export class DarkAuraComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DarkAuraValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = DarkAura.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DarkAuraValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = DarkAura.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="dark-aura" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Dark Aura"
+      <ms-skill-overlay heading={ DarkAura.name }
                         element="Dark"
                         level={ this.level }
                         passive={ true }

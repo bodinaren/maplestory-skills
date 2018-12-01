@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { BladeMasteryValues } from "../../../../global/values/runeblade";
+import { BladeMastery } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-blade-mastery",
@@ -8,13 +8,13 @@ import { BladeMasteryValues } from "../../../../global/values/runeblade";
 })
 export class BladeMasteryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = BladeMasteryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = BladeMastery.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = BladeMasteryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = BladeMastery.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ BladeMasteryValues.levelRequirement[this.level] }+`,
+      `Level ${ BladeMastery.levelRequirement[this.level] }+`,
       `Flurry [Level 5+]`,
       `Illusory Blades [Level 3+]`,
     ];
@@ -25,7 +25,7 @@ export class BladeMasteryComponent {
   render() {
     return [
       <ms-icon name="blade-mastery"></ms-icon>,
-      <ms-skill-overlay heading="Blade Mastery"
+      <ms-skill-overlay heading={ BladeMastery.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -33,7 +33,7 @@ export class BladeMasteryComponent {
         <ms-icon slot="icon" name="blade-mastery"></ms-icon>
         <div slot="description">
           The teachings of the Pelgia Sect have sharpened your swordsmanship. Increases weapon attack
-          by <span>{ BladeMasteryValues.damage[this.level] }%</span> when you have a blade equipped.
+          by <span>{ BladeMastery.values.damage[this.level] }%</span> when you have a blade equipped.
         </div>
       </ms-skill-overlay>
     ];

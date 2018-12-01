@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ShieldBoosterValues } from "../../../../global/values/knight";
+import { ShieldBooster } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-shield-booster",
@@ -8,13 +8,13 @@ import { ShieldBoosterValues } from "../../../../global/values/knight";
 })
 export class ShieldBoosterComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ShieldBoosterValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ShieldBooster.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ShieldBoosterValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ShieldBooster.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ShieldBoosterValues.levelRequirement[this.level] }+`,
+      `Level ${ ShieldBooster.levelRequirement[this.level] }+`,
       `Shield Mastery [Level 2+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class ShieldBoosterComponent {
   render() {
     return [
       <ms-icon name="shield-booster"></ms-icon>,
-      <ms-skill-overlay heading="Shield Booster"
+      <ms-skill-overlay heading={ ShieldBooster.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Off-hand Shield"
@@ -32,11 +32,11 @@ export class ShieldBoosterComponent {
         <ms-icon slot="icon" name="shield-booster"></ms-icon>
         <div slot="description">
           Lift <span>5</span> enemies up to <span>2</span> m in front of you with your shield,
-          dealing <span>{ ShieldBoosterValues.damage[this.level] }%</span> damage.
+          dealing <span>{ ShieldBooster.values.damage[this.level] }%</span> damage.
           Increases physical and magic resistance by <span>450</span>.
           For <span>10</span> sec, has a chance to trigger counter when hit.
           Also increases your counterattack damage
-          by an additional <span>{ ShieldBoosterValues.increase[this.level] }%</span>.
+          by an additional <span>{ ShieldBooster.values.increase[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

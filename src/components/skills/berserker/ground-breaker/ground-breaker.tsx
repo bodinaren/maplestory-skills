@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { GroundBreakerValues } from "../../../../global/values/berserker";
+import { GroundBreaker } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-ground-breaker",
@@ -8,13 +8,13 @@ import { GroundBreakerValues } from "../../../../global/values/berserker";
 })
 export class GroundBreakerComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = GroundBreakerValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = GroundBreaker.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = GroundBreakerValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = GroundBreaker.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ GroundBreakerValues.levelRequirement[this.level] }+`,
+      `Level ${ GroundBreaker.levelRequirement[this.level] }+`,
       `Raging Slash [Level 4+]`,
       `Death Spin [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class GroundBreakerComponent {
   render() {
     return [
       <ms-icon name="ground-breaker"></ms-icon>,
-      <ms-skill-overlay heading="Ground Breaker"
+      <ms-skill-overlay heading={ GroundBreaker.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Two-handed Greatsword"
@@ -33,7 +33,7 @@ export class GroundBreakerComponent {
         <ms-icon slot="icon" name="ground-breaker"></ms-icon>
         <div slot="description">
           Old Ten's specialty move. Strike down your greatsword to
-          deal <span>{ GroundBreakerValues.damage[this.level] }%</span> damage
+          deal <span>{ GroundBreaker.values.damage[this.level] }%</span> damage
           to <span>8</span> enemies within <span>3</span> m and knock them back <span>1.5</span> m.
           If Dark Aura activates, damage increases by <span>16%</span> per stack.
           You will be immune to knockback while this skill is active.

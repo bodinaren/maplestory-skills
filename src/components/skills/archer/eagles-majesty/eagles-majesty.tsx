@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { EaglesMajestyValues } from "../../../../global/values/archer";
+import { EaglesMajesty } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-eagles-majesty",
@@ -8,13 +8,13 @@ import { EaglesMajestyValues } from "../../../../global/values/archer";
 })
 export class EaglesMajestyComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = EaglesMajestyValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = EaglesMajesty.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = EaglesMajestyValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = EaglesMajesty.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ EaglesMajestyValues.levelRequirement[this.level] }+`,
+      `Level ${ EaglesMajesty.levelRequirement[this.level] }+`,
       `Eagle Claw [Level 3+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class EaglesMajestyComponent {
   render() {
     return [
       <ms-icon name="eagles-majesty"></ms-icon>,
-      <ms-skill-overlay heading="Eagle's Majesty"
+      <ms-skill-overlay heading={ EaglesMajesty.name }
                         level={ this.level }
                         type="Physical"
                         requirements={ this.getRequirements() }
@@ -31,9 +31,9 @@ export class EaglesMajestyComponent {
         <ms-icon slot="icon" name="eagles-majesty"></ms-icon>
         <div slot="description">
           The majesty of eagles
-          restores <span>{ EaglesMajestyValues.spirit[this.level] }</span> spirit every second
+          restores <span>{ EaglesMajesty.values.spirit[this.level] }</span> spirit every second
           for <span>30</span> sec. While this effect is active, Bronze Eagle
-          deals <span>{ EaglesMajestyValues.damage[this.level] }%</span> damage when you attack,
+          deals <span>{ EaglesMajesty.values.damage[this.level] }%</span> damage when you attack,
           capped at once every <span>3</span> sec.
         </div>
       </ms-skill-overlay>

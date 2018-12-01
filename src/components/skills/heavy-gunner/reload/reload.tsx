@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ReloadValues } from "../../../../global/values/heavy-gunner";
+import { Reload } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-reload",
@@ -8,14 +8,14 @@ import { ReloadValues } from "../../../../global/values/heavy-gunner";
 })
 export class ReloadComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ReloadValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Reload.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ReloadValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Reload.maxLevel;
 
   render() {
     return [
       <ms-icon name="reload" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Reload"
+      <ms-skill-overlay heading={ Reload.name }
                         level={ this.level }
                         weaponRequired="Two-handed Cannon"
                         max={ this.max }>
