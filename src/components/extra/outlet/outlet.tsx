@@ -23,11 +23,11 @@ export class OutletComponent {
 
     this._tagName = el.tagName.toLowerCase();
 
-    el.componentOnReady().then(async (editor: ClassEditorHTMLElement) => {
+    el.componentOnReady().then((editor: ClassEditorHTMLElement) => {
       this._editor = editor;
       this._htmlString = this.getTag();
 
-      this._editor.addEventListener("skillchanged", async (evt: any) => {
+      this._editor.addEventListener("skillchanged", (evt: any) => {
         this._htmlString = this.getTag(evt.detail);
       });
     });

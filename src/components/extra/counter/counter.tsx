@@ -19,7 +19,7 @@ export class CounterComponent {
       el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-thief,ms-wizard");
     }
 
-    el.componentOnReady().then(async (editor: ClassEditorHTMLElement) => {
+    el.componentOnReady().then((editor: ClassEditorHTMLElement) => {
       this._editor = editor;
 
       this._editor.addEventListener("skillchanged", (evt: any) => {
