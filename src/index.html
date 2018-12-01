@@ -59,7 +59,7 @@
       }
       #toggles .active.unavailable:after { color: red; }
 
-      #editors > div { max-width: 815px; margin: auto; }
+      #editors { max-width: 815px; margin: auto; }
       
       #remaining {
         margin-top: 5px;
@@ -70,10 +70,6 @@
       #remaining .points {
         color: #dcc134;
         font-size: 1.3rem;
-      }
-      #remaining .note {
-        font-size: .8em;
-        font-style: italic;
       }
 
       ms-extra-outlet { display: block; }
@@ -135,18 +131,11 @@
         So much better than just a screenshot!
       </p>
 
-      <h2>How do I put this one my site or blog?</h2>
       <p>
         Select a class and the skills you want to show and then copy the code above the skill chart into your site or blog.
       </p>
-      <blockquote>
-        What you see below is the editor mode.
-        When you use this on your site or blog the skills will no longer be editable by default,
-        and you'll not see counter of how many skill points are left.
-        For information on how to add these features see the <a href="#faq">FAQ</a>.
-      </blockquote>
       
-      <hr />
+      <br />
     
       <p id="toggles">
         <a href="javascript:void(0)" ms-class="archer" onclick="toggle('archer')">
@@ -197,31 +186,34 @@
       </p>
 
       <div id="editors">
-        <div>
-          <code class="block" id="code">
+        <code class="block" id="code">
 &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
-          </code>
+        </code>
 
-          <div id="chartHolder"></div>
+        <div id="chartHolder"></div>
 
-          <div id="remaining">
-            <span>Remaining Skill Points:</span>
-            <span class="points"></span>
-            <span class="note">
-              (This counter will not be shown to your users.)
-            </span>
-          </div>
-  
+        <div id="remaining">
+          <span>Remaining Skill Points:</span>
+          <span class="points"></span>
         </div>
+
+        <p><i>
+          What you see above is the editor mode.
+          When you the code above the skills will no longer be editable,
+          and you won't see the Remaining Skill Points.
+          For information on how to add these features please visit
+          the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a>.
+        </i></p>
+  
       </div>
 
       <h2 id="faq">FAQ</h2>
       <dl>
         <div>
-          <dt>The skill charts are too big!</dt>
+          <dt>The skill charts are too big/small!</dt>
           <dd>
             The chart automatically adjust to the size of it's container,
-            but if you still wish to make it smaller you can do so with CSS transformations.
+            but if you still wish to change the size you can do so with CSS transformations.
             <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
@@ -237,12 +229,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         <div>
           <dt>Can I let the user change the skills on my site too?</dt>
           <dd>
-            Yes! Just add <code>editable="true"</code> to the chart.
-            (e.g. <code>&lt;ms-archer editable="true"&gt;&lt;/ms-archer&gt;</code>).
-            This is actually exactly what's done on this site.<br />
-            There's also a component available to show how many points are left to place:
-            <code>&lt;ms-extra-counter&gt;&lt;/ms-extra-counter&gt;</code>.
-            You can put this anywhere on your site.
+            Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
           </dd>
         </div>
 
