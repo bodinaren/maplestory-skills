@@ -47,7 +47,7 @@ export namespace Components {
     'editable'?: boolean;
     'evasiveSalvo'?: number;
     'iceArrow'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'precisionShooter'?: number;
     'rapidShot'?: number;
     'screwdriverShot'?: number;
@@ -86,7 +86,7 @@ export namespace Components {
     'luckyStars'?: number;
     'markOfDeath'?: number;
     'mirrorImageDarkBlade'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'shadowArts'?: number;
     'shadowBurst'?: number;
     'shadowChaser'?: number;
@@ -134,7 +134,7 @@ export namespace Components {
     'groundBreaker'?: number;
     'inhumanEndurance'?: number;
     'intimidation'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'ragingSlash'?: number;
     'voidSlash'?: number;
     'warriorsInstinct'?: number;
@@ -184,7 +184,7 @@ export namespace Components {
     'mBomb'?: number;
     'magneticBomb'?: number;
     'medKit'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'reload'?: number;
     'rocketLauncher'?: number;
     'stunGrenades'?: number;
@@ -222,7 +222,7 @@ export namespace Components {
     'ironDefense'?: number;
     'ironShield'?: number;
     'longswordMastery'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'shieldBooster'?: number;
     'shieldCharge'?: number;
     'shieldMastery'?: number;
@@ -268,7 +268,7 @@ export namespace Components {
     'holyBlast'?: number;
     'holyRelic'?: number;
     'holySymbol'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'sanctuary'?: number;
     'scepterMastery'?: number;
     'scourgingWave'?: number;
@@ -312,7 +312,7 @@ export namespace Components {
     'honingRunes'?: number;
     'illusoryBlades'?: number;
     'impact'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'runeBalance'?: number;
     'runeFocus'?: number;
     'stormSigil'?: number;
@@ -351,7 +351,7 @@ export namespace Components {
     'mesoguardPlus'?: number;
     'mindBreaker'?: number;
     'mindStealer'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'poisonEdge'?: number;
     'poisonVial'?: number;
     'quickStep'?: number;
@@ -399,11 +399,25 @@ export namespace Components {
     'magicArmor'?: number;
     'manaClaw'?: number;
     'manaFont'?: number;
-    'onSkillchanged'?: (event: CustomEvent<string>) => void;
+    'onSkillchanged'?: (event: CustomEvent) => void;
     'phantomClaw'?: number;
     'pyromancy'?: number;
     'teleport'?: number;
     'thunderbolt'?: number;
+  }
+
+  interface MsExtraCounter {
+    'editor'?: string;
+  }
+  interface MsExtraCounterAttributes extends StencilHTMLAttributes {
+    'editor'?: string;
+  }
+
+  interface MsExtraOutlet {
+    'editor': string;
+  }
+  interface MsExtraOutletAttributes extends StencilHTMLAttributes {
+    'editor'?: string;
   }
 
   interface MsFooter {}
@@ -416,13 +430,6 @@ export namespace Components {
   interface MsIconAttributes extends StencilHTMLAttributes {
     'name'?: string;
     'sp'?: boolean;
-  }
-
-  interface MsOutlet {
-    'editor': string;
-  }
-  interface MsOutletAttributes extends StencilHTMLAttributes {
-    'editor'?: string;
   }
 
   interface MsSkillOverlay {
@@ -1860,9 +1867,10 @@ declare global {
     'MsRuneblade': Components.MsRuneblade;
     'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
+    'MsExtraCounter': Components.MsExtraCounter;
+    'MsExtraOutlet': Components.MsExtraOutlet;
     'MsFooter': Components.MsFooter;
     'MsIcon': Components.MsIcon;
-    'MsOutlet': Components.MsOutlet;
     'MsSkillOverlay': Components.MsSkillOverlay;
     'MsSkill': Components.MsSkill;
     'MsAgileArcher': Components.MsAgileArcher;
@@ -2031,9 +2039,10 @@ declare global {
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
+    'ms-extra-counter': Components.MsExtraCounterAttributes;
+    'ms-extra-outlet': Components.MsExtraOutletAttributes;
     'ms-footer': Components.MsFooterAttributes;
     'ms-icon': Components.MsIconAttributes;
-    'ms-outlet': Components.MsOutletAttributes;
     'ms-skill-overlay': Components.MsSkillOverlayAttributes;
     'ms-skill': Components.MsSkillAttributes;
     'ms-agile-archer': Components.MsAgileArcherAttributes;
@@ -2252,6 +2261,18 @@ declare global {
     new (): HTMLMsWizardElement;
   };
 
+  interface HTMLMsExtraCounterElement extends Components.MsExtraCounter, HTMLStencilElement {}
+  var HTMLMsExtraCounterElement: {
+    prototype: HTMLMsExtraCounterElement;
+    new (): HTMLMsExtraCounterElement;
+  };
+
+  interface HTMLMsExtraOutletElement extends Components.MsExtraOutlet, HTMLStencilElement {}
+  var HTMLMsExtraOutletElement: {
+    prototype: HTMLMsExtraOutletElement;
+    new (): HTMLMsExtraOutletElement;
+  };
+
   interface HTMLMsFooterElement extends Components.MsFooter, HTMLStencilElement {}
   var HTMLMsFooterElement: {
     prototype: HTMLMsFooterElement;
@@ -2262,12 +2283,6 @@ declare global {
   var HTMLMsIconElement: {
     prototype: HTMLMsIconElement;
     new (): HTMLMsIconElement;
-  };
-
-  interface HTMLMsOutletElement extends Components.MsOutlet, HTMLStencilElement {}
-  var HTMLMsOutletElement: {
-    prototype: HTMLMsOutletElement;
-    new (): HTMLMsOutletElement;
   };
 
   interface HTMLMsSkillOverlayElement extends Components.MsSkillOverlay, HTMLStencilElement {}
@@ -3211,9 +3226,10 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
+    'ms-extra-counter': HTMLMsExtraCounterElement
+    'ms-extra-outlet': HTMLMsExtraOutletElement
     'ms-footer': HTMLMsFooterElement
     'ms-icon': HTMLMsIconElement
-    'ms-outlet': HTMLMsOutletElement
     'ms-skill-overlay': HTMLMsSkillOverlayElement
     'ms-skill': HTMLMsSkillElement
     'ms-agile-archer': HTMLMsAgileArcherElement
@@ -3382,9 +3398,10 @@ declare global {
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
+    'ms-extra-counter': HTMLMsExtraCounterElement;
+    'ms-extra-outlet': HTMLMsExtraOutletElement;
     'ms-footer': HTMLMsFooterElement;
     'ms-icon': HTMLMsIconElement;
-    'ms-outlet': HTMLMsOutletElement;
     'ms-skill-overlay': HTMLMsSkillOverlayElement;
     'ms-skill': HTMLMsSkillElement;
     'ms-agile-archer': HTMLMsAgileArcherElement;

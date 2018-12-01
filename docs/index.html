@@ -59,19 +59,44 @@
       #toggles .active.unavailable:after { color: red; }
 
       #editors > div { max-width: 819px; margin: auto; }
+      
+      #remaining {
+        margin-top: 5px;
+        display: flex;
+        font-family: Roboto, Verdana;
+      }
+      #remaining > * { margin-right: 5px; }
+      #remaining .points {
+        color: #dcc134;
+        font-size: 1.3rem;
+      }
+      #remaining .note {
+        font-size: .8em;
+        font-style: italic;
+      }
+
+      ms-extra-outlet { display: block; }
 
       code {
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        margin: 1em 0;
+        padding: 2px;
+      }
+      code.block {
         display: block;
         box-sizing: border-box;
         width: 100%;
-        height: 110px;
-        background-color: black;
-        color: white;
+        min-height: 110px;
         padding: 5px;
-        font-size: 14px;
-        margin: 1em 0;
       }
-      ms-editor-outlet { display: block; }
+      pre {
+        font-size: 1rem;
+        background-color: black;
+        padding: 0 5px 5px;
+        overflow-x: auto;
+      }
 
       dl {
         padding-left: 10px;
@@ -89,11 +114,7 @@
         margin-left: 0;
       }
       dl pre {
-        font-size: 1rem;
-        background-color: black;
         margin-left: 20px;
-        padding: 0 5px 5px;
-        overflow-x: auto;
       }
     </style>
 
@@ -117,7 +138,12 @@
       <p>
         Select a class and the skills you want to show and then copy the code above the skill chart into your site or blog.
       </p>
-      <blockquote>What you see below is an editor. When you use this on your site or blog the skills will no longer be editable.</blockquote>
+      <blockquote>
+        What you see below is the editor mode.
+        When you use this on your site or blog the skills will no longer be editable by default,
+        and you'll not see counter of how many skill points are left.
+        For information on how to add these features see the <a href="#faq">FAQ</a>.
+      </blockquote>
       
       <hr />
     
@@ -171,20 +197,30 @@
 
       <div id="editors">
         <div>
-          <code>
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;<br />
+          <code class="block" id="code">
+&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
           </code>
 
           <div id="chartHolder"></div>
+
+          <div id="remaining">
+            <span>Remaining Skill Points:</span>
+            <span class="points"></span>
+            <span class="note">
+              (This counter will not be shown to your users.)
+            </span>
+          </div>
+  
         </div>
       </div>
 
-      <h2>FAQ</h2>
+      <h2 id="faq">FAQ</h2>
       <dl>
         <div>
           <dt>The skill charts are too big!</dt>
           <dd>
-            You can make them smaller with CSS transformations.
+            The chart automatically adjust to the size of it's container,
+            but if you still wish to make it smaller you can do so with CSS transformations.
             <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner,
 ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
@@ -194,6 +230,17 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
   margin-bottom: calc(-770px * 0.2);  /* to remove empty space at the bottom, or */
   margin-right: calc(-815px * 0.2);   /* if you use "top left" for transform-origin */
 }</pre>
+          </dd>
+        </div>
+
+        <div>
+          <dt>Can I let the user change the skills on my site too?</dt>
+          <dd>
+            Yes! Just add <code>editable="true"</code> to the code above.
+            (e.g. <code>&lt;ms-archer editable="true"&gt;&lt;/ms-archer&gt;</code>).
+            This is actually exactly what's done on this site.<br />
+            There's also a component available to show how many points are left to place:
+            <code>&lt;ms-extra-counter&gt;&lt;/ms-extra-counter&gt;</code>.
           </dd>
         </div>
 
@@ -220,22 +267,26 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         document.querySelector("[ms-class='" + msClass + "'").classList.add("active");
 
         var chartHolder = document.querySelector("#chartHolder");
-        var codeHolder = chartHolder.previousElementSibling;
-        var outlet = codeHolder.querySelector("ms-outlet");
+        var outletHolder = document.querySelector("#code");
+        var counterHolder = document.querySelector("#remaining .points");
         
-        if (chartHolder.firstElementChild) {
-          chartHolder.firstElementChild.remove();
-        }
-        if (outlet) outlet.remove();
-        
-        var editor = document.createElement("ms-" + msClass);
-        editor.id = "editor";
-        editor.editable = true;
-        chartHolder.appendChild(editor);
+        var chart = chartHolder.firstElementChild;
+        var outlet = outletHolder.querySelector("ms-outlet");
+        var counter = counterHolder.firstElementChild;
 
-        outlet = document.createElement("ms-outlet");
-        outlet.editor = "editor";
-        codeHolder.appendChild(outlet);
+        // create new editor for the new class.
+        if (chart) chart.remove();
+        chart = document.createElement("ms-" + msClass);
+        chart.editable = true;
+        chartHolder.appendChild(chart);
+
+        // re-create the outlet so it can attach to the new editor.
+        if (outlet) outlet.remove();
+        outletHolder.appendChild(document.createElement("ms-extra-outlet"));
+
+        // re-create the counter so it can attach to the new editor.
+        if (counter) counter.remove();
+        counterHolder.appendChild(document.createElement("ms-extra-counter"));
       }
 
       toggle("archer");

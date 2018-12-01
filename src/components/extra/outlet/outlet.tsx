@@ -1,7 +1,7 @@
 import { Component, Prop, State } from "@stencil/core";
 
 @Component({
-  tag: "ms-outlet",
+  tag: "ms-extra-outlet",
   styleUrl: "outlet.scss",
   shadow: true
 })
@@ -14,13 +14,16 @@ export class OutletComponent {
 
   componentDidLoad() {
     let el = document.getElementById(this.editor) as HTMLStencilElement;
+    if (!el) {
+      el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-thief,ms-wizard");
+    }
 
     el.componentOnReady().then(async (editor: ClassEditorHTMLElement) => {
       this._editor = editor;
       this._htmlString = await editor.toHtmlString();
 
-      this._editor.addEventListener("skillchanged", (evt) => {
-        this._htmlString = (evt as any).detail;
+      this._editor.addEventListener("skillchanged", async () => {
+        this._htmlString = await editor.toHtmlString();
       });
     });
   }

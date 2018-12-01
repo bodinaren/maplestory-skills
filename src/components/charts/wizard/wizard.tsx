@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, renderProperties } from "../class-chart-helpers";
+import { processSkills, renderLevelControls, renderProperties, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
 
@@ -32,7 +32,7 @@ export class WizardComponent {
 
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
-  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter<string>;
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
     processSkills(this, WizardSkills);
@@ -41,7 +41,7 @@ export class WizardComponent {
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    this.onSkillChanged.emit(await this.toHtmlString());
+    this.onSkillChanged.emit(toSkillChangeObject(this, WizardSkills));
 
     processSkills(this, WizardSkills);
   }

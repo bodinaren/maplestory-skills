@@ -2,9 +2,12 @@ import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 export function processSkills(chart: any, classSkills: any) {
   let skills = {};
+  let sum = 0;
 
   Object.keys(classSkills).forEach((skillKey: string) => {
     let values = classSkills[skillKey];
+
+    sum += chart[values.prop];
 
     skills[values.prop] = {
       locked: false,
@@ -22,21 +25,9 @@ export function processSkills(chart: any, classSkills: any) {
         chart[values.prop] = 0;
       }
     });
+
+    skills[values.prop].limitReached = (sum >= 68 + 4);
   });
-
-  let sum = 0;
-
-  Object.keys(classSkills).forEach((skillKey: string) => {
-    let values = classSkills[skillKey];
-    sum += chart[values.prop];
-  });
-
-  if (sum >= 68 + 4) { // 4 skills are already distributed and can't be removed
-    Object.keys(classSkills).forEach((skillKey: string) => {
-      let values = classSkills[skillKey];
-      skills[values.prop].limitReached = true;
-    });
-  }
 
   chart.skills = skills;
 }
@@ -75,10 +66,10 @@ export function renderLevelControls(chart: any, skillValues: any, editable: bool
   );
 }
 
-export function renderProperties(chart: any, classSkills: { [skillName: string]: ISkill }): string {
+export function renderProperties(chart: any, classSkills: { [key: string]: ISkill }): string {
   return Object.keys(classSkills)
-    .map((skillName) => {
-      let skill = classSkills[skillName];
+    .map((key) => {
+      let skill = classSkills[key];
       if (chart[skill.prop] > skill.minLevel) {
         return `${skill.attr}="${ chart[skill.prop] }"`;
       }
@@ -86,3 +77,22 @@ export function renderProperties(chart: any, classSkills: { [skillName: string]:
       return !!x;
     }).join(" ");
 }
+
+export function toSkillChangeObject(chart: any, classSkills: { [key: string]: ISkill }): SkillChangeEvent {
+  return Object.keys(classSkills)
+    .map((key) => {
+      let skill = classSkills[key];
+      return {
+        skill: skill.name,
+        level: chart[skill.prop],
+      };
+    });
+}
+
+export type SkillChangeEvent = Array<{
+  /** The name of the skill */
+  skill: string;
+
+  /** How many points were put into the skill */
+  level: number;
+}>;
