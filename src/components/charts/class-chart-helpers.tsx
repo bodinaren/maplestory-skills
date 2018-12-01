@@ -1,4 +1,5 @@
 import { ISkill } from "../../global/values/_skillValues.interfaces";
+import { SkillChangeEvent } from "./skill-change-event";
 
 export function processSkills(chart: any, classSkills: any) {
   let skills = {};
@@ -78,17 +79,3 @@ export function toSkillChangeObject(chart: any, classSkills: { [key: string]: IS
       };
     });
 }
-
-export type SkillChangeEvent = Array<{
-  /** The name of the skill */
-  skill: string;
-
-  /** The attribute for the skill */
-  attr: string;
-
-  /** How many points were put into the skill */
-  level: number;
-
-  /** The minimum amount of points that must be put into the skill */
-  minLevel: number;
-}>;

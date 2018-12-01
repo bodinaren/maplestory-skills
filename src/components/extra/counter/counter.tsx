@@ -1,5 +1,5 @@
 import { Component, Prop, State } from "@stencil/core";
-import { SkillChangeEvent } from "../../charts/class-chart-helpers";
+import { SkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-counter",

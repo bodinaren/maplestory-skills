@@ -1,5 +1,5 @@
 import { Component, Prop, State } from "@stencil/core";
-import { SkillChangeEvent } from "../../charts/class-chart-helpers";
+import { SkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-outlet",
@@ -41,7 +41,9 @@ export class OutletComponent {
   }
 
   private getTag() {
-    return `<${ this._tagName } ${ this.getProperties(this._skills) }></${ this._tagName }>`;
+    let props = this.getProperties(this._skills);
+    if (props) props = " " + props;
+    return `<${ this._tagName }${ props }></${ this._tagName }>`;
   }
 
   private getProperties(skillChanges: SkillChangeEvent): string {
