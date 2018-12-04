@@ -10,25 +10,12 @@ export class DarkAuraComponent {
 
   @Prop({ reflectToAttr: true }) level: number = DarkAura.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DarkAura.maxLevel;
-
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="dark-aura" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading={ DarkAura.name }
-                        element="Dark"
-                        level={ this.level }
-                        passive={ true }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="dark-aura" sp={ true }></ms-icon>
-        <div slot="description">
-          Your latent dark power restores <span>10</span> spirit every second.
-          Dark Aura stacks on hit, up to once per second, up to <span>10</span> times total.
-          Each stack increases the amount restored by an additional <span>1</span> spirit.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ DarkAura } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }

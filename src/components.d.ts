@@ -8,6 +8,10 @@
 import '@stencil/core';
 
 
+import {
+  ISkill,
+  MapleStoryElement,
+} from './global/values/_skillValues.interfaces';
 
 
 export namespace Components {
@@ -425,24 +429,26 @@ export namespace Components {
 
   interface MsSkillOverlay {
     'cooldown': number;
-    'element': string;
+    'element': MapleStoryElement;
     'heading': string;
     'level': number;
     'max': number;
     'passive': boolean;
     'requirements': string[];
+    'skill': ISkill;
     'spirit': number;
     'type': string;
     'weaponRequired': string;
   }
   interface MsSkillOverlayAttributes extends StencilHTMLAttributes {
     'cooldown'?: number;
-    'element'?: string;
+    'element'?: MapleStoryElement;
     'heading'?: string;
     'level'?: number;
     'max'?: number;
     'passive'?: boolean;
     'requirements'?: string[];
+    'skill'?: ISkill;
     'spirit'?: number;
     'type'?: string;
     'weaponRequired'?: string;
@@ -470,1379 +476,1073 @@ export namespace Components {
 
   interface MsAgileArcher {
     'level': number;
-    'max': number;
   }
   interface MsAgileArcherAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsArrowBarrage {
     'level': number;
-    'max': number;
   }
   interface MsArrowBarrageAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsArrowStorm {
     'level': number;
-    'max': number;
   }
   interface MsArrowStormAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsArrowStream {
     'level': number;
-    'max': number;
   }
   interface MsArrowStreamAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBowSwing {
     'level': number;
-    'max': number;
   }
   interface MsBowSwingAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBronzeEagle {
     'level': number;
-    'max': number;
   }
   interface MsBronzeEagleAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsConditioning {
     'level': number;
-    'max': number;
   }
   interface MsConditioningAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEagleClaw {
     'level': number;
-    'max': number;
   }
   interface MsEagleClawAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEagleGlide {
     'level': number;
-    'max': number;
   }
   interface MsEagleGlideAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEaglesMajesty {
     'level': number;
-    'max': number;
   }
   interface MsEaglesMajestyAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEvasiveSalvo {
     'level': number;
-    'max': number;
   }
   interface MsEvasiveSalvoAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIceArrow {
     'level': number;
-    'max': number;
   }
   interface MsIceArrowAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsPrecisionShooter {
     'level': number;
-    'max': number;
   }
   interface MsPrecisionShooterAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRapidShot {
     'level': number;
-    'max': number;
   }
   interface MsRapidShotAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsScrewdriverShot {
     'level': number;
-    'max': number;
   }
   interface MsScrewdriverShotAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSharpEyes {
     'level': number;
-    'max': number;
   }
   interface MsSharpEyesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSnipe {
     'level': number;
-    'max': number;
   }
   interface MsSnipeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDarkCloak {
     'level': number;
-    'max': number;
   }
   interface MsDarkCloakAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDash {
     'level': number;
-    'max': number;
   }
   interface MsDashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDeathSentence {
     'level': number;
-    'max': number;
   }
   interface MsDeathSentenceAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFatalStrikes {
     'level': number;
-    'max': number;
   }
   interface MsFatalStrikesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFragmentedStar {
     'level': number;
-    'max': number;
   }
   interface MsFragmentedStarAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsLuckyStars {
     'level': number;
-    'max': number;
   }
   interface MsLuckyStarsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMarkOfDeath {
     'level': number;
-    'max': number;
   }
   interface MsMarkOfDeathAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMirrorImageDarkBlade {
     'level': number;
-    'max': number;
   }
   interface MsMirrorImageDarkBladeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShadowArts {
     'level': number;
-    'max': number;
   }
   interface MsShadowArtsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShadowBurst {
     'level': number;
-    'max': number;
   }
   interface MsShadowBurstAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShadowChaser {
     'level': number;
-    'max': number;
   }
   interface MsShadowChaserAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShadowCutter {
     'level': number;
-    'max': number;
   }
   interface MsShadowCutterAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShadowWeb {
     'level': number;
-    'max': number;
   }
   interface MsShadowWebAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSoulGrind {
     'level': number;
-    'max': number;
   }
   interface MsSoulGrindAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsStarChaser {
     'level': number;
-    'max': number;
   }
   interface MsStarChaserAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsStarFlurry {
     'level': number;
-    'max': number;
   }
   interface MsStarFlurryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsThrownWeaponMastery {
     'level': number;
-    'max': number;
   }
   interface MsThrownWeaponMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsAdrenalineRush {
     'level': number;
-    'max': number;
   }
   interface MsAdrenalineRushAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBloodPrice {
     'level': number;
-    'max': number;
   }
   interface MsBloodPriceAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBloodlust {
     'level': number;
-    'max': number;
   }
   interface MsBloodlustAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDarkAura {
     'level': number;
-    'max': number;
   }
   interface MsDarkAuraAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDarkBreaker {
     'level': number;
-    'max': number;
   }
   interface MsDarkBreakerAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDarkMight {
     'level': number;
-    'max': number;
   }
   interface MsDarkMightAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDeathSpin {
     'level': number;
-    'max': number;
   }
   interface MsDeathSpinAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDeepWounds {
     'level': number;
-    'max': number;
   }
   interface MsDeepWoundsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEarthquake {
     'level': number;
-    'max': number;
   }
   interface MsEarthquakeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsGreatswordMastery {
     'level': number;
-    'max': number;
   }
   interface MsGreatswordMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsGroundBreaker {
     'level': number;
-    'max': number;
   }
   interface MsGroundBreakerAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsInhumanEndurance {
     'level': number;
-    'max': number;
   }
   interface MsInhumanEnduranceAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIntimidation {
     'level': number;
-    'max': number;
   }
   interface MsIntimidationAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRagingSlash {
     'level': number;
-    'max': number;
   }
   interface MsRagingSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsVoidSlash {
     'level': number;
-    'max': number;
   }
   interface MsVoidSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsWarriorsInstinct {
     'level': number;
-    'max': number;
   }
   interface MsWarriorsInstinctAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsXSlash {
     'level': number;
-    'max': number;
   }
   interface MsXSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsAdvancedBullets {
     'level': number;
-    'max': number;
   }
   interface MsAdvancedBulletsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsAdvancedMissiles {
     'level': number;
-    'max': number;
   }
   interface MsAdvancedMissilesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsAdvancedPulseWeapons {
     'level': number;
-    'max': number;
   }
   interface MsAdvancedPulseWeaponsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBlastChargeKit {
     'level': number;
-    'max': number;
   }
   interface MsBlastChargeKitAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBulletSpray {
     'level': number;
-    'max': number;
   }
   interface MsBulletSprayAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsElectricBlast {
     'level': number;
-    'max': number;
   }
   interface MsElectricBlastAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsGatlingFire {
     'level': number;
-    'max': number;
   }
   interface MsGatlingFireAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHomingMissiles {
     'level': number;
-    'max': number;
   }
   interface MsHomingMissilesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsJetBoots {
     'level': number;
-    'max': number;
   }
   interface MsJetBootsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsLockOn {
     'level': number;
-    'max': number;
   }
   interface MsLockOnAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMBomb {
     'level': number;
-    'max': number;
   }
   interface MsMBombAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMagneticBomb {
     'level': number;
-    'max': number;
   }
   interface MsMagneticBombAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMedKit {
     'level': number;
-    'max': number;
   }
   interface MsMedKitAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsReload {
     'level': number;
-    'max': number;
   }
   interface MsReloadAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRocketLauncher {
     'level': number;
-    'max': number;
   }
   interface MsRocketLauncherAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsStunGrenades {
     'level': number;
-    'max': number;
   }
   interface MsStunGrenadesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSuborbitalBombardment {
     'level': number;
-    'max': number;
   }
   interface MsSuborbitalBombardmentAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBulwark {
     'level': number;
-    'max': number;
   }
   interface MsBulwarkAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCrossCut {
     'level': number;
-    'max': number;
   }
   interface MsCrossCutAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDefenderOfTheFaith {
     'level': number;
-    'max': number;
   }
   interface MsDefenderOfTheFaithAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDivineStrike {
     'level': number;
-    'max': number;
   }
   interface MsDivineStrikeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDrillThrust {
     'level': number;
-    'max': number;
   }
   interface MsDrillThrustAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIronDefense {
     'level': number;
-    'max': number;
   }
   interface MsIronDefenseAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIronShield {
     'level': number;
-    'max': number;
   }
   interface MsIronShieldAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsLongswordMastery {
     'level': number;
-    'max': number;
   }
   interface MsLongswordMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldBooster {
     'level': number;
-    'max': number;
   }
   interface MsShieldBoosterAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldCharge {
     'level': number;
-    'max': number;
   }
   interface MsShieldChargeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldMastery {
     'level': number;
-    'max': number;
   }
   interface MsShieldMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldToss {
     'level': number;
-    'max': number;
   }
   interface MsShieldTossAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldWall {
     'level': number;
-    'max': number;
   }
   interface MsShieldWallAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsStingingFlurry {
     'level': number;
-    'max': number;
   }
   interface MsStingingFlurryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsTornadoSlash {
     'level': number;
-    'max': number;
   }
   interface MsTornadoSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsTyphoonSlash {
     'level': number;
-    'max': number;
   }
   interface MsTyphoonSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsWarhorn {
     'level': number;
-    'max': number;
   }
   interface MsWarhornAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsAngelicRay {
     'level': number;
-    'max': number;
   }
   interface MsAngelicRayAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCelestialBlessings {
     'level': number;
-    'max': number;
   }
   interface MsCelestialBlessingsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCelestialGuardian {
     'level': number;
-    'max': number;
   }
   interface MsCelestialGuardianAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCelestialLight {
     'level': number;
-    'max': number;
   }
   interface MsCelestialLightAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDisciple {
     'level': number;
-    'max': number;
   }
   interface MsDiscipleAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHealingMastery {
     'level': number;
-    'max': number;
   }
   interface MsHealingMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHealingPrayer {
     'level': number;
-    'max': number;
   }
   interface MsHealingPrayerAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHeavenlyWings {
     'level': number;
-    'max': number;
   }
   interface MsHeavenlyWingsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHolyBlast {
     'level': number;
-    'max': number;
   }
   interface MsHolyBlastAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHolyRelic {
     'level': number;
-    'max': number;
   }
   interface MsHolyRelicAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHolySymbol {
     'level': number;
-    'max': number;
   }
   interface MsHolySymbolAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSanctuary {
     'level': number;
-    'max': number;
   }
   interface MsSanctuaryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsScepterMastery {
     'level': number;
-    'max': number;
   }
   interface MsScepterMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsScourgingWave {
     'level': number;
-    'max': number;
   }
   interface MsScourgingWaveAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsShieldOfTheArchon {
     'level': number;
-    'max': number;
   }
   interface MsShieldOfTheArchonAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSmitingAura {
     'level': number;
-    'max': number;
   }
   interface MsSmitingAuraAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSteadfastFaith {
     'level': number;
-    'max': number;
   }
   interface MsSteadfastFaithAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBladeChasm {
     'level': number;
-    'max': number;
   }
   interface MsBladeChasmAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBladeMastery {
     'level': number;
-    'max': number;
   }
   interface MsBladeMasteryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBlink {
     'level': number;
-    'max': number;
   }
   interface MsBlinkAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsEchoingBlade {
     'level': number;
-    'max': number;
   }
   interface MsEchoingBladeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsElementalPotency {
     'level': number;
-    'max': number;
   }
   interface MsElementalPotencyAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFlameSigil {
     'level': number;
-    'max': number;
   }
   interface MsFlameSigilAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFlurry {
     'level': number;
-    'max': number;
   }
   interface MsFlurryAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFrostSigil {
     'level': number;
-    'max': number;
   }
   interface MsFrostSigilAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsGravityRune {
     'level': number;
-    'max': number;
   }
   interface MsGravityRuneAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHoningRunes {
     'level': number;
-    'max': number;
   }
   interface MsHoningRunesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIllusoryBlades {
     'level': number;
-    'max': number;
   }
   interface MsIllusoryBladesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsImpact {
     'level': number;
-    'max': number;
   }
   interface MsImpactAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRuneBalance {
     'level': number;
-    'max': number;
   }
   interface MsRuneBalanceAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRuneFocus {
     'level': number;
-    'max': number;
   }
   interface MsRuneFocusAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsStormSigil {
     'level': number;
-    'max': number;
   }
   interface MsStormSigilAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsWardingRune {
     'level': number;
-    'max': number;
   }
   interface MsWardingRuneAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsWhirlingBlades {
     'level': number;
-    'max': number;
   }
   interface MsWhirlingBladesAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsBladeDance {
     'level': number;
-    'max': number;
   }
   interface MsBladeDanceAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCunningTactics {
     'level': number;
-    'max': number;
   }
   interface MsCunningTacticsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDeftCombatant {
     'level': number;
-    'max': number;
   }
   interface MsDeftCombatantAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsDoubleSlash {
     'level': number;
-    'max': number;
   }
   interface MsDoubleSlashAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsHaste {
     'level': number;
-    'max': number;
   }
   interface MsHasteAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMesoguardPlus {
     'level': number;
-    'max': number;
   }
   interface MsMesoguardPlusAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMindBreaker {
     'level': number;
-    'max': number;
   }
   interface MsMindBreakerAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMindStealer {
     'level': number;
-    'max': number;
   }
   interface MsMindStealerAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsPoisonEdge {
     'level': number;
-    'max': number;
   }
   interface MsPoisonEdgeAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsPoisonVial {
     'level': number;
-    'max': number;
   }
   interface MsPoisonVialAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsQuickStep {
     'level': number;
-    'max': number;
   }
   interface MsQuickStepAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRetaliation {
     'level': number;
-    'max': number;
   }
   interface MsRetaliationAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsRuthlessGuile {
     'level': number;
-    'max': number;
   }
   interface MsRuthlessGuileAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSomersaultKick {
     'level': number;
-    'max': number;
   }
   interface MsSomersaultKickAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSpiritThief {
     'level': number;
-    'max': number;
   }
   interface MsSpiritThiefAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsSurpriseAttack {
     'level': number;
-    'max': number;
   }
   interface MsSurpriseAttackAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsViciousCuts {
     'level': number;
-    'max': number;
   }
   interface MsViciousCutsAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsArcaneBlast {
     'level': number;
-    'max': number;
   }
   interface MsArcaneBlastAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsChainLightning {
     'level': number;
-    'max': number;
   }
   interface MsChainLightningAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsCryomancy {
     'level': number;
-    'max': number;
   }
   interface MsCryomancyAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsElectromancy {
     'level': number;
-    'max': number;
   }
   interface MsElectromancyAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsElementalMaster {
     'level': number;
-    'max': number;
   }
   interface MsElementalMasterAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFlameTornado {
     'level': number;
-    'max': number;
   }
   interface MsFlameTornadoAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFlameWave {
     'level': number;
-    'max': number;
   }
   interface MsFlameWaveAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsFocusSeal {
     'level': number;
-    'max': number;
   }
   interface MsFocusSealAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIceSpear {
     'level': number;
-    'max': number;
   }
   interface MsIceSpearAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsIceStorm {
     'level': number;
-    'max': number;
   }
   interface MsIceStormAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsMagicArmor {
     'level': number;
-    'max': number;
   }
   interface MsMagicArmorAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsManaClaw {
     'level': number;
-    'max': number;
   }
   interface MsManaClawAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsManaFont {
     'level': number;
-    'max': number;
   }
   interface MsManaFontAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsPhantomClaw {
     'level': number;
-    'max': number;
   }
   interface MsPhantomClawAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsPyromancy {
     'level': number;
-    'max': number;
   }
   interface MsPyromancyAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsTeleport {
     'level': number;
-    'max': number;
   }
   interface MsTeleportAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 
   interface MsThunderbolt {
     'level': number;
-    'max': number;
   }
   interface MsThunderboltAttributes extends StencilHTMLAttributes {
     'level'?: number;
-    'max'?: number;
   }
 }
 

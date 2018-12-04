@@ -10,33 +10,10 @@ export class DefenderOfTheFaithComponent {
 
   @Prop({ reflectToAttr: true }) level: number = DefenderOfTheFaith.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DefenderOfTheFaith.maxLevel;
-
-  getRequirements(): string[] {
-    return [
-      `Level ${ DefenderOfTheFaith.levelRequirement[this.level] }+`,
-      `Shield Wall [Level 4+]`,
-      `Warhorn [Level 3+]`,
-    ];
-  }
-
   render() {
     return [
       <ms-icon name="defender-of-the-faith"></ms-icon>,
-      <ms-skill-overlay heading={ DefenderOfTheFaith.name }
-                        element="Holy"
-                        level={ this.level }
-                        weaponRequired="Off-hand Shield"
-                        requirements={ this.getRequirements() }
-                        cooldown={ DefenderOfTheFaith.values.cooldown[this.level] }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="defender-of-the-faith"></ms-icon>
-        <div slot="description">
-          Dash to the nearest ally within <span>8</span> m to create a protective barrier that
-          lasts <span>3</span> sec and makes <span>{ DefenderOfTheFaith.values.allies[this.level] }</span> allies,
-          including yourself, invulnerable to enemy attacks. Some attacks cannot be blocked.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ DefenderOfTheFaith } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }

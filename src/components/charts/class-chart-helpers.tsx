@@ -20,12 +20,14 @@ export function processSkills(chart: any, classSkills: any) {
   Object.keys(classSkills).forEach((skillKey: string) => {
     let values = classSkills[skillKey];
 
-    values.skillRequirements.forEach((req) => {
-      if (chart[req.skill.prop] < req.level) {
-        skills[values.prop].locked = true;
-        chart[values.prop] = 0;
-      }
-    });
+    if (values.skillRequirements) {
+      values.skillRequirements.forEach((req) => {
+        if (chart[req.skill.prop] < req.level) {
+          skills[values.prop].locked = true;
+          chart[values.prop] = 0;
+        }
+      });
+    }
 
     skills[values.prop].limitReached = (sum >= 68 + 4);
   });
@@ -34,17 +36,19 @@ export function processSkills(chart: any, classSkills: any) {
 }
 
 export function toggleSkillRequirements(chart: any, skill: any, setActive: boolean) {
-  let didUpdate = false;
-  skill.skillRequirements.forEach((req) => {
-    if (chart[req.skill.prop] < req.level) {
-      let r = (setActive) ? `Level ${ req.level }+` : undefined;
-      if (chart.skills[req.skill.prop].required !== r) {
-        chart.skills[req.skill.prop].required = r;
-        didUpdate = true;
+  if (skill.skillRequirements) {
+    let didUpdate = false;
+    skill.skillRequirements.forEach((req) => {
+      if (chart[req.skill.prop] < req.level) {
+        let r = (setActive) ? `Level ${ req.level }+` : undefined;
+        if (chart.skills[req.skill.prop].required !== r) {
+          chart.skills[req.skill.prop].required = r;
+          didUpdate = true;
+        }
       }
-    }
-  });
-  if (didUpdate) chart.skills = {...chart.skills};
+    });
+    if (didUpdate) chart.skills = {...chart.skills};
+  }
 }
 
 export function renderLevelControls(chart: any, skillValues: any, editable: boolean, slot: JSX.Element): JSX.Element {

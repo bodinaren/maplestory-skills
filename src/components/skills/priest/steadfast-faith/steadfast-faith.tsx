@@ -10,26 +10,12 @@ export class SteadfastFaithComponent {
 
   @Prop({ reflectToAttr: true }) level: number = SteadfastFaith.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SteadfastFaith.maxLevel;
-
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="steadfast-faith" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading={ SteadfastFaith.name }
-                        element="Holy"
-                        level={ this.level }
-                        passive={ true }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="steadfast-faith" sp={ true }></ms-icon>
-        <div slot="description">
-          You've been rewarded for your devotion,
-          recovering <span>8</span> spirit every <span>0.5</span> sec,
-          plus an addition <span>4</span> spirit for every enemy
-          suffering from Celestial Light.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ SteadfastFaith } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }

@@ -10,23 +10,12 @@ export class RuneBalanceComponent {
 
   @Prop({ reflectToAttr: true }) level: number = RuneBalance.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = RuneBalance.maxLevel;
-
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="rune-balance" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading={ RuneBalance.name }
-                        level={ this.level }
-                        passive={ true }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="rune-balance" sp={ true }></ms-icon>
-        <div slot="description">
-          Your training allows you to absorb <span>1</span> spirit every <span>0.1</span> sec and
-          increases your intelligence by <span>70%</span> of your strength.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ RuneBalance } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }

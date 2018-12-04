@@ -10,38 +10,10 @@ export class SoulGrindComponent {
 
   @Prop({ reflectToAttr: true }) level: number = SoulGrind.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SoulGrind.maxLevel;
-
-  getRequirements(): string[] {
-    return [
-      `Level ${ SoulGrind.levelRequirement[this.level] }+`,
-      `Lucky Stars [Level 4+]`,
-      `Shadow Burst [Level 3+]`,
-    ];
-  }
-
   render() {
     return [
       <ms-icon name="soul-grind"></ms-icon>,
-      <ms-skill-overlay heading={ SoulGrind.name }
-                        element="Dark"
-                        level={ this.level }
-                        type="Long Range / Physical"
-                        weaponRequired="One-handed Thrown Weapon"
-                        requirements={ this.getRequirements() }
-                        spirit={ 30 }
-                        cooldown={ 14 }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="soul-grind"></ms-icon>
-        <div slot="description">
-          Throw a giant weapon at the closest enemy within <span>8</span> m in front of you,
-          which spins rapidonly on impact,
-          dealing <span>{ SoulGrind.values.damage[this.level] }%</span> dark damage
-          to <span>5</span> enemies within <span>3</span> m <span>5</span> times.
-          The damage of this attack is affected by the weapon in your right hand.
-          Consumes <span>30</span> spirit.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ SoulGrind } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }

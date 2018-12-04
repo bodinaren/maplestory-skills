@@ -10,29 +10,10 @@ export class MagicArmorComponent {
 
   @Prop({ reflectToAttr: true }) level: number = MagicArmor.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MagicArmor.maxLevel;
-
-  getRequirements(): string[] {
-    return [
-      `Level ${ MagicArmor.levelRequirement[this.level] }+`,
-    ];
-  }
-
   render() {
     return [
       <ms-icon name="magic-armor"></ms-icon>,
-      <ms-skill-overlay heading={ MagicArmor.name }
-                        level={ this.level }
-                        requirements={ this.getRequirements() }
-                        cooldown={ 45 }
-                        max={ this.max }>
-        <ms-icon slot="icon" name="magic-armor"></ms-icon>
-        <div slot="description">
-          Envelop your body with a magical aura, creating a barrier that absorbs damage
-          up to <span>{ MagicArmor.values.barrier[this.level] }%</span> of your max health for <span>10</span> sec.
-          Cannot be combined with other barrier effects.
-        </div>
-      </ms-skill-overlay>
+      <ms-skill-overlay skill={ MagicArmor } level={ this.level }></ms-skill-overlay>,
     ];
   }
 }
