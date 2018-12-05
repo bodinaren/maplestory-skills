@@ -5,7 +5,7 @@ import * as ArcherSkills from "../../../global/values/archer";
 
 @Component({
   tag: "ms-archer",
-  styleUrls: ["archer.scss"],
+  styleUrls: ["archer.css"],
   shadow: true
 })
 export class ArcherComponent {
@@ -49,59 +49,8 @@ export class ArcherComponent {
   render() {
     return [
       <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills.AgileArcher, this.editable,
-          <ms-agile-archer level={ this.agileArcher }></ms-agile-archer>
-        )}
-        { renderLevelControls(this, ArcherSkills.ArrowBarrage, this.editable,
-          <ms-arrow-barrage level={ this.arrowBarrage }></ms-arrow-barrage>
-        )}
-        { renderLevelControls(this, ArcherSkills.ArrowStorm, this.editable,
-          <ms-arrow-storm level={ this.arrowStorm }></ms-arrow-storm>
-        )}
-        { renderLevelControls(this, ArcherSkills.ArrowStream, this.editable,
-          <ms-arrow-stream level={ this.arrowStream }></ms-arrow-stream>
-        )}
-        { renderLevelControls(this, ArcherSkills.BowSwing, this.editable,
-          <ms-bow-swing level={ this.bowSwing }></ms-bow-swing>
-        )}
-        { renderLevelControls(this, ArcherSkills.BronzeEagle, this.editable,
-          <ms-bronze-eagle level={ this.bronzeEagle }></ms-bronze-eagle>
-        )}
-        { renderLevelControls(this, ArcherSkills.Conditioning, this.editable,
-          <ms-conditioning level={ this.conditioning }></ms-conditioning>
-        )}
-        { renderLevelControls(this, ArcherSkills.EagleClaw, this.editable,
-          <ms-eagle-claw level={ this.eagleClaw }></ms-eagle-claw>
-        )}
-        { renderLevelControls(this, ArcherSkills.EagleGlide, this.editable,
-          <ms-eagle-glide level={ this.eagleGlide }></ms-eagle-glide>
-        )}
-        { renderLevelControls(this, ArcherSkills.EaglesMajesty, this.editable,
-          <ms-eagles-majesty level={ this.eaglesMajesty }></ms-eagles-majesty>
-        )}
-        { renderLevelControls(this, ArcherSkills.EvasiveSalvo, this.editable,
-          <ms-evasive-salvo level={ this.evasiveSalvo }></ms-evasive-salvo>
-        )}
-        { renderLevelControls(this, ArcherSkills.IceArrow, this.editable,
-          <ms-ice-arrow level={ this.iceArrow }></ms-ice-arrow>
-        )}
-        { renderLevelControls(this, ArcherSkills.PrecisionShooter, this.editable,
-          <ms-precision-shooter level={ this.precisionShooter }></ms-precision-shooter>
-        )}
-        { renderLevelControls(this, ArcherSkills.RapidShot, this.editable,
-          <ms-rapid-shot level={ this.rapidShot }></ms-rapid-shot>
-        )}
-        { renderLevelControls(this, ArcherSkills.ScrewdriverShot, this.editable,
-          <ms-screwdriver-shot level={ this.screwdriverShot }></ms-screwdriver-shot>
-        )}
-        { renderLevelControls(this, ArcherSkills.SharpEyes, this.editable,
-          <ms-sharp-eyes level={ this.sharpEyes }></ms-sharp-eyes>
-        )}
-        { renderLevelControls(this, ArcherSkills.Snipe, this.editable,
-          <ms-snipe level={ this.snipe }></ms-snipe>
-        )}
+        { renderLevelControls(this, ArcherSkills, this.editable)}
       </ms-chart>
     ];
   }
-
 }

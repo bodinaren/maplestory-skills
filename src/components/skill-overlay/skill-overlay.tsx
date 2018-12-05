@@ -1,44 +1,63 @@
 import { Component, Prop } from "@stencil/core";
+import { ISkill } from "../../global/values/_skillValues.interfaces";
+
+let descriptionRegex = /\[(.*?)\]/;
 
 /**
  * @private
  */
 @Component({
   tag: "ms-skill-overlay",
-  styleUrl: "skill-overlay.scss",
+  styleUrl: "skill-overlay.css",
   shadow: true
 })
 export class SkillOverlayComponent {
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 
-  @Prop() heading: string;
-  @Prop({ reflectToAttr: true }) element: string = "";
   @Prop({ reflectToAttr: true }) level: number = 0;
-  @Prop() max: number = 10;
-  @Prop() passive: boolean = false;
-  @Prop() type: string;
-  @Prop() weaponRequired: string;
-  @Prop() requirements: string[];
-  @Prop() spirit: number;
-  @Prop() cooldown: number;
+
+  @Prop() skill: ISkill;
+
+  private requirements: string[];
+  private spirit: number;
+  private cooldown: number;
+  private description: string;
+
+  componentWillLoad() {
+    this.setRequirements();
+    this.setSpirit();
+    this.setCooldown();
+    this.setDescription();
+  }
+
+  componentWillUpdate() {
+    this.setRequirements();
+    this.setSpirit();
+    this.setCooldown();
+    this.setDescription();
+  }
 
   render() {
     return (
       <div>
-        <h1 style={ this.element && {
-          "background-image": `url(${ this.publicPath }assets/${ this.element.toLowerCase() }.jpg)`
+        <h1 class={ this.skill.element } style={ this.skill.element && {
+          "background-image": `url(${ this.publicPath }assets/${ this.skill.element.toLowerCase() }.jpg)`
         }}>
-          { this.heading }
-          { this.element &&
-            <span class="element">{ this.element }</span>
+          { this.skill.name }
+          { this.skill.element &&
+            <span class="element">{ this.skill.element }</span>
           }
         </h1>
         <div class="content">
           <div>
             <div class="content-header">
               <div class="icon">
-                <slot name="icon"></slot>
+                {
+                  this.skill.attr
+                  && <ms-icon slot="icon" name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
+                  || <slot name="icon"></slot>
+                }
               </div>
               <div class="infoAndLevel">
                 <div class="shortInfo">
@@ -48,7 +67,7 @@ export class SkillOverlayComponent {
                 </div>
                 <div class="level">
                   Level { this.level || 1 }
-                  { this.level === this.max &&
+                  { this.level === this.skill.maxLevel &&
                     " | MAX"
                   }
                 </div>
@@ -64,21 +83,67 @@ export class SkillOverlayComponent {
             }
           </div>
           <div>
-            <p>{ this.passive && "Passive" || "Active" }</p>
-            { this.type &&
-              <p>{ this.type }</p>
+            <p>{ this.skill.passive && "Passive" || "Active" }</p>
+            { this.skill.attackType &&
+              <p>{ this.skill.attackType }</p>
             }
-            { this.weaponRequired &&
-              <p>Weapon Required: { this.weaponRequired }</p>
+            { this.skill.weaponRequired &&
+              <p>Weapon Required: { this.skill.weaponRequired }</p>
             }
           </div>
-          <div>
-            <p>
-              <slot name="description"></slot>
-            </p>
+          <div class="description">
+            { this.description
+              && <p innerHTML={ this.description }></p>
+              || <p><slot name="description"></slot></p>
+            }
           </div>
         </div>
       </div>
     );
+  }
+
+  private setRequirements() {
+    let requirements = [];
+
+    if (this.skill.levelRequirement && this.skill.levelRequirement[this.level] > 0) {
+      requirements.push(`Level ${ this.skill.levelRequirement[this.level] }+`);
+    }
+
+    if (this.skill.skillRequirements) {
+      Array.prototype.push.apply(requirements,
+        this.skill.skillRequirements.map((req) =>
+          `${ req.skill.name } [Level ${ req.level }+]`)
+      );
+    }
+
+    this.requirements = requirements;
+  }
+
+  private setSpirit() {
+    if (Array.isArray(this.skill.spirit)) {
+      this.spirit = this.skill.spirit[this.level];
+    } else if (!this.spirit) {
+      this.spirit = this.skill.spirit;
+    }
+  }
+
+  private setCooldown() {
+    if (Array.isArray(this.skill.cooldown)) {
+      this.cooldown = this.skill.cooldown[this.level];
+    } else if (!this.cooldown) {
+      this.cooldown = this.skill.cooldown;
+    }
+  }
+
+  private setDescription() {
+    this.description = this.skill.description;
+    let match: RegExpExecArray;
+
+    while (match = descriptionRegex.exec(this.description)) {
+      let data = this.skill.values && this.skill.values[match[1]];
+      if (!data) data = this.skill[match[1]];
+
+      this.description = this.description.replace(match[0], data[this.level].toString());
+    }
   }
 }
