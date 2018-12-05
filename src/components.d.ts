@@ -316,6 +316,48 @@ export namespace Components {
     'whirlingBlades'?: number;
   }
 
+  interface MsSoulBinder {
+    'animusFocus': number;
+    'chainExplosion': number;
+    'chainSpear': number;
+    'cycloneBomber': number;
+    'editable': boolean;
+    'electricEnergyDischarge': number;
+    'energyStream': number;
+    'expansionBall': number;
+    'flashStrike': number;
+    'illusion': number;
+    'lifeString': number;
+    'mantraRelease': number;
+    'narubashanLiberation': number;
+    'orbMastery': number;
+    'rayStorm': number;
+    'shootingStar': number;
+    'splitBarrier': number;
+    'zoneOfRenewal': number;
+  }
+  interface MsSoulBinderAttributes extends StencilHTMLAttributes {
+    'animusFocus'?: number;
+    'chainExplosion'?: number;
+    'chainSpear'?: number;
+    'cycloneBomber'?: number;
+    'editable'?: boolean;
+    'electricEnergyDischarge'?: number;
+    'energyStream'?: number;
+    'expansionBall'?: number;
+    'flashStrike'?: number;
+    'illusion'?: number;
+    'lifeString'?: number;
+    'mantraRelease'?: number;
+    'narubashanLiberation'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
+    'orbMastery'?: number;
+    'rayStorm'?: number;
+    'shootingStar'?: number;
+    'splitBarrier'?: number;
+    'zoneOfRenewal'?: number;
+  }
+
   interface MsThief {
     'bladeDance': number;
     'cunningTactics': number;
@@ -468,6 +510,7 @@ declare global {
     'MsKnight': Components.MsKnight;
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
+    'MsSoulBinder': Components.MsSoulBinder;
     'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
     'MsExtraCounter': Components.MsExtraCounter;
@@ -487,6 +530,7 @@ declare global {
     'ms-knight': Components.MsKnightAttributes;
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
+    'ms-soul-binder': Components.MsSoulBinderAttributes;
     'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
     'ms-extra-counter': Components.MsExtraCounterAttributes;
@@ -546,6 +590,12 @@ declare global {
     new (): HTMLMsRunebladeElement;
   };
 
+  interface HTMLMsSoulBinderElement extends Components.MsSoulBinder, HTMLStencilElement {}
+  var HTMLMsSoulBinderElement: {
+    prototype: HTMLMsSoulBinderElement;
+    new (): HTMLMsSoulBinderElement;
+  };
+
   interface HTMLMsThiefElement extends Components.MsThief, HTMLStencilElement {}
   var HTMLMsThiefElement: {
     prototype: HTMLMsThiefElement;
@@ -603,6 +653,7 @@ declare global {
     'ms-knight': HTMLMsKnightElement
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
+    'ms-soul-binder': HTMLMsSoulBinderElement
     'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
     'ms-extra-counter': HTMLMsExtraCounterElement
@@ -622,6 +673,7 @@ declare global {
     'ms-knight': HTMLMsKnightElement;
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
+    'ms-soul-binder': HTMLMsSoulBinderElement;
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
     'ms-extra-counter': HTMLMsExtraCounterElement;
