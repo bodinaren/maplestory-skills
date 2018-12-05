@@ -1,15 +1,20 @@
-import { Component, Prop, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, Event, EventEmitter, State } from "@stencil/core";
+import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 @Component({
   tag: "ms-skill",
-  styleUrl: "skill.scss",
+  styleUrl: "skill.css",
   shadow: true
 })
 export class SkillComponent {
 
   @Prop({ reflectToAttr: true, mutable: true }) level: number = 0;
-  @Prop() min: number;
-  @Prop() max: number;
+
+  @Prop() skill: ISkill;
+
+  @Prop({ reflectToAttr: true, mutable: true }) column: number;
+  @Prop({ reflectToAttr: true, mutable: true }) row: number;
+
   @Prop() limitReached: boolean = false;
   @Prop({ reflectToAttr: true }) locked: boolean = false;
   @Prop({ reflectToAttr: true }) required: string;
@@ -19,24 +24,17 @@ export class SkillComponent {
 
   @Event({ eventName: "levelchanged" }) onLevelChanged: EventEmitter<number>;
 
+  @State() private overlayLevel: number;
+
   componentWillLoad() {
-    if (this.level < this.min) this.level = this.min;
-    if (this.level > this.max) this.level = this.max;
+    if (this.level < this.skill.minLevel) this.level = this.skill.minLevel;
+    if (this.level > this.skill.maxLevel) this.level = this.skill.maxLevel;
+
+    if (!this.column) this.column = this.skill.column;
+    if (!this.row) this.row = this.skill.row;
   }
 
-  private plus() {
-    if (this.level < this.max) {
-      this.level++;
-      this.onLevelChanged.emit(this.level);
-    }
-  }
-
-  private minus() {
-    if (this.level > this.min) {
-      this.level--;
-      this.onLevelChanged.emit(this.level);
-    }
-  }
+  hostData() { return { "passive": this.skill.passive }; }
 
   render() {
     return [
@@ -44,10 +42,10 @@ export class SkillComponent {
         ms-skill .controls {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
         }
-        ms-skill .skill > *:first-child {
+        ms-skill:not([passive]) .skill {
           background-image: url(${ this.publicPath }assets/skill-shield.png);
         }
-        ms-skill .skill > *[passive]:first-child {
+        ms-skill[passive] .skill {
           background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
         }
         ms-skill[locked] .skill:after {
@@ -59,10 +57,10 @@ export class SkillComponent {
         :host .controls {
           background-image: url(${ this.publicPath }assets/skill-bar.png);
         }
-        ::slotted(*) {
+        :host(:not([passive])) .skill {
           background-image: url(${ this.publicPath }assets/skill-shield.png);
         }
-        ::slotted([passive]) {
+        :host([passive]) .skill {
           background-image: url(${ this.publicPath }assets/skill-shield-passive.png);
         }
         :host([locked]) .skill:after {
@@ -72,27 +70,71 @@ export class SkillComponent {
           background-image: url(${ this.publicPath }assets/skill-overlay.png);
         }
       `}</style>,
-      <div class="skill">
-        <slot></slot>
+      <div class="skill"
+           onMouseEnter={ () => this.showOverlay() }
+           onMouseLeave={ () => this.hideOverlay() }>
+        <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
       </div>,
       <div class="controls">
         <div>
-          <button class="minus" disabled={ this.disabled || this.locked } onClick={ () => this.minus() } hidden={ this.level === this.min }>
+          <button class="minus"
+                  disabled={ this.disabled || this.locked }
+                  onClick={ () => this.minus() }
+                  onMouseEnter={ () => this.showOverlay(-1) }
+                  onMouseLeave={ () => this.hideOverlay() }
+                  hidden={ this.level === this.skill.minLevel }>
             <img src={ `${ this.publicPath }assets/minus.png` } />
             <img src={ `${ this.publicPath }assets/minus-hover.png` } />
             <img src={ `${ this.publicPath }assets/minus-active.png` } />
           </button>
         </div>
-        <span>{ this.level }/{ this.max }</span>
+        <span>{ this.level }/{ this.skill.maxLevel }</span>
         <div>
-          <button class="plus" disabled={ this.disabled || this.locked || this.limitReached } onClick={ () => this.plus() } hidden={ this.level === this.max }>
+          <button class="plus"
+                  disabled={ this.disabled || this.locked || this.limitReached }
+                  onClick={ () => this.plus() }
+                  onMouseEnter={ () => this.showOverlay(+1) }
+                  onMouseLeave={ () => this.hideOverlay() }
+                  hidden={ this.level === this.skill.maxLevel }>
             <img src={ `${ this.publicPath }assets/plus.png` } />
             <img src={ `${ this.publicPath }assets/plus-hover.png` } />
             <img src={ `${ this.publicPath }assets/plus-active.png` } />
           </button>
         </div>
-      </div>
+      </div>,
+      <ms-skill-overlay hidden={ !this.overlayLevel }
+                        skill={ this.skill }
+                        level={ this.overlayLevel || 1 }
+                        class={ this.skill.prop }>
+      </ms-skill-overlay>,
     ];
+  }
+
+  private showOverlay(levelOffset: number = 0) {
+    this.overlayLevel = Math.max(1, Math.min(this.level + levelOffset, this.skill.maxLevel));
+  }
+  private hideOverlay() {
+    this.overlayLevel = 0;
+  }
+
+  private plus() {
+    if (this.level < this.skill.maxLevel) {
+      this.level++;
+      this.onLevelChanged.emit(this.level);
+    }
+    if (this.overlayLevel < this.skill.maxLevel) {
+      this.overlayLevel++;
+    }
+  }
+
+  private minus() {
+    if (this.level > this.skill.minLevel) {
+      this.level--;
+      this.onLevelChanged.emit(this.level);
+    }
+    if (this.overlayLevel > this.skill.minLevel) {
+      this.overlayLevel--;
+    }
   }
 }
 

@@ -5,7 +5,7 @@ import * as KnightSkills from "../../../global/values/knight";
 
 @Component({
   tag: "ms-knight",
-  styleUrls: ["knight.scss"],
+  styleUrls: ["knight.css"],
   shadow: true
 })
 export class KnightComponent {
@@ -49,57 +49,7 @@ export class KnightComponent {
   render() {
     return (
       <ms-chart msClass="knight">
-        { renderLevelControls(this, KnightSkills.Bulwark, this.editable,
-          <ms-bulwark level={ this.bulwark }></ms-bulwark>
-        )}
-        { renderLevelControls(this, KnightSkills.CrossCut, this.editable,
-          <ms-cross-cut level={ this.crossCut }></ms-cross-cut>
-        )}
-        { renderLevelControls(this, KnightSkills.DefenderOfTheFaith, this.editable,
-          <ms-defender-of-the-faith level={ this.defenderOfTheFaith }></ms-defender-of-the-faith>
-        )}
-        { renderLevelControls(this, KnightSkills.DivineStrike, this.editable,
-          <ms-divine-strike level={ this.divineStrike }></ms-divine-strike>
-        )}
-        { renderLevelControls(this, KnightSkills.DrillThrust, this.editable,
-          <ms-drill-thrust level={ this.drillThrust }></ms-drill-thrust>
-        )}
-        { renderLevelControls(this, KnightSkills.IronDefense, this.editable,
-          <ms-iron-defense level={ this.ironDefense }></ms-iron-defense>
-        )}
-        { renderLevelControls(this, KnightSkills.IronShield, this.editable,
-          <ms-iron-shield level={ this.ironShield }></ms-iron-shield>
-        )}
-        { renderLevelControls(this, KnightSkills.LongswordMastery, this.editable,
-          <ms-longsword-mastery level={ this.longswordMastery }></ms-longsword-mastery>
-        )}
-        { renderLevelControls(this, KnightSkills.ShieldBooster, this.editable,
-          <ms-shield-booster level={ this.shieldBooster }></ms-shield-booster>
-        )}
-        { renderLevelControls(this, KnightSkills.ShieldCharge, this.editable,
-          <ms-shield-charge level={ this.shieldCharge }></ms-shield-charge>
-        )}
-        { renderLevelControls(this, KnightSkills.ShieldMastery, this.editable,
-          <ms-shield-mastery level={ this.shieldMastery }></ms-shield-mastery>
-        )}
-        { renderLevelControls(this, KnightSkills.ShieldToss, this.editable,
-          <ms-shield-toss level={ this.shieldToss }></ms-shield-toss>
-        )}
-        { renderLevelControls(this, KnightSkills.ShieldWall, this.editable,
-          <ms-shield-wall level={ this.shieldWall }></ms-shield-wall>
-        )}
-        { renderLevelControls(this, KnightSkills.StingingFlurry, this.editable,
-          <ms-stinging-flurry level={ this.stingingFlurry }></ms-stinging-flurry>
-        )}
-        { renderLevelControls(this, KnightSkills.TornadoSlash, this.editable,
-          <ms-tornado-slash level={ this.tornadoSlash }></ms-tornado-slash>
-        )}
-        { renderLevelControls(this, KnightSkills.TyphoonSlash, this.editable,
-          <ms-typhoon-slash level={ this.typhoonSlash }></ms-typhoon-slash>
-        )}
-        { renderLevelControls(this, KnightSkills.Warhorn, this.editable,
-          <ms-warhorn level={ this.warhorn }></ms-warhorn>
-        )}
+        { renderLevelControls(this, KnightSkills, this.editable) }
       </ms-chart>
     );
   }

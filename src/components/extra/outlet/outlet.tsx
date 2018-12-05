@@ -3,7 +3,6 @@ import { SkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-outlet",
-  styleUrl: "outlet.scss",
   shadow: true
 })
 export class OutletComponent {

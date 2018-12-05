@@ -2,7 +2,7 @@ import { Component, Prop, Element, Listen } from "@stencil/core";
 
 @Component({
   tag: "ms-chart",
-  styleUrls: ["chart.scss"],
+  styleUrls: ["chart.css"],
   shadow: true
 })
 export class ChartComponent {

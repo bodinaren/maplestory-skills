@@ -20,8 +20,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "^0.15.2",
-    "@stencil/sass": "^0.1.1",
+    "@stencil/core": "^0.16.0",
     "@types/jest": "23.3.9",
     "@types/puppeteer": "1.6.4",
     "fs-extra": "^7.0.1",

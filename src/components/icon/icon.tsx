@@ -2,7 +2,7 @@ import { Component, Prop } from "@stencil/core";
 
 @Component({
   tag: "ms-icon",
-  styleUrl: "icon.scss",
+  styleUrl: "icon.css",
   shadow: true
 })
 export class IconComponent {
