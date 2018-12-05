@@ -5,7 +5,7 @@ import * as PriestSkills from "../../../global/values/priest";
 
 @Component({
   tag: "ms-priest",
-  styleUrls: ["priest.scss"],
+  styleUrls: ["priest.css"],
   shadow: true
 })
 export class PriestComponent {
@@ -49,57 +49,7 @@ export class PriestComponent {
   render() {
     return (
       <ms-chart msClass="priest">
-        { renderLevelControls(this, PriestSkills.HeavenlyWings, this.editable,
-          <ms-heavenly-wings level={ this.heavenlyWings }></ms-heavenly-wings>
-        )}
-        { renderLevelControls(this, PriestSkills.SteadfastFaith, this.editable,
-          <ms-steadfast-faith level={ this.steadfastFaith }></ms-steadfast-faith>
-        )}
-        { renderLevelControls(this, PriestSkills.CelestialLight, this.editable,
-          <ms-celestial-light level={ this.celestialLight }></ms-celestial-light>
-        )}
-        { renderLevelControls(this, PriestSkills.HolyBlast, this.editable,
-          <ms-holy-blast level={ this.holyBlast }></ms-holy-blast>
-        )}
-        { renderLevelControls(this, PriestSkills.HealingPrayer, this.editable,
-          <ms-healing-prayer level={ this.healingPrayer }></ms-healing-prayer>
-        )}
-        { renderLevelControls(this, PriestSkills.ScepterMastery, this.editable,
-          <ms-scepter-mastery level={ this.scepterMastery }></ms-scepter-mastery>
-        )}
-        { renderLevelControls(this, PriestSkills.CelestialGuardian, this.editable,
-          <ms-celestial-guardian level={ this.celestialGuardian }></ms-celestial-guardian>
-        )}
-        { renderLevelControls(this, PriestSkills.ShieldOfTheArchon, this.editable,
-          <ms-shield-of-the-archon level={ this.shieldOfTheArchon }></ms-shield-of-the-archon>
-        )}
-        { renderLevelControls(this, PriestSkills.ScourgingWave, this.editable,
-          <ms-scourging-wave level={ this.scourgingWave }></ms-scourging-wave>
-        )}
-        { renderLevelControls(this, PriestSkills.CelestialBlessings, this.editable,
-          <ms-celestial-blessings level={ this.celestialBlessings }></ms-celestial-blessings>
-        )}
-        { renderLevelControls(this, PriestSkills.HolyRelic, this.editable,
-          <ms-holy-relic level={ this.holyRelic }></ms-holy-relic>
-        )}
-        { renderLevelControls(this, PriestSkills.Sanctuary, this.editable,
-          <ms-sanctuary level={ this.sanctuary }></ms-sanctuary>
-        )}
-        { renderLevelControls(this, PriestSkills.HolySymbol, this.editable,
-          <ms-holy-symbol level={ this.holySymbol }></ms-holy-symbol>
-        )}
-        { renderLevelControls(this, PriestSkills.HealingMastery, this.editable,
-          <ms-healing-mastery level={ this.healingMastery }></ms-healing-mastery>
-        )}
-        { renderLevelControls(this, PriestSkills.SmitingAura, this.editable,
-          <ms-smiting-aura level={ this.smitingAura }></ms-smiting-aura>
-        )}
-        { renderLevelControls(this, PriestSkills.Disciple, this.editable,
-          <ms-disciple level={ this.disciple }></ms-disciple>
-        )}
-        { renderLevelControls(this, PriestSkills.AngelicRay, this.editable,
-          <ms-angelic-ray level={ this.angelicRay }></ms-angelic-ray>
-        )}
+        { renderLevelControls(this, PriestSkills, this.editable) }
       </ms-chart>
     );
   }

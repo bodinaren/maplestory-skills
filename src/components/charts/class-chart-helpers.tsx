@@ -51,24 +51,24 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   }
 }
 
-export function renderLevelControls(chart: any, skillValues: any, editable: boolean, slot: JSX.Element): JSX.Element {
-  let skill = chart.skills[skillValues.prop];
-
-  return (
-    <ms-skill class={ skillValues.prop }
-                      level={ chart[skillValues.prop] }
-                      min={ skillValues.minLevel }
-                      max={ skillValues.maxLevel }
-                      locked={ skill.locked }
-                      required={ skill.required }
-                      limitReached={ skill.limitReached }
-                      disabled={ !editable }
-                      onLevelchanged={ (evt) => chart.levelChanged(skillValues, evt.detail) }
-                      onMouseEnter={ () => skill.locked && toggleSkillRequirements(chart, skillValues, true) }
-                      onMouseLeave={ () => skill.locked && toggleSkillRequirements(chart, skillValues, false) }>
-      { slot }
-    </ms-skill>
-  );
+export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean): JSX.Element[] {
+  return Object.keys(skills).map((key) => {
+    let skill: ISkill = skills[key];
+    let chartSkill = chart.skills[skill.prop];
+    return (
+      <ms-skill class={ skill.prop }
+                skill={ skill }
+                level={ chart[skill.prop] }
+                locked={ chartSkill.locked }
+                required={ chartSkill.required }
+                limitReached={ chartSkill.limitReached }
+                disabled={ !editable }
+                onLevelchanged={ (evt) => chart.levelChanged(skill, evt.detail) }
+                onMouseEnter={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, true) }
+                onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }>
+      </ms-skill>
+    );
+  });
 }
 
 export function toSkillChangeObject(chart: any, classSkills: { [key: string]: ISkill }): SkillChangeEvent {

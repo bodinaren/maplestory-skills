@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ISkill, MapleStoryElement } from "../../global/values/_skillValues.interfaces";
+import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 let descriptionRegex = /\[(.*?)\]/;
 
@@ -8,7 +8,7 @@ let descriptionRegex = /\[(.*?)\]/;
  */
 @Component({
   tag: "ms-skill-overlay",
-  styleUrl: "skill-overlay.scss",
+  styleUrl: "skill-overlay.css",
   shadow: true
 })
 export class SkillOverlayComponent {
@@ -17,47 +17,18 @@ export class SkillOverlayComponent {
 
   @Prop({ reflectToAttr: true }) level: number = 0;
 
-  @Prop({ mutable: true }) skill: ISkill;
+  @Prop() skill: ISkill;
 
-  @Prop() heading: string;
-  @Prop({ reflectToAttr: true }) element: MapleStoryElement;
-  @Prop() max: number = 10;
-  @Prop() passive: boolean = false;
-  @Prop() type: string;
-  @Prop() weaponRequired: string;
-  @Prop({ mutable: true }) requirements: string[];
-  @Prop() spirit: number;
-  @Prop({ mutable: true }) cooldown: number;
-
+  private requirements: string[];
+  private spirit: number;
+  private cooldown: number;
   private description: string;
 
   componentWillLoad() {
-    let hadSkill = !!this.skill;
-
-    if (!hadSkill) {
-      this.skill = {
-        name: this.heading,
-        element: this.element,
-        minLevel: 0,
-        maxLevel: this.max,
-        passive: this.passive,
-        attackType: this.type,
-        weaponRequired: this.weaponRequired,
-        spirit: this.spirit,
-        cooldown: this.cooldown,
-        attr: "",
-        prop: "",
-        skillRequirements: undefined,
-        description: "",
-      };
-    }
-
-    if (hadSkill) {
-      this.setRequirements();
-      this.setSpirit();
-      this.setCooldown();
-      this.setDescription();
-    }
+    this.setRequirements();
+    this.setSpirit();
+    this.setCooldown();
+    this.setDescription();
   }
 
   componentWillUpdate() {
@@ -149,17 +120,17 @@ export class SkillOverlayComponent {
   }
 
   private setSpirit() {
-    if (Array.isArray(this.skill.cooldown)) {
-      this.cooldown = this.skill.cooldown[this.level];
-    } else {
-      this.cooldown = this.skill.cooldown;
+    if (Array.isArray(this.skill.spirit)) {
+      this.spirit = this.skill.spirit[this.level];
+    } else if (!this.spirit) {
+      this.spirit = this.skill.spirit;
     }
   }
 
   private setCooldown() {
     if (Array.isArray(this.skill.cooldown)) {
       this.cooldown = this.skill.cooldown[this.level];
-    } else {
+    } else if (!this.cooldown) {
       this.cooldown = this.skill.cooldown;
     }
   }

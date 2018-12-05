@@ -5,7 +5,7 @@ import * as ThiefSkills from "../../../global/values/thief";
 
 @Component({
   tag: "ms-thief",
-  styleUrls: ["thief.scss"],
+  styleUrls: ["thief.css"],
   shadow: true
 })
 export class ThiefComponent {
@@ -49,57 +49,7 @@ export class ThiefComponent {
   render() {
     return (
       <ms-chart msClass="thief">
-        { renderLevelControls(this, ThiefSkills.BladeDance, this.editable,
-          <ms-blade-dance level={ this.bladeDance }></ms-blade-dance>
-        )}
-        { renderLevelControls(this, ThiefSkills.CunningTactics, this.editable,
-          <ms-cunning-tactics level={ this.cunningTactics }></ms-cunning-tactics>
-        )}
-        { renderLevelControls(this, ThiefSkills.DeftCombatant, this.editable,
-          <ms-deft-combatant level={ this.deftCombatant }></ms-deft-combatant>
-        )}
-        { renderLevelControls(this, ThiefSkills.DoubleSlash, this.editable,
-          <ms-double-slash level={ this.doubleSlash }></ms-double-slash>
-        )}
-        { renderLevelControls(this, ThiefSkills.Haste, this.editable,
-          <ms-haste level={ this.haste }></ms-haste>
-        )}
-        { renderLevelControls(this, ThiefSkills.MesoguardPlus, this.editable,
-          <ms-mesoguard-plus level={ this.mesoguardPlus }></ms-mesoguard-plus>
-        )}
-        { renderLevelControls(this, ThiefSkills.MindBreaker, this.editable,
-          <ms-mind-breaker level={ this.mindBreaker }></ms-mind-breaker>
-        )}
-        { renderLevelControls(this, ThiefSkills.MindStealer, this.editable,
-          <ms-mind-stealer level={ this.mindStealer }></ms-mind-stealer>
-        )}
-        { renderLevelControls(this, ThiefSkills.PoisonEdge, this.editable,
-          <ms-poison-edge level={ this.poisonEdge }></ms-poison-edge>
-        )}
-        { renderLevelControls(this, ThiefSkills.PoisonVial, this.editable,
-          <ms-poison-vial level={ this.poisonVial }></ms-poison-vial>
-        )}
-        { renderLevelControls(this, ThiefSkills.QuickStep, this.editable,
-          <ms-quick-step level={ this.quickStep }></ms-quick-step>
-        )}
-        { renderLevelControls(this, ThiefSkills.Retaliation, this.editable,
-          <ms-retaliation level={ this.retaliation }></ms-retaliation>
-        )}
-        { renderLevelControls(this, ThiefSkills.RuthlessGuile, this.editable,
-          <ms-ruthless-guile level={ this.ruthlessGuile }></ms-ruthless-guile>
-        )}
-        { renderLevelControls(this, ThiefSkills.SomersaultKick, this.editable,
-          <ms-somersault-kick level={ this.somersaultKick }></ms-somersault-kick>
-        )}
-        { renderLevelControls(this, ThiefSkills.SpiritThief, this.editable,
-          <ms-spirit-thief level={ this.spiritThief }></ms-spirit-thief>
-        )}
-        { renderLevelControls(this, ThiefSkills.SurpriseAttack, this.editable,
-          <ms-surprise-attack level={ this.surpriseAttack }></ms-surprise-attack>
-        )}
-        { renderLevelControls(this, ThiefSkills.ViciousCuts, this.editable,
-          <ms-vicious-cuts level={ this.viciousCuts }></ms-vicious-cuts>
-        )}
+        { renderLevelControls(this, ThiefSkills, this.editable) }
       </ms-chart>
     );
   }

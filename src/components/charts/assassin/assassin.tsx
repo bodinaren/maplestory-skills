@@ -5,7 +5,7 @@ import * as AssassinSkills from "../../../global/values/assassin";
 
 @Component({
   tag: "ms-assassin",
-  styleUrls: ["assassin.scss"],
+  styleUrls: ["assassin.css"],
   shadow: true
 })
 export class AssassinComponent {
@@ -49,57 +49,7 @@ export class AssassinComponent {
   render() {
     return (
       <ms-chart msClass="assassin">
-        { renderLevelControls(this, AssassinSkills.DarkCloak, this.editable,
-          <ms-dark-cloak level={ this.darkCloak }></ms-dark-cloak>
-        )}
-        { renderLevelControls(this, AssassinSkills.Dash, this.editable,
-          <ms-dash level={ this.dash }></ms-dash>
-        )}
-        { renderLevelControls(this, AssassinSkills.DeathSentence, this.editable,
-          <ms-death-sentence level={ this.deathSentence }></ms-death-sentence>
-        )}
-        { renderLevelControls(this, AssassinSkills.FatalStrikes, this.editable,
-          <ms-fatal-strikes level={ this.fatalStrikes }></ms-fatal-strikes>
-        )}
-        { renderLevelControls(this, AssassinSkills.FragmentedStar, this.editable,
-          <ms-fragmented-star level={ this.fragmentedStar }></ms-fragmented-star>
-        )}
-        { renderLevelControls(this, AssassinSkills.LuckyStars, this.editable,
-          <ms-lucky-stars level={ this.luckyStars }></ms-lucky-stars>
-        )}
-        { renderLevelControls(this, AssassinSkills.MarkOfDeath, this.editable,
-          <ms-mark-of-death level={ this.markOfDeath }></ms-mark-of-death>
-        )}
-        { renderLevelControls(this, AssassinSkills.MirrorImageDarkBlade, this.editable,
-          <ms-mirror-image-dark-blade level={ this.mirrorImageDarkBlade }></ms-mirror-image-dark-blade>
-        )}
-        { renderLevelControls(this, AssassinSkills.ShadowArts, this.editable,
-          <ms-shadow-arts level={ this.shadowArts }></ms-shadow-arts>
-        )}
-        { renderLevelControls(this, AssassinSkills.ShadowBurst, this.editable,
-          <ms-shadow-burst level={ this.shadowBurst }></ms-shadow-burst>
-        )}
-        { renderLevelControls(this, AssassinSkills.ShadowChaser, this.editable,
-          <ms-shadow-chaser level={ this.shadowChaser }></ms-shadow-chaser>
-        )}
-        { renderLevelControls(this, AssassinSkills.ShadowCutter, this.editable,
-          <ms-shadow-cutter level={ this.shadowCutter }></ms-shadow-cutter>
-        )}
-        { renderLevelControls(this, AssassinSkills.ShadowWeb, this.editable,
-          <ms-shadow-web level={ this.shadowWeb }></ms-shadow-web>
-        )}
-        { renderLevelControls(this, AssassinSkills.SoulGrind, this.editable,
-          <ms-soul-grind level={ this.soulGrind }></ms-soul-grind>
-        )}
-        { renderLevelControls(this, AssassinSkills.StarChaser, this.editable,
-          <ms-star-chaser level={ this.starChaser }></ms-star-chaser>
-        )}
-        { renderLevelControls(this, AssassinSkills.StarFlurry, this.editable,
-          <ms-star-flurry level={ this.starFlurry }></ms-star-flurry>
-        )}
-        { renderLevelControls(this, AssassinSkills.ThrownWeaponMastery, this.editable,
-          <ms-thrown-weapon-mastery level={ this.thrownWeaponMastery }></ms-thrown-weapon-mastery>
-        )}
+        { renderLevelControls(this, AssassinSkills, this.editable) }
       </ms-chart>
     );
   }

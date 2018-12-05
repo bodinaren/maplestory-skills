@@ -3,7 +3,6 @@ import { SkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-counter",
-  styleUrl: "counter.scss",
   shadow: true
 })
 export class CounterComponent {

@@ -9,6 +9,12 @@ export interface ISkill {
   /** The attribute of the skill (camelCase name) */
   prop: string;
 
+  /** Which row in the chart the skill should be shown in */
+  row: number;
+
+  /** Which column in the chart the skill should be shown in */
+  column: number;
+
   /** The minimum amount of skill points that must be placed in the skill */
   minLevel: number;
 
