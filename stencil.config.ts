@@ -11,6 +11,7 @@ export const config: Config = {
     { components: ["ms-knight"] },
     { components: ["ms-priest"] },
     { components: ["ms-runeblade"] },
+    { components: ["ms-soul-binder"] },
     { components: ["ms-thief"] },
     { components: ["ms-wizard"] },
     { components: ["ms-extra-outlet", "ms-extra-counter"] },
