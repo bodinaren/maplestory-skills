@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ManaFontValues } from "../../../../global/values/wizard";
+import { ManaFont } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-mana-font",
@@ -8,16 +8,16 @@ import { ManaFontValues } from "../../../../global/values/wizard";
 })
 export class ManaFontComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ManaFontValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ManaFont.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ManaFontValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ManaFont.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="mana-font" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Mana Font"
+      <ms-skill-overlay heading={ ManaFont.name }
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>

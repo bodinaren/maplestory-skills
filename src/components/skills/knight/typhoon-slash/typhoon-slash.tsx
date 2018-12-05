@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { TyphoonSlashValues } from "../../../../global/values/knight";
+import { TyphoonSlash } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-typhoon-slash",
@@ -8,13 +8,13 @@ import { TyphoonSlashValues } from "../../../../global/values/knight";
 })
 export class TyphoonSlashComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = TyphoonSlashValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = TyphoonSlash.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = TyphoonSlashValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = TyphoonSlash.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ TyphoonSlashValues.levelRequirement[this.level] }+`,
+      `Level ${ TyphoonSlash.levelRequirement[this.level] }+`,
       `Tornado Slash [Level 3+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class TyphoonSlashComponent {
   render() {
     return [
       <ms-icon name="typhoon-slash"></ms-icon>,
-      <ms-skill-overlay heading="Typhoon Slash"
+      <ms-skill-overlay heading={ TyphoonSlash.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Main Hand Longsword"
@@ -32,7 +32,7 @@ export class TyphoonSlashComponent {
         <ms-icon slot="icon" name="typhoon-slash"></ms-icon>
         <div slot="description">
           Spin with your weapon out,
-          dealing <span>{ TyphoonSlashValues.damage[this.level] }%</span> damage <span>5</span> times
+          dealing <span>{ TyphoonSlash.values.damage[this.level] }%</span> damage <span>5</span> times
           to <span>8</span> enemies within <span>3</span> m. Each hit pulls them in <span>1</span> m.
           During the attack, press a direction key to move <span>4.5</span> m.
           Consumes <span>50</span> spirit.

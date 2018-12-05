@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MarkOfDeathValues } from "../../../../global/values/assassin";
+import { MarkOfDeath } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-mark-of-death",
@@ -8,13 +8,13 @@ import { MarkOfDeathValues } from "../../../../global/values/assassin";
 })
 export class MarkOfDeathComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MarkOfDeathValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MarkOfDeath.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MarkOfDeathValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MarkOfDeath.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ MarkOfDeathValues.levelRequirement[this.level] }+`,
+      `Level ${ MarkOfDeath.levelRequirement[this.level] }+`,
       `Dark Cloak [Level 2+]`,
     ];
   }
@@ -24,7 +24,7 @@ export class MarkOfDeathComponent {
   render() {
     return [
       <ms-icon name="mark-of-death"></ms-icon>,
-      <ms-skill-overlay heading="Mark of Death"
+      <ms-skill-overlay heading={ MarkOfDeath.name }
                         element="Dark"
                         level={ this.level }
                         passive={ true }
@@ -34,7 +34,7 @@ export class MarkOfDeathComponent {
         <div slot="description">
           Attacks against enemies with <span>30%</span> health or less
           have a <span>25%</span> to mark them for death for <span>6</span> sec.
-          Marked enemies take <span>{ MarkOfDeathValues.damage[this.level] }%</span> additional damage.
+          Marked enemies take <span>{ MarkOfDeath.values.damage[this.level] }%</span> additional damage.
         </div>
       </ms-skill-overlay>
     ];

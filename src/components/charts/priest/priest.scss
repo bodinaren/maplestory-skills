@@ -1,69 +1,76 @@
+:host {
+  display: block;
+}
 
-ms-heavenly-wings {
+ms-skill {
+  position: absolute;
+}
+
+.heavenlyWings {
 	@include chart-row(1);
 	@include chart-column(4);
 }
-ms-steadfast-faith {
+.steadfastFaith {
 	@include chart-row(1);
 	@include chart-column(3);
 }
-ms-celestial-light {
+.celestialLight {
 	@include chart-row(1);
 	@include chart-column(1);
 }
-ms-holy-blast {
+.holyBlast {
 	@include chart-row(2);
 	@include chart-column(1);
 }
-ms-healing-prayer {
+.healingPrayer {
 	@include chart-row(3);
 	@include chart-column(2);
 }
-ms-scepter-mastery {
+.scepterMastery {
 	@include chart-row(3);
 	@include chart-column(4);
 }
-ms-celestial-guardian {
+.celestialGuardian {
 	@include chart-row(3);
 	@include chart-column(3);
 }
-ms-shield-of-the-archon {
+.shieldOfTheArchon {
 	@include chart-row(3);
 	@include chart-column(1);
 }
-ms-scourging-wave {
+.scourgingWave {
 	@include chart-row(4);
 	@include chart-column(2);
 }
-ms-celestial-blessings {
+.celestialBlessings {
 	@include chart-row(4);
 	@include chart-column(3);
 }
-ms-holy-relic {
+.holyRelic {
 	@include chart-row(4);
 	@include chart-column(1);
 }
-ms-sanctuary {
+.sanctuary {
 	@include chart-row(5);
 	@include chart-column(2);
 }
-ms-holy-symbol {
+.holySymbol {
 	@include chart-row(5);
 	@include chart-column(3);
 }
-ms-healing-mastery {
+.healingMastery {
 	@include chart-row(5);
 	@include chart-column(4);
 }
-ms-smiting-aura {
+.smitingAura {
 	@include chart-row(6);
 	@include chart-column(2);
 }
-ms-disciple {
+.disciple {
 	@include chart-row(6);
 	@include chart-column(3);
 }
-ms-angelic-ray {
+.angelicRay {
 	@include chart-row(6);
 	@include chart-column(4);
 }

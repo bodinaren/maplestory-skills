@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SteadfastFaithValues } from "../../../../global/values/priest";
+import { SteadfastFaith } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-steadfast-faith",
@@ -8,16 +8,16 @@ import { SteadfastFaithValues } from "../../../../global/values/priest";
 })
 export class SteadfastFaithComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SteadfastFaithValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = SteadfastFaith.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SteadfastFaithValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = SteadfastFaith.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="steadfast-faith" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Steadfast Faith"
+      <ms-skill-overlay heading={ SteadfastFaith.name }
                         element="Holy"
                         level={ this.level }
                         passive={ true }

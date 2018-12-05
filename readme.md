@@ -12,6 +12,55 @@ MapleStory 2 Interactive Skill Charts is a set of web components which, with ver
 Head over to the [website](http://bodinaren.github.io/maplestory-skills) and use the editor to generate your own skill chart. Just paste the resulting code into your website or blog and you're good to go!
 
 
+## Advanced usage (editable)
+
+So you want the editor on your site? No problem, but let's start with a fair warning. 
+
+>This repository use semver versioning, but **only for basic charts usage**! Breaking changes to the below usages can happen between any minor version (but not patch).
+
+If you want to use the editor, it's recommended to import the scripts with a minor version (make sure you check for the most recent verison).
+
+Before:
+```html
+<script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"></script>
+```
+After:
+```html
+<script src="https://unpkg.com/maplestory-skills@~1.1/dist/maplestory-skills.js"></script>
+```
+
+With that out of the way, you can make the skill chart editable by simply adding the attribute `editable` to the chart.
+
+Before:
+```html
+<ms-archer arrow-stream="3" arrow-barrage="3" rapid-shot="10"></ms-archer>
+```
+After:
+```html
+<ms-archer editable arrow-stream="3" arrow-barrage="3" rapid-shot="10"></ms-archer>
+```
+
+### Skill points counter
+
+There's also another component which helps you keep track of the amount of points left to distribute.
+```html
+<ms-extra-counter></ms-extra-counter>
+```
+All this does is print the number of points left, it's up to you to position and style it wherever you want on your site.
+
+
+### Get data from the editor
+
+Every time the user makes a change the chart emits a `skillchanged` event with an array of all the skills and how many points are put (or not) into it. Subscribe to this event to get the data you want:
+
+```js
+document.querySelector("ms-archer").addEventListener("skillchanged", function(evt) {
+  console.log(evt.detail);
+});
+```
+`evt.detail` is of type [SkillChangeEvent](src/components/charts/skill-change-event.ts).
+
+
 ## Contributing
 
 Create a [New Issue](https://github.com/bodinaren/maplestory-skills/issues/new) where you outline your intentions. After an agreement fork this repository, create a new branch, make your changes and then submit a pull request.

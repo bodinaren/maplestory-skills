@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { PyromancyValues } from "../../../../global/values/wizard";
+import { Pyromancy } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-pyromancy",
@@ -8,13 +8,13 @@ import { PyromancyValues } from "../../../../global/values/wizard";
 })
 export class PyromancyComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = PyromancyValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Pyromancy.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = PyromancyValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Pyromancy.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ PyromancyValues.levelRequirement[this.level] }+`,
+      `Level ${ Pyromancy.levelRequirement[this.level] }+`,
       `Flame Wave [Level 5+]`,
       `Flame Tornado [Level 5+]`,
     ];
@@ -25,7 +25,7 @@ export class PyromancyComponent {
   render() {
     return [
       <ms-icon name="pyromancy"></ms-icon>,
-      <ms-skill-overlay heading="Pyromancy"
+      <ms-skill-overlay heading={ Pyromancy.name }
                         element="Fire"
                         level={ this.level }
                         passive={ true }
@@ -34,7 +34,7 @@ export class PyromancyComponent {
         <ms-icon slot="icon" name="pyromancy"></ms-icon>
         <div slot="description">
           An advanced fire technique taught to only the top students of the Ellinel Magic Academy.
-          Increases all fire damage by <span>{ PyromancyValues.damage[this.level] }%</span>.
+          Increases all fire damage by <span>{ Pyromancy.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

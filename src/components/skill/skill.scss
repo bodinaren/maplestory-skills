@@ -1,0 +1,108 @@
+
+:host {
+  display: block;
+  width: 72px;
+  height: 115px;
+  user-select: none;
+}
+
+::slotted(*) {
+  display: block;
+  background-repeat: no-repeat;
+  width: 72px;
+  height: 84px;
+  padding-left: 14px;
+  padding-top: 17px;
+  box-sizing: border-box;
+}
+
+.controls {
+  display: flex;
+  width: 109px;
+  height: 36px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -18.5px;
+  margin-top: -4px;
+}
+.controls span {
+  text-align: center;
+  flex-grow: 1;
+  font-size: .9em;
+}
+.controls div {
+  margin-top: 4px;
+  width: 30px;
+}
+
+:host([locked]) .skill:after {
+  position: absolute;
+  width: 52px;
+  height: 61px;
+  top: 11px;
+  left: 10px;
+  pointer-events: none;
+  content: '';
+}
+
+:host([required]):after {
+  position: absolute;
+  width: 52px;
+  height: 61px;
+  top: 11px;
+  left: 10px;
+  pointer-events: none;
+  content: attr(required);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  font-size: .8em;
+}
+
+// :host:after {
+//   content: attr(level) "/" attr(max);
+//   position: absolute;
+//   top: calc(100% + -5px);
+//   left: -19px;
+//   width: 109px;
+//   height: 36px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: .9em;
+//   pointer-events: none;
+//   background-image: url(https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills/assets/skill-bar.png)
+// }
+
+button {
+  width: 30px;
+  height: 33px;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: 0;
+  cursor: inherit;
+
+  &:active { cursor: inherit; }
+  
+  img { display: none; }
+
+  &:not([disabled]) {
+    &:not([hidden]) { display: inline-block; }
+
+    &:not(:hover):not(:active) {
+      img:nth-child(1) { display: inline; }
+    }
+    &:hover:not(:active) {
+      img:nth-child(2) { display: inline; }
+    }
+    &:active {
+      img:nth-child(3) { display: inline; }
+    }
+  }
+}
+_:-ms-lang(x), .minus img, .plus img { cursor: pointer; }
+
+.minus { left: -1px; }
+.plus { right: 0; }

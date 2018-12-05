@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { HasteValues } from "../../../../global/values/thief";
+import { Haste } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-haste",
@@ -8,13 +8,13 @@ import { HasteValues } from "../../../../global/values/thief";
 })
 export class HasteComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = HasteValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Haste.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = HasteValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Haste.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ HasteValues.levelRequirement[this.level] }+`,
+      `Level ${ Haste.levelRequirement[this.level] }+`,
       `Mind Breaker [Level 5+]`,
       `Vicious Cuts [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class HasteComponent {
   render() {
     return [
       <ms-icon name="haste"></ms-icon>,
-      <ms-skill-overlay heading="Haste"
+      <ms-skill-overlay heading={ Haste.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 60 }
@@ -32,8 +32,8 @@ export class HasteComponent {
         <div slot="description">
           Your movements mimic the wind.
           For <span>60</span> sec, <span>4</span> spirit is consumed in <span>0.5</span> sec intervals to increase
-          attack speed and movement speed by <span>{ HasteValues.movement[this.level] }%</span> and
-          physical attack by <span>{ HasteValues.attack[this.level] }%</span>.
+          attack speed and movement speed by <span>{ Haste.values.movement[this.level] }%</span> and
+          physical attack by <span>{ Haste.values.attack[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

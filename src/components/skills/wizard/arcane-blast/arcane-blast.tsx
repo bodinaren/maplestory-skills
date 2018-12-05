@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ArcaneBlastValues } from "../../../../global/values/wizard";
+import { ArcaneBlast } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-arcane-blast",
@@ -8,14 +8,14 @@ import { ArcaneBlastValues } from "../../../../global/values/wizard";
 })
 export class ArcaneBlastComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ArcaneBlastValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ArcaneBlast.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ArcaneBlastValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ArcaneBlast.maxLevel;
 
   getRequirements(): string[] {
-    if (ArcaneBlastValues.levelRequirement[this.level] > 0) {
+    if (ArcaneBlast.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ ArcaneBlastValues.levelRequirement[this.level] }+`,
+        `Level ${ ArcaneBlast.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class ArcaneBlastComponent {
   render() {
     return [
       <ms-icon name="arcane-blast"></ms-icon>,
-      <ms-skill-overlay heading="Arcane Blast"
+      <ms-skill-overlay heading={ ArcaneBlast.name }
                         level={ this.level }
                         type="Long Range / Magic"
                         weaponRequired="Two-handed Staff"
@@ -34,7 +34,7 @@ export class ArcaneBlastComponent {
         <div slot="description">
           Focus a magical aura on a spot <span>4.5</span> m in front of you,
           creating an explosion of energy that
-          deals <span>{ ArcaneBlastValues.damage[this.level] }%</span> damage to enemies
+          deals <span>{ ArcaneBlast.values.damage[this.level] }%</span> damage to enemies
           within <span>3</span> m and knocks them back <span>1</span> m.
         </div>
       </ms-skill-overlay>

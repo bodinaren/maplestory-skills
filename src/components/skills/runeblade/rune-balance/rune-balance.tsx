@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { RuneBalanceValues } from "../../../../global/values/runeblade";
+import { RuneBalance } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-rune-balance",
@@ -8,16 +8,16 @@ import { RuneBalanceValues } from "../../../../global/values/runeblade";
 })
 export class RuneBalanceComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = RuneBalanceValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = RuneBalance.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = RuneBalanceValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = RuneBalance.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="rune-balance" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Rune Balance"
+      <ms-skill-overlay heading={ RuneBalance.name }
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>

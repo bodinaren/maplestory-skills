@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MirrorImageDarkBladeValues } from "../../../../global/values/assassin";
+import { MirrorImageDarkBlade } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-mirror-image-dark-blade",
@@ -8,13 +8,13 @@ import { MirrorImageDarkBladeValues } from "../../../../global/values/assassin";
 })
 export class MirrorImageDarkBladeComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MirrorImageDarkBladeValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MirrorImageDarkBlade.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MirrorImageDarkBladeValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MirrorImageDarkBlade.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ MirrorImageDarkBladeValues.levelRequirement[this.level] }+`,
+      `Level ${ MirrorImageDarkBlade.levelRequirement[this.level] }+`,
       `Shadow Web [Level 2+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class MirrorImageDarkBladeComponent {
   render() {
     return [
       <ms-icon name="mirror-image-dark-blade"></ms-icon>,
-      <ms-skill-overlay heading="Mirror Image: Dark Blade"
+      <ms-skill-overlay heading={ MirrorImageDarkBlade.name }
                         element="Dark"
                         level={ this.level }
                         type="Close Range / Physical"
@@ -32,7 +32,7 @@ export class MirrorImageDarkBladeComponent {
         <ms-icon slot="icon" name="mirror-image-dark-blade"></ms-icon>
         <div slot="description">
           Marks a <span>2.25</span> m radius spot on the ground with an insignia of darkness for <span>10</span> sec,
-          dealing <span>{ MirrorImageDarkBladeValues.damage[this.level] }%</span> dark damage
+          dealing <span>{ MirrorImageDarkBlade.values.damage[this.level] }%</span> dark damage
           to <span>3</span> enemies within the mark by sending a mirror image to attack them.
           This skill also brands enemies, reducing their accuracy by <span>20</span> for <span>10</span> sec.
           All attacks dealt to branded enemies have a <span>30%</span> chance to summon additional

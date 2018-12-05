@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { IronShieldValues } from "../../../../global/values/knight";
+import { IronShield } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-iron-shield",
@@ -8,20 +8,20 @@ import { IronShieldValues } from "../../../../global/values/knight";
 })
 export class IronShieldComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = IronShieldValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = IronShield.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = IronShieldValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = IronShield.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ IronShieldValues.levelRequirement[this.level] }+`,
+      `Level ${ IronShield.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="iron-shield"></ms-icon>,
-      <ms-skill-overlay heading="Iron Shield"
+      <ms-skill-overlay heading={ IronShield.name }
                         level={ this.level }
                         weaponRequired="Off-hand Shield"
                         requirements={ this.getRequirements() }
@@ -29,7 +29,7 @@ export class IronShieldComponent {
         <ms-icon slot="icon" name="iron-shield"></ms-icon>
         <div slot="description">
           Adopt a defensive stance with your shield, reducing incoming damage
-          by <span>{ IronShieldValues.reduction[this.level] }%</span>.
+          by <span>{ IronShield.values.reduction[this.level] }%</span>.
           The skill lasts while the skill key is held down,
           although powerful attacks may break the skill early.
           This skill can cancel other skills.

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { GatlingFireValues } from "../../../../global/values/heavy-gunner";
+import { GatlingFire } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-gatling-fire",
@@ -8,14 +8,14 @@ import { GatlingFireValues } from "../../../../global/values/heavy-gunner";
 })
 export class GatlingFireComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = GatlingFireValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = GatlingFire.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = GatlingFireValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = GatlingFire.maxLevel;
 
   getRequirements(): string[] {
-    if (GatlingFireValues.levelRequirement[this.level] > 0) {
+    if (GatlingFire.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ GatlingFireValues.levelRequirement[this.level] }+`,
+        `Level ${ GatlingFire.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class GatlingFireComponent {
   render() {
     return [
       <ms-icon name="gatling-fire"></ms-icon>,
-      <ms-skill-overlay heading="Gatling Fire"
+      <ms-skill-overlay heading={ GatlingFire.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Cannon"
@@ -33,7 +33,7 @@ export class GatlingFireComponent {
         <ms-icon slot="icon" name="gatling-fire"></ms-icon>
         <div slot="description">
           Fire wildly as the cannon's barrel spins,
-          dealing <span>{ GatlingFireValues.damage[this.level] }%</span> damage <span>3</span> times
+          dealing <span>{ GatlingFire.values.damage[this.level] }%</span> damage <span>3</span> times
           to <span>5</span> enemies up to <span>8</span> m in front of you.
           This skill uses a special piercing bullet to damage all targets in range.
           Keep pressing the key to trigger a <span>3-hit</span> combo.

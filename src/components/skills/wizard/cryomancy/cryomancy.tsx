@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { CryomancyValues } from "../../../../global/values/wizard";
+import { Cryomancy } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-cryomancy",
@@ -8,13 +8,13 @@ import { CryomancyValues } from "../../../../global/values/wizard";
 })
 export class CryomancyComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = CryomancyValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Cryomancy.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = CryomancyValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Cryomancy.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ CryomancyValues.levelRequirement[this.level] }+`,
+      `Level ${ Cryomancy.levelRequirement[this.level] }+`,
       `Ice Spear [Level 5+]`,
       `Ice Storm [Level 5+]`,
     ];
@@ -25,7 +25,7 @@ export class CryomancyComponent {
   render() {
     return [
       <ms-icon name="cryomancy"></ms-icon>,
-      <ms-skill-overlay heading="Cryomancy"
+      <ms-skill-overlay heading={ Cryomancy.name }
                         element="Ice"
                         level={ this.level }
                         passive={ true }
@@ -34,7 +34,7 @@ export class CryomancyComponent {
         <ms-icon slot="icon" name="cryomancy"></ms-icon>
         <div slot="description">
           An advanced ice technique taught to only the top students of the Ellinel Magic Academy.
-          Increases all ice damage by <span>{ CryomancyValues.damage[this.level] }%</span>.
+          Increases all ice damage by <span>{ Cryomancy.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

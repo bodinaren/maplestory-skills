@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { MindBreakerValues } from "../../../../global/values/thief";
+import { MindBreaker } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-mind-breaker",
@@ -8,13 +8,13 @@ import { MindBreakerValues } from "../../../../global/values/thief";
 })
 export class MindBreakerComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = MindBreakerValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = MindBreaker.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = MindBreakerValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = MindBreaker.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ MindBreakerValues.levelRequirement[this.level] }+`,
+      `Level ${ MindBreaker.levelRequirement[this.level] }+`,
     ];
   }
 
@@ -23,7 +23,7 @@ export class MindBreakerComponent {
   render() {
     return [
       <ms-icon name="mind-breaker"></ms-icon>,
-      <ms-skill-overlay heading="Mind Breaker"
+      <ms-skill-overlay heading={ MindBreaker.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -32,7 +32,7 @@ export class MindBreakerComponent {
         <div slot="description">
           Unlocks Empowered Mind Stealer, which increases the number of targets
           that can be hit by the skill to <span>5</span> and the
-          skill's damage by <span>{ MindBreakerValues.damage[this.level] }%</span>.
+          skill's damage by <span>{ MindBreaker.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

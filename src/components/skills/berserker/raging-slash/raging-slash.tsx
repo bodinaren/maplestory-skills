@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { RagingSlashValues } from "../../../../global/values/berserker";
+import { RagingSlash } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-raging-slash",
@@ -8,14 +8,14 @@ import { RagingSlashValues } from "../../../../global/values/berserker";
 })
 export class RagingSlashComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = RagingSlashValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = RagingSlash.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = RagingSlashValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = RagingSlash.maxLevel;
 
   getRequirements(): string[] {
-    if (RagingSlashValues.levelRequirement[this.level] > 0) {
+    if (RagingSlash.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ RagingSlashValues.levelRequirement[this.level] }+`,
+        `Level ${ RagingSlash.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class RagingSlashComponent {
   render() {
     return [
       <ms-icon name="raging-slash"></ms-icon>,
-      <ms-skill-overlay heading="Raging Slash"
+      <ms-skill-overlay heading={ RagingSlash.name }
                         element="Dark"
                         level={ this.level }
                         type="Close Range / Physical"
@@ -32,7 +32,7 @@ export class RagingSlashComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="raging-slash"></ms-icon>
         <div slot="description">
-          Swing your weapon to deal <span>{ RagingSlashValues.damage[this.level] }%</span> dark damage
+          Swing your weapon to deal <span>{ RagingSlash.values.damage[this.level] }%</span> dark damage
           to <span>5</span> enemies up to <span>3</span> m in front of you.
           Keep pressing the key to trigger a <span>3-hit</span> combo.
           The attack speed increases with each hit.

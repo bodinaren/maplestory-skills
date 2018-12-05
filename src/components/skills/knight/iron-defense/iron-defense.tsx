@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { IronDefenseValues } from "../../../../global/values/knight";
+import { IronDefense } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-iron-defense",
@@ -8,14 +8,14 @@ import { IronDefenseValues } from "../../../../global/values/knight";
 })
 export class IronDefenseComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = IronDefenseValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = IronDefense.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = IronDefenseValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = IronDefense.maxLevel;
 
   render() {
     return [
       <ms-icon name="iron-defense" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Iron Defense"
+      <ms-skill-overlay heading={ IronDefense.name }
                         level={ this.level }
                         weaponRequired="Off-hand Shield"
                         cooldown={ 5 }

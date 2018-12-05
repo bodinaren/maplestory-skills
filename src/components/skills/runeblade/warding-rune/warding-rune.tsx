@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { WardingRuneValues } from "../../../../global/values/runeblade";
+import { WardingRune } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-warding-rune",
@@ -8,13 +8,13 @@ import { WardingRuneValues } from "../../../../global/values/runeblade";
 })
 export class WardingRuneComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = WardingRuneValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = WardingRune.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = WardingRuneValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = WardingRune.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ WardingRuneValues.levelRequirement[this.level] }+`,
+      `Level ${ WardingRune.levelRequirement[this.level] }+`,
       `Gravity Rune [Level 3+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class WardingRuneComponent {
   render() {
     return [
       <ms-icon name="warding-rune"></ms-icon>,
-      <ms-skill-overlay heading="Warding Rune"
+      <ms-skill-overlay heading={ WardingRune.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 30 }
@@ -30,7 +30,7 @@ export class WardingRuneComponent {
         <ms-icon slot="icon" name="warding-rune"></ms-icon>
         <div slot="description">
           Summon a shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
-          by <span>{ WardingRuneValues.resistance[this.level] }%</span>.
+          by <span>{ WardingRune.values.resistance[this.level] }%</span>.
           This skill attunes with your Flame, Frost, and Storm sigil skills.
         </div>
       </ms-skill-overlay>

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { RapidShotValues } from "../../../../global/values/archer";
+import { RapidShot } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-rapid-shot",
@@ -8,13 +8,13 @@ import { RapidShotValues } from "../../../../global/values/archer";
 })
 export class RapidShotComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = RapidShotValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = RapidShot.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = RapidShotValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = RapidShot.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ RapidShotValues.levelRequirement[this.level] }+`,
+      `Level ${ RapidShot.levelRequirement[this.level] }+`,
       `Arrow Stream [Level 3+]`,
       `Arrow Barrage [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class RapidShotComponent {
   render() {
     return [
       <ms-icon name="rapid-shot"></ms-icon>,
-      <ms-skill-overlay heading="Rapid Shot"
+      <ms-skill-overlay heading={ RapidShot.name }
                         element="Fire"
                         level={ this.level }
                         type="Long Range / Physical"
@@ -34,7 +34,7 @@ export class RapidShotComponent {
         <ms-icon slot="icon" name="rapid-shot"></ms-icon>
         <div slot="description">
           Shoot a series of fire arrows <span>3</span> times,
-          dealing <span>{ RapidShotValues.damage[this.level] }%</span> damage to the closest enemy
+          dealing <span>{ RapidShot.values.damage[this.level] }%</span> damage to the closest enemy
           up to <span>9</span> m in front of you. The skill lasts while the skill key is held down.
           Fire arrows pierce the enemy <span>3</span> times and can hit enemies behind.
           Consumes <span>7</span> spirit.

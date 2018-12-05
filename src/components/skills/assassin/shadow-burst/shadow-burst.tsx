@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ShadowBurstValues } from "../../../../global/values/assassin";
+import { ShadowBurst } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-shadow-burst",
@@ -8,13 +8,13 @@ import { ShadowBurstValues } from "../../../../global/values/assassin";
 })
 export class ShadowBurstComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ShadowBurstValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ShadowBurst.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ShadowBurstValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ShadowBurst.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ShadowBurstValues.levelRequirement[this.level] }+`,
+      `Level ${ ShadowBurst.levelRequirement[this.level] }+`,
       `Shadow Cutter [Level 4+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class ShadowBurstComponent {
   render() {
     return [
       <ms-icon name="shadow-burst"></ms-icon>,
-      <ms-skill-overlay heading="Shadow Burst"
+      <ms-skill-overlay heading={ ShadowBurst.name }
                         element="Dark"
                         level={ this.level }
                         type="Long Range / Physical"
@@ -35,10 +35,10 @@ export class ShadowBurstComponent {
         <div slot="description">
           Equip <span>5</span> thrown weapons imbued with dark magic in each hand,
           then throw them forward at the same time to
-          deal <span>{ ShadowBurstValues.damage[this.level] }%</span> dark damage <span>2</span> times
+          deal <span>{ ShadowBurst.values.damage[this.level] }%</span> dark damage <span>2</span> times
           to <span>8</span> enemies within <span>8</span> m.
           If any of the enemies hit are marked for death the mark explodes,
-          dealing an additional <span>{ ShadowBurstValues.additionalDamage[this.level] }%</span> dark damage.
+          dealing an additional <span>{ ShadowBurst.values.additionalDamage[this.level] }%</span> dark damage.
           The damage of each attack is affected by the weapon in each hand.
           Consumes <span>30</span> spirit.
         </div>

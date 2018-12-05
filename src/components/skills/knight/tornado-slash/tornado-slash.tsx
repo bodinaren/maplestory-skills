@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { TornadoSlashValues } from "../../../../global/values/knight";
+import { TornadoSlash } from "../../../../global/values/knight";
 
 @Component({
   tag: "ms-tornado-slash",
@@ -8,14 +8,14 @@ import { TornadoSlashValues } from "../../../../global/values/knight";
 })
 export class TornadoSlashComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = TornadoSlashValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = TornadoSlash.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = TornadoSlashValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = TornadoSlash.maxLevel;
 
   getRequirements(): string[] {
-    if (TornadoSlashValues.levelRequirement[this.level] > 0) {
+    if (TornadoSlash.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ TornadoSlashValues.levelRequirement[this.level] }+`,
+        `Level ${ TornadoSlash.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class TornadoSlashComponent {
   render() {
     return [
       <ms-icon name="tornado-slash"></ms-icon>,
-      <ms-skill-overlay heading="Tornado Slash"
+      <ms-skill-overlay heading={ TornadoSlash.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Main Hand Longsword"
@@ -33,7 +33,7 @@ export class TornadoSlashComponent {
         <ms-icon slot="icon" name="tornado-slash"></ms-icon>
         <div slot="description">
           Perform a spin slash,
-          dealing <span>{ TornadoSlashValues.damage[this.level] }%</span> damage <span>3</span> times
+          dealing <span>{ TornadoSlash.values.damage[this.level] }%</span> damage <span>3</span> times
           to <span>8</span> enemies within <span>3</span> m and pulling them in <span>1</span> m.
           Consumes <span>12</span> spirit.
         </div>

@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { AdvancedMissilesValues } from "../../../../global/values/heavy-gunner";
+import { AdvancedMissiles } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-advanced-missiles",
@@ -8,13 +8,13 @@ import { AdvancedMissilesValues } from "../../../../global/values/heavy-gunner";
 })
 export class AdvancedMissilesComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = AdvancedMissilesValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = AdvancedMissiles.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = AdvancedMissilesValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = AdvancedMissiles.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ AdvancedMissilesValues.levelRequirement[this.level] }+`,
+      `Level ${ AdvancedMissiles.levelRequirement[this.level] }+`,
       `Homing Missiles [Level 4+]`,
     ];
   }
@@ -24,7 +24,7 @@ export class AdvancedMissilesComponent {
   render() {
     return [
       <ms-icon name="advanced-missiles"></ms-icon>,
-      <ms-skill-overlay heading="Advanced Missiles"
+      <ms-skill-overlay heading={ AdvancedMissiles.name }
                         element="Fire"
                         level={ this.level }
                         passive={ true }
@@ -35,7 +35,7 @@ export class AdvancedMissilesComponent {
         <div slot="description">
           Upgrade to high performance missiles.
           Increases the damage of Rocket Launcher, Homing Missiles, and M-Bomb
-          by <span>{ AdvancedMissilesValues.damage[this.level] }%</span>.
+          by <span>{ AdvancedMissiles.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

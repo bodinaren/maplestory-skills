@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { DeftCombatantValues } from "../../../../global/values/thief";
+import { DeftCombatant } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-deft-combatant",
@@ -8,13 +8,13 @@ import { DeftCombatantValues } from "../../../../global/values/thief";
 })
 export class DeftCombatantComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = DeftCombatantValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = DeftCombatant.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = DeftCombatantValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = DeftCombatant.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ DeftCombatantValues.levelRequirement[this.level] }+`,
+      `Level ${ DeftCombatant.levelRequirement[this.level] }+`,
       `Vicious Cuts [Level 5+]`,
       `Haste [Level 3+]`,
     ];
@@ -25,7 +25,7 @@ export class DeftCombatantComponent {
   render() {
     return [
       <ms-icon name="deft-combatant"></ms-icon>,
-      <ms-skill-overlay heading="Deft Combatant"
+      <ms-skill-overlay heading={ DeftCombatant.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -33,7 +33,7 @@ export class DeftCombatantComponent {
         <ms-icon slot="icon" name="deft-combatant"></ms-icon>
         <div slot="description">
           Intense training has honed your body, increasing the damage output of
-          Vicious Cuts and Somersault Kick by <span>{ DeftCombatantValues.damage[this.level] }%</span>.
+          Vicious Cuts and Somersault Kick by <span>{ DeftCombatant.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

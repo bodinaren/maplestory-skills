@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { FragmentedStarValues } from "../../../../global/values/assassin";
+import { FragmentedStar } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-fragmented-star",
@@ -8,14 +8,14 @@ import { FragmentedStarValues } from "../../../../global/values/assassin";
 })
 export class FragmentedStarComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = FragmentedStarValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = FragmentedStar.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = FragmentedStarValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = FragmentedStar.maxLevel;
 
   getRequirements(): string[] {
-    if (FragmentedStarValues.levelRequirement[this.level] > 0) {
+    if (FragmentedStar.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ FragmentedStarValues.levelRequirement[this.level] }+`,
+        `Level ${ FragmentedStar.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class FragmentedStarComponent {
   render() {
     return [
       <ms-icon name="fragmented-star"></ms-icon>,
-      <ms-skill-overlay heading="Fragmented Star"
+      <ms-skill-overlay heading={ FragmentedStar.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="One-handed Thrown Weapon"
@@ -34,7 +34,7 @@ export class FragmentedStarComponent {
         <div slot="description">
           Throw a shattering weapon at the closest enemy
           within <span>8</span> m in front of you which breaks apart on impact to
-          deal <span>{ FragmentedStarValues.damage[this.level] }%</span> damage
+          deal <span>{ FragmentedStar.values.damage[this.level] }%</span> damage
           to <span>8</span> enemies within <span>3</span> m.
           The damage of this attack is affected by the weapon in your right hand.
           Consumes <span>20</span> spirit.

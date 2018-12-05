@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ShadowChaserValues } from "../../../../global/values/assassin";
+import { ShadowChaser } from "../../../../global/values/assassin";
 
 @Component({
   tag: "ms-shadow-chaser",
@@ -8,14 +8,14 @@ import { ShadowChaserValues } from "../../../../global/values/assassin";
 })
 export class ShadowChaserComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ShadowChaserValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ShadowChaser.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ShadowChaserValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ShadowChaser.maxLevel;
 
   render() {
     return [
       <ms-icon name="shadow-chaser" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Shadow Chaser"
+      <ms-skill-overlay heading={ ShadowChaser.name }
                         element="Dark"
                         level={ this.level }
                         type="Long Range / Physical"

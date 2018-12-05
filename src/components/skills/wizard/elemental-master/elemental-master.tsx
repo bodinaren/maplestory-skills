@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ElementalMasterValues } from "../../../../global/values/wizard";
+import { ElementalMaster } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-elemental-master",
@@ -8,13 +8,13 @@ import { ElementalMasterValues } from "../../../../global/values/wizard";
 })
 export class ElementalMasterComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = ElementalMasterValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = ElementalMaster.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = ElementalMasterValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = ElementalMaster.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ ElementalMasterValues.levelRequirement[this.level] }+`,
+      `Level ${ ElementalMaster.levelRequirement[this.level] }+`,
     ];
   }
 
@@ -23,7 +23,7 @@ export class ElementalMasterComponent {
   render() {
     return [
       <ms-icon name="elemental-master"></ms-icon>,
-      <ms-skill-overlay heading="Elemental Master"
+      <ms-skill-overlay heading={ ElementalMaster.name }
                         level={ this.level }
                         passive={ true }
                         requirements={ this.getRequirements() }
@@ -31,7 +31,7 @@ export class ElementalMasterComponent {
         <ms-icon slot="icon" name="elemental-master"></ms-icon>
         <div slot="description">
           Asimov's high-level instruction teaches you how to harmoniously balance of fire, ice, and electric magic.
-          Increases fire, ice, and electric damage by <span>{ ElementalMasterValues.damage[this.level] }%</span>.
+          Increases fire, ice, and electric damage by <span>{ ElementalMaster.values.damage[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

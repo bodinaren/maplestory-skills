@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { FocusSealValues } from "../../../../global/values/wizard";
+import { FocusSeal } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-focus-seal",
@@ -8,13 +8,13 @@ import { FocusSealValues } from "../../../../global/values/wizard";
 })
 export class FocusSealComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = FocusSealValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = FocusSeal.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = FocusSealValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = FocusSeal.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ FocusSealValues.levelRequirement[this.level] }+`,
+      `Level ${ FocusSeal.levelRequirement[this.level] }+`,
       `Magic Armor [Level 4+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class FocusSealComponent {
   render() {
     return [
       <ms-icon name="focus-seal"></ms-icon>,
-      <ms-skill-overlay heading="Focus Seal"
+      <ms-skill-overlay heading={ FocusSeal.name }
                         level={ this.level }
                         requirements={ this.getRequirements() }
                         cooldown={ 45 }
@@ -31,9 +31,9 @@ export class FocusSealComponent {
         <div slot="description">
           Imbue the earth with your magical power, creating a seal that reaches <span>5</span> tiles around you.
           The seal lasts for <span>20</span> sec and increases the physical attack and magic attack of allies
-          who absorb it by <span>{ FocusSealValues.increaseAllies[this.level] }%</span> for <span>180</span> sec.
+          who absorb it by <span>{ FocusSeal.values.increaseAllies[this.level] }%</span> for <span>180</span> sec.
           Focus Seal also increases the caster's physical and magic attack
-          by an additional <span>{ FocusSealValues.increaseSelf[this.level] }%</span>.
+          by an additional <span>{ FocusSeal.values.increaseSelf[this.level] }%</span>.
         </div>
       </ms-skill-overlay>
     ];

@@ -1,84 +1,92 @@
-ms-adrenaline-rush {
+:host {
+  display: block;
+}
+
+ms-skill {
+  position: absolute;
+}
+
+.adrenalineRush {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-blood-price {
+.bloodPrice {
   @include chart-row(5);
   @include chart-column(3);
 }
 
-ms-bloodlust {
+.bloodlust {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-dark-aura {
+.darkAura {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-dark-breaker {
+.darkBreaker {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-dark-might {
+.darkMight {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-death-spin {
+.deathSpin {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-deep-wounds {
+.deepWounds {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-earthquake {
+.earthquake {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-greatsword-mastery {
+.greatswordMastery {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-ground-breaker {
+.groundBreaker {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-inhuman-endurance {
+.inhumanEndurance {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-intimidation {
+.intimidation {
   @include chart-row(4);
   @include chart-column(4);
 }
 
-ms-raging-slash {
+.ragingSlash {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-void-slash {
+.voidSlash {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-warriors-instinct {
+.warriorsInstinct {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-x-slash {
+.xSlash {
   @include chart-row(1);
   @include chart-column(4);
 }

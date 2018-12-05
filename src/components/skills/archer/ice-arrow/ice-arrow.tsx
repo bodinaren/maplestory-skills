@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { IceArrowValues } from "../../../../global/values/archer";
+import { IceArrow } from "../../../../global/values/archer";
 
 @Component({
   tag: "ms-ice-arrow",
@@ -8,13 +8,13 @@ import { IceArrowValues } from "../../../../global/values/archer";
 })
 export class IceArrowComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = IceArrowValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = IceArrow.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = IceArrowValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = IceArrow.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ IceArrowValues.levelRequirement[this.level] }+`,
+      `Level ${ IceArrow.levelRequirement[this.level] }+`,
       `Evasive Salvo [Level 5+]`,
     ];
   }
@@ -22,7 +22,7 @@ export class IceArrowComponent {
   render() {
     return [
       <ms-icon name="ice-arrow"></ms-icon>,
-      <ms-skill-overlay heading="Ice Arrow"
+      <ms-skill-overlay heading={ IceArrow.name }
                         element="Ice"
                         level={ this.level }
                         type="Long Range / Physical"
@@ -33,7 +33,7 @@ export class IceArrowComponent {
         <ms-icon slot="icon" name="ice-arrow"></ms-icon>
         <div slot="description">
           Fire three ice arrows at once,
-          dealing <span>{ IceArrowValues.damage[this.level] }%</span> damage to enemies up to <span>9</span> m
+          dealing <span>{ IceArrow.values.damage[this.level] }%</span> damage to enemies up to <span>9</span> m
           in front of you and decreasing their movement speed and jump power by <span>4%</span> for <span>5</span> sec.
           Ice arrows pierce the enemy <span>4</span> times and can hit enemies behind.
           The movement speed reduction effect can stack up to <span>10</span> times.

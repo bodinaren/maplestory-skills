@@ -1,85 +1,92 @@
+:host {
+  display: block;
+}
 
-ms-advanced-bullets {
+ms-skill {
+  position: absolute;
+}
+
+.advancedBullets {
   @include chart-row(5);
   @include chart-column(1);
 }
 
-ms-advanced-missiles {
+.advancedMissiles {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-advanced-pulse-weapons {
+.advancedPulseWeapons {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-blast-charge-kit {
+.blastChargeKit {
   @include chart-row(6);
   @include chart-column(2);
 }
 
-ms-bullet-spray {
+.bulletSpray {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-electric-blast {
+.electricBlast {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-gatling-fire {
+.gatlingFire {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-homing-missiles {
+.homingMissiles {
   @include chart-row(4);
   @include chart-column(3);
 }
 
-ms-jet-boots {
+.jetBoots {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-lock-on {
+.lockOn {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-m-bomb {
-  @include chart-row(5);
-  @include chart-column(3);
-}
-
-ms-magnetic-bomb {
+.magneticBomb {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-med-kit {
+.mBomb {
+  @include chart-row(5);
+  @include chart-column(3);
+}
+
+.medKit {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-reload {
+.reload {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-rocket-launcher {
+.rocketLauncher {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-stun-grenades {
+.stunGrenades {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-suborbital-bombardment {
+.suborbitalBombardment {
   @include chart-row(4);
   @include chart-column(4);
 }

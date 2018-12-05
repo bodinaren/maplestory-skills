@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { XSlashValues } from "../../../../global/values/berserker";
+import { XSlash } from "../../../../global/values/berserker";
 
 @Component({
   tag: "ms-x-slash",
@@ -8,14 +8,14 @@ import { XSlashValues } from "../../../../global/values/berserker";
 })
 export class XSlashComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = XSlashValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = XSlash.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = XSlashValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = XSlash.maxLevel;
 
   render() {
     return [
       <ms-icon name="x-slash"></ms-icon>,
-      <ms-skill-overlay heading="X-Slash"
+      <ms-skill-overlay heading={ XSlash.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         weaponRequired="Two-handed Greatsword"

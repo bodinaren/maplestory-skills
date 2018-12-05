@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { IllusoryBladesValues } from "../../../../global/values/runeblade";
+import { IllusoryBlades } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-illusory-blades",
@@ -8,13 +8,13 @@ import { IllusoryBladesValues } from "../../../../global/values/runeblade";
 })
 export class IllusoryBladesComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = IllusoryBladesValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = IllusoryBlades.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = IllusoryBladesValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = IllusoryBlades.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ IllusoryBladesValues.levelRequirement[this.level] }+`,
+      `Level ${ IllusoryBlades.levelRequirement[this.level] }+`,
       `Flurry [Level 4+]`,
       `Whirling Blades [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class IllusoryBladesComponent {
   render() {
     return [
       <ms-icon name="illusory-blades"></ms-icon>,
-      <ms-skill-overlay heading="Illusory Blades"
+      <ms-skill-overlay heading={ IllusoryBlades.name }
                         level={ this.level }
                         type="Long Range / Magic"
                         requirements={ this.getRequirements() }
@@ -34,7 +34,7 @@ export class IllusoryBladesComponent {
         <div slot="description">
           Conjure <span>5</span> arcane blades.
           Once per sec, <span>1</span> blade flies at the closest enemy within <span>7.5</span> m,
-          dealing <span>{ IllusoryBladesValues.damage[this.level] }%</span> damage.
+          dealing <span>{ IllusoryBlades.values.damage[this.level] }%</span> damage.
           Consumes <span>15</span> spirit.
         </div>
       </ms-skill-overlay>

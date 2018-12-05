@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { LockOnValues } from "../../../../global/values/heavy-gunner";
+import { LockOn } from "../../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-lock-on",
@@ -8,13 +8,13 @@ import { LockOnValues } from "../../../../global/values/heavy-gunner";
 })
 export class LockOnComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = LockOnValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = LockOn.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = LockOnValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = LockOn.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ LockOnValues.levelRequirement[this.level] }+`,
+      `Level ${ LockOn.levelRequirement[this.level] }+`,
       `Bullet Spray [Level 4+]`,
       `Gatling Fire [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class LockOnComponent {
   render() {
     return [
       <ms-icon name="lock-on"></ms-icon>,
-      <ms-skill-overlay heading="Lock-on"
+      <ms-skill-overlay heading={ LockOn.name }
                         level={ this.level }
                         type="Long Range / Physical"
                         weaponRequired="Two-handed Cannon"
@@ -35,7 +35,7 @@ export class LockOnComponent {
         <div slot="description">
           Take a shooting stance, aiming at the closest target up to <span>8</span> m in
           front of you and shooting a special bullet that
-          deals <span>{ LockOnValues.damage[this.level] }%</span> damage,
+          deals <span>{ LockOn.values.damage[this.level] }%</span> damage,
           pierces the target up to <span>8</span> times, and can damage enemies behind the target.
           Consumes <span>15</span> spirit.
         </div>

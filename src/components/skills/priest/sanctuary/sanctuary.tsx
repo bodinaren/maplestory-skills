@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SanctuaryValues } from "../../../../global/values/priest";
+import { Sanctuary } from "../../../../global/values/priest";
 
 @Component({
   tag: "ms-sanctuary",
@@ -8,13 +8,13 @@ import { SanctuaryValues } from "../../../../global/values/priest";
 })
 export class SanctuaryComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SanctuaryValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = Sanctuary.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SanctuaryValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = Sanctuary.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ SanctuaryValues.levelRequirement[this.level] }+`,
+      `Level ${ Sanctuary.levelRequirement[this.level] }+`,
       `Healing Prayer [Level 3+]`,
       `Scourging Wave [Level 3+]`,
     ];
@@ -23,7 +23,7 @@ export class SanctuaryComponent {
   render() {
     return [
       <ms-icon name="sanctuary"></ms-icon>,
-      <ms-skill-overlay heading="Sanctuary"
+      <ms-skill-overlay heading={ Sanctuary.name }
                         element="Holy"
                         level={ this.level }
                         type="Magic"
@@ -34,9 +34,9 @@ export class SanctuaryComponent {
         <ms-icon slot="icon" name="sanctuary"></ms-icon>
         <div slot="description">
           Sanctify the ground within
-          a <span>{ SanctuaryValues.range[this.level] }</span>-tile cross for <span>10</span> sec to
-          deal <span>{ SanctuaryValues.damage[this.level] }%</span> damage to enemies and restore health of you and your allies equal
-          to <span>{ SanctuaryValues.healing[this.level] }%</span> of your magic attack.
+          a <span>{ Sanctuary.values.range[this.level] }</span>-tile cross for <span>10</span> sec to
+          deal <span>{ Sanctuary.values.damage[this.level] }%</span> damage to enemies and restore health of you and your allies equal
+          to <span>{ Sanctuary.values.healing[this.level] }%</span> of your magic attack.
         </div>
       </ms-skill-overlay>
     ];

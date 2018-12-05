@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SpiritThiefValues } from "../../../../global/values/thief";
+import { SpiritThief } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-spirit-thief",
@@ -8,16 +8,16 @@ import { SpiritThiefValues } from "../../../../global/values/thief";
 })
 export class SpiritThiefComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SpiritThiefValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = SpiritThief.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SpiritThiefValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = SpiritThief.maxLevel;
 
   hostData() { return { "passive": "true" }; }
 
   render() {
     return [
       <ms-icon name="spirit-thief" sp={ true }></ms-icon>,
-      <ms-skill-overlay heading="Spirit Thief"
+      <ms-skill-overlay heading={ SpiritThief.name }
                         level={ this.level }
                         passive={ true }
                         max={ this.max }>

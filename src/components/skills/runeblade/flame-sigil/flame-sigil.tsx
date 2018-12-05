@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { FlameSigilValues } from "../../../../global/values/runeblade";
+import { FlameSigil } from "../../../../global/values/runeblade";
 
 @Component({
   tag: "ms-flame-sigil",
@@ -8,20 +8,20 @@ import { FlameSigilValues } from "../../../../global/values/runeblade";
 })
 export class FlameSigilComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = FlameSigilValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = FlameSigil.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = FlameSigilValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = FlameSigil.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ FlameSigilValues.levelRequirement[this.level] }+`,
+      `Level ${ FlameSigil.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="flame-sigil"></ms-icon>,
-      <ms-skill-overlay heading="Flame Sigil"
+      <ms-skill-overlay heading={ FlameSigil.name }
                         element="Fire"
                         level={ this.level }
                         weaponRequired="Two-handed Blade"
@@ -31,7 +31,7 @@ export class FlameSigilComponent {
         <ms-icon slot="icon" name="flame-sigil"></ms-icon>
         <div slot="description">
           Apply a fire rune to your blade that lasts <span>240</span> sec,
-          increasing fire damage by <span>{ FlameSigilValues.damage[this.level] }%</span>.
+          increasing fire damage by <span>{ FlameSigil.values.damage[this.level] }%</span>.
           While active, certain skills become fire skills.
         </div>
       </ms-skill-overlay>

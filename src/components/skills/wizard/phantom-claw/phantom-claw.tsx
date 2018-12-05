@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { PhantomClawValues } from "../../../../global/values/wizard";
+import { PhantomClaw } from "../../../../global/values/wizard";
 
 @Component({
   tag: "ms-phantom-claw",
@@ -8,14 +8,14 @@ import { PhantomClawValues } from "../../../../global/values/wizard";
 })
 export class PhantomClawComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = PhantomClawValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = PhantomClaw.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = PhantomClawValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = PhantomClaw.maxLevel;
 
   getRequirements(): string[] {
-    if (PhantomClawValues.levelRequirement[this.level] > 0) {
+    if (PhantomClaw.levelRequirement[this.level] > 0) {
       return [
-        `Level ${ PhantomClawValues.levelRequirement[this.level] }+`,
+        `Level ${ PhantomClaw.levelRequirement[this.level] }+`,
       ];
     }
   }
@@ -23,7 +23,7 @@ export class PhantomClawComponent {
   render() {
     return [
       <ms-icon name="phantom-claw"></ms-icon>,
-      <ms-skill-overlay heading="Phantom Claw"
+      <ms-skill-overlay heading={ PhantomClaw.name }
                         level={ this.level }
                         type="Long Range / Magic"
                         weaponRequired="Two-handed Staff"
@@ -32,7 +32,7 @@ export class PhantomClawComponent {
         <ms-icon slot="icon" name="phantom-claw"></ms-icon>
         <div slot="description">
           Slash the air with sharp magical claws,
-          dealing <span>{ PhantomClawValues.damage[this.level] }%</span> damage <span>2</span> times
+          dealing <span>{ PhantomClaw.values.damage[this.level] }%</span> damage <span>2</span> times
           to <span>3</span> enemies up to <span>8</span> m in front of you.
         </div>
       </ms-skill-overlay>

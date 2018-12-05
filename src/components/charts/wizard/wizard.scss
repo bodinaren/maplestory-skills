@@ -1,85 +1,92 @@
+:host {
+  display: block;
+}
 
-ms-arcane-blast {
+ms-skill {
+  position: absolute;
+}
+
+.arcaneBlast {
   @include chart-row(2);
   @include chart-column(1);
 }
 
-ms-chain-lightning {
+.chainLightning {
   @include chart-row(3);
   @include chart-column(3);
 }
 
-ms-cryomancy {
+.cryomancy {
   @include chart-row(5);
   @include chart-column(2);
 }
 
-ms-electromancy {
+.electromancy {
   @include chart-row(6);
   @include chart-column(3);
 }
 
-ms-elemental-master {
+.elementalMaster {
   @include chart-row(6);
   @include chart-column(4);
 }
 
-ms-flame-tornado {
+.flameTornado {
   @include chart-row(4);
   @include chart-column(1);
 }
 
-ms-flame-wave {
+.flameWave {
   @include chart-row(3);
   @include chart-column(1);
 }
 
-ms-focus-seal {
+.focusSeal {
   @include chart-row(5);
   @include chart-column(4);
 }
 
-ms-ice-spear {
+.iceSpear {
   @include chart-row(3);
   @include chart-column(2);
 }
 
-ms-ice-storm {
+.iceStorm {
   @include chart-row(4);
   @include chart-column(2);
 }
 
-ms-magic-armor {
+.magicArmor {
   @include chart-row(3);
   @include chart-column(4);
 }
 
-ms-mana-claw {
+.manaClaw {
   @include chart-row(6);
   @include chart-column(1);
 }
 
-ms-mana-font {
+.manaFont {
   @include chart-row(1);
   @include chart-column(3);
 }
 
-ms-phantom-claw {
+.phantomClaw {
   @include chart-row(1);
   @include chart-column(1);
 }
 
-ms-pyromancy {
+.pyromancy {
   @include chart-row(5);
   @include chart-column(1);
 }
 
-ms-teleport {
+.teleport {
   @include chart-row(1);
   @include chart-column(4);
 }
 
-ms-thunderbolt {
+.thunderbolt {
   @include chart-row(4);
   @include chart-column(3);
 }

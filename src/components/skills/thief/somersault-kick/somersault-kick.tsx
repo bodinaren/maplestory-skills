@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { SomersaultKickValues } from "../../../../global/values/thief";
+import { SomersaultKick } from "../../../../global/values/thief";
 
 @Component({
   tag: "ms-somersault-kick",
@@ -8,20 +8,20 @@ import { SomersaultKickValues } from "../../../../global/values/thief";
 })
 export class SomersaultKickComponent {
 
-  @Prop({ reflectToAttr: true }) level: number = SomersaultKickValues.minLevel;
+  @Prop({ reflectToAttr: true }) level: number = SomersaultKick.minLevel;
 
-  @Prop({ reflectToAttr: true }) private max: number = SomersaultKickValues.maxLevel;
+  @Prop({ reflectToAttr: true }) private max: number = SomersaultKick.maxLevel;
 
   getRequirements(): string[] {
     return [
-      `Level ${ SomersaultKickValues.levelRequirement[this.level] }+`,
+      `Level ${ SomersaultKick.levelRequirement[this.level] }+`,
     ];
   }
 
   render() {
     return [
       <ms-icon name="somersault-kick"></ms-icon>,
-      <ms-skill-overlay heading="Somersault Kick"
+      <ms-skill-overlay heading={ SomersaultKick.name }
                         level={ this.level }
                         type="Close Range / Physical"
                         requirements={ this.getRequirements() }
@@ -29,10 +29,10 @@ export class SomersaultKickComponent {
                         max={ this.max }>
         <ms-icon slot="icon" name="somersault-kick"></ms-icon>
         <div slot="description">
-          Perform a somersault kick to deal <span>{ SomersaultKickValues.damage[this.level] }%</span> damage
+          Perform a somersault kick to deal <span>{ SomersaultKick.values.damage[this.level] }%</span> damage
           to <span>5</span> enemies up to <span>3</span> m in front of you, breaking their stance and decreasing their
-          movement speed by <span>{ SomersaultKickValues.movement[this.level] }%</span> and
-          jump power by <span>{ SomersaultKickValues.jump[this.level] }%</span>.
+          movement speed by <span>{ SomersaultKick.values.movement[this.level] }%</span> and
+          jump power by <span>{ SomersaultKick.values.jump[this.level] }%</span>.
           When Cunning is active, this skill is empowered.
         </div>
       </ms-skill-overlay>

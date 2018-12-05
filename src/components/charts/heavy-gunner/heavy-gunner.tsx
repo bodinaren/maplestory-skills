@@ -1,5 +1,7 @@
-import { Component, Prop } from "@stencil/core";
-import * as HeavyGunnerValues from "../../../global/values/heavy-gunner";
+import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-heavy-gunner",
@@ -8,44 +10,96 @@ import * as HeavyGunnerValues from "../../../global/values/heavy-gunner";
 })
 export class HeavyGunnerComponent {
 
-  @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerValues.AdvancedBulletsValues.minLevel;
-  @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerValues.AdvancedMissilesValues.minLevel;
-  @Prop({ mutable: true }) advancedPulseWeapons: number = HeavyGunnerValues.AdvancedPulseWeaponsValues.minLevel;
-  @Prop({ mutable: true }) blastChargeKit: number = HeavyGunnerValues.BlastChargeKitValues.minLevel;
-  @Prop({ mutable: true }) bulletSpray: number = HeavyGunnerValues.BulletSprayValues.minLevel;
-  @Prop({ mutable: true }) electricBlast: number = HeavyGunnerValues.ElectricBlastValues.minLevel;
-  @Prop({ mutable: true }) gatlingFire: number = HeavyGunnerValues.GatlingFireValues.minLevel;
-  @Prop({ mutable: true }) homingMissiles: number = HeavyGunnerValues.HomingMissilesValues.minLevel;
-  @Prop({ mutable: true }) jetBoots: number = HeavyGunnerValues.JetBootsValues.minLevel;
-  @Prop({ mutable: true }) lockOn: number = HeavyGunnerValues.LockOnValues.minLevel;
-  @Prop({ mutable: true }) magneticBomb: number = HeavyGunnerValues.MagneticBombValues.minLevel;
-  @Prop({ mutable: true }) mBomb: number = HeavyGunnerValues.MBombValues.minLevel;
-  @Prop({ mutable: true }) medKit: number = HeavyGunnerValues.MedKitValues.minLevel;
-  @Prop({ mutable: true }) reload: number = HeavyGunnerValues.ReloadValues.minLevel;
-  @Prop({ mutable: true }) rocketLauncher: number = HeavyGunnerValues.RocketLauncherValues.minLevel;
-  @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerValues.StunGrenadesValues.minLevel;
-  @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerValues.SuborbitalBombardmentValues.minLevel;
+  @Prop({ reflectToAttr: true }) editable: boolean = false;
+
+  @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
+  @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;
+  @Prop({ mutable: true }) advancedPulseWeapons: number = HeavyGunnerSkills.AdvancedPulseWeapons.minLevel;
+  @Prop({ mutable: true }) blastChargeKit: number = HeavyGunnerSkills.BlastChargeKit.minLevel;
+  @Prop({ mutable: true }) bulletSpray: number = HeavyGunnerSkills.BulletSpray.minLevel;
+  @Prop({ mutable: true }) electricBlast: number = HeavyGunnerSkills.ElectricBlast.minLevel;
+  @Prop({ mutable: true }) gatlingFire: number = HeavyGunnerSkills.GatlingFire.minLevel;
+  @Prop({ mutable: true }) homingMissiles: number = HeavyGunnerSkills.HomingMissiles.minLevel;
+  @Prop({ mutable: true }) jetBoots: number = HeavyGunnerSkills.JetBoots.minLevel;
+  @Prop({ mutable: true }) lockOn: number = HeavyGunnerSkills.LockOn.minLevel;
+  @Prop({ mutable: true }) magneticBomb: number = HeavyGunnerSkills.MagneticBomb.minLevel;
+  @Prop({ mutable: true }) mBomb: number = HeavyGunnerSkills.MBomb.minLevel;
+  @Prop({ mutable: true }) medKit: number = HeavyGunnerSkills.MedKit.minLevel;
+  @Prop({ mutable: true }) reload: number = HeavyGunnerSkills.Reload.minLevel;
+  @Prop({ mutable: true }) rocketLauncher: number = HeavyGunnerSkills.RocketLauncher.minLevel;
+  @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerSkills.StunGrenades.minLevel;
+  @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
+
+  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+
+  @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
+
+  componentWillLoad() {
+    processSkills(this, HeavyGunnerSkills);
+  }
+
+  async levelChanged(skill: ISkill, level: number) {
+    this[skill.prop] = level;
+
+    processSkills(this, HeavyGunnerSkills);
+
+    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
+  }
 
   render() {
     return (
       <ms-chart msClass="heavy-gunner">
-        <ms-advanced-bullets level={ this.advancedBullets }></ms-advanced-bullets>
-        <ms-advanced-missiles level={ this.advancedMissiles }></ms-advanced-missiles>
-        <ms-advanced-pulse-weapons level={ this.advancedPulseWeapons }></ms-advanced-pulse-weapons>
-        <ms-blast-charge-kit level={ this.blastChargeKit }></ms-blast-charge-kit>
-        <ms-bullet-spray level={ this.bulletSpray }></ms-bullet-spray>
-        <ms-electric-blast level={ this.electricBlast }></ms-electric-blast>
-        <ms-gatling-fire level={ this.gatlingFire }></ms-gatling-fire>
-        <ms-homing-missiles level={ this.homingMissiles }></ms-homing-missiles>
-        <ms-jet-boots level={ this.jetBoots }></ms-jet-boots>
-        <ms-lock-on level={ this.lockOn }></ms-lock-on>
-        <ms-magnetic-bomb level={ this.magneticBomb }></ms-magnetic-bomb>
-        <ms-m-bomb level={ this.mBomb }></ms-m-bomb>
-        <ms-med-kit level={ this.medKit }></ms-med-kit>
-        <ms-reload level={ this.reload }></ms-reload>
-        <ms-rocket-launcher level={ this.rocketLauncher }></ms-rocket-launcher>
-        <ms-stun-grenades level={ this.stunGrenades }></ms-stun-grenades>
-        <ms-suborbital-bombardment level={ this.suborbitalBombardment }></ms-suborbital-bombardment>
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedBullets, this.editable,
+          <ms-advanced-bullets level={ this.advancedBullets }></ms-advanced-bullets>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedMissiles, this.editable,
+          <ms-advanced-missiles level={ this.advancedMissiles }></ms-advanced-missiles>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.AdvancedPulseWeapons, this.editable,
+          <ms-advanced-pulse-weapons level={ this.advancedPulseWeapons }></ms-advanced-pulse-weapons>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.BlastChargeKit, this.editable,
+          <ms-blast-charge-kit level={ this.blastChargeKit }></ms-blast-charge-kit>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.BulletSpray, this.editable,
+          <ms-bullet-spray level={ this.bulletSpray }></ms-bullet-spray>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.ElectricBlast, this.editable,
+          <ms-electric-blast level={ this.electricBlast }></ms-electric-blast>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.GatlingFire, this.editable,
+          <ms-gatling-fire level={ this.gatlingFire }></ms-gatling-fire>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.HomingMissiles, this.editable,
+          <ms-homing-missiles level={ this.homingMissiles }></ms-homing-missiles>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.JetBoots, this.editable,
+          <ms-jet-boots level={ this.jetBoots }></ms-jet-boots>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.LockOn, this.editable,
+          <ms-lock-on level={ this.lockOn }></ms-lock-on>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.MagneticBomb, this.editable,
+          <ms-magnetic-bomb level={ this.magneticBomb }></ms-magnetic-bomb>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.MBomb, this.editable,
+          <ms-m-bomb level={ this.mBomb }></ms-m-bomb>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.MedKit, this.editable,
+          <ms-med-kit level={ this.medKit }></ms-med-kit>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.Reload, this.editable,
+          <ms-reload level={ this.reload }></ms-reload>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.RocketLauncher, this.editable,
+          <ms-rocket-launcher level={ this.rocketLauncher }></ms-rocket-launcher>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.StunGrenades, this.editable,
+          <ms-stun-grenades level={ this.stunGrenades }></ms-stun-grenades>
+        )}
+        { renderLevelControls(this, HeavyGunnerSkills.SuborbitalBombardment, this.editable,
+          <ms-suborbital-bombardment level={ this.suborbitalBombardment }></ms-suborbital-bombardment>
+        )}
       </ms-chart>
     );
   }
