@@ -318,44 +318,44 @@ export namespace Components {
 
   interface MsSoulBinder {
     'animusFocus': number;
-    'chainExplosion': number;
-    'chainSpear': number;
-    'cycloneBomber': number;
+    'concussionOrb': number;
     'editable': boolean;
-    'electricEnergyDischarge': number;
-    'energyStream': number;
-    'expansionBall': number;
+    'energySurge': number;
+    'expansionBlast': number;
     'flashStrike': number;
+    'fountOfRenewal': number;
+    'healingBond': number;
     'illusion': number;
-    'lifeString': number;
-    'mantraRelease': number;
-    'narubashanLiberation': number;
+    'lightBarrier': number;
+    'mantraArray': number;
+    'narubashanUnleashed': number;
     'orbMastery': number;
-    'rayStorm': number;
+    'radiantSalvo': number;
+    'ragingTempest': number;
     'shootingStar': number;
-    'splitBarrier': number;
-    'zoneOfRenewal': number;
+    'soaringOrb': number;
+    'staticFlash': number;
   }
   interface MsSoulBinderAttributes extends StencilHTMLAttributes {
     'animusFocus'?: number;
-    'chainExplosion'?: number;
-    'chainSpear'?: number;
-    'cycloneBomber'?: number;
+    'concussionOrb'?: number;
     'editable'?: boolean;
-    'electricEnergyDischarge'?: number;
-    'energyStream'?: number;
-    'expansionBall'?: number;
+    'energySurge'?: number;
+    'expansionBlast'?: number;
     'flashStrike'?: number;
+    'fountOfRenewal'?: number;
+    'healingBond'?: number;
     'illusion'?: number;
-    'lifeString'?: number;
-    'mantraRelease'?: number;
-    'narubashanLiberation'?: number;
+    'lightBarrier'?: number;
+    'mantraArray'?: number;
+    'narubashanUnleashed'?: number;
     'onSkillchanged'?: (event: CustomEvent) => void;
     'orbMastery'?: number;
-    'rayStorm'?: number;
+    'radiantSalvo'?: number;
+    'ragingTempest'?: number;
     'shootingStar'?: number;
-    'splitBarrier'?: number;
-    'zoneOfRenewal'?: number;
+    'soaringOrb'?: number;
+    'staticFlash'?: number;
   }
 
   interface MsThief {
