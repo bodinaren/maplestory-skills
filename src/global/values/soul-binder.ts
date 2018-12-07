@@ -255,8 +255,8 @@ export const EnergySurge: ISkill = {
     level: 3
   }],
   values: {
-    damage: [308, 308, 308, 308, 308, 308, 308, 308, 308, 308, 308],
-    stun: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
+    damage: [308, 308, 330, 352, 374, 396, 418, 440, 462, 484, 506],
+    stun: [0.3, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2],
   },
   description: `
     Stir up earth energy, driving it toward the nearest enemy up to
