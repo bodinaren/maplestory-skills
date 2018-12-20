@@ -11,6 +11,7 @@ import * as AssassinSkills from "../../../global/values/assassin";
 export class AssassinComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) darkCloak: number = AssassinSkills.DarkCloak.minLevel;
   @Prop({ mutable: true }) dash: number = AssassinSkills.Dash.minLevel;
@@ -54,7 +55,7 @@ export class AssassinComponent {
   render() {
     return (
       <ms-chart msClass="assassin">
-        { renderLevelControls(this, AssassinSkills, this.editable) }
+        { renderLevelControls(this, AssassinSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

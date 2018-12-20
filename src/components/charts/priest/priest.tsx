@@ -11,6 +11,7 @@ import * as PriestSkills from "../../../global/values/priest";
 export class PriestComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestSkills.HeavenlyWings.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestSkills.SteadfastFaith.minLevel;
@@ -54,7 +55,7 @@ export class PriestComponent {
   render() {
     return (
       <ms-chart msClass="priest">
-        { renderLevelControls(this, PriestSkills, this.editable) }
+        { renderLevelControls(this, PriestSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

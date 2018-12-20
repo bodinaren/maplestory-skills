@@ -11,6 +11,7 @@ import * as WizardSkills from "../../../global/values/wizard";
 export class WizardComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardSkills.ArcaneBlast.minLevel;
   @Prop({ mutable: true }) chainLightning: number = WizardSkills.ChainLightning.minLevel;
@@ -54,7 +55,7 @@ export class WizardComponent {
   render() {
     return (
       <ms-chart msClass="wizard">
-        { renderLevelControls(this, WizardSkills, this.editable) }
+        { renderLevelControls(this, WizardSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

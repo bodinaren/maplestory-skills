@@ -81,6 +81,17 @@ export const PoisonEdge: ISkill = {
     When Cunning is active, this skill is empowered.
     Consumes <span>10</span> spirit.
   `,
+  extras: [{
+    values: {
+      damage: [11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    },
+    description: `
+      When empowered your daggers poison the target for an additional <span>[damage]%</span> poison damage
+      every second for <span>13</span> sec on each hit of this skill.
+      This effect stacks up to <span>5</span> times.
+      Cunning is canceled when this skill activates.
+    `,
+  }],
 };
 
 export const PoisonVial: ISkill = {
@@ -145,6 +156,14 @@ export const SurpriseAttack: ISkill = {
     <span>[additionalDamage]%</span> poison damage for each, and the poison will be removed.
     When Cunning is active, this skill is empowered.
   `,
+  extras: [{
+    values: {
+      damage: [101, 101, 108, 115, 122, 129, 136, 143, 150, 157, 164],
+    },
+    description: `
+      When empowered you spin with your daggers out, dealing <span>[damage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+    `,
+  }],
 };
 
 export const RuthlessGuile: ISkill = {
@@ -217,6 +236,15 @@ export const BladeDance: ISkill = {
     While Cunning is active, this skill is enhanced.
     Consumes <span>26</span> spirit.
   `,
+  extras: [{
+    values: {
+      evade: [81, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99],
+    },
+    description: `
+      When enhanced your spin makes enemies dizzy, granting you a <span>[evade]%</span> chance to evade enemy attacks for <span>1</span> sec.
+      Cunning is cancelled when this skill activates.
+    `,
+  }],
 };
 
 export const Retaliation: ISkill = {
@@ -264,11 +292,18 @@ export const SomersaultKick: ISkill = {
     jump: [30, 30, 30, 30, 35, 35, 35, 40, 40, 40, 45],
   },
   description: `
-    Perform a somersault kick to deal <span>[damage]%</span> damage
-    to <span>5</span> enemies up to <span>3</span> m in front of you, breaking their stance and decreasing their
+    Perform a somersault kick to deal <span>[damage]%</span> damage to <span>5</span> enemies up
+    to <span>3</span> m in front of you, breaking their stance and decreasing their
     movement speed by <span>[movement]%</span> and jump power by <span>[jump]%</span>.
     When Cunning is active, this skill is empowered.
   `,
+  extras: [{
+    description: `
+      When empowered is active you stun the enemies for <span>1</span> sec.
+      Cunning is cancelled when this skill activates.
+      You will be immune to knockback while this skill is active.
+    `,
+  }],
 };
 
 export const QuickStep: ISkill = {
@@ -306,7 +341,7 @@ export const MesoguardPlus: ISkill = {
   },
   description: `
     Spend <span>777</span> mesos to create a meso shield that lasts
-    <span>4</span> secondsreducing damage taken by <span>[reduction]%</span>.
+    <span>4</span> seconds reducing damage taken by <span>[reduction]%</span>.
     If Cunning is active, the skill costs no mesos, and Cunning will be removed.
   `,
 };

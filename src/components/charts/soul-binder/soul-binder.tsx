@@ -11,6 +11,7 @@ import * as SoulBinderSkills from "../../../global/values/soul-binder";
 export class SoulBinderComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) animusFocus: number = SoulBinderSkills.AnimusFocus.minLevel;
   @Prop({ mutable: true }) concussionOrb: number = SoulBinderSkills.ConcussionOrb.minLevel;
@@ -54,7 +55,7 @@ export class SoulBinderComponent {
   render() {
     return (
       <ms-chart msClass="soul-binder">
-        { renderLevelControls(this, SoulBinderSkills, this.editable) }
+        { renderLevelControls(this, SoulBinderSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

@@ -11,6 +11,7 @@ import * as KnightSkills from "../../../global/values/knight";
 export class KnightComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) bulwark: number = KnightSkills.Bulwark.minLevel;
   @Prop({ mutable: true }) crossCut: number = KnightSkills.CrossCut.minLevel;
@@ -54,7 +55,7 @@ export class KnightComponent {
   render() {
     return (
       <ms-chart msClass="knight">
-        { renderLevelControls(this, KnightSkills, this.editable) }
+        { renderLevelControls(this, KnightSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

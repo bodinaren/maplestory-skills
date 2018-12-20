@@ -51,7 +51,7 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   }
 }
 
-export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean): JSX.Element[] {
+export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean, extras: boolean = false, additionalArgs?: any): JSX.Element[] {
   return Object.keys(skills).map((key) => {
     let skill: ISkill = skills[key];
     let chartSkill = chart.skills[skill.prop];
@@ -65,7 +65,9 @@ export function renderLevelControls(chart: any, skills: ISkill[] | any, editable
                 disabled={ !editable }
                 onLevelchanged={ (evt) => chart.levelChanged(skill, evt.detail) }
                 onMouseEnter={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, true) }
-                onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }>
+                onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }
+                extras={ extras }
+                { ...additionalArgs }>
       </ms-skill>
     );
   });
