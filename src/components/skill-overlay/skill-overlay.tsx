@@ -1,5 +1,5 @@
 import { Component, Prop } from "@stencil/core";
-import { ISkill } from "../../global/values/_skillValues.interfaces";
+import { ISkill, ISkillDescription } from "../../global/values/_skillValues.interfaces";
 
 let descriptionRegex = /\[(.*?)\]/;
 
@@ -19,23 +19,33 @@ export class SkillOverlayComponent {
 
   @Prop() skill: ISkill;
 
+  @Prop() extras: boolean = false;
+
   private requirements: string[];
   private spirit: number;
   private cooldown: number;
   private description: string;
+  private extraDescriptions: string[];
 
   componentWillLoad() {
-    this.setRequirements();
-    this.setSpirit();
-    this.setCooldown();
-    this.setDescription();
+    this.refreshData();
   }
 
   componentWillUpdate() {
+    this.refreshData();
+  }
+
+  private refreshData() {
     this.setRequirements();
     this.setSpirit();
     this.setCooldown();
-    this.setDescription();
+    this.description = this.parseDescription(this.skill);
+    this.extraDescriptions = undefined;
+    if (this.extras && this.skill.extras) {
+      this.extraDescriptions = this.skill.extras.map((extraDescription) => {
+        return this.parseDescription(extraDescription);
+      });
+    }
   }
 
   render() {
@@ -97,6 +107,11 @@ export class SkillOverlayComponent {
               || <p><slot name="description"></slot></p>
             }
           </div>
+          { this.extraDescriptions && this.extraDescriptions.map((desc) =>
+            <div class="description extras">
+              <p innerHTML={ desc }></p>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -135,15 +150,17 @@ export class SkillOverlayComponent {
     }
   }
 
-  private setDescription() {
-    this.description = this.skill.description;
+  private parseDescription(skillDescription: ISkillDescription) {
+    let desc = skillDescription.description;
     let match: RegExpExecArray;
 
-    while (match = descriptionRegex.exec(this.description)) {
-      let data = this.skill.values && this.skill.values[match[1]];
-      if (!data) data = this.skill[match[1]];
+    while (match = descriptionRegex.exec(desc)) {
+      let data = skillDescription.values && skillDescription.values[match[1]];
+      if (!data) data = skillDescription[match[1]];
 
-      this.description = this.description.replace(match[0], data[this.level].toString());
+      desc = desc.replace(match[0], data[this.level].toString());
     }
+
+    return desc;
   }
 }

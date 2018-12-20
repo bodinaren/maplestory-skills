@@ -1,3 +1,22 @@
 :host {
   display: block;
 }
+
+:host([extras]) ms-skill:before {
+  position: absolute;
+  top: 2px;
+  left: -1px;
+  width: 72px;
+  height: 84px;
+  pointer-events: none;
+}
+
+:host([extras][sigil="0"]) ms-skill.flameSigil:before, ms-skill.flameSigil:hover:before {
+  content: "";
+}
+:host([extras][sigil="1"]) ms-skill.frostSigil:before, ms-skill.frostSigil:hover:before {
+  content: "";
+}
+:host([extras][sigil="2"]) ms-skill.stormSigil:before, ms-skill.stormSigil:hover:before {
+  content: "";
+}

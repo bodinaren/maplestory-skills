@@ -11,6 +11,7 @@ import * as ThiefSkills from "../../../global/values/thief";
 export class ThiefComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) bladeDance: number = ThiefSkills.BladeDance.minLevel;
   @Prop({ mutable: true }) cunningTactics: number = ThiefSkills.CunningTactics.minLevel;
@@ -49,7 +50,7 @@ export class ThiefComponent {
   render() {
     return (
       <ms-chart msClass="thief">
-        { renderLevelControls(this, ThiefSkills, this.editable) }
+        { renderLevelControls(this, ThiefSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

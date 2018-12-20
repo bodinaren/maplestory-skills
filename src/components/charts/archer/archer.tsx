@@ -11,6 +11,7 @@ import * as ArcherSkills from "../../../global/values/archer";
 export class ArcherComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherSkills.ArrowBarrage.minLevel;
@@ -49,7 +50,7 @@ export class ArcherComponent {
   render() {
     return [
       <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills, this.editable)}
+        { renderLevelControls(this, ArcherSkills, this.editable, this.extras)}
       </ms-chart>
     ];
   }

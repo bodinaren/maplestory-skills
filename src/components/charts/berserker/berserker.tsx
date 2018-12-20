@@ -11,6 +11,7 @@ import * as BerserkerSkills from "../../../global/values/berserker";
 export class BerserkerComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerSkills.AdrenalineRush.minLevel;
   @Prop({ mutable: true }) bloodPrice: number = BerserkerSkills.BloodPrice.minLevel;
@@ -49,7 +50,7 @@ export class BerserkerComponent {
   render() {
     return (
       <ms-chart msClass="berserker">
-        { renderLevelControls(this, BerserkerSkills, this.editable) }
+        { renderLevelControls(this, BerserkerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

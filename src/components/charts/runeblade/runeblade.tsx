@@ -11,6 +11,8 @@ import * as RunebladeSkills from "../../../global/values/runeblade";
 export class RunebladeComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true }) extras: boolean = false;
+  @Prop({ mutable: true, reflectToAttr: true }) private sigil: number = -1;
 
   @Prop({ mutable: true }) bladeChasm: number = RunebladeSkills.BladeChasm.minLevel;
   @Prop({ mutable: true }) bladeMastery: number = RunebladeSkills.BladeMastery.minLevel;
@@ -30,27 +32,89 @@ export class RunebladeComponent {
   @Prop({ mutable: true }) wardingRune: number = RunebladeSkills.WardingRune.minLevel;
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeSkills.WhirlingBlades.minLevel;
 
+  @Prop({ context: "publicPath" }) private publicPath: string;
+
   @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
+  private runebladeSkills: { [prop: string]: ISkill } = {};
+
   componentWillLoad() {
-    processSkills(this, RunebladeSkills);
+    // this.runebladeSkills = { ...RunebladeSkills };
+    Object.keys(RunebladeSkills).map((prop) => {
+      let skill: ISkill = RunebladeSkills[prop];
+      this.runebladeSkills[prop] = { ...skill };
+    });
+
+    processSkills(this, this.runebladeSkills);
+    this.updateSigil();
+
+    console.log(this.runebladeSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, RunebladeSkills);
+    processSkills(this, this.runebladeSkills);
+    this.updateSigil();
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, RunebladeSkills));
+    this.onSkillChanged.emit(toSkillChangeObject(this, this.runebladeSkills));
+  }
+
+  private changeSigil(skill: ISkill) {
+    let sigil = -1;
+
+    switch (skill.prop) {
+      case RunebladeSkills.FlameSigil.prop:
+        sigil = 0;
+        break;
+
+      case RunebladeSkills.FrostSigil.prop:
+        sigil = 1;
+        break;
+
+      case RunebladeSkills.StormSigil.prop:
+        sigil = 2;
+        break;
+
+      default: return; // don't do any changes if it wasn't a sigil that was clicked.
+    }
+
+    if (sigil === this.sigil) this.sigil = -1;
+    else this.sigil = sigil;
+
+    this.updateSigil();
+  }
+
+  private updateSigil() {
+    Object.keys(this.runebladeSkills).forEach((prop: string) => {
+      let skill: ISkill = RunebladeSkills[prop];
+      if (skill.extras) {
+        if (this.sigil > -1) {
+          this.runebladeSkills[prop] = { ...skill, extras: [skill.extras[this.sigil]] };
+        } else {
+          this.runebladeSkills[prop] = {
+            ...skill,
+            extras: [{
+              description: "Click on a sigil to show here how this skill attunes."
+            }]
+          };
+        }
+      }
+    });
   }
 
   render() {
-    return (
+    return ([
+      this.extras && <style>{`
+        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
+      `}</style>,
       <ms-chart msClass="runeblade">
-        { renderLevelControls(this, RunebladeSkills, this.editable) }
+        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
       </ms-chart>
-    );
+    ]);
   }
 }

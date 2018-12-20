@@ -11,6 +11,7 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 export class HeavyGunnerComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;
@@ -49,7 +50,7 @@ export class HeavyGunnerComponent {
   render() {
     return (
       <ms-chart msClass="heavy-gunner">
-        { renderLevelControls(this, HeavyGunnerSkills, this.editable) }
+        { renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }
