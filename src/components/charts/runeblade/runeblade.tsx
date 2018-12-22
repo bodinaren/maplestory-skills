@@ -109,7 +109,18 @@ export class RunebladeComponent {
         let originalSkill: ISkill = RunebladeSkills[prop];
         if (originalSkill.extras) {
           if (this.sigil) {
-            this.runebladeSkills[prop] = { ...originalSkill, extras: [originalSkill.extras[sigilIdx]] };
+            this.runebladeSkills[prop] = {
+              ...originalSkill,
+              ...originalSkill.extras[sigilIdx],
+              extras: [{
+                description: "This skill is attuned to " +
+                          (this.sigil === "flameSigil" ? RunebladeSkills.FlameSigil.name
+                          : this.sigil === "frostSigil" ? RunebladeSkills.FrostSigil.name
+                          : this.sigil === "stormSigil" ? RunebladeSkills.StormSigil.name
+                          : "")
+                          + "."
+              }],
+            };
           } else {
             this.runebladeSkills[prop] = {
               ...originalSkill,
@@ -119,28 +130,22 @@ export class RunebladeComponent {
             };
           }
         } else if (["flameSigil", "frostSigil", "stormSigil"].indexOf(originalSkill.prop) > -1) {
+          let description: string;
+
           if (this.sigil === originalSkill.prop) {
-            this.runebladeSkills[prop] = {
-              ...originalSkill,
-              extras: [{
-                description: "Click on the icon again to deactivate this sigil."
-              }]
-            };
+            description = "Click on the icon again to deactivate this sigil.";
           } else if (this[originalSkill.prop] > 0) {
-            this.runebladeSkills[prop] = {
-              ...originalSkill,
-              extras: [{
-                description: "Click on the icon to activate this sigil. All relevant skills will show information based on this sigil being active."
-              }]
-            };
+            description = "Click on the icon to activate this sigil. All relevant skills will show information based on this sigil being active.";
           } else {
-            this.runebladeSkills[prop] = {
-              ...originalSkill,
-              extras: [{
-                description: "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active."
-              }]
-            };
+            description = "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active.";
           }
+
+          this.runebladeSkills[prop] = {
+            ...originalSkill,
+            extras: [{
+              description: description,
+            }],
+          };
         }
       });
     }
