@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as PriestSkills from "../../../global/values/priest";
 
@@ -41,7 +41,7 @@ export class PriestComponent {
 
   @Method()
   async getSkills() {
-    return toSkillChangeObject(this, PriestSkills);
+    return toSkillChangeEventObject(this, PriestSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -49,7 +49,7 @@ export class PriestComponent {
 
     processSkills(this, PriestSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, PriestSkills));
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
   }
 
   render() {

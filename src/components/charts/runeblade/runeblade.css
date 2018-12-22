@@ -11,12 +11,17 @@
   pointer-events: none;
 }
 
-:host([extras][sigil="0"]) ms-skill.flameSigil:before, ms-skill.flameSigil:hover:before {
+:host([extras][sigil="flameSigil"]) ms-skill.flameSigil:not([level="0"]):before,
+ms-skill.flameSigil:not([level="0"]):hover:before {
   content: "";
 }
-:host([extras][sigil="1"]) ms-skill.frostSigil:before, ms-skill.frostSigil:hover:before {
+
+:host([extras][sigil="frostSigil"]) ms-skill.frostSigil:not([level="0"]):before,
+ms-skill.frostSigil:not([level="0"]):hover:before {
   content: "";
 }
-:host([extras][sigil="2"]) ms-skill.stormSigil:before, ms-skill.stormSigil:hover:before {
+
+:host([extras][sigil="stormSigil"]) ms-skill.stormSigil:not([level="0"]):before,
+ms-skill.stormSigil:not([level="0"]):hover:before {
   content: "";
 }

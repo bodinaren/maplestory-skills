@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
@@ -41,7 +41,7 @@ export class HeavyGunnerComponent {
 
   @Method()
   async getSkills() {
-    return toSkillChangeObject(this, HeavyGunnerSkills);
+    return toSkillChangeEventObject(this, HeavyGunnerSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -49,7 +49,7 @@ export class HeavyGunnerComponent {
 
     processSkills(this, HeavyGunnerSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
   }
 
   render() {

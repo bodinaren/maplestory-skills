@@ -51,7 +51,7 @@ All this does is print the number of points left, it's up to you to position and
 
 ### Get data from the editor
 
-Every time the user makes a change the chart emits a `skillchanged` event with an array of all the skills and how many points are put (or not) into it. Subscribe to this event to get the data you want:
+Every time the user makes a change the chart emits a `skillchanged` event with an object containing an array of all the skills and how many points are put (or not) into it, as well as any possible extra values (e.g. runeblade sigil). Subscribe to this event to get the data you want:
 
 ```js
 document.querySelector("ms-archer").addEventListener("skillchanged", function(evt) {

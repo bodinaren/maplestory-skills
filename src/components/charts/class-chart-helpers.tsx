@@ -1,5 +1,5 @@
 import { ISkill } from "../../global/values/_skillValues.interfaces";
-import { SkillChangeEvent } from "./skill-change-event";
+import { ISkillChangeEvent } from "./skill-change-event";
 
 export function processSkills(chart: any, classSkills: any) {
   let skills = {};
@@ -73,9 +73,9 @@ export function renderLevelControls(chart: any, skills: ISkill[] | any, editable
   });
 }
 
-export function toSkillChangeObject(chart: any, classSkills: { [key: string]: ISkill }): SkillChangeEvent {
-  return Object.keys(classSkills)
-    .map((key) => {
+export function toSkillChangeEventObject(chart: any, classSkills: { [key: string]: ISkill }, other?: { [key: string]: string }): ISkillChangeEvent {
+  let rs: ISkillChangeEvent = {
+    skills: Object.keys(classSkills).map((key) => {
       let skill = classSkills[key];
       return {
         skill: skill.name,
@@ -85,5 +85,12 @@ export function toSkillChangeObject(chart: any, classSkills: { [key: string]: IS
         minLevel: skill.minLevel,
         maxLevel: skill.maxLevel,
       };
-    });
+    }),
+  };
+
+  if (other) {
+    rs.other = Object.keys(other).map((key) => ({ attr: key, value: other[key] }));
+  }
+
+  return rs;
 }

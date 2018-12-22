@@ -1,5 +1,5 @@
 import { Component, Prop, State } from "@stencil/core";
-import { SkillChangeEvent } from "../../charts/skill-change-event";
+import { ISkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-outlet",
@@ -10,7 +10,7 @@ export class OutletComponent {
   @Prop() editor: string;
 
   @State() _editor: ClassEditorHTMLElement;
-  @State() _skills: SkillChangeEvent = [];
+  @State() _skills: ISkillChangeEvent = { skills: [] };
   @State() _tagName: string;
 
   componentDidLoad() {
@@ -45,15 +45,23 @@ export class OutletComponent {
     return `<${ this._tagName }${ props }></${ this._tagName }>`;
   }
 
-  private getProperties(skillChanges: SkillChangeEvent): string {
-    return skillChanges.filter((skillChange) => {
+  private getProperties(changeEvent: ISkillChangeEvent): string {
+    let properties = changeEvent.skills.filter((skillChange) => {
       return skillChange.level > skillChange.minLevel;
     }).map((skillChange) => {
-      return `${skillChange.attr}="${ skillChange.level }"`;
+      return `${ skillChange.attr }="${ skillChange.level }"`;
     }).join(" ");
+
+    if (changeEvent.other) {
+      properties += " " + changeEvent.other.map((o) => `${ o.attr }="${ o.value }"`);
+    }
+
+    return properties;
   }
 
 }
+
+
 
 type ClassEditorHTMLElement =
   HTMLMsArcherElement |
