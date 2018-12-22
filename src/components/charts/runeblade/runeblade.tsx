@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade";
@@ -151,6 +151,7 @@ export class RunebladeComponent {
     }
   }
 
+  @Watch("extras")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
   }

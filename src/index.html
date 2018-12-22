@@ -191,6 +191,14 @@
       </p>
 
       <div id="editors">
+        <fieldset>
+          <legend>Settings</legend>
+          <p>
+            <input type="checkbox" id="chkExtras" />
+            <label for="chkExtras">Add extra info (e.g. when a Runeblade's Sigil or Thief's cunning is active).</label>
+          </p>
+        </fieldset>
+
         <code class="block" id="code">
 &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
         </code>
@@ -250,6 +258,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 
     <script>
       var toggles = document.querySelectorAll("#toggles > a");
+      var chkExtras = document.getElementById("chkExtras");
 
       function toggle(msClass, firstSetup) {
         for (var prop in toggles) {
@@ -270,6 +279,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         if (chart) chart.remove();
         chart = document.createElement("ms-" + msClass);
         chart.editable = true;
+        chart.extras = chkExtras.checked;
         chartHolder.appendChild(chart);
 
         // re-create the outlet so it can attach to the new editor.
@@ -323,6 +333,11 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         }
       }
 
+      chkExtras.addEventListener("change", function(val) {
+        var chartHolder = document.querySelector("#chartHolder");
+        chartHolder.children[0].extras = chkExtras.checked;
+      });
+      
       init();
     </script>
 
