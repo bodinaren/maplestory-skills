@@ -31,6 +31,8 @@ export class OutletComponent {
   }
 
   render() {
+    if (!this._editor) return;
+
     return [
       <slot name="first"></slot>,
       <slot></slot>,
@@ -40,9 +42,11 @@ export class OutletComponent {
   }
 
   private getTag() {
+    let extras = "";
+    if (this._editor.extras) extras = " extras";
     let props = this.getProperties(this._skills);
     if (props) props = " " + props;
-    return `<${ this._tagName }${ props }></${ this._tagName }>`;
+    return `<${ this._tagName }${ extras }${ props }></${ this._tagName }>`;
   }
 
   private getProperties(changeEvent: ISkillChangeEvent): string {
