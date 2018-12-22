@@ -57,7 +57,6 @@ export const Flurry: ISkill = {
       additionalDamage: [36, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54],
     },
     description: `
-      Flame Sigil:
       Attack with <span>3</span> fiery slashes of your blade,
       each dealing <span>[damage]%</span> fire damage to <span>5</span> enemies up to <span>3</span> m in front of you.
       Targets burst into flame, taking an additional <span>[additionalDamage]%</span> fire damage.
@@ -68,7 +67,6 @@ export const Flurry: ISkill = {
       damage: [63, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
     },
     description: `
-      Frost Sigil:
       Attack with <span>3</span> freezing slashes of your blade,
       each dealing <span>[damage]%</span> ice damage to <span>5</span> enemies up to <span>4.5</span> m in front of you.
     `,
@@ -77,7 +75,6 @@ export const Flurry: ISkill = {
       damage: [71, 71, 76, 81, 86, 91, 96, 101, 106, 111, 116],
     },
     description: `
-      Storm Sigil:
       Attack with <span>3</span> electrified slashes of your blade,
       each dealing <span>[damage]%</span> electric damage to <span>5</span> enemies up to <span>3</span> m in front of you.
       Common monsters are momentarily stunned.
@@ -112,7 +109,6 @@ export const EchoingBlade: ISkill = {
       damage: [33, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51],
     },
     description: `
-      Flame Sigil:
       Summon flame echoes of your blade, dealing <span>[damage]%</span> fire damage
       <span>14</span> times to <span>8</span> enemies up to <span>3</span> m in front of you.
       The echoes fade when you perform another action.
@@ -123,7 +119,6 @@ export const EchoingBlade: ISkill = {
       damage: [58, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
     },
     description: `
-      Frost Sigil:
       Summon frost echoes of your blade, dealing <span>[damage]%</span> ice damage
       <span>7</span> times to <span>8</span> enemies up to <span>4.5</span> m in front of you.
       Reduces enemy movement speed by 30% and jump power by 30%.
@@ -136,7 +131,6 @@ export const EchoingBlade: ISkill = {
       additionalDamage: [22, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
     },
     description: `
-      Storm Sigil:
       Summon storm echoes of your blade, dealing <span>[damage]%</span> electric damage
       <span>7</span> times to <span>8</span> enemies up to <span>3</span> m in front of you.
       Targets are also struck by lightning, taking an additional <span>[additionalDamage]%</span> electric damage.
@@ -182,7 +176,6 @@ export const Impact: ISkill = {
       additionalDamage: [224, 224, 239, 254, 269, 284, 299, 314, 329, 344, 359],
     },
     description: `
-      Flame Sigil:
       Drive your blade into the ground, creating a flaming shock wave that deals
       <span>[damage]%</span> fire damage to <span>5</span> enemies within <span>2.25</span> m.
       Spews forth a flaming pillar that deals <span>[additionalDamage]%</span> fire damage
@@ -197,7 +190,6 @@ export const Impact: ISkill = {
       additionalDamage: [255, 255, 272, 289, 306, 323, 340, 357, 374, 391, 408],
     },
     description: `
-      Frost Sigil:
       Drive your blade into the ground, creating a freezing shock wave that deals
       <span>[damage]%</span> ice damage to <span>5</span> enemies within <span>2.25</span> m.
       Icy shards deal an additional <span>[additionalDamage]%</span> ice damage
@@ -213,7 +205,6 @@ export const Impact: ISkill = {
       finalDamage: [396, 396, 396, 396, 396, 396, 396, 396, 396, 396, 396],
     },
     description: `
-      Storm Sigil:
       Drive your blade into the ground, creating a stormy shock wave that deals
       <span>[damage]%</span> electric damage to <span>5</span> enemies within <span>2.25</span> m.
       Conjures a thunderstorm to deal <span>[additionalDamage]%</span> electric damage
@@ -291,7 +282,6 @@ export const BladeChasm: ISkill = {
       additionalDamage: [52, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88],
     },
     description: `
-      Flame Sigil:
       Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> fire damage to <span>5</span> enemies in your path.
       Leaves behind a trail of fire for <span>5</span> sec, dealing <span>[additionalDamage]%</span> fire damage to <span>8</span> enemies in range every <span>0.5</span> sec.
       The trail's damage is based on your magic attack.
@@ -303,7 +293,6 @@ export const BladeChasm: ISkill = {
       additionalDamage: [94, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148],
     },
     description: `
-      Frost Sigil:
       Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> ice damage to <span>5</span> enemies in your path.
       Shards of ice burst from the chasm, dealing <span>[additionalDamage]%</span> ice damage to <span>8</span> enemies within <span>1.5</span> m.
       The shards' damage is based on your magic attack.
@@ -315,7 +304,6 @@ export const BladeChasm: ISkill = {
       additionalDamage: [573, 573, 614, 655, 696, 737, 778, 819, 860, 901, 942],
     },
     description: `
-      Storm Sigil:
       Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> electric damage to <span>5</span> enemies in your path.
       Thunderbolts trail behind <span>0.5</span> sec later, dealing <span>[additionalDamage]%</span> electric damage to <span>5</span> enemies in range.
       The thunderbolts' damage is based on your magic attack.
@@ -355,7 +343,6 @@ export const WhirlingBlades: ISkill = {
       additionalDamage: [73, 73, 79, 85, 91, 97, 103, 109, 115, 121, 127],
     },
     description: `
-      Flame Sigil:
       Throw <span>3</span> flame blades at the closest enemy up to <span>7.5</span> m in front of you,
       dealing <span>[damage]%</span> fire damage to <span>5</span> enemies in their path.
       Targets are set ablaze, taking an additional <span>[additionalDamage]%</span> fire damage every sec for <span>12</span> sec.
@@ -367,7 +354,6 @@ export const WhirlingBlades: ISkill = {
       additionalDamage: [109, 109, 117, 125, 133, 141, 149, 157, 165, 173, 181],
     },
     description: `
-      Frost Sigil:
       Throw <span>3</span> frost blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>[damage]%</span> ice damage.
       The blades then explode, dealing an additional <span>[additionalDamage]%</span> ice damage to 8 enemies within <span>3</span> m
       and decreasing their movement speed and jump power by <span>15%</span> for <span>3</span> sec.
@@ -378,7 +364,6 @@ export const WhirlingBlades: ISkill = {
       damage: [122, 122, 131, 140, 149, 158, 167, 176, 185, 194, 203],
     },
     description: `
-      Storm Sigil:
       Throw <span>3</span> storm blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>[damage]%</span> electric damage.
       The blades bounce to another enemy within <span>3</span> m, dealing <span>[damage]%</span> electric damage.
       Each blade can bounce up to <span>4</span> times.
@@ -581,7 +566,6 @@ export const WardingRune: ISkill = {
       damage: [36, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54],
     },
     description: `
-      Flame Sigil:
       Summon a flame shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
       by <span>[resistance]</span> and reducing fire damage by <span>[fireReduction]%</span>.
       Every <span>0.5</span> sec deals <span>[damage]%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
@@ -594,7 +578,6 @@ export const WardingRune: ISkill = {
       shield: [3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
     description: `
-      Frost Sigil:
       Summon a frost shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
       by <span>[resistance]</span> and reducing ice damage by <span>[iceReduction]%</span>.
       The frost shield absorbs damage up to <span>[shield]%</span> of your max health.
@@ -607,7 +590,6 @@ export const WardingRune: ISkill = {
       damage: [102, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174],
     },
     description: `
-      Storm Sigil:
       Summon a storm shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
       by <span>[resistance]</span> and reducing electric damage by <span>[electricReduction]%</span>.
       Every sec, a lightning bolt strikes the closest enemy within <span>6</span> m in front of you,
