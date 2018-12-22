@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ArcherSkills from "../../../global/values/archer";
 
@@ -44,7 +44,7 @@ export class ArcherComponent {
 
     processSkills(this, ArcherSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
   }
 
   render() {

@@ -1,5 +1,13 @@
 
-export type SkillChangeEvent = Array<{
+export interface ISkillChangeEvent {
+  skills: ISkillChange[];
+  other?: Array<{
+    attr: string,
+    value: string
+  }>;
+}
+
+export interface ISkillChange {
   /** The name of the skill */
   skill: string;
 
@@ -11,4 +19,5 @@ export type SkillChangeEvent = Array<{
 
   /** The minimum amount of points that must be put into the skill */
   minLevel: number;
-}>;
+};
+

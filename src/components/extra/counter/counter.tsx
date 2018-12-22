@@ -1,5 +1,5 @@
 import { Component, Prop, State } from "@stencil/core";
-import { SkillChangeEvent } from "../../charts/skill-change-event";
+import { ISkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
   tag: "ms-extra-counter",
@@ -27,8 +27,8 @@ export class CounterComponent {
     });
   }
 
-  private updatePointsLeft(skills: SkillChangeEvent) {
-    this._pointsLeft = 72 - skills.reduce((prev, current) => {
+  private updatePointsLeft(changeEvent: ISkillChangeEvent) {
+    this._pointsLeft = 72 - changeEvent.skills.reduce((prev, current) => {
       return prev + current.level;
     }, 0);
   }
