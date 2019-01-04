@@ -1,7 +1,7 @@
 import { Component, Prop, State, Event, EventEmitter, Watch } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import { Sigil } from "./runeblade";
+import { Sigil } from "./runeblade-sigil";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 
 @Component({
@@ -66,6 +66,8 @@ export class RunebladeComponent {
   }
 
   private changeSigil(skill?: ISkill) {
+    if (!this.extras) return;
+
     let sigil: Sigil = "";
 
     if (skill && this[skill.prop] > 0) {

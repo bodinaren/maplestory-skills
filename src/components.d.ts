@@ -10,7 +10,7 @@ import '@stencil/core';
 
 import {
   Sigil,
-} from './components/charts/runeblade/runeblade';
+} from './components/charts/runeblade/runeblade-sigil';
 import {
   ISkill,
 } from './global/values/_skillValues.interfaces';
