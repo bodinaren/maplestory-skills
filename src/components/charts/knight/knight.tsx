@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as KnightSkills from "../../../global/values/knight";
@@ -36,6 +36,11 @@ export class KnightComponent {
 
   componentWillLoad() {
     processSkills(this, KnightSkills);
+  }
+
+  @Method()
+  async getSkills() {
+    return toSkillChangeObject(this, KnightSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {

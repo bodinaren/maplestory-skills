@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, State } from "@stencil/core";
+import { Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 @Component({
@@ -32,6 +32,11 @@ export class SkillComponent {
 
     if (!this.column) this.column = this.skill.column;
     if (!this.row) this.row = this.skill.row;
+  }
+
+  @Watch("level")
+  private skillChanged() {
+    this.onLevelChanged.emit(this.level);
   }
 
   hostData() { return { "passive": this.skill.passive }; }
@@ -120,7 +125,7 @@ export class SkillComponent {
   private plus() {
     if (this.level < this.skill.maxLevel) {
       this.level++;
-      this.onLevelChanged.emit(this.level);
+      this.skillChanged();
     }
     if (this.overlayLevel < this.skill.maxLevel) {
       this.overlayLevel++;
@@ -130,7 +135,7 @@ export class SkillComponent {
   private minus() {
     if (this.level > this.skill.minLevel) {
       this.level--;
-      this.onLevelChanged.emit(this.level);
+      this.skillChanged();
     }
     if (this.overlayLevel > this.skill.minLevel) {
       this.overlayLevel--;

@@ -28,6 +28,7 @@ export namespace Components {
     'eaglesMajesty': number;
     'editable': boolean;
     'evasiveSalvo': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'iceArrow': number;
     'precisionShooter': number;
     'rapidShot': number;
@@ -64,6 +65,7 @@ export namespace Components {
     'editable': boolean;
     'fatalStrikes': number;
     'fragmentedStar': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'luckyStars': number;
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
@@ -110,6 +112,7 @@ export namespace Components {
     'deepWounds': number;
     'earthquake': number;
     'editable': boolean;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'greatswordMastery': number;
     'groundBreaker': number;
     'inhumanEndurance': number;
@@ -157,6 +160,7 @@ export namespace Components {
     'editable': boolean;
     'electricBlast': number;
     'gatlingFire': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'homingMissiles': number;
     'jetBoots': number;
     'lockOn': number;
@@ -197,6 +201,7 @@ export namespace Components {
     'divineStrike': number;
     'drillThrust': number;
     'editable': boolean;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'ironDefense': number;
     'ironShield': number;
     'longswordMastery': number;
@@ -239,6 +244,7 @@ export namespace Components {
     'celestialLight': number;
     'disciple': number;
     'editable': boolean;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
@@ -284,6 +290,7 @@ export namespace Components {
     'flameSigil': number;
     'flurry': number;
     'frostSigil': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'gravityRune': number;
     'honingRunes': number;
     'illusoryBlades': number;
@@ -324,6 +331,7 @@ export namespace Components {
     'expansionBlast': number;
     'flashStrike': number;
     'fountOfRenewal': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'healingBond': number;
     'illusion': number;
     'lightBarrier': number;
@@ -364,6 +372,7 @@ export namespace Components {
     'deftCombatant': number;
     'doubleSlash': number;
     'editable': boolean;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'haste': number;
     'mesoguardPlus': number;
     'mindBreaker': number;
@@ -410,6 +419,7 @@ export namespace Components {
     'flameTornado': number;
     'flameWave': number;
     'focusSeal': number;
+    'getSkills': () => Promise<{ skill: string; attr: string; level: number; minLevel: number; }[]>;
     'iceSpear': number;
     'iceStorm': number;
     'magicArmor': number;

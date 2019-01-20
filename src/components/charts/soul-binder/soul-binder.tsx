@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
+import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as SoulBinderSkills from "../../../global/values/soul-binder";
@@ -36,6 +36,11 @@ export class SoulBinderComponent {
 
   componentWillLoad() {
     processSkills(this, SoulBinderSkills);
+  }
+
+  @Method()
+  async getSkills() {
+    return toSkillChangeObject(this, SoulBinderSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {

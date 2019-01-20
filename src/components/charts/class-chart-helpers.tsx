@@ -78,8 +78,10 @@ export function toSkillChangeObject(chart: any, classSkills: { [key: string]: IS
       return {
         skill: skill.name,
         attr: skill.attr,
+        prop: skill.prop,
         level: chart[skill.prop],
         minLevel: skill.minLevel,
+        maxLevel: skill.maxLevel,
       };
     });
 }
