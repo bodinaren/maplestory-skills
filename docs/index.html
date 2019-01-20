@@ -252,7 +252,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
     <script>
       var toggles = document.querySelectorAll("#toggles > a");
 
-      function toggle(msClass) {
+      function toggle(msClass, firstSetup) {
         for (var prop in toggles) {
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
@@ -280,9 +280,51 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         // re-create the counter so it can attach to the new editor.
         if (counter) counter.remove();
         counterHolder.appendChild(document.createElement("ms-extra-counter"));
+
+        if (!firstSetup) {
+          chart.componentOnReady().then(function(c) {
+            c.getSkills().then(function(skills) {
+              location.hash = getHash(c, skills);
+            });
+          });
+        }
+
+        chart.addEventListener("skillchanged", function(evt) {
+          location.hash = getHash(chart, evt.detail);
+        });
+
+        return chart;
       }
 
-      toggle("archer");
+      function getHash(chart, skills) {
+        var msClass = chart.tagName.toLowerCase().replace("ms-", "");
+        return [msClass]
+                .concat(skills.map(x => x.level))
+                .join(",")
+      }
+
+      function init() {
+        var q = location.hash.replace("#", "").split(",");
+
+        if (q.length > 1) {
+          var c = toggle(q[0], true);
+
+          c.componentOnReady().then(function(chart) {
+            window.scrollTo(0, chart.offsetTop - 20);
+
+            chart.getSkills().then(function(skills) {
+              for (var i = 0; i < skills.length; i++) {
+                var skill = skills[i];
+                chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+1] || skill.level), skill.maxLevel);
+              }
+            });
+          });
+        } else {
+          toggle("archer");
+        }
+      }
+
+      init();
     </script>
 
   </body>
