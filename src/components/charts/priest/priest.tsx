@@ -40,7 +40,7 @@ export class PriestComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, PriestSkills);
   }
 

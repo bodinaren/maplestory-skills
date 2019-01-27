@@ -40,7 +40,7 @@ export class KnightComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, KnightSkills);
   }
 

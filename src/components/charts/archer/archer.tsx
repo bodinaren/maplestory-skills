@@ -40,7 +40,7 @@ export class ArcherComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, ArcherSkills);
   }
 

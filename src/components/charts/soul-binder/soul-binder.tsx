@@ -40,7 +40,7 @@ export class SoulBinderComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, SoulBinderSkills);
   }
 

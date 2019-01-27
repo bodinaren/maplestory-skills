@@ -53,7 +53,7 @@ export class RunebladeComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, RunebladeSkills);
   }
 

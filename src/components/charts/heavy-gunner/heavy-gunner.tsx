@@ -40,7 +40,7 @@ export class HeavyGunnerComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, HeavyGunnerSkills);
   }
 

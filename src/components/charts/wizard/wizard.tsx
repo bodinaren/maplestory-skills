@@ -40,7 +40,7 @@ export class WizardComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, WizardSkills);
   }
 

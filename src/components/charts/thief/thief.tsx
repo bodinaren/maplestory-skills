@@ -40,7 +40,7 @@ export class ThiefComponent {
   }
 
   @Method()
-  async getSkills() {
+  async getData() {
     return toSkillChangeEventObject(this, ThiefSkills);
   }
 
