@@ -41,15 +41,19 @@ h1 .element {
 .content {
   padding: 10px 0 5px;
 }
-.content > div {
+.content > div, ::slotted(:not(:empty)) {
+  display: block;
   clear: both;
   padding: 5px 15px 5px;
 }
-.content > div:not(:first-child) {
+.content > div:not(:first-of-type) {
   border-top: 1px solid #212121;
 }
 .content > div:not(:last-child) {
   border-bottom: 1px solid black;
+}
+::slotted(:not(:empty)) {
+  border-top: 1px solid #212121;
 }
 
 .content-header {
@@ -96,7 +100,7 @@ h1 .element {
   color: #CE3434;
 }
 
-p {
+p, ::slotted(*) {
   color: #999999;
   margin: 1px 0;
   line-height: 1.5em;
@@ -104,4 +108,8 @@ p {
 
 .description span {
   color: #0099CC;
+}
+
+.extras {
+  font-style: italic;
 }

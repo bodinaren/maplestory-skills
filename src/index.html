@@ -191,6 +191,14 @@
       </p>
 
       <div id="editors">
+        <fieldset>
+          <legend>Settings</legend>
+          <p>
+            <input type="checkbox" id="chkExtras" />
+            <label for="chkExtras">Add extra info (e.g. when a Runeblade's Sigil or Thief's cunning is active).</label>
+          </p>
+        </fieldset>
+
         <code class="block" id="code">
 &lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
         </code>
@@ -250,6 +258,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 
     <script>
       var toggles = document.querySelectorAll("#toggles > a");
+      var chkExtras = document.getElementById("chkExtras");
 
       function toggle(msClass, firstSetup) {
         for (var prop in toggles) {
@@ -270,6 +279,7 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
         if (chart) chart.remove();
         chart = document.createElement("ms-" + msClass);
         chart.editable = true;
+        chart.extras = chkExtras.checked;
         chartHolder.appendChild(chart);
 
         // re-create the outlet so it can attach to the new editor.
@@ -282,14 +292,14 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 
         if (!firstSetup) {
           chart.componentOnReady().then(function(c) {
-            c.getSkills().then(function(skills) {
-              location.hash = getHash(c, skills);
+            c.getData().then(function(data) {
+              location.hash = getHash(c, data.skills);
             });
           });
         }
 
         chart.addEventListener("skillchanged", function(evt) {
-          location.hash = getHash(chart, evt.detail);
+          location.hash = getHash(chart, evt.detail.skills);
         });
 
         return chart;
@@ -297,9 +307,16 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
 
       function getHash(chart, skills) {
         var msClass = chart.tagName.toLowerCase().replace("ms-", "");
-        return [msClass]
-                .concat(skills.map(x => x.level))
-                .join(",")
+        var hash = [msClass]
+                    .concat(skills.map(function(x) { return x.level; }))
+                    .join(",")
+
+        if (msClass === "runeblade") {
+          if (chart.extras) hash += "," + (chart.sigil || 1);
+          else hash += ",0";
+        } else hash += "," + (chart.extras ? 1 : 0);
+        
+        return hash;
       }
 
       function init() {
@@ -311,17 +328,30 @@ ms-knight, ms-priest, ms-runeblade, ms-thief, ms-wizard
           c.componentOnReady().then(function(chart) {
             window.scrollTo(0, chart.offsetTop - 20);
 
-            chart.getSkills().then(function(skills) {
+            chart.getData().then(function(data) {
+              var skills = data.skills;
               for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i];
                 chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+1] || skill.level), skill.maxLevel);
               }
             });
+
+            if (q[0] === "runeblade") {
+              if (q[18] !== "0") chart.extras = chkExtras.checked = true;
+              if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
+            } else {
+              chart.extras = chkExtras.checked = !!parseInt(q[18]);
+            }
           });
         } else {
           toggle("archer");
         }
       }
+
+      chkExtras.addEventListener("change", function(val) {
+        var chartHolder = document.querySelector("#chartHolder");
+        chartHolder.children[0].extras = chkExtras.checked;
+      });
 
       init();
     </script>

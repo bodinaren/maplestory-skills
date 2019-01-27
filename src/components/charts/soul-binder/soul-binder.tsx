@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as SoulBinderSkills from "../../../global/values/soul-binder";
 
@@ -11,6 +11,7 @@ import * as SoulBinderSkills from "../../../global/values/soul-binder";
 export class SoulBinderComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) animusFocus: number = SoulBinderSkills.AnimusFocus.minLevel;
   @Prop({ mutable: true }) concussionOrb: number = SoulBinderSkills.ConcussionOrb.minLevel;
@@ -39,8 +40,8 @@ export class SoulBinderComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, SoulBinderSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, SoulBinderSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class SoulBinderComponent {
 
     processSkills(this, SoulBinderSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, SoulBinderSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, SoulBinderSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="soul-binder">
-        { renderLevelControls(this, SoulBinderSkills, this.editable) }
+        { renderLevelControls(this, SoulBinderSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

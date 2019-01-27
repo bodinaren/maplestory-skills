@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ThiefSkills from "../../../global/values/thief";
 
@@ -11,6 +11,7 @@ import * as ThiefSkills from "../../../global/values/thief";
 export class ThiefComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) bladeDance: number = ThiefSkills.BladeDance.minLevel;
   @Prop({ mutable: true }) cunningTactics: number = ThiefSkills.CunningTactics.minLevel;
@@ -39,8 +40,8 @@ export class ThiefComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, ThiefSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, ThiefSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class ThiefComponent {
 
     processSkills(this, ThiefSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ThiefSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, ThiefSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="thief">
-        { renderLevelControls(this, ThiefSkills, this.editable) }
+        { renderLevelControls(this, ThiefSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

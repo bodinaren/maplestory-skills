@@ -1,5 +1,5 @@
 import { ISkill } from "../../global/values/_skillValues.interfaces";
-import { SkillChangeEvent } from "./skill-change-event";
+import { ISkillChangeEvent } from "./skill-change-event";
 
 export function processSkills(chart: any, classSkills: any) {
   let skills = {};
@@ -51,7 +51,7 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   }
 }
 
-export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean): JSX.Element[] {
+export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean, extras: boolean = false, additionalArgs?: any): JSX.Element[] {
   return Object.keys(skills).map((key) => {
     let skill: ISkill = skills[key];
     let chartSkill = chart.skills[skill.prop];
@@ -65,15 +65,17 @@ export function renderLevelControls(chart: any, skills: ISkill[] | any, editable
                 disabled={ !editable }
                 onLevelchanged={ (evt) => chart.levelChanged(skill, evt.detail) }
                 onMouseEnter={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, true) }
-                onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }>
+                onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }
+                extras={ extras }
+                { ...additionalArgs }>
       </ms-skill>
     );
   });
 }
 
-export function toSkillChangeObject(chart: any, classSkills: { [key: string]: ISkill }): SkillChangeEvent {
-  return Object.keys(classSkills)
-    .map((key) => {
+export function toSkillChangeEventObject(chart: any, classSkills: { [key: string]: ISkill }, other?: { [key: string]: string }): ISkillChangeEvent {
+  let rs: ISkillChangeEvent = {
+    skills: Object.keys(classSkills).map((key) => {
       let skill = classSkills[key];
       return {
         skill: skill.name,
@@ -83,5 +85,12 @@ export function toSkillChangeObject(chart: any, classSkills: { [key: string]: IS
         minLevel: skill.minLevel,
         maxLevel: skill.maxLevel,
       };
-    });
+    }),
+  };
+
+  if (other) {
+    rs.other = Object.keys(other).map((key) => ({ attr: key, value: other[key] }));
+  }
+
+  return rs;
 }

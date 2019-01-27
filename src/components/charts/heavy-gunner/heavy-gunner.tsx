@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
@@ -11,6 +11,7 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 export class HeavyGunnerComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;
@@ -39,8 +40,8 @@ export class HeavyGunnerComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, HeavyGunnerSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, HeavyGunnerSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class HeavyGunnerComponent {
 
     processSkills(this, HeavyGunnerSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="heavy-gunner">
-        { renderLevelControls(this, HeavyGunnerSkills, this.editable) }
+        { renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

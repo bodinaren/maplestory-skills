@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as BerserkerSkills from "../../../global/values/berserker";
 
@@ -11,6 +11,7 @@ import * as BerserkerSkills from "../../../global/values/berserker";
 export class BerserkerComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerSkills.AdrenalineRush.minLevel;
   @Prop({ mutable: true }) bloodPrice: number = BerserkerSkills.BloodPrice.minLevel;
@@ -39,8 +40,8 @@ export class BerserkerComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, BerserkerSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, BerserkerSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class BerserkerComponent {
 
     processSkills(this, BerserkerSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, BerserkerSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="berserker">
-        { renderLevelControls(this, BerserkerSkills, this.editable) }
+        { renderLevelControls(this, BerserkerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

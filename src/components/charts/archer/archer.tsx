@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ArcherSkills from "../../../global/values/archer";
 
@@ -11,6 +11,7 @@ import * as ArcherSkills from "../../../global/values/archer";
 export class ArcherComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherSkills.ArrowBarrage.minLevel;
@@ -39,8 +40,8 @@ export class ArcherComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, ArcherSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, ArcherSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class ArcherComponent {
 
     processSkills(this, ArcherSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
   }
 
   render() {
     return [
       <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills, this.editable)}
+        { renderLevelControls(this, ArcherSkills, this.editable, this.extras)}
       </ms-chart>
     ];
   }

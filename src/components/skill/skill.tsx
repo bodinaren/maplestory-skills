@@ -11,6 +11,7 @@ export class SkillComponent {
   @Prop({ reflectToAttr: true, mutable: true }) level: number = 0;
 
   @Prop() skill: ISkill;
+  @Prop() extras: boolean = false;
 
   @Prop({ reflectToAttr: true, mutable: true }) column: number;
   @Prop({ reflectToAttr: true, mutable: true }) row: number;
@@ -23,6 +24,7 @@ export class SkillComponent {
   @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Event({ eventName: "levelchanged" }) onLevelChanged: EventEmitter<number>;
+  @Event({ eventName: "skillclicked" }) onSkillClicked: EventEmitter<ISkill>;
 
   @State() private overlayLevel: number;
 
@@ -77,7 +79,8 @@ export class SkillComponent {
       `}</style>,
       <div class="skill"
            onMouseEnter={ () => this.showOverlay() }
-           onMouseLeave={ () => this.hideOverlay() }>
+           onMouseLeave={ () => this.hideOverlay() }
+           onClick={ () => this.emitSkillClick() }>
         <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
       </div>,
       <div class="controls">
@@ -109,6 +112,7 @@ export class SkillComponent {
       </div>,
       <ms-skill-overlay hidden={ !this.overlayLevel }
                         skill={ this.skill }
+                        extras={ this.extras }
                         level={ this.overlayLevel || 1 }
                         class={ this.skill.prop }>
       </ms-skill-overlay>,
@@ -120,6 +124,10 @@ export class SkillComponent {
   }
   private hideOverlay() {
     this.overlayLevel = 0;
+  }
+
+  private emitSkillClick() {
+    this.onSkillClicked.emit(this.skill);
   }
 
   private plus() {

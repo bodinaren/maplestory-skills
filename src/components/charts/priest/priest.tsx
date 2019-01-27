@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as PriestSkills from "../../../global/values/priest";
 
@@ -11,6 +11,7 @@ import * as PriestSkills from "../../../global/values/priest";
 export class PriestComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestSkills.HeavenlyWings.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestSkills.SteadfastFaith.minLevel;
@@ -39,8 +40,8 @@ export class PriestComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, PriestSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, PriestSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class PriestComponent {
 
     processSkills(this, PriestSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, PriestSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="priest">
-        { renderLevelControls(this, PriestSkills, this.editable) }
+        { renderLevelControls(this, PriestSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

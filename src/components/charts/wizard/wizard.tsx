@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
 
@@ -11,6 +11,7 @@ import * as WizardSkills from "../../../global/values/wizard";
 export class WizardComponent {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardSkills.ArcaneBlast.minLevel;
   @Prop({ mutable: true }) chainLightning: number = WizardSkills.ChainLightning.minLevel;
@@ -39,8 +40,8 @@ export class WizardComponent {
   }
 
   @Method()
-  async getSkills() {
-    return toSkillChangeObject(this, WizardSkills);
+  async getData() {
+    return toSkillChangeEventObject(this, WizardSkills);
   }
 
   async levelChanged(skill: ISkill, level: number) {
@@ -48,13 +49,18 @@ export class WizardComponent {
 
     processSkills(this, WizardSkills);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, WizardSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="wizard">
-        { renderLevelControls(this, WizardSkills, this.editable) }
+        { renderLevelControls(this, WizardSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }
