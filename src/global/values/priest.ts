@@ -14,8 +14,7 @@ export const SteadfastFaith: ISkill = {
   description: `
     You've been rewarded for your devotion,
     recovering <span>8</span> spirit every <span>0.5</span> sec,
-    plus an addition <span>4</span> spirit for every enemy
-    suffering from Celestial Light.
+    plus an addition <span>4</span> if at least one foe is suffering from Celestial Light.
   `,
 };
 
