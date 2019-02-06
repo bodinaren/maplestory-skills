@@ -18,7 +18,7 @@ So you want the editor on your site? No problem, but let's start with a fair war
 
 >This repository use semver versioning, but **only for basic charts usage**! Breaking changes to the below usages can happen between any minor version (but not patch).
 
-If you want to use the editor, it's recommended to import the scripts with a minor version (make sure you check for the most recent verison).
+If you want to use the editor, it's recommended to import the scripts with a minor version (make sure you check for the most recent version).
 
 Before:
 ```html
