@@ -26,7 +26,7 @@ Before:
 ```
 After:
 ```html
-<script src="https://unpkg.com/maplestory-skills@~1.1/dist/maplestory-skills.js"></script>
+<script src="https://unpkg.com/maplestory-skills@~1.3/dist/maplestory-skills.js"></script>
 ```
 
 With that out of the way, you can make the skill chart editable by simply adding the attribute `editable` to the chart.
