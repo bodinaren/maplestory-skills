@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
 
@@ -8,7 +8,7 @@ import * as WizardSkills from "../../../global/values/wizard";
   styleUrls: ["wizard.css"],
   shadow: true
 })
-export class WizardComponent {
+export class WizardComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -31,7 +31,7 @@ export class WizardComponent {
   @Prop({ mutable: true }) teleport: number = WizardSkills.Teleport.minLevel;
   @Prop({ mutable: true }) thunderbolt: number = WizardSkills.Thunderbolt.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -44,7 +44,7 @@ export class WizardComponent {
     return toSkillChangeEventObject(this, WizardSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
     processSkills(this, WizardSkills);

@@ -20,6 +20,7 @@ export class SkillComponent {
   @Prop({ reflectToAttr: true }) locked: boolean = false;
   @Prop({ reflectToAttr: true }) required: string;
   @Prop() disabled: boolean = true;
+  @Prop() loop: boolean = false;
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 
@@ -90,7 +91,7 @@ export class SkillComponent {
                   onClick={ () => this.minus() }
                   onMouseEnter={ () => this.showOverlay(-1) }
                   onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.minLevel }>
+                  hidden={ this.level === this.skill.minLevel && !this.loop }>
             <img src={ `${ this.publicPath }assets/minus.png` } />
             <img src={ `${ this.publicPath }assets/minus-hover.png` } />
             <img src={ `${ this.publicPath }assets/minus-active.png` } />
@@ -103,7 +104,7 @@ export class SkillComponent {
                   onClick={ () => this.plus() }
                   onMouseEnter={ () => this.showOverlay(+1) }
                   onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.maxLevel }>
+                  hidden={ this.level === this.skill.maxLevel && !this.loop }>
             <img src={ `${ this.publicPath }assets/plus.png` } />
             <img src={ `${ this.publicPath }assets/plus-hover.png` } />
             <img src={ `${ this.publicPath }assets/plus-active.png` } />
@@ -120,7 +121,14 @@ export class SkillComponent {
   }
 
   private showOverlay(levelOffset: number = 0) {
-    this.overlayLevel = Math.max(1, Math.min(this.level + levelOffset, this.skill.maxLevel));
+    this.overlayLevel = this.level + levelOffset;
+    if (this.overlayLevel === 0) {
+      this.overlayLevel = 1;
+    } else if (this.overlayLevel < 0) {
+      this.overlayLevel = (this.loop ? this.skill.maxLevel : 1);
+    } else if (this.overlayLevel > this.skill.maxLevel) {
+      this.overlayLevel = (this.loop ? 1 : this.skill.maxLevel);
+    }
   }
   private hideOverlay() {
     this.overlayLevel = 0;
@@ -131,23 +139,25 @@ export class SkillComponent {
   }
 
   private plus() {
-    if (this.level < this.skill.maxLevel) {
+    if (this.level < this.skill.maxLevel || this.loop) {
       this.level++;
+      if (this.level > this.skill.maxLevel) {
+        this.level = this.skill.minLevel;
+      }
       this.skillChanged();
     }
-    if (this.overlayLevel < this.skill.maxLevel) {
-      this.overlayLevel++;
-    }
+    this.showOverlay(+1);
   }
 
   private minus() {
-    if (this.level > this.skill.minLevel) {
+    if (this.level > this.skill.minLevel || this.loop) {
       this.level--;
+      if (this.level < this.skill.minLevel) {
+        this.level = this.skill.maxLevel;
+      }
       this.skillChanged();
     }
-    if (this.overlayLevel > this.skill.minLevel) {
-      this.overlayLevel--;
-    }
+    this.showOverlay(-1);
   }
 }
 

@@ -1,3 +1,4 @@
+import { EventEmitter } from "@stencil/core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 
@@ -51,7 +52,7 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   }
 }
 
-export function renderLevelControls(chart: any, skills: ISkill[] | any, editable: boolean, extras: boolean = false, additionalArgs?: any): JSX.Element[] {
+export function renderLevelControls(chart: IChart, skills: ISkill[] | any, editable: boolean, extras: boolean = false, additionalArgs?: any): JSX.Element[] {
   return Object.keys(skills).map((key) => {
     let skill: ISkill = skills[key];
     let chartSkill = chart.skills[skill.prop];
@@ -63,6 +64,7 @@ export function renderLevelControls(chart: any, skills: ISkill[] | any, editable
                 required={ chartSkill.required }
                 limitReached={ chartSkill.limitReached }
                 disabled={ !editable }
+                loop={ editable }
                 onLevelchanged={ (evt) => chart.levelChanged(skill, evt.detail) }
                 onMouseEnter={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, true) }
                 onMouseLeave={ () => chartSkill.locked && toggleSkillRequirements(chart, skill, false) }
@@ -93,4 +95,23 @@ export function toSkillChangeEventObject(chart: any, classSkills: { [key: string
   }
 
   return rs;
+}
+
+export interface IChart {
+  editable: boolean;
+  extras: boolean;
+  onSkillChanged: EventEmitter;
+  skills: IChartSkills;
+
+  getData(): Promise<ISkillChangeEvent>;
+  levelChanged(skill: ISkill, level: number): void;
+}
+
+export interface IChartSkills {
+  [prop: string]: {
+    locked: boolean,
+    required: string,
+    active: boolean,
+    limitReached: boolean,
+  }
 }

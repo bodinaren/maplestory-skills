@@ -524,6 +524,7 @@ export namespace Components {
     'level': number;
     'limitReached': boolean;
     'locked': boolean;
+    'loop': boolean;
     'required': string;
     'row': number;
     'skill': ISkill;
@@ -535,6 +536,7 @@ export namespace Components {
     'level'?: number;
     'limitReached'?: boolean;
     'locked'?: boolean;
+    'loop'?: boolean;
     'onLevelchanged'?: (event: CustomEvent<number>) => void;
     'onSkillclicked'?: (event: CustomEvent<ISkill>) => void;
     'required'?: string;
