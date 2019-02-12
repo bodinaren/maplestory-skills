@@ -71,7 +71,7 @@ export class SkillComponent {
       <div class="controls">
         <div>
           <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
-                  disabled={ this.disabled || this.locked }
+                  disabled={ this.disabled || this.locked || (this.limitReached && this.level === 0) }
                   onClick={ () => this.minus() }
                   onMouseEnter={ () => this.showOverlay(-1) }
                   onMouseLeave={ () => this.hideOverlay() }
