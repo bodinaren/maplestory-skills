@@ -71,7 +71,7 @@ export class SkillComponent {
       <div class="controls">
         <div>
           <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
-                  disabled={ this.disabled || this.locked || (this.limitReached && this.level === 0) }
+                  disabled={ this.shouldDisableMinus() }
                   onClick={ () => this.minus() }
                   onMouseEnter={ () => this.showOverlay(-1) }
                   onMouseLeave={ () => this.hideOverlay() }
@@ -86,8 +86,8 @@ export class SkillComponent {
         </div>
         <span>{ this.level }/{ this.skill.maxLevel }</span>
         <div>
-          <button class={{ "plus": true, "wrap": this.loop && this.level === this.skill.maxLevel }}
-                  disabled={ this.disabled || this.locked || this.limitReached }
+          <button class={{ "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }}
+                  disabled={ this.shouldDisablePlus() }
                   onClick={ () => this.plus() }
                   onMouseEnter={ () => this.showOverlay(+1) }
                   onMouseLeave={ () => this.hideOverlay() }
@@ -108,6 +108,21 @@ export class SkillComponent {
                         class={ this.skill.prop }>
       </ms-skill-overlay>,
     ];
+  }
+
+  private shouldDisableMinus(): boolean {
+    return this.disabled // skill are not editable
+        || this.locked // locked due to unmet requirements
+        || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
+        || (!this.loop && this.level === this.skill.minLevel) // can't decrease any further, unless we loop
+        || (this.loop && this.limitReached && this.level === this.skill.minLevel); // if we loop, only disable if we're reached the limit and is at minimum (which would make this a plus button)
+  }
+
+  private shouldDisablePlus(): boolean {
+    return this.disabled // skill are not editable
+        || this.locked // locked due to unmet requirements
+        || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
+        || (this.limitReached && (!this.loop || this.level === this.skill.minLevel)); // limit is reached, unless we loop, then only if we can't decrease further
   }
 
   private showOverlay(levelOffset: number = 0) {
@@ -131,7 +146,7 @@ export class SkillComponent {
   private plus() {
     if (this.level < this.skill.maxLevel || this.loop) {
       this.level++;
-      if (this.level > this.skill.maxLevel) {
+      if (this.level > this.skill.maxLevel || (this.limitReached && this.level > this.skill.minLevel)) {
         this.level = this.skill.minLevel;
       }
       this.skillChanged();

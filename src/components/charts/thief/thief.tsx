@@ -47,7 +47,7 @@ export class ThiefComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, ThiefSkills);
+    processSkills(this, ThiefSkills, skill);
 
     this.emitChangeEvent();
   }

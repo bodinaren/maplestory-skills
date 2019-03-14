@@ -47,7 +47,7 @@ export class PriestComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, PriestSkills);
+    processSkills(this, PriestSkills, skill);
 
     this.emitChangeEvent();
   }

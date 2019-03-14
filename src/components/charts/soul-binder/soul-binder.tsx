@@ -47,7 +47,7 @@ export class SoulBinderComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, SoulBinderSkills);
+    processSkills(this, SoulBinderSkills, skill);
 
     this.emitChangeEvent();
   }

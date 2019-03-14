@@ -2,7 +2,7 @@ import { EventEmitter } from "@stencil/core";
 import { ISkill, IClassSkills } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 
-export function processSkills(chart: IChart, classSkills: IClassSkills) {
+export function processSkills(chart: IChart, classSkills: IClassSkills, skillChanged?: ISkill) {
   let skills = {};
   let sum = 0;
 
@@ -17,6 +17,10 @@ export function processSkills(chart: IChart, classSkills: IClassSkills) {
       limitReached: false,
     };
   });
+
+  if (sum > 68 + 4) {
+    chart[skillChanged.prop] -= sum - (68 + 4);
+  }
 
   Object.keys(classSkills).forEach((skillKey: string) => {
     let values = classSkills[skillKey];

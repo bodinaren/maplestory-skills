@@ -60,7 +60,7 @@ export class RunebladeComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, this.runebladeSkills);
+    processSkills(this, this.runebladeSkills, skill);
 
     if (skill.prop === this.sigil && level === 0) {
       this.changeSigil();

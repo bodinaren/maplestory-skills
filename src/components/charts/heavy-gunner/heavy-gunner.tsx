@@ -47,7 +47,7 @@ export class HeavyGunnerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, HeavyGunnerSkills);
+    processSkills(this, HeavyGunnerSkills, skill);
 
     this.emitChangeEvent();
   }

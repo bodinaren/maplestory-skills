@@ -47,7 +47,7 @@ export class BerserkerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, BerserkerSkills);
+    processSkills(this, BerserkerSkills, skill);
 
     this.emitChangeEvent();
   }

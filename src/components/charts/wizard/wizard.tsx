@@ -47,7 +47,7 @@ export class WizardComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, WizardSkills);
+    processSkills(this, WizardSkills, skill);
 
     this.emitChangeEvent();
   }

@@ -47,7 +47,7 @@ export class ArcherComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, ArcherSkills);
+    processSkills(this, ArcherSkills, skill);
 
     this.emitChangeEvent();
   }
