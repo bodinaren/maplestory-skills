@@ -1,0 +1,1135 @@
+{
+  "tags": [
+    {
+      "label": "ms-archer",
+      "description": "",
+      "attributes": [
+        {
+          "label": "agile-archer",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "arrow-barrage",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "arrow-storm",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "arrow-stream",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "bow-swing",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "bronze-eagle",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "conditioning",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "eagle-claw",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "eagle-glide",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "eagles-majesty",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "evasive-salvo",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "ice-arrow",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "precision-shooter",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rapid-shot",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "screwdriver-shot",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "sharp-eyes",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "snipe",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-assassin",
+      "description": "",
+      "attributes": [
+        {
+          "label": "dark-cloak",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "death-sentence",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "fatal-strikes",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "fragmented-star",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "lucky-stars",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mark-of-death",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mirror-image-dark-blade",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shadow-arts",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shadow-burst",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shadow-chaser",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shadow-cutter",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shadow-web",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "soul-grind",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "star-chaser",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "star-flurry",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "thrown-weapon-mastery",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-berserker",
+      "description": "",
+      "attributes": [
+        {
+          "label": "adrenaline-rush",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "blood-price",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "bloodlust",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dark-aura",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dark-breaker",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dark-might",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "death-spin",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "deep-wounds",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "earthquake",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "greatsword-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "ground-breaker",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "inhuman-endurance",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "intimidation",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "raging-slash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "void-slash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "warriors-instinct",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "x-slash",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-chart",
+      "description": "",
+      "attributes": [
+        {
+          "label": "ms-class",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-heavy-gunner",
+      "description": "",
+      "attributes": [
+        {
+          "label": "advanced-bullets",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "advanced-missiles",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "advanced-pulse-weapons",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "blast-charge-kit",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "bullet-spray",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "electric-blast",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "gatling-fire",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "homing-missiles",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "jet-boots",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "lock-on",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "m-bomb",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "magnetic-bomb",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "med-kit",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "reload",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rocket-launcher",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "stun-grenades",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "suborbital-bombardment",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-knight",
+      "description": "",
+      "attributes": [
+        {
+          "label": "bulwark",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "cross-cut",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "defender-of-the-faith",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "divine-strike",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "drill-thrust",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "iron-defense",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "iron-shield",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "longsword-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-booster",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-charge",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-toss",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-wall",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "stinging-flurry",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "tornado-slash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "typhoon-slash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "warhorn",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-priest",
+      "description": "",
+      "attributes": [
+        {
+          "label": "angelic-ray",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "celestial-blessings",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "celestial-guardian",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "celestial-light",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "disciple",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "healing-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "healing-prayer",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "heavenly-wings",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "holy-blast",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "holy-relic",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "holy-symbol",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "sanctuary",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "scepter-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "scourging-wave",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shield-of-the-archon",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "smiting-aura",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "steadfast-faith",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-runeblade",
+      "description": "",
+      "attributes": [
+        {
+          "label": "blade-chasm",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "blade-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "blink",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "echoing-blade",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "elemental-potency",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "flame-sigil",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "flurry",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "frost-sigil",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "gravity-rune",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "honing-runes",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "illusory-blades",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "impact",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rune-balance",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rune-focus",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "sigil",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "storm-sigil",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "warding-rune",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "whirling-blades",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-soul-binder",
+      "description": "",
+      "attributes": [
+        {
+          "label": "animus-focus",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "concussion-orb",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "energy-surge",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "expansion-blast",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "flash-strike",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "fount-of-renewal",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "healing-bond",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "illusion",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "light-barrier",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mantra-array",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "narubashan-unleashed",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "orb-mastery",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "radiant-salvo",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "raging-tempest",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "shooting-star",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "soaring-orb",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "static-flash",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-thief",
+      "description": "",
+      "attributes": [
+        {
+          "label": "blade-dance",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "cunning-tactics",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "deft-combatant",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "double-slash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "haste",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mesoguard-plus",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mind-breaker",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mind-stealer",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "poison-edge",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "poison-vial",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "quick-step",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "retaliation",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "ruthless-guile",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "somersault-kick",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "spirit-thief",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "surprise-attack",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "vicious-cuts",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-wizard",
+      "description": "",
+      "attributes": [
+        {
+          "label": "arcane-blast",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "chain-lightning",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "cryomancy",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "electromancy",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "elemental-master",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "flame-tornado",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "flame-wave",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "focus-seal",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "ice-spear",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "ice-storm",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "magic-armor",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mana-claw",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mana-font",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "phantom-claw",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "pyromancy",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "teleport",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "thunderbolt",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-extra-counter",
+      "description": "",
+      "attributes": [
+        {
+          "label": "editor",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-extra-outlet",
+      "description": "",
+      "attributes": [
+        {
+          "label": "editor",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-footer",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "label": "ms-icon",
+      "description": "",
+      "attributes": [
+        {
+          "label": "name",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "sp",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-skill-overlay",
+      "description": "",
+      "attributes": [
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "level",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "ms-skill",
+      "description": "",
+      "attributes": [
+        {
+          "label": "column",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "disabled",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "level",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "limit-reached",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "locked",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "required",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "row",
+          "description": "",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

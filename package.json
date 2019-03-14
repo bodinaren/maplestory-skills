@@ -10,8 +10,9 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build && npm run build.copy",
+    "build": "stencil build && npm run build.copy && npm run build.docs",
     "build.copy": "node scripts/copy.js",
+    "build.docs": "node scripts/docs.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",

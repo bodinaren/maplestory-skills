@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const RuneBalance: ISkill;
+export declare const Blink: ISkill;
+export declare const Flurry: ISkill;
+export declare const EchoingBlade: ISkill;
+export declare const Impact: ISkill;
+export declare const RuneFocus: ISkill;
+export declare const BladeChasm: ISkill;
+export declare const WhirlingBlades: ISkill;
+export declare const IllusoryBlades: ISkill;
+export declare const BladeMastery: ISkill;
+export declare const FlameSigil: ISkill;
+export declare const FrostSigil: ISkill;
+export declare const StormSigil: ISkill;
+export declare const HoningRunes: ISkill;
+export declare const GravityRune: ISkill;
+export declare const WardingRune: ISkill;
+export declare const ElementalPotency: ISkill;

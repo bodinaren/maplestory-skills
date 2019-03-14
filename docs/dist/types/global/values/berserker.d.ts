@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const DarkAura: ISkill;
+export declare const XSlash: ISkill;
+export declare const RagingSlash: ISkill;
+export declare const DeathSpin: ISkill;
+export declare const GroundBreaker: ISkill;
+export declare const DarkMight: ISkill;
+export declare const VoidSlash: ISkill;
+export declare const DarkBreaker: ISkill;
+export declare const WarriorsInstinct: ISkill;
+export declare const Bloodlust: ISkill;
+export declare const AdrenalineRush: ISkill;
+export declare const BloodPrice: ISkill;
+export declare const InhumanEndurance: ISkill;
+export declare const GreatswordMastery: ISkill;
+export declare const Intimidation: ISkill;
+export declare const DeepWounds: ISkill;
+export declare const Earthquake: ISkill;
