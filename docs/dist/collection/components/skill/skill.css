@@ -1,0 +1,114 @@
+
+:host {
+  display: block;
+  width: 72px;
+  height: 115px;
+  user-select: none;
+}
+
+.skill {
+  display: block;
+  width: 72px;
+  height: 84px;
+  background-repeat: no-repeat;
+}
+
+.skill > ms-icon {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: 17px;
+}
+
+.controls {
+  display: flex;
+  width: 109px;
+  height: 36px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -18.5px;
+  margin-top: -4px;
+}
+.controls span {
+  text-align: center;
+  flex-grow: 1;
+  font-size: .9em;
+}
+.controls div {
+  margin-top: 4px;
+  width: 30px;
+}
+_:-ms-lang(x), .controls div { margin-top: 0px; } /* not sure why IE/Edge need this */
+
+:host([locked]) .skill:after {
+  position: absolute;
+  width: 52px;
+  height: 61px;
+  top: 11px;
+  left: 10px;
+  pointer-events: none;
+  content: '';
+}
+
+:host([required]):after {
+  position: absolute;
+  width: 52px;
+  height: 61px;
+  top: 11px;
+  left: 10px;
+  pointer-events: none;
+  content: attr(required);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  font-size: .8em;
+}
+
+ms-skill-overlay {
+  position: absolute;
+  margin: 0 20px;
+}
+
+:host([column="1"]) ms-skill-overlay,
+:host([column="2"]) ms-skill-overlay {
+  left: 100%;
+}
+:host([column="3"]) ms-skill-overlay,
+:host([column="4"]) ms-skill-overlay {
+  right: 100%;
+}
+
+:host([row="1"]) ms-skill-overlay,
+:host([row="2"]) ms-skill-overlay,
+:host([row="3"]) ms-skill-overlay {
+  top: 0;
+}
+:host([row="4"]) ms-skill-overlay,
+:host([row="5"]) ms-skill-overlay,
+:host([row="6"]) ms-skill-overlay {
+  bottom: 0;
+}
+
+button {
+  width: 30px;
+  height: 33px;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: 0;
+  cursor: inherit;
+}
+_:-ms-lang(x), .minus img, .plus img { cursor: pointer; }
+
+button:active { cursor: inherit; }
+  
+button img { display: none; }
+
+button:not([disabled]):not([hidden]) { display: inline-block; }
+button:not([disabled]):not(:active):not(:hover) img:nth-child(1) { display: inline; }
+button:not([disabled]):not(:active):hover img:nth-child(2) { display: inline; }
+button:not([disabled]):active img:nth-child(3) { display: inline; }
+
+.minus { left: -1px; }
+.plus { right: 0; }
