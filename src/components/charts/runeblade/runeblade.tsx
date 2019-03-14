@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade-sigil";
 import * as RunebladeSkills from "../../../global/values/runeblade";
@@ -9,7 +9,7 @@ import * as RunebladeSkills from "../../../global/values/runeblade";
   styleUrls: ["runeblade.css"],
   shadow: true
 })
-export class RunebladeComponent {
+export class RunebladeComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true }) extras: boolean = false;
@@ -35,7 +35,7 @@ export class RunebladeComponent {
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -57,10 +57,10 @@ export class RunebladeComponent {
     return toSkillChangeEventObject(this, RunebladeSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, this.runebladeSkills);
+    processSkills(this, this.runebladeSkills, skill);
 
     if (skill.prop === this.sigil && level === 0) {
       this.changeSigil();

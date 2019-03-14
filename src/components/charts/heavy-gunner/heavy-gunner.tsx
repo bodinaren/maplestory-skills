@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
@@ -8,7 +8,7 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
   styleUrls: ["heavy-gunner.css"],
   shadow: true
 })
-export class HeavyGunnerComponent {
+export class HeavyGunnerComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -31,7 +31,7 @@ export class HeavyGunnerComponent {
   @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerSkills.StunGrenades.minLevel;
   @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -44,10 +44,10 @@ export class HeavyGunnerComponent {
     return toSkillChangeEventObject(this, HeavyGunnerSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, HeavyGunnerSkills);
+    processSkills(this, HeavyGunnerSkills, skill);
 
     this.emitChangeEvent();
   }

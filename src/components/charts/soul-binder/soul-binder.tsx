@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as SoulBinderSkills from "../../../global/values/soul-binder";
 
@@ -8,7 +8,7 @@ import * as SoulBinderSkills from "../../../global/values/soul-binder";
   styleUrls: ["soul-binder.css"],
   shadow: true
 })
-export class SoulBinderComponent {
+export class SoulBinderComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -31,7 +31,7 @@ export class SoulBinderComponent {
   @Prop({ mutable: true }) lightBarrier: number = SoulBinderSkills.LightBarrier.minLevel;
   @Prop({ mutable: true }) fountOfRenewal: number = SoulBinderSkills.FountOfRenewal.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -44,10 +44,10 @@ export class SoulBinderComponent {
     return toSkillChangeEventObject(this, SoulBinderSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, SoulBinderSkills);
+    processSkills(this, SoulBinderSkills, skill);
 
     this.emitChangeEvent();
   }

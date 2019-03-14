@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as BerserkerSkills from "../../../global/values/berserker";
 
@@ -8,7 +8,7 @@ import * as BerserkerSkills from "../../../global/values/berserker";
   styleUrls: ["berserker.css"],
   shadow: true
 })
-export class BerserkerComponent {
+export class BerserkerComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -31,7 +31,7 @@ export class BerserkerComponent {
   @Prop({ mutable: true }) warriorsInstinct: number = BerserkerSkills.WarriorsInstinct.minLevel;
   @Prop({ mutable: true }) xSlash: number = BerserkerSkills.XSlash.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -44,10 +44,10 @@ export class BerserkerComponent {
     return toSkillChangeEventObject(this, BerserkerSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, BerserkerSkills);
+    processSkills(this, BerserkerSkills, skill);
 
     this.emitChangeEvent();
   }

@@ -62,6 +62,10 @@ export interface ISkill extends ISkillDescription {
   extras?: ISkillDescription[];
 }
 
+export interface IClassSkills {
+  [prop: string]: ISkill;
+}
+
 export interface ISkillRequirement {
   /** Which skill is required */
   skill: ISkill;

@@ -1,5 +1,5 @@
 import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as KnightSkills from "../../../global/values/knight";
 
@@ -8,7 +8,7 @@ import * as KnightSkills from "../../../global/values/knight";
   styleUrls: ["knight.css"],
   shadow: true
 })
-export class KnightComponent {
+export class KnightComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -31,7 +31,7 @@ export class KnightComponent {
   @Prop({ mutable: true }) typhoonSlash: number = KnightSkills.TyphoonSlash.minLevel;
   @Prop({ mutable: true }) warhorn: number = KnightSkills.Warhorn.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -44,10 +44,10 @@ export class KnightComponent {
     return toSkillChangeEventObject(this, KnightSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, KnightSkills);
+    processSkills(this, KnightSkills, skill);
 
     this.emitChangeEvent();
   }
