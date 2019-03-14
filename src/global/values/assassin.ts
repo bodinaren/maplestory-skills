@@ -256,7 +256,7 @@ export const SoulGrind: ISkill = {
 
 export const ShadowArts: ISkill = {
   name: "Shadow Arts",
-  attr: "shadow-Arts",
+  attr: "shadow-arts",
   prop: "shadowArts",
   row: 6,
   column: 2,
@@ -359,7 +359,7 @@ export const DeathSentence: ISkill = {
 };
 
 export const FatalStrikes: ISkill = {
-  name: "Fatl Strikes",
+  name: "Fatal Strikes",
   attr: "fatal-strikes",
   prop: "fatalStrikes",
   row: 3,
