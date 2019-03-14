@@ -1262,6 +1262,11 @@
           "attr": "locked"
         },
         {
+          "name": "loop",
+          "type": "Boolean",
+          "attr": "loop"
+        },
+        {
           "name": "required",
           "type": "String",
           "reflectToAttr": true,
@@ -1798,8 +1803,8 @@
   "collections": [],
   "compiler": {
     "name": "@stencil/core",
-    "version": "0.17.0",
-    "typescriptVersion": "3.2.2"
+    "version": "0.18.0",
+    "typescriptVersion": "3.3.3"
   },
   "bundles": [
     {

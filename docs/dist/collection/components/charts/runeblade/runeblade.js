@@ -34,9 +34,9 @@ export class RunebladeComponent {
     async getData() {
         return toSkillChangeEventObject(this, RunebladeSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, this.runebladeSkills);
+        processSkills(this, this.runebladeSkills, skill);
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }

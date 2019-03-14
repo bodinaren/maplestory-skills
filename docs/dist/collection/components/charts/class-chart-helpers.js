@@ -1,4 +1,4 @@
-export function processSkills(chart, classSkills) {
+export function processSkills(chart, classSkills, skillChanged) {
     let skills = {};
     let sum = 0;
     Object.keys(classSkills).forEach((skillKey) => {
@@ -10,6 +10,9 @@ export function processSkills(chart, classSkills) {
             limitReached: false,
         };
     });
+    if (sum > 68 + 4) {
+        chart[skillChanged.prop] -= sum - (68 + 4);
+    }
     Object.keys(classSkills).forEach((skillKey) => {
         let values = classSkills[skillKey];
         if (values.skillRequirements) {
@@ -40,11 +43,11 @@ export function toggleSkillRequirements(chart, skill, setActive) {
             chart.skills = Object.assign({}, chart.skills);
     }
 }
-export function renderLevelControls(chart, skills, editable, extras = false, additionalArgs) {
-    return Object.keys(skills).map((key) => {
-        let skill = skills[key];
+export function renderLevelControls(chart, classSkills, editable, extras = false, additionalArgs) {
+    return Object.keys(classSkills).map((key) => {
+        let skill = classSkills[key];
         let chartSkill = chart.skills[skill.prop];
-        return (h("ms-skill", Object.assign({ class: skill.prop, skill: skill, level: chart[skill.prop], locked: chartSkill.locked, required: chartSkill.required, limitReached: chartSkill.limitReached, disabled: !editable, onLevelchanged: (evt) => chart.levelChanged(skill, evt.detail), onMouseEnter: () => chartSkill.locked && toggleSkillRequirements(chart, skill, true), onMouseLeave: () => chartSkill.locked && toggleSkillRequirements(chart, skill, false), extras: extras }, additionalArgs)));
+        return (h("ms-skill", Object.assign({ class: skill.prop, skill: skill, level: chart[skill.prop], locked: chartSkill.locked, required: chartSkill.required, limitReached: chartSkill.limitReached, disabled: !editable, loop: editable, onLevelchanged: (evt) => chart.levelChanged(skill, evt.detail), onMouseEnter: () => chartSkill.locked && toggleSkillRequirements(chart, skill, true), onMouseLeave: () => chartSkill.locked && toggleSkillRequirements(chart, skill, false), extras: extras }, additionalArgs)));
     });
 }
 export function toSkillChangeEventObject(chart, classSkills, other) {

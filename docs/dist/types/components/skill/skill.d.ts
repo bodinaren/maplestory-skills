@@ -11,6 +11,7 @@ export declare class SkillComponent {
     locked: boolean;
     required: string;
     disabled: boolean;
+    loop: boolean;
     private publicPath;
     onLevelChanged: EventEmitter<number>;
     onSkillClicked: EventEmitter<ISkill>;
@@ -21,6 +22,8 @@ export declare class SkillComponent {
         "passive": boolean;
     };
     render(): JSX.Element[];
+    private shouldDisableMinus;
+    private shouldDisablePlus;
     private showOverlay;
     private hideOverlay;
     private emitSkillClick;

@@ -1,7 +1,8 @@
 import '../../../stencil.core';
 import { EventEmitter } from "../../../stencil.core";
+import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
-export declare class WizardComponent {
+export declare class WizardComponent implements IChart {
     editable: boolean;
     extras: boolean;
     arcaneBlast: number;
@@ -21,17 +22,11 @@ export declare class WizardComponent {
     pyromancy: number;
     teleport: number;
     thunderbolt: number;
-    skills: {
-        [prop: string]: {
-            locked: boolean;
-            required: string;
-            active: boolean;
-        };
-    };
+    skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
-    levelChanged(skill: ISkill, level: number): Promise<void>;
+    levelChanged(skill: ISkill, level: number): void;
     emitChangeEvent(): void;
     render(): JSX.Element;
 }

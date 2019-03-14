@@ -28,9 +28,9 @@ export class BerserkerComponent {
     async getData() {
         return toSkillChangeEventObject(this, BerserkerSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, BerserkerSkills);
+        processSkills(this, BerserkerSkills, skill);
         this.emitChangeEvent();
     }
     emitChangeEvent() {

@@ -28,9 +28,9 @@ export class SoulBinderComponent {
     async getData() {
         return toSkillChangeEventObject(this, SoulBinderSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, SoulBinderSkills);
+        processSkills(this, SoulBinderSkills, skill);
         this.emitChangeEvent();
     }
     emitChangeEvent() {

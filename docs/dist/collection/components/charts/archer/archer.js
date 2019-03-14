@@ -28,9 +28,9 @@ export class ArcherComponent {
     async getData() {
         return toSkillChangeEventObject(this, ArcherSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, ArcherSkills);
+        processSkills(this, ArcherSkills, skill);
         this.emitChangeEvent();
     }
     emitChangeEvent() {

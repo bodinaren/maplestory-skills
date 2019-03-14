@@ -28,9 +28,9 @@ export class KnightComponent {
     async getData() {
         return toSkillChangeEventObject(this, KnightSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, KnightSkills);
+        processSkills(this, KnightSkills, skill);
         this.emitChangeEvent();
     }
     emitChangeEvent() {

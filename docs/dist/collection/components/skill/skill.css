@@ -106,9 +106,14 @@ button:active { cursor: inherit; }
 button img { display: none; }
 
 button:not([disabled]):not([hidden]) { display: inline-block; }
-button:not([disabled]):not(:active):not(:hover) img:nth-child(1) { display: inline; }
-button:not([disabled]):not(:active):hover img:nth-child(2) { display: inline; }
-button:not([disabled]):active img:nth-child(3) { display: inline; }
+
+button:not(.wrap):not([disabled]):not(:active):not(:hover) img:nth-child(1) { display: inline; }
+button:not(.wrap):not([disabled]):not(:active):hover img:nth-child(2) { display: inline; }
+button:not(.wrap):not([disabled]):active img:nth-child(3) { display: inline; }
+
+button.wrap:not([disabled]):not(:active):not(:hover) img:nth-child(4) { display: inline; }
+button.wrap:not([disabled]):not(:active):hover img:nth-child(5) { display: inline; }
+button.wrap:not([disabled]):active img:nth-child(6) { display: inline; }
 
 .minus { left: -1px; }
 .plus { right: 0; }

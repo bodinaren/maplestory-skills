@@ -1,7 +1,8 @@
 import '../../../stencil.core';
 import { EventEmitter } from "../../../stencil.core";
+import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
-export declare class HeavyGunnerComponent {
+export declare class HeavyGunnerComponent implements IChart {
     editable: boolean;
     extras: boolean;
     advancedBullets: number;
@@ -21,17 +22,11 @@ export declare class HeavyGunnerComponent {
     rocketLauncher: number;
     stunGrenades: number;
     suborbitalBombardment: number;
-    skills: {
-        [prop: string]: {
-            locked: boolean;
-            required: string;
-            active: boolean;
-        };
-    };
+    skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
-    levelChanged(skill: ISkill, level: number): Promise<void>;
+    levelChanged(skill: ISkill, level: number): void;
     emitChangeEvent(): void;
     render(): JSX.Element;
 }

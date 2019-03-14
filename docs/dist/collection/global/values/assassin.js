@@ -244,7 +244,7 @@ export const SoulGrind = {
 };
 export const ShadowArts = {
     name: "Shadow Arts",
-    attr: "shadow-Arts",
+    attr: "shadow-arts",
     prop: "shadowArts",
     row: 6,
     column: 2,
@@ -343,7 +343,7 @@ export const DeathSentence = {
   `,
 };
 export const FatalStrikes = {
-    name: "Fatl Strikes",
+    name: "Fatal Strikes",
     attr: "fatal-strikes",
     prop: "fatalStrikes",
     row: 3,

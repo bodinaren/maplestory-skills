@@ -28,9 +28,9 @@ export class HeavyGunnerComponent {
     async getData() {
         return toSkillChangeEventObject(this, HeavyGunnerSkills);
     }
-    async levelChanged(skill, level) {
+    levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, HeavyGunnerSkills);
+        processSkills(this, HeavyGunnerSkills, skill);
         this.emitChangeEvent();
     }
     emitChangeEvent() {
