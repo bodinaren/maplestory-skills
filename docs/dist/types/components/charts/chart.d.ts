@@ -6,4 +6,5 @@ export declare class ChartComponent {
     componentDidLoad(): void;
     resize(): void;
     render(): JSX.Element[];
+    private renderStyles;
 }

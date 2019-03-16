@@ -22,6 +22,7 @@ export declare class SkillComponent {
         "passive": boolean;
     };
     render(): JSX.Element[];
+    private renderStyles;
     private shouldDisableMinus;
     private shouldDisablePlus;
     private showOverlay;

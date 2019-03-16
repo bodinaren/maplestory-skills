@@ -1,29 +1,42 @@
 export function processSkills(chart, classSkills, skillChanged) {
     let skills = {};
     let sum = 0;
+    if (skillChanged && chart[skillChanged.prop] > 0) {
+        if (skillChanged.skillRequirements) {
+            skillChanged.skillRequirements.forEach((req) => {
+                fixRequirements(chart, req);
+            });
+        }
+    }
     Object.keys(classSkills).forEach((skillKey) => {
-        let values = classSkills[skillKey];
-        sum += chart[values.prop];
-        skills[values.prop] = {
+        let skill = classSkills[skillKey];
+        sum += chart[skill.prop];
+        skills[skill.prop] = {
             locked: false,
             required: undefined,
             limitReached: false,
         };
     });
-    if (sum > 68 + 4) {
+    if (skillChanged && sum > (68 + 4)) {
         chart[skillChanged.prop] -= sum - (68 + 4);
     }
     Object.keys(classSkills).forEach((skillKey) => {
-        let values = classSkills[skillKey];
-        if (values.skillRequirements) {
-            values.skillRequirements.forEach((req) => {
+        let skill = classSkills[skillKey];
+        if (skill.skillRequirements) {
+            skill.skillRequirements.forEach((req) => {
                 if (chart[req.skill.prop] < req.level) {
-                    skills[values.prop].locked = true;
-                    chart[values.prop] = 0;
+                    skills[skill.prop].locked = true;
+                    chart[skill.prop] = 0;
                 }
             });
         }
-        skills[values.prop].limitReached = (sum >= 68 + 4);
+        skills[skill.prop].limitReached = (sum >= 68 + 4);
+        if (chart[skill.prop] === 0) {
+            let requiredPoints = calculateRequiredPoints(chart, skill);
+            if (requiredPoints + 1 > (68 + 4) - sum) {
+                skills[skill.prop].limitReached = true;
+            }
+        }
     });
     chart.skills = skills;
 }
@@ -68,4 +81,24 @@ export function toSkillChangeEventObject(chart, classSkills, other) {
         rs.other = Object.keys(other).map((key) => ({ attr: key, value: other[key] }));
     }
     return rs;
+}
+function fixRequirements(chart, req) {
+    if (chart[req.skill.prop] < req.level) {
+        chart[req.skill.prop] = req.level;
+    }
+    if (req.skill.skillRequirements) {
+        req.skill.skillRequirements.forEach((r) => {
+            fixRequirements(chart, r);
+        });
+    }
+}
+function calculateRequiredPoints(chart, skill) {
+    let requiredPoints = 0;
+    if (!skill.skillRequirements)
+        return 0;
+    skill.skillRequirements.forEach((req) => {
+        requiredPoints += calculateRequiredPoints(chart, req.skill);
+        requiredPoints += Math.max(0, req.level - chart[req.skill.prop]);
+    });
+    return requiredPoints;
 }

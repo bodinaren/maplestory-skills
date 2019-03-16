@@ -23,22 +23,7 @@ export class SkillComponent {
     hostData() { return { "passive": this.skill.passive }; }
     render() {
         return [
-            h("style", null, `
-        ms-skill .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
-        :host .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
-
-        ms-skill:not([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
-        :host(:not([passive])) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
-
-        ms-skill[passive] .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
-        :host([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
-
-        ms-skill[locked] .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
-        :host([locked]) .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
-
-        ms-skill[required]:after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
-        :host([required]):after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
-      `),
+            this.renderStyles(),
             h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() },
                 h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })),
             h("div", { class: "controls" },
@@ -65,16 +50,32 @@ export class SkillComponent {
             h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop }),
         ];
     }
+    renderStyles() {
+        return (h("style", { type: "text/css" }, `
+        ms-skill .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
+        :host .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
+
+        ms-skill:not([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
+        :host(:not([passive])) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
+
+        ms-skill[passive] .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
+        :host([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
+
+        ms-skill[locked] .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
+        :host([locked]) .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
+
+        ms-skill[required]:after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
+        :host([required]):after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
+      `));
+    }
     shouldDisableMinus() {
         return this.disabled
-            || this.locked
             || this.skill.minLevel === this.skill.maxLevel
             || (!this.loop && this.level === this.skill.minLevel)
             || (this.loop && this.limitReached && this.level === this.skill.minLevel);
     }
     shouldDisablePlus() {
         return this.disabled
-            || this.locked
             || this.skill.minLevel === this.skill.maxLevel
             || (this.limitReached && (!this.loop || this.level === this.skill.minLevel));
     }

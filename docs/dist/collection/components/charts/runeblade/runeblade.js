@@ -118,13 +118,18 @@ export class RunebladeComponent {
     }
     render() {
         return ([
-            this.extras && h("style", null, `
-        :host([extras]) ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
-      `),
+            this.renderStyles(),
             h("ms-chart", { msClass: "runeblade" }, renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
                 onSkillclicked: (evt) => this.changeSigil(evt.detail),
             }))
         ]);
+    }
+    renderStyles() {
+        if (!this.extras)
+            return;
+        return (h("style", { type: "text/css" }, `
+        :host([extras]) ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
+      `));
     }
     static get is() { return "ms-runeblade"; }
     static get encapsulation() { return "shadow"; }

@@ -21,7 +21,16 @@ export class ChartComponent {
     }
     render() {
         return [
-            h("style", { type: "text/css" }, `
+            this.renderStyles(),
+            h("ms-footer", null),
+            h("div", { class: "chart" },
+                h("div", { class: "class-icon" },
+                    h("div", { class: "chart-class " + this.msClass },
+                        h("slot", null))))
+        ];
+    }
+    renderStyles() {
+        return (h("style", { type: "text/css" }, `
         ms-chart {
           cursor: url(${this.publicPath}assets/cursor.png) 5 8, auto;
         }
@@ -43,13 +52,7 @@ export class ChartComponent {
         .chart-class {
           background-image: url(${this.publicPath}assets/charts/${this.msClass}-lines.png);
         }
-      `),
-            h("ms-footer", null),
-            h("div", { class: "chart" },
-                h("div", { class: "class-icon" },
-                    h("div", { class: "chart-class " + this.msClass },
-                        h("slot", null))))
-        ];
+      `));
     }
     static get is() { return "ms-chart"; }
     static get encapsulation() { return "shadow"; }
