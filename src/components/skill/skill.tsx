@@ -46,22 +46,7 @@ export class SkillComponent {
 
   render() {
     return [
-      <style>{`
-        ms-skill .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
-        :host .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
-
-        ms-skill:not([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
-        :host(:not([passive])) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
-
-        ms-skill[passive] .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
-        :host([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
-
-        ms-skill[locked] .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
-        :host([locked]) .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
-
-        ms-skill[required]:after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
-        :host([required]):after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
-      `}</style>,
+      this.renderStyles(),
       <div class="skill"
            onMouseEnter={ () => this.showOverlay() }
            onMouseLeave={ () => this.hideOverlay() }
@@ -110,9 +95,30 @@ export class SkillComponent {
     ];
   }
 
+  private renderStyles(): JSX.Element {
+    return (
+      <style type="text/css">{`
+        ms-skill .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
+        :host .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
+
+        ms-skill:not([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
+        :host(:not([passive])) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
+
+        ms-skill[passive] .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
+        :host([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
+
+        ms-skill[locked] .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
+        :host([locked]) .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
+
+        ms-skill[required]:after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
+        :host([required]):after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
+      `}</style>
+    );
+  }
+
   private shouldDisableMinus(): boolean {
     return this.disabled // skill are not editable
-        || this.locked // locked due to unmet requirements
+        // || this.locked // locked due to unmet requirements
         || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
         || (!this.loop && this.level === this.skill.minLevel) // can't decrease any further, unless we loop
         || (this.loop && this.limitReached && this.level === this.skill.minLevel); // if we loop, only disable if we're reached the limit and is at minimum (which would make this a plus button)
@@ -120,7 +126,7 @@ export class SkillComponent {
 
   private shouldDisablePlus(): boolean {
     return this.disabled // skill are not editable
-        || this.locked // locked due to unmet requirements
+        // || this.locked // locked due to unmet requirements
         || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
         || (this.limitReached && (!this.loop || this.level === this.skill.minLevel)); // limit is reached, unless we loop, then only if we can't decrease further
   }

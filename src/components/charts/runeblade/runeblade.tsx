@@ -160,14 +160,22 @@ export class RunebladeComponent implements IChart {
 
   render() {
     return ([
-      this.extras && <style>{`
-        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-      `}</style>,
+      this.renderStyles(),
       <ms-chart msClass="runeblade">
         { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
           onSkillclicked: (evt) => this.changeSigil(evt.detail),
         }) }
       </ms-chart>
     ]);
+  }
+
+  private renderStyles(): JSX.Element {
+    if (!this.extras) return;
+
+    return (
+      <style type="text/css">{`
+        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
+      `}</style>
+    );
   }
 }
