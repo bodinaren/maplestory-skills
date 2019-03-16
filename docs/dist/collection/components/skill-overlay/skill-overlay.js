@@ -25,7 +25,7 @@ export class SkillOverlayComponent {
     render() {
         return (h("div", null,
             h("h1", { class: this.skill.element, style: this.skill.element && {
-                    "background-image": `url(${this.publicPath}assets/${this.skill.element.toLowerCase()}.jpg)`
+                    "background": `url(${this.publicPath}assets/${this.skill.element.toLowerCase()}.jpg), ${this.getGradient(this.skill.element)}`
                 } },
                 this.skill.name,
                 this.skill.element &&
@@ -101,6 +101,17 @@ export class SkillOverlayComponent {
             desc = desc.replace(match[0], data[this.level].toString());
         }
         return desc;
+    }
+    getGradient(element) {
+        console.log(element);
+        switch (element.toLowerCase()) {
+            case "dark": return "linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%)";
+            case "electric": return "linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%)";
+            case "fire": return "linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%)";
+            case "holy": return "linear-gradient(to right, #3C1E04 0%, #3C1E04 60%, #7C4D01 100%)";
+            case "ice": return "linear-gradient(to right, #021835 0%, #021835 60%, #153772 100%)";
+            case "toxic": return "linear-gradient(to right, #20142C 0%, #20142C 60%, #3E1652 100%)";
+        }
     }
     static get is() { return "ms-skill-overlay"; }
     static get encapsulation() { return "shadow"; }

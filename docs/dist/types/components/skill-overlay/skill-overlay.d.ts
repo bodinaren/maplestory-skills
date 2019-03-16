@@ -21,4 +21,5 @@ export declare class SkillOverlayComponent {
     private setSpirit;
     private setCooldown;
     private parseDescription;
+    private getGradient;
 }
