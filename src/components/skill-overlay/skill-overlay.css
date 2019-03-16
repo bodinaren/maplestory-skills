@@ -26,13 +26,6 @@ h1 {
   background-size: cover !important;
 }
 
-h1.Dark { background: linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%); }
-h1.Electric { background: linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%); }
-h1.Fire { background: linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%); }
-h1.Holy { background: linear-gradient(to right, #3C1E04 0%, #3C1E04 60%, #7C4D01 100%); }
-h1.Ice { background: linear-gradient(to right, #021835 0%, #021835 60%, #153772 100%); }
-h1.Toxic { background: linear-gradient(to right, #20142C 0%, #20142C 60%, #3E1652 100%); }
-
 h1 .element {
   font-size: .8em;
 }
