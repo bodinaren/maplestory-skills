@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as ArcherSkills from "../../../global/values/archer";
 
@@ -8,9 +8,10 @@ import * as ArcherSkills from "../../../global/values/archer";
   styleUrls: ["archer.css"],
   shadow: true
 })
-export class ArcherComponent {
+export class ArcherComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherSkills.ArrowBarrage.minLevel;
@@ -30,7 +31,7 @@ export class ArcherComponent {
   @Prop({ mutable: true }) sharpEyes: number = ArcherSkills.SharpEyes.minLevel;
   @Prop({ mutable: true }) snipe: number = ArcherSkills.Snipe.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class ArcherComponent {
     processSkills(this, ArcherSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, ArcherSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, ArcherSkills);
+    processSkills(this, ArcherSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, ArcherSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
   }
 
   render() {
     return [
       <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills, this.editable)}
+        { renderLevelControls(this, ArcherSkills, this.editable, this.extras)}
       </ms-chart>
     ];
   }

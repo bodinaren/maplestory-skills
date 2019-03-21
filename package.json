@@ -1,6 +1,6 @@
 {
   "name": "maplestory-skills",
-  "version": "1.2.0",
+  "version": "1.5.1",
   "description": "Web components to display MapleStory skill charts.",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
@@ -10,25 +10,23 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build && npm run build.copy",
+    "build": "stencil build && npm run build.copy && npm run build.docs",
     "build.copy": "node scripts/copy.js",
+    "build.docs": "node scripts/docs.js",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec",
-    "test.watch": "stencil test --spec --watchAll",
-    "e2e": "stencil test --e2e",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch",
     "docs": "stencil build --docs"
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "^0.16.0",
-    "@types/jest": "23.3.9",
-    "@types/puppeteer": "1.6.4",
-    "fs-extra": "^7.0.1",
+    "@stencil/core": "^0.18.0",
+    "@types/jest": "23.3.14",
+    "@types/puppeteer": "1.11.1",
     "jest": "23.6.0",
     "jest-cli": "23.6.0",
-    "path": "^0.12.7",
-    "puppeteer": "1.8.0",
-    "tslint": "^5.11.0"
+    "puppeteer": "1.11.0",
+    "tslint": "^5.14.0"
   },
   "repository": {
     "type": "git",

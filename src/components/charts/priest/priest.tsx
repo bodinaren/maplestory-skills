@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as PriestSkills from "../../../global/values/priest";
 
@@ -8,9 +8,10 @@ import * as PriestSkills from "../../../global/values/priest";
   styleUrls: ["priest.css"],
   shadow: true
 })
-export class PriestComponent {
+export class PriestComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestSkills.HeavenlyWings.minLevel;
   @Prop({ mutable: true }) steadfastFaith: number = PriestSkills.SteadfastFaith.minLevel;
@@ -30,7 +31,7 @@ export class PriestComponent {
   @Prop({ mutable: true }) disciple: number = PriestSkills.Disciple.minLevel;
   @Prop({ mutable: true }) angelicRay: number = PriestSkills.AngelicRay.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class PriestComponent {
     processSkills(this, PriestSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, PriestSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, PriestSkills);
+    processSkills(this, PriestSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, PriestSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="priest">
-        { renderLevelControls(this, PriestSkills, this.editable) }
+        { renderLevelControls(this, PriestSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

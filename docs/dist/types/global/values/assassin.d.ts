@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const ShadowChaser: ISkill;
+export declare const Dash: ISkill;
+export declare const LuckyStars: ISkill;
+export declare const FragmentedStar: ISkill;
+export declare const StarChaser: ISkill;
+export declare const StarFlurry: ISkill;
+export declare const ThrownWeaponMastery: ISkill;
+export declare const ShadowCutter: ISkill;
+export declare const ShadowBurst: ISkill;
+export declare const SoulGrind: ISkill;
+export declare const ShadowArts: ISkill;
+export declare const DarkCloak: ISkill;
+export declare const MarkOfDeath: ISkill;
+export declare const DeathSentence: ISkill;
+export declare const FatalStrikes: ISkill;
+export declare const ShadowWeb: ISkill;
+export declare const MirrorImageDarkBlade: ISkill;

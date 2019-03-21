@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 
@@ -8,9 +8,10 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
   styleUrls: ["heavy-gunner.css"],
   shadow: true
 })
-export class HeavyGunnerComponent {
+export class HeavyGunnerComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;
@@ -30,7 +31,7 @@ export class HeavyGunnerComponent {
   @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerSkills.StunGrenades.minLevel;
   @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class HeavyGunnerComponent {
     processSkills(this, HeavyGunnerSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, HeavyGunnerSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, HeavyGunnerSkills);
+    processSkills(this, HeavyGunnerSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, HeavyGunnerSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="heavy-gunner">
-        { renderLevelControls(this, HeavyGunnerSkills, this.editable) }
+        { renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

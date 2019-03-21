@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as SoulBinderSkills from "../../../global/values/soul-binder";
 
@@ -8,29 +8,30 @@ import * as SoulBinderSkills from "../../../global/values/soul-binder";
   styleUrls: ["soul-binder.css"],
   shadow: true
 })
-export class SoulBinderComponent {
+export class SoulBinderComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) animusFocus: number = SoulBinderSkills.AnimusFocus.minLevel;
-  @Prop({ mutable: true }) chainExplosion: number = SoulBinderSkills.ChainExplosion.minLevel;
-  @Prop({ mutable: true }) chainSpear: number = SoulBinderSkills.ChainSpear.minLevel;
-  @Prop({ mutable: true }) cycloneBomber: number = SoulBinderSkills.CycloneBomber.minLevel;
-  @Prop({ mutable: true }) electricEnergyDischarge: number = SoulBinderSkills.ElectricEnergyDischarge.minLevel;
-  @Prop({ mutable: true }) energyStream: number = SoulBinderSkills.EnergyStream.minLevel;
-  @Prop({ mutable: true }) expansionBall: number = SoulBinderSkills.ExpansionBall.minLevel;
+  @Prop({ mutable: true }) concussionOrb: number = SoulBinderSkills.ConcussionOrb.minLevel;
+  @Prop({ mutable: true }) soaringOrb: number = SoulBinderSkills.SoaringOrb.minLevel;
+  @Prop({ mutable: true }) ragingTempest: number = SoulBinderSkills.RagingTempest.minLevel;
+  @Prop({ mutable: true }) staticFlash: number = SoulBinderSkills.StaticFlash.minLevel;
+  @Prop({ mutable: true }) energySurge: number = SoulBinderSkills.EnergySurge.minLevel;
+  @Prop({ mutable: true }) expansionBlast: number = SoulBinderSkills.ExpansionBlast.minLevel;
   @Prop({ mutable: true }) flashStrike: number = SoulBinderSkills.FlashStrike.minLevel;
   @Prop({ mutable: true }) illusion: number = SoulBinderSkills.Illusion.minLevel;
-  @Prop({ mutable: true }) lifeString: number = SoulBinderSkills.LifeString.minLevel;
-  @Prop({ mutable: true }) mantraRelease: number = SoulBinderSkills.MantraRelease.minLevel;
-  @Prop({ mutable: true }) narubashanLiberation: number = SoulBinderSkills.NarubashanLiberation.minLevel;
+  @Prop({ mutable: true }) healingBond: number = SoulBinderSkills.HealingBond.minLevel;
+  @Prop({ mutable: true }) mantraArray: number = SoulBinderSkills.MantraArray.minLevel;
+  @Prop({ mutable: true }) narubashanUnleashed: number = SoulBinderSkills.NarubashanUnleashed.minLevel;
   @Prop({ mutable: true }) orbMastery: number = SoulBinderSkills.OrbMastery.minLevel;
-  @Prop({ mutable: true }) rayStorm: number = SoulBinderSkills.RayStorm.minLevel;
+  @Prop({ mutable: true }) radiantSalvo: number = SoulBinderSkills.RadiantSalvo.minLevel;
   @Prop({ mutable: true }) shootingStar: number = SoulBinderSkills.ShootingStar.minLevel;
-  @Prop({ mutable: true }) splitBarrier: number = SoulBinderSkills.SplitBarrier.minLevel;
-  @Prop({ mutable: true }) zoneOfRenewal: number = SoulBinderSkills.ZoneOfRenewal.minLevel;
+  @Prop({ mutable: true }) lightBarrier: number = SoulBinderSkills.LightBarrier.minLevel;
+  @Prop({ mutable: true }) fountOfRenewal: number = SoulBinderSkills.FountOfRenewal.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class SoulBinderComponent {
     processSkills(this, SoulBinderSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, SoulBinderSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, SoulBinderSkills);
+    processSkills(this, SoulBinderSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, SoulBinderSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, SoulBinderSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="soul-binder">
-        { renderLevelControls(this, SoulBinderSkills, this.editable) }
+        { renderLevelControls(this, SoulBinderSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

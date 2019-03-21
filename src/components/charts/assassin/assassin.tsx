@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as AssassinSkills from "../../../global/values/assassin";
 
@@ -8,9 +8,10 @@ import * as AssassinSkills from "../../../global/values/assassin";
   styleUrls: ["assassin.css"],
   shadow: true
 })
-export class AssassinComponent {
+export class AssassinComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) darkCloak: number = AssassinSkills.DarkCloak.minLevel;
   @Prop({ mutable: true }) dash: number = AssassinSkills.Dash.minLevel;
@@ -30,7 +31,7 @@ export class AssassinComponent {
   @Prop({ mutable: true }) starFlurry: number = AssassinSkills.StarFlurry.minLevel;
   @Prop({ mutable: true }) thrownWeaponMastery: number = AssassinSkills.ThrownWeaponMastery.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class AssassinComponent {
     processSkills(this, AssassinSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, AssassinSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, AssassinSkills);
+    processSkills(this, AssassinSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, AssassinSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, AssassinSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="assassin">
-        { renderLevelControls(this, AssassinSkills, this.editable) }
+        { renderLevelControls(this, AssassinSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }

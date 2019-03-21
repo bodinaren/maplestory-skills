@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const Reload: ISkill;
+export declare const JetBoots: ISkill;
+export declare const BulletSpray: ISkill;
+export declare const GatlingFire: ISkill;
+export declare const LockOn: ISkill;
+export declare const AdvancedBullets: ISkill;
+export declare const MagneticBomb: ISkill;
+export declare const ElectricBlast: ISkill;
+export declare const AdvancedPulseWeapons: ISkill;
+export declare const BlastChargeKit: ISkill;
+export declare const RocketLauncher: ISkill;
+export declare const HomingMissiles: ISkill;
+export declare const MBomb: ISkill;
+export declare const AdvancedMissiles: ISkill;
+export declare const StunGrenades: ISkill;
+export declare const SuborbitalBombardment: ISkill;
+export declare const MedKit: ISkill;

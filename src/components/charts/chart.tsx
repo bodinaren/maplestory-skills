@@ -39,6 +39,20 @@ export class ChartComponent {
 
   render() {
     return [
+      this.renderStyles(),
+      <ms-footer></ms-footer>,
+      <div class="chart">
+        <div class="class-icon">
+          <div class={ "chart-class " + this.msClass }>
+            <slot></slot>
+          </div>
+        </div>
+      </div>
+    ];
+  }
+
+  private renderStyles(): JSX.Element {
+    return (
       <style type="text/css">{`
         ms-chart {
           cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
@@ -61,15 +75,7 @@ export class ChartComponent {
         .chart-class {
           background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
         }
-      `}</style>,
-      <ms-footer></ms-footer>,
-      <div class="chart">
-        <div class="class-icon">
-          <div class={ "chart-class " + this.msClass }>
-            <slot></slot>
-          </div>
-        </div>
-      </div>
-    ];
+      `}</style>
+    );
   }
 }

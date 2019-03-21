@@ -7,8 +7,8 @@ import { Component, Prop } from "@stencil/core";
 })
 export class IconComponent {
 
-  @Prop() name: string;
-  @Prop() sp: boolean = false;
+  @Prop({ reflectToAttr: true }) name: string;
+  @Prop({ reflectToAttr: true }) sp: boolean = false;
 
   @Prop({ context: "publicPath" }) private publicPath: string;
 

@@ -18,7 +18,7 @@ So you want the editor on your site? No problem, but let's start with a fair war
 
 >This repository use semver versioning, but **only for basic charts usage**! Breaking changes to the below usages can happen between any minor version (but not patch).
 
-If you want to use the editor, it's recommended to import the scripts with a minor version (make sure you check for the most recent verison).
+If you want to use the editor, it's recommended to import the scripts with a minor version (make sure you check for the most recent version).
 
 Before:
 ```html
@@ -26,7 +26,7 @@ Before:
 ```
 After:
 ```html
-<script src="https://unpkg.com/maplestory-skills@~1.1/dist/maplestory-skills.js"></script>
+<script src="https://unpkg.com/maplestory-skills@~1.3/dist/maplestory-skills.js"></script>
 ```
 
 With that out of the way, you can make the skill chart editable by simply adding the attribute `editable` to the chart.
@@ -51,7 +51,7 @@ All this does is print the number of points left, it's up to you to position and
 
 ### Get data from the editor
 
-Every time the user makes a change the chart emits a `skillchanged` event with an array of all the skills and how many points are put (or not) into it. Subscribe to this event to get the data you want:
+Every time the user makes a change the chart emits a `skillchanged` event with an object containing an array of all the skills and how many points are put (or not) into it, as well as any possible extra values (e.g. runeblade sigil). Subscribe to this event to get the data you want:
 
 ```js
 document.querySelector("ms-archer").addEventListener("skillchanged", function(evt) {

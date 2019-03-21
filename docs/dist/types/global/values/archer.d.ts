@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const Snipe: ISkill;
+export declare const EagleGlide: ISkill;
+export declare const ArrowStream: ISkill;
+export declare const ArrowBarrage: ISkill;
+export declare const RapidShot: ISkill;
+export declare const ArrowStorm: ISkill;
+export declare const ScrewdriverShot: ISkill;
+export declare const EvasiveSalvo: ISkill;
+export declare const IceArrow: ISkill;
+export declare const AgileArcher: ISkill;
+export declare const BowSwing: ISkill;
+export declare const BronzeEagle: ISkill;
+export declare const EagleClaw: ISkill;
+export declare const EaglesMajesty: ISkill;
+export declare const Conditioning: ISkill;
+export declare const SharpEyes: ISkill;
+export declare const PrecisionShooter: ISkill;
