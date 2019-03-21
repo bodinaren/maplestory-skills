@@ -1,5 +1,5 @@
-import { Component, Prop, State, Event, EventEmitter } from "@stencil/core";
-import { processSkills, renderLevelControls, toSkillChangeObject } from "../class-chart-helpers";
+import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as StrikerSkills from "../../../global/values/striker";
 
@@ -8,9 +8,10 @@ import * as StrikerSkills from "../../../global/values/striker";
   styleUrls: ["striker.css"],
   shadow: true
 })
-export class StrikerComponent {
+export class StrikerComponent implements IChart {
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) beatdown: number = StrikerSkills.Beatdown.minLevel;
   @Prop({ mutable: true }) dragonKick: number = StrikerSkills.DragonKick.minLevel;
@@ -30,7 +31,7 @@ export class StrikerComponent {
   @Prop({ mutable: true }) powerPuncher: number = StrikerSkills.PowerPuncher.minLevel;
   @Prop({ mutable: true }) risingKick: number = StrikerSkills.RisingKick.minLevel;
 
-  @State() skills: { [prop: string]: { locked: boolean, required: string, active: boolean } };
+  @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
@@ -38,18 +39,28 @@ export class StrikerComponent {
     processSkills(this, StrikerSkills);
   }
 
-  async levelChanged(skill: ISkill, level: number) {
+  @Method()
+  async getData() {
+    return toSkillChangeEventObject(this, StrikerSkills);
+  }
+
+  levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, StrikerSkills);
+    processSkills(this, StrikerSkills, skill);
 
-    this.onSkillChanged.emit(toSkillChangeObject(this, StrikerSkills));
+    this.emitChangeEvent();
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, StrikerSkills));
   }
 
   render() {
     return (
       <ms-chart msClass="striker">
-        { renderLevelControls(this, StrikerSkills, this.editable) }
+        { renderLevelControls(this, StrikerSkills, this.editable, this.extras) }
       </ms-chart>
     );
   }
