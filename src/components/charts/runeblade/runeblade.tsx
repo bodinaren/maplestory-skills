@@ -75,7 +75,7 @@ export class RunebladeComponent implements IChart {
 
     let sigil: Sigil = "";
 
-    if (skill && this[skill.prop] > 0) {
+    if (skill) {
       switch (skill.prop) {
         case RunebladeSkills.FlameSigil.prop:
           sigil = "flameSigil";
@@ -93,11 +93,13 @@ export class RunebladeComponent implements IChart {
       }
     }
 
-    if (sigil === this.sigil) this.sigil = "";
-    else this.sigil = sigil;
+    if (!skill || this[skill.prop] > 0) {
+      if (sigil === this.sigil) this.sigil = "";
+      else this.sigil = sigil;
 
-    this.updateSigil();
-    this.emitChangeEvent();
+      this.updateSigil();
+      this.emitChangeEvent();
+    }
   }
 
   private updateSigil() {
