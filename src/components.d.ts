@@ -394,8 +394,10 @@ export namespace Components {
     'beatdown': number;
     'dragonKick': number;
     'editable': boolean;
+    'extras': boolean;
     'fightingSpirit': number;
     'fistsOfFury': number;
+    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'giganticBurst': number;
     'guardDash': number;
     'guillotine': number;
@@ -414,6 +416,7 @@ export namespace Components {
     'beatdown'?: number;
     'dragonKick'?: number;
     'editable'?: boolean;
+    'extras'?: boolean;
     'fightingSpirit'?: number;
     'fistsOfFury'?: number;
     'giganticBurst'?: number;
