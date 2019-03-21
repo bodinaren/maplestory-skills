@@ -825,6 +825,107 @@
       ]
     },
     {
+      "label": "ms-striker",
+      "description": "",
+      "attributes": [
+        {
+          "label": "beatdown",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "dragon-kick",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "editable",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "extras",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "fighting-spirit",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "fists-of-fury",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "gigantic-burst",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "guard-dash",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "guillotine",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "hurricane-cutter",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "kick-technician",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "knuckle-missile",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "magnum-blow",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "mahar-punch",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "overcome",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "pace-control",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "pattern-break",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "power-puncher",
+          "description": "",
+          "required": false
+        },
+        {
+          "label": "rising-kick",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
       "label": "ms-thief",
       "description": "",
       "attributes": [
