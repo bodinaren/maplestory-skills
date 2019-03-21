@@ -90,6 +90,19 @@ ms-skill-overlay {
   bottom: 0;
 }
 
+:host-context(ms-chart) ms-skill-overlay.electricBlast {
+  bottom: -100px;
+}
+:host-context(ms-chart) ms-skill-overlay.magnumBlow {
+  top: -75px;
+}
+:host-context(ms-runeblade[sigil="flameSigil"]) ms-skill-overlay.impact {
+  top: -25px;
+}
+:host-context(ms-runeblade[sigil="stormSigil"]) ms-skill-overlay.impact {
+  top: -50px;
+}
+
 button {
   width: 30px;
   height: 33px;
