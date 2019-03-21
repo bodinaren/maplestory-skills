@@ -176,6 +176,7 @@ export class RunebladeComponent implements IChart {
 
     return (
       <style type="text/css">{`
+        ms-runeblade[extras] ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
         :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
       `}</style>
     );
