@@ -1498,6 +1498,157 @@
       "shadow": true
     },
     {
+      "tag": "ms-striker",
+      "dependencies": [
+        "ms-chart",
+        "ms-skill"
+      ],
+      "componentClass": "StrikerComponent",
+      "componentPath": "components/charts/striker/striker.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/charts/striker/striker.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "beatdown",
+          "type": "Number",
+          "mutable": true,
+          "attr": "beatdown"
+        },
+        {
+          "name": "dragonKick",
+          "type": "Number",
+          "mutable": true,
+          "attr": "dragon-kick"
+        },
+        {
+          "name": "editable",
+          "type": "Boolean",
+          "reflectToAttr": true,
+          "attr": "editable"
+        },
+        {
+          "name": "extras",
+          "type": "Boolean",
+          "attr": "extras",
+          "watch": [
+            "emitChangeEvent"
+          ]
+        },
+        {
+          "name": "fightingSpirit",
+          "type": "Number",
+          "mutable": true,
+          "attr": "fighting-spirit"
+        },
+        {
+          "name": "fistsOfFury",
+          "type": "Number",
+          "mutable": true,
+          "attr": "fists-of-fury"
+        },
+        {
+          "name": "giganticBurst",
+          "type": "Number",
+          "mutable": true,
+          "attr": "gigantic-burst"
+        },
+        {
+          "name": "guardDash",
+          "type": "Number",
+          "mutable": true,
+          "attr": "guard-dash"
+        },
+        {
+          "name": "guillotine",
+          "type": "Number",
+          "mutable": true,
+          "attr": "guillotine"
+        },
+        {
+          "name": "hurricaneCutter",
+          "type": "Number",
+          "mutable": true,
+          "attr": "hurricane-cutter"
+        },
+        {
+          "name": "kickTechnician",
+          "type": "Number",
+          "mutable": true,
+          "attr": "kick-technician"
+        },
+        {
+          "name": "knuckleMissile",
+          "type": "Number",
+          "mutable": true,
+          "attr": "knuckle-missile"
+        },
+        {
+          "name": "magnumBlow",
+          "type": "Number",
+          "mutable": true,
+          "attr": "magnum-blow"
+        },
+        {
+          "name": "maharPunch",
+          "type": "Number",
+          "mutable": true,
+          "attr": "mahar-punch"
+        },
+        {
+          "name": "overcome",
+          "type": "Number",
+          "mutable": true,
+          "attr": "overcome"
+        },
+        {
+          "name": "paceControl",
+          "type": "Number",
+          "mutable": true,
+          "attr": "pace-control"
+        },
+        {
+          "name": "patternBreak",
+          "type": "Number",
+          "mutable": true,
+          "attr": "pattern-break"
+        },
+        {
+          "name": "powerPuncher",
+          "type": "Number",
+          "mutable": true,
+          "attr": "power-puncher"
+        },
+        {
+          "name": "risingKick",
+          "type": "Number",
+          "mutable": true,
+          "attr": "rising-kick"
+        }
+      ],
+      "states": [
+        {
+          "name": "skills"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getData"
+        }
+      ],
+      "events": [
+        {
+          "event": "skillchanged",
+          "method": "onSkillChanged"
+        }
+      ],
+      "shadow": true
+    },
+    {
       "tag": "ms-thief",
       "dependencies": [
         "ms-chart",
@@ -1854,6 +2005,11 @@
     {
       "components": [
         "ms-soul-binder"
+      ]
+    },
+    {
+      "components": [
+        "ms-striker"
       ]
     },
     {

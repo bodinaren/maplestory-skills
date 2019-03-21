@@ -30,7 +30,7 @@
       
       #toggles {
         text-align: center;
-        margin-bottom: 30px;
+        margin: 0 0 30px;
       }
       #toggles a {
         color: white;
@@ -44,7 +44,7 @@
       #toggles a > * { margin: 5px; }
       #toggles a:not(.active) img.active { display: none; }
       #toggles a.active img.inactive { display: none; }
-      #toggles img { width: 85px; }
+      #toggles img { width: 75px; }
     
       #toggles .unavailable { color: #666; }
       #toggles .unavailable:after {
@@ -176,6 +176,11 @@
           <img class="active" src="assets/soul-binder.png" />
           <img class="inactive" src="assets/soul-binder_bw.png" />
           Soul Binder
+        </a>
+        <a href="javascript:void(0)" ms-class="striker" onclick="toggle('striker')">
+          <img class="active" src="assets/striker.png" />
+          <img class="inactive" src="assets/striker_bw.png" />
+          Striker
         </a>
         <a href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
           <img class="active" src="assets/thief.png" />

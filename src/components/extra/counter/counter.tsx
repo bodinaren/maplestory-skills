@@ -15,7 +15,7 @@ export class CounterComponent {
   componentDidLoad() {
     let el = document.getElementById(this.editor) as HTMLStencilElement;
     if (!el) {
-      el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-soul-binder,ms-thief,ms-wizard");
+      el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-soul-binder,ms-striker,ms-thief,ms-wizard");
     }
 
     el.componentOnReady().then((editor: ClassEditorHTMLElement) => {

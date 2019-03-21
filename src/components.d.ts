@@ -390,6 +390,51 @@ export namespace Components {
     'staticFlash'?: number;
   }
 
+  interface MsStriker {
+    'beatdown': number;
+    'dragonKick': number;
+    'editable': boolean;
+    'extras': boolean;
+    'fightingSpirit': number;
+    'fistsOfFury': number;
+    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'giganticBurst': number;
+    'guardDash': number;
+    'guillotine': number;
+    'hurricaneCutter': number;
+    'kickTechnician': number;
+    'knuckleMissile': number;
+    'magnumBlow': number;
+    'maharPunch': number;
+    'overcome': number;
+    'paceControl': number;
+    'patternBreak': number;
+    'powerPuncher': number;
+    'risingKick': number;
+  }
+  interface MsStrikerAttributes extends StencilHTMLAttributes {
+    'beatdown'?: number;
+    'dragonKick'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'fightingSpirit'?: number;
+    'fistsOfFury'?: number;
+    'giganticBurst'?: number;
+    'guardDash'?: number;
+    'guillotine'?: number;
+    'hurricaneCutter'?: number;
+    'kickTechnician'?: number;
+    'knuckleMissile'?: number;
+    'magnumBlow'?: number;
+    'maharPunch'?: number;
+    'onSkillchanged'?: (event: CustomEvent) => void;
+    'overcome'?: number;
+    'paceControl'?: number;
+    'patternBreak'?: number;
+    'powerPuncher'?: number;
+    'risingKick'?: number;
+  }
+
   interface MsThief {
     'bladeDance': number;
     'cunningTactics': number;
@@ -556,6 +601,7 @@ declare global {
     'MsPriest': Components.MsPriest;
     'MsRuneblade': Components.MsRuneblade;
     'MsSoulBinder': Components.MsSoulBinder;
+    'MsStriker': Components.MsStriker;
     'MsThief': Components.MsThief;
     'MsWizard': Components.MsWizard;
     'MsExtraCounter': Components.MsExtraCounter;
@@ -576,6 +622,7 @@ declare global {
     'ms-priest': Components.MsPriestAttributes;
     'ms-runeblade': Components.MsRunebladeAttributes;
     'ms-soul-binder': Components.MsSoulBinderAttributes;
+    'ms-striker': Components.MsStrikerAttributes;
     'ms-thief': Components.MsThiefAttributes;
     'ms-wizard': Components.MsWizardAttributes;
     'ms-extra-counter': Components.MsExtraCounterAttributes;
@@ -641,6 +688,12 @@ declare global {
     new (): HTMLMsSoulBinderElement;
   };
 
+  interface HTMLMsStrikerElement extends Components.MsStriker, HTMLStencilElement {}
+  var HTMLMsStrikerElement: {
+    prototype: HTMLMsStrikerElement;
+    new (): HTMLMsStrikerElement;
+  };
+
   interface HTMLMsThiefElement extends Components.MsThief, HTMLStencilElement {}
   var HTMLMsThiefElement: {
     prototype: HTMLMsThiefElement;
@@ -699,6 +752,7 @@ declare global {
     'ms-priest': HTMLMsPriestElement
     'ms-runeblade': HTMLMsRunebladeElement
     'ms-soul-binder': HTMLMsSoulBinderElement
+    'ms-striker': HTMLMsStrikerElement
     'ms-thief': HTMLMsThiefElement
     'ms-wizard': HTMLMsWizardElement
     'ms-extra-counter': HTMLMsExtraCounterElement
@@ -719,6 +773,7 @@ declare global {
     'ms-priest': HTMLMsPriestElement;
     'ms-runeblade': HTMLMsRunebladeElement;
     'ms-soul-binder': HTMLMsSoulBinderElement;
+    'ms-striker': HTMLMsStrikerElement;
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
     'ms-extra-counter': HTMLMsExtraCounterElement;

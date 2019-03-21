@@ -1,0 +1,18 @@
+import { ISkill } from "./_skillValues.interfaces";
+export declare const KnuckleMissile: ISkill;
+export declare const GuardDash: ISkill;
+export declare const MaharPunch: ISkill;
+export declare const FistsOfFury: ISkill;
+export declare const MagnumBlow: ISkill;
+export declare const Beatdown: ISkill;
+export declare const PowerPuncher: ISkill;
+export declare const GiganticBurst: ISkill;
+export declare const RisingKick: ISkill;
+export declare const HurricaneCutter: ISkill;
+export declare const Guillotine: ISkill;
+export declare const KickTechnician: ISkill;
+export declare const DragonKick: ISkill;
+export declare const PaceControl: ISkill;
+export declare const Overcome: ISkill;
+export declare const FightingSpirit: ISkill;
+export declare const PatternBreak: ISkill;
