@@ -678,7 +678,7 @@ class RunebladeComponent {
         if (!this.extras)
             return;
         let sigil = "";
-        if (skill && this[skill.prop] > 0) {
+        if (skill) {
             switch (skill.prop) {
                 case FlameSigil.prop:
                     sigil = "flameSigil";
@@ -692,12 +692,14 @@ class RunebladeComponent {
                 default: return;
             }
         }
-        if (sigil === this.sigil)
-            this.sigil = "";
-        else
-            this.sigil = sigil;
-        this.updateSigil();
-        this.emitChangeEvent();
+        if (!skill || this[skill.prop] > 0) {
+            if (sigil === this.sigil)
+                this.sigil = "";
+            else
+                this.sigil = sigil;
+            this.updateSigil();
+            this.emitChangeEvent();
+        }
     }
     updateSigil() {
         if (this.extras) {
@@ -757,6 +759,7 @@ class RunebladeComponent {
         if (!this.extras)
             return;
         return (h("style", { type: "text/css" }, `
+        ms-runeblade[extras] ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
         :host([extras]) ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
       `));
     }
@@ -882,7 +885,7 @@ class RunebladeComponent {
             "cancelable": true,
             "composed": true
         }]; }
-    static get style() { return ":host{display:block}:host([extras]) ms-skill:before{position:absolute;top:2px;left:-1px;width:72px;height:84px;pointer-events:none}:host([extras][sigil=flameSigil]) ms-skill.flameSigil:not([level=\"0\"]):before,:host([extras][sigil=frostSigil]) ms-skill.frostSigil:not([level=\"0\"]):before,:host([extras][sigil=stormSigil]) ms-skill.stormSigil:not([level=\"0\"]):before,ms-skill.flameSigil:not([level=\"0\"]):hover:before,ms-skill.frostSigil:not([level=\"0\"]):hover:before,ms-skill.stormSigil:not([level=\"0\"]):hover:before{content:\"\"}"; }
+    static get style() { return ".sc-ms-runeblade-h{display:block}[extras].sc-ms-runeblade-h   ms-skill.sc-ms-runeblade:before{position:absolute;top:2px;left:-1px;width:72px;height:84px;pointer-events:none}[extras][sigil=flameSigil].sc-ms-runeblade-h   ms-skill.flameSigil.sc-ms-runeblade:not([level=\"0\"]):before, [extras][sigil=frostSigil].sc-ms-runeblade-h   ms-skill.frostSigil.sc-ms-runeblade:not([level=\"0\"]):before, [extras][sigil=stormSigil].sc-ms-runeblade-h   ms-skill.stormSigil.sc-ms-runeblade:not([level=\"0\"]):before, ms-skill.flameSigil.sc-ms-runeblade:not([level=\"0\"]):hover:before, ms-skill.frostSigil.sc-ms-runeblade:not([level=\"0\"]):hover:before, ms-skill.stormSigil.sc-ms-runeblade:not([level=\"0\"]):hover:before{content:\"\"}"; }
 }
 
 export { RunebladeComponent as MsRuneblade };

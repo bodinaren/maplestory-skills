@@ -49,7 +49,7 @@ export class RunebladeComponent {
         if (!this.extras)
             return;
         let sigil = "";
-        if (skill && this[skill.prop] > 0) {
+        if (skill) {
             switch (skill.prop) {
                 case RunebladeSkills.FlameSigil.prop:
                     sigil = "flameSigil";
@@ -63,12 +63,14 @@ export class RunebladeComponent {
                 default: return;
             }
         }
-        if (sigil === this.sigil)
-            this.sigil = "";
-        else
-            this.sigil = sigil;
-        this.updateSigil();
-        this.emitChangeEvent();
+        if (!skill || this[skill.prop] > 0) {
+            if (sigil === this.sigil)
+                this.sigil = "";
+            else
+                this.sigil = sigil;
+            this.updateSigil();
+            this.emitChangeEvent();
+        }
     }
     updateSigil() {
         if (this.extras) {
@@ -128,6 +130,7 @@ export class RunebladeComponent {
         if (!this.extras)
             return;
         return (h("style", { type: "text/css" }, `
+        ms-runeblade[extras] ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
         :host([extras]) ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
       `));
     }
