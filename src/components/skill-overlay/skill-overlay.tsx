@@ -165,7 +165,6 @@ export class SkillOverlayComponent {
   }
 
   private getGradient(element: string): string {
-    console.log(element);
     switch (element.toLowerCase()) {
       case "dark":     return "linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%)";
       case "electric": return "linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%)";
