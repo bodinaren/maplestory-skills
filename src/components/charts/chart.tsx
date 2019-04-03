@@ -1,4 +1,4 @@
-import { h, Component, Prop, Element, Listen } from "@stencil/core";
+import { h, Component, Prop, Element, Listen, getAssetPath } from "@stencil/core";
 
 @Component({
   tag: "ms-chart",
@@ -6,8 +6,6 @@ import { h, Component, Prop, Element, Listen } from "@stencil/core";
   shadow: true
 })
 export class ChartComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop() msClass: string;
 
@@ -51,29 +49,29 @@ export class ChartComponent {
     ];
   }
 
-  private renderStyles(): JSX.Element {
+  private renderStyles() {
     return (
       <style type="text/css">{`
         ms-chart {
-          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
+          cursor: url(${ getAssetPath(`cursor.png`) }) 5 8, auto;
         }
         ms-chart:active {
-          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
+          cursor: url(${ getAssetPath(`cursor-down.png`) }) 5 8, auto;
         }
         :host, :host(:hover), ms-chart {
-          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
+          cursor: url(${ getAssetPath(`cursor.png`) }) 5 8, auto;
         }
         :host(:active) {
-          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
+          cursor: url(${ getAssetPath(`cursor-down.png`) }) 5 8, auto;
         }
         .chart {
-          background-image: url(${ this.publicPath }assets/charts/chart.jpg);
+          background-image: url(${ getAssetPath(`charts/chart.jpg`) });
         }
         .class-icon {
-          background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-icon.png)
+          background-image: url(${ getAssetPath(`charts/${ this.msClass }-icon.png`) })
         }
         .chart-class {
-          background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
+          background-image: url(${ getAssetPath(`charts/${ this.msClass }-lines.png`) });
         }
       `}</style>
     );

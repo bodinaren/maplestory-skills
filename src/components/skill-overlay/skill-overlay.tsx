@@ -1,4 +1,4 @@
-import { h, Component, Prop } from "@stencil/core";
+import { h, Component, Prop, getAssetPath } from "@stencil/core";
 import { ISkill, ISkillDescription } from "../../global/values/_skillValues.interfaces";
 
 let descriptionRegex = /\[(.*?)\]/;
@@ -12,8 +12,6 @@ let descriptionRegex = /\[(.*?)\]/;
   shadow: true
 })
 export class SkillOverlayComponent {
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Prop({ reflectToAttr: true }) level: number = 0;
 
@@ -52,7 +50,7 @@ export class SkillOverlayComponent {
     return (
       <div>
         <h1 class={ this.skill.element } style={ this.skill.element && {
-          "background": `url(${ this.publicPath }assets/${ this.skill.element.toLowerCase() }.jpg), ${ this.getGradient(this.skill.element) }`
+          "background": `url(${ getAssetPath(this.skill.element.toLowerCase() + `.jpg`) }, ${ this.getGradient(this.skill.element) }`
         }}>
           { this.skill.name }
           { this.skill.element &&

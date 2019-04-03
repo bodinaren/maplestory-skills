@@ -1,4 +1,4 @@
-import { h, EventEmitter } from "@stencil/core";
+import { EventEmitter } from "@stencil/core";
 import { ISkill, IClassSkills, ISkillRequirement } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 
@@ -84,7 +84,7 @@ export function toggleSkillRequirements(chart: any, skill: any, setActive: boole
   }
 }
 
-export function renderLevelControls(chart: IChart, classSkills: IClassSkills, editable: boolean, extras: boolean = false, additionalArgs?: any): JSX.Element[] {
+export function renderLevelControls(chart: IChart, classSkills: IClassSkills, editable: boolean, extras: boolean = false, additionalArgs?: any) {
   return Object.keys(classSkills).map((key) => {
     let skill: ISkill = classSkills[key];
     let chartSkill = chart.skills[skill.prop];

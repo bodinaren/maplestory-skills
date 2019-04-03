@@ -1,4 +1,4 @@
-import { h, Host, Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { h, Host, Component, Prop, Event, EventEmitter, State, Watch, getAssetPath } from "@stencil/core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 @Component({
@@ -21,8 +21,6 @@ export class SkillComponent {
   @Prop({ reflectToAttr: true }) required: string;
   @Prop() disabled: boolean = true;
   @Prop() loop: boolean = false;
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @Event({ eventName: "levelchanged" }) onLevelChanged: EventEmitter<number>;
   @Event({ eventName: "skillclicked" }) onSkillClicked: EventEmitter<ISkill>;
@@ -60,12 +58,12 @@ export class SkillComponent {
                     onMouseEnter={ () => this.showOverlay(-1) }
                     onMouseLeave={ () => this.hideOverlay() }
                     hidden={ this.level === this.skill.minLevel && !this.loop }>
-              <img src={ `${ this.publicPath }assets/minus.png` } />
-              <img src={ `${ this.publicPath }assets/minus-hover.png` } />
-              <img src={ `${ this.publicPath }assets/minus-active.png` } />
-              <img src={ `${ this.publicPath }assets/minus-wrap.png` } />
-              <img src={ `${ this.publicPath }assets/minus-wrap-hover.png` } />
-              <img src={ `${ this.publicPath }assets/minus-wrap-active.png` } />
+              <img src={ getAssetPath(`minus.png`) } />
+              <img src={ getAssetPath(`minus-hover.png`) } />
+              <img src={ getAssetPath(`minus-active.png`) } />
+              <img src={ getAssetPath(`minus-wrap.png`) } />
+              <img src={ getAssetPath(`minus-wrap-hover.png`) } />
+              <img src={ getAssetPath(`minus-wrap-active.png`) } />
             </button>
           </div>
           <span>{ this.level }/{ this.skill.maxLevel }</span>
@@ -76,12 +74,12 @@ export class SkillComponent {
                     onMouseEnter={ () => this.showOverlay(+1) }
                     onMouseLeave={ () => this.hideOverlay() }
                     hidden={ this.level === this.skill.maxLevel && !this.loop }>
-              <img src={ `${ this.publicPath }assets/plus.png` } />
-              <img src={ `${ this.publicPath }assets/plus-hover.png` } />
-              <img src={ `${ this.publicPath }assets/plus-active.png` } />
-              <img src={ `${ this.publicPath }assets/plus-wrap.png` } />
-              <img src={ `${ this.publicPath }assets/plus-wrap-hover.png` } />
-              <img src={ `${ this.publicPath }assets/plus-wrap-active.png` } />
+              <img src={ getAssetPath(`plus.png`) } />
+              <img src={ getAssetPath(`plus-hover.png`) } />
+              <img src={ getAssetPath(`plus-active.png`) } />
+              <img src={ getAssetPath(`plus-wrap.png`) } />
+              <img src={ getAssetPath(`plus-wrap-hover.png`) } />
+              <img src={ getAssetPath(`plus-wrap-active.png`) } />
             </button>
           </div>
         </div>
@@ -95,23 +93,23 @@ export class SkillComponent {
     );
   }
 
-  private renderStyles(): JSX.Element {
+  private renderStyles() {
     return (
       <style type="text/css">{`
-        ms-skill .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
-        :host .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
+        ms-skill .controls { background-image: url(${ getAssetPath(`skill-bar.png`) }); }
+        :host .controls { background-image: url(${ getAssetPath(`skill-bar.png`) }); }
 
-        ms-skill:not([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
-        :host(:not([passive])) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
+        ms-skill:not([passive]) .skill { background-image: url(${ getAssetPath(`skill-shield.png`) }); }
+        :host(:not([passive])) .skill { background-image: url(${ getAssetPath(`skill-shield.png`) }); }
 
-        ms-skill[passive] .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
-        :host([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
+        ms-skill[passive] .skill { background-image: url(${ getAssetPath(`skill-shield-passive.png`) }); }
+        :host([passive]) .skill { background-image: url(${ getAssetPath(`skill-shield-passive.png`) }); }
 
-        ms-skill[locked] .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
-        :host([locked]) .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
+        ms-skill[locked] .skill:after { background-image: url(${ getAssetPath(`skill-locked.png`) }); }
+        :host([locked]) .skill:after { background-image: url(${ getAssetPath(`skill-locked.png`) }); }
 
-        ms-skill[required]:after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
-        :host([required]):after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
+        ms-skill[required]:after { background-image: url(${ getAssetPath(`skill-overlay.png`) }); }
+        :host([required]):after { background-image: url(${ getAssetPath(`skill-overlay.png`) }); }
       `}</style>
     );
   }

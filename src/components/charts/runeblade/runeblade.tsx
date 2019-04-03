@@ -1,4 +1,4 @@
-import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, getAssetPath } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade-sigil";
@@ -32,8 +32,6 @@ export class RunebladeComponent implements IChart {
   @Prop({ mutable: true }) stormSigil: number = RunebladeSkills.StormSigil.minLevel;
   @Prop({ mutable: true }) wardingRune: number = RunebladeSkills.WardingRune.minLevel;
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeSkills.WhirlingBlades.minLevel;
-
-  @Prop({ context: "publicPath" }) private publicPath: string;
 
   @State() skills: IChartSkills;
 
@@ -171,13 +169,13 @@ export class RunebladeComponent implements IChart {
     ]);
   }
 
-  private renderStyles(): JSX.Element {
+  private renderStyles() {
     if (!this.extras) return;
 
     return (
       <style type="text/css">{`
-        ms-runeblade[extras] ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
+        ms-runeblade[extras] ms-skill:before { background: url(${ getAssetPath(`skill-shield-selected.png`) }) }
+        :host([extras]) ms-skill:before { background: url(${ getAssetPath(`skill-shield-selected.png`) }) }
       `}</style>
     );
   }
