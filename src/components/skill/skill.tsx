@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { h, Host, Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 
 @Component({
@@ -42,57 +42,57 @@ export class SkillComponent {
     this.onLevelChanged.emit(this.level);
   }
 
-  hostData() { return { "passive": this.skill.passive }; }
-
   render() {
-    return [
-      this.renderStyles(),
-      <div class="skill"
-           onMouseEnter={ () => this.showOverlay() }
-           onMouseLeave={ () => this.hideOverlay() }
-           onClick={ () => this.emitSkillClick() }>
-        <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
-      </div>,
-      <div class="controls">
-        <div>
-          <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
-                  disabled={ this.shouldDisableMinus() }
-                  onClick={ () => this.minus() }
-                  onMouseEnter={ () => this.showOverlay(-1) }
-                  onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.minLevel && !this.loop }>
-            <img src={ `${ this.publicPath }assets/minus.png` } />
-            <img src={ `${ this.publicPath }assets/minus-hover.png` } />
-            <img src={ `${ this.publicPath }assets/minus-active.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap-hover.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap-active.png` } />
-          </button>
+    return (
+      <Host passive={ this.skill.passive }>
+        { this.renderStyles() }
+        <div class="skill"
+            onMouseEnter={ () => this.showOverlay() }
+            onMouseLeave={ () => this.hideOverlay() }
+            onClick={ () => this.emitSkillClick() }>
+          <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
+        </div>,
+        <div class="controls">
+          <div>
+            <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
+                    disabled={ this.shouldDisableMinus() }
+                    onClick={ () => this.minus() }
+                    onMouseEnter={ () => this.showOverlay(-1) }
+                    onMouseLeave={ () => this.hideOverlay() }
+                    hidden={ this.level === this.skill.minLevel && !this.loop }>
+              <img src={ `${ this.publicPath }assets/minus.png` } />
+              <img src={ `${ this.publicPath }assets/minus-hover.png` } />
+              <img src={ `${ this.publicPath }assets/minus-active.png` } />
+              <img src={ `${ this.publicPath }assets/minus-wrap.png` } />
+              <img src={ `${ this.publicPath }assets/minus-wrap-hover.png` } />
+              <img src={ `${ this.publicPath }assets/minus-wrap-active.png` } />
+            </button>
+          </div>
+          <span>{ this.level }/{ this.skill.maxLevel }</span>
+          <div>
+            <button class={{ "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }}
+                    disabled={ this.shouldDisablePlus() }
+                    onClick={ () => this.plus() }
+                    onMouseEnter={ () => this.showOverlay(+1) }
+                    onMouseLeave={ () => this.hideOverlay() }
+                    hidden={ this.level === this.skill.maxLevel && !this.loop }>
+              <img src={ `${ this.publicPath }assets/plus.png` } />
+              <img src={ `${ this.publicPath }assets/plus-hover.png` } />
+              <img src={ `${ this.publicPath }assets/plus-active.png` } />
+              <img src={ `${ this.publicPath }assets/plus-wrap.png` } />
+              <img src={ `${ this.publicPath }assets/plus-wrap-hover.png` } />
+              <img src={ `${ this.publicPath }assets/plus-wrap-active.png` } />
+            </button>
+          </div>
         </div>
-        <span>{ this.level }/{ this.skill.maxLevel }</span>
-        <div>
-          <button class={{ "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }}
-                  disabled={ this.shouldDisablePlus() }
-                  onClick={ () => this.plus() }
-                  onMouseEnter={ () => this.showOverlay(+1) }
-                  onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.maxLevel && !this.loop }>
-            <img src={ `${ this.publicPath }assets/plus.png` } />
-            <img src={ `${ this.publicPath }assets/plus-hover.png` } />
-            <img src={ `${ this.publicPath }assets/plus-active.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap-hover.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap-active.png` } />
-          </button>
-        </div>
-      </div>,
-      <ms-skill-overlay hidden={ !this.overlayLevel }
-                        skill={ this.skill }
-                        extras={ this.extras }
-                        level={ this.overlayLevel || 1 }
-                        class={ this.skill.prop }>
-      </ms-skill-overlay>,
-    ];
+        <ms-skill-overlay hidden={ !this.overlayLevel }
+                          skill={ this.skill }
+                          extras={ this.extras }
+                          level={ this.overlayLevel || 1 }
+                          class={ this.skill.prop }>
+        </ms-skill-overlay>
+      </Host>
+    );
   }
 
   private renderStyles(): JSX.Element {

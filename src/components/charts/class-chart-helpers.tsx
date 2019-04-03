@@ -1,4 +1,4 @@
-import { EventEmitter } from "@stencil/core";
+import { h, EventEmitter } from "@stencil/core";
 import { ISkill, IClassSkills, ISkillRequirement } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 

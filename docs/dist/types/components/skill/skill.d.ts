@@ -21,7 +21,7 @@ export declare class SkillComponent {
     hostData(): {
         "passive": boolean;
     };
-    render(): JSX.Element[];
+    render()
     private renderStyles;
     private shouldDisableMinus;
     private shouldDisablePlus;

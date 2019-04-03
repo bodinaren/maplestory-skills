@@ -1,4 +1,4 @@
-import { Component, Prop } from "@stencil/core";
+import { h, Component, Prop } from "@stencil/core";
 import { ISkill, ISkillDescription } from "../../global/values/_skillValues.interfaces";
 
 let descriptionRegex = /\[(.*?)\]/;

@@ -28,5 +28,5 @@ export declare class AssassinComponent implements IChart {
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
     emitChangeEvent(): void;
-    render(): JSX.Element;
+    render()
 }

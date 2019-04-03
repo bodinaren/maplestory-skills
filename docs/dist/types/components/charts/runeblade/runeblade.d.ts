@@ -34,6 +34,6 @@ export declare class RunebladeComponent implements IChart {
     private changeSigil;
     private updateSigil;
     emitChangeEvent(): void;
-    render(): JSX.Element[];
+    render()
     private renderStyles;
 }

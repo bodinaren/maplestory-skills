@@ -5,6 +5,6 @@ export declare class ChartComponent {
     host: HTMLStencilElement;
     componentDidLoad(): void;
     resize(): void;
-    render(): JSX.Element[];
+    render()
     private renderStyles;
 }

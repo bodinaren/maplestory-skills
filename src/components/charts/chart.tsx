@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Listen } from "@stencil/core";
+import { h, Component, Prop, Element, Listen } from "@stencil/core";
 
 @Component({
   tag: "ms-chart",
@@ -11,13 +11,13 @@ export class ChartComponent {
 
   @Prop() msClass: string;
 
-  @Element() host: HTMLStencilElement;
+  @Element() host: HTMLMsChartElement;
 
   componentDidLoad() {
     this.resize();
   }
 
-  @Listen("window:resize")
+  @Listen("resize", { target: "window" })
   resize() {
     let parent = this.host.parentNode as any;
     if (parent.host) parent = parent.host;

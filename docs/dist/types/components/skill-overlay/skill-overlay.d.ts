@@ -16,7 +16,7 @@ export declare class SkillOverlayComponent {
     componentWillLoad(): void;
     componentWillUpdate(): void;
     private refreshData;
-    render(): JSX.Element;
+    render()
     private setRequirements;
     private setSpirit;
     private setCooldown;

@@ -6,7 +6,7 @@ export declare class OutletComponent {
     _skills: ISkillChangeEvent;
     _tagName: string;
     componentDidLoad(): void;
-    render(): JSX.Element[];
+    render()
     private getTag;
     private getProperties;
 }
