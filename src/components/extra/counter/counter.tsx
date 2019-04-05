@@ -1,4 +1,4 @@
-import { h, Component, Prop, State } from "@stencil/core";
+import { Component, Prop, State } from "@stencil/core";
 import { ISkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({

@@ -1,10 +1,8 @@
-import '../../stencil.core';
 export declare class ChartComponent {
-    private publicPath;
     msClass: string;
-    host: HTMLStencilElement;
+    host: HTMLMsChartElement;
     componentDidLoad(): void;
     resize(): void;
-    render()
+    render(): any;
     private renderStyles;
 }

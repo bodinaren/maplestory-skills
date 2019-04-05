@@ -1,0 +1,1 @@
+import{a as o}from"./p-8e447e8d.js";o(window);

@@ -1,5 +1,4 @@
-import '../../../stencil.core';
-import { EventEmitter } from "../../../stencil.core";
+import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade-sigil";
@@ -24,7 +23,6 @@ export declare class RunebladeComponent implements IChart {
     stormSigil: number;
     wardingRune: number;
     whirlingBlades: number;
-    private publicPath;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     private runebladeSkills;
@@ -34,6 +32,6 @@ export declare class RunebladeComponent implements IChart {
     private changeSigil;
     private updateSigil;
     emitChangeEvent(): void;
-    render()
+    render(): any[];
     private renderStyles;
 }

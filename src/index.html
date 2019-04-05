@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>Maplestory 2 Interactive Skill Charts</title>
-    <script src="/build/maplestory-skills.js"></script>
+    <script type="module" src="build/maplestory-skills.mjs.js"></script>
+    <script nomodule src="build/maplestory-skills.js"></script>
 
     <style>
       body {
@@ -296,11 +297,12 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         counterHolder.appendChild(document.createElement("ms-extra-counter"));
 
         if (!firstSetup) {
-          chart.componentOnReady().then(function(c) {
-            c.getData().then(function(data) {
-              location.hash = getHash(c, data.skills);
-            });
-          });
+          location.hash = "";
+          // chart.componentOnReady().then(function(c) {
+          //   c.getData().then(function(data) {
+          //     location.hash = getHash(c, data.skills);
+          //   });
+          // });
         }
 
         chart.addEventListener("skillchanged", function(evt) {

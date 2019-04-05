@@ -5,7 +5,7 @@
  */
 
 
-import { JSXBase } from '@stencil/core/internal';
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import { JSX } from '@stencil/core';
 import {
   Sigil,
@@ -290,11 +290,6 @@ export namespace Components {
     'teleport': number;
     'thunderbolt': number;
   }
-}
-
-interface HTMLStencilElement extends HTMLElement {
-  componentOnReady(): Promise<this>;
-  forceUpdate(): void;
 }
 
 declare namespace LocalJSX {

@@ -1,3 +1,4 @@
+import { h, getAssetPath } from "@stencil/core/app";
 let descriptionRegex = /\[(.*?)\]/;
 export class SkillOverlayComponent {
     constructor() {
@@ -25,7 +26,7 @@ export class SkillOverlayComponent {
     render() {
         return (h("div", null,
             h("h1", { class: this.skill.element, style: this.skill.element && {
-                    "background": `url(${this.publicPath}assets/${this.skill.element.toLowerCase()}.jpg), ${this.getGradient(this.skill.element)}`
+                    "background": `url(${getAssetPath(this.skill.element.toLowerCase() + `.jpg`)}, ${this.getGradient(this.skill.element)}`
                 } },
                 this.skill.name,
                 this.skill.element &&
@@ -103,7 +104,6 @@ export class SkillOverlayComponent {
         return desc;
     }
     getGradient(element) {
-        console.log(element);
         switch (element.toLowerCase()) {
             case "dark": return "linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%)";
             case "electric": return "linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%)";
@@ -115,23 +115,68 @@ export class SkillOverlayComponent {
     }
     static get is() { return "ms-skill-overlay"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["skill-overlay.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["skill-overlay.css"]
+    }; }
     static get properties() { return {
-        "extras": {
-            "type": Boolean,
-            "attr": "extras"
-        },
         "level": {
-            "type": Number,
-            "attr": "level",
-            "reflectToAttr": true
-        },
-        "publicPath": {
-            "context": "publicPath"
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "level",
+            "reflect": true,
+            "defaultValue": "0"
         },
         "skill": {
-            "type": "Any",
-            "attr": "skill"
+            "type": "unknown",
+            "mutable": false,
+            "complexType": {
+                "original": "ISkill",
+                "resolved": "ISkill",
+                "references": {
+                    "ISkill": {
+                        "location": "import",
+                        "path": "../../global/values/_skillValues.interfaces"
+                    }
+                }
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            }
+        },
+        "extras": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
         }
     }; }
-    static get style() { return "/**style-placeholder:ms-skill-overlay:**/"; }
 }

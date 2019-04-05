@@ -297,11 +297,12 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         counterHolder.appendChild(document.createElement("ms-extra-counter"));
 
         if (!firstSetup) {
-          chart.componentOnReady().then(function(c) {
-            c.getData().then(function(data) {
-              location.hash = getHash(c, data.skills);
-            });
-          });
+          location.hash = "";
+          // chart.componentOnReady().then(function(c) {
+          //   c.getData().then(function(data) {
+          //     location.hash = getHash(c, data.skills);
+          //   });
+          // });
         }
 
         chart.addEventListener("skillchanged", function(evt) {

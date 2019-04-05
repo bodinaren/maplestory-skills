@@ -1,3 +1,4 @@
+import { h, getAssetPath } from "@stencil/core/app";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 export class RunebladeComponent {
@@ -130,131 +131,427 @@ export class RunebladeComponent {
         if (!this.extras)
             return;
         return (h("style", { type: "text/css" }, `
-        ms-runeblade[extras] ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
-        :host([extras]) ms-skill:before { background: url(${this.publicPath}assets/skill-shield-selected.png) }
+        ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
+        :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
       `));
     }
     static get is() { return "ms-runeblade"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["runeblade.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["runeblade.css"]
+    }; }
     static get properties() { return {
-        "bladeChasm": {
-            "type": Number,
-            "attr": "blade-chasm",
-            "mutable": true
-        },
-        "bladeMastery": {
-            "type": Number,
-            "attr": "blade-mastery",
-            "mutable": true
-        },
-        "blink": {
-            "type": Number,
-            "attr": "blink",
-            "mutable": true
-        },
-        "echoingBlade": {
-            "type": Number,
-            "attr": "echoing-blade",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
-        },
-        "elementalPotency": {
-            "type": Number,
-            "attr": "elemental-potency",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "reflectToAttr": true,
-            "watchCallbacks": ["emitChangeEvent"]
-        },
-        "flameSigil": {
-            "type": Number,
-            "attr": "flame-sigil",
-            "mutable": true
-        },
-        "flurry": {
-            "type": Number,
-            "attr": "flurry",
-            "mutable": true
-        },
-        "frostSigil": {
-            "type": Number,
-            "attr": "frost-sigil",
-            "mutable": true
-        },
-        "getData": {
-            "method": true
-        },
-        "gravityRune": {
-            "type": Number,
-            "attr": "gravity-rune",
-            "mutable": true
-        },
-        "honingRunes": {
-            "type": Number,
-            "attr": "honing-runes",
-            "mutable": true
-        },
-        "illusoryBlades": {
-            "type": Number,
-            "attr": "illusory-blades",
-            "mutable": true
-        },
-        "impact": {
-            "type": Number,
-            "attr": "impact",
-            "mutable": true
-        },
-        "publicPath": {
-            "context": "publicPath"
-        },
-        "runeBalance": {
-            "type": Number,
-            "attr": "rune-balance",
-            "mutable": true
-        },
-        "runeFocus": {
-            "type": Number,
-            "attr": "rune-focus",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "sigil": {
-            "type": String,
-            "attr": "sigil",
-            "reflectToAttr": true,
-            "mutable": true
+            "type": "string",
+            "mutable": true,
+            "complexType": {
+                "original": "Sigil",
+                "resolved": "\"\" | \"flameSigil\" | \"frostSigil\" | \"stormSigil\"",
+                "references": {
+                    "Sigil": {
+                        "location": "import",
+                        "path": "./runeblade-sigil"
+                    }
+                }
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "sigil",
+            "reflect": true,
+            "defaultValue": "\"\""
         },
-        "skills": {
-            "state": true
+        "bladeChasm": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blade-chasm",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.BladeChasm.minLevel"
+        },
+        "bladeMastery": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blade-mastery",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.BladeMastery.minLevel"
+        },
+        "blink": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blink",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.Blink.minLevel"
+        },
+        "elementalPotency": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "elemental-potency",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.ElementalPotency.minLevel"
+        },
+        "echoingBlade": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "echoing-blade",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.EchoingBlade.minLevel"
+        },
+        "flameSigil": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flame-sigil",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.FlameSigil.minLevel"
+        },
+        "flurry": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flurry",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.Flurry.minLevel"
+        },
+        "frostSigil": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "frost-sigil",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.FrostSigil.minLevel"
+        },
+        "gravityRune": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "gravity-rune",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.GravityRune.minLevel"
+        },
+        "honingRunes": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "honing-runes",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.HoningRunes.minLevel"
+        },
+        "illusoryBlades": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "illusory-blades",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.IllusoryBlades.minLevel"
+        },
+        "impact": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "impact",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.Impact.minLevel"
+        },
+        "runeBalance": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rune-balance",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.RuneBalance.minLevel"
+        },
+        "runeFocus": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rune-focus",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.RuneFocus.minLevel"
         },
         "stormSigil": {
-            "type": Number,
-            "attr": "storm-sigil",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "storm-sigil",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.StormSigil.minLevel"
         },
         "wardingRune": {
-            "type": Number,
-            "attr": "warding-rune",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "warding-rune",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.WardingRune.minLevel"
         },
         "whirlingBlades": {
-            "type": Number,
-            "attr": "whirling-blades",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "whirling-blades",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.WhirlingBlades.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-runeblade:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

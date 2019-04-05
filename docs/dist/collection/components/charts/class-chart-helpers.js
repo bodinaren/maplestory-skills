@@ -1,3 +1,4 @@
+import { h } from "@stencil/core/app";
 export function processSkills(chart, classSkills, skillChanged) {
     let skills = {};
     let sum = 0;

@@ -1,4 +1,4 @@
-import { h, Component, Prop, Element, Listen, getAssetPath } from "@stencil/core";
+import { h, Host, Component, Prop, Element, Listen, getAssetPath } from "@stencil/core";
 
 @Component({
   tag: "ms-chart",
@@ -36,42 +36,44 @@ export class ChartComponent {
   }
 
   render() {
-    return [
-      this.renderStyles(),
-      <ms-footer></ms-footer>,
-      <div class="chart">
-        <div class="class-icon">
-          <div class={ "chart-class " + this.msClass }>
-            <slot></slot>
+    return (
+      <Host>
+        { this.renderStyles() }
+        <ms-footer></ms-footer>
+        <div class="chart">
+          <div class="class-icon">
+            <div class={ "chart-class " + this.msClass }>
+              <slot></slot>
+            </div>
           </div>
         </div>
-      </div>
-    ];
+      </Host>
+    );
   }
 
   private renderStyles() {
     return (
       <style type="text/css">{`
         ms-chart {
-          cursor: url(${ getAssetPath(`cursor.png`) }) 5 8, auto;
+          cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
         }
         ms-chart:active {
-          cursor: url(${ getAssetPath(`cursor-down.png`) }) 5 8, auto;
+          cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
         }
         :host, :host(:hover), ms-chart {
-          cursor: url(${ getAssetPath(`cursor.png`) }) 5 8, auto;
+          cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
         }
         :host(:active) {
-          cursor: url(${ getAssetPath(`cursor-down.png`) }) 5 8, auto;
+          cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
         }
         .chart {
-          background-image: url(${ getAssetPath(`charts/chart.jpg`) });
+          background-image: url(${ getAssetPath(`assets/charts/chart.jpg`) });
         }
         .class-icon {
-          background-image: url(${ getAssetPath(`charts/${ this.msClass }-icon.png`) })
+          background-image: url(${ getAssetPath(`assets/charts/${ this.msClass }-icon.png`) })
         }
         .chart-class {
-          background-image: url(${ getAssetPath(`charts/${ this.msClass }-lines.png`) });
+          background-image: url(${ getAssetPath(`assets/charts/${ this.msClass }-lines.png`) });
         }
       `}</style>
     );

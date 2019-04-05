@@ -1,0 +1,1 @@
+require("./p-5f48ee19.js").defineCustomElements(window);

@@ -1,3 +1,4 @@
+import { h, Host, getAssetPath } from "@stencil/core/app";
 export class SkillComponent {
     constructor() {
         this.level = 0;
@@ -20,52 +21,50 @@ export class SkillComponent {
     skillChanged() {
         this.onLevelChanged.emit(this.level);
     }
-    hostData() { return { "passive": this.skill.passive }; }
     render() {
-        return [
+        return (h(Host, { passive: this.skill.passive },
             this.renderStyles(),
             h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() },
                 h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })),
             h("div", { class: "controls" },
                 h("div", null,
                     h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop },
-                        h("img", { src: `${this.publicPath}assets/minus.png` }),
-                        h("img", { src: `${this.publicPath}assets/minus-hover.png` }),
-                        h("img", { src: `${this.publicPath}assets/minus-active.png` }),
-                        h("img", { src: `${this.publicPath}assets/minus-wrap.png` }),
-                        h("img", { src: `${this.publicPath}assets/minus-wrap-hover.png` }),
-                        h("img", { src: `${this.publicPath}assets/minus-wrap-active.png` }))),
+                        h("img", { src: getAssetPath(`assets/minus.png`) }),
+                        h("img", { src: getAssetPath(`assets/minus-hover.png`) }),
+                        h("img", { src: getAssetPath(`assets/minus-active.png`) }),
+                        h("img", { src: getAssetPath(`assets/minus-wrap.png`) }),
+                        h("img", { src: getAssetPath(`assets/minus-wrap-hover.png`) }),
+                        h("img", { src: getAssetPath(`assets/minus-wrap-active.png`) }))),
                 h("span", null,
                     this.level,
                     "/",
                     this.skill.maxLevel),
                 h("div", null,
                     h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop },
-                        h("img", { src: `${this.publicPath}assets/plus.png` }),
-                        h("img", { src: `${this.publicPath}assets/plus-hover.png` }),
-                        h("img", { src: `${this.publicPath}assets/plus-active.png` }),
-                        h("img", { src: `${this.publicPath}assets/plus-wrap.png` }),
-                        h("img", { src: `${this.publicPath}assets/plus-wrap-hover.png` }),
-                        h("img", { src: `${this.publicPath}assets/plus-wrap-active.png` })))),
-            h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop }),
-        ];
+                        h("img", { src: getAssetPath(`assets/plus.png`) }),
+                        h("img", { src: getAssetPath(`assets/plus-hover.png`) }),
+                        h("img", { src: getAssetPath(`assets/plus-active.png`) }),
+                        h("img", { src: getAssetPath(`assets/plus-wrap.png`) }),
+                        h("img", { src: getAssetPath(`assets/plus-wrap-hover.png`) }),
+                        h("img", { src: getAssetPath(`assets/plus-wrap-active.png`) })))),
+            h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
     }
     renderStyles() {
         return (h("style", { type: "text/css" }, `
-        ms-skill .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
-        :host .controls { background-image: url(${this.publicPath}assets/skill-bar.png); }
+        ms-skill .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
+        :host .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
 
-        ms-skill:not([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
-        :host(:not([passive])) .skill { background-image: url(${this.publicPath}assets/skill-shield.png); }
+        ms-skill:not([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
+        :host(:not([passive])) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
 
-        ms-skill[passive] .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
-        :host([passive]) .skill { background-image: url(${this.publicPath}assets/skill-shield-passive.png); }
+        ms-skill[passive] .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
+        :host([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
 
-        ms-skill[locked] .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
-        :host([locked]) .skill:after { background-image: url(${this.publicPath}assets/skill-locked.png); }
+        ms-skill[locked] .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
+        :host([locked]) .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
 
-        ms-skill[required]:after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
-        :host([required]):after { background-image: url(${this.publicPath}assets/skill-overlay.png); }
+        ms-skill[required]:after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
+        :host([required]):after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
       `));
     }
     shouldDisableMinus() {
@@ -119,75 +118,234 @@ export class SkillComponent {
     }
     static get is() { return "ms-skill"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["skill.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["skill.css"]
+    }; }
     static get properties() { return {
-        "column": {
-            "type": Number,
-            "attr": "column",
-            "reflectToAttr": true,
-            "mutable": true
-        },
-        "disabled": {
-            "type": Boolean,
-            "attr": "disabled"
-        },
-        "extras": {
-            "type": Boolean,
-            "attr": "extras"
-        },
         "level": {
-            "type": Number,
-            "attr": "level",
-            "reflectToAttr": true,
+            "type": "number",
             "mutable": true,
-            "watchCallbacks": ["skillChanged"]
-        },
-        "limitReached": {
-            "type": Boolean,
-            "attr": "limit-reached"
-        },
-        "locked": {
-            "type": Boolean,
-            "attr": "locked",
-            "reflectToAttr": true
-        },
-        "loop": {
-            "type": Boolean,
-            "attr": "loop"
-        },
-        "overlayLevel": {
-            "state": true
-        },
-        "publicPath": {
-            "context": "publicPath"
-        },
-        "required": {
-            "type": String,
-            "attr": "required",
-            "reflectToAttr": true
-        },
-        "row": {
-            "type": Number,
-            "attr": "row",
-            "reflectToAttr": true,
-            "mutable": true
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "level",
+            "reflect": true,
+            "defaultValue": "0"
         },
         "skill": {
-            "type": "Any",
-            "attr": "skill"
+            "type": "unknown",
+            "mutable": false,
+            "complexType": {
+                "original": "ISkill",
+                "resolved": "ISkill",
+                "references": {
+                    "ISkill": {
+                        "location": "import",
+                        "path": "../../global/values/_skillValues.interfaces"
+                    }
+                }
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            }
+        },
+        "extras": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "column": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "column",
+            "reflect": true
+        },
+        "row": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "row",
+            "reflect": true
+        },
+        "limitReached": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "limit-reached",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "locked": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "locked",
+            "reflect": true,
+            "defaultValue": "false"
+        },
+        "required": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "required",
+            "reflect": true
+        },
+        "disabled": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "disabled",
+            "reflect": false,
+            "defaultValue": "true"
+        },
+        "loop": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "loop",
+            "reflect": false,
+            "defaultValue": "false"
         }
     }; }
+    static get states() { return {
+        "overlayLevel": {}
+    }; }
     static get events() { return [{
-            "name": "levelchanged",
             "method": "onLevelChanged",
+            "name": "levelchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            }
         }, {
-            "name": "skillclicked",
             "method": "onSkillClicked",
+            "name": "skillclicked",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "ISkill",
+                "resolved": "ISkill",
+                "references": {
+                    "ISkill": {
+                        "location": "import",
+                        "path": "../../global/values/_skillValues.interfaces"
+                    }
+                }
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-skill:**/"; }
+    static get watchers() { return [{
+            "propName": "level",
+            "methodName": "skillChanged"
+        }]; }
 }

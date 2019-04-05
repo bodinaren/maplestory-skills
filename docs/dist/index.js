@@ -1,1 +1,1 @@
-// MaplestorySkills: CommonJS Main
+module.exports = require('./cjs/maplestory-skills.cjs.js');

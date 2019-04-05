@@ -49,7 +49,7 @@ export class SkillComponent {
             onMouseLeave={ () => this.hideOverlay() }
             onClick={ () => this.emitSkillClick() }>
           <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
-        </div>,
+        </div>
         <div class="controls">
           <div>
             <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
@@ -58,12 +58,12 @@ export class SkillComponent {
                     onMouseEnter={ () => this.showOverlay(-1) }
                     onMouseLeave={ () => this.hideOverlay() }
                     hidden={ this.level === this.skill.minLevel && !this.loop }>
-              <img src={ getAssetPath(`minus.png`) } />
-              <img src={ getAssetPath(`minus-hover.png`) } />
-              <img src={ getAssetPath(`minus-active.png`) } />
-              <img src={ getAssetPath(`minus-wrap.png`) } />
-              <img src={ getAssetPath(`minus-wrap-hover.png`) } />
-              <img src={ getAssetPath(`minus-wrap-active.png`) } />
+              <img src={ getAssetPath(`assets/minus.png`) } />
+              <img src={ getAssetPath(`assets/minus-hover.png`) } />
+              <img src={ getAssetPath(`assets/minus-active.png`) } />
+              <img src={ getAssetPath(`assets/minus-wrap.png`) } />
+              <img src={ getAssetPath(`assets/minus-wrap-hover.png`) } />
+              <img src={ getAssetPath(`assets/minus-wrap-active.png`) } />
             </button>
           </div>
           <span>{ this.level }/{ this.skill.maxLevel }</span>
@@ -74,12 +74,12 @@ export class SkillComponent {
                     onMouseEnter={ () => this.showOverlay(+1) }
                     onMouseLeave={ () => this.hideOverlay() }
                     hidden={ this.level === this.skill.maxLevel && !this.loop }>
-              <img src={ getAssetPath(`plus.png`) } />
-              <img src={ getAssetPath(`plus-hover.png`) } />
-              <img src={ getAssetPath(`plus-active.png`) } />
-              <img src={ getAssetPath(`plus-wrap.png`) } />
-              <img src={ getAssetPath(`plus-wrap-hover.png`) } />
-              <img src={ getAssetPath(`plus-wrap-active.png`) } />
+              <img src={ getAssetPath(`assets/plus.png`) } />
+              <img src={ getAssetPath(`assets/plus-hover.png`) } />
+              <img src={ getAssetPath(`assets/plus-active.png`) } />
+              <img src={ getAssetPath(`assets/plus-wrap.png`) } />
+              <img src={ getAssetPath(`assets/plus-wrap-hover.png`) } />
+              <img src={ getAssetPath(`assets/plus-wrap-active.png`) } />
             </button>
           </div>
         </div>
@@ -96,20 +96,20 @@ export class SkillComponent {
   private renderStyles() {
     return (
       <style type="text/css">{`
-        ms-skill .controls { background-image: url(${ getAssetPath(`skill-bar.png`) }); }
-        :host .controls { background-image: url(${ getAssetPath(`skill-bar.png`) }); }
+        ms-skill .controls { background-image: url(${ getAssetPath(`assets/skill-bar.png`) }); }
+        :host .controls { background-image: url(${ getAssetPath(`assets/skill-bar.png`) }); }
 
-        ms-skill:not([passive]) .skill { background-image: url(${ getAssetPath(`skill-shield.png`) }); }
-        :host(:not([passive])) .skill { background-image: url(${ getAssetPath(`skill-shield.png`) }); }
+        ms-skill:not([passive]) .skill { background-image: url(${ getAssetPath(`assets/skill-shield.png`) }); }
+        :host(:not([passive])) .skill { background-image: url(${ getAssetPath(`assets/skill-shield.png`) }); }
 
-        ms-skill[passive] .skill { background-image: url(${ getAssetPath(`skill-shield-passive.png`) }); }
-        :host([passive]) .skill { background-image: url(${ getAssetPath(`skill-shield-passive.png`) }); }
+        ms-skill[passive] .skill { background-image: url(${ getAssetPath(`assets/skill-shield-passive.png`) }); }
+        :host([passive]) .skill { background-image: url(${ getAssetPath(`assets/skill-shield-passive.png`) }); }
 
-        ms-skill[locked] .skill:after { background-image: url(${ getAssetPath(`skill-locked.png`) }); }
-        :host([locked]) .skill:after { background-image: url(${ getAssetPath(`skill-locked.png`) }); }
+        ms-skill[locked] .skill:after { background-image: url(${ getAssetPath(`assets/skill-locked.png`) }); }
+        :host([locked]) .skill:after { background-image: url(${ getAssetPath(`assets/skill-locked.png`) }); }
 
-        ms-skill[required]:after { background-image: url(${ getAssetPath(`skill-overlay.png`) }); }
-        :host([required]):after { background-image: url(${ getAssetPath(`skill-overlay.png`) }); }
+        ms-skill[required]:after { background-image: url(${ getAssetPath(`assets/skill-overlay.png`) }); }
+        :host([required]):after { background-image: url(${ getAssetPath(`assets/skill-overlay.png`) }); }
       `}</style>
     );
   }

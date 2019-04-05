@@ -1,4 +1,4 @@
-import { h, Component, Prop, State } from "@stencil/core";
+import { h, Host, Component, Prop, State } from "@stencil/core";
 import { ISkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
@@ -33,12 +33,14 @@ export class OutletComponent {
   render() {
     if (!this._editor) return;
 
-    return [
-      <slot name="first"></slot>,
-      <slot></slot>,
-      this.getTag(),
-      <slot name="last"></slot>
-    ];
+    return (
+      <Host>
+        <slot name="first"></slot>
+        <slot></slot>
+        ${ this.getTag() }
+        <slot name="last"></slot>
+      </Host>
+    );
   }
 
   private getTag() {

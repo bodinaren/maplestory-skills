@@ -1,3 +1,4 @@
+import { h, Host } from "@stencil/core/app";
 export class OutletComponent {
     constructor() {
         this._skills = { skills: [] };
@@ -18,12 +19,12 @@ export class OutletComponent {
     render() {
         if (!this._editor)
             return;
-        return [
+        return (h(Host, null,
             h("slot", { name: "first" }),
             h("slot", null),
+            "$",
             this.getTag(),
-            h("slot", { name: "last" })
-        ];
+            h("slot", { name: "last" })));
     }
     getTag() {
         let extras = "";
@@ -48,18 +49,27 @@ export class OutletComponent {
     static get is() { return "ms-extra-outlet"; }
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
-        "_editor": {
-            "state": true
-        },
-        "_skills": {
-            "state": true
-        },
-        "_tagName": {
-            "state": true
-        },
         "editor": {
-            "type": String,
-            "attr": "editor"
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editor",
+            "reflect": false
         }
+    }; }
+    static get states() { return {
+        "_editor": {},
+        "_skills": {},
+        "_tagName": {}
     }; }
 }

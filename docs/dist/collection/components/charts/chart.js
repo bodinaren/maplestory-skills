@@ -1,3 +1,4 @@
+import { h, Host, getAssetPath } from "@stencil/core/app";
 export class ChartComponent {
     componentDidLoad() {
         this.resize();
@@ -20,58 +21,72 @@ export class ChartComponent {
         }
     }
     render() {
-        return [
+        return (h(Host, null,
             this.renderStyles(),
             h("ms-footer", null),
             h("div", { class: "chart" },
                 h("div", { class: "class-icon" },
                     h("div", { class: "chart-class " + this.msClass },
-                        h("slot", null))))
-        ];
+                        h("slot", null))))));
     }
     renderStyles() {
         return (h("style", { type: "text/css" }, `
         ms-chart {
-          cursor: url(${this.publicPath}assets/cursor.png) 5 8, auto;
+          cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
         }
         ms-chart:active {
-          cursor: url(${this.publicPath}assets/cursor-down.png) 5 8, auto;
+          cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
         }
         :host, :host(:hover), ms-chart {
-          cursor: url(${this.publicPath}assets/cursor.png) 5 8, auto;
+          cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
         }
         :host(:active) {
-          cursor: url(${this.publicPath}assets/cursor-down.png) 5 8, auto;
+          cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
         }
         .chart {
-          background-image: url(${this.publicPath}assets/charts/chart.jpg);
+          background-image: url(${getAssetPath(`assets/charts/chart.jpg`)});
         }
         .class-icon {
-          background-image: url(${this.publicPath}assets/charts/${this.msClass}-icon.png)
+          background-image: url(${getAssetPath(`assets/charts/${this.msClass}-icon.png`)})
         }
         .chart-class {
-          background-image: url(${this.publicPath}assets/charts/${this.msClass}-lines.png);
+          background-image: url(${getAssetPath(`assets/charts/${this.msClass}-lines.png`)});
         }
       `));
     }
     static get is() { return "ms-chart"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["chart.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["chart.css"]
+    }; }
     static get properties() { return {
-        "host": {
-            "elementRef": true
-        },
         "msClass": {
-            "type": String,
-            "attr": "ms-class"
-        },
-        "publicPath": {
-            "context": "publicPath"
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ms-class",
+            "reflect": false
         }
     }; }
+    static get elementRef() { return "host"; }
     static get listeners() { return [{
-            "name": "window:resize",
+            "name": "resize",
             "method": "resize",
+            "target": "window",
+            "capture": false,
             "passive": true
         }]; }
-    static get style() { return "/**style-placeholder:ms-chart:**/"; }
 }
