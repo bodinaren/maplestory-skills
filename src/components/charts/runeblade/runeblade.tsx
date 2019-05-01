@@ -38,7 +38,7 @@ export class RunebladeComponent implements IChart {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
-  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles();
+  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles.bind(this);
 
   private runebladeSkills: { [prop: string]: ISkill } = {};
 

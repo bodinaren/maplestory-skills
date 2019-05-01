@@ -28,7 +28,7 @@ export class SkillComponent {
 
   @State() private overlayLevel: number;
 
-  @ConstructibleStyle() styles = SkillComponent.getStyles();
+  @ConstructibleStyle() styles = SkillComponent.getStyles.bind(this);
 
   componentWillLoad() {
     if (this.level < this.skill.minLevel) this.level = this.skill.minLevel;
