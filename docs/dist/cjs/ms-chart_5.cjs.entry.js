@@ -2,67 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-4ba60489.js');
-
-const supportsConstructibleStylesheets = (() => {
-    try {
-        return !!new CSSStyleSheet();
-    }
-    catch (e) {
-        return false;
-    }
-})();
-function ConstructibleStyle(options = {}) {
-    return (proto, prop) => {
-        if (!options.cacheKeyProperty) {
-            options.cacheKeyProperty = prop;
-        }
-        const { componentWillLoad, render } = proto;
-        if (supportsConstructibleStylesheets) {
-            proto.componentWillLoad = function () {
-                const willLoadResult = componentWillLoad && componentWillLoad.call(this);
-                const host = __chunk_1.getElement(this);
-                const root = (host.shadowRoot || host);
-                root.adoptedStyleSheets = [...root.adoptedStyleSheets || [], getOrCreateStylesheet(this, proto, prop, options)];
-                return willLoadResult;
-            };
-        }
-        else {
-            proto.render = function () {
-                let renderedNode = render.call(this);
-                const style = createVDomStyleTag(this[prop]);
-                if (typeof renderedNode === "string" || typeof renderedNode.$tag$ !== "object") {
-                    // render did not return a Host, create one to ensure $children$.push can insert the style as expected.
-                    renderedNode = __chunk_1.h(__chunk_1.Host, null, renderedNode);
-                }
-                renderedNode.$children$.push(style);
-                return renderedNode;
-            };
-        }
-    };
-}
-function getOrCreateStylesheet(component, proto, prop, options) {
-    if (!proto.__constructableStylesheets) {
-        proto.__constructableStylesheets = {};
-    }
-    let key = component[options.cacheKeyProperty];
-    if (!proto.__constructableStylesheets[key]) {
-        proto.__constructableStylesheets[key] = new CSSStyleSheet();
-        proto.__constructableStylesheets[key].replace(component[prop]);
-    }
-    return proto.__constructableStylesheets[key];
-}
-function createVDomStyleTag(cssText) {
-    return {
-        $tag$: "style",
-        $children$: [{
-                $text$: cssText,
-                $flags$: 0,
-            }],
-        $flags$: 0,
-        $attrs$: { type: "text/css" },
-    };
-}
+const __chunk_1 = require('./maplestory-skills-c6e16ac8.js');
+const __chunk_3 = require('./chunk-4aaf0458.js');
 
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -132,7 +73,7 @@ class ChartComponent {
     static get style() { return ":host{display:block;width:815px;height:770px;position:relative;-webkit-transform-origin:top left;transform-origin:top left;font-size:16px;color:#fff;font-family:Roboto,Arial}:host,:host(:active),_:-ms-lang(x){cursor:auto}.chart{position:absolute}.chart,.class-icon{width:100%;height:100%;background-repeat:no-repeat}.class-icon{background-position:calc(50% + 34px) calc(50% - 18px)}.chart>.class-icon>div{width:100%;height:100%;background-position:171px 88px;background-repeat:no-repeat}ms-footer{margin-top:-30px;-webkit-transition:margin-top .3s ease-in-out;transition:margin-top .3s ease-in-out}:host(:hover) ms-footer{margin-top:0}::slotted(ms-skill){position:absolute}::slotted(ms-skill[row=\"1\"]){top:4px}::slotted(ms-skill[row=\"2\"]){top:132px}::slotted(ms-skill[row=\"3\"]){top:260px}::slotted(ms-skill[row=\"4\"]){top:388px}::slotted(ms-skill[row=\"5\"]){top:516px}::slotted(ms-skill[row=\"6\"]){top:644px}::slotted(ms-skill[column=\"1\"]){left:138px}::slotted(ms-skill[column=\"2\"]){left:318px}::slotted(ms-skill[column=\"3\"]){left:498px}::slotted(ms-skill[column=\"4\"]){left:678px}"; }
 }
 __decorate([
-    ConstructibleStyle({ cacheKeyProperty: "msClass" })
+    __chunk_3.ConstructibleStyle({ cacheKeyProperty: "msClass" })
 ], ChartComponent.prototype, "styles", void 0);
 
 class FooterComponent {
@@ -157,6 +98,16 @@ class IconComponent {
     static get style() { return ":host{display:-ms-inline-flexbox;display:inline-flex;position:relative;width:43px;height:50px;-ms-flex-pack:center;justify-content:center}img:nth-of-type(2){position:absolute;bottom:1px;left:-4px}"; }
 }
 
+var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+        r = Reflect.decorate(decorators, target, key, desc);
+    else
+        for (var i = decorators.length - 1; i >= 0; i--)
+            if (d = decorators[i])
+                r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 class SkillComponent {
     constructor(hostRef) {
         __chunk_1.registerInstance(this, hostRef);
@@ -166,6 +117,7 @@ class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
+        this.styles = SkillComponent.getStyles();
         this.onLevelChanged = __chunk_1.createEvent(this, "levelchanged", 7);
         this.onSkillClicked = __chunk_1.createEvent(this, "skillclicked", 7);
     }
@@ -183,25 +135,7 @@ class SkillComponent {
         this.onLevelChanged.emit(this.level);
     }
     render() {
-        return (__chunk_1.h(__chunk_1.Host, { passive: this.skill.passive }, this.renderStyles(), __chunk_1.h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() }, __chunk_1.h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })), __chunk_1.h("div", { class: "controls" }, __chunk_1.h("div", null, __chunk_1.h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop }, __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-active.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap-active.png`) }))), __chunk_1.h("span", null, this.level, "/", this.skill.maxLevel), __chunk_1.h("div", null, __chunk_1.h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop }, __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-active.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap-active.png`) })))), __chunk_1.h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
-    }
-    renderStyles() {
-        return (__chunk_1.h("style", { type: "text/css" }, `
-        ms-skill .controls { background-image: url(${__chunk_1.getAssetPath(`assets/skill-bar.png`)}); }
-        :host .controls { background-image: url(${__chunk_1.getAssetPath(`assets/skill-bar.png`)}); }
-
-        ms-skill:not([passive]) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield.png`)}); }
-        :host(:not([passive])) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield.png`)}); }
-
-        ms-skill[passive] .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield-passive.png`)}); }
-        :host([passive]) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield-passive.png`)}); }
-
-        ms-skill[locked] .skill:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-locked.png`)}); }
-        :host([locked]) .skill:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-locked.png`)}); }
-
-        ms-skill[required]:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-overlay.png`)}); }
-        :host([required]):after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-overlay.png`)}); }
-      `));
+        return (__chunk_1.h(__chunk_1.Host, { passive: this.skill.passive }, __chunk_1.h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() }, __chunk_1.h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })), __chunk_1.h("div", { class: "controls" }, __chunk_1.h("div", null, __chunk_1.h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop }, __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-active.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/minus-wrap-active.png`) }))), __chunk_1.h("span", null, this.level, "/", this.skill.maxLevel), __chunk_1.h("div", null, __chunk_1.h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop }, __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-active.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap-hover.png`) }), __chunk_1.h("img", { src: __chunk_1.getAssetPath(`assets/plus-wrap-active.png`) })))), __chunk_1.h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
     }
     shouldDisableMinus() {
         return this.disabled // skill are not editable
@@ -254,11 +188,32 @@ class SkillComponent {
         }
         this.showOverlay(-1);
     }
+    static getStyles() {
+        return `
+      ms-skill .controls { background-image: url(${__chunk_1.getAssetPath(`assets/skill-bar.png`)}); }
+      :host .controls { background-image: url(${__chunk_1.getAssetPath(`assets/skill-bar.png`)}); }
+
+      ms-skill:not([passive]) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield.png`)}); }
+      :host(:not([passive])) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield.png`)}); }
+
+      ms-skill[passive] .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield-passive.png`)}); }
+      :host([passive]) .skill { background-image: url(${__chunk_1.getAssetPath(`assets/skill-shield-passive.png`)}); }
+
+      ms-skill[locked] .skill:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-locked.png`)}); }
+      :host([locked]) .skill:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-locked.png`)}); }
+
+      ms-skill[required]:after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-overlay.png`)}); }
+      :host([required]):after { background-image: url(${__chunk_1.getAssetPath(`assets/skill-overlay.png`)}); }
+    `;
+    }
     static get watchers() { return {
         "level": ["skillChanged"]
     }; }
     static get style() { return ":host{height:115px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.skill,:host{display:block;width:72px}.skill{height:84px;background-repeat:no-repeat}.skill>ms-icon{display:block;position:absolute;left:14px;top:17px}.controls{display:-ms-flexbox;display:flex;width:109px;height:36px;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;margin-left:-18.5px;margin-top:-4px}.controls span{text-align:center;-ms-flex-positive:1;flex-grow:1;font-size:.9em}.controls div{margin-top:4px;width:30px}.controls div,_:-ms-lang(x){margin-top:0}:host([locked]) .skill:after{content:\"\"}:host([locked]) .skill:after,:host([required]):after{position:absolute;width:52px;height:61px;top:11px;left:10px;pointer-events:none}:host([required]):after{content:attr(required);display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;color:#ff0;font-size:.8em}ms-skill-overlay{position:absolute;margin:0 20px}:host([column=\"1\"]) ms-skill-overlay,:host([column=\"2\"]) ms-skill-overlay{left:100%}:host([column=\"3\"]) ms-skill-overlay,:host([column=\"4\"]) ms-skill-overlay{right:100%}:host([row=\"1\"]) ms-skill-overlay,:host([row=\"2\"]) ms-skill-overlay,:host([row=\"3\"]) ms-skill-overlay{top:0}:host([row=\"4\"]) ms-skill-overlay,:host([row=\"5\"]) ms-skill-overlay,:host([row=\"6\"]) ms-skill-overlay{bottom:0}:host-context(ms-chart) ms-skill-overlay.electricBlast{bottom:-100px}:host-context(ms-chart) ms-skill-overlay.magnumBlow{top:-75px}:host-context(ms-runeblade[sigil=flameSigil]) ms-skill-overlay.impact{top:-25px}:host-context(ms-runeblade[sigil=stormSigil]) ms-skill-overlay.impact{top:-50px}button{width:30px;height:33px;background:none;border:none;padding:0;outline:0;cursor:inherit}.minus img,.plus img,_:-ms-lang(x){cursor:pointer}button:active{cursor:inherit}button img{display:none}button:not([disabled]):not([hidden]){display:inline-block}button.wrap:not([disabled]):active img:nth-child(6),button.wrap:not([disabled]):not(:active):hover img:nth-child(5),button.wrap:not([disabled]):not(:active):not(:hover) img:nth-child(4),button:not(.wrap):not([disabled]):active img:nth-child(3),button:not(.wrap):not([disabled]):not(:active):hover img:nth-child(2),button:not(.wrap):not([disabled]):not(:active):not(:hover) img:first-child{display:inline}.minus{left:-1px}.plus{right:0}"; }
 }
+__decorate$1([
+    __chunk_3.ConstructibleStyle()
+], SkillComponent.prototype, "styles", void 0);
 
 let descriptionRegex = /\[(.*?)\]/;
 /**
@@ -277,18 +232,22 @@ class SkillOverlayComponent {
         this.refreshData();
     }
     refreshData() {
-        this.setRequirements();
-        this.setSpirit();
-        this.setCooldown();
-        this.description = this.parseDescription(this.skill);
-        this.extraDescriptions = undefined;
-        if (this.extras && this.skill.extras) {
-            this.extraDescriptions = this.skill.extras.map((extraDescription) => {
-                return this.parseDescription(extraDescription);
-            });
+        if (this.skill) {
+            this.setRequirements();
+            this.setSpirit();
+            this.setCooldown();
+            this.description = this.parseDescription(this.skill);
+            this.extraDescriptions = undefined;
+            if (this.extras && this.skill.extras) {
+                this.extraDescriptions = this.skill.extras.map((extraDescription) => {
+                    return this.parseDescription(extraDescription);
+                });
+            }
         }
     }
     render() {
+        if (!this.skill)
+            return;
         return (__chunk_1.h("div", null, __chunk_1.h("h1", { class: this.skill.element, style: this.skill.element && {
                 "background": `url(${__chunk_1.getAssetPath(this.skill.element.toLowerCase() + `.jpg`)}, ${this.getGradient(this.skill.element)}`
             } }, this.skill.name, this.skill.element &&

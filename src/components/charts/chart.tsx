@@ -1,6 +1,5 @@
 import { h, Host, Component, Prop, Listen, getAssetPath, Element } from "@stencil/core";
-// import { ConstructibleStyle } from "stencil-constructible-style";
-import { ConstructibleStyle } from "../../global/constructable-style";
+import { ConstructibleStyle } from "stencil-constructible-style";
 
 
 declare global {
@@ -51,7 +50,6 @@ export class ChartComponent {
   render() {
     return (
       <Host>
-        {/* <style>{ ChartComponent.getStyles(this.msClass) }</style> */}
         <ms-footer></ms-footer>
         <div class="chart">
           <div class="class-icon">

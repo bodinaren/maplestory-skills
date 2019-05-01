@@ -5,8 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { h, Host, getAssetPath } from "@stencil/core";
-// import { ConstructibleStyle } from "stencil-constructible-style";
-import { ConstructibleStyle } from "../../global/constructable-style";
+import { ConstructibleStyle } from "stencil-constructible-style";
 export class ChartComponent {
     constructor() {
         this.styles = ChartComponent.getStyles(this.msClass);

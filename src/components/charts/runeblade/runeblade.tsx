@@ -3,6 +3,7 @@ import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChange
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade-sigil";
 import * as RunebladeSkills from "../../../global/values/runeblade";
+import { ConstructibleStyle } from "stencil-constructible-style";
 
 @Component({
   tag: "ms-runeblade",
@@ -37,6 +38,8 @@ export class RunebladeComponent implements IChart {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
+  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles();
+
   private runebladeSkills: { [prop: string]: ISkill } = {};
 
   componentWillLoad() {
@@ -66,6 +69,21 @@ export class RunebladeComponent implements IChart {
       this.updateSigil();
       this.emitChangeEvent();
     }
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+  }
+
+  render() {
+    return ([
+      <ms-chart msClass="runeblade">
+        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
+      </ms-chart>
+    ]);
   }
 
   private changeSigil(skill?: ISkill) {
@@ -153,30 +171,10 @@ export class RunebladeComponent implements IChart {
     }
   }
 
-  @Watch("extras")
-  emitChangeEvent(): void {
-    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
-  }
-
-  render() {
-    return ([
-      this.renderStyles(),
-      <ms-chart msClass="runeblade">
-        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-          onSkillclicked: (evt) => this.changeSigil(evt.detail),
-        }) }
-      </ms-chart>
-    ]);
-  }
-
-  private renderStyles() {
-    if (!this.extras) return;
-
-    return (
-      <style type="text/css">{`
-        ms-runeblade[extras] ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
-        :host([extras]) ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
-      `}</style>
-    );
+  private static getStyles(): string {
+    return `
+      ms-runeblade[extras] ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
+      :host([extras]) ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
+    `;
   }
 }

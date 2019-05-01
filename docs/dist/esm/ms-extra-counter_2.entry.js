@@ -1,4 +1,4 @@
-import { d as registerInstance, c as h, g as Host } from './maplestory-skills-9e6d6798.js';
+import { d as registerInstance, c as h, h as Host } from './maplestory-skills-2af305e6.js';
 
 class CounterComponent {
     constructor(hostRef) {

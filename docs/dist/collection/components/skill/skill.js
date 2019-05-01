@@ -1,4 +1,11 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import { h, Host, getAssetPath } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
 export class SkillComponent {
     constructor() {
         this.level = 0;
@@ -7,6 +14,7 @@ export class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
+        this.styles = SkillComponent.getStyles();
     }
     componentWillLoad() {
         if (this.level < this.skill.minLevel)
@@ -23,7 +31,6 @@ export class SkillComponent {
     }
     render() {
         return (h(Host, { passive: this.skill.passive },
-            this.renderStyles(),
             h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() },
                 h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })),
             h("div", { class: "controls" },
@@ -48,24 +55,6 @@ export class SkillComponent {
                         h("img", { src: getAssetPath(`assets/plus-wrap-hover.png`) }),
                         h("img", { src: getAssetPath(`assets/plus-wrap-active.png`) })))),
             h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
-    }
-    renderStyles() {
-        return (h("style", { type: "text/css" }, `
-        ms-skill .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
-        :host .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
-
-        ms-skill:not([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
-        :host(:not([passive])) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
-
-        ms-skill[passive] .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
-        :host([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
-
-        ms-skill[locked] .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
-        :host([locked]) .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
-
-        ms-skill[required]:after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
-        :host([required]):after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
-      `));
     }
     shouldDisableMinus() {
         return this.disabled // skill are not editable
@@ -117,6 +106,24 @@ export class SkillComponent {
             this.skillChanged();
         }
         this.showOverlay(-1);
+    }
+    static getStyles() {
+        return `
+      ms-skill .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
+      :host .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
+
+      ms-skill:not([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
+      :host(:not([passive])) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
+
+      ms-skill[passive] .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
+      :host([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
+
+      ms-skill[locked] .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
+      :host([locked]) .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
+
+      ms-skill[required]:after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
+      :host([required]):after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
+    `;
     }
     static get is() { return "ms-skill"; }
     static get encapsulation() { return "shadow"; }
@@ -351,3 +358,6 @@ export class SkillComponent {
             "methodName": "skillChanged"
         }]; }
 }
+__decorate([
+    ConstructibleStyle()
+], SkillComponent.prototype, "styles", void 0);

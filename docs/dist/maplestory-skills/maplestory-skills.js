@@ -792,5 +792,5 @@ var resourcesUrl = scriptElm ? scriptElm.getAttribute('data-resources-url') || s
 
 // Load resource
 __stencil_cssshim.initShim().then(function() {
-  System.import(new URL('./p-56298ce8.system.js', resourcesUrl).pathname);
+  System.import(new URL('./p-d84fa7b9.system.js', resourcesUrl).pathname);
 });

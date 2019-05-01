@@ -1,1 +1,0 @@
-System.register(["./p-1af9e6b4.js"],function(){"use strict";var e,t;return{setters:[function(n){e=n.a,t=n.b}],execute:function(){e().then(function(e){t(null,{resourcesUrl:e})})}}});

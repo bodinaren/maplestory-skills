@@ -14,10 +14,10 @@ export declare class SkillComponent {
     onLevelChanged: EventEmitter<number>;
     onSkillClicked: EventEmitter<ISkill>;
     private overlayLevel;
+    styles: string;
     componentWillLoad(): void;
     private skillChanged;
     render(): any;
-    private renderStyles;
     private shouldDisableMinus;
     private shouldDisablePlus;
     private showOverlay;
@@ -25,4 +25,5 @@ export declare class SkillComponent {
     private emitSkillClick;
     private plus;
     private minus;
+    private static getStyles;
 }

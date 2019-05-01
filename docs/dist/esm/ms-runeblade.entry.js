@@ -1,5 +1,6 @@
-import { d as registerInstance, e as createEvent, c as h, f as getAssetPath } from './maplestory-skills-9e6d6798.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-4912f5bb.js';
+import { d as registerInstance, e as createEvent, c as h, f as getAssetPath } from './maplestory-skills-2af305e6.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-80359bc2.js';
+import { a as ConstructibleStyle } from './chunk-e5dc872c.js';
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -628,6 +629,16 @@ const RunebladeSkills = /*#__PURE__*/Object.freeze({
   ElementalPotency: ElementalPotency
 });
 
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+        r = Reflect.decorate(decorators, target, key, desc);
+    else
+        for (var i = decorators.length - 1; i >= 0; i--)
+            if (d = decorators[i])
+                r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 class RunebladeComponent {
     constructor(hostRef) {
         registerInstance(this, hostRef);
@@ -651,6 +662,7 @@ class RunebladeComponent {
         this.stormSigil = StormSigil.minLevel;
         this.wardingRune = WardingRune.minLevel;
         this.whirlingBlades = WhirlingBlades.minLevel;
+        this.styles = RunebladeComponent.getStyles(this.extras);
         this.runebladeSkills = {};
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
@@ -752,24 +764,26 @@ class RunebladeComponent {
     }
     render() {
         return ([
-            this.renderStyles(),
             h("ms-chart", { msClass: "runeblade" }, renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
                 onSkillclicked: (evt) => this.changeSigil(evt.detail),
             }))
         ]);
     }
-    renderStyles() {
-        if (!this.extras)
+    static getStyles(extras) {
+        if (!extras)
             return;
-        return (h("style", { type: "text/css" }, `
-        ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
-        :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
-      `));
+        return `
+      ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
+      :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
+    `;
     }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }
     static get style() { return ":host{display:block}:host([extras]) ms-skill:before{position:absolute;top:2px;left:-1px;width:72px;height:84px;pointer-events:none}:host([extras][sigil=flameSigil]) ms-skill.flameSigil:not([level=\"0\"]):before,:host([extras][sigil=frostSigil]) ms-skill.frostSigil:not([level=\"0\"]):before,:host([extras][sigil=stormSigil]) ms-skill.stormSigil:not([level=\"0\"]):before,ms-skill.flameSigil:not([level=\"0\"]):hover:before,ms-skill.frostSigil:not([level=\"0\"]):hover:before,ms-skill.stormSigil:not([level=\"0\"]):hover:before{content:\"\"}"; }
 }
+__decorate([
+    ConstructibleStyle({ cacheKeyProperty: "extras" })
+], RunebladeComponent.prototype, "styles", void 0);
 
 export { RunebladeComponent as ms_runeblade };

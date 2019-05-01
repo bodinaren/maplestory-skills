@@ -1,1 +1,3 @@
-export declare function defineCustomElements(win: any, opts?: any): Promise<void>;
+
+export * from '../types/components';
+export declare function defineCustomElements(win: Window, opts?: any): Promise<void>;
