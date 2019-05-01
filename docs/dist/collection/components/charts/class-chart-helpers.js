@@ -1,14 +1,24 @@
-import { h } from "@stencil/core/app";
+import { h } from "@stencil/core";
+/**
+ * Verify that all distributed points are valid and correct incorrect ones.
+ * * If a skill has changed, but the requirements are not met, the level of the required skills will also be added.
+ * * If the skillchange resulted in a too high sum (e.g. over 68 distributed points), the points will be reduced to the maximum points available.
+ * @param chart The chart that uses this skill (usually `this`)
+ * @param classSkills All the skills for the relevant class
+ * @param skillChanged Which skill has changed, if any.
+ */
 export function processSkills(chart, classSkills, skillChanged) {
     let skills = {};
     let sum = 0;
     if (skillChanged && chart[skillChanged.prop] > 0) {
         if (skillChanged.skillRequirements) {
+            // make sure to add the minimum level to required skills
             skillChanged.skillRequirements.forEach((req) => {
                 fixRequirements(chart, req);
             });
         }
     }
+    // calculate sum and resets locked/required/limitReached
     Object.keys(classSkills).forEach((skillKey) => {
         let skill = classSkills[skillKey];
         sum += chart[skill.prop];
@@ -19,6 +29,7 @@ export function processSkills(chart, classSkills, skillChanged) {
         };
     });
     if (skillChanged && sum > (68 + 4)) {
+        // if the sum is too high, reduce the amount of points in the changedSkill to the maximum points that are available.
         chart[skillChanged.prop] -= sum - (68 + 4);
     }
     Object.keys(classSkills).forEach((skillKey) => {
@@ -26,6 +37,7 @@ export function processSkills(chart, classSkills, skillChanged) {
         if (skill.skillRequirements) {
             skill.skillRequirements.forEach((req) => {
                 if (chart[req.skill.prop] < req.level) {
+                    // the skill's requirements are not met, set back to 0.
                     skills[skill.prop].locked = true;
                     chart[skill.prop] = 0;
                 }
@@ -34,7 +46,7 @@ export function processSkills(chart, classSkills, skillChanged) {
         skills[skill.prop].limitReached = (sum >= 68 + 4);
         if (chart[skill.prop] === 0) {
             let requiredPoints = calculateRequiredPoints(chart, skill);
-            if (requiredPoints + 1 > (68 + 4) - sum) {
+            if (requiredPoints + 1 > (68 + 4) - sum) { // + 1, because we need to have any points left AFTER meeting the requirements
                 skills[skill.prop].limitReached = true;
             }
         }
@@ -53,6 +65,7 @@ export function toggleSkillRequirements(chart, skill, setActive) {
                 }
             }
         });
+        // simply a performance thing, don't trigger a re-render unless there was an actual change.
         if (didUpdate)
             chart.skills = Object.assign({}, chart.skills);
     }

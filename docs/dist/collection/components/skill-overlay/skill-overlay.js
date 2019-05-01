@@ -1,5 +1,8 @@
-import { h, getAssetPath } from "@stencil/core/app";
+import { h, getAssetPath } from "@stencil/core";
 let descriptionRegex = /\[(.*?)\]/;
+/**
+ * @private
+ */
 export class SkillOverlayComponent {
     constructor() {
         this.level = 0;

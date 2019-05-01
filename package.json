@@ -18,9 +18,9 @@
     "test.watch": "stencil test --spec --e2e --watch",
     "docs": "stencil build --docs"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@stencil/core": "^1.0.0-alpha.5"
+  "dependencies": {
+    "@stencil/core": "^1.0.0-alpha.14",
+    "typescript": "^3.4.5"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,14 @@
   "author": "Marcus Bodin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bodinaren/maplestory-skills"
+    "url": "https://github.com/bodinaren/maplestory-skills/issues"
   },
-  "homepage": "https://github.com/bodinaren/maplestory-skills"
+  "homepage": "https://github.com/bodinaren/maplestory-skills",
+  "devDependencies": {
+    "@types/jest": "23.3.14",
+    "@types/puppeteer": "1.12.2",
+    "jest": "23.6.0",
+    "jest-cli": "23.6.0",
+    "puppeteer": "1.14.0"
+  }
 }

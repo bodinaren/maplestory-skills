@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core/app";
+import { h, Host } from "@stencil/core";
 export class OutletComponent {
     constructor() {
         this._skills = { skills: [] };
@@ -22,7 +22,6 @@ export class OutletComponent {
         return (h(Host, null,
             h("slot", { name: "first" }),
             h("slot", null),
-            "$",
             this.getTag(),
             h("slot", { name: "last" })));
     }

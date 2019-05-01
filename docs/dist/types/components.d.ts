@@ -623,6 +623,7 @@ declare module "./stencil.core" {
 
 declare global {
 
+
   interface HTMLMsArcherElement extends Components.MsArcher, HTMLStencilElement {}
   var HTMLMsArcherElement: {
     prototype: HTMLMsArcherElement;

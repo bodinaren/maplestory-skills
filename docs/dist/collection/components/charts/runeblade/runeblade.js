@@ -1,4 +1,4 @@
-import { h, getAssetPath } from "@stencil/core/app";
+import { h, getAssetPath } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 export class RunebladeComponent {
@@ -27,7 +27,9 @@ export class RunebladeComponent {
     }
     componentWillLoad() {
         Object.keys(RunebladeSkills).map((prop) => {
+            // create copies of each skill so we can toggle the extras for skill attunes
             this.runebladeSkills[prop] = Object.assign({}, RunebladeSkills[prop]);
+            // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
         });
         processSkills(this, this.runebladeSkills);
         this.updateSigil();
@@ -41,7 +43,7 @@ export class RunebladeComponent {
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }
-        else {
+        else { // else, to make sure we only emit one change event
             this.updateSigil();
             this.emitChangeEvent();
         }
@@ -61,7 +63,7 @@ export class RunebladeComponent {
                 case RunebladeSkills.StormSigil.prop:
                     sigil = "stormSigil";
                     break;
-                default: return;
+                default: return; // don't do any changes if it wasn't a sigil that was clicked.
             }
         }
         if (!skill || this[skill.prop] > 0) {

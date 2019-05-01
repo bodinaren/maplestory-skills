@@ -1,4 +1,4 @@
-import { h, Host, getAssetPath } from "@stencil/core/app";
+import { h, Host, getAssetPath } from "@stencil/core";
 export class IconComponent {
     constructor() {
         this.sp = false;

@@ -1,4 +1,4 @@
-import { h } from "@stencil/core/app";
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as ArcherSkills from "../../../global/values/archer";
 export class ArcherComponent {

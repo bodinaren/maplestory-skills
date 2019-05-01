@@ -1,4 +1,4 @@
-import { h } from "@stencil/core/app";
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as StrikerSkills from "../../../global/values/striker";
 export class StrikerComponent {

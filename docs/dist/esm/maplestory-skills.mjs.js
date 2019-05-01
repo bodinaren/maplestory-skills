@@ -1,1 +1,0 @@
-import{a as f}from"./p-707d1bff.js";f(window);

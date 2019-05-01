@@ -1,4 +1,4 @@
-import { h, Host, getAssetPath } from "@stencil/core/app";
+import { h, Host, getAssetPath } from "@stencil/core";
 export class SkillComponent {
     constructor() {
         this.level = 0;
@@ -68,15 +68,17 @@ export class SkillComponent {
       `));
     }
     shouldDisableMinus() {
-        return this.disabled
-            || this.skill.minLevel === this.skill.maxLevel
-            || (!this.loop && this.level === this.skill.minLevel)
-            || (this.loop && this.limitReached && this.level === this.skill.minLevel);
+        return this.disabled // skill are not editable
+            // || this.locked // locked due to unmet requirements
+            || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
+            || (!this.loop && this.level === this.skill.minLevel) // can't decrease any further, unless we loop
+            || (this.loop && this.limitReached && this.level === this.skill.minLevel); // if we loop, only disable if we're reached the limit and is at minimum (which would make this a plus button)
     }
     shouldDisablePlus() {
-        return this.disabled
-            || this.skill.minLevel === this.skill.maxLevel
-            || (this.limitReached && (!this.loop || this.level === this.skill.minLevel));
+        return this.disabled // skill are not editable
+            // || this.locked // locked due to unmet requirements
+            || this.skill.minLevel === this.skill.maxLevel // can't progress in this skill
+            || (this.limitReached && (!this.loop || this.level === this.skill.minLevel)); // limit is reached, unless we loop, then only if we can't decrease further
     }
     showOverlay(levelOffset = 0) {
         this.overlayLevel = this.level + levelOffset;

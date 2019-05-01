@@ -1,4 +1,4 @@
-import { h } from "@stencil/core/app";
+import { h } from "@stencil/core";
 export class FooterComponent {
     render() {
         return (h("a", { href: "https://bodinaren.github.io/maplestory-skills/", target: "_blank" }, "MapleStory 2 Skill Charts"));

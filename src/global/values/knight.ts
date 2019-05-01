@@ -219,7 +219,7 @@ export const TyphoonSlash: ISkill = {
 };
 
 export const IronShield: ISkill = {
-  name: "IronShield",
+  name: "Iron Shield",
   attr: "iron-shield",
   prop: "ironShield",
   row: 3,

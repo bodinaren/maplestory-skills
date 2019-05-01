@@ -37,7 +37,7 @@ export class OutletComponent {
       <Host>
         <slot name="first"></slot>
         <slot></slot>
-        ${ this.getTag() }
+        { this.getTag() }
         <slot name="last"></slot>
       </Host>
     );

@@ -34,19 +34,23 @@ export class SkillOverlayComponent {
   }
 
   private refreshData() {
-    this.setRequirements();
-    this.setSpirit();
-    this.setCooldown();
-    this.description = this.parseDescription(this.skill);
-    this.extraDescriptions = undefined;
-    if (this.extras && this.skill.extras) {
-      this.extraDescriptions = this.skill.extras.map((extraDescription) => {
-        return this.parseDescription(extraDescription);
-      });
+    if (this.skill) {
+      this.setRequirements();
+      this.setSpirit();
+      this.setCooldown();
+      this.description = this.parseDescription(this.skill);
+      this.extraDescriptions = undefined;
+      if (this.extras && this.skill.extras) {
+        this.extraDescriptions = this.skill.extras.map((extraDescription) => {
+          return this.parseDescription(extraDescription);
+        });
+      }
     }
   }
 
   render() {
+    if (!this.skill) return;
+
     return (
       <div>
         <h1 class={ this.skill.element } style={ this.skill.element && {
