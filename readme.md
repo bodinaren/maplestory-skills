@@ -7,14 +7,14 @@ MapleStory 2 Interactive Skill Charts is a set of web components which, with ver
 [Try it out!](http://bodinaren.github.io/maplestory-skills)
 
 
-## How do I put this one my site or blog?
+## How do I put this on my site or blog?
 
 Head over to the [website](http://bodinaren.github.io/maplestory-skills) and use the editor to generate your own skill chart. Just paste the resulting code into your website or blog and you're good to go!
 
 
 ## Advanced usage (editable)
 
-So you want the editor on your site? No problem, but let's start with a fair warning. 
+So you want the editor on your site? Not a problem, my own site above use exactly these steps shown below. But first, let's start with a warning. 
 
 >This repository use semver versioning, but **only for basic charts usage**! Breaking changes to the below usages can happen between any minor version (but not patch).
 
@@ -22,11 +22,13 @@ If you want to use the editor, it's recommended to import the scripts with a min
 
 Before:
 ```html
-<script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"></script>
+<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills.esm.js" type="module"></script>
+<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills.js" nomodule></script>
 ```
 After:
 ```html
-<script src="https://unpkg.com/maplestory-skills@~1.3/dist/maplestory-skills.js"></script>
+<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills.esm.js" type="module"></script>
+<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills.js" nomodule></script>
 ```
 
 With that out of the way, you can make the skill chart editable by simply adding the attribute `editable` to the chart.
