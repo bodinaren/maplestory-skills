@@ -136,10 +136,6 @@ export interface EventEmitter<T= any> {
   emit: (data?: T) => CustomEvent<T>;
 }
 
-export interface EventListenerEnable {
-  (instance: any, eventName: string, enabled: boolean, attachTo?: string|Element, passive?: boolean): void;
-}
-
 export interface QueueApi {
   tick: (cb: RafCallback) => void;
   read: (cb: RafCallback) => void;
@@ -463,7 +459,9 @@ export namespace JSXBase {
     allowtransparency?: string | boolean;
     frameBorder?: number | string;
     frameborder?: number | string;
+    importance?: 'low' | 'auto' | 'high';
     height?: number | string;
+    loading?: 'lazy' | 'auto' | 'eager';
     marginHeight?: number;
     marginheight?: string | number;
     marginWidth?: number;
@@ -481,7 +479,9 @@ export namespace JSXBase {
   export interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
     alt?: string;
     decoding?: 'async' | 'auto' | 'sync';
+    importance?: 'low' | 'auto' | 'high';
     height?: number | string;
+    loading?: 'lazy' | 'auto' | 'eager';
     sizes?: string;
     src?: string;
     srcSet?: string;
@@ -570,6 +570,7 @@ export namespace JSXBase {
     href?: string;
     hrefLang?: string;
     hreflang?: string;
+    importance?: 'low' | 'auto' | 'high';
     integrity?: string;
     media?: string;
     rel?: string;
@@ -677,6 +678,7 @@ export namespace JSXBase {
     crossOrigin?: string;
     crossorigin?: string;
     defer?: boolean;
+    importance?: 'low' | 'auto' | 'high';
     integrity?: string;
     nonce?: string;
     src?: string;

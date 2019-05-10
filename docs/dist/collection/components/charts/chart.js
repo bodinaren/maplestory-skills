@@ -8,27 +8,26 @@ import { h, Host, getAssetPath } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
 export class ChartComponent {
     constructor() {
-        this.styles = ChartComponent.getStyles(this.msClass);
+        this.styles = ChartComponent.getStyles.bind(this, this.msClass);
     }
     componentDidLoad() {
         this.resize();
     }
     resize() {
-        let host = this.host; //getElement(this);
-        let parent = host.parentNode;
+        let parent = this.host.parentNode;
         if (parent.host)
             parent = parent.host;
         let parentWidth = parent.offsetWidth;
         let scale = parentWidth / 815;
         if (scale < 1) {
-            host.style.transform = `scale(${scale})`;
-            host.style.marginBottom = `-${770 - (770 * scale)}px`;
-            host.style.marginRight = `-${815 - (815 * scale)}px`;
+            this.host.style.transform = `scale(${scale})`;
+            this.host.style.marginBottom = `-${770 - (770 * scale)}px`;
+            this.host.style.marginRight = `-${815 - (815 * scale)}px`;
         }
         else {
-            host.style.transform = null;
-            host.style.marginBottom = null;
-            host.style.marginRight = null;
+            this.host.style.transform = null;
+            this.host.style.marginBottom = null;
+            this.host.style.marginRight = null;
         }
     }
     render() {

@@ -30,7 +30,7 @@ export namespace Components {
     'editable': boolean;
     'evasiveSalvo': number;
     'extras': boolean;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'iceArrow': number;
     'precisionShooter': number;
     'rapidShot': number;
@@ -46,7 +46,7 @@ export namespace Components {
     'extras': boolean;
     'fatalStrikes': number;
     'fragmentedStar': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'luckyStars': number;
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
@@ -72,7 +72,7 @@ export namespace Components {
     'earthquake': number;
     'editable': boolean;
     'extras': boolean;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'greatswordMastery': number;
     'groundBreaker': number;
     'inhumanEndurance': number;
@@ -102,7 +102,7 @@ export namespace Components {
     'electricBlast': number;
     'extras': boolean;
     'gatlingFire': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'homingMissiles': number;
     'jetBoots': number;
     'lockOn': number;
@@ -126,7 +126,7 @@ export namespace Components {
     'drillThrust': number;
     'editable': boolean;
     'extras': boolean;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'ironDefense': number;
     'ironShield': number;
     'longswordMastery': number;
@@ -148,7 +148,7 @@ export namespace Components {
     'disciple': number;
     'editable': boolean;
     'extras': boolean;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
@@ -173,7 +173,7 @@ export namespace Components {
     'flameSigil': number;
     'flurry': number;
     'frostSigil': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'gravityRune': number;
     'honingRunes': number;
     'illusoryBlades': number;
@@ -211,7 +211,7 @@ export namespace Components {
     'extras': boolean;
     'flashStrike': number;
     'fountOfRenewal': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'healingBond': number;
     'illusion': number;
     'lightBarrier': number;
@@ -231,7 +231,7 @@ export namespace Components {
     'extras': boolean;
     'fightingSpirit': number;
     'fistsOfFury': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'giganticBurst': number;
     'guardDash': number;
     'guillotine': number;
@@ -253,7 +253,7 @@ export namespace Components {
     'doubleSlash': number;
     'editable': boolean;
     'extras': boolean;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'haste': number;
     'mesoguardPlus': number;
     'mindBreaker': number;
@@ -279,7 +279,7 @@ export namespace Components {
     'flameTornado': number;
     'flameWave': number;
     'focusSeal': number;
-    'getData': () => Promise<import("C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'iceSpear': number;
     'iceStorm': number;
     'magicArmor': number;

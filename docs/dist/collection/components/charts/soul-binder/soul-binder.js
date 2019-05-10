@@ -414,7 +414,7 @@ export class SoulBinderComponent {
     static get methods() { return {
         "getData": {
             "complexType": {
-                "signature": "() => Promise<import(\"C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
                 "parameters": [],
                 "references": {
                     "Promise": {

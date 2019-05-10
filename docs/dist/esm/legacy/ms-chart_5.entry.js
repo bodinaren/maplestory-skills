@@ -1,5 +1,5 @@
-import { d as registerInstance, c as h, h as Host, f as getAssetPath, g as getElement, e as createEvent } from './maplestory-skills-2af305e6.js';
-import { a as ConstructibleStyle } from './chunk-e5dc872c.js';
+import { e as registerInstance, d as h, i as Host, g as getAssetPath, h as getElement, f as createEvent } from './maplestory-skills-23e6a171.js';
+import { a as ConstructibleStyle } from './chunk-8cde96f3.js';
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -13,27 +13,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var ChartComponent = /** @class */ (function () {
     function ChartComponent(hostRef) {
         registerInstance(this, hostRef);
-        this.styles = ChartComponent.getStyles(this.msClass);
+        this.styles = ChartComponent.getStyles.bind(this, this.msClass);
     }
     ChartComponent.prototype.componentDidLoad = function () {
         this.resize();
     };
     ChartComponent.prototype.resize = function () {
-        var host = this.host; //getElement(this);
-        var parent = host.parentNode;
+        var parent = this.host.parentNode;
         if (parent.host)
             parent = parent.host;
         var parentWidth = parent.offsetWidth;
         var scale = parentWidth / 815;
         if (scale < 1) {
-            host.style.transform = "scale(" + scale + ")";
-            host.style.marginBottom = "-" + (770 - (770 * scale)) + "px";
-            host.style.marginRight = "-" + (815 - (815 * scale)) + "px";
+            this.host.style.transform = "scale(" + scale + ")";
+            this.host.style.marginBottom = "-" + (770 - (770 * scale)) + "px";
+            this.host.style.marginRight = "-" + (815 - (815 * scale)) + "px";
         }
         else {
-            host.style.transform = null;
-            host.style.marginBottom = null;
-            host.style.marginRight = null;
+            this.host.style.transform = null;
+            this.host.style.marginBottom = null;
+            this.host.style.marginRight = null;
         }
     };
     ChartComponent.prototype.render = function () {
@@ -65,7 +64,7 @@ var FooterComponent = /** @class */ (function () {
         return (h("a", { href: "https://bodinaren.github.io/maplestory-skills/", target: "_blank" }, "MapleStory 2 Skill Charts"));
     };
     Object.defineProperty(FooterComponent, "style", {
-        get: function () { return ":host{font-family:Roboto;position:absolute;top:100%;right:0;text-align:center;font-size:.7em;padding:0 5px 2px;border-bottom-left-radius:3px;border-bottom-right-radius:3px;background-color:#1c1c1c;border-right:1px solid #121212;-webkit-box-shadow:inset -1px 0 #222;box-shadow:inset -1px 0 #222}:host,a{color:#fff}a{cursor:inherit}"; },
+        get: function () { return ":host{font-family:Roboto,Arial;position:absolute;top:100%;right:0;text-align:center;font-size:11.2px;padding:0 5px 2px;border-bottom-left-radius:3px;border-bottom-right-radius:3px;background-color:#1c1c1c;border-right:1px solid #121212;-webkit-box-shadow:inset -1px 0 #222;box-shadow:inset -1px 0 #222}:host,a{color:#fff}a{cursor:inherit}"; },
         enumerable: true,
         configurable: true
     });
@@ -106,11 +105,13 @@ var SkillComponent = /** @class */ (function () {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
-        this.styles = SkillComponent.getStyles();
+        this.styles = SkillComponent.getStyles.bind(this);
         this.onLevelChanged = createEvent(this, "levelchanged", 7);
         this.onSkillClicked = createEvent(this, "skillclicked", 7);
     }
     SkillComponent.prototype.componentWillLoad = function () {
+        if (!this.skill)
+            return;
         if (this.level < this.skill.minLevel)
             this.level = this.skill.minLevel;
         if (this.level > this.skill.maxLevel)
@@ -125,6 +126,8 @@ var SkillComponent = /** @class */ (function () {
     };
     SkillComponent.prototype.render = function () {
         var _this = this;
+        if (!this.skill)
+            return;
         return (h(Host, { passive: this.skill.passive }, h("div", { class: "skill", onMouseEnter: function () { return _this.showOverlay(); }, onMouseLeave: function () { return _this.hideOverlay(); }, onClick: function () { return _this.emitSkillClick(); } }, h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })), h("div", { class: "controls" }, h("div", null, h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: function () { return _this.minus(); }, onMouseEnter: function () { return _this.showOverlay(-1); }, onMouseLeave: function () { return _this.hideOverlay(); }, hidden: this.level === this.skill.minLevel && !this.loop }, h("img", { src: getAssetPath("assets/minus.png") }), h("img", { src: getAssetPath("assets/minus-hover.png") }), h("img", { src: getAssetPath("assets/minus-active.png") }), h("img", { src: getAssetPath("assets/minus-wrap.png") }), h("img", { src: getAssetPath("assets/minus-wrap-hover.png") }), h("img", { src: getAssetPath("assets/minus-wrap-active.png") }))), h("span", null, this.level, "/", this.skill.maxLevel), h("div", null, h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: function () { return _this.plus(); }, onMouseEnter: function () { return _this.showOverlay(+1); }, onMouseLeave: function () { return _this.hideOverlay(); }, hidden: this.level === this.skill.maxLevel && !this.loop }, h("img", { src: getAssetPath("assets/plus.png") }), h("img", { src: getAssetPath("assets/plus-hover.png") }), h("img", { src: getAssetPath("assets/plus-active.png") }), h("img", { src: getAssetPath("assets/plus-wrap.png") }), h("img", { src: getAssetPath("assets/plus-wrap-hover.png") }), h("img", { src: getAssetPath("assets/plus-wrap-active.png") })))), h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
     };
     SkillComponent.prototype.shouldDisableMinus = function () {
@@ -192,7 +195,7 @@ var SkillComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(SkillComponent, "style", {
-        get: function () { return ":host{height:115px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.skill,:host{display:block;width:72px}.skill{height:84px;background-repeat:no-repeat}.skill>ms-icon{display:block;position:absolute;left:14px;top:17px}.controls{display:-ms-flexbox;display:flex;width:109px;height:36px;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;margin-left:-18.5px;margin-top:-4px}.controls span{text-align:center;-ms-flex-positive:1;flex-grow:1;font-size:.9em}.controls div{margin-top:4px;width:30px}.controls div,_:-ms-lang(x){margin-top:0}:host([locked]) .skill:after{content:\"\"}:host([locked]) .skill:after,:host([required]):after{position:absolute;width:52px;height:61px;top:11px;left:10px;pointer-events:none}:host([required]):after{content:attr(required);display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;color:#ff0;font-size:.8em}ms-skill-overlay{position:absolute;margin:0 20px}:host([column=\"1\"]) ms-skill-overlay,:host([column=\"2\"]) ms-skill-overlay{left:100%}:host([column=\"3\"]) ms-skill-overlay,:host([column=\"4\"]) ms-skill-overlay{right:100%}:host([row=\"1\"]) ms-skill-overlay,:host([row=\"2\"]) ms-skill-overlay,:host([row=\"3\"]) ms-skill-overlay{top:0}:host([row=\"4\"]) ms-skill-overlay,:host([row=\"5\"]) ms-skill-overlay,:host([row=\"6\"]) ms-skill-overlay{bottom:0}:host-context(ms-chart) ms-skill-overlay.electricBlast{bottom:-100px}:host-context(ms-chart) ms-skill-overlay.magnumBlow{top:-75px}:host-context(ms-runeblade[sigil=flameSigil]) ms-skill-overlay.impact{top:-25px}:host-context(ms-runeblade[sigil=stormSigil]) ms-skill-overlay.impact{top:-50px}button{width:30px;height:33px;background:none;border:none;padding:0;outline:0;cursor:inherit}.minus img,.plus img,_:-ms-lang(x){cursor:pointer}button:active{cursor:inherit}button img{display:none}button:not([disabled]):not([hidden]){display:inline-block}button.wrap:not([disabled]):active img:nth-child(6),button.wrap:not([disabled]):not(:active):hover img:nth-child(5),button.wrap:not([disabled]):not(:active):not(:hover) img:nth-child(4),button:not(.wrap):not([disabled]):active img:nth-child(3),button:not(.wrap):not([disabled]):not(:active):hover img:nth-child(2),button:not(.wrap):not([disabled]):not(:active):not(:hover) img:first-child{display:inline}.minus{left:-1px}.plus{right:0}"; },
+        get: function () { return ":host{height:115px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.skill,:host{display:block;width:72px}.skill{height:84px;background-repeat:no-repeat}.skill>ms-icon{display:block;position:absolute;left:14px;top:17px}.controls{display:-ms-flexbox;display:flex;width:109px;height:36px;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;margin-left:-18.5px;margin-top:-4px}.controls span{text-align:center;-ms-flex-positive:1;flex-grow:1;font-size:14.4px}.controls div{margin-top:4px;width:30px}.controls div,_:-ms-lang(x){margin-top:0}:host([locked]) .skill:after{content:\"\"}:host([locked]) .skill:after,:host([required]):after{position:absolute;width:52px;height:61px;top:11px;left:10px;pointer-events:none}:host([required]):after{content:attr(required);display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;color:#ff0;font-size:12.8px}ms-skill-overlay{position:absolute;margin:0 20px}:host([column=\"1\"]) ms-skill-overlay,:host([column=\"2\"]) ms-skill-overlay{left:100%}:host([column=\"3\"]) ms-skill-overlay,:host([column=\"4\"]) ms-skill-overlay{right:100%}:host([row=\"1\"]) ms-skill-overlay,:host([row=\"2\"]) ms-skill-overlay,:host([row=\"3\"]) ms-skill-overlay{top:0}:host([row=\"4\"]) ms-skill-overlay,:host([row=\"5\"]) ms-skill-overlay,:host([row=\"6\"]) ms-skill-overlay{bottom:0}:host-context(ms-chart) ms-skill-overlay.electricBlast{bottom:-100px}:host-context(ms-chart) ms-skill-overlay.magnumBlow{top:-75px}:host-context(ms-runeblade[sigil=flameSigil]) ms-skill-overlay.impact{top:-25px}:host-context(ms-runeblade[sigil=stormSigil]) ms-skill-overlay.impact{top:-50px}button{width:30px;height:33px;background:none;border:none;padding:0;outline:0;cursor:inherit}.minus img,.plus img,_:-ms-lang(x){cursor:pointer}button:active{cursor:inherit}button img{display:none}button:not([disabled]):not([hidden]){display:inline-block}button.wrap:not([disabled]):active img:nth-child(6),button.wrap:not([disabled]):not(:active):hover img:nth-child(5),button.wrap:not([disabled]):not(:active):not(:hover) img:nth-child(4),button:not(.wrap):not([disabled]):active img:nth-child(3),button:not(.wrap):not([disabled]):not(:active):hover img:nth-child(2),button:not(.wrap):not([disabled]):not(:active):not(:hover) img:first-child{display:inline}.minus{left:-1px}.plus{right:0}"; },
         enumerable: true,
         configurable: true
     });
@@ -236,7 +239,7 @@ var SkillOverlayComponent = /** @class */ (function () {
         if (!this.skill)
             return;
         return (h("div", null, h("h1", { class: this.skill.element, style: this.skill.element && {
-                "background": "url(" + getAssetPath(this.skill.element.toLowerCase() + ".jpg") + ", " + this.getGradient(this.skill.element)
+                "background": "url(" + getAssetPath("assets/" + this.skill.element.toLowerCase() + ".jpg") + "), " + this.getGradient(this.skill.element)
             } }, this.skill.name, this.skill.element &&
             h("span", { class: "element" }, this.skill.element)), h("div", { class: "content" }, h("div", null, h("div", { class: "content-header" }, h("div", { class: "icon" }, this.skill.attr
             && h("ms-icon", { slot: "icon", name: this.skill.attr, sp: this.skill.sp })
@@ -287,16 +290,16 @@ var SkillOverlayComponent = /** @class */ (function () {
     };
     SkillOverlayComponent.prototype.getGradient = function (element) {
         switch (element.toLowerCase()) {
-            case "dark": return "linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%)";
-            case "electric": return "linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%)";
-            case "fire": return "linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%)";
-            case "holy": return "linear-gradient(to right, #3C1E04 0%, #3C1E04 60%, #7C4D01 100%)";
-            case "ice": return "linear-gradient(to right, #021835 0%, #021835 60%, #153772 100%)";
-            case "toxic": return "linear-gradient(to right, #20142C 0%, #20142C 60%, #3E1652 100%)";
+            case "dark": return "linear-gradient(to bottom, #E29CD844 0%, #E29CD844 2px, #00000000 3px), linear-gradient(to right, #2F1A2B 0%, #2F1A2B 55%, #3C1C27 100%)";
+            case "electric": return "linear-gradient(to bottom, #72E3F944 0%, #72E3F944 2px, #00000000 3px), linear-gradient(to right, #1B3439 0%, #1B3439 55%, #1A606A 100%)";
+            case "fire": return "linear-gradient(to bottom, #FF714944 0%, #FF714944 2px, #00000000 3px), linear-gradient(to right, #3E1213 0%, #3E1213 56%, #712D16 100%)";
+            case "holy": return "linear-gradient(to bottom, #FFA70F44 0%, #FFA70F44 2px, #00000000 3px), linear-gradient(to right, #4A2C12 0%, #4A2C12 60%, #865A0C 100%)";
+            case "ice": return "linear-gradient(to bottom, #77D1FF44 0%, #77D1FF44 2px, #00000000 3px), linear-gradient(to right, #132845 0%, #132845 55%, #153772 100%)";
+            case "toxic": return "linear-gradient(to bottom, #B96ADD44 0%, #B96ADD44 2px, #00000000 3px), linear-gradient(to right, #302239 0%, #302239 55%, #44235C 100%)";
         }
     };
     Object.defineProperty(SkillOverlayComponent, "style", {
-        get: function () { return ":host{color:#fff;z-index:100;width:350px;background-color:rgba(0,0,0,.9);border:1px solid #2c2c2c;pointer-events:none;font-size:.9em;border-radius:3px;overflow:hidden;-webkit-box-shadow:0 0 3px 1px #000;box-shadow:0 0 3px 1px #000}h1{text-transform:none;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;font-size:1.3em;margin:0;padding:.5em .7em;background:#1f1f1f;font-weight:400;text-shadow:1px 1px 1px #000;background-size:cover!important}h1 .element{font-size:.8em}.content{padding:10px 0 5px}.content>div,::slotted(:not(:empty)){display:block;clear:both;padding:5px 15px 5px}.content>div:not(:first-of-type){border-top:1px solid #212121}.content>div:not(:last-child){border-bottom:1px solid #000}::slotted(:not(:empty)){border-top:1px solid #212121}.content-header{display:-ms-flexbox;display:flex;margin-bottom:15px}.icon{margin-right:15px;width:44px;height:50px;background-color:#434343;position:relative;padding:2px 5px;border-radius:3px}.icon:before{content:\" \";position:absolute;top:-2px;bottom:-2px;left:-2px;right:-2px;z-index:-1;background:-webkit-gradient(linear,left top,left bottom,from(#1b1b1b),to(#343434));background:linear-gradient(180deg,#1b1b1b 0,#343434);border-radius:3px}.infoAndLevel{color:#fff;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:justify;justify-content:space-between;padding-bottom:5px}.level{font-size:1.5em}.requirements{clear:both}.requirements p:not(:first-child){color:#ecc400}.requirements p.fail{color:#ce3434}::slotted(*),p{color:#999;margin:1px 0;line-height:1.5em}.description span{color:#09c}.extras{font-style:italic}"; },
+        get: function () { return ":host{color:#fff;z-index:100;width:350px;background-color:rgba(0,0,0,.9);border:1px solid #2c2c2c;pointer-events:none;font-size:14.4px;border-radius:3px;overflow:hidden;-webkit-box-shadow:0 0 3px 1px #000;box-shadow:0 0 3px 1px #000}h1{text-transform:none;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;font-size:18.7px;margin:0;padding:.5em .7em;background:#1f1f1f;font-weight:400;text-shadow:1px 1px 1px #000;background-size:cover!important}h1 .element{font-size:15px}.content{padding:10px 0 5px}.content>div,::slotted(:not(:empty)){display:block;clear:both;padding:5px 15px 5px}.content>div:not(:first-of-type){border-top:1px solid #212121}.content>div:not(:last-child){border-bottom:1px solid #000}::slotted(:not(:empty)){border-top:1px solid #212121}.content-header{display:-ms-flexbox;display:flex;margin-bottom:15px}.icon{margin-right:15px;width:44px;height:50px;background-color:#434343;position:relative;padding:2px 5px;border-radius:3px}.icon:before{content:\" \";position:absolute;top:-2px;bottom:-2px;left:-2px;right:-2px;z-index:-1;background:-webkit-gradient(linear,left top,left bottom,from(#1b1b1b),to(#343434));background:linear-gradient(180deg,#1b1b1b 0,#343434);border-radius:3px}.infoAndLevel{color:#fff;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:justify;justify-content:space-between;padding-bottom:5px}.level{font-size:21.6px}.requirements{clear:both}.requirements p:not(:first-child){color:#ecc400}.requirements p.fail{color:#ce3434}::slotted(*),p{color:#999;margin:1px 0;line-height:1.5em}.description span{color:#09c}.extras{font-style:italic}"; },
         enumerable: true,
         configurable: true
     });

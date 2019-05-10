@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-c6e16ac8.js');
-const __chunk_2 = require('./chunk-a583bb08.js');
-const __chunk_3 = require('./chunk-4aaf0458.js');
+const __chunk_1 = require('./maplestory-skills-579dd934.js');
+const __chunk_2 = require('./chunk-a129c6d7.js');
+const __chunk_3 = require('./chunk-f10d2767.js');
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -666,7 +666,7 @@ class RunebladeComponent {
         this.stormSigil = StormSigil.minLevel;
         this.wardingRune = WardingRune.minLevel;
         this.whirlingBlades = WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles(this.extras);
+        this.styles = RunebladeComponent.getStyles.bind(this);
         this.runebladeSkills = {};
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
@@ -674,7 +674,6 @@ class RunebladeComponent {
         Object.keys(RunebladeSkills).map((prop) => {
             // create copies of each skill so we can toggle the extras for skill attunes
             this.runebladeSkills[prop] = Object.assign({}, RunebladeSkills[prop]);
-            // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
         });
         __chunk_2.processSkills(this, this.runebladeSkills);
         this.updateSigil();
@@ -692,6 +691,16 @@ class RunebladeComponent {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    }
+    emitChangeEvent() {
+        this.onSkillChanged.emit(__chunk_2.toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+    }
+    render() {
+        return ([
+            __chunk_1.h("ms-chart", { msClass: "runeblade" }, __chunk_2.renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+                onSkillclicked: (evt) => this.changeSigil(evt.detail),
+            }))
+        ]);
     }
     changeSigil(skill) {
         if (!this.extras)
@@ -763,19 +772,7 @@ class RunebladeComponent {
             });
         }
     }
-    emitChangeEvent() {
-        this.onSkillChanged.emit(__chunk_2.toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
-    }
-    render() {
-        return ([
-            __chunk_1.h("ms-chart", { msClass: "runeblade" }, __chunk_2.renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-                onSkillclicked: (evt) => this.changeSigil(evt.detail),
-            }))
-        ]);
-    }
-    static getStyles(extras) {
-        if (!extras)
-            return;
+    static getStyles() {
         return `
       ms-runeblade[extras] ms-skill:before { background: url(${__chunk_1.getAssetPath(`assets/skill-shield-selected.png`)}) }
       :host([extras]) ms-skill:before { background: url(${__chunk_1.getAssetPath(`assets/skill-shield-selected.png`)}) }

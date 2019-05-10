@@ -14,9 +14,11 @@ export class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
-        this.styles = SkillComponent.getStyles();
+        this.styles = SkillComponent.getStyles.bind(this);
     }
     componentWillLoad() {
+        if (!this.skill)
+            return;
         if (this.level < this.skill.minLevel)
             this.level = this.skill.minLevel;
         if (this.level > this.skill.maxLevel)
@@ -30,6 +32,8 @@ export class SkillComponent {
         this.onLevelChanged.emit(this.level);
     }
     render() {
+        if (!this.skill)
+            return;
         return (h(Host, { passive: this.skill.passive },
             h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() },
                 h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })),

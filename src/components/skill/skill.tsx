@@ -31,6 +31,8 @@ export class SkillComponent {
   @ConstructibleStyle() styles = SkillComponent.getStyles.bind(this);
 
   componentWillLoad() {
+    if (!this.skill) return;
+
     if (this.level < this.skill.minLevel) this.level = this.skill.minLevel;
     if (this.level > this.skill.maxLevel) this.level = this.skill.maxLevel;
 
@@ -44,6 +46,8 @@ export class SkillComponent {
   }
 
   render() {
+    if (!this.skill) return;
+
     return (
       <Host passive={ this.skill.passive }>
         <div class="skill"

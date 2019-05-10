@@ -30,14 +30,13 @@ export class RunebladeComponent {
         this.stormSigil = RunebladeSkills.StormSigil.minLevel;
         this.wardingRune = RunebladeSkills.WardingRune.minLevel;
         this.whirlingBlades = RunebladeSkills.WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles(this.extras);
+        this.styles = RunebladeComponent.getStyles.bind(this);
         this.runebladeSkills = {};
     }
     componentWillLoad() {
         Object.keys(RunebladeSkills).map((prop) => {
             // create copies of each skill so we can toggle the extras for skill attunes
             this.runebladeSkills[prop] = Object.assign({}, RunebladeSkills[prop]);
-            // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
         });
         processSkills(this, this.runebladeSkills);
         this.updateSigil();
@@ -55,6 +54,16 @@ export class RunebladeComponent {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    }
+    emitChangeEvent() {
+        this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+    }
+    render() {
+        return ([
+            h("ms-chart", { msClass: "runeblade" }, renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+                onSkillclicked: (evt) => this.changeSigil(evt.detail),
+            }))
+        ]);
     }
     changeSigil(skill) {
         if (!this.extras)
@@ -126,19 +135,7 @@ export class RunebladeComponent {
             });
         }
     }
-    emitChangeEvent() {
-        this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
-    }
-    render() {
-        return ([
-            h("ms-chart", { msClass: "runeblade" }, renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-                onSkillclicked: (evt) => this.changeSigil(evt.detail),
-            }))
-        ]);
-    }
-    static getStyles(extras) {
-        if (!extras)
-            return;
+    static getStyles() {
         return `
       ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
       :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
@@ -541,7 +538,7 @@ export class RunebladeComponent {
     static get methods() { return {
         "getData": {
             "complexType": {
-                "signature": "() => Promise<import(\"C:/Users/Marcus/Dropbox/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
                 "parameters": [],
                 "references": {
                     "Promise": {

@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { RunebladeComponent } from "./runeblade";
-// import { FlameSigil } from "../../../global/values/runeblade";
+import { FlameSigil } from "../../../global/values/runeblade";
 
 describe("ms-runeblade", () => {
   it("renders", async () => {
@@ -12,79 +12,62 @@ describe("ms-runeblade", () => {
     expect(page.root).toHaveClass("hydrated");
   });
 
-  // describe("extras", () => {
-  //   describe("sigils", () => {
+  describe("extras", () => {
+    describe("sigils", () => {
 
-  //     it("can select sigil with a extras and level", async () => {
-  //       const page = await newE2EPage();
+      it("can select sigil with a extras and level", async () => {
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade extras="true" flame-sigil="1"></ms-runeblade>`,
+        });
 
-  //       await page.setContent("<ms-runeblade></ms-runeblade>");
-  //       const runeblade = await page.find("ms-runeblade");
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-  //       await page.$eval("ms-runeblade", (elm: any) => {
-  //         elm.extras = true;
-  //         elm.flameSigil = 1;
-  //       });
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
+          detail: FlameSigil,
+        }));
 
-  //       await page.waitForChanges();
+        await page.waitForChanges();
 
-  //       const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
+        expect(runeblade).toEqualAttribute("sigil", "flameSigil");
+      });
 
-  //       flameSigil.triggerEvent("skillclicked", {
-  //         detail: FlameSigil,
-  //       });
+      it("cannot select sigil without a level", async () => {
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade extras="true"></ms-runeblade>`,
+        });
 
-  //       await page.waitForChanges();
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-  //       expect(runeblade).toEqualAttribute("sigil", "flameSigil");
-  //     });
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
+          detail: FlameSigil,
+        }));
 
-  //     it("cannot select sigil without extras", async () => {
-  //       const page = await newE2EPage();
+        await page.waitForChanges();
 
-  //       await page.setContent("<ms-runeblade></ms-runeblade>");
-  //       const runeblade = await page.find("ms-runeblade");
+        expect(runeblade).toEqualAttribute("sigil", "");
+      });
 
-  //       await page.$eval("ms-runeblade", (elm: any) => {
-  //         elm.flameSigil = 1;
-  //       });
+      it("cannot select sigil without extras", async () => {
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade flame-sigil="1"></ms-runeblade>`,
+        });
 
-  //       await page.waitForChanges();
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-  //       const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
+          detail: FlameSigil,
+        }));
 
-  //       flameSigil.triggerEvent("skillclicked", {
-  //         detail: FlameSigil,
-  //       });
+        await page.waitForChanges();
 
-  //       await page.waitForChanges();
-
-  //       expect(runeblade).toEqualAttribute("sigil", "");
-  //     });
-
-  //     it("cannot select sigil without a level", async () => {
-  //       const page = await newE2EPage();
-
-  //       await page.setContent("<ms-runeblade></ms-runeblade>");
-  //       const runeblade = await page.find("ms-runeblade");
-
-  //       await page.$eval("ms-runeblade", (elm: any) => {
-  //         elm.editable = true;
-  //         elm.extras = true;
-  //       });
-
-  //       await page.waitForChanges();
-
-  //       const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
-
-  //       flameSigil.triggerEvent("skillclicked", {
-  //         detail: FlameSigil,
-  //       });
-
-  //       await page.waitForChanges();
-
-  //       expect(runeblade).toEqualAttribute("sigil", "");
-  //     });
-  //   });
-  // });
+        expect(runeblade).toEqualAttribute("sigil", "");
+      });
+    });
+  });
 });

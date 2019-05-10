@@ -1,14 +1,6 @@
 import { h, Host, Component, Prop, Listen, getAssetPath, Element } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
 
-
-declare global {
-  export interface CSSStyleSheet {
-    replaceSync(cssText: string): void;
-    replace(cssText: string): Promise<CSSStyleSheet>;
-  }
-}
-
 @Component({
   tag: "ms-chart",
   styleUrls: ["chart.css"],

@@ -33,23 +33,4 @@ export const config: Config = {
       serviceWorker: null
     }
   ],
-  testing: {
-  //   // (\\__tests__\\.*|\.(test|spec|e2e))\.(tsx?|ts?|jsx?|js?)$
-  //   // testRegex: "(\\__tests__\\.*|\.(test|spec|e2e))\.(tsx?|ts?)$",
-  //   testMatch: [ "**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)" ],
-  //   verbose: true,
-    // "transform": {
-    //   "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
-    // },
-    // "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    // testMatch: [ "**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)" ],
-    // "moduleFileExtensions": [
-    //   "ts",
-    //   "tsx",
-    //   "js",
-    //   "json",
-    //   "jsx"
-    // ],
-    // verbose: true,
-  }
 };

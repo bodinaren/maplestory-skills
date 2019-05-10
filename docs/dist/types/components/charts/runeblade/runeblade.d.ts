@@ -25,14 +25,14 @@ export declare class RunebladeComponent implements IChart {
     whirlingBlades: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
-    styles: string;
+    styles: any;
     private runebladeSkills;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
-    private changeSigil;
-    private updateSigil;
     emitChangeEvent(): void;
     render(): any[];
+    private changeSigil;
+    private updateSigil;
     private static getStyles;
 }

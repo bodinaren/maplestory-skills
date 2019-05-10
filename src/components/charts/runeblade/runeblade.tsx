@@ -46,7 +46,6 @@ export class RunebladeComponent implements IChart {
     Object.keys(RunebladeSkills).map((prop) => {
       // create copies of each skill so we can toggle the extras for skill attunes
       this.runebladeSkills[prop] = { ...RunebladeSkills[prop] };
-      // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
     });
 
     processSkills(this, this.runebladeSkills);

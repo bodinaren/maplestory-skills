@@ -54,7 +54,7 @@ export class SkillOverlayComponent {
     return (
       <div>
         <h1 class={ this.skill.element } style={ this.skill.element && {
-          "background": `url(${ getAssetPath(this.skill.element.toLowerCase() + `.jpg`) }, ${ this.getGradient(this.skill.element) }`
+          "background": `url(${ getAssetPath(`assets/${ this.skill.element.toLowerCase() }.jpg`) }), ${ this.getGradient(this.skill.element) }`
         }}>
           { this.skill.name }
           { this.skill.element &&
@@ -165,15 +165,15 @@ export class SkillOverlayComponent {
 
     return desc;
   }
-
+  
   private getGradient(element: string): string {
     switch (element.toLowerCase()) {
-      case "dark":     return "linear-gradient(to right, #1F0A1B 0%, #1F0A1B 60%, #3D1620 100%)";
-      case "electric": return "linear-gradient(to right, #0A262A 0%, #0A262A 60%, #135764 100%)";
-      case "fire":     return "linear-gradient(to right, #3A0803 0%, #3A0803 60%, #6E2A11 100%)";
-      case "holy":     return "linear-gradient(to right, #3C1E04 0%, #3C1E04 60%, #7C4D01 100%)";
-      case "ice":      return "linear-gradient(to right, #021835 0%, #021835 60%, #153772 100%)";
-      case "toxic":    return "linear-gradient(to right, #20142C 0%, #20142C 60%, #3E1652 100%)";
+      case "dark":     return "linear-gradient(to bottom, #E29CD844 0%, #E29CD844 2px, #00000000 3px), linear-gradient(to right, #2F1A2B 0%, #2F1A2B 55%, #3C1C27 100%)";
+      case "electric": return "linear-gradient(to bottom, #72E3F944 0%, #72E3F944 2px, #00000000 3px), linear-gradient(to right, #1B3439 0%, #1B3439 55%, #1A606A 100%)";
+      case "fire":     return "linear-gradient(to bottom, #FF714944 0%, #FF714944 2px, #00000000 3px), linear-gradient(to right, #3E1213 0%, #3E1213 56%, #712D16 100%)";
+      case "holy":     return "linear-gradient(to bottom, #FFA70F44 0%, #FFA70F44 2px, #00000000 3px), linear-gradient(to right, #4A2C12 0%, #4A2C12 60%, #865A0C 100%)";
+      case "ice":      return "linear-gradient(to bottom, #77D1FF44 0%, #77D1FF44 2px, #00000000 3px), linear-gradient(to right, #132845 0%, #132845 55%, #153772 100%)";
+      case "toxic":    return "linear-gradient(to bottom, #B96ADD44 0%, #B96ADD44 2px, #00000000 3px), linear-gradient(to right, #302239 0%, #302239 55%, #44235C 100%)";
     }
   }
 }
