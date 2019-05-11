@@ -4,8 +4,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { h, Host, getAssetPath } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../global/utils";
 export class SkillComponent {
     constructor() {
         this.level = 0;
@@ -40,24 +41,24 @@ export class SkillComponent {
             h("div", { class: "controls" },
                 h("div", null,
                     h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop },
-                        h("img", { src: getAssetPath(`assets/minus.png`) }),
-                        h("img", { src: getAssetPath(`assets/minus-hover.png`) }),
-                        h("img", { src: getAssetPath(`assets/minus-active.png`) }),
-                        h("img", { src: getAssetPath(`assets/minus-wrap.png`) }),
-                        h("img", { src: getAssetPath(`assets/minus-wrap-hover.png`) }),
-                        h("img", { src: getAssetPath(`assets/minus-wrap-active.png`) }))),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus-hover.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus-active.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus-wrap.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus-wrap-hover.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/minus-wrap-active.png`) }))),
                 h("span", null,
                     this.level,
                     "/",
                     this.skill.maxLevel),
                 h("div", null,
                     h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop },
-                        h("img", { src: getAssetPath(`assets/plus.png`) }),
-                        h("img", { src: getAssetPath(`assets/plus-hover.png`) }),
-                        h("img", { src: getAssetPath(`assets/plus-active.png`) }),
-                        h("img", { src: getAssetPath(`assets/plus-wrap.png`) }),
-                        h("img", { src: getAssetPath(`assets/plus-wrap-hover.png`) }),
-                        h("img", { src: getAssetPath(`assets/plus-wrap-active.png`) })))),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus-hover.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus-active.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus-wrap.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus-wrap-hover.png`) }),
+                        h("img", { src: getOptimizedAssetPath(`assets/plus-wrap-active.png`) })))),
             h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
     }
     shouldDisableMinus() {
@@ -113,20 +114,20 @@ export class SkillComponent {
     }
     static getStyles() {
         return `
-      ms-skill .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
-      :host .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
+      ms-skill .controls { background-image: url(${getOptimizedAssetPath(`assets/skill-bar.png`)}); }
+      :host .controls { background-image: url(${getOptimizedAssetPath(`assets/skill-bar.png`)}); }
 
-      ms-skill:not([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
-      :host(:not([passive])) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
+      ms-skill:not([passive]) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield.png`)}); }
+      :host(:not([passive])) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield.png`)}); }
 
-      ms-skill[passive] .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
-      :host([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
+      ms-skill[passive] .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield-passive.png`)}); }
+      :host([passive]) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield-passive.png`)}); }
 
-      ms-skill[locked] .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
-      :host([locked]) .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
+      ms-skill[locked] .skill:after { background-image: url(${getOptimizedAssetPath(`assets/skill-locked.png`)}); }
+      :host([locked]) .skill:after { background-image: url(${getOptimizedAssetPath(`assets/skill-locked.png`)}); }
 
-      ms-skill[required]:after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
-      :host([required]):after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
+      ms-skill[required]:after { background-image: url(${getOptimizedAssetPath(`assets/skill-overlay.png`)}); }
+      :host([required]):after { background-image: url(${getOptimizedAssetPath(`assets/skill-overlay.png`)}); }
     `;
     }
     static get is() { return "ms-skill"; }

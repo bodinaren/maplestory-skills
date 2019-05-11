@@ -1,6 +1,6 @@
-import { e as registerInstance, f as createEvent, d as h, g as getAssetPath } from './maplestory-skills-23e6a171.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-6cf4cee8.js';
-import { a as ConstructibleStyle } from './chunk-8cde96f3.js';
+import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -770,8 +770,8 @@ class RunebladeComponent {
     }
     static getStyles() {
         return `
-      ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
-      :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
+      ms-runeblade[extras] ms-skill:before { background: url(${getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
+      :host([extras]) ms-skill:before { background: url(${getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
     `;
     }
     static get watchers() { return {

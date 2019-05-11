@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-579dd934.js');
 const __chunk_2 = require('./chunk-a129c6d7.js');
-const __chunk_3 = require('./chunk-f10d2767.js');
+const __chunk_3 = require('./chunk-eb191b26.js');
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -774,8 +774,8 @@ class RunebladeComponent {
     }
     static getStyles() {
         return `
-      ms-runeblade[extras] ms-skill:before { background: url(${__chunk_1.getAssetPath(`assets/skill-shield-selected.png`)}) }
-      :host([extras]) ms-skill:before { background: url(${__chunk_1.getAssetPath(`assets/skill-shield-selected.png`)}) }
+      ms-runeblade[extras] ms-skill:before { background: url(${__chunk_3.getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
+      :host([extras]) ms-skill:before { background: url(${__chunk_3.getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
     `;
     }
     static get watchers() { return {

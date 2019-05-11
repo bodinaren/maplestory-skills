@@ -1,9 +1,10 @@
-import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, getAssetPath } from "@stencil/core";
-import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { getOptimizedAssetPath } from "../../../global/utils";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
 import * as RunebladeSkills from "../../../global/values/runeblade";
-import { ConstructibleStyle } from "stencil-constructible-style";
 
 @Component({
   tag: "ms-runeblade",
@@ -172,8 +173,8 @@ export class RunebladeComponent implements IChart {
 
   private static getStyles(): string {
     return `
-      ms-runeblade[extras] ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
-      :host([extras]) ms-skill:before { background: url(${ getAssetPath(`assets/skill-shield-selected.png`) }) }
+      ms-runeblade[extras] ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
+      :host([extras]) ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
     `;
   }
 }

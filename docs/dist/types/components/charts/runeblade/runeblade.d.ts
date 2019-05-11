@@ -1,6 +1,6 @@
 import { EventEmitter } from "..\..\..\stencil.core";
-import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { IChart, IChartSkills } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
 export declare class RunebladeComponent implements IChart {
     editable: boolean;

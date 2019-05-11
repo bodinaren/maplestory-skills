@@ -1,5 +1,6 @@
-import { h, Host, Component, Prop, Listen, getAssetPath, Element } from "@stencil/core";
+import { h, Host, Component, Prop, Listen, Element, getAssetPath } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../global/utils";
 
 @Component({
   tag: "ms-chart",
@@ -7,6 +8,8 @@ import { ConstructibleStyle } from "stencil-constructible-style";
   shadow: true
 })
 export class ChartComponent {
+
+  private _hasWebp: boolean;
 
   @Prop() msClass: string;
 
@@ -28,9 +31,9 @@ export class ChartComponent {
     let scale = parentWidth / 815;
 
     if (scale < 1) {
-      this.host.style.transform = `scale(${ scale })`;
-      this.host.style.marginBottom = `-${ 770 - (770 * scale) }px`;
-      this.host.style.marginRight = `-${ 815 - (815 * scale) }px`;
+      this.host.style.transform = `scale(${scale})`;
+      this.host.style.marginBottom = `-${770 - (770 * scale)}px`;
+      this.host.style.marginRight = `-${815 - (815 * scale)}px`;
     } else {
       this.host.style.transform = null;
       this.host.style.marginBottom = null;
@@ -40,11 +43,11 @@ export class ChartComponent {
 
   render() {
     return (
-      <Host>
+      <Host class={{ "hasWebp": this._hasWebp }}>
         <ms-footer></ms-footer>
         <div class="chart">
           <div class="class-icon">
-            <div class={ "chart-class " + this.msClass }>
+            <div class={"chart-class " + this.msClass}>
               <slot></slot>
             </div>
           </div>
@@ -56,25 +59,25 @@ export class ChartComponent {
   private static getStyles(msClass: string): string {
     return `
       ms-chart {
-        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
       }
       ms-chart:active {
-        cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
       }
       :host, :host(:hover), ms-chart {
-        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
       }
       :host(:active) {
-        cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
       }
       .chart {
-        background-image: url(${ getAssetPath(`assets/charts/chart.jpg`) });
+        background-image: url(${ getAssetPath(`assets/charts/chart.jpg`)});
       }
       .class-icon {
-        background-image: url(${ getAssetPath(`assets/charts/${ msClass }-icon.png`) })
+        background-image: url(${ getAssetPath(`assets/charts/${msClass}-icon.png`)})
       }
       .chart-class {
-        background-image: url(${ getAssetPath(`assets/charts/${ msClass }-lines.png`) });
+        background-image: url(${ getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
       }
     `;
   }

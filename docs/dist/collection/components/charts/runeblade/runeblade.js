@@ -4,10 +4,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { h, getAssetPath } from "@stencil/core";
+import { h } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../../global/utils";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as RunebladeSkills from "../../../global/values/runeblade";
-import { ConstructibleStyle } from "stencil-constructible-style";
 export class RunebladeComponent {
     constructor() {
         this.editable = false;
@@ -137,8 +138,8 @@ export class RunebladeComponent {
     }
     static getStyles() {
         return `
-      ms-runeblade[extras] ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
-      :host([extras]) ms-skill:before { background: url(${getAssetPath(`assets/skill-shield-selected.png`)}) }
+      ms-runeblade[extras] ms-skill:before { background: url(${getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
+      :host([extras]) ms-skill:before { background: url(${getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
     `;
     }
     static get is() { return "ms-runeblade"; }

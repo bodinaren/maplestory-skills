@@ -1,5 +1,5 @@
-import { e as registerInstance, d as h, i as Host, g as getAssetPath, h as getElement, f as createEvent } from './maplestory-skills-23e6a171.js';
-import { a as ConstructibleStyle } from './chunk-8cde96f3.js';
+import { e as registerInstance, d as h, h as Host, i as getAssetPath, g as getElement, f as createEvent } from './maplestory-skills-ce472e77.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
 
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -37,7 +37,7 @@ class ChartComponent {
         }
     }
     render() {
-        return (h(Host, null, h("ms-footer", null), h("div", { class: "chart" }, h("div", { class: "class-icon" }, h("div", { class: "chart-class " + this.msClass }, h("slot", null))))));
+        return (h(Host, { class: { "hasWebp": this._hasWebp } }, h("ms-footer", null), h("div", { class: "chart" }, h("div", { class: "class-icon" }, h("div", { class: "chart-class " + this.msClass }, h("slot", null))))));
     }
     static getStyles(msClass) {
         return `
@@ -60,7 +60,7 @@ class ChartComponent {
         background-image: url(${getAssetPath(`assets/charts/${msClass}-icon.png`)})
       }
       .chart-class {
-        background-image: url(${getAssetPath(`assets/charts/${msClass}-lines.png`)});
+        background-image: url(${getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
       }
     `;
     }
@@ -87,8 +87,8 @@ class IconComponent {
         this.sp = false;
     }
     render() {
-        return (h(Host, null, h("img", { src: getAssetPath(`assets/skills/${this.name}.png`) }), this.sp &&
-            h("img", { src: getAssetPath(`assets/sp.png`) })));
+        return (h(Host, null, h("img", { src: getOptimizedAssetPath(`assets/skills/${this.name}.png`) }), this.sp &&
+            h("img", { src: getOptimizedAssetPath(`assets/sp.png`) })));
     }
     static get style() { return ":host{display:-ms-inline-flexbox;display:inline-flex;position:relative;width:43px;height:50px;-ms-flex-pack:center;justify-content:center}img:nth-of-type(2){position:absolute;bottom:1px;left:-4px}"; }
 }
@@ -134,7 +134,7 @@ class SkillComponent {
     render() {
         if (!this.skill)
             return;
-        return (h(Host, { passive: this.skill.passive }, h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() }, h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })), h("div", { class: "controls" }, h("div", null, h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop }, h("img", { src: getAssetPath(`assets/minus.png`) }), h("img", { src: getAssetPath(`assets/minus-hover.png`) }), h("img", { src: getAssetPath(`assets/minus-active.png`) }), h("img", { src: getAssetPath(`assets/minus-wrap.png`) }), h("img", { src: getAssetPath(`assets/minus-wrap-hover.png`) }), h("img", { src: getAssetPath(`assets/minus-wrap-active.png`) }))), h("span", null, this.level, "/", this.skill.maxLevel), h("div", null, h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop }, h("img", { src: getAssetPath(`assets/plus.png`) }), h("img", { src: getAssetPath(`assets/plus-hover.png`) }), h("img", { src: getAssetPath(`assets/plus-active.png`) }), h("img", { src: getAssetPath(`assets/plus-wrap.png`) }), h("img", { src: getAssetPath(`assets/plus-wrap-hover.png`) }), h("img", { src: getAssetPath(`assets/plus-wrap-active.png`) })))), h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
+        return (h(Host, { passive: this.skill.passive }, h("div", { class: "skill", onMouseEnter: () => this.showOverlay(), onMouseLeave: () => this.hideOverlay(), onClick: () => this.emitSkillClick() }, h("ms-icon", { name: this.skill.attr, sp: this.skill.sp })), h("div", { class: "controls" }, h("div", null, h("button", { class: { "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }, disabled: this.shouldDisableMinus(), onClick: () => this.minus(), onMouseEnter: () => this.showOverlay(-1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.minLevel && !this.loop }, h("img", { src: getOptimizedAssetPath(`assets/minus.png`) }), h("img", { src: getOptimizedAssetPath(`assets/minus-hover.png`) }), h("img", { src: getOptimizedAssetPath(`assets/minus-active.png`) }), h("img", { src: getOptimizedAssetPath(`assets/minus-wrap.png`) }), h("img", { src: getOptimizedAssetPath(`assets/minus-wrap-hover.png`) }), h("img", { src: getOptimizedAssetPath(`assets/minus-wrap-active.png`) }))), h("span", null, this.level, "/", this.skill.maxLevel), h("div", null, h("button", { class: { "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }, disabled: this.shouldDisablePlus(), onClick: () => this.plus(), onMouseEnter: () => this.showOverlay(+1), onMouseLeave: () => this.hideOverlay(), hidden: this.level === this.skill.maxLevel && !this.loop }, h("img", { src: getOptimizedAssetPath(`assets/plus.png`) }), h("img", { src: getOptimizedAssetPath(`assets/plus-hover.png`) }), h("img", { src: getOptimizedAssetPath(`assets/plus-active.png`) }), h("img", { src: getOptimizedAssetPath(`assets/plus-wrap.png`) }), h("img", { src: getOptimizedAssetPath(`assets/plus-wrap-hover.png`) }), h("img", { src: getOptimizedAssetPath(`assets/plus-wrap-active.png`) })))), h("ms-skill-overlay", { hidden: !this.overlayLevel, skill: this.skill, extras: this.extras, level: this.overlayLevel || 1, class: this.skill.prop })));
     }
     shouldDisableMinus() {
         return this.disabled // skill are not editable
@@ -189,20 +189,20 @@ class SkillComponent {
     }
     static getStyles() {
         return `
-      ms-skill .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
-      :host .controls { background-image: url(${getAssetPath(`assets/skill-bar.png`)}); }
+      ms-skill .controls { background-image: url(${getOptimizedAssetPath(`assets/skill-bar.png`)}); }
+      :host .controls { background-image: url(${getOptimizedAssetPath(`assets/skill-bar.png`)}); }
 
-      ms-skill:not([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
-      :host(:not([passive])) .skill { background-image: url(${getAssetPath(`assets/skill-shield.png`)}); }
+      ms-skill:not([passive]) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield.png`)}); }
+      :host(:not([passive])) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield.png`)}); }
 
-      ms-skill[passive] .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
-      :host([passive]) .skill { background-image: url(${getAssetPath(`assets/skill-shield-passive.png`)}); }
+      ms-skill[passive] .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield-passive.png`)}); }
+      :host([passive]) .skill { background-image: url(${getOptimizedAssetPath(`assets/skill-shield-passive.png`)}); }
 
-      ms-skill[locked] .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
-      :host([locked]) .skill:after { background-image: url(${getAssetPath(`assets/skill-locked.png`)}); }
+      ms-skill[locked] .skill:after { background-image: url(${getOptimizedAssetPath(`assets/skill-locked.png`)}); }
+      :host([locked]) .skill:after { background-image: url(${getOptimizedAssetPath(`assets/skill-locked.png`)}); }
 
-      ms-skill[required]:after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
-      :host([required]):after { background-image: url(${getAssetPath(`assets/skill-overlay.png`)}); }
+      ms-skill[required]:after { background-image: url(${getOptimizedAssetPath(`assets/skill-overlay.png`)}); }
+      :host([required]):after { background-image: url(${getOptimizedAssetPath(`assets/skill-overlay.png`)}); }
     `;
     }
     static get watchers() { return {

@@ -1,13 +1,14 @@
-import { h, Host, getAssetPath } from "@stencil/core";
+import { h, Host } from "@stencil/core";
+import { getOptimizedAssetPath } from "../../global/utils";
 export class IconComponent {
     constructor() {
         this.sp = false;
     }
     render() {
         return (h(Host, null,
-            h("img", { src: getAssetPath(`assets/skills/${this.name}.png`) }),
+            h("img", { src: getOptimizedAssetPath(`assets/skills/${this.name}.png`) }),
             this.sp &&
-                h("img", { src: getAssetPath(`assets/sp.png`) })));
+                h("img", { src: getOptimizedAssetPath(`assets/sp.png`) })));
     }
     static get is() { return "ms-icon"; }
     static get encapsulation() { return "shadow"; }

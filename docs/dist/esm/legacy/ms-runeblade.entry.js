@@ -33,9 +33,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h, g as getAssetPath } from './maplestory-skills-23e6a171.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-6cf4cee8.js';
-import { a as ConstructibleStyle } from './chunk-8cde96f3.js';
+import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
 var RuneBalance = {
     name: "Rune Balance",
     attr: "rune-balance",
@@ -628,7 +628,7 @@ var RunebladeComponent = /** @class */ (function () {
         }
     };
     RunebladeComponent.getStyles = function () {
-        return "\n      ms-runeblade[extras] ms-skill:before { background: url(" + getAssetPath("assets/skill-shield-selected.png") + ") }\n      :host([extras]) ms-skill:before { background: url(" + getAssetPath("assets/skill-shield-selected.png") + ") }\n    ";
+        return "\n      ms-runeblade[extras] ms-skill:before { background: url(" + getOptimizedAssetPath("assets/skill-shield-selected.png") + ") }\n      :host([extras]) ms-skill:before { background: url(" + getOptimizedAssetPath("assets/skill-shield-selected.png") + ") }\n    ";
     };
     Object.defineProperty(RunebladeComponent, "watchers", {
         get: function () {

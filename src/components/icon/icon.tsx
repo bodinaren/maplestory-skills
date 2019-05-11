@@ -1,4 +1,5 @@
-import { h, Host, Component, Prop, getAssetPath } from "@stencil/core";
+import { h, Host, Component, Prop } from "@stencil/core";
+import { getOptimizedAssetPath } from "../../global/utils";
 
 @Component({
   tag: "ms-icon",
@@ -13,9 +14,9 @@ export class IconComponent {
   render() {
     return (
       <Host>
-        <img src={ getAssetPath(`assets/skills/${this.name}.png`) } />
+        <img src={ getOptimizedAssetPath(`assets/skills/${this.name}.png`) } />
         { this.sp &&
-          <img src={ getAssetPath(`assets/sp.png`) } />
+          <img src={ getOptimizedAssetPath(`assets/sp.png`) } />
         }
       </Host>
     );

@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { h, Host, getAssetPath } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../global/utils";
 export class ChartComponent {
     constructor() {
         this.styles = ChartComponent.getStyles.bind(this, this.msClass);
@@ -31,7 +32,7 @@ export class ChartComponent {
         }
     }
     render() {
-        return (h(Host, null,
+        return (h(Host, { class: { "hasWebp": this._hasWebp } },
             h("ms-footer", null),
             h("div", { class: "chart" },
                 h("div", { class: "class-icon" },
@@ -59,7 +60,7 @@ export class ChartComponent {
         background-image: url(${getAssetPath(`assets/charts/${msClass}-icon.png`)})
       }
       .chart-class {
-        background-image: url(${getAssetPath(`assets/charts/${msClass}-lines.png`)});
+        background-image: url(${getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
       }
     `;
     }
