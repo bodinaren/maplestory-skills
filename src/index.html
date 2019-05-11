@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -99,17 +99,17 @@
       dl {
         padding-left: 10px;
       }
-      dl div {
+      dl > * {
         border-left: 3px solid #ccc;
         padding: 3px 0 3px 20px;
       }
-      dl div:not(:first-child) { margin-top: 15px; }
+      dl dt:not(:first-child) { margin-top: 15px; }
       dl dt {
         font-weight: bold;
-        margin-bottom: 5px;
       }
       dl dd {
         margin-left: 0;
+        margin-bottom: 5px;
       }
       dl pre {
         margin-left: 20px;
@@ -298,12 +298,11 @@
 
       <h2 id="faq">FAQ</h2>
       <dl>
-        <div>
-          <dt>The skill charts are too big/small!</dt>
-          <dd>
-            The chart automatically adjust to the size of it's container,
-            but if you still wish to change the size you can do so with CSS transformations.
-            <pre>
+        <dt>The skill charts are too big/small!</dt>
+        <dd>
+          The chart automatically adjust to the size of it's container,
+          but if you still wish to change the size you can do so with CSS transformations.
+          <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner, ms-knight,
 ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
 {
@@ -312,23 +311,18 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
   margin-bottom: calc(-770px * 0.2);  /* to remove empty space at the bottom, or */
   margin-right: calc(-815px * 0.2);   /* if you use "top left" for transform-origin */
 }</pre>
-          </dd>
-        </div>
+        </dd>
 
-        <div>
-          <dt>Can I let the user change the skills on my site too?</dt>
-          <dd>
-            Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
-          </dd>
-        </div>
+        <dt>Can I let the user change the skills on my site too?</dt>
+        <dd>
+          Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
+        </dd>
 
-        <div>
-          <dt>Found a bug or have other questions?</dt>
-          <dd>
-            Don't hesitate to open a new issue in the
-            <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>.
-          </dd>
-        </div>
+        <dt>Found a bug or have other questions?</dt>
+        <dd>
+          Don't hesitate to open a new issue in the
+          <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>.
+        </dd>
       </dl>
     </div>
 
