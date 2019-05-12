@@ -1,7 +1,6 @@
-import '../../../stencil.core';
-import { EventEmitter } from "../../../stencil.core";
-import { IChart, IChartSkills } from "../class-chart-helpers";
+import { EventEmitter } from "..\..\..\stencil.core";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { IChart, IChartSkills } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
 export declare class RunebladeComponent implements IChart {
     editable: boolean;
@@ -24,16 +23,16 @@ export declare class RunebladeComponent implements IChart {
     stormSigil: number;
     wardingRune: number;
     whirlingBlades: number;
-    private publicPath;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
+    styles: any;
     private runebladeSkills;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    emitChangeEvent(): void;
+    render(): any[];
     private changeSigil;
     private updateSigil;
-    emitChangeEvent(): void;
-    render(): JSX.Element[];
-    private renderStyles;
+    private static getStyles;
 }

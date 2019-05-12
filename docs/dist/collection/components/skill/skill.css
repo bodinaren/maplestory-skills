@@ -32,7 +32,7 @@
 .controls span {
   text-align: center;
   flex-grow: 1;
-  font-size: .9em;
+  font-size: 14.4px;
 }
 .controls div {
   margin-top: 4px;
@@ -62,7 +62,7 @@ _:-ms-lang(x), .controls div { margin-top: 0px; } /* not sure why IE/Edge need t
   justify-content: center;
   align-items: center;
   color: yellow;
-  font-size: .8em;
+  font-size: 12.8px;
 }
 
 ms-skill-overlay {

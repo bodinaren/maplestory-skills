@@ -1,4 +1,3 @@
-import '../../../stencil.core';
 import { ISkillChangeEvent } from "../../charts/skill-change-event";
 export declare class OutletComponent {
     editor: string;
@@ -6,9 +5,9 @@ export declare class OutletComponent {
     _skills: ISkillChangeEvent;
     _tagName: string;
     componentDidLoad(): void;
-    render(): JSX.Element[];
+    render(): any;
     private getTag;
     private getProperties;
 }
-declare type ClassEditorHTMLElement = HTMLMsArcherElement | HTMLMsAssassinElement | HTMLMsBerserkerElement | HTMLMsHeavyGunnerElement | HTMLMsKnightElement | HTMLMsPriestElement | HTMLMsRunebladeElement | HTMLMsThiefElement | HTMLMsWizardElement;
+declare type ClassEditorHTMLElement = HTMLMsArcherElement | HTMLMsAssassinElement | HTMLMsBerserkerElement | HTMLMsHeavyGunnerElement | HTMLMsKnightElement | HTMLMsPriestElement | HTMLMsRunebladeElement | HTMLMsSoulBinderElement | HTMLMsStrikerElement | HTMLMsThiefElement | HTMLMsWizardElement;
 export {};

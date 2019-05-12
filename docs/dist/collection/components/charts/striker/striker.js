@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as StrikerSkills from "../../../global/values/striker";
 export class StrikerComponent {
@@ -41,115 +42,398 @@ export class StrikerComponent {
     }
     static get is() { return "ms-striker"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["striker.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["striker.css"]
+    }; }
     static get properties() { return {
-        "beatdown": {
-            "type": Number,
-            "attr": "beatdown",
-            "mutable": true
-        },
-        "dragonKick": {
-            "type": Number,
-            "attr": "dragon-kick",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "beatdown": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "beatdown",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.Beatdown.minLevel"
+        },
+        "dragonKick": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dragon-kick",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.DragonKick.minLevel"
         },
         "fightingSpirit": {
-            "type": Number,
-            "attr": "fighting-spirit",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "fighting-spirit",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.FightingSpirit.minLevel"
         },
         "fistsOfFury": {
-            "type": Number,
-            "attr": "fists-of-fury",
-            "mutable": true
-        },
-        "getData": {
-            "method": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "fists-of-fury",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.FistsOfFury.minLevel"
         },
         "giganticBurst": {
-            "type": Number,
-            "attr": "gigantic-burst",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "gigantic-burst",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.GiganticBurst.minLevel"
         },
         "guardDash": {
-            "type": Number,
-            "attr": "guard-dash",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "guard-dash",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.GuardDash.minLevel"
         },
         "guillotine": {
-            "type": Number,
-            "attr": "guillotine",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "guillotine",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.Guillotine.minLevel"
         },
         "hurricaneCutter": {
-            "type": Number,
-            "attr": "hurricane-cutter",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "hurricane-cutter",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.HurricaneCutter.minLevel"
         },
         "kickTechnician": {
-            "type": Number,
-            "attr": "kick-technician",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "kick-technician",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.KickTechnician.minLevel"
         },
         "knuckleMissile": {
-            "type": Number,
-            "attr": "knuckle-missile",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "knuckle-missile",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.KnuckleMissile.minLevel"
         },
         "magnumBlow": {
-            "type": Number,
-            "attr": "magnum-blow",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "magnum-blow",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.MagnumBlow.minLevel"
         },
         "maharPunch": {
-            "type": Number,
-            "attr": "mahar-punch",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mahar-punch",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.MaharPunch.minLevel"
         },
         "overcome": {
-            "type": Number,
-            "attr": "overcome",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "overcome",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.Overcome.minLevel"
         },
         "paceControl": {
-            "type": Number,
-            "attr": "pace-control",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "pace-control",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.PaceControl.minLevel"
         },
         "patternBreak": {
-            "type": Number,
-            "attr": "pattern-break",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "pattern-break",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.PatternBreak.minLevel"
         },
         "powerPuncher": {
-            "type": Number,
-            "attr": "power-puncher",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "power-puncher",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.PowerPuncher.minLevel"
         },
         "risingKick": {
-            "type": Number,
-            "attr": "rising-kick",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rising-kick",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.RisingKick.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-striker:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

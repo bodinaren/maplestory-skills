@@ -1,4 +1,4 @@
-import { Component, Prop, State } from "@stencil/core";
+import { h, Host, Component, Prop, State } from "@stencil/core";
 import { ISkillChangeEvent } from "../../charts/skill-change-event";
 
 @Component({
@@ -14,7 +14,7 @@ export class OutletComponent {
   @State() _tagName: string;
 
   componentDidLoad() {
-    let el = document.getElementById(this.editor) as HTMLStencilElement;
+    let el = document.getElementById(this.editor) as any;
     if (!el) {
       el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-soul-binder,ms-striker,ms-thief,ms-wizard");
     }
@@ -33,12 +33,14 @@ export class OutletComponent {
   render() {
     if (!this._editor) return;
 
-    return [
-      <slot name="first"></slot>,
-      <slot></slot>,
-      this.getTag(),
-      <slot name="last"></slot>
-    ];
+    return (
+      <Host>
+        <slot name="first"></slot>
+        <slot></slot>
+        { this.getTag() }
+        <slot name="last"></slot>
+      </Host>
+    );
   }
 
   private getTag() {
@@ -75,5 +77,7 @@ type ClassEditorHTMLElement =
   HTMLMsKnightElement |
   HTMLMsPriestElement |
   HTMLMsRunebladeElement |
+  HTMLMsSoulBinderElement |
+  HTMLMsStrikerElement |
   HTMLMsThiefElement |
   HTMLMsWizardElement;

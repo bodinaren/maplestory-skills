@@ -17,16 +17,19 @@ export const config: Config = {
     { components: ["ms-wizard"] },
     { components: ["ms-extra-outlet", "ms-extra-counter"] },
   ],
-  copy: [
-    { src: "assets", dest: "build/maplestory-skills/assets" },
-    { src: "../docs/assets", dest: "assets" },
-  ],
   outputTargets: [
     {
       type: "dist",
+      // copy: [
+      //   { src: "assets", dest: "build/assets" },
+      // ]
     },
     {
       type: "www",
+      copy: [
+        { src: "../docs/assets", dest: "assets" },
+        { src: "assets", dest: "build/assets" },
+      ],
       serviceWorker: null
     }
   ],

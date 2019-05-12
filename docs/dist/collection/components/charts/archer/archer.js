@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as ArcherSkills from "../../../global/values/archer";
 export class ArcherComponent {
@@ -43,115 +44,398 @@ export class ArcherComponent {
     }
     static get is() { return "ms-archer"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["archer.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["archer.css"]
+    }; }
     static get properties() { return {
-        "agileArcher": {
-            "type": Number,
-            "attr": "agile-archer",
-            "mutable": true
-        },
-        "arrowBarrage": {
-            "type": Number,
-            "attr": "arrow-barrage",
-            "mutable": true
-        },
-        "arrowStorm": {
-            "type": Number,
-            "attr": "arrow-storm",
-            "mutable": true
-        },
-        "arrowStream": {
-            "type": Number,
-            "attr": "arrow-stream",
-            "mutable": true
-        },
-        "bowSwing": {
-            "type": Number,
-            "attr": "bow-swing",
-            "mutable": true
-        },
-        "bronzeEagle": {
-            "type": Number,
-            "attr": "bronze-eagle",
-            "mutable": true
-        },
-        "conditioning": {
-            "type": Number,
-            "attr": "conditioning",
-            "mutable": true
-        },
-        "eagleClaw": {
-            "type": Number,
-            "attr": "eagle-claw",
-            "mutable": true
-        },
-        "eagleGlide": {
-            "type": Number,
-            "attr": "eagle-glide",
-            "mutable": true
-        },
-        "eaglesMajesty": {
-            "type": Number,
-            "attr": "eagles-majesty",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
-        },
-        "evasiveSalvo": {
-            "type": Number,
-            "attr": "evasive-salvo",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
         },
-        "getData": {
-            "method": true
+        "agileArcher": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "agile-archer",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.AgileArcher.minLevel"
+        },
+        "arrowBarrage": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "arrow-barrage",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ArrowBarrage.minLevel"
+        },
+        "arrowStorm": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "arrow-storm",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ArrowStorm.minLevel"
+        },
+        "arrowStream": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "arrow-stream",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ArrowStream.minLevel"
+        },
+        "bowSwing": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "bow-swing",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.BowSwing.minLevel"
+        },
+        "bronzeEagle": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "bronze-eagle",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.BronzeEagle.minLevel"
+        },
+        "conditioning": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "conditioning",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.Conditioning.minLevel"
+        },
+        "eagleClaw": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "eagle-claw",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.EagleClaw.minLevel"
+        },
+        "eagleGlide": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "eagle-glide",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.EagleGlide.minLevel"
+        },
+        "eaglesMajesty": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "eagles-majesty",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.EaglesMajesty.minLevel"
+        },
+        "evasiveSalvo": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "evasive-salvo",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.EvasiveSalvo.minLevel"
         },
         "iceArrow": {
-            "type": Number,
-            "attr": "ice-arrow",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ice-arrow",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.IceArrow.minLevel"
         },
         "precisionShooter": {
-            "type": Number,
-            "attr": "precision-shooter",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "precision-shooter",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.PrecisionShooter.minLevel"
         },
         "rapidShot": {
-            "type": Number,
-            "attr": "rapid-shot",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rapid-shot",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.RapidShot.minLevel"
         },
         "screwdriverShot": {
-            "type": Number,
-            "attr": "screwdriver-shot",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "screwdriver-shot",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ScrewdriverShot.minLevel"
         },
         "sharpEyes": {
-            "type": Number,
-            "attr": "sharp-eyes",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "sharp-eyes",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.SharpEyes.minLevel"
         },
         "snipe": {
-            "type": Number,
-            "attr": "snipe",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "snipe",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.Snipe.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-archer:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

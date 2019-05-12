@@ -208,7 +208,7 @@ export const TyphoonSlash = {
   `,
 };
 export const IronShield = {
-    name: "IronShield",
+    name: "Iron Shield",
     attr: "iron-shield",
     prop: "ironShield",
     row: 3,

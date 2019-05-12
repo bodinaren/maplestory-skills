@@ -1,32 +1,13 @@
-import { newE2EPage } from "@stencil/core/testing";
+import { newSpecPage } from "@stencil/core/testing";
+import { WizardComponent } from "./wizard";
 
 describe("ms-wizard", () => {
   it("renders", async () => {
-    const page = await newE2EPage();
+    const page = await newSpecPage({
+      components: [WizardComponent],
+      html: `<ms-wizard></ms-wizard>`,
+    });
 
-    await page.setContent("<ms-wizard></ms-wizard>");
-    const element = await page.find("ms-wizard");
-    expect(element).toHaveClass("hydrated");
+    expect(page.root).toHaveClass("hydrated");
   });
-
-  // it("renders changes to the name data", async () => {
-  //   const page = await newE2EPage();
-
-  //   await page.setContent("<my-component></my-component>");
-  //   const component = await page.find("my-component");
-  //   const element = await page.find("my-component >>> div");
-  //   expect(element.textContent).toEqual(`Hello, World! I'm `);
-
-  //   component.setProperty("first", "James");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James`);
-
-  //   component.setProperty("last", "Quincy");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Quincy`);
-
-  //   component.setProperty("middle", "Earl");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Earl Quincy`);
-  // });
 });

@@ -1,6 +1,8 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
-import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { getOptimizedAssetPath } from "../../../global/utils";
+import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
 import * as RunebladeSkills from "../../../global/values/runeblade";
 
@@ -33,11 +35,11 @@ export class RunebladeComponent implements IChart {
   @Prop({ mutable: true }) wardingRune: number = RunebladeSkills.WardingRune.minLevel;
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeSkills.WhirlingBlades.minLevel;
 
-  @Prop({ context: "publicPath" }) private publicPath: string;
-
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
+
+  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles.bind(this);
 
   private runebladeSkills: { [prop: string]: ISkill } = {};
 
@@ -45,7 +47,6 @@ export class RunebladeComponent implements IChart {
     Object.keys(RunebladeSkills).map((prop) => {
       // create copies of each skill so we can toggle the extras for skill attunes
       this.runebladeSkills[prop] = { ...RunebladeSkills[prop] };
-      // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
     });
 
     processSkills(this, this.runebladeSkills);
@@ -68,6 +69,21 @@ export class RunebladeComponent implements IChart {
       this.updateSigil();
       this.emitChangeEvent();
     }
+  }
+
+  @Watch("extras")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+  }
+
+  render() {
+    return ([
+      <ms-chart msClass="runeblade">
+        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
+      </ms-chart>
+    ]);
   }
 
   private changeSigil(skill?: ISkill) {
@@ -155,30 +171,10 @@ export class RunebladeComponent implements IChart {
     }
   }
 
-  @Watch("extras")
-  emitChangeEvent(): void {
-    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
-  }
-
-  render() {
-    return ([
-      this.renderStyles(),
-      <ms-chart msClass="runeblade">
-        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-          onSkillclicked: (evt) => this.changeSigil(evt.detail),
-        }) }
-      </ms-chart>
-    ]);
-  }
-
-  private renderStyles(): JSX.Element {
-    if (!this.extras) return;
-
-    return (
-      <style type="text/css">{`
-        ms-runeblade[extras] ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-      `}</style>
-    );
+  private static getStyles(): string {
+    return `
+      ms-runeblade[extras] ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
+      :host([extras]) ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
+    `;
   }
 }

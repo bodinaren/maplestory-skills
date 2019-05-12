@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as WizardSkills from "../../../global/values/wizard";
 export class WizardComponent {
@@ -41,115 +42,398 @@ export class WizardComponent {
     }
     static get is() { return "ms-wizard"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["wizard.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["wizard.css"]
+    }; }
     static get properties() { return {
-        "arcaneBlast": {
-            "type": Number,
-            "attr": "arcane-blast",
-            "mutable": true
-        },
-        "chainLightning": {
-            "type": Number,
-            "attr": "chain-lightning",
-            "mutable": true
-        },
-        "cryomancy": {
-            "type": Number,
-            "attr": "cryomancy",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
-        },
-        "electromancy": {
-            "type": Number,
-            "attr": "electromancy",
-            "mutable": true
-        },
-        "elementalMaster": {
-            "type": Number,
-            "attr": "elemental-master",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "arcaneBlast": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "arcane-blast",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ArcaneBlast.minLevel"
+        },
+        "chainLightning": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "chain-lightning",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ChainLightning.minLevel"
+        },
+        "cryomancy": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "cryomancy",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Cryomancy.minLevel"
+        },
+        "electromancy": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "electromancy",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Electromancy.minLevel"
+        },
+        "elementalMaster": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "elemental-master",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ElementalMaster.minLevel"
         },
         "flameTornado": {
-            "type": Number,
-            "attr": "flame-tornado",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flame-tornado",
+            "reflect": false,
+            "defaultValue": "WizardSkills.FlameTornado.minLevel"
         },
         "flameWave": {
-            "type": Number,
-            "attr": "flame-wave",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flame-wave",
+            "reflect": false,
+            "defaultValue": "WizardSkills.FlameWave.minLevel"
         },
         "focusSeal": {
-            "type": Number,
-            "attr": "focus-seal",
-            "mutable": true
-        },
-        "getData": {
-            "method": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "focus-seal",
+            "reflect": false,
+            "defaultValue": "WizardSkills.FocusSeal.minLevel"
         },
         "iceSpear": {
-            "type": Number,
-            "attr": "ice-spear",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ice-spear",
+            "reflect": false,
+            "defaultValue": "WizardSkills.IceSpear.minLevel"
         },
         "iceStorm": {
-            "type": Number,
-            "attr": "ice-storm",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ice-storm",
+            "reflect": false,
+            "defaultValue": "WizardSkills.IceStorm.minLevel"
         },
         "magicArmor": {
-            "type": Number,
-            "attr": "magic-armor",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "magic-armor",
+            "reflect": false,
+            "defaultValue": "WizardSkills.MagicArmor.minLevel"
         },
         "manaClaw": {
-            "type": Number,
-            "attr": "mana-claw",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mana-claw",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ManaClaw.minLevel"
         },
         "manaFont": {
-            "type": Number,
-            "attr": "mana-font",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mana-font",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ManaFont.minLevel"
         },
         "phantomClaw": {
-            "type": Number,
-            "attr": "phantom-claw",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "phantom-claw",
+            "reflect": false,
+            "defaultValue": "WizardSkills.PhantomClaw.minLevel"
         },
         "pyromancy": {
-            "type": Number,
-            "attr": "pyromancy",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "pyromancy",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Pyromancy.minLevel"
         },
         "teleport": {
-            "type": Number,
-            "attr": "teleport",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "teleport",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Teleport.minLevel"
         },
         "thunderbolt": {
-            "type": Number,
-            "attr": "thunderbolt",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "thunderbolt",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Thunderbolt.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-wizard:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

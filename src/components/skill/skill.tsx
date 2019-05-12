@@ -1,5 +1,7 @@
-import { Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { h, Host, Component, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
+import { getOptimizedAssetPath } from "../../global/utils";
 
 @Component({
   tag: "ms-skill",
@@ -22,14 +24,16 @@ export class SkillComponent {
   @Prop() disabled: boolean = true;
   @Prop() loop: boolean = false;
 
-  @Prop({ context: "publicPath" }) private publicPath: string;
-
   @Event({ eventName: "levelchanged" }) onLevelChanged: EventEmitter<number>;
   @Event({ eventName: "skillclicked" }) onSkillClicked: EventEmitter<ISkill>;
 
   @State() private overlayLevel: number;
 
+  @ConstructibleStyle() styles = SkillComponent.getStyles.bind(this);
+
   componentWillLoad() {
+    if (!this.skill) return;
+
     if (this.level < this.skill.minLevel) this.level = this.skill.minLevel;
     if (this.level > this.skill.maxLevel) this.level = this.skill.maxLevel;
 
@@ -42,77 +46,57 @@ export class SkillComponent {
     this.onLevelChanged.emit(this.level);
   }
 
-  hostData() { return { "passive": this.skill.passive }; }
-
   render() {
-    return [
-      this.renderStyles(),
-      <div class="skill"
-           onMouseEnter={ () => this.showOverlay() }
-           onMouseLeave={ () => this.hideOverlay() }
-           onClick={ () => this.emitSkillClick() }>
-        <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
-      </div>,
-      <div class="controls">
-        <div>
-          <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
-                  disabled={ this.shouldDisableMinus() }
-                  onClick={ () => this.minus() }
-                  onMouseEnter={ () => this.showOverlay(-1) }
-                  onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.minLevel && !this.loop }>
-            <img src={ `${ this.publicPath }assets/minus.png` } />
-            <img src={ `${ this.publicPath }assets/minus-hover.png` } />
-            <img src={ `${ this.publicPath }assets/minus-active.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap-hover.png` } />
-            <img src={ `${ this.publicPath }assets/minus-wrap-active.png` } />
-          </button>
-        </div>
-        <span>{ this.level }/{ this.skill.maxLevel }</span>
-        <div>
-          <button class={{ "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }}
-                  disabled={ this.shouldDisablePlus() }
-                  onClick={ () => this.plus() }
-                  onMouseEnter={ () => this.showOverlay(+1) }
-                  onMouseLeave={ () => this.hideOverlay() }
-                  hidden={ this.level === this.skill.maxLevel && !this.loop }>
-            <img src={ `${ this.publicPath }assets/plus.png` } />
-            <img src={ `${ this.publicPath }assets/plus-hover.png` } />
-            <img src={ `${ this.publicPath }assets/plus-active.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap-hover.png` } />
-            <img src={ `${ this.publicPath }assets/plus-wrap-active.png` } />
-          </button>
-        </div>
-      </div>,
-      <ms-skill-overlay hidden={ !this.overlayLevel }
-                        skill={ this.skill }
-                        extras={ this.extras }
-                        level={ this.overlayLevel || 1 }
-                        class={ this.skill.prop }>
-      </ms-skill-overlay>,
-    ];
-  }
+    if (!this.skill) return;
 
-  private renderStyles(): JSX.Element {
     return (
-      <style type="text/css">{`
-        ms-skill .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
-        :host .controls { background-image: url(${ this.publicPath }assets/skill-bar.png); }
-
-        ms-skill:not([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
-        :host(:not([passive])) .skill { background-image: url(${ this.publicPath }assets/skill-shield.png); }
-
-        ms-skill[passive] .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
-        :host([passive]) .skill { background-image: url(${ this.publicPath }assets/skill-shield-passive.png); }
-
-        ms-skill[locked] .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
-        :host([locked]) .skill:after { background-image: url(${ this.publicPath }assets/skill-locked.png); }
-
-        ms-skill[required]:after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
-        :host([required]):after { background-image: url(${ this.publicPath }assets/skill-overlay.png); }
-      `}</style>
+      <Host passive={ this.skill.passive }>
+        <div class="skill"
+            onMouseEnter={ () => this.showOverlay() }
+            onMouseLeave={ () => this.hideOverlay() }
+            onClick={ () => this.emitSkillClick() }>
+          <ms-icon name={ this.skill.attr } sp={ this.skill.sp }></ms-icon>
+        </div>
+        <div class="controls">
+          <div>
+            <button class={{ "minus": true, "wrap": this.loop && this.level === this.skill.minLevel }}
+                    disabled={ this.shouldDisableMinus() }
+                    onClick={ () => this.minus() }
+                    onMouseEnter={ () => this.showOverlay(-1) }
+                    onMouseLeave={ () => this.hideOverlay() }
+                    hidden={ this.level === this.skill.minLevel && !this.loop }>
+              <img src={ getOptimizedAssetPath(`assets/minus.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/minus-hover.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/minus-active.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/minus-wrap.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/minus-wrap-hover.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/minus-wrap-active.png`) } />
+            </button>
+          </div>
+          <span>{ this.level }/{ this.skill.maxLevel }</span>
+          <div>
+            <button class={{ "plus": true, "wrap": this.loop && (this.level === this.skill.maxLevel || this.limitReached) }}
+                    disabled={ this.shouldDisablePlus() }
+                    onClick={ () => this.plus() }
+                    onMouseEnter={ () => this.showOverlay(+1) }
+                    onMouseLeave={ () => this.hideOverlay() }
+                    hidden={ this.level === this.skill.maxLevel && !this.loop }>
+              <img src={ getOptimizedAssetPath(`assets/plus.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/plus-hover.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/plus-active.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/plus-wrap.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/plus-wrap-hover.png`) } />
+              <img src={ getOptimizedAssetPath(`assets/plus-wrap-active.png`) } />
+            </button>
+          </div>
+        </div>
+        <ms-skill-overlay hidden={ !this.overlayLevel }
+                          skill={ this.skill }
+                          extras={ this.extras }
+                          level={ this.overlayLevel || 1 }
+                          class={ this.skill.prop }>
+        </ms-skill-overlay>
+      </Host>
     );
   }
 
@@ -170,5 +154,25 @@ export class SkillComponent {
     }
     this.showOverlay(-1);
   }
+  
+  private static getStyles(): string {
+    return `
+      ms-skill .controls { background-image: url(${ getOptimizedAssetPath(`assets/skill-bar.png`) }); }
+      :host .controls { background-image: url(${ getOptimizedAssetPath(`assets/skill-bar.png`) }); }
+
+      ms-skill:not([passive]) .skill { background-image: url(${ getOptimizedAssetPath(`assets/skill-shield.png`) }); }
+      :host(:not([passive])) .skill { background-image: url(${ getOptimizedAssetPath(`assets/skill-shield.png`) }); }
+
+      ms-skill[passive] .skill { background-image: url(${ getOptimizedAssetPath(`assets/skill-shield-passive.png`) }); }
+      :host([passive]) .skill { background-image: url(${ getOptimizedAssetPath(`assets/skill-shield-passive.png`) }); }
+
+      ms-skill[locked] .skill:after { background-image: url(${ getOptimizedAssetPath(`assets/skill-locked.png`) }); }
+      :host([locked]) .skill:after { background-image: url(${ getOptimizedAssetPath(`assets/skill-locked.png`) }); }
+
+      ms-skill[required]:after { background-image: url(${ getOptimizedAssetPath(`assets/skill-overlay.png`) }); }
+      :host([required]):after { background-image: url(${ getOptimizedAssetPath(`assets/skill-overlay.png`) }); }
+    `;
+  }
+
 }
 

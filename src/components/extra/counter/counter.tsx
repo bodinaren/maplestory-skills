@@ -13,7 +13,7 @@ export class CounterComponent {
   @State() _pointsLeft: number = 68;
 
   componentDidLoad() {
-    let el = document.getElementById(this.editor) as HTMLStencilElement;
+    let el = document.getElementById(this.editor) as HTMLMsExtraCounterElement;
     if (!el) {
       el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-soul-binder,ms-striker,ms-thief,ms-wizard");
     }

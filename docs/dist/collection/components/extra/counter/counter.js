@@ -25,15 +25,26 @@ export class CounterComponent {
     static get is() { return "ms-extra-counter"; }
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
-        "_editor": {
-            "state": true
-        },
-        "_pointsLeft": {
-            "state": true
-        },
         "editor": {
-            "type": String,
-            "attr": "editor"
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editor",
+            "reflect": false
         }
+    }; }
+    static get states() { return {
+        "_editor": {},
+        "_pointsLeft": {}
     }; }
 }

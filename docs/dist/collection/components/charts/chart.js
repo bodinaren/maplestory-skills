@@ -1,4 +1,16 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+import { h, Host, getAssetPath } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../global/utils";
 export class ChartComponent {
+    constructor() {
+        this.styles = ChartComponent.getStyles.bind(this, this.msClass);
+    }
     componentDidLoad() {
         this.resize();
     }
@@ -20,58 +32,74 @@ export class ChartComponent {
         }
     }
     render() {
-        return [
-            this.renderStyles(),
+        return (h(Host, { class: { "hasWebp": this._hasWebp } },
             h("ms-footer", null),
             h("div", { class: "chart" },
                 h("div", { class: "class-icon" },
                     h("div", { class: "chart-class " + this.msClass },
-                        h("slot", null))))
-        ];
+                        h("slot", null))))));
     }
-    renderStyles() {
-        return (h("style", { type: "text/css" }, `
-        ms-chart {
-          cursor: url(${this.publicPath}assets/cursor.png) 5 8, auto;
-        }
-        ms-chart:active {
-          cursor: url(${this.publicPath}assets/cursor-down.png) 5 8, auto;
-        }
-        :host, :host(:hover), ms-chart {
-          cursor: url(${this.publicPath}assets/cursor.png) 5 8, auto;
-        }
-        :host(:active) {
-          cursor: url(${this.publicPath}assets/cursor-down.png) 5 8, auto;
-        }
-        .chart {
-          background-image: url(${this.publicPath}assets/charts/chart.jpg);
-        }
-        .class-icon {
-          background-image: url(${this.publicPath}assets/charts/${this.msClass}-icon.png)
-        }
-        .chart-class {
-          background-image: url(${this.publicPath}assets/charts/${this.msClass}-lines.png);
-        }
-      `));
+    static getStyles(msClass) {
+        return `
+      ms-chart {
+        cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+      }
+      ms-chart:active {
+        cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+      }
+      :host, :host(:hover), ms-chart {
+        cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+      }
+      :host(:active) {
+        cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+      }
+      .chart {
+        background-image: url(${getAssetPath(`assets/charts/chart.jpg`)});
+      }
+      .class-icon {
+        background-image: url(${getAssetPath(`assets/charts/${msClass}-icon.png`)})
+      }
+      .chart-class {
+        background-image: url(${getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
+      }
+    `;
     }
     static get is() { return "ms-chart"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["chart.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["chart.css"]
+    }; }
     static get properties() { return {
-        "host": {
-            "elementRef": true
-        },
         "msClass": {
-            "type": String,
-            "attr": "ms-class"
-        },
-        "publicPath": {
-            "context": "publicPath"
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ms-class",
+            "reflect": false
         }
     }; }
+    static get elementRef() { return "host"; }
     static get listeners() { return [{
-            "name": "window:resize",
+            "name": "resize",
             "method": "resize",
+            "target": "window",
+            "capture": false,
             "passive": true
         }]; }
-    static get style() { return "/**style-placeholder:ms-chart:**/"; }
 }
+__decorate([
+    ConstructibleStyle({ cacheKeyProperty: "msClass" })
+], ChartComponent.prototype, "styles", void 0);

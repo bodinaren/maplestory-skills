@@ -1,12 +1,12 @@
 
 :host {
-  font-family: Roboto;
+  font-family: Roboto, Arial;
   position: absolute;
   top: 100%;
   right: 0px;
   color: white;
   text-align: center;
-  font-size: .7em;
+  font-size: 11.2px;
   padding: 0 5px 2px;
 
   border-bottom-left-radius: 3px;

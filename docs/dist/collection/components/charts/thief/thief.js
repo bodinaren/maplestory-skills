@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as ThiefSkills from "../../../global/values/thief";
 export class ThiefComponent {
@@ -41,115 +42,398 @@ export class ThiefComponent {
     }
     static get is() { return "ms-thief"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["thief.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["thief.css"]
+    }; }
     static get properties() { return {
-        "bladeDance": {
-            "type": Number,
-            "attr": "blade-dance",
-            "mutable": true
-        },
-        "cunningTactics": {
-            "type": Number,
-            "attr": "cunning-tactics",
-            "mutable": true
-        },
-        "deftCombatant": {
-            "type": Number,
-            "attr": "deft-combatant",
-            "mutable": true
-        },
-        "doubleSlash": {
-            "type": Number,
-            "attr": "double-slash",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
         },
-        "getData": {
-            "method": true
+        "bladeDance": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blade-dance",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.BladeDance.minLevel"
+        },
+        "cunningTactics": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "cunning-tactics",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.CunningTactics.minLevel"
+        },
+        "deftCombatant": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "deft-combatant",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.DeftCombatant.minLevel"
+        },
+        "doubleSlash": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "double-slash",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.DoubleSlash.minLevel"
         },
         "haste": {
-            "type": Number,
-            "attr": "haste",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "haste",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.Haste.minLevel"
         },
         "mesoguardPlus": {
-            "type": Number,
-            "attr": "mesoguard-plus",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mesoguard-plus",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.MesoguardPlus.minLevel"
         },
         "mindBreaker": {
-            "type": Number,
-            "attr": "mind-breaker",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mind-breaker",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.MindBreaker.minLevel"
         },
         "mindStealer": {
-            "type": Number,
-            "attr": "mind-stealer",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mind-stealer",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.MindStealer.minLevel"
         },
         "poisonEdge": {
-            "type": Number,
-            "attr": "poison-edge",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "poison-edge",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.PoisonEdge.minLevel"
         },
         "poisonVial": {
-            "type": Number,
-            "attr": "poison-vial",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "poison-vial",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.PoisonVial.minLevel"
         },
         "quickStep": {
-            "type": Number,
-            "attr": "quick-step",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "quick-step",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.QuickStep.minLevel"
         },
         "retaliation": {
-            "type": Number,
-            "attr": "retaliation",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "retaliation",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.Retaliation.minLevel"
         },
         "ruthlessGuile": {
-            "type": Number,
-            "attr": "ruthless-guile",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ruthless-guile",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.RuthlessGuile.minLevel"
         },
         "somersaultKick": {
-            "type": Number,
-            "attr": "somersault-kick",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "somersault-kick",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.SomersaultKick.minLevel"
         },
         "spiritThief": {
-            "type": Number,
-            "attr": "spirit-thief",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spirit-thief",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.SpiritThief.minLevel"
         },
         "surpriseAttack": {
-            "type": Number,
-            "attr": "surprise-attack",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "surprise-attack",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.SurpriseAttack.minLevel"
         },
         "viciousCuts": {
-            "type": Number,
-            "attr": "vicious-cuts",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "vicious-cuts",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.ViciousCuts.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-thief:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

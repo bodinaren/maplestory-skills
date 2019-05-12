@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as SoulBinderSkills from "../../../global/values/soul-binder";
 export class SoulBinderComponent {
@@ -41,115 +42,398 @@ export class SoulBinderComponent {
     }
     static get is() { return "ms-soul-binder"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["soul-binder.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["soul-binder.css"]
+    }; }
     static get properties() { return {
-        "animusFocus": {
-            "type": Number,
-            "attr": "animus-focus",
-            "mutable": true
-        },
-        "concussionOrb": {
-            "type": Number,
-            "attr": "concussion-orb",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
-        },
-        "energySurge": {
-            "type": Number,
-            "attr": "energy-surge",
-            "mutable": true
-        },
-        "expansionBlast": {
-            "type": Number,
-            "attr": "expansion-blast",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
         },
-        "flashStrike": {
-            "type": Number,
-            "attr": "flash-strike",
-            "mutable": true
+        "animusFocus": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "animus-focus",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.AnimusFocus.minLevel"
         },
-        "fountOfRenewal": {
-            "type": Number,
-            "attr": "fount-of-renewal",
-            "mutable": true
-        },
-        "getData": {
-            "method": true
-        },
-        "healingBond": {
-            "type": Number,
-            "attr": "healing-bond",
-            "mutable": true
-        },
-        "illusion": {
-            "type": Number,
-            "attr": "illusion",
-            "mutable": true
-        },
-        "lightBarrier": {
-            "type": Number,
-            "attr": "light-barrier",
-            "mutable": true
-        },
-        "mantraArray": {
-            "type": Number,
-            "attr": "mantra-array",
-            "mutable": true
-        },
-        "narubashanUnleashed": {
-            "type": Number,
-            "attr": "narubashan-unleashed",
-            "mutable": true
-        },
-        "orbMastery": {
-            "type": Number,
-            "attr": "orb-mastery",
-            "mutable": true
-        },
-        "radiantSalvo": {
-            "type": Number,
-            "attr": "radiant-salvo",
-            "mutable": true
-        },
-        "ragingTempest": {
-            "type": Number,
-            "attr": "raging-tempest",
-            "mutable": true
-        },
-        "shootingStar": {
-            "type": Number,
-            "attr": "shooting-star",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+        "concussionOrb": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "concussion-orb",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.ConcussionOrb.minLevel"
         },
         "soaringOrb": {
-            "type": Number,
-            "attr": "soaring-orb",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "soaring-orb",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SoaringOrb.minLevel"
+        },
+        "ragingTempest": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "raging-tempest",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.RagingTempest.minLevel"
         },
         "staticFlash": {
-            "type": Number,
-            "attr": "static-flash",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "static-flash",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.StaticFlash.minLevel"
+        },
+        "energySurge": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "energy-surge",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.EnergySurge.minLevel"
+        },
+        "expansionBlast": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "expansion-blast",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.ExpansionBlast.minLevel"
+        },
+        "flashStrike": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flash-strike",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.FlashStrike.minLevel"
+        },
+        "illusion": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "illusion",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.Illusion.minLevel"
+        },
+        "healingBond": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "healing-bond",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.HealingBond.minLevel"
+        },
+        "mantraArray": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mantra-array",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.MantraArray.minLevel"
+        },
+        "narubashanUnleashed": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "narubashan-unleashed",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.NarubashanUnleashed.minLevel"
+        },
+        "orbMastery": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "orb-mastery",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.OrbMastery.minLevel"
+        },
+        "radiantSalvo": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "radiant-salvo",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.RadiantSalvo.minLevel"
+        },
+        "shootingStar": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "shooting-star",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.ShootingStar.minLevel"
+        },
+        "lightBarrier": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "light-barrier",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.LightBarrier.minLevel"
+        },
+        "fountOfRenewal": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "fount-of-renewal",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.FountOfRenewal.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-soul-binder:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

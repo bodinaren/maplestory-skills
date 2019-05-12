@@ -1,5 +1,4 @@
-import '../../stencil.core';
-import { EventEmitter } from "../../stencil.core";
+import { EventEmitter } from "..\..\stencil.core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 export declare class SkillComponent {
     level: number;
@@ -12,17 +11,13 @@ export declare class SkillComponent {
     required: string;
     disabled: boolean;
     loop: boolean;
-    private publicPath;
     onLevelChanged: EventEmitter<number>;
     onSkillClicked: EventEmitter<ISkill>;
     private overlayLevel;
+    styles: any;
     componentWillLoad(): void;
     private skillChanged;
-    hostData(): {
-        "passive": boolean;
-    };
-    render(): JSX.Element[];
-    private renderStyles;
+    render(): any;
     private shouldDisableMinus;
     private shouldDisablePlus;
     private showOverlay;
@@ -30,4 +25,5 @@ export declare class SkillComponent {
     private emitSkillClick;
     private plus;
     private minus;
+    private static getStyles;
 }

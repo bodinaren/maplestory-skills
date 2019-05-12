@@ -1,4 +1,6 @@
-import { Component, Prop, Element, Listen } from "@stencil/core";
+import { h, Host, Component, Prop, Listen, Element, getAssetPath } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
+import { getOptimizedAssetPath } from "../../global/utils";
 
 @Component({
   tag: "ms-chart",
@@ -7,17 +9,19 @@ import { Component, Prop, Element, Listen } from "@stencil/core";
 })
 export class ChartComponent {
 
-  @Prop({ context: "publicPath" }) private publicPath: string;
+  private _hasWebp: boolean;
 
   @Prop() msClass: string;
 
-  @Element() host: HTMLStencilElement;
+  @Element() host: HTMLMsChartElement;
+
+  @ConstructibleStyle({ cacheKeyProperty: "msClass" }) styles = ChartComponent.getStyles.bind(this, this.msClass);
 
   componentDidLoad() {
     this.resize();
   }
 
-  @Listen("window:resize")
+  @Listen("resize", { target: "window" })
   resize() {
     let parent = this.host.parentNode as any;
     if (parent.host) parent = parent.host;
@@ -27,9 +31,9 @@ export class ChartComponent {
     let scale = parentWidth / 815;
 
     if (scale < 1) {
-      this.host.style.transform = `scale(${ scale })`;
-      this.host.style.marginBottom = `-${ 770 - (770 * scale) }px`;
-      this.host.style.marginRight = `-${ 815 - (815 * scale) }px`;
+      this.host.style.transform = `scale(${scale})`;
+      this.host.style.marginBottom = `-${770 - (770 * scale)}px`;
+      this.host.style.marginRight = `-${815 - (815 * scale)}px`;
     } else {
       this.host.style.transform = null;
       this.host.style.marginBottom = null;
@@ -38,44 +42,43 @@ export class ChartComponent {
   }
 
   render() {
-    return [
-      this.renderStyles(),
-      <ms-footer></ms-footer>,
-      <div class="chart">
-        <div class="class-icon">
-          <div class={ "chart-class " + this.msClass }>
-            <slot></slot>
+    return (
+      <Host class={{ "hasWebp": this._hasWebp }}>
+        <ms-footer></ms-footer>
+        <div class="chart">
+          <div class="class-icon">
+            <div class={"chart-class " + this.msClass}>
+              <slot></slot>
+            </div>
           </div>
         </div>
-      </div>
-    ];
+      </Host>
+    );
   }
 
-  private renderStyles(): JSX.Element {
-    return (
-      <style type="text/css">{`
-        ms-chart {
-          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
-        }
-        ms-chart:active {
-          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
-        }
-        :host, :host(:hover), ms-chart {
-          cursor: url(${ this.publicPath }assets/cursor.png) 5 8, auto;
-        }
-        :host(:active) {
-          cursor: url(${ this.publicPath }assets/cursor-down.png) 5 8, auto;
-        }
-        .chart {
-          background-image: url(${ this.publicPath }assets/charts/chart.jpg);
-        }
-        .class-icon {
-          background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-icon.png)
-        }
-        .chart-class {
-          background-image: url(${ this.publicPath }assets/charts/${ this.msClass }-lines.png);
-        }
-      `}</style>
-    );
+  private static getStyles(msClass: string): string {
+    return `
+      ms-chart {
+        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+      }
+      ms-chart:active {
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+      }
+      :host, :host(:hover), ms-chart {
+        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+      }
+      :host(:active) {
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+      }
+      .chart {
+        background-image: url(${ getAssetPath(`assets/charts/chart.jpg`)});
+      }
+      .class-icon {
+        background-image: url(${ getAssetPath(`assets/charts/${msClass}-icon.png`)})
+      }
+      .chart-class {
+        background-image: url(${ getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
+      }
+    `;
   }
 }
