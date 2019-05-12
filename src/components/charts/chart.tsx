@@ -9,8 +9,6 @@ import { getOptimizedAssetPath } from "../../global/utils";
 })
 export class ChartComponent {
 
-  private _hasWebp: boolean;
-
   @Prop() msClass: string;
 
   @Element() host: HTMLMsChartElement;
@@ -43,7 +41,7 @@ export class ChartComponent {
 
   render() {
     return (
-      <Host class={{ "hasWebp": this._hasWebp }}>
+      <Host>
         <ms-footer></ms-footer>
         <div class="chart">
           <div class="class-icon">
