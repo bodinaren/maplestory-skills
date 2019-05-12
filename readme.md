@@ -22,13 +22,13 @@ If you want to use the editor, it's recommended to import the scripts with a min
 
 Before:
 ```html
-<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills.esm.js" type="module"></script>
-<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills.js" nomodule></script>
+<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.esm.js" type="module"></script>
+<script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.js" nomodule></script>
 ```
 After:
 ```html
-<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills.esm.js" type="module"></script>
-<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills.js" nomodule></script>
+<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills/maplestory-skills.esm.js" type="module"></script>
+<script src="https://unpkg.com/maplestory-skills@~2.0/dist/maplestory-skills/maplestory-skills.js" nomodule></script>
 ```
 
 With that out of the way, you can make the skill chart editable by simply adding the attribute `editable` to the chart.
