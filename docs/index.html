@@ -44,8 +44,8 @@
         overflow: hidden;
       }
       #toggles a > * { margin: 5px; }
-      #toggles a:not(.active) img.active { display: none; }
-      #toggles a.active img.inactive { display: none; }
+      #toggles a:not(.active) picture.active { display: none; }
+      #toggles a.active picture.inactive { display: none; }
       #toggles img { width: 75px; }
     
       #toggles .unavailable { color: #666; }
@@ -323,9 +323,6 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
       </dl>
     </div>
 
-    <script type="module" src="./dist/maplestory-skills/maplestory-skills.esm.js"></script>
-    <script nomodule src="./dist/maplestory-skills/maplestory-skills.js"></script>
-
     <script>
       var toggles = document.querySelectorAll("#toggles > a");
       var chkExtras = document.getElementById("chkExtras");
@@ -423,8 +420,21 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var chartHolder = document.querySelector("#chartHolder");
         chartHolder.children[0].extras = chkExtras.checked;
       });
+    </script>
 
-      init();
+    <script type="module">
+      var script = document.createElement("script");
+      script.type = "module";
+      script.onload = function() { init() };
+      script.src = "./dist/maplestory-skills/maplestory-skills.esm.js";
+      document.body.appendChild(script);
+    </script>
+
+    <script nomodule>
+      var script = document.createElement("script");
+      script.onload = function() { init() };
+      script.src = "./dist/maplestory-skills/maplestory-skills.js";
+      document.body.appendChild(script);
     </script>
 
   </body>

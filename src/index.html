@@ -6,8 +6,6 @@
     <meta name="description" content="MapleStory 2 Interactive Skill Charts let you share your build with anyone, either share a link or you can easily put them on your own website or blog. Choose any class from Archer, Assassin, Berserker, Heavy Gunner, Knight, Priest, Runeblade, Soul Binder, Striker, Thief, Wizard.">
     <meta name="keywords" content="maplestory 2 interactive skill charts,maplestory 2,maplestory 2 skills,skills,skill charts,interactive skill charts,archer,assassin,berserker,heavy gunner,knight,priest,runeblade,soul binder,striker,thief,wizard">
     <title>Maplestory 2 Interactive Skill Charts</title>
-    <script type="module" src="build/maplestory-skills.esm.js"></script>
-    <script nomodule src="build/maplestory-skills.js"></script>
 
     <style>
       body {
@@ -396,26 +394,24 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var q = location.hash.replace("#", "").split(",");
 
         if (q.length > 1) {
-          var c = toggle(q[0], true);
+          var chart = toggle(q[0], true);
 
-          c.componentOnReady().then(function(chart) {
-            window.scrollTo(0, chart.offsetTop - 20);
+          window.scrollTo(0, chart.offsetTop - 20);
 
-            chart.getData().then(function(data) {
-              var skills = data.skills;
-              for (var i = 0; i < skills.length; i++) {
-                var skill = skills[i];
-                chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+1] || skill.level), skill.maxLevel);
-              }
-            });
-
-            if (q[0] === "runeblade") {
-              if (q[18] !== "0") chart.extras = chkExtras.checked = true;
-              if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
-            } else {
-              chart.extras = chkExtras.checked = !!parseInt(q[18]);
+          chart.getData().then(function(data) {
+            var skills = data.skills;
+            for (var i = 0; i < skills.length; i++) {
+              var skill = skills[i];
+              chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+1] || skill.level), skill.maxLevel);
             }
           });
+
+          if (q[0] === "runeblade") {
+            if (q[18] !== "0") chart.extras = chkExtras.checked = true;
+            if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
+          } else {
+            chart.extras = chkExtras.checked = !!parseInt(q[18]);
+          }
         } else {
           toggle("archer");
         }
@@ -425,8 +421,21 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var chartHolder = document.querySelector("#chartHolder");
         chartHolder.children[0].extras = chkExtras.checked;
       });
+    </script>
 
-      init();
+    <script type="module">
+      var script = document.createElement("script");
+      script.type = "module";
+      script.onload = function() { init() };
+      script.src = "build/maplestory-skills.esm.js";
+      document.body.appendChild(script);
+    </script>
+
+    <script nomodule>
+      var script = document.createElement("script");
+      script.onload = function() { setTimeout(init, 1000); };
+      script.src = "build/maplestory-skills.js";
+      document.body.appendChild(script);
     </script>
 
   </body>
