@@ -1,23 +1,23 @@
 {
   "entries": [
     "components\\charts\\chart.js",
-    "components\\icon\\icon.js",
-    "components\\skill\\skill.js",
-    "components\\charts\\runeblade\\runeblade.js",
-    "components\\extra\\outlet\\outlet.js",
-    "components\\footer\\footer.js",
     "components\\extra\\counter\\counter.js",
+    "components\\footer\\footer.js",
+    "components\\extra\\outlet\\outlet.js",
+    "components\\icon\\icon.js",
     "components\\skill-overlay\\skill-overlay.js",
+    "components\\skill\\skill.js",
     "components\\charts\\berserker\\berserker.js",
-    "components\\charts\\assassin\\assassin.js",
     "components\\charts\\heavy-gunner\\heavy-gunner.js",
-    "components\\charts\\priest\\priest.js",
     "components\\charts\\knight\\knight.js",
+    "components\\charts\\archer\\archer.js",
+    "components\\charts\\assassin\\assassin.js",
+    "components\\charts\\priest\\priest.js",
     "components\\charts\\soul-binder\\soul-binder.js",
-    "components\\charts\\wizard\\wizard.js",
+    "components\\charts\\runeblade\\runeblade.js",
     "components\\charts\\striker\\striker.js",
-    "components\\charts\\thief\\thief.js",
-    "components\\charts\\archer\\archer.js"
+    "components\\charts\\wizard\\wizard.js",
+    "components\\charts\\thief\\thief.js"
   ],
   "compiler": {
     "name": "@stencil/core",
