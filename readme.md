@@ -7,14 +7,14 @@ MapleStory 2 Interactive Skill Charts is a set of web components which, with ver
 [Try it out!](http://bodinaren.github.io/maplestory-skills)
 
 
-## How do I put this one my site or blog?
+## How do I put this on my site or blog?
 
 Head over to the [website](http://bodinaren.github.io/maplestory-skills) and use the editor to generate your own skill chart. Just paste the resulting code into your website or blog and you're good to go!
 
 
 ## Advanced usage (editable)
 
-So you want the editor on your site? No problem, but let's start with a fair warning. 
+So you want the editor on your site? Not a problem, my own site above use exactly these steps shown below. But first, let's start with a warning.
 
 >This repository use semver versioning, but **only for basic charts usage**! Breaking changes to the below usages can happen between any minor version (but not patch).
 
