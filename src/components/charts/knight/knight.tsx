@@ -1,4 +1,4 @@
-import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as KnightSkills from "../../../global/values/knight";
@@ -9,6 +9,8 @@ import * as KnightSkills from "../../../global/values/knight";
   shadow: true
 })
 export class KnightComponent implements IChart {
+
+  @Element() host: HTMLMsKnightElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -48,6 +50,7 @@ export class KnightComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, KnightSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }

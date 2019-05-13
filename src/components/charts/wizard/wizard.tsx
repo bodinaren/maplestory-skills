@@ -1,4 +1,4 @@
-import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import * as WizardSkills from "../../../global/values/wizard";
@@ -9,6 +9,8 @@ import * as WizardSkills from "../../../global/values/wizard";
   shadow: true
 })
 export class WizardComponent implements IChart {
+
+  @Element() host: HTMLMsWizardElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop() extras: boolean = false;
@@ -48,6 +50,7 @@ export class WizardComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, WizardSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }

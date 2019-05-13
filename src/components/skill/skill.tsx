@@ -29,7 +29,7 @@ export class SkillComponent {
 
   @State() private overlayLevel: number;
 
-  @ConstructibleStyle() styles = SkillComponent.getStyles.bind(this);
+  @ConstructibleStyle() styles = SkillComponent.getStyles;
 
   componentWillLoad() {
     if (!this.skill) return;

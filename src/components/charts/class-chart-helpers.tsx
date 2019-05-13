@@ -64,6 +64,8 @@ export function processSkills(chart: IChart, classSkills: IClassSkills, skillCha
     }
   });
 
+  // console.log(chart.skills, skills, chart.skills === skills);
+
   chart.skills = skills;
 }
 

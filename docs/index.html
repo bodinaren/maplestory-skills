@@ -370,7 +370,9 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
           location.hash = getHash(chart, evt.detail.skills);
         });
 
-        return chart;
+        return customElements.whenDefined("ms-" + msClass).then(function() {
+          return chart;
+        });
       }
 
       function getHash(chart, skills) {
@@ -391,10 +393,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var q = location.hash.replace("#", "").split(",");
 
         if (q.length > 1) {
-          var c = toggle(q[0], true);
-
-          c.componentOnReady().then(function(chart) {
-            window.scrollTo(0, chart.offsetTop - 20);
+          toggle(q[0], true).then(function(chart) {
 
             chart.getData().then(function(data) {
               var skills = data.skills;
@@ -410,6 +409,10 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
             } else {
               chart.extras = chkExtras.checked = !!parseInt(q[18]);
             }
+
+            setTimeout(function() {
+              window.scrollTo(0, chart.offsetTop - 20);
+            }, 300);
           });
         } else {
           toggle("archer");
@@ -422,20 +425,8 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
       });
     </script>
 
-    <script type="module">
-      var script = document.createElement("script");
-      script.type = "module";
-      script.onload = function() { init() };
-      script.src = "./dist/maplestory-skills/maplestory-skills.esm.js";
-      document.body.appendChild(script);
-    </script>
-
-    <script nomodule>
-      var script = document.createElement("script");
-      script.onload = function() { setTimeout(init, 1000) };
-      script.src = "./dist/maplestory-skills/maplestory-skills.js";
-      document.body.appendChild(script);
-    </script>
+    <script type="module" src="./dist/maplestory-skills/maplestory-skills.esm.js" onload="init()"></script>
+    <script nomodule src="./dist/maplestory-skills/maplestory-skills.js" onload="init()"></script>
 
   </body>
 </html>

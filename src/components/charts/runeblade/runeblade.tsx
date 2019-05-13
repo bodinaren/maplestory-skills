@@ -1,4 +1,4 @@
-import { h, Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { getOptimizedAssetPath } from "../../../global/utils";
@@ -12,6 +12,8 @@ import * as RunebladeSkills from "../../../global/values/runeblade";
   shadow: true
 })
 export class RunebladeComponent implements IChart {
+
+  @Element() host: HTMLMsRunebladeElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true }) extras: boolean = false;
@@ -39,7 +41,7 @@ export class RunebladeComponent implements IChart {
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
-  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles.bind(this);
+  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles;
 
   private runebladeSkills: { [prop: string]: ISkill } = {};
 
@@ -62,6 +64,7 @@ export class RunebladeComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, this.runebladeSkills, skill);
+    this.host.forceUpdate();
 
     if (skill.prop === this.sigil && level === 0) {
       this.changeSigil();
