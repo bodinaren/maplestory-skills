@@ -1,5 +1,5 @@
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 
 const IronDefense = {
     name: "Iron Defense",
@@ -474,6 +474,7 @@ class KnightComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, KnightSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -482,6 +483,7 @@ class KnightComponent {
     render() {
         return (h("ms-chart", { msClass: "knight" }, renderLevelControls(this, KnightSkills, this.editable, this.extras)));
     }
+    get host() { return getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

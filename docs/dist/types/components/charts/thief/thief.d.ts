@@ -2,6 +2,7 @@ import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class ThiefComponent implements IChart {
+    host: HTMLMsThiefElement;
     editable: boolean;
     extras: boolean;
     bladeDance: number;

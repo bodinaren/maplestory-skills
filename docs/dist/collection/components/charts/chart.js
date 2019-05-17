@@ -32,7 +32,7 @@ export class ChartComponent {
         }
     }
     render() {
-        return (h(Host, { class: { "hasWebp": this._hasWebp } },
+        return (h(Host, null,
             h("ms-footer", null),
             h("div", { class: "chart" },
                 h("div", { class: "class-icon" },

@@ -335,6 +335,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
         }
+
         document.querySelector("[ms-class='" + msClass + "']").classList.add("active");
 
         var chartHolder = document.querySelector("#chartHolder");
@@ -362,11 +363,6 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
 
         if (!firstSetup) {
           location.hash = "";
-          // chart.componentOnReady().then(function(c) {
-          //   c.getData().then(function(data) {
-          //     location.hash = getHash(c, data.skills);
-          //   });
-          // });
         }
 
         chart.addEventListener("skillchanged", function(evt) {

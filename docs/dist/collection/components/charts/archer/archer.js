@@ -32,6 +32,7 @@ export class ArcherComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, ArcherSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -434,6 +435,7 @@ export class ArcherComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

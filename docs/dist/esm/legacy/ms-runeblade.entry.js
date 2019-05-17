@@ -33,9 +33,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
-import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-ff3c16d0.js';
 var RuneBalance = {
     name: "Rune Balance",
     attr: "rune-balance",
@@ -514,7 +514,7 @@ var RunebladeComponent = /** @class */ (function () {
         this.stormSigil = StormSigil.minLevel;
         this.wardingRune = WardingRune.minLevel;
         this.whirlingBlades = WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles.bind(this);
+        this.styles = RunebladeComponent.getStyles;
         this.runebladeSkills = {};
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
@@ -537,6 +537,7 @@ var RunebladeComponent = /** @class */ (function () {
     RunebladeComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
         processSkills(this, this.runebladeSkills, skill);
+        this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }
@@ -630,6 +631,11 @@ var RunebladeComponent = /** @class */ (function () {
     RunebladeComponent.getStyles = function () {
         return "\n      ms-runeblade[extras] ms-skill:before { background: url(" + getOptimizedAssetPath("assets/skill-shield-selected.png") + ") }\n      :host([extras]) ms-skill:before { background: url(" + getOptimizedAssetPath("assets/skill-shield-selected.png") + ") }\n    ";
     };
+    Object.defineProperty(RunebladeComponent.prototype, "host", {
+        get: function () { return getElement(this); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(RunebladeComponent, "watchers", {
         get: function () {
             return {

@@ -33,8 +33,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 var KnuckleMissile = {
     name: "Knuckle Missile",
     attr: "knuckle-missile",
@@ -435,6 +435,7 @@ var StrikerComponent = /** @class */ (function () {
     StrikerComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
         processSkills(this, StrikerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     };
     StrikerComponent.prototype.emitChangeEvent = function () {
@@ -443,6 +444,11 @@ var StrikerComponent = /** @class */ (function () {
     StrikerComponent.prototype.render = function () {
         return (h("ms-chart", { msClass: "striker" }, renderLevelControls(this, StrikerSkills, this.editable, this.extras)));
     };
+    Object.defineProperty(StrikerComponent.prototype, "host", {
+        get: function () { return getElement(this); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(StrikerComponent, "watchers", {
         get: function () {
             return {

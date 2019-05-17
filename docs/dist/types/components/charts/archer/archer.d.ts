@@ -2,6 +2,7 @@ import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class ArcherComponent implements IChart {
+    host: HTMLMsArcherElement;
     editable: boolean;
     extras: boolean;
     agileArcher: number;

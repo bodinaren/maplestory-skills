@@ -31,7 +31,7 @@ export class RunebladeComponent {
         this.stormSigil = RunebladeSkills.StormSigil.minLevel;
         this.wardingRune = RunebladeSkills.WardingRune.minLevel;
         this.whirlingBlades = RunebladeSkills.WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles.bind(this);
+        this.styles = RunebladeComponent.getStyles;
         this.runebladeSkills = {};
     }
     componentWillLoad() {
@@ -48,6 +48,7 @@ export class RunebladeComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, this.runebladeSkills, skill);
+        this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }
@@ -557,6 +558,7 @@ export class RunebladeComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

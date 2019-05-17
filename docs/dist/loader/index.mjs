@@ -18,4 +18,4 @@
 })();
 
 export * from '../esm/polyfills/index.js';
-export * from '../esm/legacy/loader.esm.js';
+export * from '../esm/legacy/loader.mjs';

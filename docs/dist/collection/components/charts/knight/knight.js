@@ -32,6 +32,7 @@ export class KnightComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, KnightSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -432,6 +433,7 @@ export class KnightComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

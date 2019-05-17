@@ -1,5 +1,5 @@
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 
 const Reload = {
     name: "Reload",
@@ -488,6 +488,7 @@ class HeavyGunnerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, HeavyGunnerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -496,6 +497,7 @@ class HeavyGunnerComponent {
     render() {
         return (h("ms-chart", { msClass: "heavy-gunner" }, renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras)));
     }
+    get host() { return getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

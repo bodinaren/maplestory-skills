@@ -33,8 +33,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 var SpiritThief = {
     name: "Spirit Thief",
     attr: "spirit-thief",
@@ -434,6 +434,7 @@ var ThiefComponent = /** @class */ (function () {
     ThiefComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
         processSkills(this, ThiefSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     };
     ThiefComponent.prototype.emitChangeEvent = function () {
@@ -442,6 +443,11 @@ var ThiefComponent = /** @class */ (function () {
     ThiefComponent.prototype.render = function () {
         return (h("ms-chart", { msClass: "thief" }, renderLevelControls(this, ThiefSkills, this.editable, this.extras)));
     };
+    Object.defineProperty(ThiefComponent.prototype, "host", {
+        get: function () { return getElement(this); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(ThiefComponent, "watchers", {
         get: function () {
             return {

@@ -32,6 +32,7 @@ export class WizardComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, WizardSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -432,6 +433,7 @@ export class WizardComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

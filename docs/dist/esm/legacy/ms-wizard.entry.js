@@ -33,8 +33,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 var ManaFont = {
     name: "Mana Font",
     attr: "mana-font",
@@ -416,6 +416,7 @@ var WizardComponent = /** @class */ (function () {
     WizardComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
         processSkills(this, WizardSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     };
     WizardComponent.prototype.emitChangeEvent = function () {
@@ -424,6 +425,11 @@ var WizardComponent = /** @class */ (function () {
     WizardComponent.prototype.render = function () {
         return (h("ms-chart", { msClass: "wizard" }, renderLevelControls(this, WizardSkills, this.editable, this.extras)));
     };
+    Object.defineProperty(WizardComponent.prototype, "host", {
+        get: function () { return getElement(this); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(WizardComponent, "watchers", {
         get: function () {
             return {

@@ -33,8 +33,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
 var DarkAura = {
     name: "Dark Aura",
     attr: "dark-aura",
@@ -439,6 +439,7 @@ var BerserkerComponent = /** @class */ (function () {
     BerserkerComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
         processSkills(this, BerserkerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     };
     BerserkerComponent.prototype.emitChangeEvent = function () {
@@ -447,6 +448,11 @@ var BerserkerComponent = /** @class */ (function () {
     BerserkerComponent.prototype.render = function () {
         return (h("ms-chart", { msClass: "berserker" }, renderLevelControls(this, BerserkerSkills, this.editable, this.extras)));
     };
+    Object.defineProperty(BerserkerComponent.prototype, "host", {
+        get: function () { return getElement(this); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(BerserkerComponent, "watchers", {
         get: function () {
             return {

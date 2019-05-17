@@ -1,6 +1,6 @@
-import { e as registerInstance, f as createEvent, d as h } from './maplestory-skills-ce472e77.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-ead6e7d7.js';
-import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-ff3c16d0.js';
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -662,7 +662,7 @@ class RunebladeComponent {
         this.stormSigil = StormSigil.minLevel;
         this.wardingRune = WardingRune.minLevel;
         this.whirlingBlades = WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles.bind(this);
+        this.styles = RunebladeComponent.getStyles;
         this.runebladeSkills = {};
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
@@ -680,6 +680,7 @@ class RunebladeComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, this.runebladeSkills, skill);
+        this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }
@@ -774,6 +775,7 @@ class RunebladeComponent {
       :host([extras]) ms-skill:before { background: url(${getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
     `;
     }
+    get host() { return getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

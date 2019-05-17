@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
-const __chunk_2 = require('./chunk-a129c6d7.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
+const __chunk_2 = require('./chunk-43c5115b.js');
 
 const ManaFont = {
     name: "Mana Font",
@@ -459,6 +459,7 @@ class WizardComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         __chunk_2.processSkills(this, WizardSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -467,6 +468,7 @@ class WizardComponent {
     render() {
         return (__chunk_1.h("ms-chart", { msClass: "wizard" }, __chunk_2.renderLevelControls(this, WizardSkills, this.editable, this.extras)));
     }
+    get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

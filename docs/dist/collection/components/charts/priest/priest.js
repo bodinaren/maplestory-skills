@@ -32,6 +32,7 @@ export class PriestComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, PriestSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -432,6 +433,7 @@ export class PriestComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

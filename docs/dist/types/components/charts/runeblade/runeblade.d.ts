@@ -3,6 +3,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
 export declare class RunebladeComponent implements IChart {
+    host: HTMLMsRunebladeElement;
     editable: boolean;
     extras: boolean;
     sigil: Sigil;
@@ -25,7 +26,7 @@ export declare class RunebladeComponent implements IChart {
     whirlingBlades: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
-    styles: any;
+    styles: typeof RunebladeComponent.getStyles;
     private runebladeSkills;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;

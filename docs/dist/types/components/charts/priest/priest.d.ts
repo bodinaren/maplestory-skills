@@ -2,6 +2,7 @@ import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class PriestComponent implements IChart {
+    host: HTMLMsPriestElement;
     editable: boolean;
     extras: boolean;
     heavenlyWings: number;

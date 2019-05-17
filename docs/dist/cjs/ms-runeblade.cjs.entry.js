@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
-const __chunk_2 = require('./chunk-a129c6d7.js');
-const __chunk_3 = require('./chunk-eb191b26.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
+const __chunk_2 = require('./chunk-43c5115b.js');
+const __chunk_3 = require('./chunk-0c824554.js');
 
 const RuneBalance = {
     name: "Rune Balance",
@@ -666,7 +666,7 @@ class RunebladeComponent {
         this.stormSigil = StormSigil.minLevel;
         this.wardingRune = WardingRune.minLevel;
         this.whirlingBlades = WhirlingBlades.minLevel;
-        this.styles = RunebladeComponent.getStyles.bind(this);
+        this.styles = RunebladeComponent.getStyles;
         this.runebladeSkills = {};
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
@@ -684,6 +684,7 @@ class RunebladeComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         __chunk_2.processSkills(this, this.runebladeSkills, skill);
+        this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
         }
@@ -778,6 +779,7 @@ class RunebladeComponent {
       :host([extras]) ms-skill:before { background: url(${__chunk_3.getOptimizedAssetPath(`assets/skill-shield-selected.png`)}) }
     `;
     }
+    get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

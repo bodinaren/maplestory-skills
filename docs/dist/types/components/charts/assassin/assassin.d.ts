@@ -2,6 +2,7 @@ import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class AssassinComponent implements IChart {
+    host: HTMLMsAssassinElement;
     editable: boolean;
     extras: boolean;
     darkCloak: number;

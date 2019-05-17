@@ -20,9 +20,6 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
-      // copy: [
-      //   { src: "assets", dest: "build/assets" },
-      // ]
     },
     {
       type: "www",

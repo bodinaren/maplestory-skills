@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
-const __chunk_2 = require('./chunk-a129c6d7.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
+const __chunk_2 = require('./chunk-43c5115b.js');
 
 const DarkAura = {
     name: "Dark Aura",
@@ -499,6 +499,7 @@ class BerserkerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         __chunk_2.processSkills(this, BerserkerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -507,6 +508,7 @@ class BerserkerComponent {
     render() {
         return (__chunk_1.h("ms-chart", { msClass: "berserker" }, __chunk_2.renderLevelControls(this, BerserkerSkills, this.editable, this.extras)));
     }
+    get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

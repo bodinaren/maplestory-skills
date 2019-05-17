@@ -14,7 +14,7 @@ export declare class SkillComponent {
     onLevelChanged: EventEmitter<number>;
     onSkillClicked: EventEmitter<ISkill>;
     private overlayLevel;
-    styles: any;
+    styles: typeof SkillComponent.getStyles;
     componentWillLoad(): void;
     private skillChanged;
     render(): any;

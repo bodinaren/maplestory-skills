@@ -15,7 +15,7 @@ export class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
-        this.styles = SkillComponent.getStyles.bind(this);
+        this.styles = SkillComponent.getStyles;
     }
     componentWillLoad() {
         if (!this.skill)

@@ -1,1 +1,1 @@
-module.exports = require('./cjs/maplestory-skills.cjs.js');
+module.exports = require('./cjs/index.cjs.js');

@@ -2,6 +2,7 @@ import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class BerserkerComponent implements IChart {
+    host: HTMLMsBerserkerElement;
     editable: boolean;
     extras: boolean;
     adrenalineRush: number;

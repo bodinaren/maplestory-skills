@@ -570,58 +570,40 @@ declare namespace LocalJSX {
     'thunderbolt'?: number;
   }
 
-  interface ElementInterfaces {
-    'MsArcher': Components.MsArcher;
-    'MsAssassin': Components.MsAssassin;
-    'MsBerserker': Components.MsBerserker;
-    'MsChart': Components.MsChart;
-    'MsExtraCounter': Components.MsExtraCounter;
-    'MsExtraOutlet': Components.MsExtraOutlet;
-    'MsFooter': Components.MsFooter;
-    'MsHeavyGunner': Components.MsHeavyGunner;
-    'MsIcon': Components.MsIcon;
-    'MsKnight': Components.MsKnight;
-    'MsPriest': Components.MsPriest;
-    'MsRuneblade': Components.MsRuneblade;
-    'MsSkill': Components.MsSkill;
-    'MsSkillOverlay': Components.MsSkillOverlay;
-    'MsSoulBinder': Components.MsSoulBinder;
-    'MsStriker': Components.MsStriker;
-    'MsThief': Components.MsThief;
-    'MsWizard': Components.MsWizard;
-  }
-
   interface IntrinsicElements {
-    'MsArcher': LocalJSX.MsArcher;
-    'MsAssassin': LocalJSX.MsAssassin;
-    'MsBerserker': LocalJSX.MsBerserker;
-    'MsChart': LocalJSX.MsChart;
-    'MsExtraCounter': LocalJSX.MsExtraCounter;
-    'MsExtraOutlet': LocalJSX.MsExtraOutlet;
-    'MsFooter': LocalJSX.MsFooter;
-    'MsHeavyGunner': LocalJSX.MsHeavyGunner;
-    'MsIcon': LocalJSX.MsIcon;
-    'MsKnight': LocalJSX.MsKnight;
-    'MsPriest': LocalJSX.MsPriest;
-    'MsRuneblade': LocalJSX.MsRuneblade;
-    'MsSkill': LocalJSX.MsSkill;
-    'MsSkillOverlay': LocalJSX.MsSkillOverlay;
-    'MsSoulBinder': LocalJSX.MsSoulBinder;
-    'MsStriker': LocalJSX.MsStriker;
-    'MsThief': LocalJSX.MsThief;
-    'MsWizard': LocalJSX.MsWizard;
+    'ms-archer': MsArcher;
+    'ms-assassin': MsAssassin;
+    'ms-berserker': MsBerserker;
+    'ms-chart': MsChart;
+    'ms-extra-counter': MsExtraCounter;
+    'ms-extra-outlet': MsExtraOutlet;
+    'ms-footer': MsFooter;
+    'ms-heavy-gunner': MsHeavyGunner;
+    'ms-icon': MsIcon;
+    'ms-knight': MsKnight;
+    'ms-priest': MsPriest;
+    'ms-runeblade': MsRuneblade;
+    'ms-skill': MsSkill;
+    'ms-skill-overlay': MsSkillOverlay;
+    'ms-soul-binder': MsSoulBinder;
+    'ms-striker': MsStriker;
+    'ms-thief': MsThief;
+    'ms-wizard': MsWizard;
   }
 }
+
 export { LocalJSX as JSX };
 
-declare module "./stencil.core" {
+
+declare module "@stencil/core" {
   export namespace JSX {
-    interface ElementInterfaces extends LocalJSX.ElementInterfaces {}
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
 
+
 declare global {
+
 
 
   interface HTMLMsArcherElement extends Components.MsArcher, HTMLStencilElement {}
@@ -731,28 +713,8 @@ declare global {
     prototype: HTMLMsWizardElement;
     new (): HTMLMsWizardElement;
   };
-  interface HTMLElementTagNameMap {
-    'ms-archer': HTMLMsArcherElement
-    'ms-assassin': HTMLMsAssassinElement
-    'ms-berserker': HTMLMsBerserkerElement
-    'ms-chart': HTMLMsChartElement
-    'ms-extra-counter': HTMLMsExtraCounterElement
-    'ms-extra-outlet': HTMLMsExtraOutletElement
-    'ms-footer': HTMLMsFooterElement
-    'ms-heavy-gunner': HTMLMsHeavyGunnerElement
-    'ms-icon': HTMLMsIconElement
-    'ms-knight': HTMLMsKnightElement
-    'ms-priest': HTMLMsPriestElement
-    'ms-runeblade': HTMLMsRunebladeElement
-    'ms-skill': HTMLMsSkillElement
-    'ms-skill-overlay': HTMLMsSkillOverlayElement
-    'ms-soul-binder': HTMLMsSoulBinderElement
-    'ms-striker': HTMLMsStrikerElement
-    'ms-thief': HTMLMsThiefElement
-    'ms-wizard': HTMLMsWizardElement
-  }
 
-  interface ElementTagNameMap {
+  interface HTMLElementTagNameMap {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
     'ms-berserker': HTMLMsBerserkerElement;
@@ -772,5 +734,7 @@ declare global {
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
   }
+
+  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
 

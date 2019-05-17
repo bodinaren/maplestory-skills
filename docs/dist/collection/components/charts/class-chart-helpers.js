@@ -51,6 +51,7 @@ export function processSkills(chart, classSkills, skillChanged) {
             }
         }
     });
+    // console.log(chart.skills, skills, chart.skills === skills);
     chart.skills = skills;
 }
 export function toggleSkillRequirements(chart, skill, setActive) {

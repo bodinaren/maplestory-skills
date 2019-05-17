@@ -796,7 +796,7 @@ for (var x = allScripts.length - 1; x >= 0; x--) {
 }
 var resourcesUrl = scriptElm ? scriptElm.getAttribute('data-resources-url') || scriptElm.src : '';
 var start = function() {
-  System.import(new URL('./p-54677bb8.system.js', resourcesUrl).pathname);
+  System.import(new URL('./p-ef3a4d2e.system.js', resourcesUrl).pathname);
 };
 
 if (win.__stencil_cssshim) {

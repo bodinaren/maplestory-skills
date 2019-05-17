@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
-const __chunk_2 = require('./chunk-a129c6d7.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
+const __chunk_2 = require('./chunk-43c5115b.js');
 
 const Reload = {
     name: "Reload",
@@ -492,6 +492,7 @@ class HeavyGunnerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         __chunk_2.processSkills(this, HeavyGunnerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -500,6 +501,7 @@ class HeavyGunnerComponent {
     render() {
         return (__chunk_1.h("ms-chart", { msClass: "heavy-gunner" }, __chunk_2.renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras)));
     }
+    get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
         "extras": ["emitChangeEvent"]
     }; }

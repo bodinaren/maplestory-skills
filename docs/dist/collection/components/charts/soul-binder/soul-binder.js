@@ -32,6 +32,7 @@ export class SoulBinderComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, SoulBinderSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -432,6 +433,7 @@ export class SoulBinderComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

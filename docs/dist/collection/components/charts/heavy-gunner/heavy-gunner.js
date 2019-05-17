@@ -32,6 +32,7 @@ export class HeavyGunnerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, HeavyGunnerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -432,6 +433,7 @@ export class HeavyGunnerComponent {
             }
         }
     }; }
+    static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
             "methodName": "emitChangeEvent"

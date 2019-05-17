@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
 
 const defineCustomElements = (win, options) => {
   return __chunk_1.patchEsm().then(() => {

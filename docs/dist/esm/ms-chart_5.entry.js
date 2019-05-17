@@ -1,5 +1,5 @@
-import { e as registerInstance, d as h, h as Host, i as getAssetPath, g as getElement, f as createEvent } from './maplestory-skills-ce472e77.js';
-import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-4a5aa271.js';
+import { e as registerInstance, d as h, h as Host, i as getAssetPath, g as getElement, f as createEvent } from './maplestory-skills-a851053c.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-ff3c16d0.js';
 
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -37,7 +37,7 @@ class ChartComponent {
         }
     }
     render() {
-        return (h(Host, { class: { "hasWebp": this._hasWebp } }, h("ms-footer", null), h("div", { class: "chart" }, h("div", { class: "class-icon" }, h("div", { class: "chart-class " + this.msClass }, h("slot", null))))));
+        return (h(Host, null, h("ms-footer", null), h("div", { class: "chart" }, h("div", { class: "class-icon" }, h("div", { class: "chart-class " + this.msClass }, h("slot", null))))));
     }
     static getStyles(msClass) {
         return `
@@ -112,7 +112,7 @@ class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
-        this.styles = SkillComponent.getStyles.bind(this);
+        this.styles = SkillComponent.getStyles;
         this.onLevelChanged = createEvent(this, "levelchanged", 7);
         this.onSkillClicked = createEvent(this, "skillclicked", 7);
     }

@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-579dd934.js');
-const __chunk_3 = require('./chunk-eb191b26.js');
+const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
+const __chunk_3 = require('./chunk-0c824554.js');
 
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ class ChartComponent {
         }
     }
     render() {
-        return (__chunk_1.h(__chunk_1.Host, { class: { "hasWebp": this._hasWebp } }, __chunk_1.h("ms-footer", null), __chunk_1.h("div", { class: "chart" }, __chunk_1.h("div", { class: "class-icon" }, __chunk_1.h("div", { class: "chart-class " + this.msClass }, __chunk_1.h("slot", null))))));
+        return (__chunk_1.h(__chunk_1.Host, null, __chunk_1.h("ms-footer", null), __chunk_1.h("div", { class: "chart" }, __chunk_1.h("div", { class: "class-icon" }, __chunk_1.h("div", { class: "chart-class " + this.msClass }, __chunk_1.h("slot", null))))));
     }
     static getStyles(msClass) {
         return `
@@ -116,7 +116,7 @@ class SkillComponent {
         this.locked = false;
         this.disabled = true;
         this.loop = false;
-        this.styles = SkillComponent.getStyles.bind(this);
+        this.styles = SkillComponent.getStyles;
         this.onLevelChanged = __chunk_1.createEvent(this, "levelchanged", 7);
         this.onSkillClicked = __chunk_1.createEvent(this, "skillclicked", 7);
     }
