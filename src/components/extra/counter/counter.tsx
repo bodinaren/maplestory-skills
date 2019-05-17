@@ -28,7 +28,10 @@ export class CounterComponent {
   }
 
   private updatePointsLeft(changeEvent: ISkillChangeEvent) {
-    this._pointsLeft = 72 - changeEvent.skills.reduce((prev, current) => {
+    const rank = (this._editor as any).rank;
+    const maxPoints = rank === 1 ? 72 : 15;
+
+    this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
       return prev + current.level;
     }, 0);
   }

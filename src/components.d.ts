@@ -84,6 +84,7 @@ export namespace Components {
   }
   interface MsChart {
     'msClass': string;
+    'rank': number;
   }
   interface MsExtraCounter {
     'editor'?: string;
@@ -120,22 +121,32 @@ export namespace Components {
   }
   interface MsKnight {
     'bulwark': number;
+    'convictionStrike': number;
     'crossCut': number;
+    'cycloneShield': number;
     'defenderOfTheFaith': number;
+    'divineRetribution': number;
     'divineStrike': number;
     'drillThrust': number;
+    'dualTactics': number;
     'editable': boolean;
     'extras': boolean;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'guardiansWings': number;
+    'heavensJudgement': number;
     'ironDefense': number;
     'ironShield': number;
+    'lightBringer': number;
     'longswordMastery': number;
+    'rank': number;
     'shieldBooster': number;
     'shieldCharge': number;
     'shieldMastery': number;
     'shieldToss': number;
+    'shieldTraining': number;
     'shieldWall': number;
     'stingingFlurry': number;
+    'swordDiscipline': number;
     'tornadoSlash': number;
     'typhoonSlash': number;
     'warhorn': number;
@@ -361,6 +372,8 @@ declare namespace LocalJSX {
   }
   interface MsChart extends JSXBase.HTMLAttributes {
     'msClass'?: string;
+    'onRankChange'?: (event: CustomEvent<number>) => void;
+    'rank'?: number;
   }
   interface MsExtraCounter extends JSXBase.HTMLAttributes {
     'editor'?: string;
@@ -397,22 +410,32 @@ declare namespace LocalJSX {
   }
   interface MsKnight extends JSXBase.HTMLAttributes {
     'bulwark'?: number;
+    'convictionStrike'?: number;
     'crossCut'?: number;
+    'cycloneShield'?: number;
     'defenderOfTheFaith'?: number;
+    'divineRetribution'?: number;
     'divineStrike'?: number;
     'drillThrust'?: number;
+    'dualTactics'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
+    'guardiansWings'?: number;
+    'heavensJudgement'?: number;
     'ironDefense'?: number;
     'ironShield'?: number;
+    'lightBringer'?: number;
     'longswordMastery'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'shieldBooster'?: number;
     'shieldCharge'?: number;
     'shieldMastery'?: number;
     'shieldToss'?: number;
+    'shieldTraining'?: number;
     'shieldWall'?: number;
     'stingingFlurry'?: number;
+    'swordDiscipline'?: number;
     'tornadoSlash'?: number;
     'typhoonSlash'?: number;
     'warhorn'?: number;

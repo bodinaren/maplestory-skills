@@ -1,6 +1,6 @@
 
 
-export interface ISkillDescription {
+export interface ISkillDescription<T = SkillArray | AwakenedSkillArray> {
   description: string;
 
   /**
@@ -9,10 +9,10 @@ export interface ISkillDescription {
    * The position represents the amount of points placed skill (starting at 0 points).
    * Since 0 points shows the values of the first level, the first and second position is always the same.
    */
-  values?: { [attribute: string]: SkillArray };
+  values?: { [attribute: string]: T };
 }
 
-export interface ISkill extends ISkillDescription {
+export interface ISkillBase<T = SkillArray | AwakenedSkillArray> extends ISkillDescription<T> {
   /** The name of the skill */
   name: string;
 
@@ -44,9 +44,9 @@ export interface ISkill extends ISkillDescription {
 
   sp?: boolean;
 
-  spirit?: number | SkillArray;
+  spirit?: number | T;
 
-  cooldown?: number | SkillArray;
+  cooldown?: number | T;
 
   /**
    * Which character level that is required for each level of the skill.
@@ -54,26 +54,35 @@ export interface ISkill extends ISkillDescription {
    * The position represents the amount of points placed skill (starting at 0 points).
    * Since 0 points shows the values of the first level, the first and second position is always the same.
    */
-  levelRequirement?: SkillArray;
+  levelRequirement?: T;
 
   /** The skills and levels that are required before you can place point in this skill. */
   skillRequirements?: ISkillRequirement[];
 
-  extras?: ISkillDescription[];
+  extras?: ISkillDescription<T>[];
+}
+
+export interface ISkill extends ISkillBase<SkillArray> {
+}
+
+export interface IAwakenedSkill extends ISkillBase<AwakenedSkillArray> {
 }
 
 export interface IClassSkills {
-  [prop: string]: ISkill;
+  [prop: string]: ISkill | IAwakenedSkill;
 }
 
 export interface ISkillRequirement {
   /** Which skill is required */
-  skill: ISkill;
+  skill: ISkillBase;
 
   /** How many points are required of skill. */
   level: number;
 }
 
+
+
 export type SkillArray = [number, number, number, number, number, number, number, number, number, number, number];
+export type AwakenedSkillArray = [number, number, number, number, number];
 
 export type MapleStoryElement = "Dark" | "Electric" | "Fire" | "Holy" | "Ice" | "Toxic";

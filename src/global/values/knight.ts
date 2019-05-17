@@ -1,4 +1,4 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IAwakenedSkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const IronDefense: ISkill = {
   name: "Iron Defense",
@@ -51,7 +51,7 @@ export const CrossCut: ISkill = {
     damage: [79, 79, 85, 91, 97, 103, 109, 115, 121, 127, 133],
   },
   description: `
-    A swing of your sword deals <span>[damage]%</span> damage <span>2</span> times
+    A swing of your sword deals <span>{damage}%</span> damage <span>2</span> times
     to <span>5</span> enemies up to <span>3</span> m in front of you.
   `,
 };
@@ -72,7 +72,7 @@ export const TornadoSlash: ISkill = {
     damage: [81, 81, 86, 91, 96, 101, 106, 111, 116, 121, 126],
   },
   description: `
-    Perform a spin slash, dealing <span>[damage]%</span> damage <span>3</span> times
+    Perform a spin slash, dealing <span>{damage}%</span> damage <span>3</span> times
     to <span>8</span> enemies within <span>3</span> m and pulling them in <span>1</span> m.
     Consumes <span>12</span> spirit.
   `,
@@ -102,7 +102,7 @@ export const DivineStrike: ISkill = {
     damage: [501, 501, 536, 571, 606, 641, 676, 711, 746, 781, 816],
   },
   description: `
-    Gathers light and smashes it down, creating a shockwave that deals <span>[damage]%</span>
+    Gathers light and smashes it down, creating a shockwave that deals <span>{damage}%</span>
     holy damage to <span>8</span> enemies and knocks them back <span>2</span> m.
     Enemy attacks will not push you back while this skill is active.
   `,
@@ -132,7 +132,7 @@ export const StingingFlurry: ISkill = {
   },
   description: `
     Captain Allon's special skill stabs quickly,
-    dealing <span>[damage]%</span> damage <span>3</span> times
+    dealing <span>{damage}%</span> damage <span>3</span> times
     to <span>3</span> enemies up to <span>3</span> m in front of you.
     The skill lasts while the skill key is held down.
     Consumes <span>13</span> spirit.
@@ -161,7 +161,7 @@ export const DrillThrust: ISkill = {
   description: `
   Strike forth with your weapon, moving you <span>4.5</span> m and creating a whirlwind.
   You pierce enemies in your path,
-  dealing <span>[damage]%</span> damage on up to <span>8</span> enemies.
+  dealing <span>{damage}%</span> damage on up to <span>8</span> enemies.
   `,
 };
 
@@ -187,7 +187,7 @@ export const LongswordMastery: ISkill = {
   },
   description: `
     Captain Allon's secret training improves your swordsmanship, increasing your weapon attack
-    by <span>[attack]%</span> when you have a longsword equipped.
+    by <span>{attack}%</span> when you have a longsword equipped.
   `,
 };
 
@@ -211,7 +211,7 @@ export const TyphoonSlash: ISkill = {
     damage: [147, 147, 158, 169, 180, 191, 202, 213, 224, 235, 246],
   },
   description: `
-    Spin with your weapon out, dealing <span>[damage]%</span> damage <span>5</span> times
+    Spin with your weapon out, dealing <span>{damage}%</span> damage <span>5</span> times
     to <span>8</span> enemies within <span>3</span> m. Each hit pulls them in <span>1</span> m.
     During the attack, press a direction key to move <span>4.5</span> m.
     Consumes <span>50</span> spirit.
@@ -232,7 +232,7 @@ export const IronShield: ISkill = {
     reduction: [25, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70],
   },
   description: `
-    Adopt a defensive stance with your shield, reducing incoming damage by <span>[reduction]%</span>.
+    Adopt a defensive stance with your shield, reducing incoming damage by <span>{reduction}%</span>.
     The skill lasts while the skill key is held down, although powerful attacks may break the skill early.
     This skill can cancel other skills.
     In PvP zones, the damage reduction is halved.
@@ -264,9 +264,9 @@ export const ShieldToss: ISkill = {
   },
   description: `
     Toss your shield <span>7.5</span> m forward like a boomerang,
-    dealing <span>[damage]%</span> damage <span>2</span> times
+    dealing <span>{damage}%</span> damage <span>2</span> times
     to <span>8</span> enemies and reducing their defense
-    by <span>[reduction]%</span> for <span>12</span> sec.
+    by <span>{reduction}%</span> for <span>12</span> sec.
     Consumes <span>16</span> spirit.
   `,
 };
@@ -293,10 +293,10 @@ export const ShieldMastery: ISkill = {
   },
   description: `
     Your fervent desire to protect others increases your shield mastery,
-    increasing critical evasion by <span>[evasion]</span> and perfect guard chance
-    by <span>[perfectGuard]%</span> when you have a shield equipped when using Iron Shield.
-    Blocking an attack grants a <span>[increaseChance]%</span> chance to increase your damage
-    by <span>[damage]%</span> for <span>10</span> sec.
+    increasing critical evasion by <span>{evasion}</span> and perfect guard chance
+    by <span>{perfectGuard}%</span> when you have a shield equipped when using Iron Shield.
+    Blocking an attack grants a <span>{increaseChance}%</span> chance to increase your damage
+    by <span>{damage}%</span> for <span>10</span> sec.
   `,
 };
 
@@ -322,11 +322,11 @@ export const ShieldBooster: ISkill = {
   },
   description: `
     Lift <span>5</span> enemies up to <span>2</span> m in front of you with your shield,
-    dealing <span>[damage]%</span> damage.
+    dealing <span>{damage}%</span> damage.
     Increases physical and magic resistance by <span>450</span>.
     For <span>10</span> sec, has a chance to trigger counter when hit.
     Also increases your counterattack damage
-    by an additional <span>[increase]%</span>.
+    by an additional <span>{increase}%</span>.
   `,
 };
 
@@ -348,7 +348,7 @@ export const ShieldWall: ISkill = {
   description: `
     Create a <span>3</span> m holy field around you for <span>10</span> sec,
     increasing the physical resistance and magic resistance of <span>10</span> allies,
-    including yourself, by <span>[resistance]</span>.
+    including yourself, by <span>{resistance}</span>.
   `,
 };
 
@@ -372,8 +372,8 @@ export const Warhorn: ISkill = {
     increase: [3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   },
   description: `
-    Shout to raise morale, increasing the physical attack and magic attack of <span>[allies]%</span>
-    within <span>3</span> m, plus yourself, by <span>[increase]%</span> for <span>10</span> sec.
+    Shout to raise morale, increasing the physical attack and magic attack of <span>{allies}%</span>
+    within <span>3</span> m, plus yourself, by <span>{increase}%</span> for <span>10</span> sec.
     Consumes <span>40</span> spirit.
   `,
 };
@@ -401,7 +401,7 @@ export const Bulwark: ISkill = {
     allies: [4, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
   },
   description: `
-    Create a protective barrier for <span>3</span> sec to make <span>[allies]</span> allies,
+    Create a protective barrier for <span>3</span> sec to make <span>{allies}</span> allies,
     including yourself, invulnerable to enemy attacks.
     Some attacks cannot be blocked.
   `,
@@ -431,7 +431,294 @@ export const DefenderOfTheFaith: ISkill = {
   },
   description: `
     Dash to the nearest ally within <span>8</span> m to create a protective barrier that lasts
-    <span>3</span> sec and makes <span>[allies]</span> allies, including yourself, invulnerable to enemy attacks.
+    <span>3</span> sec and makes <span>{allies}</span> allies, including yourself, invulnerable to enemy attacks.
     Some attacks cannot be blocked.
   `,
+};
+
+export const DualTactics: IAwakenedSkill = {
+  name: "Dual Tactics",
+  attr: "dual-tactics",
+  prop: "dualTactics",
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  passive: true,
+  description: `
+    Change up your tactics based on your current health.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    When max health is at least <span>80%</span>, activates Offensive Tactics.
+    <br/><br/>
+    When max health is <span>30%</span> or less, activates Defensive Tactics.
+    <br/><br/>
+    Permanently increases strength by <span>40</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Offensive Tactics increases all damage by 10%.<br/>
+    Defensive Tactics increases physical and magic defence by <span>150</span>.
+  `,
+};
+
+export const ConvictionStrike: IAwakenedSkill = {
+  name: "Conviction Strike",
+  attr: "conviction-strike",
+  prop: "convictionStrike",
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Main Hand Longsword",
+  spirit: 20,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [989, 989, 989, 989, 989],
+  },
+  description: `
+    Focus your strength into a precise word thrust.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage. Grants knockback immunity.
+  `,
+};
+
+export const DivineRetribution: IAwakenedSkill = {
+  name: "Divine Retribution",
+  attr: "divine-retribution",
+  prop: "divineRetribution",
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Holy",
+  spirit: 40,
+  cooldown: 30,
+  levelRequirement: [62, 62, 62, 62, 62],
+  values: {
+    attack: [15, 15, 15, 15, 15],
+    defense: [30, 30, 30, 30, 30],
+  },
+  description: `
+    Channel divine fury through your sword, gaining offensive power at the expense of defense.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases physical and magic attack by <span>{attack}%</span>, but decreases defense by <span>{defense}%</span>.
+    Disables all shield skills except for Shield Charge.
+  `,
+};
+
+export const SwordDiscipline: IAwakenedSkill = {
+  name: "Sword Discipline",
+  attr: "sword-discipline",
+  prop: "swordDiscipline",
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: DivineRetribution,
+    level: 2,
+  }],
+  values: {
+    increase: [9, 9, 9, 9, 9],
+  },
+  description: `
+    You have devoted yourself to the mastery of the sword.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Conviction Strike and Light Bringer damage by <span>{increase}%</span>.
+  `,
+};
+
+export const LightBringer: IAwakenedSkill = {
+  name: "Light Bringer",
+  attr: "light-bringer",
+  prop: "lightBringer",
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Holy",
+  attackType: "Physical",
+  weaponRequired: "Main Hand Longsword",
+  cooldown: 30,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: DivineRetribution,
+    level: 3,
+  }, {
+    skill: SwordDiscipline,
+    level: 3,
+  }],
+  values: {
+    damage: [1912, 1912, 1912, 1912, 1912],
+  },
+  description: `
+    Summon holy swords to damage enemies in a large area before you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit. Grants knockback immunity.
+  `,
+};
+
+export const GuardiansWings: IAwakenedSkill = {
+  name: "Guardian's Wings",
+  attr: "guardians-wings",
+  prop: "guardiansWings",
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Holy",
+  weaponRequired: "Off-hand Shield",
+  spirit: 8,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [227, 227, 227, 227, 227],
+    reduction: [30, 30, 30, 30, 30],
+    perfectGuard: [9, 9, 9, 9, 9],
+    additionalDamage: [505, 505, 505, 505, 505],
+    pierces: [8, 8, 8, 8, 8],
+  },
+  description: `
+    Spread wings of light to create a curtain of divine energy.
+    Hold down the skill key to project a Guardian Shield in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Reduces incoming damage by <span>{reduction}%</span>.
+    Increases perfect guard by <span>{perfectGuard}%</span>.
+    Able to move while this is active.
+    Grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Guardian Shield deals <span>{additionalDamage}%</span> damage and pierces targets <span>{pierces}</span> times.
+  `,
+};
+
+export const CycloneShield: IAwakenedSkill = {
+  name: "Cyclone Shield",
+  attr: "cyclone-shield",
+  prop: "cycloneShield",
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "Off-hand Shield",
+  spirit: 20,
+  cooldown: 8,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: GuardiansWings,
+    level: 3,
+  }],
+  values: {
+    damage: [274, 274, 274, 274, 274],
+    interval: [0.2, 0.2, 0.2, 0.2, 0.2],
+    reduction: [6, 6, 6, 6, 6],
+  },
+  description: `
+    Toss your shield like a boomerang to create a whirlwind.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage every <span>{interval}</span> sec.
+    Decreases enemy defence by <span>{reduction}%</span>.
+    This does not stack with Shield Toss.
+  `,
+};
+
+export const ShieldTraining: IAwakenedSkill = {
+  name: "Shield Training",
+  attr: "shield-training",
+  prop: "shieldTraining",
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: CycloneShield,
+    level: 3,
+  }],
+  values: {
+    damage: [3, 3, 3, 3, 3],
+  },
+  description: `
+    You have dedicated yourself to the mastery of the shield.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Cyclone Shield and Heaven's Judgement damage by <span>{damage}%</span>.
+  `,
+};
+
+export const HeavensJudgement: IAwakenedSkill = {
+  name: "Heaven's Judgement",
+  attr: "heavens-judgement",
+  prop: "heavensJudgement",
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Off-hand Shield",
+  spirit: 40,
+  cooldown: 8,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: ShieldTraining,
+    level: 3,
+  }],
+  values: {
+    damage: [1125, 1125, 1125, 1125, 1125],
+  },
+  description: `
+    Gather divine energy in your shield, then release it to smite your enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Grants knockback immunity.
+  `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  Bulwark: Bulwark,
+  CrossCut: CrossCut,
+  DefenderOfTheFaith: DefenderOfTheFaith,
+  DivineStrike: DivineStrike,
+  DrillThrust: DrillThrust,
+  IronDefense: IronDefense,
+  IronShield: IronShield,
+  LongswordMastery: LongswordMastery,
+  ShieldBooster: ShieldBooster,
+  ShieldCharge: ShieldCharge,
+  ShieldMastery: ShieldMastery,
+  ShieldToss: ShieldToss,
+  ShieldWall: ShieldWall,
+  StingingFlurry: StingingFlurry,
+  TornadoSlash: TornadoSlash,
+  TyphoonSlash: TyphoonSlash,
+  Warhorn: Warhorn,
+};
+
+export const RankTwoSkills: IClassSkills = {
+  DualTactics: DualTactics,
+  ConvictionStrike: ConvictionStrike,
+  DivineRetribution: DivineRetribution,
+  SwordDiscipline: SwordDiscipline,
+  LightBringer: LightBringer,
+  GuardiansWings: GuardiansWings,
+  CycloneShield: CycloneShield,
+  ShieldTraining: ShieldTraining,
+  HeavensJudgement: HeavensJudgement,
+};
+
+export const KnightSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

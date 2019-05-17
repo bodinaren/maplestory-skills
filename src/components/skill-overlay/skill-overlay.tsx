@@ -1,7 +1,7 @@
 import { h, Component, Prop, getAssetPath } from "@stencil/core";
 import { ISkill, ISkillDescription } from "../../global/values/_skillValues.interfaces";
 
-let descriptionRegex = /\[(.*?)\]/;
+let descriptionRegex = /\{(.*?)\}/;
 
 /**
  * @private

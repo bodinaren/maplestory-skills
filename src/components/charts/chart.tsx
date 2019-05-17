@@ -1,4 +1,4 @@
-import { h, Host, Component, Prop, Listen, Element, getAssetPath } from "@stencil/core";
+import { h, Host, Component, Prop, Listen, Element, getAssetPath, Event, EventEmitter } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
 import { getOptimizedAssetPath } from "../../global/utils";
 
@@ -9,9 +9,12 @@ import { getOptimizedAssetPath } from "../../global/utils";
 })
 export class ChartComponent {
 
-  @Prop() msClass: string;
-
   @Element() host: HTMLMsChartElement;
+
+  @Prop({ reflectToAttr: true }) msClass: string;
+  @Prop() rank: number = 1;
+
+  @Event({ eventName: "rankChange" }) onRankChanged: EventEmitter<number>;
 
   @ConstructibleStyle({ cacheKeyProperty: "msClass" }) styles = ChartComponent.getStyles.bind(this, this.msClass);
 
@@ -39,17 +42,58 @@ export class ChartComponent {
     }
   }
 
+  private changeRank(rank: number) {
+    if (this.rank !== rank) {
+      this.rank = rank;
+      this.onRankChanged.emit(rank);
+    }
+  }
+
   render() {
     return (
       <Host>
         <ms-footer></ms-footer>
-        <div class="chart">
-          <div class="class-icon">
-            <div class={"chart-class " + this.msClass}>
-              <slot></slot>
+        <div class="chart-left">
+          <div class="chart-ranks">
+            <a href="javascript:void(0)" onClick={ () => this.changeRank(1) }>Rank 1</a>
+            <a href="javascript:void(0)" onClick={ () => this.changeRank(2) }>Rank 2</a>
+          </div>
+
+          { this.rank === 1 &&
+            <div class="level-intervals">
+              <div>Level 1</div>
+              <div>Level 10</div>
+              <div>Level 20</div>
+              <div>Level 30</div>
+              <div>Level 40</div>
+              <div>Level 50</div>
+            </div>
+          }
+          { this.rank === 2 &&
+            <div class="level-intervals">
+              <div>Level 60</div>
+              <div>Level 62</div>
+              <div>Level 64</div>
+              <div>Level 66</div>
+              <div>Level 68</div>
+              <div>Level 70</div>
+            </div>
+          }
+        </div>
+        { this.rank === 1 &&
+          <div class="chart rank-1">
+            <div class="class-icon">
+              <div class="chart-class">
+                <slot name="rank-1"></slot>
+              </div>
             </div>
           </div>
-        </div>
+        }
+        { this.rank === 2 && 
+          <div class="chart rank-2">
+            <slot name="rank-2"></slot>
+          </div>
+        }
       </Host>
     );
   }
@@ -57,25 +101,31 @@ export class ChartComponent {
   private static getStyles(msClass: string): string {
     return `
       ms-chart {
-        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
       }
       ms-chart:active {
-        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
       }
       :host, :host(:hover), ms-chart {
-        cursor: url(${ getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
       }
       :host(:active) {
-        cursor: url(${ getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
+        cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
       }
-      .chart {
-        background-image: url(${ getAssetPath(`assets/charts/chart.jpg`)});
+      .chart-left {
+        background-image: url(${ getAssetPath(`assets/charts/chart-left.jpg`) });
+      }
+      .chart.rank-1 {
+        background-image: url(${ getAssetPath(`assets/charts/chart-rank-1.jpg`) });
+      }
+      .chart.rank-2 {
+        background-image: url(${ getAssetPath(`assets/charts/chart-${ msClass }.jpg`) });
       }
       .class-icon {
-        background-image: url(${ getAssetPath(`assets/charts/${msClass}-icon.png`)})
+        background-image: url(${ getAssetPath(`assets/charts/${ msClass }-icon.png`) })
       }
       .chart-class {
-        background-image: url(${ getOptimizedAssetPath(`assets/charts/${msClass}-lines.png`)});
+        background-image: url(${ getOptimizedAssetPath(`assets/charts/${ msClass }-lines.png`) });
       }
     `;
   }

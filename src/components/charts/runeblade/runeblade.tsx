@@ -82,7 +82,7 @@ export class RunebladeComponent implements IChart {
   render() {
     return ([
       <ms-chart msClass="runeblade">
-        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
+        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, 1, {
           onSkillclicked: (evt) => this.changeSigil(evt.detail),
         }) }
       </ms-chart>
