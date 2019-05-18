@@ -34,6 +34,16 @@ export class ArcherComponent implements IChart {
   @Prop({ mutable: true }) sharpEyes: number = ArcherSkills.SharpEyes.minLevel;
   @Prop({ mutable: true }) snipe: number = ArcherSkills.Snipe.minLevel;
 
+  @Prop({ mutable: true }) improvedGliding: number = ArcherSkills.ImprovedGliding.minLevel;
+  @Prop({ mutable: true }) flameArrow: number = ArcherSkills.FlameArrow.minLevel;
+  @Prop({ mutable: true }) multiDriveShot: number = ArcherSkills.MultiDriveShot.minLevel;
+  @Prop({ mutable: true }) rangersFocus: number = ArcherSkills.RangersFocus.minLevel;
+  @Prop({ mutable: true }) hastersTeachings: number = ArcherSkills.HastersTeachings.minLevel;
+  @Prop({ mutable: true }) piercingArrow: number = ArcherSkills.PiercingArrow.minLevel;
+  @Prop({ mutable: true }) spiralArrow: number = ArcherSkills.SpiralArrow.minLevel;
+  @Prop({ mutable: true }) archersSecrets: number = ArcherSkills.ArchersSecrets.minLevel;
+  @Prop({ mutable: true }) greaterSharpEyes: number = ArcherSkills.GreaterSharpEyes.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

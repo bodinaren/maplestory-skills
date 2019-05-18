@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const Snipe: ISkill = {
   name: "Snipe",
@@ -447,6 +447,285 @@ export const PrecisionShooter: ISkill = {
   `,
 };
 
+export const ImprovedGliding: IAwakenedSkill = {
+  name: "Improved Gliding",
+  attr: "improved-gliding",
+  prop: "improvedGliding",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  passive: true,
+  levelRequirement: [60, 60, 60, 60, 60],
+  description: `
+    Glide through the air on your eagle's wings.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases dexterity by <span>40</span>.
+    <br/><br/>
+    Enhances Eagle Glide.
+  `,
+};
+
+export const FlameArrow: IAwakenedSkill = {
+  name: "Flame Arrow",
+  attr: "flame-arrow",
+  prop: "flameArrow",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Bow",
+  spirit: 8,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    firstDamage: [237, 237, 237, 237, 237],
+    secondDamage: [104, 104, 104, 104, 104],
+  },
+  description: `
+    Lose <span>3</span> flaming arrows at enemies in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{firstDamage}%</span> damage <span>1</span> time
+    and <span>{secondDamage}% damage <span>2</span> times.
+    <br/><br/>
+    Grants <span>1</span> stack of Burning Arrow.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    When Burning Arrow is at <span>10</span> stacks, use Multi-Drive Shot to enable Flame Arrow II.</span>
+  `,
+};
+
+export const MultiDriveShot: IAwakenedSkill = {
+  name: "Multi-Drive Shot",
+  attr: "multi-drive-shot",
+  prop: "multiDriveShot",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Bow",
+  cooldown: 3,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: FlameArrow,
+    level: 3,
+  }],
+  values: {
+    damage: [212, 212, 212, 212, 212],
+    explosionDamage: [51, 51, 51, 51, 51],
+  },
+  description: `
+    Lose <span>6</span> guided fire arrows at the enemy.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>6</span> times and explodes.
+    <br/><br/>
+    When you have Burning Arrow III, this skill becomes Multi-Drive Shot III.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    The explosion deals <span>{explosionDamage}%</span> per <span>6</span> times to nearby enemies.
+    <br/>
+    Use this skill when Burning Arrow II is at <span>10</span> stacks to enable Flame Arrow III.
+  `,
+};
+
+export const RangersFocus: IAwakenedSkill = {
+  name: "Rangers Focus",
+  attr: "rangers-focus",
+  prop: "rangersFocus",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  cooldown: 40,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: MultiDriveShot,
+    level: 2,
+  }],
+  values: {
+    attack: [9, 9, 9, 9, 9],
+  },
+  description: `
+    Focus your senses to gain explosive power.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases physical attack by <span>{attack}%</span> and grants unlimited spirit for 15 sec
+    <br/><br/>
+    Enables Flame Arrow IV. When Ranger's Focus ends, enables Flame Arrow III.
+  `,
+};
+
+export const HastersTeachings: IAwakenedSkill = {
+  name: "Haster's Teachings",
+  attr: "hasters-teachings",
+  prop: "hastersTeachings",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: MultiDriveShot,
+    level: 3,
+  }, {
+    skill: RangersFocus,
+    level: 3,
+  }],
+  values: {
+    increase: [6, 6, 6, 6, 6],
+  },
+  description: `
+    Haster's tips and tricks have sharpened your abilities.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Multi-Drive Shot and Flame arrow by <span>{increase}%</span>.
+    Reduces the spirit cost of Flame Arrow III by <span>20%</span>.
+    These damage bonuses also affects the enhanced forms of abilities.
+  `,
+};
+
+export const PiercingArrow: IAwakenedSkill = {
+  name: "Piercing Arrow",
+  attr: "piercing-arrow",
+  prop: "piercingArrow",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Bow",
+  spirit: 10,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [417, 417, 417, 417, 417],
+  },
+  description: `
+    Launch an arrow propelled by the power of the wind.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Press the skill key again to perform a quick follow-up shot.
+  `,
+};
+
+export const SpiralArrow: IAwakenedSkill = {
+  name: "Spiral Arrow",
+  attr: "spiral-arrow",
+  prop: "spiralArrow",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Bow",
+  spirit: 20,
+  cooldown: 10,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: PiercingArrow,
+    level: 3,
+  }],
+  values: {
+    damage: [42, 42, 42, 42, 42],
+    cooldown: [12, 12, 12, 12, 12],
+    movement: [15, 15, 15, 15, 15],
+  },
+  description: `
+    Arc an arrow into the air and use the power of the wind to guide it.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage and creates a whirlwind.
+    <br/><br/>
+    After using Piercing Arrow or Spiral Arrow, there is a <span>{cooldown}%</span> chance to reset cooldown.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    The whirlwind deals <span>{movement}%</span> damage <span>5</span> times.
+    <br/>
+    Enhanced by Archer's Secrets.
+  `,
+};
+
+export const ArchersSecrets: IAwakenedSkill = {
+  name: "Archer's Secrets",
+  attr: "Archers-secrets",
+  prop: "archersSecrets",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Bow",
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: SpiralArrow,
+    level: 3,
+  }],
+  values: {
+    piercing: [4, 4, 4, 4, 4],
+    accuracy: [4, 4, 4, 4, 4],
+  },
+  description: `
+    Master the secrets of archery to unlock hidden skills and strengthen physical ability.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Available while Full Wind Draw is active.
+    Increases piercing by <span>{piercing}%</span> and
+    accuracy by <span>{accuracy}%</span> for <span>20</span> sec.
+    Enables use of Enhanced Spiral Arrow and Twirling Wind Arrow.
+    Once learned, unlocks Wind Draw and Full Wind Draw.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Hit enemies with Piercing Arrow and Spiral Arrow to gain Wind Draw,
+    which lasts for <span>15</span> sec and stack up to <span>15</span> times.
+    At max stacks, gain Full Wind Draw.
+    <br/>
+    Full Wind Draw enables for <span>30</span> sec.
+  `,
+};
+
+export const GreaterSharpEyes: IAwakenedSkill = {
+  name: "Greater Sharp Eyes",
+  attr: "greater-sharp-eyes",
+  prop: "greaterSharpEyes",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: ArchersSecrets,
+    level: 3,
+  }, {
+    skill: SpiralArrow,
+    level: 3,
+  }],
+  values: {
+    attack: [3, 3, 3, 3, 3],
+  },
+  description: `
+    Master the secrets of archery to draw out the true power of Sharp Eyes.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Enhanced Sharp Eyes grants a <span>{damage}%</span> physical attack bonus to the caster.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   AgileArcher: AgileArcher,
   ArrowBarrage: ArrowBarrage,
@@ -468,7 +747,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  ImprovedGliding: ImprovedGliding,
+  FlameArrow: FlameArrow,
+  MultiDriveShot: MultiDriveShot,
+  RangersFocus: RangersFocus,
+  HastersTeachings: HastersTeachings,
+  PiercingArrow: PiercingArrow,
+  SpiralArrow: SpiralArrow,
+  ArchersSecrets: ArchersSecrets,
+  GreaterSharpEyes: GreaterSharpEyes,
 };
 
 export const ArcherSkills: IClassSkills = {

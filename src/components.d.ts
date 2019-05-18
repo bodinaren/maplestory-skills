@@ -18,6 +18,7 @@ import {
 export namespace Components {
   interface MsArcher {
     'agileArcher': number;
+    'archersSecrets': number;
     'arrowBarrage': number;
     'arrowStorm': number;
     'arrowStream': number;
@@ -30,14 +31,22 @@ export namespace Components {
     'editable': boolean;
     'evasiveSalvo': number;
     'extras': boolean;
+    'flameArrow': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'greaterSharpEyes': number;
+    'hastersTeachings': number;
     'iceArrow': number;
+    'improvedGliding': number;
+    'multiDriveShot': number;
+    'piercingArrow': number;
     'precisionShooter': number;
+    'rangersFocus': number;
     'rank': number;
     'rapidShot': number;
     'screwdriverShot': number;
     'sharpEyes': number;
     'snipe': number;
+    'spiralArrow': number;
   }
   interface MsAssassin {
     'darkCloak': number;
@@ -325,6 +334,7 @@ export namespace Components {
 declare namespace LocalJSX {
   interface MsArcher extends JSXBase.HTMLAttributes {
     'agileArcher'?: number;
+    'archersSecrets'?: number;
     'arrowBarrage'?: number;
     'arrowStorm'?: number;
     'arrowStream'?: number;
@@ -337,14 +347,22 @@ declare namespace LocalJSX {
     'editable'?: boolean;
     'evasiveSalvo'?: number;
     'extras'?: boolean;
+    'flameArrow'?: number;
+    'greaterSharpEyes'?: number;
+    'hastersTeachings'?: number;
     'iceArrow'?: number;
+    'improvedGliding'?: number;
+    'multiDriveShot'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'piercingArrow'?: number;
     'precisionShooter'?: number;
+    'rangersFocus'?: number;
     'rank'?: number;
     'rapidShot'?: number;
     'screwdriverShot'?: number;
     'sharpEyes'?: number;
     'snipe'?: number;
+    'spiralArrow'?: number;
   }
   interface MsAssassin extends JSXBase.HTMLAttributes {
     'darkCloak'?: number;
