@@ -39,8 +39,7 @@ export class ArcherComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, RankOneSkills, Rank.Basic);
-    processSkills(this, RankTwoSkills, Rank.Awakening);
+    processSkills(this, ArcherSkills);
   }
 
   @Method()
@@ -51,23 +50,24 @@ export class ArcherComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, RankOneSkills, Rank.Basic, skill);
-    processSkills(this, RankTwoSkills, Rank.Awakening, skill);
+    processSkills(this, ArcherSkills, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
   }
 
   render() {
     return [
-      <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills, this.editable, this.extras)}
-      </ms-chart>
+      <ms-chart msClass="archer" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     ];
   }
 }

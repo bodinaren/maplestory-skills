@@ -349,6 +349,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         // create new editor for the new class.
         if (chart) chart.remove();
         chart = document.createElement("ms-" + msClass);
+        chart.rank = 2;
         chart.editable = true;
         chart.extras = chkExtras.checked;
         chartHolder.appendChild(chart);
@@ -402,11 +403,21 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
               }
             });
 
-            if (q[0] === "runeblade") {
-              if (q[27] !== "0") chart.extras = chkExtras.checked = true;
-              if (q[27] !== "1") chart.sigil = q[27]; // means it's the name of a sigil
+            if (q.length > 20) {
+              if (q[0] === "runeblade") {
+                if (q[27] !== "0") chart.extras = chkExtras.checked = true;
+                if (q[27] !== "1") chart.sigil = q[27]; // means it's the name of a sigil
+              } else {
+                chart.extras = chkExtras.checked = !!parseInt(q[27]);
+              }
             } else {
-              chart.extras = chkExtras.checked = !!parseInt(q[27]);
+              // pre-awakening
+              if (q[0] === "runeblade") {
+                if (q[18] !== "0") chart.extras = chkExtras.checked = true;
+                if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
+              } else {
+                chart.extras = chkExtras.checked = !!parseInt(q[18]);
+              }
             }
 
             setTimeout(function() {
@@ -414,7 +425,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
             }, 300);
           });
         } else {
-          toggle("knight");
+          toggle("wizard");
         }
       }
 

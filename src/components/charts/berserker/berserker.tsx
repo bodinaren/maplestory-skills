@@ -39,8 +39,7 @@ export class BerserkerComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, RankOneSkills, Rank.Basic);
-    processSkills(this, RankTwoSkills, Rank.Awakening);
+    processSkills(this, BerserkerSkills);
   }
 
   @Method()
@@ -51,23 +50,24 @@ export class BerserkerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, RankOneSkills, Rank.Basic, skill);
-    processSkills(this, RankTwoSkills, Rank.Awakening, skill);
+    processSkills(this, BerserkerSkills, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="berserker">
-        { renderLevelControls(this, BerserkerSkills, this.editable, this.extras) }
-      </ms-chart>
+      <ms-chart msClass="berserker" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     );
   }
 }

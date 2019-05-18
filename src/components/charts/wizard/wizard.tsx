@@ -34,13 +34,21 @@ export class WizardComponent implements IChart {
   @Prop({ mutable: true }) teleport: number = WizardSkills.Teleport.minLevel;
   @Prop({ mutable: true }) thunderbolt: number = WizardSkills.Thunderbolt.minLevel;
 
+  @Prop({ mutable: true }) manaControl: number = WizardSkills.ManaControl.minLevel;
+@Prop({ mutable: true }) dualCast: number = WizardSkills.DualCast.minLevel;
+@Prop({ mutable: true }) iceCreamTime: number = WizardSkills.IceCreamTime.minLevel;
+@Prop({ mutable: true }) lodestoneField: number = WizardSkills.LodestoneField.minLevel;
+@Prop({ mutable: true }) perfectStorm: number = WizardSkills.PerfectStorm.minLevel;
+@Prop({ mutable: true }) ember: number = WizardSkills.Ember.minLevel;
+@Prop({ mutable: true }) barbecueParty: number = WizardSkills.BarbecueParty.minLevel;
+@Prop({ mutable: true }) playingWithFire: number = WizardSkills.PlayingWithFire.minLevel;
+@Prop({ mutable: true }) littleMeteor: number = WizardSkills.LittleMeteor.minLevel;
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, RankOneSkills, Rank.Basic);
-    processSkills(this, RankTwoSkills, Rank.Awakening);
+    processSkills(this, WizardSkills);
   }
 
   @Method()
@@ -51,22 +59,23 @@ export class WizardComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, RankOneSkills, Rank.Basic, skill);
-    processSkills(this, RankTwoSkills, Rank.Awakening, skill);
+    processSkills(this, WizardSkills, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="wizard">
-        { renderLevelControls(this, WizardSkills, this.editable, this.extras) }
+      <ms-chart msClass="wizard" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

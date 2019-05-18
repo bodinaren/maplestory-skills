@@ -54,8 +54,7 @@ export class RunebladeComponent implements IChart {
       this.updateSkill({ ...RunebladeSkills[prop] });
     });
 
-    processSkills(this, this.rankOneSkills, Rank.Basic);
-    processSkills(this, this.rankTwoSkills, Rank.Awakening);
+    processSkills(this, this.runebladeSkills);
     this.updateSigil();
   }
 
@@ -67,8 +66,7 @@ export class RunebladeComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, this.rankOneSkills, Rank.Basic, skill);
-    processSkills(this, this.rankTwoSkills, Rank.Awakening, skill);
+    processSkills(this, this.runebladeSkills, skill);
     this.host.forceUpdate();
 
     if (skill.prop === this.sigil && level === 0) {
@@ -80,14 +78,18 @@ export class RunebladeComponent implements IChart {
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
   }
 
   render() {
     return ([
-      <ms-chart msClass="runeblade">
-        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, 1, {
+      <ms-chart msClass="runeblade" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, this.rankOneSkills, this.editable, this.extras, Rank.Basic, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
+        { renderLevelControls(this, this.rankTwoSkills, this.editable, this.extras, Rank.Awakening, {
           onSkillclicked: (evt) => this.changeSigil(evt.detail),
         }) }
       </ms-chart>

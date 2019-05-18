@@ -39,8 +39,7 @@ export class ThiefComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, RankOneSkills, Rank.Basic);
-    processSkills(this, RankTwoSkills, Rank.Awakening);
+    processSkills(this, ThiefSkills);
   }
 
   @Method()
@@ -51,22 +50,23 @@ export class ThiefComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, RankOneSkills, Rank.Basic, skill);
-    processSkills(this, RankTwoSkills, Rank.Awakening, skill);
+    processSkills(this, ThiefSkills, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, ThiefSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="thief">
-        { renderLevelControls(this, ThiefSkills, this.editable, this.extras) }
+      <ms-chart msClass="thief" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

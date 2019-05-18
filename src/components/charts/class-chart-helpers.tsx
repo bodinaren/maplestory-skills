@@ -10,9 +10,7 @@ import { ISkillChangeEvent } from "./skill-change-event";
  * @param classSkills All the skills for the relevant class
  * @param skillChanged Which skill has changed, if any.
  */
-export function processSkills(chart: IChart, classSkills: IClassSkills, rank?: Rank, skillChanged?: ISkillBase) {
-
-  if (rank === 3) return; // TODO: Remove rank argument
+export function processSkills(chart: IChart, classSkills: IClassSkills, skillChanged?: ISkillBase) {
 
   let skills = {};
   let sumRank1 = 0;
@@ -134,6 +132,7 @@ export function renderLevelControls(chart: IChart, classSkills: IClassSkills, ed
 
 export function toSkillChangeEventObject(chart: any, classSkills: IClassSkills, other?: { [key: string]: string }): ISkillChangeEvent {
   let rs: ISkillChangeEvent = {
+    rank: chart.rank,
     skills: Object.keys(classSkills).map((key) => {
       let skill = classSkills[key];
       return {

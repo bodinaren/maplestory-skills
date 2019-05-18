@@ -290,22 +290,31 @@ export namespace Components {
   }
   interface MsWizard {
     'arcaneBlast': number;
+    'barbecueParty': number;
     'chainLightning': number;
     'cryomancy': number;
+    'dualCast': number;
     'editable': boolean;
     'electromancy': number;
     'elementalMaster': number;
+    'ember': number;
     'extras': boolean;
     'flameTornado': number;
     'flameWave': number;
     'focusSeal': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'iceCreamTime': number;
     'iceSpear': number;
     'iceStorm': number;
+    'littleMeteor': number;
+    'lodestoneField': number;
     'magicArmor': number;
     'manaClaw': number;
+    'manaControl': number;
     'manaFont': number;
+    'perfectStorm': number;
     'phantomClaw': number;
+    'playingWithFire': number;
     'pyromancy': number;
     'rank': number;
     'teleport': number;
@@ -591,22 +600,31 @@ declare namespace LocalJSX {
   }
   interface MsWizard extends JSXBase.HTMLAttributes {
     'arcaneBlast'?: number;
+    'barbecueParty'?: number;
     'chainLightning'?: number;
     'cryomancy'?: number;
+    'dualCast'?: number;
     'editable'?: boolean;
     'electromancy'?: number;
     'elementalMaster'?: number;
+    'ember'?: number;
     'extras'?: boolean;
     'flameTornado'?: number;
     'flameWave'?: number;
     'focusSeal'?: number;
+    'iceCreamTime'?: number;
     'iceSpear'?: number;
     'iceStorm'?: number;
+    'littleMeteor'?: number;
+    'lodestoneField'?: number;
     'magicArmor'?: number;
     'manaClaw'?: number;
+    'manaControl'?: number;
     'manaFont'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'perfectStorm'?: number;
     'phantomClaw'?: number;
+    'playingWithFire'?: number;
     'pyromancy'?: number;
     'rank'?: number;
     'teleport'?: number;

@@ -1,6 +1,7 @@
 import { Rank } from "../../global/values/_skillValues.interfaces";
 
 export interface ISkillChangeEvent {
+  rank: Rank,
   skills: ISkillChange[];
   other?: Array<{
     attr: string,

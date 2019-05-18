@@ -10,7 +10,7 @@ export class OutletComponent {
   @Prop() editor: string;
 
   @State() _editor: ClassEditorHTMLElement;
-  @State() _skills: ISkillChangeEvent = { skills: [] };
+  @State() _skills: ISkillChangeEvent = { rank: 1, skills: [] };
   @State() _tagName: string;
 
   componentDidLoad() {
