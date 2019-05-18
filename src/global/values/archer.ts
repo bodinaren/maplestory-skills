@@ -491,7 +491,7 @@ export const FlameArrow: IAwakenedSkill = {
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{firstDamage}%</span> damage <span>1</span> time
-    and <span>{secondDamage}% damage <span>2</span> times.
+    and <span>{secondDamage}%</span> damage <span>2</span> times.
     <br/><br/>
     Grants <span>1</span> stack of Burning Arrow.
     <br/><br/>
@@ -722,7 +722,7 @@ export const GreaterSharpEyes: IAwakenedSkill = {
     Master the secrets of archery to draw out the true power of Sharp Eyes.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Enhanced Sharp Eyes grants a <span>{damage}%</span> physical attack bonus to the caster.
+    Enhanced Sharp Eyes grants a <span>{attack}%</span> physical attack bonus to the caster.
   `,
 };
 

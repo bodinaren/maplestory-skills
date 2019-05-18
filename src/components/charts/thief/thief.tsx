@@ -34,6 +34,16 @@ export class ThiefComponent implements IChart {
   @Prop({ mutable: true }) surpriseAttack: number = ThiefSkills.SurpriseAttack.minLevel;
   @Prop({ mutable: true }) viciousCuts: number = ThiefSkills.ViciousCuts.minLevel;
 
+  @Prop({ mutable: true }) vengeance: number = ThiefSkills.Vengeance.minLevel;
+  @Prop({ mutable: true }) savageStrikes: number = ThiefSkills.SavageStrikes.minLevel;
+  @Prop({ mutable: true }) battlePlan: number = ThiefSkills.BattlePlan.minLevel;
+  @Prop({ mutable: true }) poisonMaster: number = ThiefSkills.PoisonMaster.minLevel;
+  @Prop({ mutable: true }) volatileVials: number = ThiefSkills.VolatileVials.minLevel;
+  @Prop({ mutable: true }) criticalSlice: number = ThiefSkills.CriticalSlice.minLevel;
+  @Prop({ mutable: true }) battleStep: number = ThiefSkills.BattleStep.minLevel;
+  @Prop({ mutable: true }) shadowStep: number = ThiefSkills.ShadowStep.minLevel;
+  @Prop({ mutable: true }) deadlyStrikes: number = ThiefSkills.DeadlyStrikes.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

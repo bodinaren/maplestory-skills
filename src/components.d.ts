@@ -275,8 +275,12 @@ export namespace Components {
     'risingKick': number;
   }
   interface MsThief {
+    'battlePlan': number;
+    'battleStep': number;
     'bladeDance': number;
+    'criticalSlice': number;
     'cunningTactics': number;
+    'deadlyStrikes': number;
     'deftCombatant': number;
     'doubleSlash': number;
     'editable': boolean;
@@ -287,15 +291,20 @@ export namespace Components {
     'mindBreaker': number;
     'mindStealer': number;
     'poisonEdge': number;
+    'poisonMaster': number;
     'poisonVial': number;
     'quickStep': number;
     'rank': number;
     'retaliation': number;
     'ruthlessGuile': number;
+    'savageStrikes': number;
+    'shadowStep': number;
     'somersaultKick': number;
     'spiritThief': number;
     'surpriseAttack': number;
+    'vengeance': number;
     'viciousCuts': number;
+    'volatileVials': number;
   }
   interface MsWizard {
     'arcaneBlast': number;
@@ -594,8 +603,12 @@ declare namespace LocalJSX {
     'risingKick'?: number;
   }
   interface MsThief extends JSXBase.HTMLAttributes {
+    'battlePlan'?: number;
+    'battleStep'?: number;
     'bladeDance'?: number;
+    'criticalSlice'?: number;
     'cunningTactics'?: number;
+    'deadlyStrikes'?: number;
     'deftCombatant'?: number;
     'doubleSlash'?: number;
     'editable'?: boolean;
@@ -606,15 +619,20 @@ declare namespace LocalJSX {
     'mindStealer'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'poisonEdge'?: number;
+    'poisonMaster'?: number;
     'poisonVial'?: number;
     'quickStep'?: number;
     'rank'?: number;
     'retaliation'?: number;
     'ruthlessGuile'?: number;
+    'savageStrikes'?: number;
+    'shadowStep'?: number;
     'somersaultKick'?: number;
     'spiritThief'?: number;
     'surpriseAttack'?: number;
+    'vengeance'?: number;
     'viciousCuts'?: number;
+    'volatileVials'?: number;
   }
   interface MsWizard extends JSXBase.HTMLAttributes {
     'arcaneBlast'?: number;

@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const SpiritThief: ISkill = {
   name: "Spirit Thief",
@@ -468,6 +468,283 @@ export const DeftCombatant: ISkill = {
   `,
 };
 
+export const Vengeance: IAwakenedSkill = {
+  name: "Vengeance",
+  attr: "vengeance",
+  prop: "vengeance",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  passive: true,
+  description: `
+    Your fighting style is fueled by your thirst for vengeance.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases luck by <span>40%</span>. Can attack while climbing.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Deals <span>340%</span> damage when attacking while climbing.
+  `,
+};
+
+export const SavageStrikes: IAwakenedSkill = {
+  name: "Savage Strikes",
+  attr: "savage-strikes",
+  prop: "savageStrikes",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "One-handed Dagger, One-handed Dagger",
+  spirit: 36,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [197, 197, 197, 197, 197],
+    cunningDamage: [335, 335, 335, 335, 335],
+  },
+  description: `
+    Brandish your daggers, slashing enemies <span>6</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes Cunning to deal <span>{cunningDamage}%</span> damage per hit.
+  `,
+};
+
+export const BattlePlan: IAwakenedSkill = {
+  name: "Battle Plan",
+  attr: "battle-plan",
+  prop: "battlePlan",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SavageStrikes,
+    level: 3,
+  }],
+  values: {
+    luck: [12, 12, 12, 12, 12],
+    increase: [9, 9, 9, 9, 9],
+  },
+  description: `
+    You have a plan for every battle.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases luck by <span>{luck}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Cunning Tactics increase physical damage by <span>{increase}%</span> for <span>6</span> sec.
+  `,
+};
+
+export const PoisonMaster: IAwakenedSkill = {
+  name: "Poison Master",
+  attr: "poison-master",
+  prop: "poisonMaster",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: BattlePlan,
+    level: 2,
+  }],
+  values: {
+    increase: [9, 9, 9, 9, 9],
+    surpriseAttackDamage: [170, 170, 170, 170, 170],
+  },
+  description: `
+    You've become the master poisoner.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increase poison damage by <span>{increase}%</span>.
+    Increase Surprise Attack damage by <span>{surpriseAttackDamage}%</span> and
+    colldown by <span>50%</span>.
+  `,
+};
+
+export const VolatileVials: IAwakenedSkill = {
+  name: "Volatile Vials",
+  attr: "volatile-vials",
+  prop: "volatileVials",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Toxic",
+  attackType: "Long Range / Physical",
+  spirit: 25,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: BattlePlan,
+    level: 3,
+  }, {
+    skill: PoisonMaster,
+    level: 3,
+  }],
+  values: {
+    aoe: [199, 199, 199, 199, 199],
+    poison: [55, 55, 55, 55, 55],
+  },
+  description: `
+    Throws <span>2</span> vials of flammable gas and deadly poison.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{aoe}%</span> area damage and poisons struck targets.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Poisons deal <span>{poison}%</span> poison damage for <span>12</span> sec each
+    and explode when struck by Surprise Attack.
+    <br/>
+    Poison Edge and Poison Vial poison damage does not stack.
+  `,
+};
+
+export const CriticalSlice: IAwakenedSkill = {
+  name: "Critical Slice",
+  attr: "critical-slice",
+  prop: "criticalSlice",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "One-handed Dagger, One-handed Dagger",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [180, 180, 180, 180, 180],
+  },
+  description: `
+    Slash twice to attack the enemy <span>2</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Converts to Dagger Toss while Watchful.
+  `,
+};
+
+export const BattleStep: IAwakenedSkill = {
+  name: "Battle Step",
+  attr: "battle-step",
+  prop: "battleStep",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: CriticalSlice,
+    level: 3,
+  }],
+  values: {
+    defense: [10, 10, 10, 10, 10],
+    attack: [33, 33, 33, 33, 33],
+    movement: [10, 10, 10, 10, 10],
+  },
+  description: `
+    Tailor your strategy to any situation.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Passively grants Watchful.
+    <br/><br/>
+    When enemies are close, lose Watchful and gain Rush.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Watchful increases defense by <span>{defense}%</span>.
+    <br/>
+    Rush increases physical attack by <span>{attack}%</span> and
+    movement speed by <span>{movement}%</span> for <span>8</span> sec.
+    <br/>
+    Rush and Haste do not stack.
+  `,
+};
+
+export const ShadowStep: IAwakenedSkill = {
+  name: "Shadow Step",
+  attr: "shadow-step",
+  prop: "shadowStep",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Bow",
+  spirit: 60,
+  cooldown: 7,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: BattleStep,
+    level: 3,
+  }],
+  values: {
+    damage: [1974, 1974, 1974, 1974, 1974],
+  },
+  description: `
+    Dash through the shadows.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Move to an enemy withing <span>12</span> m in front of you.
+    Move <span>4.5</span> m if there are no enemies withing <span>12</span> m.
+    <br/><br/>
+    Hold down the key to use Shadow Slash.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Shadow Slash deals <span>{damage}%</span> damage and grants Rush.
+    <br/>
+    While Rush is active, converts this skill to Finishing Step.
+  `,
+};
+
+export const DeadlyStrikes: IAwakenedSkill = {
+  name: "Deadly Strikes",
+  attr: "deadly-strikes",
+  prop: "deadlyStrikes",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  spirit: 52,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: ShadowStep,
+    level: 3,
+  }],
+  values: {
+    damage: [339, 339, 339, 339, 339],
+    resistance: [300, 300, 300, 300, 300],
+  },
+  description: `
+    Fiercely slash the target <span>7</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit and grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases physical and magic resistance by <span>{resistance}%</span> while Deadly Strikes is in use.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   BladeDance: BladeDance,
   CunningTactics: CunningTactics,
@@ -489,7 +766,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  Vengeance: Vengeance,
+  SavageStrikes: SavageStrikes,
+  BattlePlan: BattlePlan,
+  PoisonMaster: PoisonMaster,
+  VolatileVials: VolatileVials,
+  CriticalSlice: CriticalSlice,
+  BattleStep: BattleStep,
+  ShadowStep: ShadowStep,
+  DeadlyStrikes: DeadlyStrikes,
 };
 
 export const ThiefSkills: IClassSkills = {

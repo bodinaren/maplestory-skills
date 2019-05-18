@@ -139,3 +139,7 @@ button.wrap:not([disabled]):active img:nth-child(6) { display: inline; }
 :host-context(ms-chart) ms-skill-overlay.playingWithFire {
   bottom: -55px;
 }
+
+:host-context(ms-chart) ms-skill-overlay.archersSecrets {
+  bottom: -20px;
+}
