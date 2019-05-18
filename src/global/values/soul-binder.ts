@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const MantraArray: ISkill = {
   name: "Mantra Array",
   attr: "mantra-array",
   prop: "mantraArray",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -22,6 +23,7 @@ export const Illusion: ISkill = {
   name: "Illusion",
   attr: "illusion",
   prop: "illusion",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -39,6 +41,7 @@ export const SoaringOrb: ISkill = {
   name: "Soaring Orb",
   attr: "soaring-orb",
   prop: "soaringOrb",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -63,6 +66,7 @@ export const RadiantSalvo: ISkill = {
   name: "Radiant Salvo",
   attr: "radiant-salvo",
   prop: "radiantSalvo",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -88,6 +92,7 @@ export const ExpansionBlast: ISkill = {
   name: "Expansion Blast",
   attr: "expansion-blast",
   prop: "expansionBlast",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -121,6 +126,7 @@ export const FlashStrike: ISkill = {
   name: "Flash Strike",
   attr: "flash-strike",
   prop: "flashStrike",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -149,6 +155,7 @@ export const ShootingStar: ISkill = {
   name: "Shooting Star",
   attr: "shooting-star",
   prop: "shootingStar",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -182,6 +189,7 @@ export const ConcussionOrb: ISkill = {
   name: "Concussion Orb",
   attr: "concussion-orb",
   prop: "concussionOrb",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -209,6 +217,7 @@ export const RagingTempest: ISkill = {
   name: "Raging Tempest",
   attr: "raging-tempest",
   prop: "ragingTempest",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -241,6 +250,7 @@ export const EnergySurge: ISkill = {
   name: "Energy Surge",
   attr: "energy-surge",
   prop: "energySurge",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -272,6 +282,7 @@ export const StaticFlash: ISkill = {
   name: "Static Flash",
   attr: "static-flash",
   prop: "staticFlash",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -305,6 +316,7 @@ export const LightBarrier: ISkill = {
   name: "Light Barrier",
   attr: "light-barrier",
   prop: "lightBarrier",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -329,6 +341,7 @@ export const HealingBond: ISkill = {
   name: "Healing Bond",
   attr: "healing-bond",
   prop: "healingBond",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -356,6 +369,7 @@ export const FountOfRenewal: ISkill = {
   name: "Fount of Renewal",
   attr: "fount-of-renewal",
   prop: "fountOfRenewal",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -387,6 +401,7 @@ export const OrbMastery: ISkill = {
   name: "Orb Mastery",
   attr: "orb-mastery",
   prop: "orbMastery",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -406,6 +421,7 @@ export const NarubashanUnleashed: ISkill = {
   name: "Narubashan Unleashed",
   attr: "narubashan-unleashed",
   prop: "narubashanUnleashed",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -431,6 +447,7 @@ export const AnimusFocus: ISkill = {
   name: "Animus Focus",
   attr: "animus-focus",
   prop: "animusFocus",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -454,4 +471,33 @@ export const AnimusFocus: ISkill = {
     (which activate when the maximum quantity of Mantra Cores has been achieved) by
     <span>[damage]%</span> and increases the recovery of Healing Bond by <span>[recovery]%</span>.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  AnimusFocus: AnimusFocus,
+  ConcussionOrb: ConcussionOrb,
+  SoaringOrb: SoaringOrb,
+  RagingTempest: RagingTempest,
+  StaticFlash: StaticFlash,
+  EnergySurge: EnergySurge,
+  ExpansionBlast: ExpansionBlast,
+  FlashStrike: FlashStrike,
+  Illusion: Illusion,
+  HealingBond: HealingBond,
+  MantraArray: MantraArray,
+  NarubashanUnleashed: NarubashanUnleashed,
+  OrbMastery: OrbMastery,
+  RadiantSalvo: RadiantSalvo,
+  ShootingStar: ShootingStar,
+  LightBarrier: LightBarrier,
+  FountOfRenewal: FountOfRenewal,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const SoulBinderSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

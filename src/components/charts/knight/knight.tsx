@@ -1,6 +1,6 @@
 import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
 import { KnightSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/knight";
 
 @Component({
@@ -13,7 +13,7 @@ export class KnightComponent implements IChart {
   @Element() host: HTMLMsKnightElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
-  @Prop({ reflectToAttr: true, mutable: true }) rank: number = 1;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) bulwark: number = KnightSkills.Bulwark.minLevel;
@@ -60,7 +60,7 @@ export class KnightComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, KnightSkills, skill);
+    processSkills(this, KnightSkills, 1, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
@@ -75,8 +75,8 @@ export class KnightComponent implements IChart {
   render() {
     return (
       <ms-chart msClass="knight" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
-        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, 1) }
-        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, 2) }
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

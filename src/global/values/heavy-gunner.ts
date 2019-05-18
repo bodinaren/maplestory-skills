@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const Reload: ISkill = {
   name: "Reload",
   attr: "reload",
   prop: "reload",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -22,6 +23,7 @@ export const JetBoots: ISkill = {
   name: "Jet Boots",
   attr: "jet-boots",
   prop: "jetBoots",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -39,6 +41,7 @@ export const BulletSpray: ISkill = {
   name: "Bullet Spray",
   attr: "bullet-spray",
   prop: "bulletSpray",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -62,6 +65,7 @@ export const GatlingFire: ISkill = {
   name: "Gatling Fire",
   attr: "gatling-fire",
   prop: "gatlingFire",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -87,6 +91,7 @@ export const LockOn: ISkill = {
   name: "Lock On",
   attr: "lock-on",
   prop: "lockOn",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -118,6 +123,7 @@ export const AdvancedBullets: ISkill = {
   name: "Advanced Bullets",
   attr: "advanced-bullets",
   prop: "advancedBullets",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -144,6 +150,7 @@ export const MagneticBomb: ISkill = {
   name: "Magnetic Bomb",
   attr: "magnetic-bomb",
   prop: "magneticBomb",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -175,6 +182,7 @@ export const ElectricBlast: ISkill = {
   name: "Electric Blast",
   attr: "electric-blast",
   prop: "electricBlast",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -211,6 +219,7 @@ export const AdvancedPulseWeapons: ISkill = {
   name: "Advanced Pulse Weapons",
   attr: "advanced-pulse-weapons",
   prop: "advancedPulseWeapons",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -236,6 +245,7 @@ export const BlastChargeKit: ISkill = {
   name: "BlastChargeKit",
   attr: "blast-charge-kit",
   prop: "blastChargeKit",
+  rank: 1,
   row: 6,
   column: 2,
   minLevel: 0,
@@ -260,6 +270,7 @@ export const RocketLauncher: ISkill = {
   name: "Rocket Launcher",
   attr: "rocket-launcher",
   prop: "rocketLauncher",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -291,6 +302,7 @@ export const HomingMissiles: ISkill = {
   name: "Homing Missiles",
   attr: "homing-missiles",
   prop: "homingMissiles",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -320,6 +332,7 @@ export const MBomb: ISkill = {
   name: "M-Bomb",
   attr: "m-bomb",
   prop: "mBomb",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -350,6 +363,7 @@ export const AdvancedMissiles: ISkill = {
   name: "Advanced Missiles",
   attr: "advanced-missiles",
   prop: "advancedMissiles",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -375,6 +389,7 @@ export const StunGrenades: ISkill = {
   name: "Stun Grenades",
   attr: "stun-grenades",
   prop: "stunGrenades",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -401,6 +416,7 @@ export const SuborbitalBombardment: ISkill = {
   name: "Suborbital Bombardment",
   attr: "suborbital-bombardment",
   prop: "suborbitalBombardment",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -434,6 +450,7 @@ export const MedKit: ISkill = {
   name: "MedKit",
   attr: "med-kit",
   prop: "medKit",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -448,4 +465,33 @@ export const MedKit: ISkill = {
     Drop a first aid kit that you or an ally can pick up after <span>1</span>
     sec to instantly restore <span>[health]</span> health.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  AdvancedBullets: AdvancedBullets,
+  AdvancedMissiles: AdvancedMissiles,
+  AdvancedPulseWeapons: AdvancedPulseWeapons,
+  BlastChargeKit: BlastChargeKit,
+  BulletSpray: BulletSpray,
+  ElectricBlast: ElectricBlast,
+  GatlingFire: GatlingFire,
+  HomingMissiles: HomingMissiles,
+  JetBoots: JetBoots,
+  LockOn: LockOn,
+  MagneticBomb: MagneticBomb,
+  MBomb: MBomb,
+  MedKit: MedKit,
+  Reload: Reload,
+  RocketLauncher: RocketLauncher,
+  StunGrenades: StunGrenades,
+  SuborbitalBombardment: SuborbitalBombardment,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const HeavyGunnerSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

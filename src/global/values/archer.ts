@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const Snipe: ISkill = {
   name: "Snipe",
   attr: "snipe",
   prop: "snipe",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -20,6 +21,7 @@ export const EagleGlide: ISkill = {
   name: "Eagle Glide",
   attr: "eagle-glide",
   prop: "eagleGlide",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -34,6 +36,7 @@ export const ArrowStream: ISkill = {
   name: "Arrow Stream",
   attr: "arrow-stream",
   prop: "arrowStream",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -55,6 +58,7 @@ export const ArrowBarrage: ISkill = {
   name: "Arrow Barrage",
   attr: "arrow-barrage",
   prop: "arrowBarrage",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -83,6 +87,7 @@ export const RapidShot: ISkill = {
   name: "Rapid Shot",
   attr: "rapid-shot",
   prop: "rapidShot",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -115,6 +120,7 @@ export const ArrowStorm: ISkill = {
   name: "Arrow Storm",
   attr: "arrow-storm",
   prop: "arrowStorm",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -146,6 +152,7 @@ export const ScrewdriverShot: ISkill = {
   name: "Screwdriver Shot",
   attr: "screwdriver-shot",
   prop: "screwdriverShot",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -180,6 +187,7 @@ export const EvasiveSalvo: ISkill = {
   name: "Evasive Salvo",
   attr: "evasive-salvo",
   prop: "evasiveSalvo",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -203,6 +211,7 @@ export const IceArrow: ISkill = {
   name: "Ice Arrow",
   attr: "ice-arrow",
   prop: "iceArrow",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -234,6 +243,7 @@ export const AgileArcher: ISkill = {
   name: "Agile Archer",
   attr: "agile-archer",
   prop: "agileArcher",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -259,6 +269,7 @@ export const BowSwing: ISkill = {
   name: "Bow Swing",
   attr: "bow-swing",
   prop: "bowSwing",
+  rank: 1,
   row: 6,
   column: 2,
   minLevel: 0,
@@ -287,6 +298,7 @@ export const BronzeEagle: ISkill = {
   name: "Bronze Eagle",
   attr: "bronze-eagle",
   prop: "bronzeEagle",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -308,6 +320,7 @@ export const EagleClaw: ISkill = {
   name: "Eagle Claw",
   attr: "eagle-claw",
   prop: "eagleClaw",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -338,6 +351,7 @@ export const EaglesMajesty: ISkill = {
   name: "Eagle's Majesty",
   attr: "eagles-majesty",
   prop: "eaglesMajesty",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -364,6 +378,7 @@ export const Conditioning: ISkill = {
   name: "Conditioning",
   attr: "conditioning",
   prop: "conditioning",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -384,6 +399,7 @@ export const SharpEyes: ISkill = {
   name: "Sharp Eyes",
   attr: "sharp-eyes",
   prop: "sharpEyes",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -412,6 +428,7 @@ export const PrecisionShooter: ISkill = {
   name: "Precision Shooter",
   attr: "precision-shooter",
   prop: "precisionShooter",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -428,4 +445,33 @@ export const PrecisionShooter: ISkill = {
     Improved Screwdriver Shot can be cast in Snipe mode and inflicts greater damage but cannot be reinforced.
     Also increases improved Screwdriver Shot damage by <span>[screwdriver]%</span>.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  AgileArcher: AgileArcher,
+  ArrowBarrage: ArrowBarrage,
+  ArrowStorm: ArrowStorm,
+  ArrowStream: ArrowStream,
+  BowSwing: BowSwing,
+  BronzeEagle: BronzeEagle,
+  Conditioning: Conditioning,
+  EagleClaw: EagleClaw,
+  EagleGlide: EagleGlide,
+  EaglesMajesty: EaglesMajesty,
+  EvasiveSalvo: EvasiveSalvo,
+  IceArrow: IceArrow,
+  PrecisionShooter: PrecisionShooter,
+  RapidShot: RapidShot,
+  ScrewdriverShot: ScrewdriverShot,
+  SharpEyes: SharpEyes,
+  Snipe: Snipe,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const ArcherSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

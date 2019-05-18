@@ -22,6 +22,9 @@ export interface ISkillBase<T = SkillArray | AwakenedSkillArray> extends ISkillD
   /** The attribute of the skill (camelCase name) */
   prop: string;
 
+  /** Which rank the skill has, 1 for basic, 2 for awakening */
+  rank: Rank;
+
   /** Which row in the chart the skill should be shown in */
   row: number;
 
@@ -63,13 +66,15 @@ export interface ISkillBase<T = SkillArray | AwakenedSkillArray> extends ISkillD
 }
 
 export interface ISkill extends ISkillBase<SkillArray> {
+  rank: 1;
 }
 
 export interface IAwakenedSkill extends ISkillBase<AwakenedSkillArray> {
+  rank: 2;
 }
 
 export interface IClassSkills {
-  [prop: string]: ISkill | IAwakenedSkill;
+  [prop: string]: ISkillBase;
 }
 
 export interface ISkillRequirement {
@@ -86,3 +91,8 @@ export type SkillArray = [number, number, number, number, number, number, number
 export type AwakenedSkillArray = [number, number, number, number, number];
 
 export type MapleStoryElement = "Dark" | "Electric" | "Fire" | "Holy" | "Ice" | "Toxic";
+
+export enum Rank {
+  Basic = 1,
+  Awakening = 2,
+}

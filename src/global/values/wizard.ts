@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const ManaFont: ISkill = {
   name: "Mana Font",
   attr: "mana-font",
   prop: "manaFont",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -20,6 +21,7 @@ export const Teleport: ISkill = {
   name: "Teleport",
   attr: "teleport",
   prop: "teleport",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -35,6 +37,7 @@ export const PhantomClaw: ISkill = {
   name: "Phantom Claw",
   attr: "phantom-claw",
   prop: "phantomClaw",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -55,6 +58,7 @@ export const ArcaneBlast: ISkill = {
   name: "Arcane Blast",
   attr: "arcane-blast",
   prop: "arcaneBlast",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -76,6 +80,7 @@ export const FlameWave: ISkill = {
   name: "Flame Wave",
   attr: "flame-wave",
   prop: "flameWave",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -101,6 +106,7 @@ export const FlameTornado: ISkill = {
   name: "Flame Tornado",
   attr: "flame-tornado",
   prop: "flameTornado",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -130,6 +136,7 @@ export const Pyromancy: ISkill = {
   name: "Pyromancy",
   attr: "pyromancy",
   prop: "pyromancy",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -157,6 +164,7 @@ export const ManaClaw: ISkill = {
   name: "Mana Claw",
   attr: "mana-claw",
   prop: "manaClaw",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -187,6 +195,7 @@ export const IceSpear: ISkill = {
   name: "Ice Spear",
   attr: "ice-spear",
   prop: "iceSpear",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -217,6 +226,7 @@ export const IceStorm: ISkill = {
   name: "Ice Storm",
   attr: "ice-storm",
   prop: "iceStorm",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -246,6 +256,7 @@ export const Cryomancy: ISkill = {
   name: "Cryomancy",
   attr: "cryomancy",
   prop: "cryomancy",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -273,6 +284,7 @@ export const ChainLightning: ISkill = {
   name: "Chain Lightning",
   attr: "chain-lightning",
   prop: "chainLightning",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -299,6 +311,7 @@ export const Thunderbolt: ISkill = {
   name: "Thunderbolt",
   attr: "thunderbolt",
   prop: "thunderbolt",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -329,6 +342,7 @@ export const Electromancy: ISkill = {
   name: "Electromancy",
   attr: "electromancy",
   prop: "electromancy",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -356,6 +370,7 @@ export const MagicArmor: ISkill = {
   name: "Magic Armor",
   attr: "magic-armor",
   prop: "magicArmor",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -376,6 +391,7 @@ export const FocusSeal: ISkill = {
   name: "Focus Seal",
   attr: "focus-seal",
   prop: "focusSeal",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -402,6 +418,7 @@ export const ElementalMaster: ISkill = {
   name: "Elemental Master",
   attr: "elemental-master",
   prop: "elementalMaster",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -415,4 +432,33 @@ export const ElementalMaster: ISkill = {
     Asimov's high-level instruction teaches you how to harmoniously balance of fire, ice, and electric magic.
     Increases fire, ice, and electric damage by <span>[damage]%</span>.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  ArcaneBlast: ArcaneBlast,
+  ChainLightning: ChainLightning,
+  Cryomancy: Cryomancy,
+  Electromancy: Electromancy,
+  ElementalMaster: ElementalMaster,
+  FlameTornado: FlameTornado,
+  FlameWave: FlameWave,
+  FocusSeal: FocusSeal,
+  IceSpear: IceSpear,
+  IceStorm: IceStorm,
+  MagicArmor: MagicArmor,
+  ManaClaw: ManaClaw,
+  ManaFont: ManaFont,
+  PhantomClaw: PhantomClaw,
+  Pyromancy: Pyromancy,
+  Teleport: Teleport,
+  Thunderbolt: Thunderbolt,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const WizardSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

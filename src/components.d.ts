@@ -33,6 +33,7 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'iceArrow': number;
     'precisionShooter': number;
+    'rank': number;
     'rapidShot': number;
     'screwdriverShot': number;
     'sharpEyes': number;
@@ -50,6 +51,7 @@ export namespace Components {
     'luckyStars': number;
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
+    'rank': number;
     'shadowArts': number;
     'shadowBurst': number;
     'shadowChaser': number;
@@ -78,6 +80,7 @@ export namespace Components {
     'inhumanEndurance': number;
     'intimidation': number;
     'ragingSlash': number;
+    'rank': number;
     'voidSlash': number;
     'warriorsInstinct': number;
     'xSlash': number;
@@ -110,6 +113,7 @@ export namespace Components {
     'mBomb': number;
     'magneticBomb': number;
     'medKit': number;
+    'rank': number;
     'reload': number;
     'rocketLauncher': number;
     'stunGrenades': number;
@@ -166,6 +170,7 @@ export namespace Components {
     'holyBlast': number;
     'holyRelic': number;
     'holySymbol': number;
+    'rank': number;
     'sanctuary': number;
     'scepterMastery': number;
     'scourgingWave': number;
@@ -189,6 +194,7 @@ export namespace Components {
     'honingRunes': number;
     'illusoryBlades': number;
     'impact': number;
+    'rank': number;
     'runeBalance': number;
     'runeFocus': number;
     'sigil': Sigil;
@@ -231,6 +237,7 @@ export namespace Components {
     'orbMastery': number;
     'radiantSalvo': number;
     'ragingTempest': number;
+    'rank': number;
     'shootingStar': number;
     'soaringOrb': number;
     'staticFlash': number;
@@ -255,6 +262,7 @@ export namespace Components {
     'paceControl': number;
     'patternBreak': number;
     'powerPuncher': number;
+    'rank': number;
     'risingKick': number;
   }
   interface MsThief {
@@ -272,6 +280,7 @@ export namespace Components {
     'poisonEdge': number;
     'poisonVial': number;
     'quickStep': number;
+    'rank': number;
     'retaliation': number;
     'ruthlessGuile': number;
     'somersaultKick': number;
@@ -298,6 +307,7 @@ export namespace Components {
     'manaFont': number;
     'phantomClaw': number;
     'pyromancy': number;
+    'rank': number;
     'teleport': number;
     'thunderbolt': number;
   }
@@ -321,6 +331,7 @@ declare namespace LocalJSX {
     'iceArrow'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'precisionShooter'?: number;
+    'rank'?: number;
     'rapidShot'?: number;
     'screwdriverShot'?: number;
     'sharpEyes'?: number;
@@ -338,6 +349,7 @@ declare namespace LocalJSX {
     'markOfDeath'?: number;
     'mirrorImageDarkBlade'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'shadowArts'?: number;
     'shadowBurst'?: number;
     'shadowChaser'?: number;
@@ -366,6 +378,7 @@ declare namespace LocalJSX {
     'intimidation'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'ragingSlash'?: number;
+    'rank'?: number;
     'voidSlash'?: number;
     'warriorsInstinct'?: number;
     'xSlash'?: number;
@@ -399,6 +412,7 @@ declare namespace LocalJSX {
     'magneticBomb'?: number;
     'medKit'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'reload'?: number;
     'rocketLauncher'?: number;
     'stunGrenades'?: number;
@@ -455,6 +469,7 @@ declare namespace LocalJSX {
     'holyRelic'?: number;
     'holySymbol'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'sanctuary'?: number;
     'scepterMastery'?: number;
     'scourgingWave'?: number;
@@ -478,6 +493,7 @@ declare namespace LocalJSX {
     'illusoryBlades'?: number;
     'impact'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'runeBalance'?: number;
     'runeFocus'?: number;
     'sigil'?: Sigil;
@@ -522,6 +538,7 @@ declare namespace LocalJSX {
     'orbMastery'?: number;
     'radiantSalvo'?: number;
     'ragingTempest'?: number;
+    'rank'?: number;
     'shootingStar'?: number;
     'soaringOrb'?: number;
     'staticFlash'?: number;
@@ -546,6 +563,7 @@ declare namespace LocalJSX {
     'paceControl'?: number;
     'patternBreak'?: number;
     'powerPuncher'?: number;
+    'rank'?: number;
     'risingKick'?: number;
   }
   interface MsThief extends JSXBase.HTMLAttributes {
@@ -563,6 +581,7 @@ declare namespace LocalJSX {
     'poisonEdge'?: number;
     'poisonVial'?: number;
     'quickStep'?: number;
+    'rank'?: number;
     'retaliation'?: number;
     'ruthlessGuile'?: number;
     'somersaultKick'?: number;
@@ -589,6 +608,7 @@ declare namespace LocalJSX {
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'phantomClaw'?: number;
     'pyromancy'?: number;
+    'rank'?: number;
     'teleport'?: number;
     'thunderbolt'?: number;
   }

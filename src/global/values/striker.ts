@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const KnuckleMissile: ISkill = {
   name: "Knuckle Missile",
   attr: "knuckle-missile",
   prop: "knuckleMissile",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -23,6 +24,7 @@ export const GuardDash: ISkill = {
   name: "Guard Dash",
   attr: "guard-dash",
   prop: "guardDash",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -39,6 +41,7 @@ export const MaharPunch: ISkill = {
   name: "Mahar Punch",
   attr: "mahar-punch",
   prop: "maharPunch",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -59,6 +62,7 @@ export const FistsOfFury: ISkill = {
   name: "Fists of Fury",
   attr: "fists-of-fury",
   prop: "fistsOfFury",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -81,6 +85,7 @@ export const MagnumBlow: ISkill = {
   name: "Magnum Blow",
   attr: "magnum-blow",
   prop: "magnumBlow",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -120,6 +125,7 @@ export const Beatdown: ISkill = {
   name: "Beatdown",
   attr: "beatdown",
   prop: "beatdown",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -151,6 +157,7 @@ export const PowerPuncher: ISkill = {
   name: "Power Puncher",
   attr: "power-puncher",
   prop: "powerPuncher",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -178,6 +185,7 @@ export const GiganticBurst: ISkill = {
   name: "Gigantic Burst",
   attr: "gigantic-burst",
   prop: "giganticBurst",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -208,6 +216,7 @@ export const RisingKick: ISkill = {
   name: "Rising Kick",
   attr: "rising-kick",
   prop: "risingKick",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -231,6 +240,7 @@ export const HurricaneCutter: ISkill = {
   name: "Hurricane Cutter",
   attr: "hurricane-cutter",
   prop: "hurricaneCutter",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -264,6 +274,7 @@ export const Guillotine: ISkill = {
   name: "Guillotine",
   attr: "guillotine",
   prop: "guillotine",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -295,6 +306,7 @@ export const KickTechnician: ISkill = {
   name: "Kick Technician",
   attr: "kick-technician",
   prop: "kickTechnician",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -322,6 +334,7 @@ export const DragonKick: ISkill = {
   name: "Dragon Kick",
   attr: "dragon-kick",
   prop: "dragonKick",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -352,6 +365,7 @@ export const PaceControl: ISkill = {
   name: "Pace Control",
   attr: "pace-control",
   prop: "paceControl",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -379,6 +393,7 @@ export const Overcome: ISkill = {
   name: "Overcome",
   attr: "overcome",
   prop: "overcome",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -405,6 +420,7 @@ export const FightingSpirit: ISkill = {
   name: "Fighting Spirit",
   attr: "fighting-spirit",
   prop: "fightingSpirit",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -436,6 +452,7 @@ export const PatternBreak: ISkill = {
   name: "Pattern Break",
   attr: "pattern-break",
   prop: "patternBreak",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -457,4 +474,33 @@ export const PatternBreak: ISkill = {
     Decreases the enemy's evasion by <span>4</span> for <span>3</span> sec upon successful attack.
     Consumes <span>100</span> spirit.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  Beatdown: Beatdown,
+  DragonKick: DragonKick,
+  FightingSpirit: FightingSpirit,
+  FistsOfFury: FistsOfFury,
+  GiganticBurst: GiganticBurst,
+  GuardDash: GuardDash,
+  Guillotine: Guillotine,
+  HurricaneCutter: HurricaneCutter,
+  KickTechnician: KickTechnician,
+  KnuckleMissile: KnuckleMissile,
+  MagnumBlow: MagnumBlow,
+  MaharPunch: MaharPunch,
+  Overcome: Overcome,
+  PaceControl: PaceControl,
+  PatternBreak: PatternBreak,
+  PowerPuncher: PowerPuncher,
+  RisingKick: RisingKick,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const StrikerSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

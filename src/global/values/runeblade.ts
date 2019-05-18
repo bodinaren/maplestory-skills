@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const RuneBalance: ISkill = {
   name: "Rune Balance",
   attr: "rune-balance",
   prop: "runeBalance",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -20,6 +21,7 @@ export const Blink: ISkill = {
   name: "Blink",
   attr: "blink",
   prop: "blink",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -36,6 +38,7 @@ export const Flurry: ISkill = {
   name: "Flurry",
   attr: "flurry",
   prop: "flurry",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -86,6 +89,7 @@ export const EchoingBlade: ISkill = {
   name: "Echoing Blade",
   attr: "echoing-blade",
   prop: "echoingBlade",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -144,6 +148,7 @@ export const Impact: ISkill = {
   name: "Impact",
   attr: "impact",
   prop: "impact",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -220,6 +225,7 @@ export const RuneFocus: ISkill = {
   name: "Rune Focus",
   attr: "rune-focus",
   prop: "runeFocus",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -252,6 +258,7 @@ export const BladeChasm: ISkill = {
   name: "Blade Chasm",
   attr: "blade-chasm",
   prop: "bladeChasm",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -316,6 +323,7 @@ export const WhirlingBlades: ISkill = {
   name: "Whirling Blades",
   attr: "whirling-blades",
   prop: "whirlingBlades",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -376,6 +384,7 @@ export const IllusoryBlades: ISkill = {
   name: "Illusory Blades",
   attr: "illusory-blades",
   prop: "illusoryBlades",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -407,6 +416,7 @@ export const BladeMastery: ISkill = {
   name: "Blade Mastery",
   attr: "blade-mastery",
   prop: "bladeMastery",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -433,6 +443,7 @@ export const FlameSigil: ISkill = {
   name: "Flame Sigil",
   attr: "flame-sigil",
   prop: "flameSigil",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -455,6 +466,7 @@ export const FrostSigil: ISkill = {
   name: "Frost Sigil",
   attr: "frost-sigil",
   prop: "frostSigil",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -477,6 +489,7 @@ export const StormSigil: ISkill = {
   name: "Storm Sigil",
   attr: "storm-sigil",
   prop: "stormSigil",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -499,6 +512,7 @@ export const HoningRunes: ISkill = {
   name: "Honing Runes",
   attr: "honing-runes",
   prop: "honingRunes",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -520,6 +534,7 @@ export const GravityRune: ISkill = {
   name: "Gravity Rune",
   attr: "gravity-rune",
   prop: "gravityRune",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -541,6 +556,7 @@ export const WardingRune: ISkill = {
   name: "Warding Rune",
   attr: "warding-rune",
   prop: "wardingRune",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -603,6 +619,7 @@ export const ElementalPotency: ISkill = {
   name: "Elemental Potency",
   attr: "elemental-potency",
   prop: "elementalPotency",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -621,4 +638,33 @@ export const ElementalPotency: ISkill = {
     Increases fire, ice, and electric damage to enemies
     by <span>[damage]%</span> for <span>10</span> sec.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  BladeChasm: BladeChasm,
+  BladeMastery: BladeMastery,
+  Blink: Blink,
+  ElementalPotency: ElementalPotency,
+  EchoingBlade: EchoingBlade,
+  FlameSigil: FlameSigil,
+  Flurry: Flurry,
+  FrostSigil: FrostSigil,
+  GravityRune: GravityRune,
+  HoningRunes: HoningRunes,
+  IllusoryBlades: IllusoryBlades,
+  Impact: Impact,
+  RuneBalance: RuneBalance,
+  RuneFocus: RuneFocus,
+  StormSigil: StormSigil,
+  WardingRune: WardingRune,
+  WhirlingBlades: WhirlingBlades,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const RunebladeSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

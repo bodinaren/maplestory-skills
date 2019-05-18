@@ -55,8 +55,17 @@ export class ChartComponent {
         <ms-footer></ms-footer>
         <div class="chart-left">
           <div class="chart-ranks">
-            <a href="javascript:void(0)" onClick={ () => this.changeRank(1) }>Rank 1</a>
-            <a href="javascript:void(0)" onClick={ () => this.changeRank(2) }>Rank 2</a>
+            <a class={{ "active": this.rank === 1 }} onClick={ () => this.changeRank(1) } href="javascript:void(0)">
+              { this.rank !== 1 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-1.png`) } /> }
+              { this.rank === 1 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-1-active.png`) } /> }
+              
+              <span>Rank 1 Skills</span>
+            </a>
+            <a class={{ "active": this.rank === 2 }} onClick={ () => this.changeRank(2) } href="javascript:void(0)">
+              { this.rank !== 2 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-2.png`) } /> }
+              { this.rank === 2 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-2-active.png`) } /> }
+              <span>Rank 2 Skills</span>
+            </a>
           </div>
 
           { this.rank === 1 &&
@@ -100,20 +109,26 @@ export class ChartComponent {
 
   private static getStyles(msClass: string): string {
     return `
-      ms-chart {
+      ms-chart, a {
         cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
       }
-      ms-chart:active {
+      :host, :host(:hover), ms-chart, a:hover {
+        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
+      }
+      ms-chart:active, a:active {
         cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
-      }
-      :host, :host(:hover), ms-chart {
-        cursor: url(${ getAssetPath(`assets/cursor.png`) }) 5 8, auto;
       }
       :host(:active) {
         cursor: url(${ getAssetPath(`assets/cursor-down.png`) }) 5 8, auto;
       }
       .chart-left {
         background-image: url(${ getAssetPath(`assets/charts/chart-left.jpg`) });
+      }
+      .chart-ranks a {
+        background: url(${ getAssetPath(`assets/rank-holder.png`) }) center center no-repeat;
+      }
+      .chart-ranks a.active {
+        background: url(${ getAssetPath(`assets/rank-holder-active.png`) }) center center no-repeat;
       }
       .chart.rank-1 {
         background-image: url(${ getAssetPath(`assets/charts/chart-rank-1.jpg`) });

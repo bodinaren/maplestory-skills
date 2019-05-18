@@ -1,3 +1,4 @@
+import { Rank } from "../../global/values/_skillValues.interfaces";
 
 export interface ISkillChangeEvent {
   skills: ISkillChange[];
@@ -19,5 +20,8 @@ export interface ISkillChange {
 
   /** The minimum amount of points that must be put into the skill */
   minLevel: number;
+
+  /** The rank of the skill. 1 for basic, 2 for awakening. */
+  rank: Rank;
 };
 

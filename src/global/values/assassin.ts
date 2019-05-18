@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const ShadowChaser: ISkill = {
   name: "Shadow Chaser",
   attr: "shadow-chaser",
   prop: "shadowChaser",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -22,6 +23,7 @@ export const Dash: ISkill = {
   name: "Dash",
   attr: "dash",
   prop: "dash",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -37,6 +39,7 @@ export const LuckyStars: ISkill = {
   name: "Lucky Stars",
   attr: "lucky-stars",
   prop: "luckyStars",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -59,6 +62,7 @@ export const FragmentedStar: ISkill = {
   name: "Fragmented Star",
   attr: "fragmented-star",
   prop: "fragmentedStar",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -82,6 +86,7 @@ export const StarChaser: ISkill = {
   name: "Star Chaser",
   attr: "star-chaser",
   prop: "starChaser",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -110,6 +115,7 @@ export const StarFlurry: ISkill = {
   name: "Star Flurry",
   attr: "star-flurry",
   prop: "starFlurry",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -142,6 +148,7 @@ export const ThrownWeaponMastery: ISkill = {
   name: "Thrown Weapon Mastery",
   attr: "thrown-weapon-mastery",
   prop: "thrownWeaponMastery",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -168,6 +175,7 @@ export const ShadowCutter: ISkill = {
   name: "Shadow Cutter",
   attr: "shadow-cutter",
   prop: "shadowCutter",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -192,6 +200,7 @@ export const ShadowBurst: ISkill = {
   name: "Shadow Burst",
   attr: "shadow-burst",
   prop: "shadowBurst",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -225,6 +234,7 @@ export const SoulGrind: ISkill = {
   name: "Soul Grind",
   attr: "soul-grind",
   prop: "soulGrind",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -258,6 +268,7 @@ export const ShadowArts: ISkill = {
   name: "Shadow Arts",
   attr: "shadow-arts",
   prop: "shadowArts",
+  rank: 1,
   row: 6,
   column: 2,
   minLevel: 0,
@@ -285,6 +296,7 @@ export const DarkCloak: ISkill = {
   name: "Dark Cloak",
   attr: "dark-cloak",
   prop: "darkCloak",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -309,6 +321,7 @@ export const MarkOfDeath: ISkill = {
   name: "Mark of Death",
   attr: "mark-of-death",
   prop: "markOfDeath",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -334,6 +347,7 @@ export const DeathSentence: ISkill = {
   name: "Death Sentence",
   attr: "death-sentence",
   prop: "deathSentence",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -362,6 +376,7 @@ export const FatalStrikes: ISkill = {
   name: "Fatal Strikes",
   attr: "fatal-strikes",
   prop: "fatalStrikes",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -382,6 +397,7 @@ export const ShadowWeb: ISkill = {
   name: "Shadow Web",
   attr: "shadow-web",
   prop: "shadowWeb",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -415,6 +431,7 @@ export const MirrorImageDarkBlade: ISkill = {
   name: "Mirror Image: Dark Blade",
   attr: "mirror-image-dark-blade",
   prop: "mirrorImageDarkBlade",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -439,4 +456,33 @@ export const MirrorImageDarkBlade: ISkill = {
     Summoned mirror images can only appear once every <span>1.5</span> sec.
     The accuracy reduction does not stack.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  DarkCloak: DarkCloak,
+  Dash: Dash,
+  DeathSentence: DeathSentence,
+  FatalStrikes: FatalStrikes,
+  FragmentedStar: FragmentedStar,
+  LuckyStars: LuckyStars,
+  MarkOfDeath: MarkOfDeath,
+  MirrorImageDarkBlade: MirrorImageDarkBlade,
+  ShadowArts: ShadowArts,
+  ShadowBurst: ShadowBurst,
+  ShadowChaser: ShadowChaser,
+  ShadowCutter: ShadowCutter,
+  ShadowWeb: ShadowWeb,
+  SoulGrind: SoulGrind,
+  StarChaser: StarChaser,
+  StarFlurry: StarFlurry,
+  ThrownWeaponMastery: ThrownWeaponMastery,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const AssassinSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

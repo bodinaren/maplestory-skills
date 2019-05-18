@@ -1,5 +1,6 @@
 import { Component, Prop, State } from "@stencil/core";
 import { ISkillChangeEvent } from "../../charts/skill-change-event";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
 
 @Component({
   tag: "ms-extra-counter",
@@ -29,10 +30,14 @@ export class CounterComponent {
 
   private updatePointsLeft(changeEvent: ISkillChangeEvent) {
     const rank = (this._editor as any).rank;
-    const maxPoints = rank === 1 ? 72 : 15;
+    const maxPoints = rank === Rank.Awakening ? 15 : 72;
 
     this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
-      return prev + current.level;
+      if (current.rank === rank) {
+        return prev + current.level;
+      } else {
+        return prev;
+      }
     }, 0);
   }
 

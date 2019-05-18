@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const SteadfastFaith: ISkill = {
   name: "Steadfast Faith",
   attr: "steadfast-faith",
   prop: "steadfastFaith",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -22,6 +23,7 @@ export const HeavenlyWings: ISkill = {
   name: "Heavenly Wings",
   attr: "heavenly-wings",
   prop: "heavenlyWings",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -41,6 +43,7 @@ export const CelestialLight: ISkill = {
   name: "Celestial Light",
   attr: "celestial-light",
   prop: "celestialLight",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -64,6 +67,7 @@ export const HolyBlast: ISkill = {
   name: "Holy Blast",
   attr: "holy-blast",
   prop: "holyBlast",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -91,6 +95,7 @@ export const ShieldOfTheArchon: ISkill = {
   name: "Shield of the Archon",
   attr: "shield-of-the-archon",
   prop: "shieldOfTheArchon",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -121,6 +126,7 @@ export const HolyRelic: ISkill = {
   name: "Holy Relic",
   attr: "holy-relic",
   prop: "holyRelic",
+  rank: 1,
   row: 4,
   column: 1,
   minLevel: 0,
@@ -146,6 +152,7 @@ export const HealingPrayer: ISkill = {
   name: "Healing Prayer",
   attr: "healing-prayer",
   prop: "healingPrayer",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -168,6 +175,7 @@ export const ScourgingWave: ISkill = {
   name: "Scourging Wave",
   attr: "scourging-wave",
   prop: "scourgingWave",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -195,6 +203,7 @@ export const Sanctuary: ISkill = {
   name: "Sanctuary",
   attr: "sanctuary",
   prop: "sanctuary",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -227,6 +236,7 @@ export const SmitingAura: ISkill = {
   name: "Smiting Aura",
   attr: "smiting-aura",
   prop: "smitingAura",
+  rank: 1,
   row: 6,
   column: 2,
   minLevel: 0,
@@ -257,6 +267,7 @@ export const CelestialGuardian: ISkill = {
   name: "Celestial Guardian",
   attr: "celestial-guardian",
   prop: "celestialGuardian",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -280,6 +291,7 @@ export const CelestialBlessings: ISkill = {
   name: "Celestial Blessings",
   attr: "celestial-blessings",
   prop: "celestialBlessings",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -313,6 +325,7 @@ export const HolySymbol: ISkill = {
   name: "Holy Symbol",
   attr: "holy-symbol",
   prop: "holySymbol",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -346,6 +359,7 @@ export const Disciple: ISkill = {
   name: "Disciple",
   attr: "disciple",
   prop: "disciple",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -373,6 +387,7 @@ export const ScepterMastery: ISkill = {
   name: "Scepter Mastery",
   attr: "scepter-mastery",
   prop: "scepterMastery",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -391,6 +406,7 @@ export const HealingMastery: ISkill = {
   name: "Healing Mastery",
   attr: "healing-mastery",
   prop: "healingMastery",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -416,6 +432,7 @@ export const AngelicRay: ISkill = {
   name: "Angelic Ray",
   attr: "angelic-ray",
   prop: "angelicRay",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -441,4 +458,33 @@ export const AngelicRay: ISkill = {
     to <span>[healing]%</span> of your magic attack.
     Consumes <span>30</span> spirit.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  HeavenlyWings: HeavenlyWings,
+  SteadfastFaith: SteadfastFaith,
+  CelestialLight: CelestialLight,
+  HolyBlast: HolyBlast,
+  HealingPrayer: HealingPrayer,
+  ScepterMastery: ScepterMastery,
+  CelestialGuardian: CelestialGuardian,
+  ShieldOfTheArchon: ShieldOfTheArchon,
+  ScourgingWave: ScourgingWave,
+  CelestialBlessings: CelestialBlessings,
+  HolyRelic: HolyRelic,
+  Sanctuary: Sanctuary,
+  HolySymbol: HolySymbol,
+  HealingMastery: HealingMastery,
+  SmitingAura: SmitingAura,
+  Disciple: Disciple,
+  AngelicRay: AngelicRay,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const PriestSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

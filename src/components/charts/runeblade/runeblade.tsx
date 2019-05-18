@@ -1,10 +1,10 @@
 import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
+import { ISkill, Rank, IAwakenedSkill, ISkillBase } from "../../../global/values/_skillValues.interfaces";
 import { getOptimizedAssetPath } from "../../../global/utils";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import { Sigil } from "./runeblade-sigil";
-import * as RunebladeSkills from "../../../global/values/runeblade";
+import { RunebladeSkills } from "../../../global/values/runeblade";
 
 @Component({
   tag: "ms-runeblade",
@@ -16,6 +16,7 @@ export class RunebladeComponent implements IChart {
   @Element() host: HTMLMsRunebladeElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop({ reflectToAttr: true }) extras: boolean = false;
   @Prop({ mutable: true, reflectToAttr: true }) sigil: Sigil = "";
 
@@ -43,15 +44,18 @@ export class RunebladeComponent implements IChart {
 
   @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles;
 
-  private runebladeSkills: { [prop: string]: ISkill } = {};
+  private runebladeSkills: { [prop: string]: ISkillBase } = {};
+  private rankOneSkills: { [prop: string]: ISkill } = {};
+  private rankTwoSkills: { [prop: string]: IAwakenedSkill } = {};
 
   componentWillLoad() {
     Object.keys(RunebladeSkills).map((prop) => {
       // create copies of each skill so we can toggle the extras for skill attunes
-      this.runebladeSkills[prop] = { ...RunebladeSkills[prop] };
+      this.updateSkill({ ...RunebladeSkills[prop] });
     });
 
-    processSkills(this, this.runebladeSkills);
+    processSkills(this, this.rankOneSkills, Rank.Basic);
+    processSkills(this, this.rankTwoSkills, Rank.Awakening);
     this.updateSigil();
   }
 
@@ -63,7 +67,8 @@ export class RunebladeComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, this.runebladeSkills, skill);
+    processSkills(this, this.rankOneSkills, Rank.Basic, skill);
+    processSkills(this, this.rankTwoSkills, Rank.Awakening, skill);
     this.host.forceUpdate();
 
     if (skill.prop === this.sigil && level === 0) {
@@ -129,10 +134,10 @@ export class RunebladeComponent implements IChart {
               : -1;
 
       Object.keys(this.runebladeSkills).forEach((prop: string) => {
-        let originalSkill: ISkill = RunebladeSkills[prop];
+        let originalSkill: ISkillBase = RunebladeSkills[prop];
         if (originalSkill.extras) {
           if (this.sigil) {
-            this.runebladeSkills[prop] = {
+            this.updateSkill({
               ...originalSkill,
               ...originalSkill.extras[sigilIdx],
               extras: [{
@@ -143,14 +148,14 @@ export class RunebladeComponent implements IChart {
                           : "")
                           + "."
               }],
-            };
+            })
           } else {
-            this.runebladeSkills[prop] = {
+            this.updateSkill({
               ...originalSkill,
               extras: [{
                 description: "Click on a sigil to show how this skill attunes."
               }]
-            };
+            });
           }
         } else if (["flameSigil", "frostSigil", "stormSigil"].indexOf(originalSkill.prop) > -1) {
           let description: string;
@@ -163,14 +168,23 @@ export class RunebladeComponent implements IChart {
             description = "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active.";
           }
 
-          this.runebladeSkills[prop] = {
+          this.updateSkill({
             ...originalSkill,
             extras: [{
               description: description,
             }],
-          };
+          });
         }
       });
+    }
+  }
+
+  private updateSkill(skill: ISkillBase) {
+    this.runebladeSkills[skill.prop] = skill;
+    if (skill.rank === Rank.Basic) {
+      this.rankOneSkills[skill.prop] = skill as ISkill;
+    } else {
+      this.rankTwoSkills[skill.prop] = skill as IAwakenedSkill;
     }
   }
 

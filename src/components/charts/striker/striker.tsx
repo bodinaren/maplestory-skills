@@ -1,7 +1,7 @@
 import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as StrikerSkills from "../../../global/values/striker";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { StrikerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/striker";
 
 @Component({
   tag: "ms-striker",
@@ -13,6 +13,7 @@ export class StrikerComponent implements IChart {
   @Element() host: HTMLMsStrikerElement;
 
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) beatdown: number = StrikerSkills.Beatdown.minLevel;
@@ -38,7 +39,8 @@ export class StrikerComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, StrikerSkills);
+    processSkills(this, RankOneSkills, Rank.Basic);
+    processSkills(this, RankTwoSkills, Rank.Awakening);
   }
 
   @Method()
@@ -49,7 +51,8 @@ export class StrikerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, StrikerSkills, skill);
+    processSkills(this, RankOneSkills, Rank.Basic, skill);
+    processSkills(this, RankTwoSkills, Rank.Awakening, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();

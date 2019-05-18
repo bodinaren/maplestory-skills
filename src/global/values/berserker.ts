@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const DarkAura: ISkill = {
   name: "Dark Aura",
   attr: "dark-aura",
   prop: "darkAura",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -21,6 +22,7 @@ export const XSlash: ISkill = {
   name: "X Slash",
   attr: "x-slash",
   prop: "xSlash",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -40,6 +42,7 @@ export const RagingSlash: ISkill = {
   name: "Raging Slash",
   attr: "raging-slash",
   prop: "ragingSlash",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -65,6 +68,7 @@ export const DeathSpin: ISkill = {
   name: "Death Spin",
   attr: "death-spin",
   prop: "deathSpin",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -91,6 +95,7 @@ export const GroundBreaker: ISkill = {
   name: "Ground Breaker",
   attr: "ground-breaker",
   prop: "groundBreaker",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -122,6 +127,7 @@ export const DarkMight: ISkill = {
   name: "Dark Might",
   attr: "dark-might",
   prop: "darkMight",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -150,6 +156,7 @@ export const VoidSlash: ISkill = {
   name: "Void Slash",
   attr: "void-slash",
   prop: "voidSlash",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -181,6 +188,7 @@ export const DarkBreaker: ISkill = {
   name: "Dark Breaker",
   attr: "dark-breaker",
   prop: "darkBreaker",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -216,6 +224,7 @@ export const WarriorsInstinct: ISkill = {
   name: "Warrior's Instinct",
   attr: "warriors-instinct",
   prop: "warriorsInstinct",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -244,6 +253,7 @@ export const Bloodlust: ISkill = {
   name: "Bloodlust",
   attr: "bloodlust",
   prop: "bloodlust",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -274,6 +284,7 @@ export const AdrenalineRush: ISkill = {
   name: "Adrenaline Rush",
   attr: "adrenaline-rush",
   prop: "adrenalineRush",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -302,6 +313,7 @@ export const BloodPrice: ISkill = {
   name: "Blood Price",
   attr: "blood-price",
   prop: "bloodPrice",
+  rank: 1,
   row: 5,
   column: 3,
   minLevel: 0,
@@ -330,6 +342,7 @@ export const InhumanEndurance: ISkill = {
   name: "Inhuman Endurance",
   attr: "inhuman-endurance",
   prop: "inhumanEndurance",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -356,6 +369,7 @@ export const GreatswordMastery: ISkill = {
   name: "Greatsword Mastery",
   attr: "greatsword-mastery",
   prop: "greatswordMastery",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -379,6 +393,7 @@ export const Intimidation: ISkill = {
   name: "Intimidation",
   attr: "intimidation",
   prop: "intimidation",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -409,6 +424,7 @@ export const DeepWounds: ISkill = {
   name: "Deep Wounds",
   attr: "deep-wounds",
   prop: "deepWounds",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -436,6 +452,7 @@ export const Earthquake: ISkill = {
   name: "Earthquake",
   attr: "earthquake",
   prop: "earthquake",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -455,4 +472,33 @@ export const Earthquake: ISkill = {
     Drive your greatsword into the ground, creating an earthquake <span>9</span> tiles around you for <span>5</span> sec.
     Enemies caught in the quake are stunned and take <span>[damage]%</span> damage every second.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  AdrenalineRush: AdrenalineRush,
+  BloodPrice: BloodPrice,
+  Bloodlust: Bloodlust,
+  DarkAura: DarkAura,
+  DarkBreaker: DarkBreaker,
+  DarkMight: DarkMight,
+  DeathSpin: DeathSpin,
+  DeepWounds: DeepWounds,
+  Earthquake: Earthquake,
+  GreatswordMastery: GreatswordMastery,
+  GroundBreaker: GroundBreaker,
+  InhumanEndurance: InhumanEndurance,
+  Intimidation: Intimidation,
+  RagingSlash: RagingSlash,
+  VoidSlash: VoidSlash,
+  WarriorsInstinct: WarriorsInstinct,
+  XSlash: XSlash,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const BerserkerSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

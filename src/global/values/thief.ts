@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills } from "./_skillValues.interfaces";
 
 export const SpiritThief: ISkill = {
   name: "Spirit Thief",
   attr: "spirit-thief",
   prop: "spiritThief",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -19,6 +20,7 @@ export const MindStealer: ISkill = {
   name: "Mind Stealer",
   attr: "mind-stealer",
   prop: "mindStealer",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -35,6 +37,7 @@ export const DoubleSlash: ISkill = {
   name: "Double Slash",
   attr: "double-slash",
   prop: "doubleSlash",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -59,6 +62,7 @@ export const PoisonEdge: ISkill = {
   name: "Poison Edge",
   attr: "poison-edge",
   prop: "poisonEdge",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -98,6 +102,7 @@ export const PoisonVial: ISkill = {
   name: "Poison Vial",
   attr: "poison-vial",
   prop: "poisonVial",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -130,6 +135,7 @@ export const SurpriseAttack: ISkill = {
   name: "Surprise Attack",
   attr: "surprise-attack",
   prop: "surpriseAttack",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -170,6 +176,7 @@ export const RuthlessGuile: ISkill = {
   name: "Ruthless Guile",
   attr: "ruthless-guile",
   prop: "ruthlessGuile",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -197,6 +204,7 @@ export const CunningTactics: ISkill = {
   name: "Cunning Tactics",
   attr: "cunning-tactics",
   prop: "cunningTactics",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -214,6 +222,7 @@ export const BladeDance: ISkill = {
   name: "Blade Dance",
   attr: "blade-dance",
   prop: "bladeDance",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -251,6 +260,7 @@ export const Retaliation: ISkill = {
   name: "Retaliation",
   attr: "retaliation",
   prop: "retaliation",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -279,6 +289,7 @@ export const SomersaultKick: ISkill = {
   name: "Somersault Kick",
   attr: "somersault-kick",
   prop: "somersaultKick",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -310,6 +321,7 @@ export const QuickStep: ISkill = {
   name: "Quick Step",
   attr: "quick-step",
   prop: "quickStep",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -326,6 +338,7 @@ export const MesoguardPlus: ISkill = {
   name: "Mesoguard Plus",
   attr: "mesoguard-plus",
   prop: "mesoguardPlus",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -350,6 +363,7 @@ export const MindBreaker: ISkill = {
   name: "Mind Breaker",
   attr: "mind-breaker",
   prop: "mindBreaker",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -369,6 +383,7 @@ export const ViciousCuts: ISkill = {
   name: "Vicious Cuts",
   attr: "vicious-cuts",
   prop: "viciousCuts",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -400,6 +415,7 @@ export const Haste: ISkill = {
   name: "Haste",
   attr: "haste",
   prop: "haste",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -429,6 +445,7 @@ export const DeftCombatant: ISkill = {
   name: "Deft Combatant",
   attr: "deft-combatant",
   prop: "deftCombatant",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -449,4 +466,33 @@ export const DeftCombatant: ISkill = {
     Intense training has honed your body, increasing the damage output of
     Vicious Cuts and Somersault Kick by <span>[damage]%</span>.
   `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  BladeDance: BladeDance,
+  CunningTactics: CunningTactics,
+  DeftCombatant: DeftCombatant,
+  DoubleSlash: DoubleSlash,
+  Haste: Haste,
+  MesoguardPlus: MesoguardPlus,
+  MindBreaker: MindBreaker,
+  MindStealer: MindStealer,
+  PoisonEdge: PoisonEdge,
+  PoisonVial: PoisonVial,
+  QuickStep: QuickStep,
+  Retaliation: Retaliation,
+  RuthlessGuile: RuthlessGuile,
+  SomersaultKick: SomersaultKick,
+  SpiritThief: SpiritThief,
+  SurpriseAttack: SurpriseAttack,
+  ViciousCuts: ViciousCuts,
+};
+
+export const RankTwoSkills: IClassSkills = {
+
+};
+
+export const ThiefSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };
