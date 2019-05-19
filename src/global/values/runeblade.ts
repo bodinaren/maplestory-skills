@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const RuneBalance: ISkill = {
   name: "Rune Balance",
@@ -640,6 +640,349 @@ export const ElementalPotency: ISkill = {
   `,
 };
 
+export const PhysicalBoost: IAwakenedSkill = {
+  name: "Physical Boost",
+  attr: "physical-boost",
+  prop: "physicalBoost",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  stamina: 120,
+  cooldown: 6,
+  description: `
+    Charge your body with rune magic, increasing your physical capabilities.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases movement speed by <span>30%</span> and defence by <span>20%</span>.
+    <br/><br/>
+    Permanently increases strength by <span>40</span>.
+  `,
+};
+
+export const QuintupleCut: IAwakenedSkill = {
+  name: "Quintuple Cut",
+  attr: "quintuple-cut",
+  prop: "quintupleCut",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Blade",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [204, 204, 204, 204, 204],
+  },
+  description: `
+    Unleash <span>5</span> wild, flashy attacks with your frost-infused blade.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+  `,
+};
+
+export const BladeWhip: IAwakenedSkill = {
+  name: "Blade Whip",
+  attr: "blade-whip",
+  prop: "bladeWhip",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Blade",
+  spirit: 40,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: QuintupleCut,
+    level: 3,
+  }],
+  values: {
+    damage: [57, 57, 57, 57, 57],
+  },
+  description: `
+    Turn your blade into a whipe, striking <span>2</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    This skill attunes with your Flame, Frost and Storm Sigil skills.
+  `,
+};
+
+export const BladeExpert: IAwakenedSkill = {
+  name: "Blade Expert",
+  attr: "blade-expert",
+  prop: "bladeExpert",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: BladeWhip,
+    level: 2,
+  }],
+  values: {
+    increase: [8, 8, 8, 8, 8],
+  },
+  description: `
+    You've honed your swordplay through careful study of the Twin Args.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Quintuple Cut, Blade Whip, and Phantasm Slash by <span>{increase}%</span>.
+  `,
+};
+
+export const PhantasmSlash: IAwakenedSkill = {
+  name: "Phantasm Slash",
+  attr: "phantasm-slash",
+  prop: "phantasmSlash",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Blade",
+  cooldown: 10,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: BladeWhip,
+    level: 3,
+  }, {
+    skill: BladeExpert,
+    level: 3,
+  }],
+  values: {
+    damage: [1096, 1096, 1096, 1096, 1096],
+    additionalDamage: [547, 547, 547, 547, 547],
+    spellSplitterDamage: [746, 746, 746, 746, 746],
+  },
+  description: `
+    Create a circle of rune magic, then use your blade to lash the magic at enemies.
+    Reactivate the skill after the initial strike to use Spell Splitter.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage,
+    then make multiple blade strikes that deal <span>{additionalDamage}%</span> damage each.
+    <br/><br/>
+    Use the skill again after the initial strike to use Spell Splitter.
+    <br/><br/>
+    Grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Spell Splitter deals <span>{spellSplitterDamage}%</span> damage <span>10</span> times
+    and refreshes the damage area every <span>0.1</span> sec.
+  `,
+};
+
+export const RuneTrigger: IAwakenedSkill = {
+  name: "Rune Trigger",
+  attr: "rune-trigger",
+  prop: "runeTrigger",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [128, 128, 128, 128, 128],
+  },
+  description: `
+    Cast focused rune magic at an enemy in front of you.
+    The magic explodes from within the target.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage to enemies within the explosion
+    <br/><br/>
+    This skill attunes with your Flame, Frost, and Storm Sigil skills.
+  `,
+};
+
+export const DimensionBlade: IAwakenedSkill = {
+  name: "Dimension Blade",
+  attr: "dimension-Blade",
+  prop: "dimensionBlade",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Blade",
+  spirit: 20,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: RuneTrigger,
+    level: 3,
+  }],
+  values: {
+    damage: [58, 58, 58, 58, 58],
+  },
+  description: `
+    Conjure a globe of chaotic blade magic.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    <br/><br/>
+    This skill attunes with your Flame, Frost, and Storm Sigil skills.
+  `,
+  extras: [{
+    name: "Dimension Flame",
+    values: {
+      damage: [58, 58, 58, 58, 58],
+      movement: [30, 30, 30, 30, 30],
+    },
+    description: `
+      Conjure a globe of freezing blade magic.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage.
+      <br/><br/>
+      <h3>[Bonus Effects]</h3>
+      Decreases movement speed and jump power by <span>{movement}%</span> per.
+    `,
+  }, {
+    name: "Dimension Frost",
+    values: {
+      damage: [58, 58, 58, 58, 58],
+      movement: [30, 30, 30, 30, 30],
+    },
+    description: `
+      Conjure a globe of freezing blade magic.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage.
+      <br/><br/>
+      <h3>[Bonus Effects]</h3>
+      Decreases movement speed and jump power by <span>{movement}%</span> per.
+    `,
+  }, {
+    name: "Dimension Storm",
+    values: {
+      damage: [58, 58, 58, 58, 58],
+      movement: [30, 30, 30, 30, 30],
+    },
+    description: `
+      Conjure a globe of freezing blade magic.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage.
+      <br/><br/>
+      <h3>[Bonus Effects]</h3>
+      Decreases movement speed and jump power by <span>{movement}%</span> per.
+    `,
+  }]
+};
+
+export const RuneExpert: IAwakenedSkill = {
+  name: "Rune Expert",
+  attr: "rune-expert",
+  prop: "runeExpert",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: DimensionBlade,
+    level: 3,
+  }],
+  values: {
+    damage: [2, 2, 2, 2, 2],
+  },
+  description: `
+    You've honed your runecraft through careful study of the Twin Args.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Rune Trigger, Dimension Blade and Rune Ignition by <span>{increase}%</span>.
+  `,
+};
+
+export const RuneIgnition: IAwakenedSkill = {
+  name: "Rune Ignition",
+  attr: "rune-ignition",
+  prop: "runeIgnition",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Blade",
+  spirit: 45,
+  cooldown: 12,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: RuneExpert,
+    level: 3,
+  }],
+  values: {
+    damage: [300, 300, 300, 300, 300],
+  },
+  description: `
+    Plunge your blade into the ground to send forth <span>4</span> shockwaves.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per shockwave.
+    <br/><br/>
+    Grants knockback immunity.
+    <br/><br/>
+    This skill attunes with your Flame, Frost, and Storm Sigil skills.
+  `,
+  extras: [{
+    name: "Flame Ignition",
+    values: {
+      damage: [998, 998, 998, 998, 998],
+    },
+    description: `
+      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage per shockwave.
+      <br/><br/>
+      Grants knockback immunity.
+    `,
+  }, {
+    name: "Frost Ignition",
+    values: {
+      damage: [998, 998, 998, 998, 998],
+    },
+    description: `
+      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage per shockwave.
+      <br/><br/>
+      Grants knockback immunity.
+    `,
+  }, {
+    name: "Storm Ignition",
+    values: {
+      damage: [998, 998, 998, 998, 998],
+    },
+    description: `
+      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
+      <br/><br/>
+      <h3>[Primary Effects]</h3>
+      Deals <span>{damage}%</span> damage per shockwave.
+      <br/><br/>
+      Grants knockback immunity.
+    `,
+  }]
+};
+
 export const RankOneSkills: IClassSkills = {
   BladeChasm: BladeChasm,
   BladeMastery: BladeMastery,
@@ -661,7 +1004,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  PhysicalBoost: PhysicalBoost,
+  QuintupleCut: QuintupleCut,
+  BladeWhip: BladeWhip,
+  BladeExpert: BladeExpert,
+  PhantasmSlash: PhantasmSlash,
+  RuneTrigger: RuneTrigger,
+  DimensionBlade: DimensionBlade,
+  RuneExpert: RuneExpert,
+  RuneIgnition: RuneIgnition,
 };
 
 export const RunebladeSkills: IClassSkills = {

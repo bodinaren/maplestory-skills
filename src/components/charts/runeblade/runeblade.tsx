@@ -38,6 +38,16 @@ export class RunebladeComponent implements IChart {
   @Prop({ mutable: true }) wardingRune: number = RunebladeSkills.WardingRune.minLevel;
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeSkills.WhirlingBlades.minLevel;
 
+  @Prop({ mutable: true }) physicalBoost: number = RunebladeSkills.PhysicalBoost.minLevel;
+  @Prop({ mutable: true }) quintupleCut: number = RunebladeSkills.QuintupleCut.minLevel;
+  @Prop({ mutable: true }) bladeWhip: number = RunebladeSkills.BladeWhip.minLevel;
+  @Prop({ mutable: true }) bladeExpert: number = RunebladeSkills.BladeExpert.minLevel;
+  @Prop({ mutable: true }) phantasmSlash: number = RunebladeSkills.PhantasmSlash.minLevel;
+  @Prop({ mutable: true }) runeTrigger: number = RunebladeSkills.RuneTrigger.minLevel;
+  @Prop({ mutable: true }) dimensionBlade: number = RunebladeSkills.DimensionBlade.minLevel;
+  @Prop({ mutable: true }) runeExpert: number = RunebladeSkills.RuneExpert.minLevel;
+  @Prop({ mutable: true }) runeIgnition: number = RunebladeSkills.RuneIgnition.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

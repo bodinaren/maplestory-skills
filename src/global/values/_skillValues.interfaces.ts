@@ -1,6 +1,8 @@
 
 
 export interface ISkillDescription<T = SkillArray | AwakenedSkillArray> {
+  name?: string;
+
   description: string;
 
   /**
@@ -46,6 +48,8 @@ export interface ISkillBase<T = SkillArray | AwakenedSkillArray> extends ISkillD
   passive?: boolean;
 
   sp?: boolean;
+
+  stamina?: number | T;
 
   spirit?: number | T;
 

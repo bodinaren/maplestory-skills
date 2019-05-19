@@ -189,8 +189,11 @@ export namespace Components {
   }
   interface MsRuneblade {
     'bladeChasm': number;
+    'bladeExpert': number;
     'bladeMastery': number;
+    'bladeWhip': number;
     'blink': number;
+    'dimensionBlade': number;
     'echoingBlade': number;
     'editable': boolean;
     'elementalPotency': number;
@@ -203,9 +206,15 @@ export namespace Components {
     'honingRunes': number;
     'illusoryBlades': number;
     'impact': number;
+    'phantasmSlash': number;
+    'physicalBoost': number;
+    'quintupleCut': number;
     'rank': number;
     'runeBalance': number;
+    'runeExpert': number;
     'runeFocus': number;
+    'runeIgnition': number;
+    'runeTrigger': number;
     'sigil': Sigil;
     'stormSigil': number;
     'wardingRune': number;
@@ -515,8 +524,11 @@ declare namespace LocalJSX {
   }
   interface MsRuneblade extends JSXBase.HTMLAttributes {
     'bladeChasm'?: number;
+    'bladeExpert'?: number;
     'bladeMastery'?: number;
+    'bladeWhip'?: number;
     'blink'?: number;
+    'dimensionBlade'?: number;
     'echoingBlade'?: number;
     'editable'?: boolean;
     'elementalPotency'?: number;
@@ -529,9 +541,15 @@ declare namespace LocalJSX {
     'illusoryBlades'?: number;
     'impact'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'phantasmSlash'?: number;
+    'physicalBoost'?: number;
+    'quintupleCut'?: number;
     'rank'?: number;
     'runeBalance'?: number;
+    'runeExpert'?: number;
     'runeFocus'?: number;
+    'runeIgnition'?: number;
+    'runeTrigger'?: number;
     'sigil'?: Sigil;
     'stormSigil'?: number;
     'wardingRune'?: number;

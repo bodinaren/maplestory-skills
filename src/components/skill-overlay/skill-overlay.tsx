@@ -20,6 +20,7 @@ export class SkillOverlayComponent {
   @Prop() extras: boolean = false;
 
   private requirements: string[];
+  private stamina: number;
   private spirit: number;
   private cooldown: number;
   private description: string;
@@ -36,6 +37,7 @@ export class SkillOverlayComponent {
   private refreshData() {
     if (this.skill) {
       this.setRequirements();
+      this.setStamina();
       this.setSpirit();
       this.setCooldown();
       this.description = this.parseDescription(this.skill);
@@ -73,8 +75,9 @@ export class SkillOverlayComponent {
               </div>
               <div class="infoAndLevel">
                 <div class="shortInfo">
+                  { this.stamina && `Stamina ${ this.stamina }` }
                   { this.spirit && `Spirit ${ this.spirit }` }
-                  { this.spirit && this.cooldown && ` / ` }
+                  { (this.stamina || this.spirit) && this.cooldown && ` / ` }
                   { this.cooldown && `Cooldown: ${ this.cooldown } Sec` }
                 </div>
                 <div class="level">
@@ -134,6 +137,14 @@ export class SkillOverlayComponent {
     }
 
     this.requirements = requirements;
+  }
+
+  private setStamina() {
+    if (Array.isArray(this.skill.stamina)) {
+      this.stamina = this.skill.stamina[this.level];
+    } else if (!this.spirit) {
+      this.stamina = this.skill.stamina;
+    }
   }
 
   private setSpirit() {
