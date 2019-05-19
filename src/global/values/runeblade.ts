@@ -900,7 +900,7 @@ export const RuneExpert: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [2, 2, 2, 2, 2],
+    increase: [2, 2, 2, 2, 2],
   },
   description: `
     You've honed your runecraft through careful study of the Twin Args.

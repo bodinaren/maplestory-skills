@@ -34,6 +34,16 @@ export class BerserkerComponent implements IChart {
   @Prop({ mutable: true }) warriorsInstinct: number = BerserkerSkills.WarriorsInstinct.minLevel;
   @Prop({ mutable: true }) xSlash: number = BerserkerSkills.XSlash.minLevel;
 
+  @Prop({ mutable: true }) infiniteDarkness: number = BerserkerSkills.InfiniteDarkness.minLevel;
+  @Prop({ mutable: true }) skullSplitter: number = BerserkerSkills.SkullSplitter.minLevel;
+  @Prop({ mutable: true }) bloodFury: number = BerserkerSkills.BloodFury.minLevel;
+  @Prop({ mutable: true }) parryTheMoon: number = BerserkerSkills.ParryTheMoon.minLevel;
+  @Prop({ mutable: true }) aerialSmash: number = BerserkerSkills.AerialSmash.minLevel;
+  @Prop({ mutable: true }) squall: number = BerserkerSkills.Squall.minLevel;
+  @Prop({ mutable: true }) rendWound: number = BerserkerSkills.RendWound.minLevel;
+  @Prop({ mutable: true }) ragingSoul: number = BerserkerSkills.RagingSoul.minLevel;
+  @Prop({ mutable: true }) bloodSlash: number = BerserkerSkills.BloodSlash.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -65,9 +75,9 @@ export class BerserkerComponent implements IChart {
   render() {
     return (
       <ms-chart msClass="berserker" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
-      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
-      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
-    </ms-chart>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+      </ms-chart>
     );
   }
 }

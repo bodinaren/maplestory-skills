@@ -73,7 +73,10 @@ export namespace Components {
   }
   interface MsBerserker {
     'adrenalineRush': number;
+    'aerialSmash': number;
+    'bloodFury': number;
     'bloodPrice': number;
+    'bloodSlash': number;
     'bloodlust': number;
     'darkAura': number;
     'darkBreaker': number;
@@ -86,10 +89,16 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'greatswordMastery': number;
     'groundBreaker': number;
+    'infiniteDarkness': number;
     'inhumanEndurance': number;
     'intimidation': number;
+    'parryTheMoon': number;
     'ragingSlash': number;
+    'ragingSoul': number;
     'rank': number;
+    'rendWound': number;
+    'skullSplitter': number;
+    'squall': number;
     'voidSlash': number;
     'warriorsInstinct': number;
     'xSlash': number;
@@ -407,7 +416,10 @@ declare namespace LocalJSX {
   }
   interface MsBerserker extends JSXBase.HTMLAttributes {
     'adrenalineRush'?: number;
+    'aerialSmash'?: number;
+    'bloodFury'?: number;
     'bloodPrice'?: number;
+    'bloodSlash'?: number;
     'bloodlust'?: number;
     'darkAura'?: number;
     'darkBreaker'?: number;
@@ -419,11 +431,17 @@ declare namespace LocalJSX {
     'extras'?: boolean;
     'greatswordMastery'?: number;
     'groundBreaker'?: number;
+    'infiniteDarkness'?: number;
     'inhumanEndurance'?: number;
     'intimidation'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'parryTheMoon'?: number;
     'ragingSlash'?: number;
+    'ragingSoul'?: number;
     'rank'?: number;
+    'rendWound'?: number;
+    'skullSplitter'?: number;
+    'squall'?: number;
     'voidSlash'?: number;
     'warriorsInstinct'?: number;
     'xSlash'?: number;

@@ -102,6 +102,10 @@ p, ::slotted(*) {
 .description span {
   color: #0099CC;
 }
+.description mark {
+  color: #873C29;
+  background: none;
+}
 .description h3 {
   color: #ECC400;
   font-size: 1em;

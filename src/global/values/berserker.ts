@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const DarkAura: ISkill = {
   name: "Dark Aura",
@@ -474,6 +474,338 @@ export const Earthquake: ISkill = {
   `,
 };
 
+export const InfiniteDarkness: IAwakenedSkill = {
+  name: "Infinite Darkness",
+  attr: "infinite-darkness",
+  prop: "infiniteDarkness",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  element: "Dark",
+  weaponRequired: "Two-handed Greatsword",
+  passive: true,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [418, 418, 418, 418, 418],
+    additionalDamage: [500, 500, 500, 500, 500],
+    movement: [15, 15, 15, 15, 15],
+    dot: [150, 150, 150, 150, 150],
+    iceStormIncrease: [49, 49, 49, 49, 49],
+  },
+  description: `
+    A thick darkness engulfs your body.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Permanently increases strength by <span>40</span>.
+    Increases Dark Aura's duration to <span>10</span> sec.
+    Consuming <span>10</span> stacks of Dark Aura at once has a <span>20%</span> chance to trigger Surging Darkness.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Surging Darkness grants <span>10</span> stacks of Dark Aura.
+  `,
+};
+
+export const SkullSplitter: IAwakenedSkill = {
+  name: "Skull Splitter",
+  attr: "skull-splitter",
+  prop: "skullSplitter",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Greatsword",
+  spirit: 10,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [453, 453, 453, 453, 453],
+    thirdDamage: [647, 647, 647, 647, 647],
+    fourthDamage: [1040, 1040, 1040, 1040, 1040],
+  },
+  description: `
+    Unleash a wild 3-hit combo.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deal <span>{damage}%</span> damage the first two times you use this skill.
+    On the third use in a row, perform a jump attack to
+    deal <span>{thirdDamage}%</span> and <span>{fourthDamage}%</span> damage.
+    Grants knockback immunity.
+  `,
+};
+
+export const BloodFury: IAwakenedSkill = {
+  name: "Blood Fury",
+  attr: "blood-fury",
+  prop: "bloodFury",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Greatsword",
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SkullSplitter,
+    level: 3,
+  }],
+  values: {
+    attack: [6, 6, 6, 6, 6],
+    bloodlustDamage: [166, 166, 166, 166, 166],
+  },
+  description: `
+    Your blows gain strength as your enemies draw close to death.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Attack an enemy with less than <span>30%</span> health to gain the Blood Fury effect.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    The Blood Fury effect increases physical attack by <span>{attack}%</span> and
+    Bloodlust damage by <span>{bloodlustDamage}%</span>.
+    While this effect is active, Bloodlust has a <span>30%</span> chance to grant Ruthless.
+    Ruthless resets Bloodlust's cooldown and lets you use Skull Splitter's third attack immediately.
+  `,
+};
+
+export const ParryTheMoon: IAwakenedSkill = {
+  name: "Parry The Moon",
+  attr: "parry-the-moon",
+  prop: "parryTheMoon",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Bow",
+  spirit: 20,
+  cooldown: 30,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: BloodFury,
+    level: 2,
+  }],
+  values: {
+    damage: [1369, 1369, 1369, 1369, 1369],
+    shockwaveDamage: [267, 267, 267, 267, 267],
+    dot: [201, 201, 201, 201, 201],
+    attack: [4.5, 4.5, 4.5, 4.5, 4.5],
+  },
+  description: `
+    Parry enemy attacks with a great swing, creating a shockwave.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage and generates a shockwave
+    that deals <span>{shockwaveDamage}%</span> damage on hit
+    and <span>{dot}%</span> damage per sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    If used while udner attack, grants perfect guard and <span>10</span> Dark Aura stacks.
+    <br/>
+    Permanently increases physical attack by <span>{attack}%</span>.
+  `,
+};
+
+export const AerialSmash: IAwakenedSkill = {
+  name: "Aerial Smash",
+  attr: "aerial-smash",
+  prop: "aerialSmash",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Greatsword",
+  cooldown: 8,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: BloodFury,
+    level: 3,
+  }, {
+    skill: ParryTheMoon,
+    level: 3,
+  }],
+  values: {
+    firstDamage: [400, 400, 400, 400, 400],
+    secondDamage: [1100, 1100, 1100, 1100, 1100],
+    thirdDamage: [2200, 2200, 2200, 2200, 2200],
+  },
+  description: `
+    Jump into the air and launch a series of attacks.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Requires <span>10</span> stacks of Dark Aura.
+    The first two attacks deal <span>{firstDamage}%</span> and <span>{secondDamage}%</span> damage.
+    Hold down the skill key to trigger a follow-up that deals <span>{thirdDamage}%</span> damage.
+    Inflicts Shaken.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Shaken decreases movement speed by <span>20%</span>.
+  `,
+};
+
+export const Squall: IAwakenedSkill = {
+  name: "Squall",
+  attr: "squall",
+  prop: "squall",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Greatsword",
+  spirit: 6,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [119, 119, 119, 119, 119],
+    speed: [4, 4, 4, 4, 4],
+    additionalDamage: [46, 46, 46, 46, 46],
+  },
+  description: `
+    Becoming a spinning vortex of death.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deal <span>{damage}%</span> damage per hit.
+    Stand still to gain stacks of Gale; at <span>3</span> stacks, gain Whirlwind.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Gale increases attack speed by <span>{speed}%</span> per stack.
+    <br/>
+    While Whirlwind is active, hold down the skill key to increase spin speed and hit count,
+    decrease movement speed to <span>30</span>,
+    decrease damage to <span>69%</span>,
+    gain knockback immunity,
+    and deal an additional <span>{additionalDamage}%</span> to enemies with Heavy Bleeding.
+    <br/>
+    When Dark might is active, Whirlwind does not decrease movement speed.
+  `,
+};
+
+export const RendWound: IAwakenedSkill = {
+  name: "Rend Wound",
+  attr: "rend-wound",
+  prop: "rendWound",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Bow",
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: Squall,
+    level: 3,
+  }],
+  values: {
+    deepWoundDamage: [92, 92, 92, 92, 92],
+    heavyBleedingDamage: [64, 64, 64, 64, 64],
+  },
+  description: `
+    You attacks inflicts grievous injury.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Deep Wounds damage by <span>{deepWoundDamage}%</span>.
+    Landing <span>2</span> critical hits within <span>4</span> sec inflicts Heavy Bleeding.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Heavy Bleeding deals <span>{heavyBleedingDamage}%</span> damage every sec for each stack,
+    and stacks up to <span>5</span> times.
+  `,
+};
+
+export const RagingSoul: IAwakenedSkill = {
+  name: "Raging Soul",
+  attr: "raging-soul",
+  prop: "ragingSoul",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Greatsword",
+  cooldown: 40,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: RendWound,
+    level: 3,
+  }],
+  values: {
+    speed: [30, 30, 30, 30, 30],
+    attack: [5, 5, 5, 5, 5],
+    darkAttack: [5, 5, 5, 5, 5],
+    health: [42, 42, 42, 42, 42],
+    iceStormIncrease: [49, 49, 49, 49, 49],
+  },
+  description: `
+    Embrace the darkness within you and draw on its power.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Temporarily increases attack speed by <span>{speed}%</span>,
+    physical attack by <span>{attack}%</span>,
+    increases dark attack by <span>{darkAttack}%</span>,
+    triples Improved intimidation's attack,
+    and prevents death.
+    Restores <span>{health}%</span> health upon ending.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Resets Earthquake's cooldown.
+    <br/>
+    Grants Encroaching Darkness while withing <mark>Earthquake</mark>'s area of effect,
+    providing additional Dark Arua stacks and increasing movement speed by <span>100</span>.
+  `,
+};
+
+export const BloodSlash: IAwakenedSkill = {
+  name: "Blood Slash",
+  attr: "blood-slash",
+  prop: "bloodSlash",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Greatsword",
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: RagingSoul,
+    level: 3,
+  }],
+  values: {
+    damage: [259, 259, 259, 259, 259],
+    health: [1.5, 1.5, 1.5, 1.5, 1.5],
+    additionalDamage: [50, 50, 50, 50, 50],
+    gougeDamage: [636, 636, 636, 636, 636],
+    darkBloodSlashDamage: [207, 207, 207, 207, 207]
+  },
+  description: `
+    Use dark power to shred your enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Consumes <span>10</span> stacks of Dark Aura.
+    Each strike deals <span>{damage}%</span> damage and restores <span>{health}%</span> health.
+    Final hit deals an additional <span>{additionalDamage}%</span> damage.
+    Grants knockback immunity.
+    Inflicts Gouge on enemies afflicted with Heavy Bleeding.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Gouge deals between <span>100%</span> and <span>{gougeDamage}%</span> damage
+    depending on the number of Heavy Bleeding stacks.
+    <br/>
+    Becomes Dark Blood Slash while Raging Soul is active.
+    Dark Blood Slash deals repeated hits while the skill key is held down,
+    each inflicting <span>{darkBloodSlashDamage}%</span> damage,
+    and does not consume Dark Aura.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   AdrenalineRush: AdrenalineRush,
   BloodPrice: BloodPrice,
@@ -495,7 +827,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  InfiniteDarkness: InfiniteDarkness,
+  SkullSplitter: SkullSplitter,
+  BloodFury: BloodFury,
+  ParryTheMoon: ParryTheMoon,
+  AerialSmash: AerialSmash,
+  Squall: Squall,
+  RendWound: RendWound,
+  RagingSoul: RagingSoul,
+  BloodSlash: BloodSlash,
 };
 
 export const BerserkerSkills: IClassSkills = {
