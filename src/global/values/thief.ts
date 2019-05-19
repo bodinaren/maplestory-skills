@@ -50,9 +50,9 @@ export const DoubleSlash: ISkill = {
     cunning: [7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
   },
   description: `
-    Quickly stab with your daggers, dealing <span>[damage]%</span> damage <span>2</span>
+    Quickly stab with your daggers, dealing <span>{damage}%</span> damage <span>2</span>
     times to <span>3</span> enemies up to <span>3</span> m in front of you.
-    Has a <span>[cunning]%</span> chance to activate Cunning for <span>5</span> sec when your attack hits.
+    Has a <span>{cunning}%</span> chance to activate Cunning for <span>5</span> sec when your attack hits.
     Movement speed increases by <span>30%</span> while Cunning is active, and some skills are enhanced.
     The damage of each attack is affected by the weapon in each hand.
   `,
@@ -77,10 +77,10 @@ export const PoisonEdge: ISkill = {
     fifthDamage: [72, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126],
   },
   description: `
-    Swing your poison-coated daggers, dealing <span>[firstDamage]%</span> poison
+    Swing your poison-coated daggers, dealing <span>{firstDamage}%</span> poison
     damage to <span>5</span> enemies up to <span>3</span> m in front of you.
     Keep pressing the key to trigger a <span>5-hit</span> combo.
-    The fifth hit deals <span>[fifthDamage]%</span> poison damage
+    The fifth hit deals <span>{fifthDamage}%</span> poison damage
     and moves you <span>3</span> m in the direction you select.
     When Cunning is active, this skill is empowered.
     Consumes <span>10</span> spirit.
@@ -90,7 +90,7 @@ export const PoisonEdge: ISkill = {
       damage: [11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     },
     description: `
-      When empowered your daggers poison the target for an additional <span>[damage]%</span> poison damage
+      When empowered your daggers poison the target for an additional <span>{damage}%</span> poison damage
       every second for <span>13</span> sec on each hit of this skill.
       This effect stacks up to <span>5</span> times.
       Cunning is canceled when this skill activates.
@@ -124,9 +124,9 @@ export const PoisonVial: ISkill = {
   },
   description: `
     Throw a vial of poison at the closest enemy up to <span>7.5</span> m in front of you,
-    dealing <span>[damage]%</span> poison damage.
+    dealing <span>{damage}%</span> poison damage.
     The vial breaks on impact, splashing a toxic liquid that poisons <span>5</span> enemies within <span>3</span> m and
-    deals <span>[dot]%</span> poison damage every second for <span>10</span> sec.
+    deals <span>{dot}%</span> poison damage every second for <span>10</span> sec.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -157,9 +157,9 @@ export const SurpriseAttack: ISkill = {
   },
   description: `
     Stab <span>3</span> enemies up to <span>3</span> m in front of you,
-    dealing <span>[damage]%</span> damage.
+    dealing <span>{damage}%</span> damage.
     If a target is afflicted with Poison Edge or Poison Vial, they’ll take an additional
-    <span>[additionalDamage]%</span> poison damage for each, and the poison will be removed.
+    <span>{additionalDamage}%</span> poison damage for each, and the poison will be removed.
     When Cunning is active, this skill is empowered.
   `,
   extras: [{
@@ -167,7 +167,7 @@ export const SurpriseAttack: ISkill = {
       damage: [101, 101, 108, 115, 122, 129, 136, 143, 150, 157, 164],
     },
     description: `
-      When empowered you spin with your daggers out, dealing <span>[damage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+      When empowered you spin with your daggers out, dealing <span>{damage}%</span> damage to <span>8</span> enemies within <span>3</span> m.
     `,
   }],
 };
@@ -195,7 +195,7 @@ export const RuthlessGuile: ISkill = {
     damage: [2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   },
   description: `
-    Prey on the weaknesses of your enemy to deal <span>[damage]%</span> additional
+    Prey on the weaknesses of your enemy to deal <span>{damage}%</span> additional
     poison damage to targets afflicted with Poison Blow or Poison Vial.
   `,
 };
@@ -213,7 +213,7 @@ export const CunningTactics: ISkill = {
   cooldown: [23, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14],
   levelRequirement: [19, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37],
   description: `
-    Using the tricks of the trade, recover <span>[spirit]%</span> spirit and activate Cunning for <span>5</span> sec.
+    Using the tricks of the trade, recover <span>{spirit}%</span> spirit and activate Cunning for <span>5</span> sec.
     While Cunning is active, your movement speed increases by <span>30%</span> and some skills can be empowered.
   `,
 };
@@ -240,8 +240,8 @@ export const BladeDance: ISkill = {
     thirdDamage: [56, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
   },
   description: `
-    Spin with your daggers out, dealing <span>[firstDamage]%</span>, then <span>[firstDamage]%</span>,
-    and then <span>[thirdDamage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+    Spin with your daggers out, dealing <span>{firstDamage}%</span>, then <span>{firstDamage}%</span>,
+    and then <span>{thirdDamage}%</span> damage to <span>8</span> enemies within <span>3</span> m.
     While Cunning is active, this skill is enhanced.
     Consumes <span>26</span> spirit.
   `,
@@ -250,7 +250,7 @@ export const BladeDance: ISkill = {
       evade: [81, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99],
     },
     description: `
-      When enhanced your spin makes enemies dizzy, granting you a <span>[evade]%</span> chance to evade enemy attacks for <span>1</span> sec.
+      When enhanced your spin makes enemies dizzy, granting you a <span>{evade}%</span> chance to evade enemy attacks for <span>1</span> sec.
       Cunning is cancelled when this skill activates.
     `,
   }],
@@ -278,9 +278,9 @@ export const Retaliation: ISkill = {
   },
   description: `
     Deftly dodge an attack and position yourself for a counterattack,
-    which restore <span>[spirit]</span> spirit,
-    increases physical attack and magic attack by <span>[attack]%</span>,
-    and increases evasion by <span>[evasion]</span> for <span>12</span> sec.
+    which restore <span>{spirit}</span> spirit,
+    increases physical attack and magic attack by <span>{attack}%</span>,
+    and increases evasion by <span>{evasion}</span> for <span>12</span> sec.
     This effect will not activate again for <span>1</span> sec.
   `,
 };
@@ -303,9 +303,9 @@ export const SomersaultKick: ISkill = {
     jump: [30, 30, 30, 30, 35, 35, 35, 40, 40, 40, 45],
   },
   description: `
-    Perform a somersault kick to deal <span>[damage]%</span> damage to <span>5</span> enemies up
+    Perform a somersault kick to deal <span>{damage}%</span> damage to <span>5</span> enemies up
     to <span>3</span> m in front of you, breaking their stance and decreasing their
-    movement speed by <span>[movement]%</span> and jump power by <span>[jump]%</span>.
+    movement speed by <span>{movement}%</span> and jump power by <span>{jump}%</span>.
     When Cunning is active, this skill is empowered.
   `,
   extras: [{
@@ -329,7 +329,7 @@ export const QuickStep: ISkill = {
   spirit: [1, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
   levelRequirement: [25, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
   description: `
-    Swiftly move back <span>3</span> m and recover <span>[spirit]</span> spirit.
+    Swiftly move back <span>3</span> m and recover <span>{spirit}</span> spirit.
     Consumes <span>40</span> stamina.
   `,
 };
@@ -354,7 +354,7 @@ export const MesoguardPlus: ISkill = {
   },
   description: `
     Spend <span>777</span> mesos to create a meso shield that lasts
-    <span>4</span> seconds reducing damage taken by <span>[reduction]%</span>.
+    <span>4</span> seconds reducing damage taken by <span>{reduction}%</span>.
     If Cunning is active, the skill costs no mesos, and Cunning will be removed.
   `,
 };
@@ -375,7 +375,7 @@ export const MindBreaker: ISkill = {
   },
   description: `
     Unlocks Empowered Mind Stealer, which increases the number of targets that can be hit
-    by the skill to <span>5</span> and the skill's damage by <span>[damage]%</span>.
+    by the skill to <span>5</span> and the skill's damage by <span>{damage}%</span>.
   `,
 };
 
@@ -403,7 +403,7 @@ export const ViciousCuts: ISkill = {
     damage: [35, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62],
   },
   description: `
-    Quickly stab with your daggers, dealing <span>[damage]%</span> damage <span>5</span> times
+    Quickly stab with your daggers, dealing <span>{damage}%</span> damage <span>5</span> times
     to <span>3</span> enemies up to <span>3</span> m in front of you.
     While Cunning is active, this skill is enhanced.
     The damage of each attack is affected by the weapon in each hand.
@@ -436,8 +436,8 @@ export const Haste: ISkill = {
   description: `
     Your movements mimic the wind.
     For <span>60</span> sec, <span>4</span> spirit is consumed in <span>0.5</span> sec
-    intervals to increase attack speed and movement speed by <span>[movement]%</span> and
-    physical attack by <span>[attack]%</span>.
+    intervals to increase attack speed and movement speed by <span>{movement}%</span> and
+    physical attack by <span>{attack}%</span>.
   `,
 };
 
@@ -464,7 +464,7 @@ export const DeftCombatant: ISkill = {
   },
   description: `
     Intense training has honed your body, increasing the damage output of
-    Vicious Cuts and Somersault Kick by <span>[damage]%</span>.
+    Vicious Cuts and Somersault Kick by <span>{damage}%</span>.
   `,
 };
 

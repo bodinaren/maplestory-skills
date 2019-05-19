@@ -55,10 +55,10 @@ export const SoaringOrb: ISkill = {
   },
   description: `
     Gather energy from your surroundings to form and launch an orb at the nearest enemy
-    up to <span>7.5</span> m in front of you, dealing <span>[damage]%</span> damage.
+    up to <span>7.5</span> m in front of you, dealing <span>{damage}%</span> damage.
     Keep pressing the key to trigger a 3-hit combo.
     The third strike launches an energy orb that explodes upon collision,
-    dealing <span>[aoe]%</span> damage to <span>5</span> enemies within a <span>2.25</span> m radius.
+    dealing <span>{aoe}%</span> damage to <span>5</span> enemies within a <span>2.25</span> m radius.
   `,
 };
 
@@ -80,9 +80,9 @@ export const RadiantSalvo: ISkill = {
   },
   description: `
     Concentrate life energy in the palms of your hands, then launch a salvo of orbs at the nearest enemy
-    within <span>7.5</span> m, dealing <span>[damage]%</span> damage <span>4</span> times.
+    within <span>7.5</span> m, dealing <span>{damage}%</span> damage <span>4</span> times.
     Each orb that collides with an enemy ricochets <span>4</span> times
-    onto other enemies within a <span>3</span> m radius, dealing <span>[damage]%</span> damage.
+    onto other enemies within a <span>3</span> m radius, dealing <span>{damage}%</span> damage.
     Energy orbs do not damage the same target twice.
     Consumes <span>3</span> spirit.
   `,
@@ -115,7 +115,7 @@ export const ExpansionBlast: ISkill = {
   description: `
     Condense the energy of Narubashan into a powerful,
     one-meter-wide electric energy orb and shoot it <span>7.5</span> m forward,
-    dealing <span>[damage]%</span> damage to up to <span>8</span> enemies in its path.
+    dealing <span>{damage}%</span> damage to up to <span>8</span> enemies in its path.
     The orb also shocks targets, dealing an additional <span>20%</span> electric damage every sec for <span>3</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>4</span> spirit.
@@ -145,7 +145,7 @@ export const FlashStrike: ISkill = {
   },
   description: `
     Gather light energy in your hands and fire a beam with energy force to push you back <span>1.5</span> m.
-    The light beam deals <span>[damage]%</span> damage to up
+    The light beam deals <span>{damage}%</span> damage to up
     to <span>8</span> enemies up to <span>10.5</span> m in front of you.
     Consumes <span>6</span> spirit.
   `,
@@ -179,7 +179,7 @@ export const ShootingStar: ISkill = {
     Channel the strength of the animus to form <span>3</span> orbs infused with the
     celestral energy and launch them at enemies up to <span>8</span> m in front of you.
     The orbs will explode upon collision, spreading celestral energy over the area and dealing
-    <span>[damage]%</span> damage to up to <span>5</span> enemies within a <span>2.25</span> m radius.
+    <span>{damage}%</span> damage to up to <span>5</span> enemies within a <span>2.25</span> m radius.
     Skill effects are enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>4</span> spirit.
   `,
@@ -207,7 +207,7 @@ export const ConcussionOrb: ISkill = {
   description: `
     Gather energy from your surroundings to form and launch an orb
     at the nearest enemy up to <span>7.5</span> m in front of you.
-    The energy orb explodes upon collision, dealing <span>[damage]%</span> damage
+    The energy orb explodes upon collision, dealing <span>{damage}%</span> damage
     to <span>5</span> enemies within a <span>2.25</span> m radius.
     Keep pressing the trigger for a 2-hit combo.
   `,
@@ -238,11 +238,11 @@ export const RagingTempest: ISkill = {
   description: `
     Shift the flow of the atmosphere to create a whirlwind <span>6</span> m in front of you.
     The whirlwind rages every <span>0.2</span> sec for a total of <span>4</span> times,
-    dealing <span>[dot]%</span> damage to up to <span>8</span> enemies
+    dealing <span>{dot}%</span> damage to up to <span>8</span> enemies
     in a <span>3</span> m radius and gathering them at its center.
     After <span>1</span> sec, the dence energy in the eye of the whirlwind explodes,
-    dealing <span>[additionalDamage]%</span> damage to up to <span>8</span> enemies within a <span>3</span> m radius
-    and decreasing their accuracy and evasion by <span>[reduction]</span>.
+    dealing <span>{additionalDamage}%</span> damage to up to <span>8</span> enemies within a <span>3</span> m radius
+    and decreasing their accuracy and evasion by <span>{reduction}</span>.
   `,
 };
 
@@ -271,8 +271,8 @@ export const EnergySurge: ISkill = {
   description: `
     Stir up earth energy, driving it toward the nearest enemy up to
     <span>8</span> m in front of you and forcing the ground upward,
-    dealing <span>[damage]%</span> damage to up to <span>8</span> enemies within a <span>2.25</span> m radius.
-    The massive quake will stun targets for <span>[stun]</span> sec.
+    dealing <span>{damage}%</span> damage to up to <span>8</span> enemies within a <span>2.25</span> m radius.
+    The massive quake will stun targets for <span>{stun}</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>5</span> spirit.
   `,
@@ -305,8 +305,8 @@ export const StaticFlash: ISkill = {
   description: `
     Reverse the flow of nature's pure energy within a <span>7.5</span> m radius,
     exhausting the vitality of up to <span>8</span> enemies within range,
-    dealing <span>[damage]%</span> damage,
-    and reducing both defense and movement speed by <span>[reduction]%</span> for <span>10</span> sec.
+    dealing <span>{damage}%</span> damage,
+    and reducing both defense and movement speed by <span>{reduction}%</span> for <span>10</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>15</span> spirit.
   `,
@@ -329,7 +329,7 @@ export const LightBarrier: ISkill = {
   },
   description: `
     Harness your animus energy to forge a shield that lasts for <span>4</span> sec
-    and absorbs damage equivalent to <span>[damage]%</span> of your max health.
+    and absorbs damage equivalent to <span>{damage}%</span> of your max health.
     This shield does not stack with other protective shield effects.
     Consumes all Mantra Cores.
     Skill effects are enhanced in proportion to number of Mantra Cores consumed.
@@ -358,7 +358,7 @@ export const HealingBond: ISkill = {
   },
   description: `
     Restore your health and the health of <span>4</span> allies within a <span>3</span> m radius
-    by <span>[health]%</span> of your magic attack by harnessing nature's pure energy.
+    by <span>{health}%</span> of your magic attack by harnessing nature's pure energy.
     Consumes all Mantra Cores.
     Skill effects are enhanced in proportion to number of Mantra Cores consumed.
     Consumes <span>12</span> spirit.
@@ -390,9 +390,9 @@ export const FountOfRenewal: ISkill = {
   description: `
     Gather a field of concentrated life force <span>6</span> m ahead of you
     with a radius of <span>2.25</span> m, lasting <span>3</span> sec.
-    This field restores the health of up to <span>8</span> allies within range by <span>[health]%</span>
-    of your magic attack and increases physical and magic resistance by <span>[resistance]</span>.
-    Increases the potency of Healing Bond by <span>[healingBond]%</span>.
+    This field restores the health of up to <span>8</span> allies within range by <span>{health}%</span>
+    of your magic attack and increases physical and magic resistance by <span>{resistance}</span>.
+    Increases the potency of Healing Bond by <span>{healingBond}%</span>.
     While you are within the Fount of Renewal, you are immune to knockback from standard attacks.
   `,
 };
@@ -413,7 +413,7 @@ export const OrbMastery: ISkill = {
   },
   description: `
     Harmonize more effectively with your Mantra Orbs thanks to your valuable lessons from Guidance.
-    Increase the strength of your weapon attack by <span>[attack]%</span> when you have an orb equipped.
+    Increase the strength of your weapon attack by <span>{attack}%</span> when you have an orb equipped.
   `,
 };
 
@@ -438,7 +438,7 @@ export const NarubashanUnleashed: ISkill = {
   },
   description: `
     Unleash the incredible power of Narubashan as explosive energy courses through your veins.
-    This energy automatically forms into Mantra Cores every <span>[interval]</span> sec for <span>[totalTime]</span> sec.
+    This energy automatically forms into Mantra Cores every <span>{interval}</span> sec for <span>{totalTime}</span> sec.
     No more than <span>4</span> Mantra Cores can be created.
   `,
 };
@@ -469,7 +469,7 @@ export const AnimusFocus: ISkill = {
     Focus the strength of animus within yourself and amplify the Mantra Core's energy.
     Increases the damage of Expansion Blast, Energy Surge, and Shooting Star
     (which activate when the maximum quantity of Mantra Cores has been achieved) by
-    <span>[damage]%</span> and increases the recovery of Healing Bond by <span>[recovery]%</span>.
+    <span>{damage}%</span> and increases the recovery of Healing Bond by <span>{recovery}%</span>.
   `,
 };
 

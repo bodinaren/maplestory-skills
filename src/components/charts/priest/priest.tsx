@@ -34,6 +34,16 @@ export class PriestComponent implements IChart {
   @Prop({ mutable: true }) disciple: number = PriestSkills.Disciple.minLevel;
   @Prop({ mutable: true }) angelicRay: number = PriestSkills.AngelicRay.minLevel;
 
+  @Prop({ mutable: true }) lifesGuardian: number = PriestSkills.LifesGuardian.minLevel;
+  @Prop({ mutable: true }) scathingLight: number = PriestSkills.ScathingLight.minLevel;
+  @Prop({ mutable: true }) lightSpear: number = PriestSkills.LightSpear.minLevel;
+  @Prop({ mutable: true }) clarity: number = PriestSkills.Clarity.minLevel;
+  @Prop({ mutable: true }) heavensWrath: number = PriestSkills.HeavensWrath.minLevel;
+  @Prop({ mutable: true }) purifyingLight: number = PriestSkills.PurifyingLight.minLevel;
+  @Prop({ mutable: true }) divineWave: number = PriestSkills.DivineWave.minLevel;
+  @Prop({ mutable: true }) greaterHealing: number = PriestSkills.GreaterHealing.minLevel;
+  @Prop({ mutable: true }) vitality: number = PriestSkills.Vitality.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

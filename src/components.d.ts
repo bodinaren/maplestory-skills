@@ -178,23 +178,32 @@ export namespace Components {
     'celestialBlessings': number;
     'celestialGuardian': number;
     'celestialLight': number;
+    'clarity': number;
     'disciple': number;
+    'divineWave': number;
     'editable': boolean;
     'extras': boolean;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'greaterHealing': number;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
+    'heavensWrath': number;
     'holyBlast': number;
     'holyRelic': number;
     'holySymbol': number;
+    'lifesGuardian': number;
+    'lightSpear': number;
+    'purifyingLight': number;
     'rank': number;
     'sanctuary': number;
+    'scathingLight': number;
     'scepterMastery': number;
     'scourgingWave': number;
     'shieldOfTheArchon': number;
     'smitingAura': number;
     'steadfastFaith': number;
+    'vitality': number;
   }
   interface MsRuneblade {
     'bladeChasm': number;
@@ -522,23 +531,32 @@ declare namespace LocalJSX {
     'celestialBlessings'?: number;
     'celestialGuardian'?: number;
     'celestialLight'?: number;
+    'clarity'?: number;
     'disciple'?: number;
+    'divineWave'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
+    'greaterHealing'?: number;
     'healingMastery'?: number;
     'healingPrayer'?: number;
     'heavenlyWings'?: number;
+    'heavensWrath'?: number;
     'holyBlast'?: number;
     'holyRelic'?: number;
     'holySymbol'?: number;
+    'lifesGuardian'?: number;
+    'lightSpear'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'purifyingLight'?: number;
     'rank'?: number;
     'sanctuary'?: number;
+    'scathingLight'?: number;
     'scepterMastery'?: number;
     'scourgingWave'?: number;
     'shieldOfTheArchon'?: number;
     'smitingAura'?: number;
     'steadfastFaith'?: number;
+    'vitality'?: number;
   }
   interface MsRuneblade extends JSXBase.HTMLAttributes {
     'bladeChasm'?: number;

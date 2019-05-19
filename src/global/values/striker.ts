@@ -53,7 +53,7 @@ export const MaharPunch: ISkill = {
     damage: [37, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64],
   },
   description: `
-    Throw two consecutive sonic jabs that deal <span>[damage]%</span> damage,
+    Throw two consecutive sonic jabs that deal <span>{damage}%</span> damage,
     hitting up to <span>5</span> enemies <span>2</span> m in front of you.
   `,
 };
@@ -74,7 +74,7 @@ export const FistsOfFury: ISkill = {
     leftDamage: [45, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72],
   },
   description: `
-    Throw consecutive left-right punches that deal <span>[leftDamage]%</span> damage
+    Throw consecutive left-right punches that deal <span>{leftDamage}%</span> damage
     <span>2</span> times and <span>55%</span> damage on the last hit,
     hitting up to <span>5</span> enemies <span>2</span> m in front of you.
     Activates in changed form when in Stance Change mode.
@@ -110,13 +110,13 @@ export const MagnumBlow: ISkill = {
   description: `
     After concentrating all your power into your right fist,
     move forward <span>1.5</span> m while delivering a powerful punch,
-    dealing <span>[stage1]%</span> fire damage to <span>5</span> enemies <span>3</span> m in front of you.
+    dealing <span>{stage1}%</span> fire damage to <span>5</span> enemies <span>3</span> m in front of you.
     If you hold down the action key for <span>0.5</span> sec,
     the skill enhances to stage 2 and moves you forward <span>3</span> m,
-    dealing <span>[stage2]%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
+    dealing <span>{stage2}%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
     If you hold down the action key for <span>0.5</span> sec after stage 2,
     the skill enhances to stage 3 and moves you forward <span>4.5</span> m,
-    dealing <span>[stage3]%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
+    dealing <span>{stage3}%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
     If you maintain stage 3 for <span>3</span> sec or more, attacks become automatic.
   `,
 };
@@ -145,7 +145,7 @@ export const Beatdown: ISkill = {
     damage: [49, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85],
   },
   description: `
-    Rapidly throw two-handed punches that deal <span>[damage]%</span> damage <span>5</span> times,
+    Rapidly throw two-handed punches that deal <span>{damage}%</span> damage <span>5</span> times,
     hitting up to <span>5</span> enemies <span>2.5</span> m in front of you.
     This skill can be used up to <span>3</span> times in a row by pressing the key repeatedly,
     and activation speed increases by <span>10%</span> per press.
@@ -176,7 +176,7 @@ export const PowerPuncher: ISkill = {
   },
   description: `
     Increases the damage of Fists of Fury, Beatdown, Gigantic Burst,
-    and Magnum Blow by <span>[increase]%</span> by enhancing punch-type skills.
+    and Magnum Blow by <span>{increase}%</span> by enhancing punch-type skills.
     The damage increase is also applied to the changed form of these skills.
   `,
 };
@@ -208,7 +208,7 @@ export const GiganticBurst: ISkill = {
   description: `
     After jumping into the air, slam the ground with a powerful punch that causes surrounding shockwaves.
     The radius of the shockwaves expands from <span>3</span> m, to <span>3.75</span> m,
-    to <span>5.25</span> m, dealing <span>[damage]%</span> fire damage to <span>8</span> enemies within the area.
+    to <span>5.25</span> m, dealing <span>{damage}%</span> fire damage to <span>8</span> enemies within the area.
   `,
 };
 
@@ -230,7 +230,7 @@ export const RisingKick: ISkill = {
     damage: [61, 61, 66, 71, 76, 81, 86, 91, 96, 101, 106],
   },
   description: `
-    Consecutively kick low, middle, and high to deal <span>[damage]%</span> damage
+    Consecutively kick low, middle, and high to deal <span>{damage}%</span> damage
     <span>3</span> times to <span>5</span> enemies up to <span>2.5</span> m in front of you.
     Activates in changed form when in Stance Change mode.
   `,
@@ -260,11 +260,11 @@ export const HurricaneCutter: ISkill = {
     additionalDamage: [110, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182],
   },
   description: `
-    Lift your body into the air with one foot out and spin violently to deal <span>[damage]%</span> damage
+    Lift your body into the air with one foot out and spin violently to deal <span>{damage}%</span> damage
     <span>5</span> times to <span>8</span> enemies within <span>2.25</span> m.
     Press on the directional keys to move while attacking.
     Strength is gathered and released before the spinning stops,
-    delivering a powerful kick that deals <span>[additionalDamage]%</span> damage
+    delivering a powerful kick that deals <span>{additionalDamage}%</span> damage
     to <span>8</span> enemies within <span>2.5</span> m.
     Struck enemies are lifted <span>2.5</span> m in the air.
   `,
@@ -294,9 +294,9 @@ export const Guillotine: ISkill = {
     additionalDamage: [117, 117, 125, 133, 141, 149, 157, 165, 173, 181, 189],
   },
   description: `
-    Consecutively kick left then right to deal <span>[damage]%</span> damage
+    Consecutively kick left then right to deal <span>{damage}%</span> damage
     <span>2</span> times to <span>5</span> enemies up to <span>2.5</span> m in front of you.
-    Afterwards, kick downward with a powerful blow to deal <span>[additionalDamage]%</span> damage
+    Afterwards, kick downward with a powerful blow to deal <span>{additionalDamage}%</span> damage
     to <span>5</span> enemies within a <span>2</span> m radius.
     Activates in changed form when in Stance Change mode.
   `,
@@ -325,7 +325,7 @@ export const KickTechnician: ISkill = {
   },
   description: `
     Increase the damage of Rising Kick, Guillotine, Hurricane Cutter, and Dragon Kick
-    by <span>[increase]%</span> by enhancing kick-type skills.
+    by <span>{increase}%</span> by enhancing kick-type skills.
     The damage increase is also applied to the changed form of these skills.
   `,
 };
@@ -355,7 +355,7 @@ export const DragonKick: ISkill = {
   },
   description: `
     Leap forward like a charging dragon with a flying kick.
-    Move forward <span>4.5</span> m while dealing <span>[damage]%</span> fire damage
+    Move forward <span>4.5</span> m while dealing <span>{damage}%</span> fire damage
     to <span>5</span> enemies along the path.
     You will pass through targets without colliding.
   `,
@@ -380,9 +380,9 @@ export const PaceControl: ISkill = {
   description: `
     Build and release your inner strength based on the amount of focus.
     When spirit reaches <span>100%</span>, the damage for all
-    attacks increases by <span>[increase1]%</span> and movement speed increases by <span>10%</span>.
+    attacks increases by <span>{increase1}%</span> and movement speed increases by <span>10%</span>.
     When spirit is under <span>100%</span> but above <span>80%</span> the abilities above
-    increase by <span>[increase2]%</span> and <span>6%</span> respectively.
+    increase by <span>{increase2}%</span> and <span>6%</span> respectively.
     When spirit is below <span>80%</span> but above <span>50%</span>,
     the abilities above increase by <span>0.6%</span> and <span>2%</span> respecitvely.
     When spirit is below <span>50%</span>, Pace Control is disabled.
@@ -411,7 +411,7 @@ export const Overcome: ISkill = {
   description: `
     Energy erupts from within, unleashing abilities that overcome the limits of the physical body.
     Increases attack speed and movement speed by <span>30%</span> and
-    both physical and magic damage by <span>[damageIncrease]%</span> for <span>20</span> sec.
+    both physical and magic damage by <span>{damageIncrease}%</span> for <span>20</span> sec.
     Consumes <span>100</span> spirit.
   `,
 };
@@ -438,12 +438,12 @@ export const FightingSpirit: ISkill = {
   },
   description: `
     Awaken your combat instinct, creating a fighting spirit within the body.
-    Increases both physical and magic resistance by <span>[resistance]</span> and
+    Increases both physical and magic resistance by <span>{resistance}</span> and
     reduces movement speed by <span>60%</span> for <span>25</span> sec.
     While in the fighting spirit, you are immune to knockdown,
     and every time you're attacked all damage inflicted on the enemy increases
     by <span>4%</span> due to building Vengeance.
-    Vengeance stacks up to <span>[stack]</span> times.
+    Vengeance stacks up to <span>{stack}</span> times.
     Consumes <span>100</span> spirit.
   `,
 };
@@ -470,7 +470,7 @@ export const PatternBreak: ISkill = {
   },
   description: `
     Concentrate and read the enemy's movements.
-    Increases accuracy by <span>[accuracy]</span> for <span>[duration]</span> sec.
+    Increases accuracy by <span>{accuracy}</span> for <span>{duration}</span> sec.
     Decreases the enemy's evasion by <span>4</span> for <span>3</span> sec upon successful attack.
     Consumes <span>100</span> spirit.
   `,

@@ -50,7 +50,7 @@ export const Flurry: ISkill = {
     damage: [46, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73],
   },
   description: `
-    Attack with <span>3</span> slashes of your blade, each dealing <span>[damage]%</span> damage
+    Attack with <span>3</span> slashes of your blade, each dealing <span>{damage}%</span> damage
     to <span>5</span> enemies up to <span>3</span> m in front of you.
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
   `,
@@ -61,8 +61,8 @@ export const Flurry: ISkill = {
     },
     description: `
       Attack with <span>3</span> fiery slashes of your blade,
-      each dealing <span>[damage]%</span> fire damage to <span>5</span> enemies up to <span>3</span> m in front of you.
-      Targets burst into flame, taking an additional <span>[additionalDamage]%</span> fire damage.
+      each dealing <span>{damage}%</span> fire damage to <span>5</span> enemies up to <span>3</span> m in front of you.
+      Targets burst into flame, taking an additional <span>{additionalDamage}%</span> fire damage.
       The first burst's damage is based on your magic attack.
     `,
   }, {
@@ -71,7 +71,7 @@ export const Flurry: ISkill = {
     },
     description: `
       Attack with <span>3</span> freezing slashes of your blade,
-      each dealing <span>[damage]%</span> ice damage to <span>5</span> enemies up to <span>4.5</span> m in front of you.
+      each dealing <span>{damage}%</span> ice damage to <span>5</span> enemies up to <span>4.5</span> m in front of you.
     `,
   }, {
     values: {
@@ -79,7 +79,7 @@ export const Flurry: ISkill = {
     },
     description: `
       Attack with <span>3</span> electrified slashes of your blade,
-      each dealing <span>[damage]%</span> electric damage to <span>5</span> enemies up to <span>3</span> m in front of you.
+      each dealing <span>{damage}%</span> electric damage to <span>5</span> enemies up to <span>3</span> m in front of you.
       Common monsters are momentarily stunned.
     `,
   }],
@@ -102,7 +102,7 @@ export const EchoingBlade: ISkill = {
     damage: [63, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
   },
   description: `
-    Summon arcane echoes of your blade, dealing <span>[damage]%</span> damage
+    Summon arcane echoes of your blade, dealing <span>{damage}%</span> damage
     <span>7</span> times to <span>8</span> enemies up to <span>3</span> m in front of you.
     The echoes fade when you perform another action.
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
@@ -113,7 +113,7 @@ export const EchoingBlade: ISkill = {
       damage: [33, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51],
     },
     description: `
-      Summon flame echoes of your blade, dealing <span>[damage]%</span> fire damage
+      Summon flame echoes of your blade, dealing <span>{damage}%</span> fire damage
       <span>14</span> times to <span>8</span> enemies up to <span>3</span> m in front of you.
       The echoes fade when you perform another action.
       Consumes <span>30</span> spirit.
@@ -123,7 +123,7 @@ export const EchoingBlade: ISkill = {
       damage: [58, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
     },
     description: `
-      Summon frost echoes of your blade, dealing <span>[damage]%</span> ice damage
+      Summon frost echoes of your blade, dealing <span>{damage}%</span> ice damage
       <span>7</span> times to <span>8</span> enemies up to <span>4.5</span> m in front of you.
       Reduces enemy movement speed by 30% and jump power by 30%.
       The echoes fade when you perform another action.
@@ -135,9 +135,9 @@ export const EchoingBlade: ISkill = {
       additionalDamage: [22, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
     },
     description: `
-      Summon storm echoes of your blade, dealing <span>[damage]%</span> electric damage
+      Summon storm echoes of your blade, dealing <span>{damage}%</span> electric damage
       <span>7</span> times to <span>8</span> enemies up to <span>3</span> m in front of you.
-      Targets are also struck by lightning, taking an additional <span>[additionalDamage]%</span> electric damage.
+      Targets are also struck by lightning, taking an additional <span>{additionalDamage}%</span> electric damage.
       The echoes fade when you perform another action.
       Consumes <span>30</span> spirit.
     `,
@@ -169,7 +169,7 @@ export const Impact: ISkill = {
     damage: [303, 303, 324, 345, 366, 387, 408, 429, 450, 471, 492],
   },
   description: `
-    Drive your blade into the ground, creating a shock wave that deals <span>[damage]%</span>
+    Drive your blade into the ground, creating a shock wave that deals <span>{damage}%</span>
     damage to <span>5</span> enemies within <span>2.25</span> m.
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
     You are immune to knockback while casting this skill.
@@ -182,8 +182,8 @@ export const Impact: ISkill = {
     },
     description: `
       Drive your blade into the ground, creating a flaming shock wave that deals
-      <span>[damage]%</span> fire damage to <span>5</span> enemies within <span>2.25</span> m.
-      Spews forth a flaming pillar that deals <span>[additionalDamage]%</span> fire damage
+      <span>{damage}%</span> fire damage to <span>5</span> enemies within <span>2.25</span> m.
+      Spews forth a flaming pillar that deals <span>{additionalDamage}%</span> fire damage
       to <span>5</span> enemies within <span>2.25</span> m every sec for <span>5</span> sec.
       The pillar's damage is based on your magic attack.
       You are immune to knockback while casting this skill.
@@ -196,8 +196,8 @@ export const Impact: ISkill = {
     },
     description: `
       Drive your blade into the ground, creating a freezing shock wave that deals
-      <span>[damage]%</span> ice damage to <span>5</span> enemies within <span>2.25</span> m.
-      Icy shards deal an additional <span>[additionalDamage]%</span> ice damage
+      <span>{damage}%</span> ice damage to <span>5</span> enemies within <span>2.25</span> m.
+      Icy shards deal an additional <span>{additionalDamage}%</span> ice damage
       to <span>8</span> enemies within <span>1.5</span> m.
       The shards' damage is based on your magic attack.
       You are immune to knockback while casting this skill.
@@ -211,10 +211,10 @@ export const Impact: ISkill = {
     },
     description: `
       Drive your blade into the ground, creating a stormy shock wave that deals
-      <span>[damage]%</span> electric damage to <span>5</span> enemies within <span>2.25</span> m.
-      Conjures a thunderstorm to deal <span>[additionalDamage]%</span> electric damage
+      <span>{damage}%</span> electric damage to <span>5</span> enemies within <span>2.25</span> m.
+      Conjures a thunderstorm to deal <span>{additionalDamage}%</span> electric damage
       <span>4</span> times, once every <span>0.2</span> sec, to <span>5</span> enemies within <span>2.25</span> m.
-      A final thunderbolt deals <span>[finalDamage]%</span> electric damage to <span>5</span> enemies within <span>2.25</span> m.
+      A final thunderbolt deals <span>{finalDamage}%</span> electric damage to <span>5</span> enemies within <span>2.25</span> m.
       The damage of the storm and bolt are based on your magic attack.
       Consumes <span>45</span> spirit.
     `,
@@ -244,13 +244,13 @@ export const RuneFocus: ISkill = {
   },
   description: `
     The teachings of the Jibricia Sect unlock the power of your rune magic.
-    While Flame Sigil is active, your max health increases by <span>[defence]%</span>
-    and fire damage increases by <span>[damage]%</span>.
-    While Frost Sigil is active, your defense increases by <span>[defence]%</span>
-    and ice damage increases by <span>[damage]%</span>.
-    While Storm Sigil is active, your evasion increases by <span>[evasion]%</span>,
-    movement speed increases by <span>[movement]%</span>,
-    and your electric damage increases by <span>[damage]%</span>.
+    While Flame Sigil is active, your max health increases by <span>{defence}%</span>
+    and fire damage increases by <span>{damage}%</span>.
+    While Frost Sigil is active, your defense increases by <span>{defence}%</span>
+    and ice damage increases by <span>{damage}%</span>.
+    While Storm Sigil is active, your evasion increases by <span>{evasion}%</span>,
+    movement speed increases by <span>{movement}%</span>,
+    and your electric damage increases by <span>{damage}%</span>.
   `,
 };
 
@@ -278,8 +278,8 @@ export const BladeChasm: ISkill = {
   },
   description: `
     Charge forward <span>7.5</span> m, splitting the ground with your blade to
-    deal <span>[damage]%</span> damage to <span>5</span> enemies in your path.
-    The split explodes, dealing <span>[aoe]%</span> damage to <span>8</span> enemies in range.
+    deal <span>{damage}%</span> damage to <span>5</span> enemies in your path.
+    The split explodes, dealing <span>{aoe}%</span> damage to <span>8</span> enemies in range.
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
     Consumes <span>40</span> spirit.
   `,
@@ -289,8 +289,8 @@ export const BladeChasm: ISkill = {
       additionalDamage: [52, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88],
     },
     description: `
-      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> fire damage to <span>5</span> enemies in your path.
-      Leaves behind a trail of fire for <span>5</span> sec, dealing <span>[additionalDamage]%</span> fire damage to <span>8</span> enemies in range every <span>0.5</span> sec.
+      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>{damage}%</span> fire damage to <span>5</span> enemies in your path.
+      Leaves behind a trail of fire for <span>5</span> sec, dealing <span>{additionalDamage}%</span> fire damage to <span>8</span> enemies in range every <span>0.5</span> sec.
       The trail's damage is based on your magic attack.
       Consumes <span>40</span> spirit.
     `,
@@ -300,8 +300,8 @@ export const BladeChasm: ISkill = {
       additionalDamage: [94, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148],
     },
     description: `
-      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> ice damage to <span>5</span> enemies in your path.
-      Shards of ice burst from the chasm, dealing <span>[additionalDamage]%</span> ice damage to <span>8</span> enemies within <span>1.5</span> m.
+      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>{damage}%</span> ice damage to <span>5</span> enemies in your path.
+      Shards of ice burst from the chasm, dealing <span>{additionalDamage}%</span> ice damage to <span>8</span> enemies within <span>1.5</span> m.
       The shards' damage is based on your magic attack.
       Consumes <span>40</span> spirit.
     `,
@@ -311,8 +311,8 @@ export const BladeChasm: ISkill = {
       additionalDamage: [573, 573, 614, 655, 696, 737, 778, 819, 860, 901, 942],
     },
     description: `
-      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>[damage]%</span> electric damage to <span>5</span> enemies in your path.
-      Thunderbolts trail behind <span>0.5</span> sec later, dealing <span>[additionalDamage]%</span> electric damage to <span>5</span> enemies in range.
+      Charge forward <span>7.5</span> m, splitting the ground with your blade to deal <span>{damage}%</span> electric damage to <span>5</span> enemies in your path.
+      Thunderbolts trail behind <span>0.5</span> sec later, dealing <span>{additionalDamage}%</span> electric damage to <span>5</span> enemies in range.
       The thunderbolts' damage is based on your magic attack.
       Consumes <span>40</span> spirit.
     `,
@@ -341,7 +341,7 @@ export const WhirlingBlades: ISkill = {
   },
   description: `
     Throw <span>3</span> arcane blades at the closest enemy up to <span>7.5</span> m
-    in front of you, dealing <span>[damage]%</span> damage.
+    in front of you, dealing <span>{damage}%</span> damage.
     This skill attunes with your Flame, Frost, and Storm sigil skills.
     Consumes <span>40</span> spirit.
   `,
@@ -352,8 +352,8 @@ export const WhirlingBlades: ISkill = {
     },
     description: `
       Throw <span>3</span> flame blades at the closest enemy up to <span>7.5</span> m in front of you,
-      dealing <span>[damage]%</span> fire damage to <span>5</span> enemies in their path.
-      Targets are set ablaze, taking an additional <span>[additionalDamage]%</span> fire damage every sec for <span>12</span> sec.
+      dealing <span>{damage}%</span> fire damage to <span>5</span> enemies in their path.
+      Targets are set ablaze, taking an additional <span>{additionalDamage}%</span> fire damage every sec for <span>12</span> sec.
       Consumes <span>60</span> spirit.
     `,
   }, {
@@ -362,8 +362,8 @@ export const WhirlingBlades: ISkill = {
       additionalDamage: [109, 109, 117, 125, 133, 141, 149, 157, 165, 173, 181],
     },
     description: `
-      Throw <span>3</span> frost blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>[damage]%</span> ice damage.
-      The blades then explode, dealing an additional <span>[additionalDamage]%</span> ice damage to 8 enemies within <span>3</span> m
+      Throw <span>3</span> frost blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>{damage}%</span> ice damage.
+      The blades then explode, dealing an additional <span>{additionalDamage}%</span> ice damage to 8 enemies within <span>3</span> m
       and decreasing their movement speed and jump power by <span>15%</span> for <span>3</span> sec.
       Consumes <span>40</span> spirit.
     `,
@@ -372,8 +372,8 @@ export const WhirlingBlades: ISkill = {
       damage: [122, 122, 131, 140, 149, 158, 167, 176, 185, 194, 203],
     },
     description: `
-      Throw <span>3</span> storm blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>[damage]%</span> electric damage.
-      The blades bounce to another enemy within <span>3</span> m, dealing <span>[damage]%</span> electric damage.
+      Throw <span>3</span> storm blades at the closest enemy up to <span>7.5</span> m in front of you, each dealing <span>{damage}%</span> electric damage.
+      The blades bounce to another enemy within <span>3</span> m, dealing <span>{damage}%</span> electric damage.
       Each blade can bounce up to <span>4</span> times.
       Consumes <span>40</span> spirit.
     `,
@@ -407,7 +407,7 @@ export const IllusoryBlades: ISkill = {
     Conjure <span>5</span> arcane blades.
     Once per sec, <span>1</span> blade flies at the
     closest enemy within <span>7.5</span> m,
-    dealing <span>[damage]%</span> damage.
+    dealing <span>{damage}%</span> damage.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -435,7 +435,7 @@ export const BladeMastery: ISkill = {
   },
   description: `
     The teachings of the Pelgia Sect have sharpened your swordsmanship.
-    Increases weapon attack by <span>[damage]%</span> when you have a blade equipped.
+    Increases weapon attack by <span>{damage}%</span> when you have a blade equipped.
   `,
 };
 
@@ -457,7 +457,7 @@ export const FlameSigil: ISkill = {
   },
   description: `
     Apply a fire rune to your blade that lasts <span>240</span> sec,
-    increasing fire damage by <span>[damage]%</span>.
+    increasing fire damage by <span>{damage}%</span>.
     While active, certain skills become fire skills.
   `,
 };
@@ -480,7 +480,7 @@ export const FrostSigil: ISkill = {
   },
   description: `
     Apply an ice rune to your blade that lasts <span>240</span> sec,
-    increasing ice damage by <span>[damage]%</span>.
+    increasing ice damage by <span>{damage}%</span>.
     While active, certain skills become ice skills.
   `,
 };
@@ -503,7 +503,7 @@ export const StormSigil: ISkill = {
   },
   description: `
     Apply an electric rune to your blade that lasts <span>240</span> sec,
-    increasing electric damage by <span>[damage]%</span>.
+    increasing electric damage by <span>{damage}%</span>.
     While active, certain skills become electric skills.
   `,
 };
@@ -525,8 +525,8 @@ export const HoningRunes: ISkill = {
   },
   description: `
     Place <span>9</span> runes of honing in a square around you. Allies who touch the runes
-    gain <span>[criticalAllies]%</span> critical damage for <span>180</span> sec.
-    Increaes your own critical damage by an additional <span>[criticalSelf]%</span>.
+    gain <span>{criticalAllies}%</span> critical damage for <span>180</span> sec.
+    Increaes your own critical damage by an additional <span>{criticalSelf}%</span>.
   `,
 };
 
@@ -547,7 +547,7 @@ export const GravityRune: ISkill = {
   },
   description: `
     Summon a rune <span>3</span> m in front of you.
-    The rune pulls enemies into it, dealing <span>[damage]%</span> damage
+    The rune pulls enemies into it, dealing <span>{damage}%</span> damage
     to <span>8</span> enemies within <span>3.75</span> m.
   `,
 };
@@ -572,7 +572,7 @@ export const WardingRune: ISkill = {
   },
   description: `
     Summon a shield that lasts <span>9</span> sec, increasing physical resistance
-    and magic resistance by <span>[resistance]%</span>.
+    and magic resistance by <span>{resistance}%</span>.
     This skill attunes with your Flame, Frost, and Storm sigil skills.
   `,
   extras: [{
@@ -583,8 +583,8 @@ export const WardingRune: ISkill = {
     },
     description: `
       Summon a flame shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
-      by <span>[resistance]</span> and reducing fire damage by <span>[fireReduction]%</span>.
-      Every <span>0.5</span> sec deals <span>[damage]%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
+      by <span>{resistance}</span> and reducing fire damage by <span>{fireReduction}%</span>.
+      Every <span>0.5</span> sec deals <span>{damage}%</span> fire damage to <span>5</span> enemies within <span>3</span> m.
       The flame shield's damage is based on your magic attack.
     `,
   }, {
@@ -595,8 +595,8 @@ export const WardingRune: ISkill = {
     },
     description: `
       Summon a frost shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
-      by <span>[resistance]</span> and reducing ice damage by <span>[iceReduction]%</span>.
-      The frost shield absorbs damage up to <span>[shield]%</span> of your max health.
+      by <span>{resistance}</span> and reducing ice damage by <span>{iceReduction}%</span>.
+      The frost shield absorbs damage up to <span>{shield}%</span> of your max health.
       Cannot be combined with other barrier effects.
     `,
   }, {
@@ -607,9 +607,9 @@ export const WardingRune: ISkill = {
     },
     description: `
       Summon a storm shield that lasts <span>9</span> sec, increasing physical resistance and magic resistance
-      by <span>[resistance]</span> and reducing electric damage by <span>[electricReduction]%</span>.
+      by <span>{resistance}</span> and reducing electric damage by <span>{electricReduction}%</span>.
       Every sec, a lightning bolt strikes the closest enemy within <span>6</span> m in front of you,
-      dealing <span>[damage]%</span> electric damage to <span>3</span> enemies within <span>1.5</span> m.
+      dealing <span>{damage}%</span> electric damage to <span>3</span> enemies within <span>1.5</span> m.
       The bolt's damage is based on your magic attack.
     `,
   }],
@@ -636,7 +636,7 @@ export const ElementalPotency: ISkill = {
   description: `
     Amplify your rune power with this secret technique handed down by Master Ishura.
     Increases fire, ice, and electric damage to enemies
-    by <span>[damage]%</span> for <span>10</span> sec.
+    by <span>{damage}%</span> for <span>10</span> sec.
   `,
 };
 

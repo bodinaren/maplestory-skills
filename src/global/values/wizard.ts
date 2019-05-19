@@ -49,7 +49,7 @@ export const PhantomClaw: ISkill = {
     damage: [71, 71, 77, 83, 89, 95, 101, 107, 113, 119, 125],
   },
   description: `
-    Slash the air with sharp magical claws, dealing <span>[damage]%</span> damage
+    Slash the air with sharp magical claws, dealing <span>{damage}%</span> damage
     <span>2</span> times to <span>3</span> enemies up to <span>8</span> m in front of you.
   `,
 };
@@ -72,7 +72,7 @@ export const ArcaneBlast: ISkill = {
   },
   description: `
     Focus a magical aura on a spot <span>4.5</span> m in front of you, creating an explosion of energy
-    that deals <span>[damage]%</span> damage to enemies within <span>3</span> m and knocks them back <span>1</span> m.
+    that deals <span>{damage}%</span> damage to enemies within <span>3</span> m and knocks them back <span>1</span> m.
   `,
 };
 
@@ -96,8 +96,8 @@ export const FlameWave: ISkill = {
   },
   description: `
     Gather fire energy in your staff to fling a flame wave up to <span>8</span> m in front of you,
-    dealing <span>[damage]%</span> fire damage to enemies caught in it and setting them on fire,
-    which deals an additional <span>[dot]%</span> every second for <span>10</span> sec.
+    dealing <span>{damage}%</span> fire damage to enemies caught in it and setting them on fire,
+    which deals an additional <span>{dot}%</span> every second for <span>10</span> sec.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -126,7 +126,7 @@ export const FlameTornado: ISkill = {
   },
   description: `
     Gather fire energy from your surroundings to create a huge flame whirlwind <span>4.5</span> m in front of you.
-    The flame whirlwind lasts for <span>1.5</span> sec, dealing <span>[damage]%</span> fire damage
+    The flame whirlwind lasts for <span>1.5</span> sec, dealing <span>{damage}%</span> fire damage
     to <span>8</span> enemies within <span>3</span> m every <span>0.3</span> sec.
     Consumes <span>40</span> spirit.
   `,
@@ -156,7 +156,7 @@ export const Pyromancy: ISkill = {
   },
   description: `
     An advanced fire technique taught to only the top students of the Ellinel Magic Academy.
-    Increases all fire damage by <span>[damage]%</span>.
+    Increases all fire damage by <span>{damage}%</span>.
   `,
 };
 
@@ -183,10 +183,10 @@ export const ManaClaw: ISkill = {
   },
   description: `
     Shoot a sphere of condensed mana at the nearest enemy up to <span>9</span> m in front of you,
-    dealing <span>[firstDamage]%</span> damage.
+    dealing <span>{firstDamage}%</span> damage.
     Keep pressing the key to trigger a <span>3-hit</span> combo.
     The first and second strikes have the same effect,
-    but the third strike <span>[thirdDamage]%</span> damage and is always critical.
+    but the third strike <span>{thirdDamage}%</span> damage and is always critical.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -214,7 +214,7 @@ export const IceSpear: ISkill = {
   },
   description: `
     Gather ice from the moisture in the air to fling at the closest enemy up to <span>8</span> m in front of you.
-    The spear of ice breaks on impact, its shards dealing <span>[damage]%</span> ice damage
+    The spear of ice breaks on impact, its shards dealing <span>{damage}%</span> ice damage
     to <span>8</span> enemies within <span>2.5</span> m and decreasing movement speed by <span>10%</span> for <span>3</span> sec.
     This cold effect can stack up to <span>6</span> times.
     Enemies at max stacks are frozen for <span>1</span> sec.
@@ -247,7 +247,7 @@ export const IceStorm: ISkill = {
   description: `
     Blast <span>4</span> ice crystals toward enemies up to <span>8</span> m in front of you,
     surrounding the targets with a cold front that generates a giant shard of ice.
-    The shard deals <span>[damage]%</span> ice damage to <span>8</span> enemies within <span>2.5</span> m.
+    The shard deals <span>{damage}%</span> ice damage to <span>8</span> enemies within <span>2.5</span> m.
     Consumes <span>30</span> spirit.
   `,
 };
@@ -276,7 +276,7 @@ export const Cryomancy: ISkill = {
   },
   description: `
     An advanced ice technique taught to only the top students of the Ellinel Magic Academy.
-    Increases all ice damage by <span>[damage]%</span>.
+    Increases all ice damage by <span>{damage}%</span>.
   `,
 };
 
@@ -299,10 +299,10 @@ export const ChainLightning: ISkill = {
     additionalDamage: [288, 288, 308, 328, 348, 368, 388, 408, 428, 448, 468],
   },
   description: `
-    Release an intense electric load that deals <span>[damage]%</span> electric damage
+    Release an intense electric load that deals <span>{damage}%</span> electric damage
     to <span>8</span> enemies up to <span>8</span> m in front of you.
     Enemies hit with this skill <span>5</span> times pulse with electric energy,
-    attracting a bolt that deals an additional <span>[additionalDamage]%</span> electric damage.
+    attracting a bolt that deals an additional <span>{additionalDamage}%</span> electric damage.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -331,7 +331,7 @@ export const Thunderbolt: ISkill = {
   },
   description: `
     Gather a bolt of electricity to throw at the closest enemy up to <span>8</span> m in front of you,
-    dealing <span>[damage]%</span> electric damage.
+    dealing <span>{damage}%</span> electric damage.
     The bolt bounces up to <span>8</span> times within <span>5</span> m,
     but won't hit the same target twice in a row.
     Consumes <span>40</span> spirit.
@@ -362,7 +362,7 @@ export const Electromancy: ISkill = {
   },
   description: `
     An advanced electric technique taught to only the top students of the Ellinel Magic Academy.
-    Increases all electric damage by <span>[damage]%</span>.
+    Increases all electric damage by <span>{damage}%</span>.
   `,
 };
 
@@ -382,7 +382,7 @@ export const MagicArmor: ISkill = {
   },
   description: `
     Envelop your body with a magical aura, creating a barrier that absorbs damage
-    up to <span>[barrier]%</span> of your max health for <span>10</span> sec.
+    up to <span>{barrier}%</span> of your max health for <span>10</span> sec.
     Cannot be combined with other barrier effects.
   `,
 };
@@ -409,8 +409,8 @@ export const FocusSeal: ISkill = {
   description: `
     Imbue the earth with your magical power, creating a seal that reaches <span>5</span> tiles around you.
     The seal lasts for <span>20</span> sec and increases the physical attack and magic attack
-    of allies who absorb it by <span>[increaseAllies]%</span> for <span>180</span> sec.
-    Focus Seal also increases the caster's physical and magic attack by an additional <span>[increaseSelf]%</span>.
+    of allies who absorb it by <span>{increaseAllies}%</span> for <span>180</span> sec.
+    Focus Seal also increases the caster's physical and magic attack by an additional <span>{increaseSelf}%</span>.
   `,
 };
 
@@ -430,7 +430,7 @@ export const ElementalMaster: ISkill = {
   },
   description: `
     Asimov's high-level instruction teaches you how to harmoniously balance of fire, ice, and electric magic.
-    Increases fire, ice, and electric damage by <span>[damage]%</span>.
+    Increases fire, ice, and electric damage by <span>{damage}%</span>.
   `,
 };
 

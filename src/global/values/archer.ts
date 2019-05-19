@@ -49,7 +49,7 @@ export const ArrowStream: ISkill = {
     hits: [3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5],
   },
   description: `
-    Fire a series of arrows that deal <span>[damage]%</span> damage <span>[hits]%</span>
+    Fire a series of arrows that deal <span>{damage}%</span> damage <span>{hits}%</span>
     times to the closest enemy up to <span>9</span> m in front of you.
   `,
 };
@@ -73,12 +73,12 @@ export const ArrowBarrage: ISkill = {
     thirdDamage: [82, 82, 87, 92, 97, 102, 107, 112, 117, 122, 127],
   },
   description: `
-    Fire several arrows at once, dealing <span>[firstDamage]%</span> damage
+    Fire several arrows at once, dealing <span>{firstDamage}%</span> damage
     to <span>8</span> enemies up to <span>7</span> m.
     Keep pressing the key to trigger a <span>3-hit</span> combo.
     The second shot does the same as the first.
     You perform a reverse somersault on the third and rapidly fire arrows,
-    dealing <span>[thirdDamage]%</span> damage <span>3</span> times.
+    dealing <span>{thirdDamage}%</span> damage <span>3</span> times.
     Consumes <span>12</span> spirit.
   `,
 };
@@ -109,7 +109,7 @@ export const RapidShot: ISkill = {
   },
   description: `
     Shoot a series of fire arrows <span>3</span> times,
-    dealing <span>[damage]%</span> damage to the closest enemy up to <span>9</span> m in front of you.
+    dealing <span>{damage}%</span> damage to the closest enemy up to <span>9</span> m in front of you.
     The skill lasts while the skill key is held down.
     Fire arrows pierce the enemy <span>3</span> times and can hit enemies behind.
     Consumes <span>7</span> spirit.
@@ -141,7 +141,7 @@ export const ArrowStorm: ISkill = {
   },
   description: `
     Fire a spreadable arrow straight up into the sky, which rains down a volley that
-    deals <span>[damage]%</span> damage <span>20</span> times to <span>8</span> enemies
+    deals <span>{damage}%</span> damage <span>20</span> times to <span>8</span> enemies
     within <span>4.5</span> m. Hold the skill down for <span>0.5</span> sec to fire the
     arrow <span>7.5</span> m in front of you instead.
     You will be immune to knockback while this skill is active.
@@ -172,11 +172,11 @@ export const ScrewdriverShot: ISkill = {
   },
   description: `
     Loose a spinning arrow up to <span>12</span> m in front of you,
-    dealing <span>[stage1]%</span> damage to <span>20</span> enemies in its path.
+    dealing <span>{stage1}%</span> damage to <span>20</span> enemies in its path.
     Hold the skill key down for <span>0.5</span> sec to enhance the arrow to <span>Lv. 2</span>,
-    increasing its damage to <span>[stage2]%</span>.
+    increasing its damage to <span>{stage2}%</span>.
     Hold the skill key down for <span>0.5</span> sec at <span>Lv. 2</span> to enhance it to <span>Lv. 3</span>,
-    increasing its damage to <span>[stage3]%</span>.
+    increasing its damage to <span>{stage3}%</span>.
     The arrow is shot automatically when it reaches <span>Lv. 3</span>.
     You will be immune to knockback while this skill is active.
     This skill can only be used while Snipe is active.
@@ -200,7 +200,7 @@ export const EvasiveSalvo: ISkill = {
   },
   description: `
     Swiftly jump back <span>3</span> m and fire <span>3</span> volleys of arrows.
-    The arrows are <span>2</span> m apart and deal <span>[damage]%</span> damage each to up to <span>5</span> enemies.
+    The arrows are <span>2</span> m apart and deal <span>{damage}%</span> damage each to up to <span>5</span> enemies.
     All three volleys have a <span>40%</span> chance to be critical regardless of your critical rate.
     This skill can cancel other skills. You will be immune to knockback while this skill is active.
     Consumes <span>40</span> stamina.
@@ -229,7 +229,7 @@ export const IceArrow: ISkill = {
     damage: [58, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
   },
   description: `
-    Fire three ice arrows at once, dealing <span>[damage]%</span> damage
+    Fire three ice arrows at once, dealing <span>{damage}%</span> damage
     to enemies up to <span>9</span> m in front of you and decreasing their
     movement speed and jump power by <span>4%</span> for <span>5</span> sec.
     Ice arrows pierce the enemy <span>4</span> times and can hit enemies behind.
@@ -261,7 +261,7 @@ export const AgileArcher: ISkill = {
   description: `
     A personal training session with Oska has taught you how to
     put more power into your shots and to move with more agility.
-    Increases piercing by <span>[piercing]%</span> and evasion by <span>[evasion]</span>.
+    Increases piercing by <span>{piercing}%</span> and evasion by <span>{evasion}</span>.
   `,
 };
 
@@ -287,9 +287,9 @@ export const BowSwing: ISkill = {
     additionalDamage: [183, 183, 196, 209, 222, 235, 248, 261, 274, 287, 300],
   },
   description: `
-    Swing your bow wildly as you spin, dealing <span>[damage]%</span>
+    Swing your bow wildly as you spin, dealing <span>{damage}%</span>
     damage to <span>8</span> enemies within <span>3</span> m.
-    Deals an additional <span>[additionalDamage]%</span> ice damage
+    Deals an additional <span>{additionalDamage}%</span> ice damage
     to targets frozen by the Ice Arrow debuff and consumes the effect.
   `,
 };
@@ -311,7 +311,7 @@ export const BronzeEagle: ISkill = {
   description: `
     Bronze Eagle, your companion from the Green Hoods, has a <span>100%</span> chance
     to fly by your side for <span>15</span> sec when you land a critical hit.
-    He increases your Dexterity by <span>[dexterity]%</span> and awaits your command.
+    He increases your Dexterity by <span>{dexterity}%</span> and awaits your command.
     Once he appears, he cannot return again for <span>18</span> sec.
   `,
 };
@@ -337,11 +337,11 @@ export const EagleClaw: ISkill = {
     movement: [30, 30, 30, 30, 35, 35, 35, 40, 40, 40, 45],
   },
   description: `
-    Command Bronze Eagle to attack, dealing <span>[damage]%</span> damage
+    Command Bronze Eagle to attack, dealing <span>{damage}%</span> damage
     to <span>8</span> enemies up to <span>9</span> m in front of you.
     Your companion also scratches enemies,
-    dealing an additional <span>[additionalDamage]%</span> damage every sec for <span>6</span> sec
-    and reducing their movement speed and jump power by <span>[movement]%</span>.
+    dealing an additional <span>{additionalDamage}%</span> damage every sec for <span>6</span> sec
+    and reducing their movement speed and jump power by <span>{movement}%</span>.
     This skill can only be used while Bronze Eagle is around,
     and Bronze Eagle disappears after the skill is used.
   `,
@@ -368,8 +368,8 @@ export const EaglesMajesty: ISkill = {
     damage: [25, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
   },
   description: `
-    The majesty of eagles restores <span>[spirit]</span> spirit every second for <span>30</span> sec.
-    While this effect is active, Bronze Eagle deals <span>[damage]%</span> damage when you attack,
+    The majesty of eagles restores <span>{spirit}</span> spirit every second for <span>30</span> sec.
+    While this effect is active, Bronze Eagle deals <span>{damage}%</span> damage when you attack,
     capped at once every <span>3</span> sec.
   `,
 };
@@ -391,7 +391,7 @@ export const Conditioning: ISkill = {
   },
   description: `
     Special training with the Green Hoods permanently increases your physical attack
-    by <span>[attack]%</span> and movement speed by <span>[movement]%</span>.
+    by <span>{attack}%</span> and movement speed by <span>{movement}%</span>.
   `,
 };
 
@@ -417,10 +417,10 @@ export const SharpEyes: ISkill = {
   },
   description: `
     Create a magic seal that affects <span>5</span> tiles around you, increasing the
-    critical rate of allies who absorb it by <span>[criticalAllies]</span> and
-    their accuracy by <span>[accuracy]</span> for <span>180</span> sec.
+    critical rate of allies who absorb it by <span>{criticalAllies}</span> and
+    their accuracy by <span>{accuracy}</span> for <span>180</span> sec.
     The seal lasts for <span>20</span> sec.
-    Sharp Eyes also increases critical rate by <span>[criticalSelf]</span>.
+    Sharp Eyes also increases critical rate by <span>{criticalSelf}</span>.
   `,
 };
 
@@ -441,9 +441,9 @@ export const PrecisionShooter: ISkill = {
   },
   description: `
     Increase your aim technique and improve your firing speed.
-    Increases attack speed by <span>[speed]%</span> and improves Screwdriver Shot.
+    Increases attack speed by <span>{speed}%</span> and improves Screwdriver Shot.
     Improved Screwdriver Shot can be cast in Snipe mode and inflicts greater damage but cannot be reinforced.
-    Also increases improved Screwdriver Shot damage by <span>[screwdriver]%</span>.
+    Also increases improved Screwdriver Shot damage by <span>{screwdriver}%</span>.
   `,
 };
 

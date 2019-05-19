@@ -55,7 +55,7 @@ export const RagingSlash: ISkill = {
     damage: [56, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
   },
   description: `
-    Swing your weapon to deal <span>[damage]%</span> dark damage
+    Swing your weapon to deal <span>{damage}%</span> dark damage
     to <span>5</span> enemies up to <span>3</span> m in front of you.
     Keep pressing the key to trigger a <span>3-hit</span> combo.
     The attack speed increases with each hit.
@@ -82,7 +82,7 @@ export const DeathSpin: ISkill = {
     damage: [69, 69, 74, 79, 84, 89, 94, 99, 104, 109, 114],
   },
   description: `
-    Spin your greatsword, dealing <span>[damage]%</span> dark damage
+    Spin your greatsword, dealing <span>{damage}%</span> dark damage
     to <span>8</span> enemies within <span>3</span> m.
     During the attack, press a direction key to move <span>1.6</span> m.
     The distance decreases to <span>1.2</span> m on your second spin and
@@ -115,7 +115,7 @@ export const GroundBreaker: ISkill = {
     damage: [218, 218, 233, 248, 263, 278, 293, 308, 323, 338, 353],
   },
   description: `
-    Old Ten's specialty move. Strike down your greatsword to deal <span>[damage]%</span> damage
+    Old Ten's specialty move. Strike down your greatsword to deal <span>{damage}%</span> damage
     to <span>8</span> enemies within <span>3</span> m and knock them back <span>1.5</span> m.
     If Dark Aura activates, damage increases by <span>16%</span> per stack.
     You will be immune to knockback while this skill is active.
@@ -147,7 +147,7 @@ export const DarkMight: ISkill = {
   },
   description: `
     Temporarily amplify Dark Aura to increase attack speed, physical attack, and magic attack by
-    <span>[increase]%</span> for <span>10</span> sec and restore <span>1</span> additional spirit on hit.
+    <span>{increase}%</span> for <span>10</span> sec and restore <span>1</span> additional spirit on hit.
     This skill can only be used by consuming Dark Aura at max stacks.
   `,
 };
@@ -171,11 +171,11 @@ export const VoidSlash: ISkill = {
     secondDamage: [97, 97, 103, 109, 115, 121, 127, 133, 139, 145, 151],
   },
   description: `
-    Swing your greatsword upward to deal <span>[firstDamage]%</span> dark damage
+    Swing your greatsword upward to deal <span>{firstDamage}%</span> dark damage
     to <span>5</span> enemies up to <span>3</span> m in front of you.
     Press the skill key again to trigger a <span>2-hit</span> combo.
     The second part is two quick swings,
-    dealing <span>[secondDamage]%</span> dark damage <span>2</span> times
+    dealing <span>{secondDamage}%</span> dark damage <span>2</span> times
     to <span>5</span> enemies up to <span>2</span> m in front of you.
     On the first hit, press a direction key to move <span>4</span> m and attack.
     On the second hit, the skill lasts while the skill key is held down.
@@ -210,10 +210,10 @@ export const DarkBreaker: ISkill = {
   },
   description: `
     Gather dark power into your greatsword and strike down with great force to
-    deal <span>[damage]%</span> dark damage
+    deal <span>{damage}%</span> dark damage
     to <span>8</span> enemies within <span>3</span> m.
     The impact area resonates with darkness for <span>5</span> sec,
-    dealing <span>[dot]%</span> dark damage
+    dealing <span>{dot}%</span> dark damage
     to <span>8</span> enemies in range every second.
     This skill can only be used by consuming Dark Aura at max stacks.
     You will be immune to knockback while this skill is active.
@@ -244,8 +244,8 @@ export const WarriorsInstinct: ISkill = {
   },
   description: `
     Surrender yourself to your natural combat instinct.
-    Increases physical resistance by <span>[resistance]</span> and
-    piercing by <span>[piercing]%</span>.
+    Increases physical resistance by <span>{resistance}</span> and
+    piercing by <span>{piercing}%</span>.
   `,
 };
 
@@ -273,9 +273,9 @@ export const Bloodlust: ISkill = {
   },
   description: `
     Thrust your darkened greatsword into <span>2</span> enemies up to <span>3</span> m in front of you,
-    then pull it out to deal <span>[damage]%</span> damage <span>2</span> times.
+    then pull it out to deal <span>{damage}%</span> damage <span>2</span> times.
     The stab attack is always a critical, and pulling the sword out steals health from the enemy,
-    restoring <span>[health]%</span> of your max health.
+    restoring <span>{health}%</span> of your max health.
     In PvP zones, the amount restored is halved.
   `,
 };
@@ -303,9 +303,9 @@ export const AdrenalineRush: ISkill = {
   },
   description: `
     Your Dark Aura goes crazy as you're pushed into a corner, increasing the amount of spirit restored
-    by <span>[stage1]</span> when your health is at <span>60%</span> or less,
-    by <span>[stage2]</span> at <span>45%</span> or less,
-    and by <span>[stage3]</span> at <span>30%</span> or less.
+    by <span>{stage1}</span> when your health is at <span>60%</span> or less,
+    by <span>{stage2}</span> at <span>45%</span> or less,
+    and by <span>{stage3}</span> at <span>30%</span> or less.
   `,
 };
 
@@ -332,7 +332,7 @@ export const BloodPrice: ISkill = {
     damage: [5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
   },
   description: `
-    Darkness fuels you, increasing your damage by <span>[damage]%</span> but
+    Darkness fuels you, increasing your damage by <span>{damage}%</span> but
     depleting your health by <span>1%</span> on hit for <span>30</span> sec.
     This effect will stop consuming health when you get to <span>25%</span> health.
   `,
@@ -361,7 +361,7 @@ export const InhumanEndurance: ISkill = {
   },
   description: `
     Dire conditions strengthen your resolve. Your physical resistance and magic resistance increase
-    by <span>[resistance]</span> when your health is less than <span>30%</span>.
+    by <span>{resistance}</span> when your health is less than <span>30%</span>.
   `,
 };
 
@@ -385,7 +385,7 @@ export const GreatswordMastery: ISkill = {
   },
   description: `
     Ten's lessons on asceticism increase your skill with a greatsword.
-    Your weapon attack increases by <span>[attack]%</span> when you have a greatsword equipped.
+    Your weapon attack increases by <span>{attack}%</span> when you have a greatsword equipped.
   `,
 };
 
@@ -411,10 +411,10 @@ export const Intimidation: ISkill = {
     movement: [9, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
   },
   description: `
-    Overwhelm enemies with a show of force, dealing <span>[damage]%</span> damage
+    Overwhelm enemies with a show of force, dealing <span>{damage}%</span> damage
     to <span>5</span> enemies within <span>3</span> m.
-    Enemies lost the will to fight, reducing their physical attack and magic attack by <span>[attack]%</span>
-    and their movement speed and jump power by <span>[movement]%</span> for <span>4</span> sec.
+    Enemies lost the will to fight, reducing their physical attack and magic attack by <span>{attack}%</span>
+    and their movement speed and jump power by <span>{movement}%</span> for <span>4</span> sec.
     When at max stacks, Dark Aura is consumed to trigger a more powerful version of this skill.
     Some powerful enemies are immune.
   `,
@@ -444,7 +444,7 @@ export const DeepWounds: ISkill = {
   },
   description: `
     Critical attacks inflicted with a greatsword make the enemy bleed,
-    dealing <span>[damage]%</span> damage every second for <span>10</span> sec.
+    dealing <span>{damage}%</span> damage every second for <span>10</span> sec.
   `,
 };
 
@@ -470,7 +470,7 @@ export const Earthquake: ISkill = {
   },
   description: `
     Drive your greatsword into the ground, creating an earthquake <span>9</span> tiles around you for <span>5</span> sec.
-    Enemies caught in the quake are stunned and take <span>[damage]%</span> damage every second.
+    Enemies caught in the quake are stunned and take <span>{damage}%</span> damage every second.
   `,
 };
 

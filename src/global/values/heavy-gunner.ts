@@ -53,7 +53,7 @@ export const BulletSpray: ISkill = {
     damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
   },
   description: `
-    Fire wildly as the cannon's barrel spins, dealing <span>[damage]%</span> damage
+    Fire wildly as the cannon's barrel spins, dealing <span>{damage}%</span> damage
     <span>4</span> times to the closest enemy up to <span>8</span> m in front of you.
     The bullet cannot pierce multiple enemies.
     Press the skill key again to trigger a <span>2-hit</span> combo.
@@ -78,7 +78,7 @@ export const GatlingFire: ISkill = {
     damage: [44, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80],
   },
   description: `
-    Fire wildly as the cannon's barrel spins, dealing <span>[damage]%</span> damage
+    Fire wildly as the cannon's barrel spins, dealing <span>{damage}%</span> damage
     <span>3</span> times to <span>5</span> enemies up to <span>8</span> m in front of you.
     This skill uses a special piercing bullet to damage all targets in range.
     Keep pressing the key to trigger a <span>3-hit</span> combo.
@@ -113,7 +113,7 @@ export const LockOn: ISkill = {
   },
   description: `
     Take a shooting stance, aiming at the closest target up to <span>8</span> m in
-    front of you and shooting a special bullet that deals <span>[damage]%</span> damage,
+    front of you and shooting a special bullet that deals <span>{damage}%</span> damage,
     pierces the target up to <span>8</span> times, and can damage enemies behind the target.
     Consumes <span>15</span> spirit.
   `,
@@ -142,7 +142,7 @@ export const AdvancedBullets: ISkill = {
   },
   description: `
     Upgrade to high performance bullets. Increases the damage of
-    Bullet Spray, Gatling Fire, and Lock-on by <span>[damage]%</span>.
+    Bullet Spray, Gatling Fire, and Lock-on by <span>{damage}%</span>.
   `,
 };
 
@@ -172,8 +172,8 @@ export const MagneticBomb: ISkill = {
   description: `
     Launch a magnetic bomb at the closest enemy up to <span>9</span> m in front of you.
     The bomb attracts <span>8</span> enemies within <span>3</span> m every second,
-    dealing <span>[damage]%</span> electric damage and decreasing
-    their movement speed by <span>[movement]%</span>.
+    dealing <span>{damage}%</span> electric damage and decreasing
+    their movement speed by <span>{movement}%</span>.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -203,13 +203,13 @@ export const ElectricBlast: ISkill = {
   },
   description: `
     Activate the compact particle accelerator on your cannon to gather electricity and shoot,
-    dealing <span>[stage1]%</span> electric damage
+    dealing <span>{stage1}%</span> electric damage
     to <span>3</span> enemies up to <span>9</span> m in front of you and knocking them back <span>1.5</span> m.
     After starting to gather electricity, hold the skill key down for <span>0.5</span> sec to enhance the effect to <span>Stage 2</span> and
-    deal <span>[stage2]%</span> electric damage <span>2</span> times
+    deal <span>{stage2}%</span> electric damage <span>2</span> times
     to <span>5</span> enemies up to <span>9</span> m in front of you and knock them back <span>3</span> m.
     Hold the skill key down for <span>0.5</span> sec at <span>Stage 2</span> to enhance the effect to <span>Stage 3</span> and
-    deal <span>[stage3]%</span> electric damage <span>3</span> times
+    deal <span>{stage3}%</span> electric damage <span>3</span> times
     to <span>8</span> enemies up to <span>9</span> m in front of you and knock them back <span>4.5</span> m.
     You will fire automatically when the skill key is held down for <span>3</span> sec at <span>Stage 3</span>.
   `,
@@ -237,7 +237,7 @@ export const AdvancedPulseWeapons: ISkill = {
   },
   description: `
     Upgrade your cannon's magnetic field engine to increase its output.
-    Increase the damage of Magnetic Bomb and Electric Blast by <span>[damage]%</span>.
+    Increase the damage of Magnetic Bomb and Electric Blast by <span>{damage}%</span>.
   `,
 };
 
@@ -262,7 +262,7 @@ export const BlastChargeKit: ISkill = {
   description: `
     Equip your cannon with a blast charge kit to optimize Electric Blast's output power and efficiency.
     Electric Blast can be cast repeatedly without cooling down in between, at the cost of lowered damage and spirit.
-    Blast Charge Kit increases the rapid-firing Electric Blast damage by <span>[damage]%</span>.
+    Blast Charge Kit increases the rapid-firing Electric Blast damage by <span>{damage}%</span>.
   `,
 };
 
@@ -289,11 +289,11 @@ export const RocketLauncher: ISkill = {
   },
   description: `
     Fire a missile at the closest enemy up to <span>9</span> m in front of you.
-    The rocket deals <span>[damage]%</span> fire damage to the target,
-    then explodes to deal <span>[aoeDamage]%</span> fire damage
+    The rocket deals <span>{damage}%</span> fire damage to the target,
+    then explodes to deal <span>{aoeDamage}%</span> fire damage
     to <span>8</span> enemies within <span>3</span> m.
-    The area of the explosion burns for <span>[burnDuration]</span> sec,
-    dealing <span>[burnDamage]%</span> fire damage every second to <span>8</span> enemies.
+    The area of the explosion burns for <span>{burnDuration}</span> sec,
+    dealing <span>{burnDamage}%</span> fire damage every second to <span>8</span> enemies.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -322,8 +322,8 @@ export const HomingMissiles: ISkill = {
     missiles: [3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5],
   },
   description: `
-    Fire <span>[missiles]</span> homing missiles that each deal
-    <span>[damage]%</span> fire damage to enemies within <span>9</span> m.
+    Fire <span>{missiles}</span> homing missiles that each deal
+    <span>{damage}%</span> fire damage to enemies within <span>9</span> m.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -352,8 +352,8 @@ export const MBomb: ISkill = {
   },
   description: `
     Call in a high-tech bomb to drop <span>7.5</span> m in front of you, which deals
-    <span>[damage]%</span> fire damage to <span>8</span> enemies within <span>3</span> m.
-    A second blast occurs after <span>0.5</span> sec, dealing <span>[additionalDamage]%</span>
+    <span>{damage}%</span> fire damage to <span>8</span> enemies within <span>3</span> m.
+    A second blast occurs after <span>0.5</span> sec, dealing <span>{additionalDamage}%</span>
     fire damage to <span>8</span> enemies within <span>6</span> m.
     Consumes <span>15</span> spirit.
   `,
@@ -381,7 +381,7 @@ export const AdvancedMissiles: ISkill = {
   },
   description: `
     Upgrade to high performance missiles.
-    Increases the damage of Rocket Launcher, Homing Missiles, and M-Bomb by <span>[damage]%</span>.
+    Increases the damage of Rocket Launcher, Homing Missiles, and M-Bomb by <span>{damage}%</span>.
   `,
 };
 
@@ -406,8 +406,8 @@ export const StunGrenades: ISkill = {
   },
   description: `
     Toss two grenades <span>3</span> m in front of you that explode after <span>0.5</span> sec,
-    dealing <span>[damage]%</span> fire damage to <span>5</span> enemies within
-    <span>[range]</span> m and has a <span>[stun]%</span> chance to stun.
+    dealing <span>{damage}%</span> fire damage to <span>5</span> enemies within
+    <span>{range}</span> m and has a <span>{stun}%</span> chance to stun.
     Consumes <span>6</span> spirit.
   `,
 };
@@ -437,11 +437,11 @@ export const SuborbitalBombardment: ISkill = {
   },
   description: `
     Summon a satellite to fire lasers at the closest enemy within <span>8</span> m,
-    dealing <span>[damage]%</span> electric damage
+    dealing <span>{damage}%</span> electric damage
     to <span>5</span> enemies within <span>2.25</span> m of your initial target
-    every sec for <span>[duration]</span> sec.
+    every sec for <span>{duration}</span> sec.
     If you have the Pulse Energy upgrade, the enhanced laser deals
-    an additional <span>[additionalDamage]%</span> electric damage.
+    an additional <span>{additionalDamage}%</span> electric damage.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -463,7 +463,7 @@ export const MedKit: ISkill = {
   },
   description: `
     Drop a first aid kit that you or an ally can pick up after <span>1</span>
-    sec to instantly restore <span>[health]</span> health.
+    sec to instantly restore <span>{health}</span> health.
   `,
 };
 
