@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const ShadowChaser: ISkill = {
   name: "Shadow Chaser",
@@ -458,6 +458,300 @@ export const MirrorImageDarkBlade: ISkill = {
   `,
 };
 
+export const DarkPunisher: IAwakenedSkill = {
+  name: "Dark Punisher",
+  attr: "dark-punisher",
+  prop: "darkPunisher",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  element: "Dark",
+  attackType: "Long Range / Physical",
+  values: {
+    damage: [418, 418, 418, 418, 418],
+    additionalDamage: [500, 500, 500, 500, 500],
+    movement: [15, 15, 15, 15, 15],
+    dot: [150, 150, 150, 150, 150],
+    iceStormIncrease: [49, 49, 49, 49, 49],
+  },
+  description: `
+    Use dark magic to brand enemies with an Assassin's Mark.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage and inflicts Assassin's Mark for <span>30</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases luck by <span>40</span>.
+    <br/>
+    Assassin's Mark restores <span>1</span> spirit per <span>0.1</span> sec for the caster.
+    <br/>
+    Bounces up to <span>4</span> times to other enemies on hit.
+  `,
+};
+
+export const RedoubledPain: IAwakenedSkill = {
+  name: "Redoubled Pain",
+  attr: "redoubled-pain",
+  prop: "redoubledPain",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  attackType: "Long Range / Physical",
+  weaponRequired: "One-handed Thrown Weapon, One-handed Thrown Weapon",
+  spirit: 11,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    offHandDamage: [158, 158, 158, 158, 158],
+    mainDamage: [158, 158, 158, 158, 158],
+    dot: [79, 79, 79, 79, 79],
+    mainAdditionalDamage: [480, 480, 480, 480, 480],
+  },
+  description: `
+    Alternate attacks between your two weapons,
+    poisoning enemies with your off-hand and then detonating the poison with your main hand.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Off-hand attacks deal <span>{offHandDamage}%</span> damage per hit and
+    inflict Dark Poison for <span>10</span> sec.
+    Main hand attacks deal <span>{mainDamage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Dark Poison deals <span>{dot}%</span> damage per sec.
+    <br/>
+    Main hand attacks consume Dark Poison to deal an additional <span>{mainAdditionalDamage}%</span> damage.
+  `,
+};
+
+export const BindingPunishment: IAwakenedSkill = {
+  name: "Binding Punishment",
+  attr: "binding-punishment",
+  prop: "bindingPunishment",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "One-handed Thrown Weapon",
+  spirit: 20,
+  cooldown: 10,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: RedoubledPain,
+    level: 3,
+  }],
+  values: {
+    damage: [56, 56, 56, 56, 56],
+  },
+  description: `
+    Toss a spinning chain at the enemy, dealing damage to the target and nearby enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    The chain spins around the target for <span>10</span> sec,
+    dealing <span>{damage}%</span> damage per sec to nearby enemies.
+  `,
+};
+
+export const ArtOfTheShuriken: IAwakenedSkill = {
+  name: "Art of the Shuriken",
+  attr: "art-of-the-shuriken",
+  prop: "artOfTheShuriken",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: BindingPunishment,
+    level: 2,
+  }],
+  values: {
+    increase: [8, 8, 8, 8, 8],
+  },
+  description: `
+    Your skill with thrown weapons are truly lethal.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Redoubled Pain, Binding Punishment, and All-in-One by <span>{increase}%</span>.
+  `,
+};
+
+export const AllInOne: IAwakenedSkill = {
+  name: "All-in-One",
+  attr: "all-in-one",
+  prop: "allInOne",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "One-handed Thrown Weapon, One-handed Thrown Weapon",
+  spirit: 15,
+  cooldown: 10,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: BindingPunishment,
+    level: 3,
+  }, {
+    skill: ArtOfTheShuriken,
+    level: 3,
+  }],
+  values: {
+    t1damage: [220, 220, 220, 220, 220],
+    t2damage: [787, 787, 787, 787, 787],
+    t3damage: [272, 272, 272, 272, 272],
+  },
+  description: `
+    Hold down the skill key to unleash increasingly devastating attacks on the enemy, maxing out at <span>3</span> tiers.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Tier 1: Attacks <span>3</span> times, dealing <span>{t1damage}%</span> damage per hit.
+    <br/><br/>
+    Tier 2: Deals <span>{t2damage}%</span> damage.
+    <br/><br/>
+    Tier 3: Attacks <span>5</span> times, dealing <span>{t3damage}%</span> damage per hit.
+  `,
+};
+
+export const DarkMire: IAwakenedSkill = {
+  name: "Dark Mire",
+  attr: "dark-mire",
+  prop: "darkMire",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  attackType: "Close Range / Physical",
+  spirit: 40,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [81, 81, 81, 81, 81],
+    increase: [2, 2, 2, 2, 2],
+  },
+  description: `
+    Conjure <span>4</span> dark mires that drain enemies' strength and transfers it to you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit for <span>5</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases caster's dark damage by <span>{increase}%</span> for <span>5</span> sec when an enemy is hit.
+    <br/>
+    Consumes <span>0</span> spirit when using Secret Arts.
+  `,
+};
+
+export const ShadowStance: IAwakenedSkill = {
+  name: "Shadow Stance",
+  attr: "shadow-stance",
+  prop: "shadowStance",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  cooldown: 60,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: DarkMire,
+    level: 3,
+  }],
+  values: {
+    absorb: [6, 6, 6, 6, 6],
+    increase: [9, 9, 9, 9, 9],
+  },
+  description: `
+    Envelope yourself in shadows to strengthen your resolve.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Absorb damage equal to <span>{absorb}%</span> of your max health for <span>12</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases dark damage by <span>{increase}%</span> while the shadow lasts.
+  `,
+};
+
+export const ArtOfTheShadows: IAwakenedSkill = {
+  name: "Art of the Shadows",
+  attr: "art-of-the-shadows",
+  prop: "artOfTheShadows",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  passive: true,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: ShadowStance,
+    level: 3,
+  }],
+  values: {
+    increase: [2, 2, 2, 2, 2],
+  },
+  description: `
+    Your mastery of the dark arts grows more intense.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Dark Mire and Assassin's Circle by <span>{increase}%</span>.
+  `,
+};
+
+export const AssassinsCircle: IAwakenedSkill = {
+  name: "Assassin's Circle",
+  attr: "assassins-circle",
+  prop: "assassinsCircle",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Dark",
+  attackType: "Close Range / Physical",
+  spirit: 28,
+  cooldown: 30,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: ArtOfTheShadows,
+    level: 3,
+  }],
+  values: {
+    accuracy: [29, 29, 29, 29, 29],
+    additionalDamage: [28, 28, 28, 28, 28],
+    damage: [2436, 2436, 2436, 2436, 2436],
+  },
+  description: `
+    Conjures a <span>3</span>-tiered Assassin's Circle in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    The Assassin's Circle lasts for <span>10</span> sec and places a Blade Mark on enemies for <span>10</span> sec.
+    <br/><br/>
+    Inflicts an Assassin's Insignia every <span>0.5</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Blade Mark reduces accuracy by <span>{accuracy}</span> and
+    has a chance to deal <span>{additionalDamage}%</span> additional damage <span>4</span> times.
+    <br/>
+    Assassins's Insignia deals <span>{damage}%</span> damage at <span>18</span> stacks.
+    <br/>
+    Cannot be used with Mirror Image: Dark Blade..
+    <br/>
+    Circles created while Shadow Args is active deal additional damage.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   DarkCloak: DarkCloak,
   Dash: Dash,
@@ -479,7 +773,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  DarkPunisher: DarkPunisher,
+  RedoubledPain: RedoubledPain,
+  BindingPunishment: BindingPunishment,
+  ArtOfTheShuriken: ArtOfTheShuriken,
+  AllInOne: AllInOne,
+  DarkMire: DarkMire,
+  ShadowStance: ShadowStance,
+  ArtOfTheShadows: ArtOfTheShadows,
+  AssassinsCircle: AssassinsCircle,
 };
 
 export const AssassinSkills: IClassSkills = {

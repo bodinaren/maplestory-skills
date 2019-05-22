@@ -661,6 +661,7 @@ export const Ember: IAwakenedSkill = {
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage and inflicts Ember.
     Prioritizes enemies already suffering from Ember or Kindling.
+    <br/><br/>
     <h3>[Bonus Effects]</h3>
     Ember deals <span>{emberDot}%</span> per sec.
     When a new stack is added, deals <span>{emberAoe}%</span> area damage and inflicts Spreading Embers and Kindling.

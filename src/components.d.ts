@@ -48,7 +48,14 @@ export namespace Components {
     'spiralArrow': number;
   }
   interface MsAssassin {
+    'allInOne': number;
+    'artOfTheShadows': number;
+    'artOfTheShuriken': number;
+    'assassinsCircle': number;
+    'bindingPunishment': number;
     'darkCloak': number;
+    'darkMire': number;
+    'darkPunisher': number;
     'dash': number;
     'deathSentence': number;
     'editable': boolean;
@@ -60,10 +67,12 @@ export namespace Components {
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
     'rank': number;
+    'redoubledPain': number;
     'shadowArts': number;
     'shadowBurst': number;
     'shadowChaser': number;
     'shadowCutter': number;
+    'shadowStance': number;
     'shadowWeb': number;
     'soulGrind': number;
     'starChaser': number;
@@ -409,7 +418,14 @@ declare namespace LocalJSX {
     'spiralArrow'?: number;
   }
   interface MsAssassin extends JSXBase.HTMLAttributes {
+    'allInOne'?: number;
+    'artOfTheShadows'?: number;
+    'artOfTheShuriken'?: number;
+    'assassinsCircle'?: number;
+    'bindingPunishment'?: number;
     'darkCloak'?: number;
+    'darkMire'?: number;
+    'darkPunisher'?: number;
     'dash'?: number;
     'deathSentence'?: number;
     'editable'?: boolean;
@@ -421,10 +437,12 @@ declare namespace LocalJSX {
     'mirrorImageDarkBlade'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'rank'?: number;
+    'redoubledPain'?: number;
     'shadowArts'?: number;
     'shadowBurst'?: number;
     'shadowChaser'?: number;
     'shadowCutter'?: number;
+    'shadowStance'?: number;
     'shadowWeb'?: number;
     'soulGrind'?: number;
     'starChaser'?: number;

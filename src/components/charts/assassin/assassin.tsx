@@ -34,6 +34,16 @@ export class AssassinComponent implements IChart {
   @Prop({ mutable: true }) starFlurry: number = AssassinSkills.StarFlurry.minLevel;
   @Prop({ mutable: true }) thrownWeaponMastery: number = AssassinSkills.ThrownWeaponMastery.minLevel;
 
+  @Prop({ mutable: true }) darkPunisher: number = AssassinSkills.DarkPunisher.minLevel;
+  @Prop({ mutable: true }) redoubledPain: number = AssassinSkills.RedoubledPain.minLevel;
+  @Prop({ mutable: true }) bindingPunishment: number = AssassinSkills.BindingPunishment.minLevel;
+  @Prop({ mutable: true }) artOfTheShuriken: number = AssassinSkills.ArtOfTheShuriken.minLevel;
+  @Prop({ mutable: true }) allInOne: number = AssassinSkills.AllInOne.minLevel;
+  @Prop({ mutable: true }) darkMire: number = AssassinSkills.DarkMire.minLevel;
+  @Prop({ mutable: true }) shadowStance: number = AssassinSkills.ShadowStance.minLevel;
+  @Prop({ mutable: true }) artOfTheShadows: number = AssassinSkills.ArtOfTheShadows.minLevel;
+  @Prop({ mutable: true }) assassinsCircle: number = AssassinSkills.AssassinsCircle.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
