@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const Reload: ISkill = {
   name: "Reload",
@@ -467,6 +467,283 @@ export const MedKit: ISkill = {
   `,
 };
 
+export const MobileArmory: IAwakenedSkill = {
+  name: "Mobile Armory",
+  attr: "mobile-armory",
+  prop: "mobileArmory",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  attackType: "Physical",
+  cooldown: 5,
+  values: {
+    damage: [418, 418, 418, 418, 418],
+    additionalDamage: [500, 500, 500, 500, 500],
+    movement: [15, 15, 15, 15, 15],
+    dot: [150, 150, 150, 150, 150],
+    iceStormIncrease: [49, 49, 49, 49, 49],
+  },
+  description: `
+    Deploy a station that automatically refills your ammo.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Restores <span>20</span> spirit per sec.
+    <br/><br/>
+    Permanently increases dexterity by 40.
+  `,
+};
+
+export const FocusedFire: IAwakenedSkill = {
+  name: "Focused Fire",
+  attr: "focused-fire",
+  prop: "focusedFire",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Cannon",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [138, 138, 138, 138, 138],
+  },
+  description: `
+    Unleash focused mortar fire on enemies in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Can keep firing until ammo is depleted.
+    Grants knockback immunity.
+  `,
+};
+
+export const FireBomber: IAwakenedSkill = {
+  name: "Fire Bomber",
+  attr: "fire-bomber",
+  prop: "fireBomber",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Cannon",
+  cooldown: 8,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: FocusedFire,
+    level: 3,
+  }],
+  values: {
+    damage: [487, 487, 487, 487, 487],
+    additionalDamage: [497, 497, 497, 497, 497],
+    fireDamage: [90, 90, 90, 90, 90],
+  },
+  description: `
+    Launch explosive fire missiles to engulf targets in fiery doom.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Deals <span>{additionalDamage}%</span> damage and burns targets who are enveloped in flames.
+    Can keep firing until missiles are depleted.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Burn deals <span>{fireDamage}%</span> fire damage per sec for <span>10</span> sec.
+  `,
+};
+
+export const MissileSupercharger: IAwakenedSkill = {
+  name: "Missile Supercharger",
+  attr: "missile-supercharger",
+  prop: "missileSupercharger",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Physical",
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: FireBomber,
+    level: 2,
+  }],
+  values: {
+    increase: [8, 8, 8, 8, 8],
+  },
+  description: `
+    Upgrade your ammo chamgers to improve certain skills.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Focused Fire, Fire Bomber, and Demolition Cannon damage by <span>{increase}%</span>.
+  `,
+};
+
+export const DemolitionCannon: IAwakenedSkill = {
+  name: "Demolition Cannon",
+  attr: "demolition-cannon",
+  prop: "demolitionCannon",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  cooldown: 12,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: FireBomber,
+    level: 3,
+  }, {
+    skill: MissileSupercharger,
+    level: 3,
+  }],
+  values: {
+    damage: [539, 539, 539, 539, 539],
+    firstSecondDamage: [658, 658, 658, 658, 658],
+  },
+  description: `
+    Modify your satellite to fire high-powered, explosive missiles.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    First and second explosions deal <span>{firstSecondDamage}%</span> damage each.
+    Can keep firing until ammo is depleted.
+    Grants knockback immunity.
+  `,
+};
+
+export const PlasmaChain: IAwakenedSkill = {
+  name: "Plasma Chain",
+  attr: "plasma-chain",
+  prop: "plasmaChain",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Electric",
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Cannon",
+  spirit: 5,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [123, 123, 123, 123, 123],
+    electricDamage: [348, 348, 348, 348, 348],
+  },
+  description: `
+    Route power from your jet boots to rain superheated plasma on your enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Repeatedly deals <span>{damage}%</span> damage to <span>7</span> enemies within <span>9</span> m.
+    <br/><br/>
+    Triggers an explosion after damaging a target <span>5</span> times.
+    <br/><br/>
+    Able to move while skill is active.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Explosion deals <span>{electricDamage}%</span> electric damage.
+  `,
+};
+
+export const SkyHunter: IAwakenedSkill = {
+  name: "Sky Hunter",
+  attr: "sky-hunter",
+  prop: "skyHunter",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Electric",
+  attackType: "Physical",
+  cooldown: 60,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: PlasmaChain,
+    level: 3,
+  }],
+  values: {
+    damage: [697, 697, 697, 697, 697],
+    absorb: [30, 30, 30, 30, 30],
+  },
+  description: `
+    Remotely control a high-intensity laser fired from one of your heavy weapons satellites.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> electric damage.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Grants a Deflector Shield that absorbs damage
+    equal to <span>{absorb}%</span> of your max health.
+  `,
+};
+
+export const PlasmaSupercharger: IAwakenedSkill = {
+  name: "Plasma Supercharger",
+  attr: "plasma-supercharger",
+  prop: "plasmaSupercharger",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Electric",
+  attackType: "Physical",
+  passive: true,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: SkyHunter,
+    level: 3,
+  }],
+  values: {
+    damage: [2, 2, 2, 2, 2],
+  },
+  description: `
+    Upgrade the plasma reactor in your cannon for increased firepower.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Plasma Chain, Sky Hunger, and Hyper Giga Launcher damage by <span>{damage}%</span>.
+  `,
+};
+
+export const HyperGigaCannon: IAwakenedSkill = {
+  name: "Hyper Giga Cannon",
+  attr: "hyper-giga-cannon",
+  prop: "hyperGigaCannon",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Electric",
+  attackType: "Long Range / Physical",
+  weaponRequired: "Two-handed Cannon",
+  cooldown: 6,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: PlasmaSupercharger,
+    level: 3,
+  }],
+  values: {
+    damage: [256, 256, 256, 256, 256],
+  },
+  description: `
+    Patch your jet boot power into your cannon,
+    firing a powerful laser while you fly around.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>4</span> times.
+    Can keep firing until battery is depleted.
+    <br/><br/>
+    Able to move while skill is active.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   AdvancedBullets: AdvancedBullets,
   AdvancedMissiles: AdvancedMissiles,
@@ -488,7 +765,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  MobileArmory: MobileArmory,
+  FocusedFire: FocusedFire,
+  FireBomber: FireBomber,
+  MissileSupercharger: MissileSupercharger,
+  DemolitionCannon: DemolitionCannon,
+  PlasmaChain: PlasmaChain,
+  SkyHunter: SkyHunter,
+  PlasmaSupercharger: PlasmaSupercharger,
+  HyperGigaCannon: HyperGigaCannon,
 };
 
 export const HeavyGunnerSkills: IClassSkills = {

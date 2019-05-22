@@ -34,6 +34,16 @@ export class HeavyGunnerComponent implements IChart {
   @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerSkills.StunGrenades.minLevel;
   @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
 
+  @Prop({ mutable: true }) mobileArmory: number = HeavyGunnerSkills.MobileArmory.minLevel;
+  @Prop({ mutable: true }) focusedFire: number = HeavyGunnerSkills.FocusedFire.minLevel;
+  @Prop({ mutable: true }) fireBomber: number = HeavyGunnerSkills.FireBomber.minLevel;
+  @Prop({ mutable: true }) missileSupercharger: number = HeavyGunnerSkills.MissileSupercharger.minLevel;
+  @Prop({ mutable: true }) demolitionCannon: number = HeavyGunnerSkills.DemolitionCannon.minLevel;
+  @Prop({ mutable: true }) plasmaChain: number = HeavyGunnerSkills.PlasmaChain.minLevel;
+  @Prop({ mutable: true }) skyHunter: number = HeavyGunnerSkills.SkyHunter.minLevel;
+  @Prop({ mutable: true }) plasmaSupercharger: number = HeavyGunnerSkills.PlasmaSupercharger.minLevel;
+  @Prop({ mutable: true }) hyperGigaCannon: number = HeavyGunnerSkills.HyperGigaCannon.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

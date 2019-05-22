@@ -6,7 +6,6 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import { JSX } from '@stencil/core';
 import {
   Sigil,
 } from './components/charts/runeblade/runeblade-sigil';
@@ -120,20 +119,29 @@ export namespace Components {
     'advancedPulseWeapons': number;
     'blastChargeKit': number;
     'bulletSpray': number;
+    'demolitionCannon': number;
     'editable': boolean;
     'electricBlast': number;
     'extras': boolean;
+    'fireBomber': number;
+    'focusedFire': number;
     'gatlingFire': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'homingMissiles': number;
+    'hyperGigaCannon': number;
     'jetBoots': number;
     'lockOn': number;
     'mBomb': number;
     'magneticBomb': number;
     'medKit': number;
+    'missileSupercharger': number;
+    'mobileArmory': number;
+    'plasmaChain': number;
+    'plasmaSupercharger': number;
     'rank': number;
     'reload': number;
     'rocketLauncher': number;
+    'skyHunter': number;
     'stunGrenades': number;
     'suborbitalBombardment': number;
   }
@@ -473,20 +481,29 @@ declare namespace LocalJSX {
     'advancedPulseWeapons'?: number;
     'blastChargeKit'?: number;
     'bulletSpray'?: number;
+    'demolitionCannon'?: number;
     'editable'?: boolean;
     'electricBlast'?: number;
     'extras'?: boolean;
+    'fireBomber'?: number;
+    'focusedFire'?: number;
     'gatlingFire'?: number;
     'homingMissiles'?: number;
+    'hyperGigaCannon'?: number;
     'jetBoots'?: number;
     'lockOn'?: number;
     'mBomb'?: number;
     'magneticBomb'?: number;
     'medKit'?: number;
+    'missileSupercharger'?: number;
+    'mobileArmory'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'plasmaChain'?: number;
+    'plasmaSupercharger'?: number;
     'rank'?: number;
     'reload'?: number;
     'rocketLauncher'?: number;
+    'skyHunter'?: number;
     'stunGrenades'?: number;
     'suborbitalBombardment'?: number;
   }
