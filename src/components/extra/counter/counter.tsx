@@ -11,7 +11,7 @@ export class CounterComponent {
   @Prop() editor?: string;
 
   @State() _editor: ClassEditorHTMLElement;
-  @State() _pointsLeft: number = 68;
+  @State() _pointsLeft: number = 0;
 
   componentDidLoad() {
     let el = document.getElementById(this.editor) as HTMLMsExtraCounterElement;
@@ -22,7 +22,11 @@ export class CounterComponent {
     el.componentOnReady().then((editor: ClassEditorHTMLElement) => {
       this._editor = editor;
 
+      const rank = (this._editor as any).rank;
+      this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
+
       this._editor.addEventListener("skillchanged", (evt: any) => {
+        console.log("skillchanged");
         this.updatePointsLeft(evt.detail);
       });
     });
