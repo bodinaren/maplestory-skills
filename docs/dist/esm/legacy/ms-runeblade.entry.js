@@ -597,7 +597,7 @@ var RuneTrigger = {
 };
 var DimensionBlade = {
     name: "Dimension Blade",
-    attr: "dimension-Blade",
+    attr: "dimension-blade",
     prop: "dimensionBlade",
     rank: 2,
     row: 2,
