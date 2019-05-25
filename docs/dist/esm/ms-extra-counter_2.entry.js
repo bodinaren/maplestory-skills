@@ -1,9 +1,10 @@
-import { e as registerInstance, d as h, h as Host } from './maplestory-skills-a851053c.js';
+import { e as registerInstance, d as h, h as Host } from './maplestory-skills-fe8c7252.js';
+import { a as Rank } from './chunk-7c277b0f.js';
 
 class CounterComponent {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this._pointsLeft = 68;
+        this._pointsLeft = 0;
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -12,14 +13,24 @@ class CounterComponent {
         }
         el.componentOnReady().then((editor) => {
             this._editor = editor;
+            const rank = this._editor.rank;
+            this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
             this._editor.addEventListener("skillchanged", (evt) => {
+                console.log("skillchanged");
                 this.updatePointsLeft(evt.detail);
             });
         });
     }
     updatePointsLeft(changeEvent) {
-        this._pointsLeft = 72 - changeEvent.skills.reduce((prev, current) => {
-            return prev + current.level;
+        const rank = this._editor.rank;
+        const maxPoints = rank === Rank.Awakening ? 15 : 72;
+        this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+            if (current.rank === rank) {
+                return prev + current.level;
+            }
+            else {
+                return prev;
+            }
         }, 0);
     }
     render() {
@@ -30,7 +41,7 @@ class CounterComponent {
 class OutletComponent {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this._skills = { skills: [] };
+        this._skills = { rank: 1, skills: [] };
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -57,7 +68,7 @@ class OutletComponent {
         let props = this.getProperties(this._skills);
         if (props)
             props = " " + props;
-        return `<${this._tagName}${extras}${props}></${this._tagName}>`;
+        return `<${this._tagName} rank="${this._editor.rank}${extras}${props}></${this._tagName}>`;
     }
     getProperties(changeEvent) {
         let properties = changeEvent.skills.filter((skillChange) => {

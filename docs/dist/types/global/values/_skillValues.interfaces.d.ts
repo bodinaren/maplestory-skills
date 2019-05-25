@@ -1,4 +1,5 @@
-export interface ISkillDescription {
+export interface ISkillDescription<T = SkillArray | AwakenedSkillArray> {
+    name?: string;
     description: string;
     /**
      * Represents the various numbers that changes in a skill based on how many points are placed.
@@ -7,16 +8,18 @@ export interface ISkillDescription {
      * Since 0 points shows the values of the first level, the first and second position is always the same.
      */
     values?: {
-        [attribute: string]: SkillArray;
+        [attribute: string]: T;
     };
 }
-export interface ISkill extends ISkillDescription {
+export interface ISkillBase<T = SkillArray | AwakenedSkillArray> extends ISkillDescription<T> {
     /** The name of the skill */
     name: string;
     /** The attribute of the skill (dash-separated name) */
     attr: string;
     /** The attribute of the skill (camelCase name) */
     prop: string;
+    /** Which rank the skill has, 1 for basic, 2 for awakening */
+    rank: Rank;
     /** Which row in the chart the skill should be shown in */
     row: number;
     /** Which column in the chart the skill should be shown in */
@@ -30,27 +33,39 @@ export interface ISkill extends ISkillDescription {
     weaponRequired?: string;
     passive?: boolean;
     sp?: boolean;
-    spirit?: number | SkillArray;
-    cooldown?: number | SkillArray;
+    stamina?: number | T;
+    spirit?: number | T;
+    cooldown?: number | T;
     /**
      * Which character level that is required for each level of the skill.
      * Contains 11 numbers which represents the level required of the character.
      * The position represents the amount of points placed skill (starting at 0 points).
      * Since 0 points shows the values of the first level, the first and second position is always the same.
      */
-    levelRequirement?: SkillArray;
+    levelRequirement?: T;
     /** The skills and levels that are required before you can place point in this skill. */
     skillRequirements?: ISkillRequirement[];
-    extras?: ISkillDescription[];
+    extras?: ISkillDescription<T>[];
+}
+export interface ISkill extends ISkillBase<SkillArray> {
+    rank: 1;
+}
+export interface IAwakenedSkill extends ISkillBase<AwakenedSkillArray> {
+    rank: 2;
 }
 export interface IClassSkills {
-    [prop: string]: ISkill;
+    [prop: string]: ISkillBase;
 }
 export interface ISkillRequirement {
     /** Which skill is required */
-    skill: ISkill;
+    skill: ISkillBase;
     /** How many points are required of skill. */
     level: number;
 }
 export declare type SkillArray = [number, number, number, number, number, number, number, number, number, number, number];
+export declare type AwakenedSkillArray = [number, number, number, number, number];
 export declare type MapleStoryElement = "Dark" | "Electric" | "Fire" | "Holy" | "Ice" | "Toxic";
+export declare enum Rank {
+    Basic = 1,
+    Awakening = 2
+}

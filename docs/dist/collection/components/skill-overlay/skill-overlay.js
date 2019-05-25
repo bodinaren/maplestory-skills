@@ -1,5 +1,5 @@
 import { h, getAssetPath } from "@stencil/core";
-let descriptionRegex = /\[(.*?)\]/;
+let descriptionRegex = /\{(.*?)\}/;
 /**
  * @private
  */
@@ -17,6 +17,7 @@ export class SkillOverlayComponent {
     refreshData() {
         if (this.skill) {
             this.setRequirements();
+            this.setStamina();
             this.setSpirit();
             this.setCooldown();
             this.description = this.parseDescription(this.skill);
@@ -46,8 +47,9 @@ export class SkillOverlayComponent {
                             || h("slot", { name: "icon" })),
                         h("div", { class: "infoAndLevel" },
                             h("div", { class: "shortInfo" },
+                                this.stamina && `Stamina ${this.stamina}`,
                                 this.spirit && `Spirit ${this.spirit}`,
-                                this.spirit && this.cooldown && ` / `,
+                                (this.stamina || this.spirit) && this.cooldown && ` / `,
                                 this.cooldown && `Cooldown: ${this.cooldown} Sec`),
                             h("div", { class: "level" },
                                 "Level ",
@@ -82,6 +84,14 @@ export class SkillOverlayComponent {
             Array.prototype.push.apply(requirements, this.skill.skillRequirements.map((req) => `${req.skill.name} [Level ${req.level}+]`));
         }
         this.requirements = requirements;
+    }
+    setStamina() {
+        if (Array.isArray(this.skill.stamina)) {
+            this.stamina = this.skill.stamina[this.level];
+        }
+        else if (!this.spirit) {
+            this.stamina = this.skill.stamina;
+        }
     }
     setSpirit() {
         if (Array.isArray(this.skill.spirit)) {

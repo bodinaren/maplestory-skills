@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class SoulBinderComponent implements IChart {
     host: HTMLMsSoulBinderElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     animusFocus: number;
     concussionOrb: number;
@@ -22,6 +23,15 @@ export declare class SoulBinderComponent implements IChart {
     shootingStar: number;
     lightBarrier: number;
     fountOfRenewal: number;
+    awakenedMantra: number;
+    spiritBound: number;
+    spiritCrush: number;
+    visionTorrent: number;
+    awakenedMind: number;
+    soulFlock: number;
+    soulShield: number;
+    soulHarmony: number;
+    triuneLink: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

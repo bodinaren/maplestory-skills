@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { HeavyGunnerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/heavy-gunner";
 export class HeavyGunnerComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.advancedBullets = HeavyGunnerSkills.AdvancedBullets.minLevel;
         this.advancedMissiles = HeavyGunnerSkills.AdvancedMissiles.minLevel;
@@ -22,6 +24,15 @@ export class HeavyGunnerComponent {
         this.rocketLauncher = HeavyGunnerSkills.RocketLauncher.minLevel;
         this.stunGrenades = HeavyGunnerSkills.StunGrenades.minLevel;
         this.suborbitalBombardment = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
+        this.mobileArmory = HeavyGunnerSkills.MobileArmory.minLevel;
+        this.focusedFire = HeavyGunnerSkills.FocusedFire.minLevel;
+        this.fireBomber = HeavyGunnerSkills.FireBomber.minLevel;
+        this.missileSupercharger = HeavyGunnerSkills.MissileSupercharger.minLevel;
+        this.demolitionCannon = HeavyGunnerSkills.DemolitionCannon.minLevel;
+        this.plasmaChain = HeavyGunnerSkills.PlasmaChain.minLevel;
+        this.skyHunter = HeavyGunnerSkills.SkyHunter.minLevel;
+        this.plasmaSupercharger = HeavyGunnerSkills.PlasmaSupercharger.minLevel;
+        this.hyperGigaCannon = HeavyGunnerSkills.HyperGigaCannon.minLevel;
     }
     componentWillLoad() {
         processSkills(this, HeavyGunnerSkills);
@@ -39,7 +50,9 @@ export class HeavyGunnerComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "heavy-gunner" }, renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "heavy-gunner", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-heavy-gunner"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class HeavyGunnerComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class HeavyGunnerComponent {
             "attribute": "suborbital-bombardment",
             "reflect": false,
             "defaultValue": "HeavyGunnerSkills.SuborbitalBombardment.minLevel"
+        },
+        "mobileArmory": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mobile-armory",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.MobileArmory.minLevel"
+        },
+        "focusedFire": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "focused-fire",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.FocusedFire.minLevel"
+        },
+        "fireBomber": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "fire-bomber",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.FireBomber.minLevel"
+        },
+        "missileSupercharger": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "missile-supercharger",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.MissileSupercharger.minLevel"
+        },
+        "demolitionCannon": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "demolition-cannon",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.DemolitionCannon.minLevel"
+        },
+        "plasmaChain": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "plasma-chain",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.PlasmaChain.minLevel"
+        },
+        "skyHunter": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "sky-hunter",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.SkyHunter.minLevel"
+        },
+        "plasmaSupercharger": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "plasma-supercharger",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.PlasmaSupercharger.minLevel"
+        },
+        "hyperGigaCannon": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "hyper-giga-cannon",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.HyperGigaCannon.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class HeavyGunnerComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

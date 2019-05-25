@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as ArcherSkills from "../../../global/values/archer";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { ArcherSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/archer";
 export class ArcherComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.agileArcher = ArcherSkills.AgileArcher.minLevel;
         this.arrowBarrage = ArcherSkills.ArrowBarrage.minLevel;
@@ -22,6 +24,15 @@ export class ArcherComponent {
         this.screwdriverShot = ArcherSkills.ScrewdriverShot.minLevel;
         this.sharpEyes = ArcherSkills.SharpEyes.minLevel;
         this.snipe = ArcherSkills.Snipe.minLevel;
+        this.improvedGliding = ArcherSkills.ImprovedGliding.minLevel;
+        this.flameArrow = ArcherSkills.FlameArrow.minLevel;
+        this.multiDriveShot = ArcherSkills.MultiDriveShot.minLevel;
+        this.rangersFocus = ArcherSkills.RangersFocus.minLevel;
+        this.hastersTeachings = ArcherSkills.HastersTeachings.minLevel;
+        this.piercingArrow = ArcherSkills.PiercingArrow.minLevel;
+        this.spiralArrow = ArcherSkills.SpiralArrow.minLevel;
+        this.archersSecrets = ArcherSkills.ArchersSecrets.minLevel;
+        this.greaterSharpEyes = ArcherSkills.GreaterSharpEyes.minLevel;
     }
     componentWillLoad() {
         processSkills(this, ArcherSkills);
@@ -40,7 +51,9 @@ export class ArcherComponent {
     }
     render() {
         return [
-            h("ms-chart", { msClass: "archer" }, renderLevelControls(this, ArcherSkills, this.editable, this.extras))
+            h("ms-chart", { msClass: "archer", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+                renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+                renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening))
         ];
     }
     static get is() { return "ms-archer"; }
@@ -69,6 +82,24 @@ export class ArcherComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -393,6 +424,168 @@ export class ArcherComponent {
             "attribute": "snipe",
             "reflect": false,
             "defaultValue": "ArcherSkills.Snipe.minLevel"
+        },
+        "improvedGliding": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "improved-gliding",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ImprovedGliding.minLevel"
+        },
+        "flameArrow": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "flame-arrow",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.FlameArrow.minLevel"
+        },
+        "multiDriveShot": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "multi-drive-shot",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.MultiDriveShot.minLevel"
+        },
+        "rangersFocus": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rangers-focus",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.RangersFocus.minLevel"
+        },
+        "hastersTeachings": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "hasters-teachings",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.HastersTeachings.minLevel"
+        },
+        "piercingArrow": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "piercing-arrow",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.PiercingArrow.minLevel"
+        },
+        "spiralArrow": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spiral-arrow",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.SpiralArrow.minLevel"
+        },
+        "archersSecrets": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "archers-secrets",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.ArchersSecrets.minLevel"
+        },
+        "greaterSharpEyes": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "greater-sharp-eyes",
+            "reflect": false,
+            "defaultValue": "ArcherSkills.GreaterSharpEyes.minLevel"
         }
     }; }
     static get states() { return {
@@ -438,6 +631,9 @@ export class ArcherComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

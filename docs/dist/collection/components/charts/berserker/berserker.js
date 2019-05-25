@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as BerserkerSkills from "../../../global/values/berserker";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { BerserkerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/berserker";
 export class BerserkerComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.adrenalineRush = BerserkerSkills.AdrenalineRush.minLevel;
         this.bloodPrice = BerserkerSkills.BloodPrice.minLevel;
@@ -22,6 +24,15 @@ export class BerserkerComponent {
         this.voidSlash = BerserkerSkills.VoidSlash.minLevel;
         this.warriorsInstinct = BerserkerSkills.WarriorsInstinct.minLevel;
         this.xSlash = BerserkerSkills.XSlash.minLevel;
+        this.infiniteDarkness = BerserkerSkills.InfiniteDarkness.minLevel;
+        this.skullSplitter = BerserkerSkills.SkullSplitter.minLevel;
+        this.bloodFury = BerserkerSkills.BloodFury.minLevel;
+        this.parryTheMoon = BerserkerSkills.ParryTheMoon.minLevel;
+        this.aerialSmash = BerserkerSkills.AerialSmash.minLevel;
+        this.squall = BerserkerSkills.Squall.minLevel;
+        this.rendWound = BerserkerSkills.RendWound.minLevel;
+        this.ragingSoul = BerserkerSkills.RagingSoul.minLevel;
+        this.bloodSlash = BerserkerSkills.BloodSlash.minLevel;
     }
     componentWillLoad() {
         processSkills(this, BerserkerSkills);
@@ -39,7 +50,9 @@ export class BerserkerComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "berserker" }, renderLevelControls(this, BerserkerSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "berserker", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-berserker"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class BerserkerComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class BerserkerComponent {
             "attribute": "x-slash",
             "reflect": false,
             "defaultValue": "BerserkerSkills.XSlash.minLevel"
+        },
+        "infiniteDarkness": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "infinite-darkness",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.InfiniteDarkness.minLevel"
+        },
+        "skullSplitter": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "skull-splitter",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.SkullSplitter.minLevel"
+        },
+        "bloodFury": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blood-fury",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.BloodFury.minLevel"
+        },
+        "parryTheMoon": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "parry-the-moon",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.ParryTheMoon.minLevel"
+        },
+        "aerialSmash": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "aerial-smash",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.AerialSmash.minLevel"
+        },
+        "squall": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "squall",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.Squall.minLevel"
+        },
+        "rendWound": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rend-wound",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.RendWound.minLevel"
+        },
+        "ragingSoul": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "raging-soul",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.RagingSoul.minLevel"
+        },
+        "bloodSlash": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blood-slash",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.BloodSlash.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class BerserkerComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

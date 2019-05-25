@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as ThiefSkills from "../../../global/values/thief";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { ThiefSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/thief";
 export class ThiefComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.bladeDance = ThiefSkills.BladeDance.minLevel;
         this.cunningTactics = ThiefSkills.CunningTactics.minLevel;
@@ -22,6 +24,15 @@ export class ThiefComponent {
         this.spiritThief = ThiefSkills.SpiritThief.minLevel;
         this.surpriseAttack = ThiefSkills.SurpriseAttack.minLevel;
         this.viciousCuts = ThiefSkills.ViciousCuts.minLevel;
+        this.vengeance = ThiefSkills.Vengeance.minLevel;
+        this.savageStrikes = ThiefSkills.SavageStrikes.minLevel;
+        this.battlePlan = ThiefSkills.BattlePlan.minLevel;
+        this.poisonMaster = ThiefSkills.PoisonMaster.minLevel;
+        this.volatileVials = ThiefSkills.VolatileVials.minLevel;
+        this.criticalSlice = ThiefSkills.CriticalSlice.minLevel;
+        this.battleStep = ThiefSkills.BattleStep.minLevel;
+        this.shadowStep = ThiefSkills.ShadowStep.minLevel;
+        this.deadlyStrikes = ThiefSkills.DeadlyStrikes.minLevel;
     }
     componentWillLoad() {
         processSkills(this, ThiefSkills);
@@ -39,7 +50,9 @@ export class ThiefComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, ThiefSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "thief" }, renderLevelControls(this, ThiefSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "thief", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-thief"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class ThiefComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class ThiefComponent {
             "attribute": "vicious-cuts",
             "reflect": false,
             "defaultValue": "ThiefSkills.ViciousCuts.minLevel"
+        },
+        "vengeance": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "vengeance",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.Vengeance.minLevel"
+        },
+        "savageStrikes": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "savage-strikes",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.SavageStrikes.minLevel"
+        },
+        "battlePlan": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "battle-plan",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.BattlePlan.minLevel"
+        },
+        "poisonMaster": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "poison-master",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.PoisonMaster.minLevel"
+        },
+        "volatileVials": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "volatile-vials",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.VolatileVials.minLevel"
+        },
+        "criticalSlice": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "critical-slice",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.CriticalSlice.minLevel"
+        },
+        "battleStep": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "battle-step",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.BattleStep.minLevel"
+        },
+        "shadowStep": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "shadow-step",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.ShadowStep.minLevel"
+        },
+        "deadlyStrikes": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "deadly-strikes",
+            "reflect": false,
+            "defaultValue": "ThiefSkills.DeadlyStrikes.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class ThiefComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

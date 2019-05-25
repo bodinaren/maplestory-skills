@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as StrikerSkills from "../../../global/values/striker";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { StrikerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/striker";
 export class StrikerComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.beatdown = StrikerSkills.Beatdown.minLevel;
         this.dragonKick = StrikerSkills.DragonKick.minLevel;
@@ -22,6 +24,15 @@ export class StrikerComponent {
         this.patternBreak = StrikerSkills.PatternBreak.minLevel;
         this.powerPuncher = StrikerSkills.PowerPuncher.minLevel;
         this.risingKick = StrikerSkills.RisingKick.minLevel;
+        this.rainingBlows = StrikerSkills.RainingBlows.minLevel;
+        this.shockwavePunch = StrikerSkills.ShockwavePunch.minLevel;
+        this.vulcanPunch = StrikerSkills.VulcanPunch.minLevel;
+        this.doubleFistSmash = StrikerSkills.DoubleFistSmash.minLevel;
+        this.meridianFlow = StrikerSkills.MeridianFlow.minLevel;
+        this.setupKick = StrikerSkills.SetupKick.minLevel;
+        this.spiralCannon = StrikerSkills.SpiralCannon.minLevel;
+        this.spinKick = StrikerSkills.SpinKick.minLevel;
+        this.tauntingFeint = StrikerSkills.TauntingFeint.minLevel;
     }
     componentWillLoad() {
         processSkills(this, StrikerSkills);
@@ -39,7 +50,9 @@ export class StrikerComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, StrikerSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "striker" }, renderLevelControls(this, StrikerSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "striker", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-striker"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class StrikerComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class StrikerComponent {
             "attribute": "rising-kick",
             "reflect": false,
             "defaultValue": "StrikerSkills.RisingKick.minLevel"
+        },
+        "rainingBlows": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "raining-blows",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.RainingBlows.minLevel"
+        },
+        "shockwavePunch": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "shockwave-punch",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.ShockwavePunch.minLevel"
+        },
+        "vulcanPunch": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "vulcan-punch",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.VulcanPunch.minLevel"
+        },
+        "doubleFistSmash": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "double-fist-smash",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.DoubleFistSmash.minLevel"
+        },
+        "meridianFlow": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "meridian-flow",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.MeridianFlow.minLevel"
+        },
+        "setupKick": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "setup-kick",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.SetupKick.minLevel"
+        },
+        "spiralCannon": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spiral-cannon",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.SpiralCannon.minLevel"
+        },
+        "spinKick": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spin-kick",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.SpinKick.minLevel"
+        },
+        "tauntingFeint": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "taunting-feint",
+            "reflect": false,
+            "defaultValue": "StrikerSkills.TauntingFeint.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class StrikerComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as SoulBinderSkills from "../../../global/values/soul-binder";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { SoulBinderSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/soul-binder";
 export class SoulBinderComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.animusFocus = SoulBinderSkills.AnimusFocus.minLevel;
         this.concussionOrb = SoulBinderSkills.ConcussionOrb.minLevel;
@@ -22,6 +24,15 @@ export class SoulBinderComponent {
         this.shootingStar = SoulBinderSkills.ShootingStar.minLevel;
         this.lightBarrier = SoulBinderSkills.LightBarrier.minLevel;
         this.fountOfRenewal = SoulBinderSkills.FountOfRenewal.minLevel;
+        this.awakenedMantra = SoulBinderSkills.AwakenedMantra.minLevel;
+        this.spiritBound = SoulBinderSkills.SpiritBound.minLevel;
+        this.spiritCrush = SoulBinderSkills.SpiritCrush.minLevel;
+        this.visionTorrent = SoulBinderSkills.VisionTorrent.minLevel;
+        this.awakenedMind = SoulBinderSkills.AwakenedMind.minLevel;
+        this.soulFlock = SoulBinderSkills.SoulFlock.minLevel;
+        this.soulShield = SoulBinderSkills.SoulShield.minLevel;
+        this.soulHarmony = SoulBinderSkills.SoulHarmony.minLevel;
+        this.triuneLink = SoulBinderSkills.TriuneLink.minLevel;
     }
     componentWillLoad() {
         processSkills(this, SoulBinderSkills);
@@ -39,7 +50,9 @@ export class SoulBinderComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, SoulBinderSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "soul-binder" }, renderLevelControls(this, SoulBinderSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "soul-binder", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-soul-binder"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class SoulBinderComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class SoulBinderComponent {
             "attribute": "fount-of-renewal",
             "reflect": false,
             "defaultValue": "SoulBinderSkills.FountOfRenewal.minLevel"
+        },
+        "awakenedMantra": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "awakened-mantra",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.AwakenedMantra.minLevel"
+        },
+        "spiritBound": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spirit-bound",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SpiritBound.minLevel"
+        },
+        "spiritCrush": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "spirit-crush",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SpiritCrush.minLevel"
+        },
+        "visionTorrent": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "vision-torrent",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.VisionTorrent.minLevel"
+        },
+        "awakenedMind": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "awakened-mind",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.AwakenedMind.minLevel"
+        },
+        "soulFlock": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "soul-flock",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SoulFlock.minLevel"
+        },
+        "soulShield": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "soul-shield",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SoulShield.minLevel"
+        },
+        "soulHarmony": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "soul-harmony",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.SoulHarmony.minLevel"
+        },
+        "triuneLink": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "triune-link",
+            "reflect": false,
+            "defaultValue": "SoulBinderSkills.TriuneLink.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class SoulBinderComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

@@ -1,8 +1,9 @@
-import { e as registerInstance, d as h, h as Host } from './maplestory-skills-a851053c.js';
+import { e as registerInstance, d as h, h as Host } from './maplestory-skills-fe8c7252.js';
+import { a as Rank } from './chunk-7c277b0f.js';
 var CounterComponent = /** @class */ (function () {
     function CounterComponent(hostRef) {
         registerInstance(this, hostRef);
-        this._pointsLeft = 68;
+        this._pointsLeft = 0;
     }
     CounterComponent.prototype.componentDidLoad = function () {
         var _this = this;
@@ -12,14 +13,24 @@ var CounterComponent = /** @class */ (function () {
         }
         el.componentOnReady().then(function (editor) {
             _this._editor = editor;
+            var rank = _this._editor.rank;
+            _this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
             _this._editor.addEventListener("skillchanged", function (evt) {
+                console.log("skillchanged");
                 _this.updatePointsLeft(evt.detail);
             });
         });
     };
     CounterComponent.prototype.updatePointsLeft = function (changeEvent) {
-        this._pointsLeft = 72 - changeEvent.skills.reduce(function (prev, current) {
-            return prev + current.level;
+        var rank = this._editor.rank;
+        var maxPoints = rank === Rank.Awakening ? 15 : 72;
+        this._pointsLeft = maxPoints - changeEvent.skills.reduce(function (prev, current) {
+            if (current.rank === rank) {
+                return prev + current.level;
+            }
+            else {
+                return prev;
+            }
         }, 0);
     };
     CounterComponent.prototype.render = function () {
@@ -30,7 +41,7 @@ var CounterComponent = /** @class */ (function () {
 var OutletComponent = /** @class */ (function () {
     function OutletComponent(hostRef) {
         registerInstance(this, hostRef);
-        this._skills = { skills: [] };
+        this._skills = { rank: 1, skills: [] };
     }
     OutletComponent.prototype.componentDidLoad = function () {
         var _this = this;
@@ -58,7 +69,7 @@ var OutletComponent = /** @class */ (function () {
         var props = this.getProperties(this._skills);
         if (props)
             props = " " + props;
-        return "<" + this._tagName + extras + props + "></" + this._tagName + ">";
+        return "<" + this._tagName + " rank=\"" + this._editor.rank + extras + props + "></" + this._tagName + ">";
     };
     OutletComponent.prototype.getProperties = function (changeEvent) {
         var properties = changeEvent.skills.filter(function (skillChange) {

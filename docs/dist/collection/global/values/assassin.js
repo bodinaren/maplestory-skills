@@ -2,6 +2,7 @@ export const ShadowChaser = {
     name: "Shadow Chaser",
     attr: "shadow-chaser",
     prop: "shadowChaser",
+    rank: 1,
     row: 1,
     column: 3,
     minLevel: 1,
@@ -19,6 +20,7 @@ export const Dash = {
     name: "Dash",
     attr: "dash",
     prop: "dash",
+    rank: 1,
     row: 1,
     column: 4,
     minLevel: 1,
@@ -33,6 +35,7 @@ export const LuckyStars = {
     name: "Lucky Stars",
     attr: "lucky-stars",
     prop: "luckyStars",
+    rank: 1,
     row: 1,
     column: 1,
     minLevel: 1,
@@ -45,8 +48,8 @@ export const LuckyStars = {
         aoe: [76, 76, 81, 86, 91, 96, 101, 106, 111, 116, 121],
     },
     description: `
-    Throw your weapons at the closest enemy within <span>8</span> m to deal <span>[damage]%</span> damage <span>2</span> times.
-    Each weapon then ricochets to other enemies within <span>3</span> m and deals <span>[aoe]%</span> damage <span>2</span> times.
+    Throw your weapons at the closest enemy within <span>8</span> m to deal <span>{damage}%</span> damage <span>2</span> times.
+    Each weapon then ricochets to other enemies within <span>3</span> m and deals <span>{aoe}%</span> damage <span>2</span> times.
     The damage of each attack is affected by the weapon in each hand.
   `,
 };
@@ -54,6 +57,7 @@ export const FragmentedStar = {
     name: "Fragmented Star",
     attr: "fragmented-star",
     prop: "fragmentedStar",
+    rank: 1,
     row: 2,
     column: 1,
     minLevel: 1,
@@ -67,7 +71,7 @@ export const FragmentedStar = {
     },
     description: `
     Throw a shattering weapon at the closest enemy within <span>8</span> m in front of you which breaks apart
-    on impact to deal <span>[damage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+    on impact to deal <span>{damage}%</span> damage to <span>8</span> enemies within <span>3</span> m.
     The damage of this attack is affected by the weapon in your right hand.
     Consumes <span>20</span> spirit.
   `,
@@ -76,6 +80,7 @@ export const StarChaser = {
     name: "Star Chaser",
     attr: "star-chaser",
     prop: "starChaser",
+    rank: 1,
     row: 3,
     column: 1,
     minLevel: 0,
@@ -94,7 +99,7 @@ export const StarChaser = {
     },
     description: `
     Equip <span>4</span> homing weapons in each hand, and throw them at <span>8</span>
-    enemies up to <span>8</span> m in front of you, dealing <span>[damage]%</span> damage per hit.
+    enemies up to <span>8</span> m in front of you, dealing <span>{damage}%</span> damage per hit.
     The damage of each attack is affected by the weapon in each hand.
     Consumes <span>15</span> spirit.
   `,
@@ -103,6 +108,7 @@ export const StarFlurry = {
     name: "Star Flurry",
     attr: "star-flurry",
     prop: "starFlurry",
+    rank: 1,
     row: 4,
     column: 1,
     minLevel: 0,
@@ -125,7 +131,7 @@ export const StarFlurry = {
     description: `
     Equip <span>3</span> weapons in each hand and throw them
     at the closest enemy within <span>8</span> m in front of you,
-    dealing <span>[damage]%</span> damage <span>6</span> times.
+    dealing <span>{damage}%</span> damage <span>6</span> times.
     The damage of each attack is affected by the weapon in each hand.
     Consumes <span>15</span> spirit.
   `,
@@ -134,6 +140,7 @@ export const ThrownWeaponMastery = {
     name: "Thrown Weapon Mastery",
     attr: "thrown-weapon-mastery",
     prop: "thrownWeaponMastery",
+    rank: 1,
     row: 6,
     column: 1,
     minLevel: 0,
@@ -152,13 +159,14 @@ export const ThrownWeaponMastery = {
     },
     description: `
     Your proficiency with thrown weapons increases your weapon attack
-    by <span>[attack]%</span> when you have thrown weapons equipped.
+    by <span>{attack}%</span> when you have thrown weapons equipped.
   `,
 };
 export const ShadowCutter = {
     name: "Shadow Cutter",
     attr: "shadow-cutter",
     prop: "shadowCutter",
+    rank: 1,
     row: 3,
     column: 2,
     minLevel: 0,
@@ -172,7 +180,7 @@ export const ShadowCutter = {
         damage: [99, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162],
     },
     description: `
-    Throw your weapon forward <span>8</span> m with a strong spin to deal <span>[damage]%</span> dark
+    Throw your weapon forward <span>8</span> m with a strong spin to deal <span>{damage}%</span> dark
     damage <span>2</span> times to <span>8</span> enemies in its path both ways.
     The damage of this attack is affected by the weapon in your right hand.
     Consumes <span>13</span> spirit.
@@ -182,6 +190,7 @@ export const ShadowBurst = {
     name: "Shadow Burst",
     attr: "shadow-burst",
     prop: "shadowBurst",
+    rank: 1,
     row: 4,
     column: 2,
     minLevel: 0,
@@ -202,10 +211,10 @@ export const ShadowBurst = {
     },
     description: `
     Equip <span>5</span> thrown weapons imbued with dark magic in each hand,
-    then throw them forward at the same time to deal <span>[damage]%</span> dark
+    then throw them forward at the same time to deal <span>{damage}%</span> dark
     damage <span>2</span> times to <span>8</span> enemies within <span>8</span> m.
     If any of the enemies hit are marked for death the mark explodes,
-    dealing an additional <span>[additionalDamage]%</span> dark damage.
+    dealing an additional <span>{additionalDamage}%</span> dark damage.
     The damage of each attack is affected by the weapon in each hand.
     Consumes <span>30</span> spirit.
   `,
@@ -214,6 +223,7 @@ export const SoulGrind = {
     name: "Soul Grind",
     attr: "soul-grind",
     prop: "soulGrind",
+    rank: 1,
     row: 5,
     column: 2,
     minLevel: 0,
@@ -236,7 +246,7 @@ export const SoulGrind = {
     },
     description: `
     Throw a giant weapon at the closest enemy within <span>8</span> m in front of you,
-    which spins rapidonly on impact, dealing <span>[damage]%</span> dark damage
+    which spins rapidonly on impact, dealing <span>{damage}%</span> dark damage
     to <span>5</span> enemies within <span>3</span> m <span>5</span> times.
     The damage of this attack is affected by the weapon in your right hand.
     Consumes <span>30</span> spirit.
@@ -246,6 +256,7 @@ export const ShadowArts = {
     name: "Shadow Arts",
     attr: "shadow-arts",
     prop: "shadowArts",
+    rank: 1,
     row: 6,
     column: 2,
     minLevel: 0,
@@ -265,13 +276,14 @@ export const ShadowArts = {
     },
     description: `
     Utilize secret assassin techniques to strengthen your command of dark magic.
-    Increases the damage of Shadow Burst, Shadow Cutter, Soul Grind, Shadow Web, and Death Sentence by <span>[damage]%</span>.
+    Increases the damage of Shadow Burst, Shadow Cutter, Soul Grind, Shadow Web, and Death Sentence by <span>{damage}%</span>.
   `,
 };
 export const DarkCloak = {
     name: "Dark Cloak",
     attr: "dark-cloak",
     prop: "darkCloak",
+    rank: 1,
     row: 3,
     column: 3,
     minLevel: 0,
@@ -285,7 +297,7 @@ export const DarkCloak = {
     description: `
     Utilize dark magic to walk in shadows for <span>12</span> sec.
     While hidden, your movement speed increases
-    by <span>[movement]%</span> and
+    by <span>{movement}%</span> and
     your spirit recovery increases by <span>2</span>.
     While hidden, you can ambush enemies, stunning them for <span>1.5</span> sec.
     Using a skill or an item, or being hit by an enemy, will take you out of hiding.
@@ -295,6 +307,7 @@ export const MarkOfDeath = {
     name: "Mark of Death",
     attr: "mark-of-death",
     prop: "markOfDeath",
+    rank: 1,
     row: 4,
     column: 3,
     minLevel: 0,
@@ -312,13 +325,14 @@ export const MarkOfDeath = {
     description: `
     Attacks against enemies with <span>30%</span> health or less
     have a <span>25%</span> to mark them for death for <span>6</span> sec.
-    Marked enemies take <span>[damage]%</span> additional damage.
+    Marked enemies take <span>{damage}%</span> additional damage.
   `,
 };
 export const DeathSentence = {
     name: "Death Sentence",
     attr: "death-sentence",
     prop: "deathSentence",
+    rank: 1,
     row: 5,
     column: 3,
     minLevel: 0,
@@ -336,7 +350,7 @@ export const DeathSentence = {
     },
     description: `
     Summon <span>3</span> mirror images and send them toward <span>3</span> enemies up to <span>8</span> m in front of you,
-    dealing <span>[damage]%</span> dark damage each and shadow marking the enemies for death, regardless of health.
+    dealing <span>{damage}%</span> dark damage each and shadow marking the enemies for death, regardless of health.
     These shadows marks last for <span>6</span> sec and increase damage taken by <span>1%</span>.
     Your mirror images' shadow marks stack with your marks of death.
     The mirror images will not attack the same target.
@@ -346,6 +360,7 @@ export const FatalStrikes = {
     name: "Fatal Strikes",
     attr: "fatal-strikes",
     prop: "fatalStrikes",
+    rank: 1,
     row: 3,
     column: 4,
     minLevel: 0,
@@ -358,13 +373,14 @@ export const FatalStrikes = {
     description: `
     Utilize dark magic to strengthen your secret assassin techniques,
     allowing you to identify enemy weak spots.
-    All attacks become critical hits for <span>[duration]</span> sec.
+    All attacks become critical hits for <span>{duration}</span> sec.
   `,
 };
 export const ShadowWeb = {
     name: "Shadow Web",
     attr: "shadow-web",
     prop: "shadowWeb",
+    rank: 1,
     row: 5,
     column: 4,
     minLevel: 0,
@@ -385,10 +401,10 @@ export const ShadowWeb = {
     },
     description: `
     Summon a mirror image and backstep <span>3</span> m. The clone explodes after <span>1</span> sec,
-    tossing out a web that deals <span>[damage]%</span> dark energy
+    tossing out a web that deals <span>{damage}%</span> dark energy
     to <span>5</span> enemies within <span>3</span> m and entangles them,
-    reducing movement speed and jump power by <span>[movement]%</span> for <span>4</span> sec and dealing an
-    additional <span>[additionalDamage]%</span> damage every sec for <span>4</span> sec.
+    reducing movement speed and jump power by <span>{movement}%</span> for <span>4</span> sec and dealing an
+    additional <span>{additionalDamage}%</span> damage every sec for <span>4</span> sec.
     This skill can cancel other skills.
     Consumes <span>28</span> spirit.
   `,
@@ -397,6 +413,7 @@ export const MirrorImageDarkBlade = {
     name: "Mirror Image: Dark Blade",
     attr: "mirror-image-dark-blade",
     prop: "mirrorImageDarkBlade",
+    rank: 1,
     row: 6,
     column: 4,
     minLevel: 0,
@@ -414,7 +431,7 @@ export const MirrorImageDarkBlade = {
     },
     description: `
     Marks a <span>2.25</span> m radius spot on the ground with an insignia of darkness for <span>10</span> sec,
-    dealing <span>[damage]%</span> dark damage to <span>3</span> enemies within the mark by sending a mirror image to attack them.
+    dealing <span>{damage}%</span> dark damage to <span>3</span> enemies within the mark by sending a mirror image to attack them.
     This skill also brands enemies, reducing their accuracy by <span>20</span> for <span>10</span> sec.
     All attacks dealt to branded enemies have a <span>30%</span> chance to summon additional
     mirror images to attack them for <span>23%</span> dark damage <span>4</span> times.
@@ -422,3 +439,319 @@ export const MirrorImageDarkBlade = {
     The accuracy reduction does not stack.
   `,
 };
+export const DarkPunisher = {
+    name: "Dark Punisher",
+    attr: "dark-punisher",
+    prop: "darkPunisher",
+    rank: 2,
+    row: 1,
+    column: 4,
+    minLevel: 1,
+    maxLevel: 1,
+    element: "Dark",
+    attackType: "Long Range / Physical",
+    values: {
+        damage: [418, 418, 418, 418, 418],
+        additionalDamage: [500, 500, 500, 500, 500],
+        movement: [15, 15, 15, 15, 15],
+        dot: [150, 150, 150, 150, 150],
+        iceStormIncrease: [49, 49, 49, 49, 49],
+    },
+    description: `
+    Use dark magic to brand enemies with an Assassin's Mark.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage and inflicts Assassin's Mark for <span>30</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases luck by <span>40</span>.
+    <br/>
+    Assassin's Mark restores <span>1</span> spirit per <span>0.1</span> sec for the caster.
+    <br/>
+    Bounces up to <span>4</span> times to other enemies on hit.
+  `,
+};
+export const RedoubledPain = {
+    name: "Redoubled Pain",
+    attr: "redoubled-pain",
+    prop: "redoubledPain",
+    rank: 2,
+    row: 1,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Dark",
+    attackType: "Long Range / Physical",
+    weaponRequired: "One-handed Thrown Weapon, One-handed Thrown Weapon",
+    spirit: 11,
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        offHandDamage: [158, 158, 158, 158, 158],
+        mainDamage: [158, 158, 158, 158, 158],
+        dot: [79, 79, 79, 79, 79],
+        mainAdditionalDamage: [480, 480, 480, 480, 480],
+    },
+    description: `
+    Alternate attacks between your two weapons,
+    poisoning enemies with your off-hand and then detonating the poison with your main hand.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Off-hand attacks deal <span>{offHandDamage}%</span> damage per hit and
+    inflict Dark Poison for <span>10</span> sec.
+    Main hand attacks deal <span>{mainDamage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Dark Poison deals <span>{dot}%</span> damage per sec.
+    <br/>
+    Main hand attacks consume Dark Poison to deal an additional <span>{mainAdditionalDamage}%</span> damage.
+  `,
+};
+export const BindingPunishment = {
+    name: "Binding Punishment",
+    attr: "binding-punishment",
+    prop: "bindingPunishment",
+    rank: 2,
+    row: 2,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Physical",
+    weaponRequired: "One-handed Thrown Weapon",
+    spirit: 20,
+    cooldown: 10,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: RedoubledPain,
+            level: 3,
+        }],
+    values: {
+        damage: [56, 56, 56, 56, 56],
+    },
+    description: `
+    Toss a spinning chain at the enemy, dealing damage to the target and nearby enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    The chain spins around the target for <span>10</span> sec,
+    dealing <span>{damage}%</span> damage per sec to nearby enemies.
+  `,
+};
+export const ArtOfTheShuriken = {
+    name: "Art of the Shuriken",
+    attr: "art-of-the-shuriken",
+    prop: "artOfTheShuriken",
+    rank: 2,
+    row: 3,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Dark",
+    passive: true,
+    levelRequirement: [64, 64, 64, 64, 64],
+    skillRequirements: [{
+            skill: BindingPunishment,
+            level: 2,
+        }],
+    values: {
+        increase: [8, 8, 8, 8, 8],
+    },
+    description: `
+    Your skill with thrown weapons are truly lethal.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Redoubled Pain, Binding Punishment, and All-in-One by <span>{increase}%</span>.
+  `,
+};
+export const AllInOne = {
+    name: "All-in-One",
+    attr: "all-in-one",
+    prop: "allInOne",
+    rank: 2,
+    row: 5,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Physical",
+    weaponRequired: "One-handed Thrown Weapon, One-handed Thrown Weapon",
+    spirit: 15,
+    cooldown: 10,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: BindingPunishment,
+            level: 3,
+        }, {
+            skill: ArtOfTheShuriken,
+            level: 3,
+        }],
+    values: {
+        t1damage: [220, 220, 220, 220, 220],
+        t2damage: [787, 787, 787, 787, 787],
+        t3damage: [272, 272, 272, 272, 272],
+    },
+    description: `
+    Hold down the skill key to unleash increasingly devastating attacks on the enemy, maxing out at <span>3</span> tiers.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Tier 1: Attacks <span>3</span> times, dealing <span>{t1damage}%</span> damage per hit.
+    <br/><br/>
+    Tier 2: Deals <span>{t2damage}%</span> damage.
+    <br/><br/>
+    Tier 3: Attacks <span>5</span> times, dealing <span>{t3damage}%</span> damage per hit.
+  `,
+};
+export const DarkMire = {
+    name: "Dark Mire",
+    attr: "dark-mire",
+    prop: "darkMire",
+    rank: 2,
+    row: 1,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Dark",
+    attackType: "Close Range / Physical",
+    spirit: 40,
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        damage: [81, 81, 81, 81, 81],
+        increase: [2, 2, 2, 2, 2],
+    },
+    description: `
+    Conjure <span>4</span> dark mires that drain enemies' strength and transfers it to you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit for <span>5</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases caster's dark damage by <span>{increase}%</span> for <span>5</span> sec when an enemy is hit.
+    <br/>
+    Consumes <span>0</span> spirit when using Secret Arts.
+  `,
+};
+export const ShadowStance = {
+    name: "Shadow Stance",
+    attr: "shadow-stance",
+    prop: "shadowStance",
+    rank: 2,
+    row: 2,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    cooldown: 60,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: DarkMire,
+            level: 3,
+        }],
+    values: {
+        absorb: [6, 6, 6, 6, 6],
+        increase: [9, 9, 9, 9, 9],
+    },
+    description: `
+    Envelope yourself in shadows to strengthen your resolve.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Absorb damage equal to <span>{absorb}%</span> of your max health for <span>12</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases dark damage by <span>{increase}%</span> while the shadow lasts.
+  `,
+};
+export const ArtOfTheShadows = {
+    name: "Art of the Shadows",
+    attr: "art-of-the-shadows",
+    prop: "artOfTheShadows",
+    rank: 2,
+    row: 4,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Dark",
+    passive: true,
+    levelRequirement: [66, 66, 66, 66, 66],
+    skillRequirements: [{
+            skill: ShadowStance,
+            level: 3,
+        }],
+    values: {
+        increase: [2, 2, 2, 2, 2],
+    },
+    description: `
+    Your mastery of the dark arts grows more intense.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Dark Mire and Assassin's Circle by <span>{increase}%</span>.
+  `,
+};
+export const AssassinsCircle = {
+    name: "Assassin's Circle",
+    attr: "assassins-circle",
+    prop: "assassinsCircle",
+    rank: 2,
+    row: 5,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Dark",
+    attackType: "Close Range / Physical",
+    spirit: 28,
+    cooldown: 30,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: ArtOfTheShadows,
+            level: 3,
+        }],
+    values: {
+        accuracy: [29, 29, 29, 29, 29],
+        additionalDamage: [28, 28, 28, 28, 28],
+        damage: [2436, 2436, 2436, 2436, 2436],
+    },
+    description: `
+    Conjures a <span>3</span>-tiered Assassin's Circle in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    The Assassin's Circle lasts for <span>10</span> sec and places a Blade Mark on enemies for <span>10</span> sec.
+    <br/><br/>
+    Inflicts an Assassin's Insignia every <span>0.5</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Blade Mark reduces accuracy by <span>{accuracy}</span> and
+    has a chance to deal <span>{additionalDamage}%</span> additional damage <span>4</span> times.
+    <br/>
+    Assassins's Insignia deals <span>{damage}%</span> damage at <span>18</span> stacks.
+    <br/>
+    Cannot be used with Mirror Image: Dark Blade..
+    <br/>
+    Circles created while Shadow Args is active deal additional damage.
+  `,
+};
+export const RankOneSkills = {
+    DarkCloak: DarkCloak,
+    Dash: Dash,
+    DeathSentence: DeathSentence,
+    FatalStrikes: FatalStrikes,
+    FragmentedStar: FragmentedStar,
+    LuckyStars: LuckyStars,
+    MarkOfDeath: MarkOfDeath,
+    MirrorImageDarkBlade: MirrorImageDarkBlade,
+    ShadowArts: ShadowArts,
+    ShadowBurst: ShadowBurst,
+    ShadowChaser: ShadowChaser,
+    ShadowCutter: ShadowCutter,
+    ShadowWeb: ShadowWeb,
+    SoulGrind: SoulGrind,
+    StarChaser: StarChaser,
+    StarFlurry: StarFlurry,
+    ThrownWeaponMastery: ThrownWeaponMastery,
+};
+export const RankTwoSkills = {
+    DarkPunisher: DarkPunisher,
+    RedoubledPain: RedoubledPain,
+    BindingPunishment: BindingPunishment,
+    ArtOfTheShuriken: ArtOfTheShuriken,
+    AllInOne: AllInOne,
+    DarkMire: DarkMire,
+    ShadowStance: ShadowStance,
+    ArtOfTheShadows: ArtOfTheShadows,
+    AssassinsCircle: AssassinsCircle,
+};
+export const AssassinSkills = Object.assign({}, RankOneSkills, RankTwoSkills);

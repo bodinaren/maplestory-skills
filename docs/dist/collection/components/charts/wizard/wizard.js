@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as WizardSkills from "../../../global/values/wizard";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { WizardSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/wizard";
 export class WizardComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.arcaneBlast = WizardSkills.ArcaneBlast.minLevel;
         this.chainLightning = WizardSkills.ChainLightning.minLevel;
@@ -22,6 +24,15 @@ export class WizardComponent {
         this.pyromancy = WizardSkills.Pyromancy.minLevel;
         this.teleport = WizardSkills.Teleport.minLevel;
         this.thunderbolt = WizardSkills.Thunderbolt.minLevel;
+        this.manaControl = WizardSkills.ManaControl.minLevel;
+        this.dualCast = WizardSkills.DualCast.minLevel;
+        this.iceCreamTime = WizardSkills.IceCreamTime.minLevel;
+        this.lodestoneField = WizardSkills.LodestoneField.minLevel;
+        this.perfectStorm = WizardSkills.PerfectStorm.minLevel;
+        this.ember = WizardSkills.Ember.minLevel;
+        this.barbecueParty = WizardSkills.BarbecueParty.minLevel;
+        this.playingWithFire = WizardSkills.PlayingWithFire.minLevel;
+        this.littleMeteor = WizardSkills.LittleMeteor.minLevel;
     }
     componentWillLoad() {
         processSkills(this, WizardSkills);
@@ -39,7 +50,9 @@ export class WizardComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "wizard" }, renderLevelControls(this, WizardSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "wizard", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-wizard"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class WizardComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class WizardComponent {
             "attribute": "thunderbolt",
             "reflect": false,
             "defaultValue": "WizardSkills.Thunderbolt.minLevel"
+        },
+        "manaControl": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "mana-control",
+            "reflect": false,
+            "defaultValue": "WizardSkills.ManaControl.minLevel"
+        },
+        "dualCast": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dual-cast",
+            "reflect": false,
+            "defaultValue": "WizardSkills.DualCast.minLevel"
+        },
+        "iceCreamTime": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ice-cream-time",
+            "reflect": false,
+            "defaultValue": "WizardSkills.IceCreamTime.minLevel"
+        },
+        "lodestoneField": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "lodestone-field",
+            "reflect": false,
+            "defaultValue": "WizardSkills.LodestoneField.minLevel"
+        },
+        "perfectStorm": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "perfect-storm",
+            "reflect": false,
+            "defaultValue": "WizardSkills.PerfectStorm.minLevel"
+        },
+        "ember": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ember",
+            "reflect": false,
+            "defaultValue": "WizardSkills.Ember.minLevel"
+        },
+        "barbecueParty": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "barbecue-party",
+            "reflect": false,
+            "defaultValue": "WizardSkills.BarbecueParty.minLevel"
+        },
+        "playingWithFire": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "playing-with-fire",
+            "reflect": false,
+            "defaultValue": "WizardSkills.PlayingWithFire.minLevel"
+        },
+        "littleMeteor": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "little-meteor",
+            "reflect": false,
+            "defaultValue": "WizardSkills.LittleMeteor.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class WizardComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

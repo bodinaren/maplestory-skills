@@ -9,6 +9,7 @@ import { ConstructibleStyle } from "stencil-constructible-style";
 import { getOptimizedAssetPath } from "../../global/utils";
 export class ChartComponent {
     constructor() {
+        this.rank = 1;
         this.styles = ChartComponent.getStyles.bind(this, this.msClass);
     }
     componentDidLoad() {
@@ -31,30 +32,78 @@ export class ChartComponent {
             this.host.style.marginRight = null;
         }
     }
+    changeRank(rank) {
+        if (this.rank !== rank) {
+            this.rank = rank;
+            this.onRankChanged.emit(rank);
+        }
+    }
     render() {
         return (h(Host, null,
             h("ms-footer", null),
-            h("div", { class: "chart" },
-                h("div", { class: "class-icon" },
-                    h("div", { class: "chart-class " + this.msClass },
-                        h("slot", null))))));
+            h("div", { class: "chart-left" },
+                h("div", { class: "chart-ranks" },
+                    h("a", { class: { "active": this.rank === 1 }, onClick: () => this.changeRank(1), href: "javascript:void(0)" },
+                        this.rank !== 1 && h("img", { src: getAssetPath(`assets/${this.msClass}-rank-1.png`) }),
+                        this.rank === 1 && h("img", { src: getAssetPath(`assets/${this.msClass}-rank-1-active.png`) }),
+                        h("span", null, "Rank 1 Skills")),
+                    h("a", { class: { "active": this.rank === 2 }, onClick: () => this.changeRank(2), href: "javascript:void(0)" },
+                        this.rank !== 2 && h("img", { src: getAssetPath(`assets/${this.msClass}-rank-2.png`) }),
+                        this.rank === 2 && h("img", { src: getAssetPath(`assets/${this.msClass}-rank-2-active.png`) }),
+                        h("span", null, "Rank 2 Skills"))),
+                this.rank === 1 &&
+                    h("div", { class: "level-intervals" },
+                        h("div", null, "Level 1"),
+                        h("div", null, "Level 10"),
+                        h("div", null, "Level 20"),
+                        h("div", null, "Level 30"),
+                        h("div", null, "Level 40"),
+                        h("div", null, "Level 50")),
+                this.rank === 2 &&
+                    h("div", { class: "level-intervals" },
+                        h("div", null, "Level 60"),
+                        h("div", null, "Level 62"),
+                        h("div", null, "Level 64"),
+                        h("div", null, "Level 66"),
+                        h("div", null, "Level 68"),
+                        h("div", null, "Level 70"))),
+            this.rank === 1 &&
+                h("div", { class: "chart rank-1" },
+                    h("div", { class: "class-icon" },
+                        h("div", { class: "chart-class" },
+                            h("slot", { name: "rank-1" })))),
+            this.rank === 2 &&
+                h("div", { class: "chart rank-2" },
+                    h("slot", { name: "rank-2" }))));
     }
     static getStyles(msClass) {
         return `
-      ms-chart {
+      ms-chart, a {
         cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
       }
-      ms-chart:active {
+      :host, :host(:hover), ms-chart, a:hover {
+        cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
+      }
+      ms-chart:active, a:active {
         cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
-      }
-      :host, :host(:hover), ms-chart {
-        cursor: url(${getAssetPath(`assets/cursor.png`)}) 5 8, auto;
       }
       :host(:active) {
         cursor: url(${getAssetPath(`assets/cursor-down.png`)}) 5 8, auto;
       }
-      .chart {
-        background-image: url(${getAssetPath(`assets/charts/chart.jpg`)});
+      .chart-left {
+        background-image: url(${getAssetPath(`assets/charts/chart-left.jpg`)});
+      }
+      .chart-ranks a {
+        background: url(${getAssetPath(`assets/rank-holder.png`)}) center center no-repeat;
+      }
+      .chart-ranks a.active {
+        background: url(${getAssetPath(`assets/rank-holder-active.png`)}) center center no-repeat;
+      }
+      .chart.rank-1 {
+        background-image: url(${getAssetPath(`assets/charts/chart-rank-1.jpg`)});
+      }
+      .chart.rank-2 {
+        background-image: url(${getAssetPath(`assets/charts/chart-${msClass}.jpg`)});
       }
       .class-icon {
         background-image: url(${getAssetPath(`assets/charts/${msClass}-icon.png`)})
@@ -88,9 +137,43 @@ export class ChartComponent {
                 "text": ""
             },
             "attribute": "ms-class",
-            "reflect": false
+            "reflect": true
+        },
+        "rank": {
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": false,
+            "defaultValue": "1"
         }
     }; }
+    static get events() { return [{
+            "method": "onRankChanged",
+            "name": "rankChange",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            }
+        }]; }
     static get elementRef() { return "host"; }
     static get listeners() { return [{
             "name": "resize",

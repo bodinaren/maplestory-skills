@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as AssassinSkills from "../../../global/values/assassin";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { AssassinSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/assassin";
 export class AssassinComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.darkCloak = AssassinSkills.DarkCloak.minLevel;
         this.dash = AssassinSkills.Dash.minLevel;
@@ -22,6 +24,15 @@ export class AssassinComponent {
         this.starChaser = AssassinSkills.StarChaser.minLevel;
         this.starFlurry = AssassinSkills.StarFlurry.minLevel;
         this.thrownWeaponMastery = AssassinSkills.ThrownWeaponMastery.minLevel;
+        this.darkPunisher = AssassinSkills.DarkPunisher.minLevel;
+        this.redoubledPain = AssassinSkills.RedoubledPain.minLevel;
+        this.bindingPunishment = AssassinSkills.BindingPunishment.minLevel;
+        this.artOfTheShuriken = AssassinSkills.ArtOfTheShuriken.minLevel;
+        this.allInOne = AssassinSkills.AllInOne.minLevel;
+        this.darkMire = AssassinSkills.DarkMire.minLevel;
+        this.shadowStance = AssassinSkills.ShadowStance.minLevel;
+        this.artOfTheShadows = AssassinSkills.ArtOfTheShadows.minLevel;
+        this.assassinsCircle = AssassinSkills.AssassinsCircle.minLevel;
     }
     componentWillLoad() {
         processSkills(this, AssassinSkills);
@@ -39,7 +50,9 @@ export class AssassinComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, AssassinSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "assassin" }, renderLevelControls(this, AssassinSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "assassin", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-assassin"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class AssassinComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class AssassinComponent {
             "attribute": "thrown-weapon-mastery",
             "reflect": false,
             "defaultValue": "AssassinSkills.ThrownWeaponMastery.minLevel"
+        },
+        "darkPunisher": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dark-punisher",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.DarkPunisher.minLevel"
+        },
+        "redoubledPain": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "redoubled-pain",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.RedoubledPain.minLevel"
+        },
+        "bindingPunishment": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "binding-punishment",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.BindingPunishment.minLevel"
+        },
+        "artOfTheShuriken": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "art-of-the-shuriken",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.ArtOfTheShuriken.minLevel"
+        },
+        "allInOne": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "all-in-one",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.AllInOne.minLevel"
+        },
+        "darkMire": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dark-mire",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.DarkMire.minLevel"
+        },
+        "shadowStance": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "shadow-stance",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.ShadowStance.minLevel"
+        },
+        "artOfTheShadows": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "art-of-the-shadows",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.ArtOfTheShadows.minLevel"
+        },
+        "assassinsCircle": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "assassins-circle",
+            "reflect": false,
+            "defaultValue": "AssassinSkills.AssassinsCircle.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class AssassinComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

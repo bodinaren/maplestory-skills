@@ -6,7 +6,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid #2C2C2C;
   pointer-events: none;
-  font-size: 14.4px;
+  font-size: 12.5px;
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 0 3px 1px black;
@@ -101,6 +101,16 @@ p, ::slotted(*) {
 
 .description span {
   color: #0099CC;
+}
+.description mark {
+  color: #873C29;
+  background: none;
+}
+.description h3 {
+  color: #ECC400;
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0;
 }
 
 .extras {

@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as KnightSkills from "../../../global/values/knight";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { KnightSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/knight";
 export class KnightComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.bulwark = KnightSkills.Bulwark.minLevel;
         this.crossCut = KnightSkills.CrossCut.minLevel;
@@ -22,6 +24,15 @@ export class KnightComponent {
         this.tornadoSlash = KnightSkills.TornadoSlash.minLevel;
         this.typhoonSlash = KnightSkills.TyphoonSlash.minLevel;
         this.warhorn = KnightSkills.Warhorn.minLevel;
+        this.dualTactics = KnightSkills.DualTactics.minLevel;
+        this.convictionStrike = KnightSkills.ConvictionStrike.minLevel;
+        this.divineRetribution = KnightSkills.DivineRetribution.minLevel;
+        this.swordDiscipline = KnightSkills.SwordDiscipline.minLevel;
+        this.lightBringer = KnightSkills.LightBringer.minLevel;
+        this.guardiansWings = KnightSkills.GuardiansWings.minLevel;
+        this.cycloneShield = KnightSkills.CycloneShield.minLevel;
+        this.shieldTraining = KnightSkills.ShieldTraining.minLevel;
+        this.heavensJudgement = KnightSkills.HeavensJudgement.minLevel;
     }
     componentWillLoad() {
         processSkills(this, KnightSkills);
@@ -39,7 +50,9 @@ export class KnightComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, KnightSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "knight" }, renderLevelControls(this, KnightSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "knight", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-knight"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class KnightComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class KnightComponent {
             "attribute": "warhorn",
             "reflect": false,
             "defaultValue": "KnightSkills.Warhorn.minLevel"
+        },
+        "dualTactics": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dual-tactics",
+            "reflect": false,
+            "defaultValue": "KnightSkills.DualTactics.minLevel"
+        },
+        "convictionStrike": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "conviction-strike",
+            "reflect": false,
+            "defaultValue": "KnightSkills.ConvictionStrike.minLevel"
+        },
+        "divineRetribution": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "divine-retribution",
+            "reflect": false,
+            "defaultValue": "KnightSkills.DivineRetribution.minLevel"
+        },
+        "swordDiscipline": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "sword-discipline",
+            "reflect": false,
+            "defaultValue": "KnightSkills.SwordDiscipline.minLevel"
+        },
+        "lightBringer": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "light-bringer",
+            "reflect": false,
+            "defaultValue": "KnightSkills.LightBringer.minLevel"
+        },
+        "guardiansWings": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "guardians-wings",
+            "reflect": false,
+            "defaultValue": "KnightSkills.GuardiansWings.minLevel"
+        },
+        "cycloneShield": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "cyclone-shield",
+            "reflect": false,
+            "defaultValue": "KnightSkills.CycloneShield.minLevel"
+        },
+        "shieldTraining": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "shield-training",
+            "reflect": false,
+            "defaultValue": "KnightSkills.ShieldTraining.minLevel"
+        },
+        "heavensJudgement": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "heavens-judgement",
+            "reflect": false,
+            "defaultValue": "KnightSkills.HeavensJudgement.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class KnightComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

@@ -2,13 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const __chunk_1 = require('./maplestory-skills-725e8cc5.js');
-const __chunk_2 = require('./chunk-43c5115b.js');
+const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
+const __chunk_2 = require('./chunk-3cd691fe.js');
+const __chunk_3 = require('./chunk-8c3d4e0b.js');
 
 const MantraArray = {
     name: "Mantra Array",
     attr: "mantra-array",
     prop: "mantraArray",
+    rank: 1,
     row: 1,
     column: 3,
     minLevel: 1,
@@ -26,6 +28,7 @@ const Illusion = {
     name: "Illusion",
     attr: "illusion",
     prop: "illusion",
+    rank: 1,
     row: 1,
     column: 4,
     minLevel: 1,
@@ -42,6 +45,7 @@ const SoaringOrb = {
     name: "Soaring Orb",
     attr: "soaring-orb",
     prop: "soaringOrb",
+    rank: 1,
     row: 1,
     column: 1,
     minLevel: 1,
@@ -55,16 +59,17 @@ const SoaringOrb = {
     },
     description: `
     Gather energy from your surroundings to form and launch an orb at the nearest enemy
-    up to <span>7.5</span> m in front of you, dealing <span>[damage]%</span> damage.
+    up to <span>7.5</span> m in front of you, dealing <span>{damage}%</span> damage.
     Keep pressing the key to trigger a 3-hit combo.
     The third strike launches an energy orb that explodes upon collision,
-    dealing <span>[aoe]%</span> damage to <span>5</span> enemies within a <span>2.25</span> m radius.
+    dealing <span>{aoe}%</span> damage to <span>5</span> enemies within a <span>2.25</span> m radius.
   `,
 };
 const RadiantSalvo = {
     name: "Radiant Salvo",
     attr: "radiant-salvo",
     prop: "radiantSalvo",
+    rank: 1,
     row: 2,
     column: 1,
     minLevel: 1,
@@ -78,9 +83,9 @@ const RadiantSalvo = {
     },
     description: `
     Concentrate life energy in the palms of your hands, then launch a salvo of orbs at the nearest enemy
-    within <span>7.5</span> m, dealing <span>[damage]%</span> damage <span>4</span> times.
+    within <span>7.5</span> m, dealing <span>{damage}%</span> damage <span>4</span> times.
     Each orb that collides with an enemy ricochets <span>4</span> times
-    onto other enemies within a <span>3</span> m radius, dealing <span>[damage]%</span> damage.
+    onto other enemies within a <span>3</span> m radius, dealing <span>{damage}%</span> damage.
     Energy orbs do not damage the same target twice.
     Consumes <span>3</span> spirit.
   `,
@@ -89,6 +94,7 @@ const ExpansionBlast = {
     name: "Expansion Blast",
     attr: "expansion-blast",
     prop: "expansionBlast",
+    rank: 1,
     row: 3,
     column: 1,
     minLevel: 0,
@@ -111,7 +117,7 @@ const ExpansionBlast = {
     description: `
     Condense the energy of Narubashan into a powerful,
     one-meter-wide electric energy orb and shoot it <span>7.5</span> m forward,
-    dealing <span>[damage]%</span> damage to up to <span>8</span> enemies in its path.
+    dealing <span>{damage}%</span> damage to up to <span>8</span> enemies in its path.
     The orb also shocks targets, dealing an additional <span>20%</span> electric damage every sec for <span>3</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>4</span> spirit.
@@ -121,6 +127,7 @@ const FlashStrike = {
     name: "Flash Strike",
     attr: "flash-strike",
     prop: "flashStrike",
+    rank: 1,
     row: 4,
     column: 1,
     minLevel: 0,
@@ -139,7 +146,7 @@ const FlashStrike = {
     },
     description: `
     Gather light energy in your hands and fire a beam with energy force to push you back <span>1.5</span> m.
-    The light beam deals <span>[damage]%</span> damage to up
+    The light beam deals <span>{damage}%</span> damage to up
     to <span>8</span> enemies up to <span>10.5</span> m in front of you.
     Consumes <span>6</span> spirit.
   `,
@@ -148,6 +155,7 @@ const ShootingStar = {
     name: "Shooting Star",
     attr: "shooting-star",
     prop: "shootingStar",
+    rank: 1,
     row: 5,
     column: 1,
     minLevel: 0,
@@ -171,7 +179,7 @@ const ShootingStar = {
     Channel the strength of the animus to form <span>3</span> orbs infused with the
     celestral energy and launch them at enemies up to <span>8</span> m in front of you.
     The orbs will explode upon collision, spreading celestral energy over the area and dealing
-    <span>[damage]%</span> damage to up to <span>5</span> enemies within a <span>2.25</span> m radius.
+    <span>{damage}%</span> damage to up to <span>5</span> enemies within a <span>2.25</span> m radius.
     Skill effects are enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>4</span> spirit.
   `,
@@ -180,6 +188,7 @@ const ConcussionOrb = {
     name: "Concussion Orb",
     attr: "concussion-orb",
     prop: "concussionOrb",
+    rank: 1,
     row: 6,
     column: 1,
     minLevel: 0,
@@ -197,7 +206,7 @@ const ConcussionOrb = {
     description: `
     Gather energy from your surroundings to form and launch an orb
     at the nearest enemy up to <span>7.5</span> m in front of you.
-    The energy orb explodes upon collision, dealing <span>[damage]%</span> damage
+    The energy orb explodes upon collision, dealing <span>{damage}%</span> damage
     to <span>5</span> enemies within a <span>2.25</span> m radius.
     Keep pressing the trigger for a 2-hit combo.
   `,
@@ -206,6 +215,7 @@ const RagingTempest = {
     name: "Raging Tempest",
     attr: "raging-tempest",
     prop: "ragingTempest",
+    rank: 1,
     row: 3,
     column: 2,
     minLevel: 0,
@@ -226,17 +236,18 @@ const RagingTempest = {
     description: `
     Shift the flow of the atmosphere to create a whirlwind <span>6</span> m in front of you.
     The whirlwind rages every <span>0.2</span> sec for a total of <span>4</span> times,
-    dealing <span>[dot]%</span> damage to up to <span>8</span> enemies
+    dealing <span>{dot}%</span> damage to up to <span>8</span> enemies
     in a <span>3</span> m radius and gathering them at its center.
     After <span>1</span> sec, the dence energy in the eye of the whirlwind explodes,
-    dealing <span>[additionalDamage]%</span> damage to up to <span>8</span> enemies within a <span>3</span> m radius
-    and decreasing their accuracy and evasion by <span>[reduction]</span>.
+    dealing <span>{additionalDamage}%</span> damage to up to <span>8</span> enemies within a <span>3</span> m radius
+    and decreasing their accuracy and evasion by <span>{reduction}</span>.
   `,
 };
 const EnergySurge = {
     name: "Energy Surge",
     attr: "energy-surge",
     prop: "energySurge",
+    rank: 1,
     row: 4,
     column: 2,
     minLevel: 0,
@@ -257,8 +268,8 @@ const EnergySurge = {
     description: `
     Stir up earth energy, driving it toward the nearest enemy up to
     <span>8</span> m in front of you and forcing the ground upward,
-    dealing <span>[damage]%</span> damage to up to <span>8</span> enemies within a <span>2.25</span> m radius.
-    The massive quake will stun targets for <span>[stun]</span> sec.
+    dealing <span>{damage}%</span> damage to up to <span>8</span> enemies within a <span>2.25</span> m radius.
+    The massive quake will stun targets for <span>{stun}</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>5</span> spirit.
   `,
@@ -267,6 +278,7 @@ const StaticFlash = {
     name: "Static Flash",
     attr: "static-flash",
     prop: "staticFlash",
+    rank: 1,
     row: 5,
     column: 2,
     minLevel: 0,
@@ -289,8 +301,8 @@ const StaticFlash = {
     description: `
     Reverse the flow of nature's pure energy within a <span>7.5</span> m radius,
     exhausting the vitality of up to <span>8</span> enemies within range,
-    dealing <span>[damage]%</span> damage,
-    and reducing both defense and movement speed by <span>[reduction]%</span> for <span>10</span> sec.
+    dealing <span>{damage}%</span> damage,
+    and reducing both defense and movement speed by <span>{reduction}%</span> for <span>10</span> sec.
     Skill effects are activated and enhanced in proportion to the number of active Mantra Cores.
     Consumes <span>15</span> spirit.
   `,
@@ -299,6 +311,7 @@ const LightBarrier = {
     name: "Light Barrier",
     attr: "light-barrier",
     prop: "lightBarrier",
+    rank: 1,
     row: 3,
     column: 3,
     minLevel: 0,
@@ -311,7 +324,7 @@ const LightBarrier = {
     },
     description: `
     Harness your animus energy to forge a shield that lasts for <span>4</span> sec
-    and absorbs damage equivalent to <span>[damage]%</span> of your max health.
+    and absorbs damage equivalent to <span>{damage}%</span> of your max health.
     This shield does not stack with other protective shield effects.
     Consumes all Mantra Cores.
     Skill effects are enhanced in proportion to number of Mantra Cores consumed.
@@ -322,6 +335,7 @@ const HealingBond = {
     name: "Healing Bond",
     attr: "healing-bond",
     prop: "healingBond",
+    rank: 1,
     row: 4,
     column: 3,
     minLevel: 0,
@@ -338,7 +352,7 @@ const HealingBond = {
     },
     description: `
     Restore your health and the health of <span>4</span> allies within a <span>3</span> m radius
-    by <span>[health]%</span> of your magic attack by harnessing nature's pure energy.
+    by <span>{health}%</span> of your magic attack by harnessing nature's pure energy.
     Consumes all Mantra Cores.
     Skill effects are enhanced in proportion to number of Mantra Cores consumed.
     Consumes <span>12</span> spirit.
@@ -348,6 +362,7 @@ const FountOfRenewal = {
     name: "Fount of Renewal",
     attr: "fount-of-renewal",
     prop: "fountOfRenewal",
+    rank: 1,
     row: 6,
     column: 3,
     minLevel: 0,
@@ -368,9 +383,9 @@ const FountOfRenewal = {
     description: `
     Gather a field of concentrated life force <span>6</span> m ahead of you
     with a radius of <span>2.25</span> m, lasting <span>3</span> sec.
-    This field restores the health of up to <span>8</span> allies within range by <span>[health]%</span>
-    of your magic attack and increases physical and magic resistance by <span>[resistance]</span>.
-    Increases the potency of Healing Bond by <span>[healingBond]%</span>.
+    This field restores the health of up to <span>8</span> allies within range by <span>{health}%</span>
+    of your magic attack and increases physical and magic resistance by <span>{resistance}</span>.
+    Increases the potency of Healing Bond by <span>{healingBond}%</span>.
     While you are within the Fount of Renewal, you are immune to knockback from standard attacks.
   `,
 };
@@ -378,6 +393,7 @@ const OrbMastery = {
     name: "Orb Mastery",
     attr: "orb-mastery",
     prop: "orbMastery",
+    rank: 1,
     row: 3,
     column: 4,
     minLevel: 0,
@@ -389,13 +405,14 @@ const OrbMastery = {
     },
     description: `
     Harmonize more effectively with your Mantra Orbs thanks to your valuable lessons from Guidance.
-    Increase the strength of your weapon attack by <span>[attack]%</span> when you have an orb equipped.
+    Increase the strength of your weapon attack by <span>{attack}%</span> when you have an orb equipped.
   `,
 };
 const NarubashanUnleashed = {
     name: "Narubashan Unleashed",
     attr: "narubashan-unleashed",
     prop: "narubashanUnleashed",
+    rank: 1,
     row: 5,
     column: 4,
     minLevel: 0,
@@ -412,7 +429,7 @@ const NarubashanUnleashed = {
     },
     description: `
     Unleash the incredible power of Narubashan as explosive energy courses through your veins.
-    This energy automatically forms into Mantra Cores every <span>[interval]</span> sec for <span>[totalTime]</span> sec.
+    This energy automatically forms into Mantra Cores every <span>{interval}</span> sec for <span>{totalTime}</span> sec.
     No more than <span>4</span> Mantra Cores can be created.
   `,
 };
@@ -420,6 +437,7 @@ const AnimusFocus = {
     name: "Animus Focus",
     attr: "animus-focus",
     prop: "animusFocus",
+    rank: 1,
     row: 6,
     column: 4,
     minLevel: 0,
@@ -441,75 +459,375 @@ const AnimusFocus = {
     Focus the strength of animus within yourself and amplify the Mantra Core's energy.
     Increases the damage of Expansion Blast, Energy Surge, and Shooting Star
     (which activate when the maximum quantity of Mantra Cores has been achieved) by
-    <span>[damage]%</span> and increases the recovery of Healing Bond by <span>[recovery]%</span>.
+    <span>{damage}%</span> and increases the recovery of Healing Bond by <span>{recovery}%</span>.
   `,
 };
-
-const SoulBinderSkills = /*#__PURE__*/Object.freeze({
-  MantraArray: MantraArray,
-  Illusion: Illusion,
-  SoaringOrb: SoaringOrb,
-  RadiantSalvo: RadiantSalvo,
-  ExpansionBlast: ExpansionBlast,
-  FlashStrike: FlashStrike,
-  ShootingStar: ShootingStar,
-  ConcussionOrb: ConcussionOrb,
-  RagingTempest: RagingTempest,
-  EnergySurge: EnergySurge,
-  StaticFlash: StaticFlash,
-  LightBarrier: LightBarrier,
-  HealingBond: HealingBond,
-  FountOfRenewal: FountOfRenewal,
-  OrbMastery: OrbMastery,
-  NarubashanUnleashed: NarubashanUnleashed,
-  AnimusFocus: AnimusFocus
-});
+const AwakenedMantra = {
+    name: "Awakened Mantra",
+    attr: "awakened-mantra",
+    prop: "awakenedMantra",
+    rank: 2,
+    row: 1,
+    column: 4,
+    minLevel: 1,
+    maxLevel: 1,
+    cooldown: 12,
+    description: `
+    Harness your animus to create a purer form of Mantra Core.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases intelligence by <span>40</span>.
+    <br/>
+    Create up to <span>2</span>.
+    <br/>
+    Grants <mark>Awakened Mantra Core</mark>, and restores <span>50</span> spirit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Awakened Mantra Cores empower Expansion Blast, Spirit Crush, Soul Shield and Soul Harmony.
+  `,
+};
+const SpiritBound = {
+    name: "Spirit Bound",
+    attr: "spirit-bound",
+    prop: "spiritBound",
+    rank: 2,
+    row: 1,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Magic",
+    weaponRequired: "Two-handed Orb",
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        damage: [189, 189, 189, 189, 189],
+        thirdDamage: [414, 414, 414, 414, 414],
+    },
+    description: `
+    Launch a spirit orb at enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    <br/>
+    Deals <span>{thirdDamage}%</span> damage on every third cast.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    The orb bounces from enemy to enemy up to <span>3</span> times.
+    <br/>
+    Skill changes if there is only <span>1</span> enemy in range.
+  `,
+};
+const SpiritCrush = {
+    name: "Spirit Crush",
+    attr: "spirit-crush",
+    prop: "spiritCrush",
+    rank: 2,
+    row: 2,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Magic",
+    weaponRequired: "Two-handed Orb",
+    spirit: 20,
+    cooldown: 5,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: SpiritBound,
+            level: 3,
+        }],
+    values: {
+        damage: [1239, 1239, 1239, 1239, 1239],
+    },
+    description: `
+    Project spectral blades through enemeis in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra to become Spirit Gouge.
+    <br/>
+    Use Vision Torrent to turn this skill into Vision Crush.
+  `,
+};
+const VisionTorrent = {
+    name: "Vision Torrent",
+    attr: "vision-torrent",
+    prop: "visionTorrent",
+    rank: 2,
+    row: 3,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    cooldown: 60,
+    levelRequirement: [64, 64, 64, 64, 64],
+    skillRequirements: [{
+            skill: SpiritCrush,
+            level: 2,
+        }],
+    values: {
+        damage: [8, 8, 8, 8, 8],
+    },
+    description: `
+    Manifest your bond with Vision in the physical world.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases magic attack by <span>{damage}%</span> for <span>20</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Spirit Crush becomes Vision Crush.
+    <br/>
+    Flash Strike becomes Vision Strike.
+  `,
+};
+const AwakenedMind = {
+    name: "Awakened Mind",
+    attr: "awakened-mind",
+    prop: "awakenedMind",
+    rank: 2,
+    row: 5,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    passive: true,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: SpiritCrush,
+            level: 3,
+        }, {
+            skill: VisionTorrent,
+            level: 3,
+        }],
+    values: {
+        increase: [12, 12, 12, 12, 12],
+    },
+    description: `
+    Vision strengthens your mental fortitude, enhancing certain skills.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Spirit Bound, Spirit Crush, and Vision Strike by <span>{increase}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases movement speed by <span>20%</span> after using Vision Strike.
+  `,
+};
+const SoulFlock = {
+    name: "Soul Flock",
+    attr: "soul-flock",
+    prop: "soulFlock",
+    rank: 2,
+    row: 1,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Magic",
+    weaponRequired: "Two-handed Orb",
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        damage: [205, 205, 205, 205, 205],
+        defense: [1.2, 1.2, 1.2, 1.2, 1.2],
+        movement: [1.2, 1.2, 1.2, 1.2, 1.2],
+    },
+    description: `
+    Summon a flock of soul birds to attack.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>3</span> times and inflicts Lethargy.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Lethargy decreases defense by <span>{defense}%</span> and
+    movement speed by <span>{movement}%</span> for <span>20</span> sec,
+    stacking up to <span>5</span> times.
+    <br/>
+    Lethargy does not stack with Static Flash.
+  `,
+};
+const SoulShield = {
+    name: "Soul Shield",
+    attr: "soul-shield",
+    prop: "soulShield",
+    rank: 2,
+    row: 2,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Magic",
+    weaponRequired: "Two-handed Orb",
+    spirit: 50,
+    cooldown: 30,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: SoulFlock,
+            level: 3,
+        }],
+    values: {
+        damage: [80, 80, 80, 80, 80],
+        absorbs: [20, 20, 20, 20, 20],
+    },
+    description: `
+    Summons an animus cube that damages enemies and shields allies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage to enemies.
+    <br/><br/>
+    Allies receive a shield that absorbs damage equal to <span>{absorbs}%</span> of their max health
+    and lasts for <span>30</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra Core to becomes Awakened Soul Shield.
+    <br/>
+    Shields do not trigger in arenas.
+  `,
+};
+const SoulHarmony = {
+    name: "Soul Harmony",
+    attr: "soul-harmony",
+    prop: "soulHarmony",
+    rank: 2,
+    row: 4,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Magic",
+    passive: true,
+    spirit: 10,
+    levelRequirement: [66, 66, 66, 66, 66],
+    skillRequirements: [{
+            skill: SoulShield,
+            level: 3,
+        }],
+    values: {
+        health: [145, 145, 145, 145, 145],
+    },
+    description: `
+    Draw animus from your soul to heal nearby allies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.
+    Hold down the skill key to channel.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra Core to become Soul Dissonance.
+  `,
+};
+const TriuneLink = {
+    name: "Triune Link",
+    attr: "triune-link",
+    prop: "triuneLink",
+    rank: 2,
+    row: 5,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    passive: true,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: SoulHarmony,
+            level: 3,
+        }],
+    values: {
+        increase: [3, 3, 3, 3, 3],
+        soulHarmony: [5, 5, 5, 5, 5],
+    },
+    description: `
+    Strengthens the bond between the Soul Binder, Vision, and Narubashan.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Soul Flock, Soul Shield, and Soul Dissonance by <span>{increase}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases the healing of Soul Harmony by <span>{soulHarmony}%</span>.
+    <br/>
+    Soul Clash reduces an additional <span>10</span> critical evasion and <span>1</span> evasion.
+  `,
+};
+const RankOneSkills = {
+    AnimusFocus: AnimusFocus,
+    ConcussionOrb: ConcussionOrb,
+    SoaringOrb: SoaringOrb,
+    RagingTempest: RagingTempest,
+    StaticFlash: StaticFlash,
+    EnergySurge: EnergySurge,
+    ExpansionBlast: ExpansionBlast,
+    FlashStrike: FlashStrike,
+    Illusion: Illusion,
+    HealingBond: HealingBond,
+    MantraArray: MantraArray,
+    NarubashanUnleashed: NarubashanUnleashed,
+    OrbMastery: OrbMastery,
+    RadiantSalvo: RadiantSalvo,
+    ShootingStar: ShootingStar,
+    LightBarrier: LightBarrier,
+    FountOfRenewal: FountOfRenewal,
+};
+const RankTwoSkills = {
+    AwakenedMantra: AwakenedMantra,
+    SpiritBound: SpiritBound,
+    SpiritCrush: SpiritCrush,
+    VisionTorrent: VisionTorrent,
+    AwakenedMind: AwakenedMind,
+    SoulFlock: SoulFlock,
+    SoulShield: SoulShield,
+    SoulHarmony: SoulHarmony,
+    TriuneLink: TriuneLink,
+};
+const SoulBinderSkills = Object.assign({}, RankOneSkills, RankTwoSkills);
 
 class SoulBinderComponent {
     constructor(hostRef) {
         __chunk_1.registerInstance(this, hostRef);
         this.editable = false;
+        this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
-        this.animusFocus = AnimusFocus.minLevel;
-        this.concussionOrb = ConcussionOrb.minLevel;
-        this.soaringOrb = SoaringOrb.minLevel;
-        this.ragingTempest = RagingTempest.minLevel;
-        this.staticFlash = StaticFlash.minLevel;
-        this.energySurge = EnergySurge.minLevel;
-        this.expansionBlast = ExpansionBlast.minLevel;
-        this.flashStrike = FlashStrike.minLevel;
-        this.illusion = Illusion.minLevel;
-        this.healingBond = HealingBond.minLevel;
-        this.mantraArray = MantraArray.minLevel;
-        this.narubashanUnleashed = NarubashanUnleashed.minLevel;
-        this.orbMastery = OrbMastery.minLevel;
-        this.radiantSalvo = RadiantSalvo.minLevel;
-        this.shootingStar = ShootingStar.minLevel;
-        this.lightBarrier = LightBarrier.minLevel;
-        this.fountOfRenewal = FountOfRenewal.minLevel;
+        this.animusFocus = SoulBinderSkills.AnimusFocus.minLevel;
+        this.concussionOrb = SoulBinderSkills.ConcussionOrb.minLevel;
+        this.soaringOrb = SoulBinderSkills.SoaringOrb.minLevel;
+        this.ragingTempest = SoulBinderSkills.RagingTempest.minLevel;
+        this.staticFlash = SoulBinderSkills.StaticFlash.minLevel;
+        this.energySurge = SoulBinderSkills.EnergySurge.minLevel;
+        this.expansionBlast = SoulBinderSkills.ExpansionBlast.minLevel;
+        this.flashStrike = SoulBinderSkills.FlashStrike.minLevel;
+        this.illusion = SoulBinderSkills.Illusion.minLevel;
+        this.healingBond = SoulBinderSkills.HealingBond.minLevel;
+        this.mantraArray = SoulBinderSkills.MantraArray.minLevel;
+        this.narubashanUnleashed = SoulBinderSkills.NarubashanUnleashed.minLevel;
+        this.orbMastery = SoulBinderSkills.OrbMastery.minLevel;
+        this.radiantSalvo = SoulBinderSkills.RadiantSalvo.minLevel;
+        this.shootingStar = SoulBinderSkills.ShootingStar.minLevel;
+        this.lightBarrier = SoulBinderSkills.LightBarrier.minLevel;
+        this.fountOfRenewal = SoulBinderSkills.FountOfRenewal.minLevel;
+        this.awakenedMantra = SoulBinderSkills.AwakenedMantra.minLevel;
+        this.spiritBound = SoulBinderSkills.SpiritBound.minLevel;
+        this.spiritCrush = SoulBinderSkills.SpiritCrush.minLevel;
+        this.visionTorrent = SoulBinderSkills.VisionTorrent.minLevel;
+        this.awakenedMind = SoulBinderSkills.AwakenedMind.minLevel;
+        this.soulFlock = SoulBinderSkills.SoulFlock.minLevel;
+        this.soulShield = SoulBinderSkills.SoulShield.minLevel;
+        this.soulHarmony = SoulBinderSkills.SoulHarmony.minLevel;
+        this.triuneLink = SoulBinderSkills.TriuneLink.minLevel;
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        __chunk_2.processSkills(this, SoulBinderSkills);
+        __chunk_3.processSkills(this, SoulBinderSkills);
     }
     async getData() {
-        return __chunk_2.toSkillChangeEventObject(this, SoulBinderSkills);
+        return __chunk_3.toSkillChangeEventObject(this, SoulBinderSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_2.processSkills(this, SoulBinderSkills, skill);
+        __chunk_3.processSkills(this, SoulBinderSkills, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
-        this.onSkillChanged.emit(__chunk_2.toSkillChangeEventObject(this, SoulBinderSkills));
+        this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, SoulBinderSkills));
     }
     render() {
-        return (__chunk_1.h("ms-chart", { msClass: "soul-binder" }, __chunk_2.renderLevelControls(this, SoulBinderSkills, this.editable, this.extras)));
+        return (__chunk_1.h("ms-chart", { msClass: "soul-binder", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail }, __chunk_3.renderLevelControls(this, RankOneSkills, this.editable, this.extras, __chunk_2.Rank.Basic), __chunk_3.renderLevelControls(this, RankTwoSkills, this.editable, this.extras, __chunk_2.Rank.Awakening)));
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
-        "extras": ["emitChangeEvent"]
+        "extras": ["emitChangeEvent"],
+        "rank": ["emitChangeEvent"]
     }; }
     static get style() { return ":host{display:block}"; }
 }

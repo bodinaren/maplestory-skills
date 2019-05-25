@@ -5,6 +5,7 @@ import { Sigil } from "./runeblade-sigil";
 export declare class RunebladeComponent implements IChart {
     host: HTMLMsRunebladeElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     sigil: Sigil;
     bladeChasm: number;
@@ -24,10 +25,21 @@ export declare class RunebladeComponent implements IChart {
     stormSigil: number;
     wardingRune: number;
     whirlingBlades: number;
+    physicalBoost: number;
+    quintupleCut: number;
+    bladeWhip: number;
+    bladeExpert: number;
+    phantasmSlash: number;
+    runeTrigger: number;
+    dimensionBlade: number;
+    runeExpert: number;
+    runeIgnition: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     styles: typeof RunebladeComponent.getStyles;
     private runebladeSkills;
+    private rankOneSkills;
+    private rankTwoSkills;
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
@@ -35,5 +47,6 @@ export declare class RunebladeComponent implements IChart {
     render(): any[];
     private changeSigil;
     private updateSigil;
+    private updateSkill;
     private static getStyles;
 }

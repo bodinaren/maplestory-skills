@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class AssassinComponent implements IChart {
     host: HTMLMsAssassinElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     darkCloak: number;
     dash: number;
@@ -22,6 +23,15 @@ export declare class AssassinComponent implements IChart {
     starChaser: number;
     starFlurry: number;
     thrownWeaponMastery: number;
+    darkPunisher: number;
+    redoubledPain: number;
+    bindingPunishment: number;
+    artOfTheShuriken: number;
+    allInOne: number;
+    darkMire: number;
+    shadowStance: number;
+    artOfTheShadows: number;
+    assassinsCircle: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

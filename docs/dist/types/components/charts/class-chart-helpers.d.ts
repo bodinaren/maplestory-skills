@@ -1,5 +1,5 @@
 import { EventEmitter } from "..\..\stencil.core";
-import { ISkill, IClassSkills } from "../../global/values/_skillValues.interfaces";
+import { IClassSkills, ISkillBase, Rank } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 /**
  * Verify that all distributed points are valid and correct incorrect ones.
@@ -9,9 +9,9 @@ import { ISkillChangeEvent } from "./skill-change-event";
  * @param classSkills All the skills for the relevant class
  * @param skillChanged Which skill has changed, if any.
  */
-export declare function processSkills(chart: IChart, classSkills: IClassSkills, skillChanged?: ISkill): void;
+export declare function processSkills(chart: IChart, classSkills: IClassSkills, skillChanged?: ISkillBase): void;
 export declare function toggleSkillRequirements(chart: any, skill: any, setActive: boolean): void;
-export declare function renderLevelControls(chart: IChart, classSkills: IClassSkills, editable: boolean, extras?: boolean, additionalArgs?: any): any[];
+export declare function renderLevelControls(chart: IChart, classSkills: IClassSkills, editable: boolean, extras?: boolean, rank?: Rank, additionalArgs?: any): any[];
 export declare function toSkillChangeEventObject(chart: any, classSkills: IClassSkills, other?: {
     [key: string]: string;
 }): ISkillChangeEvent;
@@ -21,7 +21,7 @@ export interface IChart {
     onSkillChanged: EventEmitter;
     skills: IChartSkills;
     getData(): Promise<ISkillChangeEvent>;
-    levelChanged(skill: ISkill, level: number): void;
+    levelChanged(skill: ISkillBase, level: number): void;
 }
 export interface IChartSkills {
     [prop: string]: {

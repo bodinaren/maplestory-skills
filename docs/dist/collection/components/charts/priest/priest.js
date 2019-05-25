@@ -1,9 +1,11 @@
 import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as PriestSkills from "../../../global/values/priest";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { PriestSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/priest";
 export class PriestComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.heavenlyWings = PriestSkills.HeavenlyWings.minLevel;
         this.steadfastFaith = PriestSkills.SteadfastFaith.minLevel;
@@ -22,6 +24,15 @@ export class PriestComponent {
         this.smitingAura = PriestSkills.SmitingAura.minLevel;
         this.disciple = PriestSkills.Disciple.minLevel;
         this.angelicRay = PriestSkills.AngelicRay.minLevel;
+        this.lifesGuardian = PriestSkills.LifesGuardian.minLevel;
+        this.scathingLight = PriestSkills.ScathingLight.minLevel;
+        this.lightSpear = PriestSkills.LightSpear.minLevel;
+        this.clarity = PriestSkills.Clarity.minLevel;
+        this.heavensWrath = PriestSkills.HeavensWrath.minLevel;
+        this.purifyingLight = PriestSkills.PurifyingLight.minLevel;
+        this.divineWave = PriestSkills.DivineWave.minLevel;
+        this.greaterHealing = PriestSkills.GreaterHealing.minLevel;
+        this.vitality = PriestSkills.Vitality.minLevel;
     }
     componentWillLoad() {
         processSkills(this, PriestSkills);
@@ -39,7 +50,9 @@ export class PriestComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "priest" }, renderLevelControls(this, PriestSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "priest", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+            renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic),
+            renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     static get is() { return "ms-priest"; }
     static get encapsulation() { return "shadow"; }
@@ -67,6 +80,24 @@ export class PriestComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -391,6 +422,168 @@ export class PriestComponent {
             "attribute": "angelic-ray",
             "reflect": false,
             "defaultValue": "PriestSkills.AngelicRay.minLevel"
+        },
+        "lifesGuardian": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "lifes-guardian",
+            "reflect": false,
+            "defaultValue": "PriestSkills.LifesGuardian.minLevel"
+        },
+        "scathingLight": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "scathing-light",
+            "reflect": false,
+            "defaultValue": "PriestSkills.ScathingLight.minLevel"
+        },
+        "lightSpear": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "light-spear",
+            "reflect": false,
+            "defaultValue": "PriestSkills.LightSpear.minLevel"
+        },
+        "clarity": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "clarity",
+            "reflect": false,
+            "defaultValue": "PriestSkills.Clarity.minLevel"
+        },
+        "heavensWrath": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "heavens-wrath",
+            "reflect": false,
+            "defaultValue": "PriestSkills.HeavensWrath.minLevel"
+        },
+        "purifyingLight": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "purifying-light",
+            "reflect": false,
+            "defaultValue": "PriestSkills.PurifyingLight.minLevel"
+        },
+        "divineWave": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "divine-wave",
+            "reflect": false,
+            "defaultValue": "PriestSkills.DivineWave.minLevel"
+        },
+        "greaterHealing": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "greater-healing",
+            "reflect": false,
+            "defaultValue": "PriestSkills.GreaterHealing.minLevel"
+        },
+        "vitality": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "vitality",
+            "reflect": false,
+            "defaultValue": "PriestSkills.Vitality.minLevel"
         }
     }; }
     static get states() { return {
@@ -436,6 +629,9 @@ export class PriestComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

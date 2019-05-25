@@ -6,7 +6,6 @@
 
 
 import { HTMLStencilElement, JSXBase } from './stencil.core';
-import { JSX } from './stencil.core';
 import {
   Sigil,
 } from './components/charts/runeblade/runeblade-sigil';
@@ -18,6 +17,7 @@ import {
 export namespace Components {
   interface MsArcher {
     'agileArcher': number;
+    'archersSecrets': number;
     'arrowBarrage': number;
     'arrowStorm': number;
     'arrowStream': number;
@@ -30,16 +30,32 @@ export namespace Components {
     'editable': boolean;
     'evasiveSalvo': number;
     'extras': boolean;
+    'flameArrow': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'greaterSharpEyes': number;
+    'hastersTeachings': number;
     'iceArrow': number;
+    'improvedGliding': number;
+    'multiDriveShot': number;
+    'piercingArrow': number;
     'precisionShooter': number;
+    'rangersFocus': number;
+    'rank': number;
     'rapidShot': number;
     'screwdriverShot': number;
     'sharpEyes': number;
     'snipe': number;
+    'spiralArrow': number;
   }
   interface MsAssassin {
+    'allInOne': number;
+    'artOfTheShadows': number;
+    'artOfTheShuriken': number;
+    'assassinsCircle': number;
+    'bindingPunishment': number;
     'darkCloak': number;
+    'darkMire': number;
+    'darkPunisher': number;
     'dash': number;
     'deathSentence': number;
     'editable': boolean;
@@ -50,10 +66,13 @@ export namespace Components {
     'luckyStars': number;
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
+    'rank': number;
+    'redoubledPain': number;
     'shadowArts': number;
     'shadowBurst': number;
     'shadowChaser': number;
     'shadowCutter': number;
+    'shadowStance': number;
     'shadowWeb': number;
     'soulGrind': number;
     'starChaser': number;
@@ -62,7 +81,10 @@ export namespace Components {
   }
   interface MsBerserker {
     'adrenalineRush': number;
+    'aerialSmash': number;
+    'bloodFury': number;
     'bloodPrice': number;
+    'bloodSlash': number;
     'bloodlust': number;
     'darkAura': number;
     'darkBreaker': number;
@@ -75,15 +97,23 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'greatswordMastery': number;
     'groundBreaker': number;
+    'infiniteDarkness': number;
     'inhumanEndurance': number;
     'intimidation': number;
+    'parryTheMoon': number;
     'ragingSlash': number;
+    'ragingSoul': number;
+    'rank': number;
+    'rendWound': number;
+    'skullSplitter': number;
+    'squall': number;
     'voidSlash': number;
     'warriorsInstinct': number;
     'xSlash': number;
   }
   interface MsChart {
     'msClass': string;
+    'rank': number;
   }
   interface MsExtraCounter {
     'editor'?: string;
@@ -98,19 +128,29 @@ export namespace Components {
     'advancedPulseWeapons': number;
     'blastChargeKit': number;
     'bulletSpray': number;
+    'demolitionCannon': number;
     'editable': boolean;
     'electricBlast': number;
     'extras': boolean;
+    'fireBomber': number;
+    'focusedFire': number;
     'gatlingFire': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'homingMissiles': number;
+    'hyperGigaCannon': number;
     'jetBoots': number;
     'lockOn': number;
     'mBomb': number;
     'magneticBomb': number;
     'medKit': number;
+    'missileSupercharger': number;
+    'mobileArmory': number;
+    'plasmaChain': number;
+    'plasmaSupercharger': number;
+    'rank': number;
     'reload': number;
     'rocketLauncher': number;
+    'skyHunter': number;
     'stunGrenades': number;
     'suborbitalBombardment': number;
   }
@@ -120,22 +160,32 @@ export namespace Components {
   }
   interface MsKnight {
     'bulwark': number;
+    'convictionStrike': number;
     'crossCut': number;
+    'cycloneShield': number;
     'defenderOfTheFaith': number;
+    'divineRetribution': number;
     'divineStrike': number;
     'drillThrust': number;
+    'dualTactics': number;
     'editable': boolean;
     'extras': boolean;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'guardiansWings': number;
+    'heavensJudgement': number;
     'ironDefense': number;
     'ironShield': number;
+    'lightBringer': number;
     'longswordMastery': number;
+    'rank': number;
     'shieldBooster': number;
     'shieldCharge': number;
     'shieldMastery': number;
     'shieldToss': number;
+    'shieldTraining': number;
     'shieldWall': number;
     'stingingFlurry': number;
+    'swordDiscipline': number;
     'tornadoSlash': number;
     'typhoonSlash': number;
     'warhorn': number;
@@ -145,27 +195,40 @@ export namespace Components {
     'celestialBlessings': number;
     'celestialGuardian': number;
     'celestialLight': number;
+    'clarity': number;
     'disciple': number;
+    'divineWave': number;
     'editable': boolean;
     'extras': boolean;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'greaterHealing': number;
     'healingMastery': number;
     'healingPrayer': number;
     'heavenlyWings': number;
+    'heavensWrath': number;
     'holyBlast': number;
     'holyRelic': number;
     'holySymbol': number;
+    'lifesGuardian': number;
+    'lightSpear': number;
+    'purifyingLight': number;
+    'rank': number;
     'sanctuary': number;
+    'scathingLight': number;
     'scepterMastery': number;
     'scourgingWave': number;
     'shieldOfTheArchon': number;
     'smitingAura': number;
     'steadfastFaith': number;
+    'vitality': number;
   }
   interface MsRuneblade {
     'bladeChasm': number;
+    'bladeExpert': number;
     'bladeMastery': number;
+    'bladeWhip': number;
     'blink': number;
+    'dimensionBlade': number;
     'echoingBlade': number;
     'editable': boolean;
     'elementalPotency': number;
@@ -178,8 +241,15 @@ export namespace Components {
     'honingRunes': number;
     'illusoryBlades': number;
     'impact': number;
+    'phantasmSlash': number;
+    'physicalBoost': number;
+    'quintupleCut': number;
+    'rank': number;
     'runeBalance': number;
+    'runeExpert': number;
     'runeFocus': number;
+    'runeIgnition': number;
+    'runeTrigger': number;
     'sigil': Sigil;
     'stormSigil': number;
     'wardingRune': number;
@@ -204,6 +274,8 @@ export namespace Components {
   }
   interface MsSoulBinder {
     'animusFocus': number;
+    'awakenedMantra': number;
+    'awakenedMind': number;
     'concussionOrb': number;
     'editable': boolean;
     'energySurge': number;
@@ -220,12 +292,21 @@ export namespace Components {
     'orbMastery': number;
     'radiantSalvo': number;
     'ragingTempest': number;
+    'rank': number;
     'shootingStar': number;
     'soaringOrb': number;
+    'soulFlock': number;
+    'soulHarmony': number;
+    'soulShield': number;
+    'spiritBound': number;
+    'spiritCrush': number;
     'staticFlash': number;
+    'triuneLink': number;
+    'visionTorrent': number;
   }
   interface MsStriker {
     'beatdown': number;
+    'doubleFistSmash': number;
     'dragonKick': number;
     'editable': boolean;
     'extras': boolean;
@@ -240,15 +321,28 @@ export namespace Components {
     'knuckleMissile': number;
     'magnumBlow': number;
     'maharPunch': number;
+    'meridianFlow': number;
     'overcome': number;
     'paceControl': number;
     'patternBreak': number;
     'powerPuncher': number;
+    'rainingBlows': number;
+    'rank': number;
     'risingKick': number;
+    'setupKick': number;
+    'shockwavePunch': number;
+    'spinKick': number;
+    'spiralCannon': number;
+    'tauntingFeint': number;
+    'vulcanPunch': number;
   }
   interface MsThief {
+    'battlePlan': number;
+    'battleStep': number;
     'bladeDance': number;
+    'criticalSlice': number;
     'cunningTactics': number;
+    'deadlyStrikes': number;
     'deftCombatant': number;
     'doubleSlash': number;
     'editable': boolean;
@@ -259,34 +353,50 @@ export namespace Components {
     'mindBreaker': number;
     'mindStealer': number;
     'poisonEdge': number;
+    'poisonMaster': number;
     'poisonVial': number;
     'quickStep': number;
+    'rank': number;
     'retaliation': number;
     'ruthlessGuile': number;
+    'savageStrikes': number;
+    'shadowStep': number;
     'somersaultKick': number;
     'spiritThief': number;
     'surpriseAttack': number;
+    'vengeance': number;
     'viciousCuts': number;
+    'volatileVials': number;
   }
   interface MsWizard {
     'arcaneBlast': number;
+    'barbecueParty': number;
     'chainLightning': number;
     'cryomancy': number;
+    'dualCast': number;
     'editable': boolean;
     'electromancy': number;
     'elementalMaster': number;
+    'ember': number;
     'extras': boolean;
     'flameTornado': number;
     'flameWave': number;
     'focusSeal': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'iceCreamTime': number;
     'iceSpear': number;
     'iceStorm': number;
+    'littleMeteor': number;
+    'lodestoneField': number;
     'magicArmor': number;
     'manaClaw': number;
+    'manaControl': number;
     'manaFont': number;
+    'perfectStorm': number;
     'phantomClaw': number;
+    'playingWithFire': number;
     'pyromancy': number;
+    'rank': number;
     'teleport': number;
     'thunderbolt': number;
   }
@@ -295,6 +405,7 @@ export namespace Components {
 declare namespace LocalJSX {
   interface MsArcher extends JSXBase.HTMLAttributes {
     'agileArcher'?: number;
+    'archersSecrets'?: number;
     'arrowBarrage'?: number;
     'arrowStorm'?: number;
     'arrowStream'?: number;
@@ -307,16 +418,32 @@ declare namespace LocalJSX {
     'editable'?: boolean;
     'evasiveSalvo'?: number;
     'extras'?: boolean;
+    'flameArrow'?: number;
+    'greaterSharpEyes'?: number;
+    'hastersTeachings'?: number;
     'iceArrow'?: number;
+    'improvedGliding'?: number;
+    'multiDriveShot'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'piercingArrow'?: number;
     'precisionShooter'?: number;
+    'rangersFocus'?: number;
+    'rank'?: number;
     'rapidShot'?: number;
     'screwdriverShot'?: number;
     'sharpEyes'?: number;
     'snipe'?: number;
+    'spiralArrow'?: number;
   }
   interface MsAssassin extends JSXBase.HTMLAttributes {
+    'allInOne'?: number;
+    'artOfTheShadows'?: number;
+    'artOfTheShuriken'?: number;
+    'assassinsCircle'?: number;
+    'bindingPunishment'?: number;
     'darkCloak'?: number;
+    'darkMire'?: number;
+    'darkPunisher'?: number;
     'dash'?: number;
     'deathSentence'?: number;
     'editable'?: boolean;
@@ -327,10 +454,13 @@ declare namespace LocalJSX {
     'markOfDeath'?: number;
     'mirrorImageDarkBlade'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
+    'redoubledPain'?: number;
     'shadowArts'?: number;
     'shadowBurst'?: number;
     'shadowChaser'?: number;
     'shadowCutter'?: number;
+    'shadowStance'?: number;
     'shadowWeb'?: number;
     'soulGrind'?: number;
     'starChaser'?: number;
@@ -339,7 +469,10 @@ declare namespace LocalJSX {
   }
   interface MsBerserker extends JSXBase.HTMLAttributes {
     'adrenalineRush'?: number;
+    'aerialSmash'?: number;
+    'bloodFury'?: number;
     'bloodPrice'?: number;
+    'bloodSlash'?: number;
     'bloodlust'?: number;
     'darkAura'?: number;
     'darkBreaker'?: number;
@@ -351,16 +484,25 @@ declare namespace LocalJSX {
     'extras'?: boolean;
     'greatswordMastery'?: number;
     'groundBreaker'?: number;
+    'infiniteDarkness'?: number;
     'inhumanEndurance'?: number;
     'intimidation'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'parryTheMoon'?: number;
     'ragingSlash'?: number;
+    'ragingSoul'?: number;
+    'rank'?: number;
+    'rendWound'?: number;
+    'skullSplitter'?: number;
+    'squall'?: number;
     'voidSlash'?: number;
     'warriorsInstinct'?: number;
     'xSlash'?: number;
   }
   interface MsChart extends JSXBase.HTMLAttributes {
     'msClass'?: string;
+    'onRankChange'?: (event: CustomEvent<number>) => void;
+    'rank'?: number;
   }
   interface MsExtraCounter extends JSXBase.HTMLAttributes {
     'editor'?: string;
@@ -375,19 +517,29 @@ declare namespace LocalJSX {
     'advancedPulseWeapons'?: number;
     'blastChargeKit'?: number;
     'bulletSpray'?: number;
+    'demolitionCannon'?: number;
     'editable'?: boolean;
     'electricBlast'?: number;
     'extras'?: boolean;
+    'fireBomber'?: number;
+    'focusedFire'?: number;
     'gatlingFire'?: number;
     'homingMissiles'?: number;
+    'hyperGigaCannon'?: number;
     'jetBoots'?: number;
     'lockOn'?: number;
     'mBomb'?: number;
     'magneticBomb'?: number;
     'medKit'?: number;
+    'missileSupercharger'?: number;
+    'mobileArmory'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'plasmaChain'?: number;
+    'plasmaSupercharger'?: number;
+    'rank'?: number;
     'reload'?: number;
     'rocketLauncher'?: number;
+    'skyHunter'?: number;
     'stunGrenades'?: number;
     'suborbitalBombardment'?: number;
   }
@@ -397,22 +549,32 @@ declare namespace LocalJSX {
   }
   interface MsKnight extends JSXBase.HTMLAttributes {
     'bulwark'?: number;
+    'convictionStrike'?: number;
     'crossCut'?: number;
+    'cycloneShield'?: number;
     'defenderOfTheFaith'?: number;
+    'divineRetribution'?: number;
     'divineStrike'?: number;
     'drillThrust'?: number;
+    'dualTactics'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
+    'guardiansWings'?: number;
+    'heavensJudgement'?: number;
     'ironDefense'?: number;
     'ironShield'?: number;
+    'lightBringer'?: number;
     'longswordMastery'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
     'shieldBooster'?: number;
     'shieldCharge'?: number;
     'shieldMastery'?: number;
     'shieldToss'?: number;
+    'shieldTraining'?: number;
     'shieldWall'?: number;
     'stingingFlurry'?: number;
+    'swordDiscipline'?: number;
     'tornadoSlash'?: number;
     'typhoonSlash'?: number;
     'warhorn'?: number;
@@ -422,27 +584,40 @@ declare namespace LocalJSX {
     'celestialBlessings'?: number;
     'celestialGuardian'?: number;
     'celestialLight'?: number;
+    'clarity'?: number;
     'disciple'?: number;
+    'divineWave'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
+    'greaterHealing'?: number;
     'healingMastery'?: number;
     'healingPrayer'?: number;
     'heavenlyWings'?: number;
+    'heavensWrath'?: number;
     'holyBlast'?: number;
     'holyRelic'?: number;
     'holySymbol'?: number;
+    'lifesGuardian'?: number;
+    'lightSpear'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'purifyingLight'?: number;
+    'rank'?: number;
     'sanctuary'?: number;
+    'scathingLight'?: number;
     'scepterMastery'?: number;
     'scourgingWave'?: number;
     'shieldOfTheArchon'?: number;
     'smitingAura'?: number;
     'steadfastFaith'?: number;
+    'vitality'?: number;
   }
   interface MsRuneblade extends JSXBase.HTMLAttributes {
     'bladeChasm'?: number;
+    'bladeExpert'?: number;
     'bladeMastery'?: number;
+    'bladeWhip'?: number;
     'blink'?: number;
+    'dimensionBlade'?: number;
     'echoingBlade'?: number;
     'editable'?: boolean;
     'elementalPotency'?: number;
@@ -455,8 +630,15 @@ declare namespace LocalJSX {
     'illusoryBlades'?: number;
     'impact'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'phantasmSlash'?: number;
+    'physicalBoost'?: number;
+    'quintupleCut'?: number;
+    'rank'?: number;
     'runeBalance'?: number;
+    'runeExpert'?: number;
     'runeFocus'?: number;
+    'runeIgnition'?: number;
+    'runeTrigger'?: number;
     'sigil'?: Sigil;
     'stormSigil'?: number;
     'wardingRune'?: number;
@@ -483,6 +665,8 @@ declare namespace LocalJSX {
   }
   interface MsSoulBinder extends JSXBase.HTMLAttributes {
     'animusFocus'?: number;
+    'awakenedMantra'?: number;
+    'awakenedMind'?: number;
     'concussionOrb'?: number;
     'editable'?: boolean;
     'energySurge'?: number;
@@ -499,12 +683,21 @@ declare namespace LocalJSX {
     'orbMastery'?: number;
     'radiantSalvo'?: number;
     'ragingTempest'?: number;
+    'rank'?: number;
     'shootingStar'?: number;
     'soaringOrb'?: number;
+    'soulFlock'?: number;
+    'soulHarmony'?: number;
+    'soulShield'?: number;
+    'spiritBound'?: number;
+    'spiritCrush'?: number;
     'staticFlash'?: number;
+    'triuneLink'?: number;
+    'visionTorrent'?: number;
   }
   interface MsStriker extends JSXBase.HTMLAttributes {
     'beatdown'?: number;
+    'doubleFistSmash'?: number;
     'dragonKick'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
@@ -518,16 +711,29 @@ declare namespace LocalJSX {
     'knuckleMissile'?: number;
     'magnumBlow'?: number;
     'maharPunch'?: number;
+    'meridianFlow'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'overcome'?: number;
     'paceControl'?: number;
     'patternBreak'?: number;
     'powerPuncher'?: number;
+    'rainingBlows'?: number;
+    'rank'?: number;
     'risingKick'?: number;
+    'setupKick'?: number;
+    'shockwavePunch'?: number;
+    'spinKick'?: number;
+    'spiralCannon'?: number;
+    'tauntingFeint'?: number;
+    'vulcanPunch'?: number;
   }
   interface MsThief extends JSXBase.HTMLAttributes {
+    'battlePlan'?: number;
+    'battleStep'?: number;
     'bladeDance'?: number;
+    'criticalSlice'?: number;
     'cunningTactics'?: number;
+    'deadlyStrikes'?: number;
     'deftCombatant'?: number;
     'doubleSlash'?: number;
     'editable'?: boolean;
@@ -538,34 +744,50 @@ declare namespace LocalJSX {
     'mindStealer'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'poisonEdge'?: number;
+    'poisonMaster'?: number;
     'poisonVial'?: number;
     'quickStep'?: number;
+    'rank'?: number;
     'retaliation'?: number;
     'ruthlessGuile'?: number;
+    'savageStrikes'?: number;
+    'shadowStep'?: number;
     'somersaultKick'?: number;
     'spiritThief'?: number;
     'surpriseAttack'?: number;
+    'vengeance'?: number;
     'viciousCuts'?: number;
+    'volatileVials'?: number;
   }
   interface MsWizard extends JSXBase.HTMLAttributes {
     'arcaneBlast'?: number;
+    'barbecueParty'?: number;
     'chainLightning'?: number;
     'cryomancy'?: number;
+    'dualCast'?: number;
     'editable'?: boolean;
     'electromancy'?: number;
     'elementalMaster'?: number;
+    'ember'?: number;
     'extras'?: boolean;
     'flameTornado'?: number;
     'flameWave'?: number;
     'focusSeal'?: number;
+    'iceCreamTime'?: number;
     'iceSpear'?: number;
     'iceStorm'?: number;
+    'littleMeteor'?: number;
+    'lodestoneField'?: number;
     'magicArmor'?: number;
     'manaClaw'?: number;
+    'manaControl'?: number;
     'manaFont'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'perfectStorm'?: number;
     'phantomClaw'?: number;
+    'playingWithFire'?: number;
     'pyromancy'?: number;
+    'rank'?: number;
     'teleport'?: number;
     'thunderbolt'?: number;
   }

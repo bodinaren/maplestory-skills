@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class HeavyGunnerComponent implements IChart {
     host: HTMLMsHeavyGunnerElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     advancedBullets: number;
     advancedMissiles: number;
@@ -22,6 +23,15 @@ export declare class HeavyGunnerComponent implements IChart {
     rocketLauncher: number;
     stunGrenades: number;
     suborbitalBombardment: number;
+    mobileArmory: number;
+    focusedFire: number;
+    fireBomber: number;
+    missileSupercharger: number;
+    demolitionCannon: number;
+    plasmaChain: number;
+    skyHunter: number;
+    plasmaSupercharger: number;
+    hyperGigaCannon: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

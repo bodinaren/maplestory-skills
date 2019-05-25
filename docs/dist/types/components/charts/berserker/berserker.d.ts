@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class BerserkerComponent implements IChart {
     host: HTMLMsBerserkerElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     adrenalineRush: number;
     bloodPrice: number;
@@ -22,6 +23,15 @@ export declare class BerserkerComponent implements IChart {
     voidSlash: number;
     warriorsInstinct: number;
     xSlash: number;
+    infiniteDarkness: number;
+    skullSplitter: number;
+    bloodFury: number;
+    parryTheMoon: number;
+    aerialSmash: number;
+    squall: number;
+    rendWound: number;
+    ragingSoul: number;
+    bloodSlash: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

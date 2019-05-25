@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class StrikerComponent implements IChart {
     host: HTMLMsStrikerElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     beatdown: number;
     dragonKick: number;
@@ -22,6 +23,15 @@ export declare class StrikerComponent implements IChart {
     patternBreak: number;
     powerPuncher: number;
     risingKick: number;
+    rainingBlows: number;
+    shockwavePunch: number;
+    vulcanPunch: number;
+    doubleFistSmash: number;
+    meridianFlow: number;
+    setupKick: number;
+    spiralCannon: number;
+    spinKick: number;
+    tauntingFeint: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class ThiefComponent implements IChart {
     host: HTMLMsThiefElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     bladeDance: number;
     cunningTactics: number;
@@ -22,6 +23,15 @@ export declare class ThiefComponent implements IChart {
     spiritThief: number;
     surpriseAttack: number;
     viciousCuts: number;
+    vengeance: number;
+    savageStrikes: number;
+    battlePlan: number;
+    poisonMaster: number;
+    volatileVials: number;
+    criticalSlice: number;
+    battleStep: number;
+    shadowStep: number;
+    deadlyStrikes: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

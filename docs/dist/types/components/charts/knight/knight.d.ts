@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class KnightComponent implements IChart {
     host: HTMLMsKnightElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     bulwark: number;
     crossCut: number;
@@ -22,6 +23,15 @@ export declare class KnightComponent implements IChart {
     tornadoSlash: number;
     typhoonSlash: number;
     warhorn: number;
+    dualTactics: number;
+    convictionStrike: number;
+    divineRetribution: number;
+    swordDiscipline: number;
+    lightBringer: number;
+    guardiansWings: number;
+    cycloneShield: number;
+    shieldTraining: number;
+    heavensJudgement: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

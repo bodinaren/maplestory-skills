@@ -1,10 +1,12 @@
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-a851053c.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-9300d32f.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { a as Rank } from './chunk-7c277b0f.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
 
 const Reload = {
     name: "Reload",
     attr: "reload",
     prop: "reload",
+    rank: 1,
     row: 1,
     column: 3,
     minLevel: 1,
@@ -22,6 +24,7 @@ const JetBoots = {
     name: "Jet Boots",
     attr: "jet-boots",
     prop: "jetBoots",
+    rank: 1,
     row: 1,
     column: 4,
     minLevel: 1,
@@ -38,6 +41,7 @@ const BulletSpray = {
     name: "Bullet Spray",
     attr: "bullet-spray",
     prop: "bulletSpray",
+    rank: 1,
     row: 1,
     column: 1,
     minLevel: 1,
@@ -49,7 +53,7 @@ const BulletSpray = {
         damage: [39, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66],
     },
     description: `
-    Fire wildly as the cannon's barrel spins, dealing <span>[damage]%</span> damage
+    Fire wildly as the cannon's barrel spins, dealing <span>{damage}%</span> damage
     <span>4</span> times to the closest enemy up to <span>8</span> m in front of you.
     The bullet cannot pierce multiple enemies.
     Press the skill key again to trigger a <span>2-hit</span> combo.
@@ -60,6 +64,7 @@ const GatlingFire = {
     name: "Gatling Fire",
     attr: "gatling-fire",
     prop: "gatlingFire",
+    rank: 1,
     row: 2,
     column: 1,
     minLevel: 1,
@@ -72,7 +77,7 @@ const GatlingFire = {
         damage: [44, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80],
     },
     description: `
-    Fire wildly as the cannon's barrel spins, dealing <span>[damage]%</span> damage
+    Fire wildly as the cannon's barrel spins, dealing <span>{damage}%</span> damage
     <span>3</span> times to <span>5</span> enemies up to <span>8</span> m in front of you.
     This skill uses a special piercing bullet to damage all targets in range.
     Keep pressing the key to trigger a <span>3-hit</span> combo.
@@ -84,6 +89,7 @@ const LockOn = {
     name: "Lock On",
     attr: "lock-on",
     prop: "lockOn",
+    rank: 1,
     row: 3,
     column: 1,
     minLevel: 0,
@@ -105,7 +111,7 @@ const LockOn = {
     },
     description: `
     Take a shooting stance, aiming at the closest target up to <span>8</span> m in
-    front of you and shooting a special bullet that deals <span>[damage]%</span> damage,
+    front of you and shooting a special bullet that deals <span>{damage}%</span> damage,
     pierces the target up to <span>8</span> times, and can damage enemies behind the target.
     Consumes <span>15</span> spirit.
   `,
@@ -114,6 +120,7 @@ const AdvancedBullets = {
     name: "Advanced Bullets",
     attr: "advanced-bullets",
     prop: "advancedBullets",
+    rank: 1,
     row: 5,
     column: 1,
     minLevel: 0,
@@ -132,13 +139,14 @@ const AdvancedBullets = {
     },
     description: `
     Upgrade to high performance bullets. Increases the damage of
-    Bullet Spray, Gatling Fire, and Lock-on by <span>[damage]%</span>.
+    Bullet Spray, Gatling Fire, and Lock-on by <span>{damage}%</span>.
   `,
 };
 const MagneticBomb = {
     name: "Magnetic Bomb",
     attr: "magnetic-bomb",
     prop: "magneticBomb",
+    rank: 1,
     row: 3,
     column: 2,
     minLevel: 0,
@@ -160,8 +168,8 @@ const MagneticBomb = {
     description: `
     Launch a magnetic bomb at the closest enemy up to <span>9</span> m in front of you.
     The bomb attracts <span>8</span> enemies within <span>3</span> m every second,
-    dealing <span>[damage]%</span> electric damage and decreasing
-    their movement speed by <span>[movement]%</span>.
+    dealing <span>{damage}%</span> electric damage and decreasing
+    their movement speed by <span>{movement}%</span>.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -169,6 +177,7 @@ const ElectricBlast = {
     name: "Electric Blast",
     attr: "electric-blast",
     prop: "electricBlast",
+    rank: 1,
     row: 4,
     column: 2,
     minLevel: 0,
@@ -189,13 +198,13 @@ const ElectricBlast = {
     },
     description: `
     Activate the compact particle accelerator on your cannon to gather electricity and shoot,
-    dealing <span>[stage1]%</span> electric damage
+    dealing <span>{stage1}%</span> electric damage
     to <span>3</span> enemies up to <span>9</span> m in front of you and knocking them back <span>1.5</span> m.
     After starting to gather electricity, hold the skill key down for <span>0.5</span> sec to enhance the effect to <span>Stage 2</span> and
-    deal <span>[stage2]%</span> electric damage <span>2</span> times
+    deal <span>{stage2}%</span> electric damage <span>2</span> times
     to <span>5</span> enemies up to <span>9</span> m in front of you and knock them back <span>3</span> m.
     Hold the skill key down for <span>0.5</span> sec at <span>Stage 2</span> to enhance the effect to <span>Stage 3</span> and
-    deal <span>[stage3]%</span> electric damage <span>3</span> times
+    deal <span>{stage3}%</span> electric damage <span>3</span> times
     to <span>8</span> enemies up to <span>9</span> m in front of you and knock them back <span>4.5</span> m.
     You will fire automatically when the skill key is held down for <span>3</span> sec at <span>Stage 3</span>.
   `,
@@ -204,6 +213,7 @@ const AdvancedPulseWeapons = {
     name: "Advanced Pulse Weapons",
     attr: "advanced-pulse-weapons",
     prop: "advancedPulseWeapons",
+    rank: 1,
     row: 5,
     column: 2,
     minLevel: 0,
@@ -221,13 +231,14 @@ const AdvancedPulseWeapons = {
     },
     description: `
     Upgrade your cannon's magnetic field engine to increase its output.
-    Increase the damage of Magnetic Bomb and Electric Blast by <span>[damage]%</span>.
+    Increase the damage of Magnetic Bomb and Electric Blast by <span>{damage}%</span>.
   `,
 };
 const BlastChargeKit = {
     name: "BlastChargeKit",
     attr: "blast-charge-kit",
     prop: "blastChargeKit",
+    rank: 1,
     row: 6,
     column: 2,
     minLevel: 0,
@@ -244,13 +255,14 @@ const BlastChargeKit = {
     description: `
     Equip your cannon with a blast charge kit to optimize Electric Blast's output power and efficiency.
     Electric Blast can be cast repeatedly without cooling down in between, at the cost of lowered damage and spirit.
-    Blast Charge Kit increases the rapid-firing Electric Blast damage by <span>[damage]%</span>.
+    Blast Charge Kit increases the rapid-firing Electric Blast damage by <span>{damage}%</span>.
   `,
 };
 const RocketLauncher = {
     name: "Rocket Launcher",
     attr: "rocket-launcher",
     prop: "rocketLauncher",
+    rank: 1,
     row: 3,
     column: 3,
     minLevel: 0,
@@ -269,11 +281,11 @@ const RocketLauncher = {
     },
     description: `
     Fire a missile at the closest enemy up to <span>9</span> m in front of you.
-    The rocket deals <span>[damage]%</span> fire damage to the target,
-    then explodes to deal <span>[aoeDamage]%</span> fire damage
+    The rocket deals <span>{damage}%</span> fire damage to the target,
+    then explodes to deal <span>{aoeDamage}%</span> fire damage
     to <span>8</span> enemies within <span>3</span> m.
-    The area of the explosion burns for <span>[burnDuration]</span> sec,
-    dealing <span>[burnDamage]%</span> fire damage every second to <span>8</span> enemies.
+    The area of the explosion burns for <span>{burnDuration}</span> sec,
+    dealing <span>{burnDamage}%</span> fire damage every second to <span>8</span> enemies.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -281,6 +293,7 @@ const HomingMissiles = {
     name: "Homing Missiles",
     attr: "homing-missiles",
     prop: "homingMissiles",
+    rank: 1,
     row: 4,
     column: 3,
     minLevel: 0,
@@ -300,8 +313,8 @@ const HomingMissiles = {
         missiles: [3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5],
     },
     description: `
-    Fire <span>[missiles]</span> homing missiles that each deal
-    <span>[damage]%</span> fire damage to enemies within <span>9</span> m.
+    Fire <span>{missiles}</span> homing missiles that each deal
+    <span>{damage}%</span> fire damage to enemies within <span>9</span> m.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -309,6 +322,7 @@ const MBomb = {
     name: "M-Bomb",
     attr: "m-bomb",
     prop: "mBomb",
+    rank: 1,
     row: 5,
     column: 3,
     minLevel: 0,
@@ -328,8 +342,8 @@ const MBomb = {
     },
     description: `
     Call in a high-tech bomb to drop <span>7.5</span> m in front of you, which deals
-    <span>[damage]%</span> fire damage to <span>8</span> enemies within <span>3</span> m.
-    A second blast occurs after <span>0.5</span> sec, dealing <span>[additionalDamage]%</span>
+    <span>{damage}%</span> fire damage to <span>8</span> enemies within <span>3</span> m.
+    A second blast occurs after <span>0.5</span> sec, dealing <span>{additionalDamage}%</span>
     fire damage to <span>8</span> enemies within <span>6</span> m.
     Consumes <span>15</span> spirit.
   `,
@@ -338,6 +352,7 @@ const AdvancedMissiles = {
     name: "Advanced Missiles",
     attr: "advanced-missiles",
     prop: "advancedMissiles",
+    rank: 1,
     row: 6,
     column: 3,
     minLevel: 0,
@@ -355,13 +370,14 @@ const AdvancedMissiles = {
     },
     description: `
     Upgrade to high performance missiles.
-    Increases the damage of Rocket Launcher, Homing Missiles, and M-Bomb by <span>[damage]%</span>.
+    Increases the damage of Rocket Launcher, Homing Missiles, and M-Bomb by <span>{damage}%</span>.
   `,
 };
 const StunGrenades = {
     name: "Stun Grenades",
     attr: "stun-grenades",
     prop: "stunGrenades",
+    rank: 1,
     row: 3,
     column: 4,
     minLevel: 0,
@@ -378,8 +394,8 @@ const StunGrenades = {
     },
     description: `
     Toss two grenades <span>3</span> m in front of you that explode after <span>0.5</span> sec,
-    dealing <span>[damage]%</span> fire damage to <span>5</span> enemies within
-    <span>[range]</span> m and has a <span>[stun]%</span> chance to stun.
+    dealing <span>{damage}%</span> fire damage to <span>5</span> enemies within
+    <span>{range}</span> m and has a <span>{stun}%</span> chance to stun.
     Consumes <span>6</span> spirit.
   `,
 };
@@ -387,6 +403,7 @@ const SuborbitalBombardment = {
     name: "Suborbital Bombardment",
     attr: "suborbital-bombardment",
     prop: "suborbitalBombardment",
+    rank: 1,
     row: 4,
     column: 4,
     minLevel: 0,
@@ -407,11 +424,11 @@ const SuborbitalBombardment = {
     },
     description: `
     Summon a satellite to fire lasers at the closest enemy within <span>8</span> m,
-    dealing <span>[damage]%</span> electric damage
+    dealing <span>{damage}%</span> electric damage
     to <span>5</span> enemies within <span>2.25</span> m of your initial target
-    every sec for <span>[duration]</span> sec.
+    every sec for <span>{duration}</span> sec.
     If you have the Pulse Energy upgrade, the enhanced laser deals
-    an additional <span>[additionalDamage]%</span> electric damage.
+    an additional <span>{additionalDamage}%</span> electric damage.
     Consumes <span>20</span> spirit.
   `,
 };
@@ -419,6 +436,7 @@ const MedKit = {
     name: "MedKit",
     attr: "med-kit",
     prop: "medKit",
+    rank: 1,
     row: 6,
     column: 4,
     minLevel: 0,
@@ -431,52 +449,341 @@ const MedKit = {
     },
     description: `
     Drop a first aid kit that you or an ally can pick up after <span>1</span>
-    sec to instantly restore <span>[health]</span> health.
+    sec to instantly restore <span>{health}</span> health.
   `,
 };
-
-const HeavyGunnerSkills = /*#__PURE__*/Object.freeze({
-  Reload: Reload,
-  JetBoots: JetBoots,
-  BulletSpray: BulletSpray,
-  GatlingFire: GatlingFire,
-  LockOn: LockOn,
-  AdvancedBullets: AdvancedBullets,
-  MagneticBomb: MagneticBomb,
-  ElectricBlast: ElectricBlast,
-  AdvancedPulseWeapons: AdvancedPulseWeapons,
-  BlastChargeKit: BlastChargeKit,
-  RocketLauncher: RocketLauncher,
-  HomingMissiles: HomingMissiles,
-  MBomb: MBomb,
-  AdvancedMissiles: AdvancedMissiles,
-  StunGrenades: StunGrenades,
-  SuborbitalBombardment: SuborbitalBombardment,
-  MedKit: MedKit
-});
+const MobileArmory = {
+    name: "Mobile Armory",
+    attr: "mobile-armory",
+    prop: "mobileArmory",
+    rank: 2,
+    row: 1,
+    column: 4,
+    minLevel: 1,
+    maxLevel: 1,
+    attackType: "Physical",
+    cooldown: 5,
+    values: {
+        damage: [418, 418, 418, 418, 418],
+        additionalDamage: [500, 500, 500, 500, 500],
+        movement: [15, 15, 15, 15, 15],
+        dot: [150, 150, 150, 150, 150],
+        iceStormIncrease: [49, 49, 49, 49, 49],
+    },
+    description: `
+    Deploy a station that automatically refills your ammo.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Restores <span>20</span> spirit per sec.
+    <br/><br/>
+    Permanently increases dexterity by 40.
+  `,
+};
+const FocusedFire = {
+    name: "Focused Fire",
+    attr: "focused-fire",
+    prop: "focusedFire",
+    rank: 2,
+    row: 1,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Physical",
+    weaponRequired: "Two-handed Cannon",
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        damage: [138, 138, 138, 138, 138],
+    },
+    description: `
+    Unleash focused mortar fire on enemies in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Can keep firing until ammo is depleted.
+    Grants knockback immunity.
+  `,
+};
+const FireBomber = {
+    name: "Fire Bomber",
+    attr: "fire-bomber",
+    prop: "fireBomber",
+    rank: 2,
+    row: 2,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Fire",
+    attackType: "Long Range / Physical",
+    weaponRequired: "Two-handed Cannon",
+    cooldown: 8,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: FocusedFire,
+            level: 3,
+        }],
+    values: {
+        damage: [487, 487, 487, 487, 487],
+        additionalDamage: [497, 497, 497, 497, 497],
+        fireDamage: [90, 90, 90, 90, 90],
+    },
+    description: `
+    Launch explosive fire missiles to engulf targets in fiery doom.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Deals <span>{additionalDamage}%</span> damage and burns targets who are enveloped in flames.
+    Can keep firing until missiles are depleted.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Burn deals <span>{fireDamage}%</span> fire damage per sec for <span>10</span> sec.
+  `,
+};
+const MissileSupercharger = {
+    name: "Missile Supercharger",
+    attr: "missile-supercharger",
+    prop: "missileSupercharger",
+    rank: 2,
+    row: 3,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Physical",
+    passive: true,
+    levelRequirement: [64, 64, 64, 64, 64],
+    skillRequirements: [{
+            skill: FireBomber,
+            level: 2,
+        }],
+    values: {
+        increase: [8, 8, 8, 8, 8],
+    },
+    description: `
+    Upgrade your ammo chamgers to improve certain skills.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Focused Fire, Fire Bomber, and Demolition Cannon damage by <span>{increase}%</span>.
+  `,
+};
+const DemolitionCannon = {
+    name: "Demolition Cannon",
+    attr: "demolition-cannon",
+    prop: "demolitionCannon",
+    rank: 2,
+    row: 5,
+    column: 1,
+    minLevel: 0,
+    maxLevel: 4,
+    attackType: "Long Range / Physical",
+    cooldown: 12,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: FireBomber,
+            level: 3,
+        }, {
+            skill: MissileSupercharger,
+            level: 3,
+        }],
+    values: {
+        damage: [539, 539, 539, 539, 539],
+        firstSecondDamage: [658, 658, 658, 658, 658],
+    },
+    description: `
+    Modify your satellite to fire high-powered, explosive missiles.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    First and second explosions deal <span>{firstSecondDamage}%</span> damage each.
+    Can keep firing until ammo is depleted.
+    Grants knockback immunity.
+  `,
+};
+const PlasmaChain = {
+    name: "Plasma Chain",
+    attr: "plasma-chain",
+    prop: "plasmaChain",
+    rank: 2,
+    row: 1,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Electric",
+    attackType: "Long Range / Physical",
+    weaponRequired: "Two-handed Cannon",
+    spirit: 5,
+    levelRequirement: [60, 60, 60, 60, 60],
+    values: {
+        damage: [123, 123, 123, 123, 123],
+        electricDamage: [348, 348, 348, 348, 348],
+    },
+    description: `
+    Route power from your jet boots to rain superheated plasma on your enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Repeatedly deals <span>{damage}%</span> damage to <span>7</span> enemies within <span>9</span> m.
+    <br/><br/>
+    Triggers an explosion after damaging a target <span>5</span> times.
+    <br/><br/>
+    Able to move while skill is active.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Explosion deals <span>{electricDamage}%</span> electric damage.
+  `,
+};
+const SkyHunter = {
+    name: "Sky Hunter",
+    attr: "sky-hunter",
+    prop: "skyHunter",
+    rank: 2,
+    row: 2,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Electric",
+    attackType: "Physical",
+    cooldown: 60,
+    levelRequirement: [62, 62, 62, 62, 62],
+    skillRequirements: [{
+            skill: PlasmaChain,
+            level: 3,
+        }],
+    values: {
+        damage: [697, 697, 697, 697, 697],
+        absorb: [30, 30, 30, 30, 30],
+    },
+    description: `
+    Remotely control a high-intensity laser fired from one of your heavy weapons satellites.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> electric damage.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Grants a Deflector Shield that absorbs damage
+    equal to <span>{absorb}%</span> of your max health.
+  `,
+};
+const PlasmaSupercharger = {
+    name: "Plasma Supercharger",
+    attr: "plasma-supercharger",
+    prop: "plasmaSupercharger",
+    rank: 2,
+    row: 4,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Electric",
+    attackType: "Physical",
+    passive: true,
+    levelRequirement: [66, 66, 66, 66, 66],
+    skillRequirements: [{
+            skill: SkyHunter,
+            level: 3,
+        }],
+    values: {
+        damage: [2, 2, 2, 2, 2],
+    },
+    description: `
+    Upgrade the plasma reactor in your cannon for increased firepower.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases Plasma Chain, Sky Hunger, and Hyper Giga Launcher damage by <span>{damage}%</span>.
+  `,
+};
+const HyperGigaCannon = {
+    name: "Hyper Giga Cannon",
+    attr: "hyper-giga-cannon",
+    prop: "hyperGigaCannon",
+    rank: 2,
+    row: 5,
+    column: 3,
+    minLevel: 0,
+    maxLevel: 4,
+    element: "Electric",
+    attackType: "Long Range / Physical",
+    weaponRequired: "Two-handed Cannon",
+    cooldown: 6,
+    levelRequirement: [68, 68, 68, 68, 68],
+    skillRequirements: [{
+            skill: PlasmaSupercharger,
+            level: 3,
+        }],
+    values: {
+        damage: [256, 256, 256, 256, 256],
+    },
+    description: `
+    Patch your jet boot power into your cannon,
+    firing a powerful laser while you fly around.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>4</span> times.
+    Can keep firing until battery is depleted.
+    <br/><br/>
+    Able to move while skill is active.
+  `,
+};
+const RankOneSkills = {
+    AdvancedBullets: AdvancedBullets,
+    AdvancedMissiles: AdvancedMissiles,
+    AdvancedPulseWeapons: AdvancedPulseWeapons,
+    BlastChargeKit: BlastChargeKit,
+    BulletSpray: BulletSpray,
+    ElectricBlast: ElectricBlast,
+    GatlingFire: GatlingFire,
+    HomingMissiles: HomingMissiles,
+    JetBoots: JetBoots,
+    LockOn: LockOn,
+    MagneticBomb: MagneticBomb,
+    MBomb: MBomb,
+    MedKit: MedKit,
+    Reload: Reload,
+    RocketLauncher: RocketLauncher,
+    StunGrenades: StunGrenades,
+    SuborbitalBombardment: SuborbitalBombardment,
+};
+const RankTwoSkills = {
+    MobileArmory: MobileArmory,
+    FocusedFire: FocusedFire,
+    FireBomber: FireBomber,
+    MissileSupercharger: MissileSupercharger,
+    DemolitionCannon: DemolitionCannon,
+    PlasmaChain: PlasmaChain,
+    SkyHunter: SkyHunter,
+    PlasmaSupercharger: PlasmaSupercharger,
+    HyperGigaCannon: HyperGigaCannon,
+};
+const HeavyGunnerSkills = Object.assign({}, RankOneSkills, RankTwoSkills);
 
 class HeavyGunnerComponent {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
-        this.advancedBullets = AdvancedBullets.minLevel;
-        this.advancedMissiles = AdvancedMissiles.minLevel;
-        this.advancedPulseWeapons = AdvancedPulseWeapons.minLevel;
-        this.blastChargeKit = BlastChargeKit.minLevel;
-        this.bulletSpray = BulletSpray.minLevel;
-        this.electricBlast = ElectricBlast.minLevel;
-        this.gatlingFire = GatlingFire.minLevel;
-        this.homingMissiles = HomingMissiles.minLevel;
-        this.jetBoots = JetBoots.minLevel;
-        this.lockOn = LockOn.minLevel;
-        this.magneticBomb = MagneticBomb.minLevel;
-        this.mBomb = MBomb.minLevel;
-        this.medKit = MedKit.minLevel;
-        this.reload = Reload.minLevel;
-        this.rocketLauncher = RocketLauncher.minLevel;
-        this.stunGrenades = StunGrenades.minLevel;
-        this.suborbitalBombardment = SuborbitalBombardment.minLevel;
+        this.advancedBullets = HeavyGunnerSkills.AdvancedBullets.minLevel;
+        this.advancedMissiles = HeavyGunnerSkills.AdvancedMissiles.minLevel;
+        this.advancedPulseWeapons = HeavyGunnerSkills.AdvancedPulseWeapons.minLevel;
+        this.blastChargeKit = HeavyGunnerSkills.BlastChargeKit.minLevel;
+        this.bulletSpray = HeavyGunnerSkills.BulletSpray.minLevel;
+        this.electricBlast = HeavyGunnerSkills.ElectricBlast.minLevel;
+        this.gatlingFire = HeavyGunnerSkills.GatlingFire.minLevel;
+        this.homingMissiles = HeavyGunnerSkills.HomingMissiles.minLevel;
+        this.jetBoots = HeavyGunnerSkills.JetBoots.minLevel;
+        this.lockOn = HeavyGunnerSkills.LockOn.minLevel;
+        this.magneticBomb = HeavyGunnerSkills.MagneticBomb.minLevel;
+        this.mBomb = HeavyGunnerSkills.MBomb.minLevel;
+        this.medKit = HeavyGunnerSkills.MedKit.minLevel;
+        this.reload = HeavyGunnerSkills.Reload.minLevel;
+        this.rocketLauncher = HeavyGunnerSkills.RocketLauncher.minLevel;
+        this.stunGrenades = HeavyGunnerSkills.StunGrenades.minLevel;
+        this.suborbitalBombardment = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
+        this.mobileArmory = HeavyGunnerSkills.MobileArmory.minLevel;
+        this.focusedFire = HeavyGunnerSkills.FocusedFire.minLevel;
+        this.fireBomber = HeavyGunnerSkills.FireBomber.minLevel;
+        this.missileSupercharger = HeavyGunnerSkills.MissileSupercharger.minLevel;
+        this.demolitionCannon = HeavyGunnerSkills.DemolitionCannon.minLevel;
+        this.plasmaChain = HeavyGunnerSkills.PlasmaChain.minLevel;
+        this.skyHunter = HeavyGunnerSkills.SkyHunter.minLevel;
+        this.plasmaSupercharger = HeavyGunnerSkills.PlasmaSupercharger.minLevel;
+        this.hyperGigaCannon = HeavyGunnerSkills.HyperGigaCannon.minLevel;
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
@@ -495,11 +802,12 @@ class HeavyGunnerComponent {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
     }
     render() {
-        return (h("ms-chart", { msClass: "heavy-gunner" }, renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras)));
+        return (h("ms-chart", { msClass: "heavy-gunner", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail }, renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic), renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening)));
     }
     get host() { return getElement(this); }
     static get watchers() { return {
-        "extras": ["emitChangeEvent"]
+        "extras": ["emitChangeEvent"],
+        "rank": ["emitChangeEvent"]
     }; }
     static get style() { return ":host{display:block}"; }
 }

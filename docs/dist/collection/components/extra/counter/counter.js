@@ -1,6 +1,7 @@
+import { Rank } from "../../../global/values/_skillValues.interfaces";
 export class CounterComponent {
     constructor() {
-        this._pointsLeft = 68;
+        this._pointsLeft = 0;
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -9,14 +10,24 @@ export class CounterComponent {
         }
         el.componentOnReady().then((editor) => {
             this._editor = editor;
+            const rank = this._editor.rank;
+            this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
             this._editor.addEventListener("skillchanged", (evt) => {
+                console.log("skillchanged");
                 this.updatePointsLeft(evt.detail);
             });
         });
     }
     updatePointsLeft(changeEvent) {
-        this._pointsLeft = 72 - changeEvent.skills.reduce((prev, current) => {
-            return prev + current.level;
+        const rank = this._editor.rank;
+        const maxPoints = rank === Rank.Awakening ? 15 : 72;
+        this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+            if (current.rank === rank) {
+                return prev + current.level;
+            }
+            else {
+                return prev;
+            }
         }, 0);
     }
     render() {

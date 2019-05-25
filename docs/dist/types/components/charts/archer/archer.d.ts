@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class ArcherComponent implements IChart {
     host: HTMLMsArcherElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     agileArcher: number;
     arrowBarrage: number;
@@ -22,6 +23,15 @@ export declare class ArcherComponent implements IChart {
     screwdriverShot: number;
     sharpEyes: number;
     snipe: number;
+    improvedGliding: number;
+    flameArrow: number;
+    multiDriveShot: number;
+    rangersFocus: number;
+    hastersTeachings: number;
+    piercingArrow: number;
+    spiralArrow: number;
+    archersSecrets: number;
+    greaterSharpEyes: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

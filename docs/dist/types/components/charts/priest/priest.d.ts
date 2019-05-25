@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class PriestComponent implements IChart {
     host: HTMLMsPriestElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     heavenlyWings: number;
     steadfastFaith: number;
@@ -22,6 +23,15 @@ export declare class PriestComponent implements IChart {
     smitingAura: number;
     disciple: number;
     angelicRay: number;
+    lifesGuardian: number;
+    scathingLight: number;
+    lightSpear: number;
+    clarity: number;
+    heavensWrath: number;
+    purifyingLight: number;
+    divineWave: number;
+    greaterHealing: number;
+    vitality: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

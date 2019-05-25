@@ -1,7 +1,7 @@
 import { h, Host } from "@stencil/core";
 export class OutletComponent {
     constructor() {
-        this._skills = { skills: [] };
+        this._skills = { rank: 1, skills: [] };
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -32,7 +32,7 @@ export class OutletComponent {
         let props = this.getProperties(this._skills);
         if (props)
             props = " " + props;
-        return `<${this._tagName}${extras}${props}></${this._tagName}>`;
+        return `<${this._tagName} rank="${this._editor.rank}${extras}${props}></${this._tagName}>`;
     }
     getProperties(changeEvent) {
         let properties = changeEvent.skills.filter((skillChange) => {

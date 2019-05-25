@@ -6,12 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { h } from "@stencil/core";
 import { ConstructibleStyle } from "stencil-constructible-style";
+import { Rank } from "../../../global/values/_skillValues.interfaces";
 import { getOptimizedAssetPath } from "../../../global/utils";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import * as RunebladeSkills from "../../../global/values/runeblade";
+import { RunebladeSkills } from "../../../global/values/runeblade";
 export class RunebladeComponent {
     constructor() {
         this.editable = false;
+        this.rank = Rank.Basic;
         this.extras = false;
         this.sigil = "";
         this.bladeChasm = RunebladeSkills.BladeChasm.minLevel;
@@ -31,13 +33,24 @@ export class RunebladeComponent {
         this.stormSigil = RunebladeSkills.StormSigil.minLevel;
         this.wardingRune = RunebladeSkills.WardingRune.minLevel;
         this.whirlingBlades = RunebladeSkills.WhirlingBlades.minLevel;
+        this.physicalBoost = RunebladeSkills.PhysicalBoost.minLevel;
+        this.quintupleCut = RunebladeSkills.QuintupleCut.minLevel;
+        this.bladeWhip = RunebladeSkills.BladeWhip.minLevel;
+        this.bladeExpert = RunebladeSkills.BladeExpert.minLevel;
+        this.phantasmSlash = RunebladeSkills.PhantasmSlash.minLevel;
+        this.runeTrigger = RunebladeSkills.RuneTrigger.minLevel;
+        this.dimensionBlade = RunebladeSkills.DimensionBlade.minLevel;
+        this.runeExpert = RunebladeSkills.RuneExpert.minLevel;
+        this.runeIgnition = RunebladeSkills.RuneIgnition.minLevel;
         this.styles = RunebladeComponent.getStyles;
         this.runebladeSkills = {};
+        this.rankOneSkills = {};
+        this.rankTwoSkills = {};
     }
     componentWillLoad() {
-        Object.keys(RunebladeSkills).map((prop) => {
+        Object.keys(RunebladeSkills).map((key) => {
             // create copies of each skill so we can toggle the extras for skill attunes
-            this.runebladeSkills[prop] = Object.assign({}, RunebladeSkills[prop]);
+            this.updateSkill(key, Object.assign({}, RunebladeSkills[key]));
         });
         processSkills(this, this.runebladeSkills);
         this.updateSigil();
@@ -62,9 +75,13 @@ export class RunebladeComponent {
     }
     render() {
         return ([
-            h("ms-chart", { msClass: "runeblade" }, renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-                onSkillclicked: (evt) => this.changeSigil(evt.detail),
-            }))
+            h("ms-chart", { msClass: "runeblade", rank: this.rank, onRankChange: ({ detail }) => this.rank = detail },
+                renderLevelControls(this, this.rankOneSkills, this.editable, this.extras, Rank.Basic, {
+                    onSkillclicked: (evt) => this.changeSigil(evt.detail),
+                }),
+                renderLevelControls(this, this.rankTwoSkills, this.editable, this.extras, Rank.Awakening, {
+                    onSkillclicked: (evt) => this.changeSigil(evt.detail),
+                }))
         ]);
     }
     changeSigil(skill) {
@@ -100,23 +117,23 @@ export class RunebladeComponent {
                 : this.sigil === "frostSigil" ? 1
                     : this.sigil === "stormSigil" ? 2
                         : -1;
-            Object.keys(this.runebladeSkills).forEach((prop) => {
-                let originalSkill = RunebladeSkills[prop];
+            Object.keys(this.runebladeSkills).forEach((key) => {
+                let originalSkill = RunebladeSkills[key];
                 if (originalSkill.extras) {
                     if (this.sigil) {
-                        this.runebladeSkills[prop] = Object.assign({}, originalSkill, originalSkill.extras[sigilIdx], { extras: [{
+                        this.updateSkill(key, Object.assign({}, originalSkill, originalSkill.extras[sigilIdx], { extras: [{
                                     description: "This skill is attuned to " +
                                         (this.sigil === "flameSigil" ? RunebladeSkills.FlameSigil.name
                                             : this.sigil === "frostSigil" ? RunebladeSkills.FrostSigil.name
                                                 : this.sigil === "stormSigil" ? RunebladeSkills.StormSigil.name
                                                     : "")
                                         + "."
-                                }] });
+                                }] }));
                     }
                     else {
-                        this.runebladeSkills[prop] = Object.assign({}, originalSkill, { extras: [{
+                        this.updateSkill(key, Object.assign({}, originalSkill, { extras: [{
                                     description: "Click on a sigil to show how this skill attunes."
-                                }] });
+                                }] }));
                     }
                 }
                 else if (["flameSigil", "frostSigil", "stormSigil"].indexOf(originalSkill.prop) > -1) {
@@ -130,11 +147,20 @@ export class RunebladeComponent {
                     else {
                         description = "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active.";
                     }
-                    this.runebladeSkills[prop] = Object.assign({}, originalSkill, { extras: [{
+                    this.updateSkill(key, Object.assign({}, originalSkill, { extras: [{
                                 description: description,
-                            }] });
+                            }] }));
                 }
             });
+        }
+    }
+    updateSkill(key, skill) {
+        this.runebladeSkills[key] = skill;
+        if (skill.rank === Rank.Basic) {
+            this.rankOneSkills[key] = skill;
+        }
+        else {
+            this.rankTwoSkills[key] = skill;
         }
     }
     static getStyles() {
@@ -169,6 +195,24 @@ export class RunebladeComponent {
             "attribute": "editable",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "rank": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rank",
+            "reflect": true,
+            "defaultValue": "Rank.Basic"
         },
         "extras": {
             "type": "boolean",
@@ -516,6 +560,168 @@ export class RunebladeComponent {
             "attribute": "whirling-blades",
             "reflect": false,
             "defaultValue": "RunebladeSkills.WhirlingBlades.minLevel"
+        },
+        "physicalBoost": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "physical-boost",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.PhysicalBoost.minLevel"
+        },
+        "quintupleCut": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "quintuple-cut",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.QuintupleCut.minLevel"
+        },
+        "bladeWhip": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blade-whip",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.BladeWhip.minLevel"
+        },
+        "bladeExpert": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blade-expert",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.BladeExpert.minLevel"
+        },
+        "phantasmSlash": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "phantasm-slash",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.PhantasmSlash.minLevel"
+        },
+        "runeTrigger": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rune-trigger",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.RuneTrigger.minLevel"
+        },
+        "dimensionBlade": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dimension-blade",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.DimensionBlade.minLevel"
+        },
+        "runeExpert": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rune-expert",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.RuneExpert.minLevel"
+        },
+        "runeIgnition": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rune-ignition",
+            "reflect": false,
+            "defaultValue": "RunebladeSkills.RuneIgnition.minLevel"
         }
     }; }
     static get states() { return {
@@ -561,6 +767,9 @@ export class RunebladeComponent {
     static get elementRef() { return "host"; }
     static get watchers() { return [{
             "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }, {
+            "propName": "rank",
             "methodName": "emitChangeEvent"
         }]; }
 }

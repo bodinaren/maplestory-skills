@@ -4,6 +4,7 @@ import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class WizardComponent implements IChart {
     host: HTMLMsWizardElement;
     editable: boolean;
+    rank: number;
     extras: boolean;
     arcaneBlast: number;
     chainLightning: number;
@@ -22,6 +23,15 @@ export declare class WizardComponent implements IChart {
     pyromancy: number;
     teleport: number;
     thunderbolt: number;
+    manaControl: number;
+    dualCast: number;
+    iceCreamTime: number;
+    lodestoneField: number;
+    perfectStorm: number;
+    ember: number;
+    barbecueParty: number;
+    playingWithFire: number;
+    littleMeteor: number;
     skills: IChartSkills;
     onSkillChanged: EventEmitter;
     componentWillLoad(): void;

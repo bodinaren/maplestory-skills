@@ -7,6 +7,7 @@ export declare class SkillOverlayComponent {
     skill: ISkill;
     extras: boolean;
     private requirements;
+    private stamina;
     private spirit;
     private cooldown;
     private description;
@@ -16,6 +17,7 @@ export declare class SkillOverlayComponent {
     private refreshData;
     render(): any;
     private setRequirements;
+    private setStamina;
     private setSpirit;
     private setCooldown;
     private parseDescription;
