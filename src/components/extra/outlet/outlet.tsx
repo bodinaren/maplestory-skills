@@ -48,7 +48,7 @@ export class OutletComponent {
     if (this._editor.extras) extras = " extras";
     let props = this.getProperties(this._skills);
     if (props) props = " " + props;
-    return `<${ this._tagName }${ extras }${ props }></${ this._tagName }>`;
+    return `<${ this._tagName } rank="${ this._editor.rank }${ extras }${ props }></${ this._tagName }>`;
   }
 
   private getProperties(changeEvent: ISkillChangeEvent): string {
