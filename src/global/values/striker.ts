@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const KnuckleMissile: ISkill = {
   name: "Knuckle Missile",
@@ -476,6 +476,313 @@ export const PatternBreak: ISkill = {
   `,
 };
 
+export const RainingBlows: IAwakenedSkill = {
+  name: "Raining Blows",
+  attr: "raining-blows",
+  prop: "rainingBlows",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  passive: true,
+  description: `
+    Gain strength as you land more hits on the enemy.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Permanently increases dexterity by <span>40</span>.
+    <br/><br/>
+    Using punching and kicking skills increase physical damage by <span>1%</span> and
+    spirit recovery by <span>1</span>, stacking up to <span>10</span> times.
+    <br/><br/>
+    Can use Feinting Guard EX while in a Kicking or Punching Stance.
+  `,
+};
+
+export const ShockwavePunch: IAwakenedSkill = {
+  name: "Shockwave Punch",
+  attr: "shockwave-punch",
+  prop: "shockwavePunch",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Knuckles",
+  cooldown: 3,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [457, 457, 457, 457, 457],
+    increase: [12, 12, 12, 12, 12],
+  },
+  description: `
+    Muster up a surge of fiery energy and unleash it on your enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage to the area in front of you
+    <br/><br/>
+    Grants Punching Stance.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Punching Stance enhances all punching Skills.
+    <br/>
+    Permanently upgrades Magnum Blow to Mega Blow, increasing damage by <span>{increase}%</span>.
+  `,
+};
+
+export const VulcanPunch: IAwakenedSkill = {
+  name: "Vulcan Punch",
+  attr: "vulcan-punch",
+  prop: "vulcanPunch",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: ShockwavePunch,
+    level: 3,
+  }],
+  values: {
+    damage: [91, 91, 91, 91, 91],
+  },
+  description: `
+    Batter enemies with a rapid barrage of jabs.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage to enemies in front of you <span>12</span> times.
+    <br/>
+    Grants knockback immunity.
+    <br/><br/>
+    Enhanced by Punching Stance.
+  `,
+};
+
+export const DoubleFistSmash: IAwakenedSkill = {
+  name: "Double-Fist Smash",
+  attr: "double-fist-smash",
+  prop: "doubleFistSmash",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  cooldown: 2,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: VulcanPunch,
+    level: 2,
+  }],
+  values: {
+    damage: [560, 560, 560, 560, 560],
+  },
+  description: `
+    Leap into the air and strike the ground.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage in an area.
+    <br/><br/>
+    Grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Enhanced by Punching Stance.
+  `,
+};
+
+export const MeridianFlow: IAwakenedSkill = {
+  name: "Meridian Flow",
+  attr: "meridian-flow",
+  prop: "meridianFlow",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  spirit: 100,
+  cooldown: 30,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: VulcanPunch,
+    level: 3,
+  }, {
+    skill: DoubleFistSmash,
+    level: 3,
+  }],
+  values: {
+    attack: [12, 12, 12, 12, 12],
+    speed: [10, 10, 10, 10, 10],
+    resistance: [75, 75, 75, 75, 75],
+  },
+  description: `
+    Open the pressure points within your body to amplify your physical abilities.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases physical attack by <span>{attack}%</span>,
+    attack speed by <span>{speed}%</span>,
+    and physical and magic resistance by <span>{resistance}</span> for <span>30</span> sec.
+    <br/>
+    Restores <span>2</span> spirit per sec.
+    <br/><br/>
+    Can use Meridian Flow II while this is active. Grants knockback immunity.
+    <br/><br/>
+    Can cancel other skills.
+    <br/><br/>
+    Inflicts Balance Disrupted when this skill expires naturally.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Balance Disrupted prevents the use of Meridian Flow, Overcome, Pattern Break and Fighting Spirit for <span>30</span> sec.
+  `,
+};
+
+export const SetupKick: IAwakenedSkill = {
+  name: "Setup Kick",
+  attr: "setup-kick",
+  prop: "setupKick",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Knuckles",
+  cooldown: 3,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [375, 375, 375, 375, 375],
+    increase: [4, 4, 4, 4, 4],
+  },
+  description: `
+    Deliver a rising kick to the enemy.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    Grants Kicking Stance.
+    <br/><br/>
+    Hold down the skill key to move forward <span>1.5</span> m.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Kicking Stance upgrades some kick-based skills.
+    Permanently upgrades Dragon Kick to Dragon Fury, increasing damage by <span>{increase}%</span>.
+  `,
+};
+
+export const SpiralCannon: IAwakenedSkill = {
+  name: "Spiral Cannon",
+  attr: "spiral-cannon",
+  prop: "spiralCannon",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Knuckles",
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SetupKick,
+    level: 3,
+  }],
+  values: {
+    damage: [126, 126, 126, 126, 126],
+  },
+  description: `
+    Launch a spinning kick at the enemy.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>8</span> times in front of you.
+    <br/><br/>
+    Grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Enhanced by Kicking Stance.
+  `,
+};
+
+export const SpinKick: IAwakenedSkill = {
+  name: "Spin Kick",
+  attr: "spin-kick",
+  prop: "spinKick",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Fire",
+  attackType: "Close Range / Physical",
+  weaponRequired: "Two-handed Knuckles",
+  cooldown: 3,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: SpiralCannon,
+    level: 3,
+  }],
+  values: {
+    damage: [162, 162, 162, 162, 162],
+    additionalDamage: [431, 431, 431, 431, 431],
+  },
+  description: `
+    Spin in the air and drive your leg into the enemy as you drop down.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    First deals <span>{damage}%</span> damage, then <span>{additionalDamage}%</span> damage.
+    <br/><br/>
+    Press a directional key to move <span>2</span> m.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Enhanced by Kicking Stance.
+  `,
+};
+
+export const TauntingFeint: IAwakenedSkill = {
+  name: "Taunting Feint",
+  attr: "taunting-feint",
+  prop: "tauntingFeint",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Knuckles",
+  spirit: 10,
+  cooldown: 3,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: SpinKick,
+    level: 3,
+  }],
+  values: {
+    melee: [240, 240, 240, 240, 240],
+    range: [480, 480, 480, 480, 480],
+    resistance: [1200, 1200, 1200, 1200, 1200],
+  },
+  description: `
+    Momentarily take a counterattacking stance.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    If struck in melee, deals <span>{melee}%</span> damage <span>2</span> times.
+    <br/><br/>
+    If struck in range, deals <span>{range}%</span> damage.
+    <br/><br/>
+    Increases physical and magic resistance by <span>{resistance}</span> and grants counterattack immunity.
+    <br/><br/>
+    Permanently increases kick skill damage by <span>3%</span> per skill level.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    After a successful counterattack, gain Confidence, increasing attack speed by <span>10%</span> and
+    physical attack by <span>10%</span>.
+    <br/>
+    Kick skills include Setup Kick, Spin kick, Spin Kick EX,
+    Spiral Cannon, Spiral Cannon EX, Melee Fade, and Ranged Fade.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   Beatdown: Beatdown,
   DragonKick: DragonKick,
@@ -497,7 +804,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  RainingBlows: RainingBlows,
+  ShockwavePunch: ShockwavePunch,
+  VulcanPunch: VulcanPunch,
+  DoubleFistSmash: DoubleFistSmash,
+  MeridianFlow: MeridianFlow,
+  SetupKick: SetupKick,
+  SpiralCannon: SpiralCannon,
+  SpinKick: SpinKick,
+  TauntingFeint: TauntingFeint,
 };
 
 export const StrikerSkills: IClassSkills = {

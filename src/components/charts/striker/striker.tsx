@@ -34,6 +34,16 @@ export class StrikerComponent implements IChart {
   @Prop({ mutable: true }) powerPuncher: number = StrikerSkills.PowerPuncher.minLevel;
   @Prop({ mutable: true }) risingKick: number = StrikerSkills.RisingKick.minLevel;
 
+  @Prop({ mutable: true }) rainingBlows: number = StrikerSkills.RainingBlows.minLevel;
+  @Prop({ mutable: true }) shockwavePunch: number = StrikerSkills.ShockwavePunch.minLevel;
+  @Prop({ mutable: true }) vulcanPunch: number = StrikerSkills.VulcanPunch.minLevel;
+  @Prop({ mutable: true }) doubleFistSmash: number = StrikerSkills.DoubleFistSmash.minLevel;
+  @Prop({ mutable: true }) meridianFlow: number = StrikerSkills.MeridianFlow.minLevel;
+  @Prop({ mutable: true }) setupKick: number = StrikerSkills.SetupKick.minLevel;
+  @Prop({ mutable: true }) spiralCannon: number = StrikerSkills.SpiralCannon.minLevel;
+  @Prop({ mutable: true }) spinKick: number = StrikerSkills.SpinKick.minLevel;
+  @Prop({ mutable: true }) tauntingFeint: number = StrikerSkills.TauntingFeint.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;

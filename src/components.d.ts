@@ -306,6 +306,7 @@ export namespace Components {
   }
   interface MsStriker {
     'beatdown': number;
+    'doubleFistSmash': number;
     'dragonKick': number;
     'editable': boolean;
     'extras': boolean;
@@ -320,12 +321,20 @@ export namespace Components {
     'knuckleMissile': number;
     'magnumBlow': number;
     'maharPunch': number;
+    'meridianFlow': number;
     'overcome': number;
     'paceControl': number;
     'patternBreak': number;
     'powerPuncher': number;
+    'rainingBlows': number;
     'rank': number;
     'risingKick': number;
+    'setupKick': number;
+    'shockwavePunch': number;
+    'spinKick': number;
+    'spiralCannon': number;
+    'tauntingFeint': number;
+    'vulcanPunch': number;
   }
   interface MsThief {
     'battlePlan': number;
@@ -688,6 +697,7 @@ declare namespace LocalJSX {
   }
   interface MsStriker extends JSXBase.HTMLAttributes {
     'beatdown'?: number;
+    'doubleFistSmash'?: number;
     'dragonKick'?: number;
     'editable'?: boolean;
     'extras'?: boolean;
@@ -701,13 +711,21 @@ declare namespace LocalJSX {
     'knuckleMissile'?: number;
     'magnumBlow'?: number;
     'maharPunch'?: number;
+    'meridianFlow'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
     'overcome'?: number;
     'paceControl'?: number;
     'patternBreak'?: number;
     'powerPuncher'?: number;
+    'rainingBlows'?: number;
     'rank'?: number;
     'risingKick'?: number;
+    'setupKick'?: number;
+    'shockwavePunch'?: number;
+    'spinKick'?: number;
+    'spiralCannon'?: number;
+    'tauntingFeint'?: number;
+    'vulcanPunch'?: number;
   }
   interface MsThief extends JSXBase.HTMLAttributes {
     'battlePlan'?: number;
