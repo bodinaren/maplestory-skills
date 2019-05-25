@@ -274,6 +274,8 @@ export namespace Components {
   }
   interface MsSoulBinder {
     'animusFocus': number;
+    'awakenedMantra': number;
+    'awakenedMind': number;
     'concussionOrb': number;
     'editable': boolean;
     'energySurge': number;
@@ -293,7 +295,14 @@ export namespace Components {
     'rank': number;
     'shootingStar': number;
     'soaringOrb': number;
+    'soulFlock': number;
+    'soulHarmony': number;
+    'soulShield': number;
+    'spiritBound': number;
+    'spiritCrush': number;
     'staticFlash': number;
+    'triuneLink': number;
+    'visionTorrent': number;
   }
   interface MsStriker {
     'beatdown': number;
@@ -647,6 +656,8 @@ declare namespace LocalJSX {
   }
   interface MsSoulBinder extends JSXBase.HTMLAttributes {
     'animusFocus'?: number;
+    'awakenedMantra'?: number;
+    'awakenedMind'?: number;
     'concussionOrb'?: number;
     'editable'?: boolean;
     'energySurge'?: number;
@@ -666,7 +677,14 @@ declare namespace LocalJSX {
     'rank'?: number;
     'shootingStar'?: number;
     'soaringOrb'?: number;
+    'soulFlock'?: number;
+    'soulHarmony'?: number;
+    'soulShield'?: number;
+    'spiritBound'?: number;
+    'spiritCrush'?: number;
     'staticFlash'?: number;
+    'triuneLink'?: number;
+    'visionTorrent'?: number;
   }
   interface MsStriker extends JSXBase.HTMLAttributes {
     'beatdown'?: number;

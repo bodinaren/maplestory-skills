@@ -1,4 +1,4 @@
-import { ISkill, IClassSkills } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const MantraArray: ISkill = {
   name: "Mantra Array",
@@ -473,6 +473,293 @@ export const AnimusFocus: ISkill = {
   `,
 };
 
+export const AwakenedMantra: IAwakenedSkill = {
+  name: "Awakened Mantra",
+  attr: "awakened-mantra",
+  prop: "awakenedMantra",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  cooldown: 12,
+  description: `
+    Harness your animus to create a purer form of Mantra Core.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases intelligence by <span>40</span>.
+    <br/>
+    Create up to <span>2</span>.
+    <br/>
+    Grants <mark>Awakened Mantra Core</mark>, and restores <span>50</span> spirit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Awakened Mantra Cores empower Expansion Blast, Spirit Crush, Soul Shield and Soul Harmony.
+  `,
+};
+
+export const SpiritBound: IAwakenedSkill = {
+  name: "Spirit Bound",
+  attr: "spirit-bound",
+  prop: "spiritBound",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  weaponRequired: "Two-handed Orb",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [189, 189, 189, 189, 189],
+    thirdDamage: [414, 414, 414, 414, 414],
+  },
+  description: `
+    Launch a spirit orb at enemies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    <br/>
+    Deals <span>{thirdDamage}%</span> damage on every third cast.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    The orb bounces from enemy to enemy up to <span>3</span> times.
+    <br/>
+    Skill changes if there is only <span>1</span> enemy in range.
+  `,
+};
+
+export const SpiritCrush: IAwakenedSkill = {
+  name: "Spirit Crush",
+  attr: "spirit-crush",
+  prop: "spiritCrush",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  weaponRequired: "Two-handed Orb",
+  spirit: 20,
+  cooldown: 5,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SpiritBound,
+    level: 3,
+  }],
+  values: {
+    damage: [1239, 1239, 1239, 1239, 1239],
+  },
+  description: `
+    Project spectral blades through enemeis in front of you.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra to become Spirit Gouge.
+    <br/>
+    Use Vision Torrent to turn this skill into Vision Crush.
+  `,
+};
+
+export const VisionTorrent: IAwakenedSkill = {
+  name: "Vision Torrent",
+  attr: "vision-torrent",
+  prop: "visionTorrent",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  cooldown: 60,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: SpiritCrush,
+    level: 2,
+  }],
+  values: {
+    damage: [8, 8, 8, 8, 8],
+  },
+  description: `
+    Manifest your bond with Vision in the physical world.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases magic attack by <span>{damage}%</span> for <span>20</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Spirit Crush becomes Vision Crush.
+    <br/>
+    Flash Strike becomes Vision Strike.
+  `,
+};
+
+export const AwakenedMind: IAwakenedSkill = {
+  name: "Awakened Mind",
+  attr: "awakened-mind",
+  prop: "awakenedMind",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: SpiritCrush,
+    level: 3,
+  }, {
+    skill: VisionTorrent,
+    level: 3,
+  }],
+  values: {
+    increase: [12, 12, 12, 12, 12],
+  },
+  description: `
+    Vision strengthens your mental fortitude, enhancing certain skills.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Spirit Bound, Spirit Crush, and Vision Strike by <span>{increase}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases movement speed by <span>20%</span> after using Vision Strike.
+  `,
+};
+
+export const SoulFlock: IAwakenedSkill = {
+  name: "Soul Flock",
+  attr: "soul-flock",
+  prop: "soulFlock",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  weaponRequired: "Two-handed Orb",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [205, 205, 205, 205, 205],
+    defense: [1.2, 1.2, 1.2, 1.2, 1.2],
+    movement: [1.2, 1.2, 1.2, 1.2, 1.2],
+  },
+  description: `
+    Summon a flock of soul birds to attack.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage <span>3</span> times and inflicts Lethargy.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Lethargy decreases defense by <span>{defense}%</span> and
+    movement speed by <span>{movement}%</span> for <span>20</span> sec,
+    stacking up to <span>5</span> times.
+    <br/>
+    Lethargy does not stack with Static Flash.
+  `,
+};
+
+export const SoulShield: IAwakenedSkill = {
+  name: "Soul Shield",
+  attr: "soul-shield",
+  prop: "soulShield",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  weaponRequired: "Two-handed Orb",
+  spirit: 50,
+  cooldown: 30,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SoulFlock,
+    level: 3,
+  }],
+  values: {
+    damage: [80, 80, 80, 80, 80],
+    absorbs: [20, 20, 20, 20, 20],
+  },
+  description: `
+    Summons an animus cube that damages enemies and shields allies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage to enemies.
+    <br/><br/>
+    Allies receive a shield that absorbs damage equal to <span>{absorbs}%</span> of their max health
+    and lasts for <span>30</span> sec.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra Core to becomes Awakened Soul Shield.
+    <br/>
+    Shields do not trigger in arenas.
+  `,
+};
+
+export const SoulHarmony: IAwakenedSkill = {
+  name: "Soul Harmony",
+  attr: "soul-harmony",
+  prop: "soulHarmony",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Magic",
+  passive: true,
+  spirit: 10,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: SoulShield,
+    level: 3,
+  }],
+  values: {
+    health: [145, 145, 145, 145, 145],
+  },
+  description: `
+    Draw animus from your soul to heal nearby allies.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.
+    Hold down the skill key to channel.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes <span>1</span> Awakened Mantra Core to become Soul Dissonance.
+  `,
+};
+
+export const TriuneLink: IAwakenedSkill = {
+  name: "Triune Link",
+  attr: "triune-link",
+  prop: "triuneLink",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: SoulHarmony,
+    level: 3,
+  }],
+  values: {
+    increase: [3, 3, 3, 3, 3],
+    soulHarmony: [5, 5, 5, 5, 5],
+  },
+  description: `
+    Strengthens the bond between the Soul Binder, Vision, and Narubashan.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases the damage of Soul Flock, Soul Shield, and Soul Dissonance by <span>{increase}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases the healing of Soul Harmony by <span>{soulHarmony}%</span>.
+    <br/>
+    Soul Clash reduces an additional <span>10</span> critical evasion and <span>1</span> evasion.
+  `,
+};
+
 export const RankOneSkills: IClassSkills = {
   AnimusFocus: AnimusFocus,
   ConcussionOrb: ConcussionOrb,
@@ -494,7 +781,15 @@ export const RankOneSkills: IClassSkills = {
 };
 
 export const RankTwoSkills: IClassSkills = {
-
+  AwakenedMantra: AwakenedMantra,
+  SpiritBound: SpiritBound,
+  SpiritCrush: SpiritCrush,
+  VisionTorrent: VisionTorrent,
+  AwakenedMind: AwakenedMind,
+  SoulFlock: SoulFlock,
+  SoulShield: SoulShield,
+  SoulHarmony: SoulHarmony,
+  TriuneLink: TriuneLink,
 };
 
 export const SoulBinderSkills: IClassSkills = {

@@ -34,6 +34,16 @@ export class SoulBinderComponent implements IChart {
   @Prop({ mutable: true }) lightBarrier: number = SoulBinderSkills.LightBarrier.minLevel;
   @Prop({ mutable: true }) fountOfRenewal: number = SoulBinderSkills.FountOfRenewal.minLevel;
 
+  @Prop({ mutable: true }) awakenedMantra: number = SoulBinderSkills.AwakenedMantra.minLevel;
+  @Prop({ mutable: true }) spiritBound: number = SoulBinderSkills.SpiritBound.minLevel;
+  @Prop({ mutable: true }) spiritCrush: number = SoulBinderSkills.SpiritCrush.minLevel;
+  @Prop({ mutable: true }) visionTorrent: number = SoulBinderSkills.VisionTorrent.minLevel;
+  @Prop({ mutable: true }) awakenedMind: number = SoulBinderSkills.AwakenedMind.minLevel;
+  @Prop({ mutable: true }) soulFlock: number = SoulBinderSkills.SoulFlock.minLevel;
+  @Prop({ mutable: true }) soulShield: number = SoulBinderSkills.SoulShield.minLevel;
+  @Prop({ mutable: true }) soulHarmony: number = SoulBinderSkills.SoulHarmony.minLevel;
+  @Prop({ mutable: true }) triuneLink: number = SoulBinderSkills.TriuneLink.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
