@@ -406,14 +406,6 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
               } else {
                 chart.extras = chkExtras.checked = !!parseInt(q[27]);
               }
-            } else {
-              // pre-awakening
-              if (q[0] === "runeblade") {
-                if (q[18] !== "0") chart.extras = chkExtras.checked = true;
-                if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
-              } else {
-                chart.extras = chkExtras.checked = !!parseInt(q[18]);
-              }
             }
 
             setTimeout(function() {
