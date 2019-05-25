@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as BerserkerSkills from "../../../global/values/berserker";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { BerserkerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/berserker";
 
 @Component({
   tag: "ms-berserker",
@@ -10,7 +10,10 @@ import * as BerserkerSkills from "../../../global/values/berserker";
 })
 export class BerserkerComponent implements IChart {
 
+  @Element() host: HTMLMsBerserkerElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerSkills.AdrenalineRush.minLevel;
@@ -31,6 +34,16 @@ export class BerserkerComponent implements IChart {
   @Prop({ mutable: true }) warriorsInstinct: number = BerserkerSkills.WarriorsInstinct.minLevel;
   @Prop({ mutable: true }) xSlash: number = BerserkerSkills.XSlash.minLevel;
 
+  @Prop({ mutable: true }) infiniteDarkness: number = BerserkerSkills.InfiniteDarkness.minLevel;
+  @Prop({ mutable: true }) skullSplitter: number = BerserkerSkills.SkullSplitter.minLevel;
+  @Prop({ mutable: true }) bloodFury: number = BerserkerSkills.BloodFury.minLevel;
+  @Prop({ mutable: true }) parryTheMoon: number = BerserkerSkills.ParryTheMoon.minLevel;
+  @Prop({ mutable: true }) aerialSmash: number = BerserkerSkills.AerialSmash.minLevel;
+  @Prop({ mutable: true }) squall: number = BerserkerSkills.Squall.minLevel;
+  @Prop({ mutable: true }) rendWound: number = BerserkerSkills.RendWound.minLevel;
+  @Prop({ mutable: true }) ragingSoul: number = BerserkerSkills.RagingSoul.minLevel;
+  @Prop({ mutable: true }) bloodSlash: number = BerserkerSkills.BloodSlash.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,19 +61,22 @@ export class BerserkerComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, BerserkerSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="berserker">
-        { renderLevelControls(this, BerserkerSkills, this.editable, this.extras) }
+      <ms-chart msClass="berserker" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

@@ -1,8 +1,10 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
+import { ConstructibleStyle } from "stencil-constructible-style";
+import { ISkill, Rank, IAwakenedSkill, ISkillBase } from "../../../global/values/_skillValues.interfaces";
+import { getOptimizedAssetPath } from "../../../global/utils";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
 import { Sigil } from "./runeblade-sigil";
-import * as RunebladeSkills from "../../../global/values/runeblade";
+import { RunebladeSkills } from "../../../global/values/runeblade";
 
 @Component({
   tag: "ms-runeblade",
@@ -11,7 +13,10 @@ import * as RunebladeSkills from "../../../global/values/runeblade";
 })
 export class RunebladeComponent implements IChart {
 
+  @Element() host: HTMLMsRunebladeElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop({ reflectToAttr: true }) extras: boolean = false;
   @Prop({ mutable: true, reflectToAttr: true }) sigil: Sigil = "";
 
@@ -33,19 +38,30 @@ export class RunebladeComponent implements IChart {
   @Prop({ mutable: true }) wardingRune: number = RunebladeSkills.WardingRune.minLevel;
   @Prop({ mutable: true }) whirlingBlades: number = RunebladeSkills.WhirlingBlades.minLevel;
 
-  @Prop({ context: "publicPath" }) private publicPath: string;
+  @Prop({ mutable: true }) physicalBoost: number = RunebladeSkills.PhysicalBoost.minLevel;
+  @Prop({ mutable: true }) quintupleCut: number = RunebladeSkills.QuintupleCut.minLevel;
+  @Prop({ mutable: true }) bladeWhip: number = RunebladeSkills.BladeWhip.minLevel;
+  @Prop({ mutable: true }) bladeExpert: number = RunebladeSkills.BladeExpert.minLevel;
+  @Prop({ mutable: true }) phantasmSlash: number = RunebladeSkills.PhantasmSlash.minLevel;
+  @Prop({ mutable: true }) runeTrigger: number = RunebladeSkills.RuneTrigger.minLevel;
+  @Prop({ mutable: true }) dimensionBlade: number = RunebladeSkills.DimensionBlade.minLevel;
+  @Prop({ mutable: true }) runeExpert: number = RunebladeSkills.RuneExpert.minLevel;
+  @Prop({ mutable: true }) runeIgnition: number = RunebladeSkills.RuneIgnition.minLevel;
 
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
-  private runebladeSkills: { [prop: string]: ISkill } = {};
+  @ConstructibleStyle({ cacheKeyProperty: "extras" }) styles = RunebladeComponent.getStyles;
+
+  private runebladeSkills: { [prop: string]: ISkillBase } = {};
+  private rankOneSkills: { [prop: string]: ISkill } = {};
+  private rankTwoSkills: { [prop: string]: IAwakenedSkill } = {};
 
   componentWillLoad() {
-    Object.keys(RunebladeSkills).map((prop) => {
+    Object.keys(RunebladeSkills).map((key: string) => {
       // create copies of each skill so we can toggle the extras for skill attunes
-      this.runebladeSkills[prop] = { ...RunebladeSkills[prop] };
-      // this.runebladeSkills[prop] = JSON.parse(JSON.stringify(RunebladeSkills[prop]));
+      this.updateSkill(key, { ...RunebladeSkills[key] });
     });
 
     processSkills(this, this.runebladeSkills);
@@ -61,6 +77,7 @@ export class RunebladeComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, this.runebladeSkills, skill);
+    this.host.forceUpdate();
 
     if (skill.prop === this.sigil && level === 0) {
       this.changeSigil();
@@ -68,6 +85,25 @@ export class RunebladeComponent implements IChart {
       this.updateSigil();
       this.emitChangeEvent();
     }
+  }
+
+  @Watch("extras")
+  @Watch("rank")
+  emitChangeEvent(): void {
+    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+  }
+
+  render() {
+    return ([
+      <ms-chart msClass="runeblade" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, this.rankOneSkills, this.editable, this.extras, Rank.Basic, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
+        { renderLevelControls(this, this.rankTwoSkills, this.editable, this.extras, Rank.Awakening, {
+          onSkillclicked: (evt) => this.changeSigil(evt.detail),
+        }) }
+      </ms-chart>
+    ]);
   }
 
   private changeSigil(skill?: ISkill) {
@@ -109,11 +145,11 @@ export class RunebladeComponent implements IChart {
               : this.sigil === "stormSigil" ? 2
               : -1;
 
-      Object.keys(this.runebladeSkills).forEach((prop: string) => {
-        let originalSkill: ISkill = RunebladeSkills[prop];
+      Object.keys(this.runebladeSkills).forEach((key: string) => {
+        let originalSkill: ISkillBase = RunebladeSkills[key];
         if (originalSkill.extras) {
           if (this.sigil) {
-            this.runebladeSkills[prop] = {
+            this.updateSkill(key, {
               ...originalSkill,
               ...originalSkill.extras[sigilIdx],
               extras: [{
@@ -124,14 +160,14 @@ export class RunebladeComponent implements IChart {
                           : "")
                           + "."
               }],
-            };
+            })
           } else {
-            this.runebladeSkills[prop] = {
+            this.updateSkill(key, {
               ...originalSkill,
               extras: [{
                 description: "Click on a sigil to show how this skill attunes."
               }]
-            };
+            });
           }
         } else if (["flameSigil", "frostSigil", "stormSigil"].indexOf(originalSkill.prop) > -1) {
           let description: string;
@@ -144,41 +180,30 @@ export class RunebladeComponent implements IChart {
             description = "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active.";
           }
 
-          this.runebladeSkills[prop] = {
+          this.updateSkill(key, {
             ...originalSkill,
             extras: [{
               description: description,
             }],
-          };
+          });
         }
       });
     }
   }
 
-  @Watch("extras")
-  emitChangeEvent(): void {
-    this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
+  private updateSkill(key: string, skill: ISkillBase) {
+    this.runebladeSkills[key] = skill;
+    if (skill.rank === Rank.Basic) {
+      this.rankOneSkills[key] = skill as ISkill;
+    } else {
+      this.rankTwoSkills[key] = skill as IAwakenedSkill;
+    }
   }
 
-  render() {
-    return ([
-      this.renderStyles(),
-      <ms-chart msClass="runeblade">
-        { renderLevelControls(this, this.runebladeSkills, this.editable, this.extras, {
-          onSkillclicked: (evt) => this.changeSigil(evt.detail),
-        }) }
-      </ms-chart>
-    ]);
-  }
-
-  private renderStyles(): JSX.Element {
-    if (!this.extras) return;
-
-    return (
-      <style type="text/css">{`
-        ms-runeblade[extras] ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-        :host([extras]) ms-skill:before { background: url(${ this.publicPath }assets/skill-shield-selected.png) }
-      `}</style>
-    );
+  private static getStyles(): string {
+    return `
+      ms-runeblade[extras] ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
+      :host([extras]) ms-skill:before { background: url(${ getOptimizedAssetPath(`assets/skill-shield-selected.png`) }) }
+    `;
   }
 }

@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { HeavyGunnerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/heavy-gunner";
 
 @Component({
   tag: "ms-heavy-gunner",
@@ -10,7 +10,10 @@ import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 })
 export class HeavyGunnerComponent implements IChart {
 
+  @Element() host: HTMLMsHeavyGunnerElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
@@ -31,6 +34,16 @@ export class HeavyGunnerComponent implements IChart {
   @Prop({ mutable: true }) stunGrenades: number = HeavyGunnerSkills.StunGrenades.minLevel;
   @Prop({ mutable: true }) suborbitalBombardment: number = HeavyGunnerSkills.SuborbitalBombardment.minLevel;
 
+  @Prop({ mutable: true }) mobileArmory: number = HeavyGunnerSkills.MobileArmory.minLevel;
+  @Prop({ mutable: true }) focusedFire: number = HeavyGunnerSkills.FocusedFire.minLevel;
+  @Prop({ mutable: true }) fireBomber: number = HeavyGunnerSkills.FireBomber.minLevel;
+  @Prop({ mutable: true }) missileSupercharger: number = HeavyGunnerSkills.MissileSupercharger.minLevel;
+  @Prop({ mutable: true }) demolitionCannon: number = HeavyGunnerSkills.DemolitionCannon.minLevel;
+  @Prop({ mutable: true }) plasmaChain: number = HeavyGunnerSkills.PlasmaChain.minLevel;
+  @Prop({ mutable: true }) skyHunter: number = HeavyGunnerSkills.SkyHunter.minLevel;
+  @Prop({ mutable: true }) plasmaSupercharger: number = HeavyGunnerSkills.PlasmaSupercharger.minLevel;
+  @Prop({ mutable: true }) hyperGigaCannon: number = HeavyGunnerSkills.HyperGigaCannon.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,20 +61,23 @@ export class HeavyGunnerComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, HeavyGunnerSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="heavy-gunner">
-        { renderLevelControls(this, HeavyGunnerSkills, this.editable, this.extras) }
-      </ms-chart>
+      <ms-chart msClass="heavy-gunner" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     );
   }
 }

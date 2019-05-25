@@ -1,83 +1,68 @@
-import { newE2EPage } from "@stencil/core/testing";
+import { newSpecPage } from "@stencil/core/testing";
+import { RunebladeComponent } from "./runeblade";
 import { FlameSigil } from "../../../global/values/runeblade";
 
 describe("ms-runeblade", () => {
   it("renders", async () => {
-    const page = await newE2EPage();
+    const page = await newSpecPage({
+      components: [RunebladeComponent],
+      html: `<ms-runeblade></ms-runeblade>`,
+    });
 
-    await page.setContent("<ms-runeblade></ms-runeblade>");
-    const element = await page.find("ms-runeblade");
-    expect(element).toHaveClass("hydrated");
+    expect(page.root).toHaveClass("hydrated");
   });
 
   describe("extras", () => {
     describe("sigils", () => {
 
       it("can select sigil with a extras and level", async () => {
-        const page = await newE2EPage();
-
-        await page.setContent("<ms-runeblade></ms-runeblade>");
-        const runeblade = await page.find("ms-runeblade");
-
-        await page.$eval("ms-runeblade", (elm: any) => {
-          elm.extras = true;
-          elm.flameSigil = 1;
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade extras="true" flame-sigil="1"></ms-runeblade>`,
         });
 
-        await page.waitForChanges();
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-        const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
-
-        flameSigil.triggerEvent("skillclicked", {
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
           detail: FlameSigil,
-        });
+        }));
 
         await page.waitForChanges();
 
         expect(runeblade).toEqualAttribute("sigil", "flameSigil");
       });
 
-      it("cannot select sigil without extras", async () => {
-        const page = await newE2EPage();
-
-        await page.setContent("<ms-runeblade></ms-runeblade>");
-        const runeblade = await page.find("ms-runeblade");
-
-        await page.$eval("ms-runeblade", (elm: any) => {
-          elm.flameSigil = 1;
+      it("cannot select sigil without a level", async () => {
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade extras="true"></ms-runeblade>`,
         });
 
-        await page.waitForChanges();
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-        const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
-
-        flameSigil.triggerEvent("skillclicked", {
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
           detail: FlameSigil,
-        });
+        }));
 
         await page.waitForChanges();
 
         expect(runeblade).toEqualAttribute("sigil", "");
       });
 
-      it("cannot select sigil without a level", async () => {
-        const page = await newE2EPage();
-
-        await page.setContent("<ms-runeblade></ms-runeblade>");
-        const runeblade = await page.find("ms-runeblade");
-
-        await page.$eval("ms-runeblade", (elm: any) => {
-          elm.editable = true;
-          elm.extras = true;
+      it("cannot select sigil without extras", async () => {
+        const page = await newSpecPage({
+          components: [RunebladeComponent],
+          html: `<ms-runeblade flame-sigil="1"></ms-runeblade>`,
         });
 
-        await page.waitForChanges();
+        const runeblade = page.root as HTMLMsRunebladeElement;
+        const flameSigil = runeblade.shadowRoot.querySelector("ms-skill.flameSigil") as HTMLMsSkillElement;
 
-        const flameSigil = await page.find("ms-runeblade >>> ms-skill.flameSigil");
-
-        flameSigil.triggerEvent("skillclicked", {
+        flameSigil.dispatchEvent(new CustomEvent("skillclicked", {
           detail: FlameSigil,
-        });
+        }));
 
         await page.waitForChanges();
 
@@ -85,25 +70,4 @@ describe("ms-runeblade", () => {
       });
     });
   });
-
-  // it("renders changes to the name data", async () => {
-  //   const page = await newE2EPage();
-
-  //   await page.setContent("<my-component></my-component>");
-  //   const component = await page.find("my-component");
-  //   const element = await page.find("my-component >>> div");
-  //   expect(element.textContent).toEqual(`Hello, World! I'm `);
-
-  //   component.setProperty("first", "James");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James`);
-
-  //   component.setProperty("last", "Quincy");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Quincy`);
-
-  //   component.setProperty("middle", "Earl");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Earl Quincy`);
-  // });
 });

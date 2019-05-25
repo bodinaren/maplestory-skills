@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as KnightSkills from "../../../global/values/knight";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { KnightSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/knight";
 
 @Component({
   tag: "ms-knight",
@@ -10,7 +10,10 @@ import * as KnightSkills from "../../../global/values/knight";
 })
 export class KnightComponent implements IChart {
 
+  @Element() host: HTMLMsKnightElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) bulwark: number = KnightSkills.Bulwark.minLevel;
@@ -31,6 +34,16 @@ export class KnightComponent implements IChart {
   @Prop({ mutable: true }) typhoonSlash: number = KnightSkills.TyphoonSlash.minLevel;
   @Prop({ mutable: true }) warhorn: number = KnightSkills.Warhorn.minLevel;
 
+  @Prop({ mutable: true }) dualTactics: number = KnightSkills.DualTactics.minLevel;
+  @Prop({ mutable: true }) convictionStrike: number = KnightSkills.ConvictionStrike.minLevel;
+  @Prop({ mutable: true }) divineRetribution: number = KnightSkills.DivineRetribution.minLevel;
+  @Prop({ mutable: true }) swordDiscipline: number = KnightSkills.SwordDiscipline.minLevel;
+  @Prop({ mutable: true }) lightBringer: number = KnightSkills.LightBringer.minLevel;
+  @Prop({ mutable: true }) guardiansWings: number = KnightSkills.GuardiansWings.minLevel;
+  @Prop({ mutable: true }) cycloneShield: number = KnightSkills.CycloneShield.minLevel;
+  @Prop({ mutable: true }) shieldTraining: number = KnightSkills.ShieldTraining.minLevel;
+  @Prop({ mutable: true }) heavensJudgement: number = KnightSkills.HeavensJudgement.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,19 +61,22 @@ export class KnightComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, KnightSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, KnightSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="knight">
-        { renderLevelControls(this, KnightSkills, this.editable, this.extras) }
+      <ms-chart msClass="knight" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

@@ -1,8 +1,8 @@
-import '../../../stencil.core';
-import { EventEmitter } from "../../../stencil.core";
+import { EventEmitter } from "..\..\..\stencil.core";
 import { IChart, IChartSkills } from "../class-chart-helpers";
 import { ISkill } from "../../../global/values/_skillValues.interfaces";
 export declare class KnightComponent implements IChart {
+    host: HTMLMsKnightElement;
     editable: boolean;
     extras: boolean;
     bulwark: number;
@@ -28,5 +28,5 @@ export declare class KnightComponent implements IChart {
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
     emitChangeEvent(): void;
-    render(): JSX.Element;
+    render(): any;
 }

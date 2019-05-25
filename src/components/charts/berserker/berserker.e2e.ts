@@ -1,32 +1,13 @@
-import { newE2EPage } from "@stencil/core/testing";
+import { newSpecPage } from "@stencil/core/testing";
+import { BerserkerComponent } from "./berserker";
 
 describe("ms-berserker", () => {
   it("renders", async () => {
-    const page = await newE2EPage();
+    const page = await newSpecPage({
+      components: [BerserkerComponent],
+      html: `<ms-berserker></ms-berserker>`,
+    });
 
-    await page.setContent("<ms-berserker></ms-berserker>");
-    const element = await page.find("ms-berserker");
-    expect(element).toHaveClass("hydrated");
+    expect(page.root).toHaveClass("hydrated");
   });
-
-  // it("renders changes to the name data", async () => {
-  //   const page = await newE2EPage();
-
-  //   await page.setContent("<my-component></my-component>");
-  //   const component = await page.find("my-component");
-  //   const element = await page.find("my-component >>> div");
-  //   expect(element.textContent).toEqual(`Hello, World! I'm `);
-
-  //   component.setProperty("first", "James");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James`);
-
-  //   component.setProperty("last", "Quincy");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Quincy`);
-
-  //   component.setProperty("middle", "Earl");
-  //   await page.waitForChanges();
-  //   expect(element.textContent).toEqual(`Hello, World! I'm James Earl Quincy`);
-  // });
 });

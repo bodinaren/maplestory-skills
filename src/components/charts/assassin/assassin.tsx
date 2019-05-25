@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as AssassinSkills from "../../../global/values/assassin";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { AssassinSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/assassin";
 
 @Component({
   tag: "ms-assassin",
@@ -10,7 +10,10 @@ import * as AssassinSkills from "../../../global/values/assassin";
 })
 export class AssassinComponent implements IChart {
 
+  @Element() host: HTMLMsAssassinElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) darkCloak: number = AssassinSkills.DarkCloak.minLevel;
@@ -31,6 +34,16 @@ export class AssassinComponent implements IChart {
   @Prop({ mutable: true }) starFlurry: number = AssassinSkills.StarFlurry.minLevel;
   @Prop({ mutable: true }) thrownWeaponMastery: number = AssassinSkills.ThrownWeaponMastery.minLevel;
 
+  @Prop({ mutable: true }) darkPunisher: number = AssassinSkills.DarkPunisher.minLevel;
+  @Prop({ mutable: true }) redoubledPain: number = AssassinSkills.RedoubledPain.minLevel;
+  @Prop({ mutable: true }) bindingPunishment: number = AssassinSkills.BindingPunishment.minLevel;
+  @Prop({ mutable: true }) artOfTheShuriken: number = AssassinSkills.ArtOfTheShuriken.minLevel;
+  @Prop({ mutable: true }) allInOne: number = AssassinSkills.AllInOne.minLevel;
+  @Prop({ mutable: true }) darkMire: number = AssassinSkills.DarkMire.minLevel;
+  @Prop({ mutable: true }) shadowStance: number = AssassinSkills.ShadowStance.minLevel;
+  @Prop({ mutable: true }) artOfTheShadows: number = AssassinSkills.ArtOfTheShadows.minLevel;
+  @Prop({ mutable: true }) assassinsCircle: number = AssassinSkills.AssassinsCircle.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,20 +61,23 @@ export class AssassinComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, AssassinSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, AssassinSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="assassin">
-        { renderLevelControls(this, AssassinSkills, this.editable, this.extras) }
-      </ms-chart>
+      <ms-chart msClass="assassin" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     );
   }
 }

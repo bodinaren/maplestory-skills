@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as PriestSkills from "../../../global/values/priest";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { PriestSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/priest";
 
 @Component({
   tag: "ms-priest",
@@ -10,7 +10,10 @@ import * as PriestSkills from "../../../global/values/priest";
 })
 export class PriestComponent implements IChart {
 
+  @Element() host: HTMLMsPriestElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) heavenlyWings: number = PriestSkills.HeavenlyWings.minLevel;
@@ -31,6 +34,16 @@ export class PriestComponent implements IChart {
   @Prop({ mutable: true }) disciple: number = PriestSkills.Disciple.minLevel;
   @Prop({ mutable: true }) angelicRay: number = PriestSkills.AngelicRay.minLevel;
 
+  @Prop({ mutable: true }) lifesGuardian: number = PriestSkills.LifesGuardian.minLevel;
+  @Prop({ mutable: true }) scathingLight: number = PriestSkills.ScathingLight.minLevel;
+  @Prop({ mutable: true }) lightSpear: number = PriestSkills.LightSpear.minLevel;
+  @Prop({ mutable: true }) clarity: number = PriestSkills.Clarity.minLevel;
+  @Prop({ mutable: true }) heavensWrath: number = PriestSkills.HeavensWrath.minLevel;
+  @Prop({ mutable: true }) purifyingLight: number = PriestSkills.PurifyingLight.minLevel;
+  @Prop({ mutable: true }) divineWave: number = PriestSkills.DivineWave.minLevel;
+  @Prop({ mutable: true }) greaterHealing: number = PriestSkills.GreaterHealing.minLevel;
+  @Prop({ mutable: true }) vitality: number = PriestSkills.Vitality.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,20 +61,23 @@ export class PriestComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, PriestSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="priest">
-        { renderLevelControls(this, PriestSkills, this.editable, this.extras) }
-      </ms-chart>
+      <ms-chart msClass="priest" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     );
   }
 }

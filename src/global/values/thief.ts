@@ -1,9 +1,10 @@
-import { ISkill } from "./_skillValues.interfaces";
+import { ISkill, IClassSkills, IAwakenedSkill } from "./_skillValues.interfaces";
 
 export const SpiritThief: ISkill = {
   name: "Spirit Thief",
   attr: "spirit-thief",
   prop: "spiritThief",
+  rank: 1,
   row: 1,
   column: 3,
   minLevel: 1,
@@ -19,6 +20,7 @@ export const MindStealer: ISkill = {
   name: "Mind Stealer",
   attr: "mind-stealer",
   prop: "mindStealer",
+  rank: 1,
   row: 1,
   column: 4,
   minLevel: 1,
@@ -35,6 +37,7 @@ export const DoubleSlash: ISkill = {
   name: "Double Slash",
   attr: "double-slash",
   prop: "doubleSlash",
+  rank: 1,
   row: 1,
   column: 1,
   minLevel: 1,
@@ -47,9 +50,9 @@ export const DoubleSlash: ISkill = {
     cunning: [7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
   },
   description: `
-    Quickly stab with your daggers, dealing <span>[damage]%</span> damage <span>2</span>
+    Quickly stab with your daggers, dealing <span>{damage}%</span> damage <span>2</span>
     times to <span>3</span> enemies up to <span>3</span> m in front of you.
-    Has a <span>[cunning]%</span> chance to activate Cunning for <span>5</span> sec when your attack hits.
+    Has a <span>{cunning}%</span> chance to activate Cunning for <span>5</span> sec when your attack hits.
     Movement speed increases by <span>30%</span> while Cunning is active, and some skills are enhanced.
     The damage of each attack is affected by the weapon in each hand.
   `,
@@ -59,6 +62,7 @@ export const PoisonEdge: ISkill = {
   name: "Poison Edge",
   attr: "poison-edge",
   prop: "poisonEdge",
+  rank: 1,
   row: 2,
   column: 1,
   minLevel: 1,
@@ -73,10 +77,10 @@ export const PoisonEdge: ISkill = {
     fifthDamage: [72, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126],
   },
   description: `
-    Swing your poison-coated daggers, dealing <span>[firstDamage]%</span> poison
+    Swing your poison-coated daggers, dealing <span>{firstDamage}%</span> poison
     damage to <span>5</span> enemies up to <span>3</span> m in front of you.
     Keep pressing the key to trigger a <span>5-hit</span> combo.
-    The fifth hit deals <span>[fifthDamage]%</span> poison damage
+    The fifth hit deals <span>{fifthDamage}%</span> poison damage
     and moves you <span>3</span> m in the direction you select.
     When Cunning is active, this skill is empowered.
     Consumes <span>10</span> spirit.
@@ -86,7 +90,7 @@ export const PoisonEdge: ISkill = {
       damage: [11, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     },
     description: `
-      When empowered your daggers poison the target for an additional <span>[damage]%</span> poison damage
+      When empowered your daggers poison the target for an additional <span>{damage}%</span> poison damage
       every second for <span>13</span> sec on each hit of this skill.
       This effect stacks up to <span>5</span> times.
       Cunning is canceled when this skill activates.
@@ -98,6 +102,7 @@ export const PoisonVial: ISkill = {
   name: "Poison Vial",
   attr: "poison-vial",
   prop: "poisonVial",
+  rank: 1,
   row: 3,
   column: 1,
   minLevel: 0,
@@ -119,9 +124,9 @@ export const PoisonVial: ISkill = {
   },
   description: `
     Throw a vial of poison at the closest enemy up to <span>7.5</span> m in front of you,
-    dealing <span>[damage]%</span> poison damage.
+    dealing <span>{damage}%</span> poison damage.
     The vial breaks on impact, splashing a toxic liquid that poisons <span>5</span> enemies within <span>3</span> m and
-    deals <span>[dot]%</span> poison damage every second for <span>10</span> sec.
+    deals <span>{dot}%</span> poison damage every second for <span>10</span> sec.
     Consumes <span>15</span> spirit.
   `,
 };
@@ -130,6 +135,7 @@ export const SurpriseAttack: ISkill = {
   name: "Surprise Attack",
   attr: "surprise-attack",
   prop: "surpriseAttack",
+  rank: 1,
   row: 5,
   column: 1,
   minLevel: 0,
@@ -151,9 +157,9 @@ export const SurpriseAttack: ISkill = {
   },
   description: `
     Stab <span>3</span> enemies up to <span>3</span> m in front of you,
-    dealing <span>[damage]%</span> damage.
+    dealing <span>{damage}%</span> damage.
     If a target is afflicted with Poison Edge or Poison Vial, they’ll take an additional
-    <span>[additionalDamage]%</span> poison damage for each, and the poison will be removed.
+    <span>{additionalDamage}%</span> poison damage for each, and the poison will be removed.
     When Cunning is active, this skill is empowered.
   `,
   extras: [{
@@ -161,7 +167,7 @@ export const SurpriseAttack: ISkill = {
       damage: [101, 101, 108, 115, 122, 129, 136, 143, 150, 157, 164],
     },
     description: `
-      When empowered you spin with your daggers out, dealing <span>[damage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+      When empowered you spin with your daggers out, dealing <span>{damage}%</span> damage to <span>8</span> enemies within <span>3</span> m.
     `,
   }],
 };
@@ -170,6 +176,7 @@ export const RuthlessGuile: ISkill = {
   name: "Ruthless Guile",
   attr: "ruthless-guile",
   prop: "ruthlessGuile",
+  rank: 1,
   row: 6,
   column: 1,
   minLevel: 0,
@@ -188,7 +195,7 @@ export const RuthlessGuile: ISkill = {
     damage: [2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   },
   description: `
-    Prey on the weaknesses of your enemy to deal <span>[damage]%</span> additional
+    Prey on the weaknesses of your enemy to deal <span>{damage}%</span> additional
     poison damage to targets afflicted with Poison Blow or Poison Vial.
   `,
 };
@@ -197,6 +204,7 @@ export const CunningTactics: ISkill = {
   name: "Cunning Tactics",
   attr: "cunning-tactics",
   prop: "cunningTactics",
+  rank: 1,
   row: 3,
   column: 2,
   minLevel: 0,
@@ -205,7 +213,7 @@ export const CunningTactics: ISkill = {
   cooldown: [23, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14],
   levelRequirement: [19, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37],
   description: `
-    Using the tricks of the trade, recover <span>[spirit]%</span> spirit and activate Cunning for <span>5</span> sec.
+    Using the tricks of the trade, recover <span>{spirit}%</span> spirit and activate Cunning for <span>5</span> sec.
     While Cunning is active, your movement speed increases by <span>30%</span> and some skills can be empowered.
   `,
 };
@@ -214,6 +222,7 @@ export const BladeDance: ISkill = {
   name: "Blade Dance",
   attr: "blade-dance",
   prop: "bladeDance",
+  rank: 1,
   row: 4,
   column: 2,
   minLevel: 0,
@@ -231,8 +240,8 @@ export const BladeDance: ISkill = {
     thirdDamage: [56, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
   },
   description: `
-    Spin with your daggers out, dealing <span>[firstDamage]%</span>, then <span>[firstDamage]%</span>,
-    and then <span>[thirdDamage]%</span> damage to <span>8</span> enemies within <span>3</span> m.
+    Spin with your daggers out, dealing <span>{firstDamage}%</span>, then <span>{firstDamage}%</span>,
+    and then <span>{thirdDamage}%</span> damage to <span>8</span> enemies within <span>3</span> m.
     While Cunning is active, this skill is enhanced.
     Consumes <span>26</span> spirit.
   `,
@@ -241,7 +250,7 @@ export const BladeDance: ISkill = {
       evade: [81, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99],
     },
     description: `
-      When enhanced your spin makes enemies dizzy, granting you a <span>[evade]%</span> chance to evade enemy attacks for <span>1</span> sec.
+      When enhanced your spin makes enemies dizzy, granting you a <span>{evade}%</span> chance to evade enemy attacks for <span>1</span> sec.
       Cunning is cancelled when this skill activates.
     `,
   }],
@@ -251,6 +260,7 @@ export const Retaliation: ISkill = {
   name: "Retaliation",
   attr: "retaliation",
   prop: "retaliation",
+  rank: 1,
   row: 5,
   column: 2,
   minLevel: 0,
@@ -268,9 +278,9 @@ export const Retaliation: ISkill = {
   },
   description: `
     Deftly dodge an attack and position yourself for a counterattack,
-    which restore <span>[spirit]</span> spirit,
-    increases physical attack and magic attack by <span>[attack]%</span>,
-    and increases evasion by <span>[evasion]</span> for <span>12</span> sec.
+    which restore <span>{spirit}</span> spirit,
+    increases physical attack and magic attack by <span>{attack}%</span>,
+    and increases evasion by <span>{evasion}</span> for <span>12</span> sec.
     This effect will not activate again for <span>1</span> sec.
   `,
 };
@@ -279,6 +289,7 @@ export const SomersaultKick: ISkill = {
   name: "Somersault Kick",
   attr: "somersault-kick",
   prop: "somersaultKick",
+  rank: 1,
   row: 3,
   column: 3,
   minLevel: 0,
@@ -292,9 +303,9 @@ export const SomersaultKick: ISkill = {
     jump: [30, 30, 30, 30, 35, 35, 35, 40, 40, 40, 45],
   },
   description: `
-    Perform a somersault kick to deal <span>[damage]%</span> damage to <span>5</span> enemies up
+    Perform a somersault kick to deal <span>{damage}%</span> damage to <span>5</span> enemies up
     to <span>3</span> m in front of you, breaking their stance and decreasing their
-    movement speed by <span>[movement]%</span> and jump power by <span>[jump]%</span>.
+    movement speed by <span>{movement}%</span> and jump power by <span>{jump}%</span>.
     When Cunning is active, this skill is empowered.
   `,
   extras: [{
@@ -310,6 +321,7 @@ export const QuickStep: ISkill = {
   name: "Quick Step",
   attr: "quick-step",
   prop: "quickStep",
+  rank: 1,
   row: 4,
   column: 3,
   minLevel: 0,
@@ -317,7 +329,7 @@ export const QuickStep: ISkill = {
   spirit: [1, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
   levelRequirement: [25, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
   description: `
-    Swiftly move back <span>3</span> m and recover <span>[spirit]</span> spirit.
+    Swiftly move back <span>3</span> m and recover <span>{spirit}</span> spirit.
     Consumes <span>40</span> stamina.
   `,
 };
@@ -326,6 +338,7 @@ export const MesoguardPlus: ISkill = {
   name: "Mesoguard Plus",
   attr: "mesoguard-plus",
   prop: "mesoguardPlus",
+  rank: 1,
   row: 6,
   column: 3,
   minLevel: 0,
@@ -341,7 +354,7 @@ export const MesoguardPlus: ISkill = {
   },
   description: `
     Spend <span>777</span> mesos to create a meso shield that lasts
-    <span>4</span> seconds reducing damage taken by <span>[reduction]%</span>.
+    <span>4</span> seconds reducing damage taken by <span>{reduction}%</span>.
     If Cunning is active, the skill costs no mesos, and Cunning will be removed.
   `,
 };
@@ -350,6 +363,7 @@ export const MindBreaker: ISkill = {
   name: "Mind Breaker",
   attr: "mind-breaker",
   prop: "mindBreaker",
+  rank: 1,
   row: 3,
   column: 4,
   minLevel: 0,
@@ -361,7 +375,7 @@ export const MindBreaker: ISkill = {
   },
   description: `
     Unlocks Empowered Mind Stealer, which increases the number of targets that can be hit
-    by the skill to <span>5</span> and the skill's damage by <span>[damage]%</span>.
+    by the skill to <span>5</span> and the skill's damage by <span>{damage}%</span>.
   `,
 };
 
@@ -369,6 +383,7 @@ export const ViciousCuts: ISkill = {
   name: "Vicious Cuts",
   attr: "vicious-cuts",
   prop: "viciousCuts",
+  rank: 1,
   row: 4,
   column: 4,
   minLevel: 0,
@@ -388,7 +403,7 @@ export const ViciousCuts: ISkill = {
     damage: [35, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62],
   },
   description: `
-    Quickly stab with your daggers, dealing <span>[damage]%</span> damage <span>5</span> times
+    Quickly stab with your daggers, dealing <span>{damage}%</span> damage <span>5</span> times
     to <span>3</span> enemies up to <span>3</span> m in front of you.
     While Cunning is active, this skill is enhanced.
     The damage of each attack is affected by the weapon in each hand.
@@ -400,6 +415,7 @@ export const Haste: ISkill = {
   name: "Haste",
   attr: "haste",
   prop: "haste",
+  rank: 1,
   row: 5,
   column: 4,
   minLevel: 0,
@@ -420,8 +436,8 @@ export const Haste: ISkill = {
   description: `
     Your movements mimic the wind.
     For <span>60</span> sec, <span>4</span> spirit is consumed in <span>0.5</span> sec
-    intervals to increase attack speed and movement speed by <span>[movement]%</span> and
-    physical attack by <span>[attack]%</span>.
+    intervals to increase attack speed and movement speed by <span>{movement}%</span> and
+    physical attack by <span>{attack}%</span>.
   `,
 };
 
@@ -429,6 +445,7 @@ export const DeftCombatant: ISkill = {
   name: "Deft Combatant",
   attr: "deft-combatant",
   prop: "deftCombatant",
+  rank: 1,
   row: 6,
   column: 4,
   minLevel: 0,
@@ -447,6 +464,320 @@ export const DeftCombatant: ISkill = {
   },
   description: `
     Intense training has honed your body, increasing the damage output of
-    Vicious Cuts and Somersault Kick by <span>[damage]%</span>.
+    Vicious Cuts and Somersault Kick by <span>{damage}%</span>.
   `,
+};
+
+export const Vengeance: IAwakenedSkill = {
+  name: "Vengeance",
+  attr: "vengeance",
+  prop: "vengeance",
+  rank: 2,
+  row: 1,
+  column: 4,
+  minLevel: 1,
+  maxLevel: 1,
+  passive: true,
+  description: `
+    Your fighting style is fueled by your thirst for vengeance.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases luck by <span>40%</span>. Can attack while climbing.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Deals <span>340%</span> damage when attacking while climbing.
+  `,
+};
+
+export const SavageStrikes: IAwakenedSkill = {
+  name: "Savage Strikes",
+  attr: "savage-strikes",
+  prop: "savageStrikes",
+  rank: 2,
+  row: 1,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  weaponRequired: "One-handed Dagger, One-handed Dagger",
+  spirit: 36,
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [197, 197, 197, 197, 197],
+    cunningDamage: [335, 335, 335, 335, 335],
+  },
+  description: `
+    Brandish your daggers, slashing enemies <span>6</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Consumes Cunning to deal <span>{cunningDamage}%</span> damage per hit.
+  `,
+};
+
+export const BattlePlan: IAwakenedSkill = {
+  name: "Battle Plan",
+  attr: "battle-plan",
+  prop: "battlePlan",
+  rank: 2,
+  row: 2,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: SavageStrikes,
+    level: 3,
+  }],
+  values: {
+    luck: [12, 12, 12, 12, 12],
+    increase: [9, 9, 9, 9, 9],
+  },
+  description: `
+    You have a plan for every battle.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increases luck by <span>{luck}%</span>.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Cunning Tactics increase physical damage by <span>{increase}%</span> for <span>6</span> sec.
+  `,
+};
+
+export const PoisonMaster: IAwakenedSkill = {
+  name: "Poison Master",
+  attr: "poison-master",
+  prop: "poisonMaster",
+  rank: 2,
+  row: 3,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [64, 64, 64, 64, 64],
+  skillRequirements: [{
+    skill: BattlePlan,
+    level: 2,
+  }],
+  values: {
+    increase: [9, 9, 9, 9, 9],
+    surpriseAttackDamage: [170, 170, 170, 170, 170],
+  },
+  description: `
+    You've become the master poisoner.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Increase poison damage by <span>{increase}%</span>.
+    Increase Surprise Attack damage by <span>{surpriseAttackDamage}%</span> and
+    colldown by <span>50%</span>.
+  `,
+};
+
+export const VolatileVials: IAwakenedSkill = {
+  name: "Volatile Vials",
+  attr: "volatile-vials",
+  prop: "volatileVials",
+  rank: 2,
+  row: 5,
+  column: 1,
+  minLevel: 0,
+  maxLevel: 4,
+  element: "Toxic",
+  attackType: "Long Range / Physical",
+  spirit: 25,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: BattlePlan,
+    level: 3,
+  }, {
+    skill: PoisonMaster,
+    level: 3,
+  }],
+  values: {
+    aoe: [199, 199, 199, 199, 199],
+    poison: [55, 55, 55, 55, 55],
+  },
+  description: `
+    Throws <span>2</span> vials of flammable gas and deadly poison.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{aoe}%</span> area damage and poisons struck targets.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Poisons deal <span>{poison}%</span> poison damage for <span>12</span> sec each
+    and explode when struck by Surprise Attack.
+    <br/>
+    Poison Edge and Poison Vial poison damage does not stack.
+  `,
+};
+
+export const CriticalSlice: IAwakenedSkill = {
+  name: "Critical Slice",
+  attr: "critical-slice",
+  prop: "criticalSlice",
+  rank: 2,
+  row: 1,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Long Range / Physical",
+  weaponRequired: "One-handed Dagger, One-handed Dagger",
+  levelRequirement: [60, 60, 60, 60, 60],
+  values: {
+    damage: [180, 180, 180, 180, 180],
+  },
+  description: `
+    Slash twice to attack the enemy <span>2</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Converts to Dagger Toss while Watchful.
+  `,
+};
+
+export const BattleStep: IAwakenedSkill = {
+  name: "Battle Step",
+  attr: "battle-step",
+  prop: "battleStep",
+  rank: 2,
+  row: 2,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  passive: true,
+  levelRequirement: [62, 62, 62, 62, 62],
+  skillRequirements: [{
+    skill: CriticalSlice,
+    level: 3,
+  }],
+  values: {
+    defense: [10, 10, 10, 10, 10],
+    attack: [33, 33, 33, 33, 33],
+    movement: [10, 10, 10, 10, 10],
+  },
+  description: `
+    Tailor your strategy to any situation.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Passively grants Watchful.
+    <br/><br/>
+    When enemies are close, lose Watchful and gain Rush.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Watchful increases defense by <span>{defense}%</span>.
+    <br/>
+    Rush increases physical attack by <span>{attack}%</span> and
+    movement speed by <span>{movement}%</span> for <span>8</span> sec.
+    <br/>
+    Rush and Haste do not stack.
+  `,
+};
+
+export const ShadowStep: IAwakenedSkill = {
+  name: "Shadow Step",
+  attr: "shadow-step",
+  prop: "shadowStep",
+  rank: 2,
+  row: 4,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  weaponRequired: "Two-handed Bow",
+  spirit: 60,
+  cooldown: 7,
+  levelRequirement: [66, 66, 66, 66, 66],
+  skillRequirements: [{
+    skill: BattleStep,
+    level: 3,
+  }],
+  values: {
+    damage: [1974, 1974, 1974, 1974, 1974],
+  },
+  description: `
+    Dash through the shadows.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Move to an enemy withing <span>12</span> m in front of you.
+    Move <span>4.5</span> m if there are no enemies withing <span>12</span> m.
+    <br/><br/>
+    Hold down the key to use Shadow Slash.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Shadow Slash deals <span>{damage}%</span> damage and grants Rush.
+    <br/>
+    While Rush is active, converts this skill to Finishing Step.
+  `,
+};
+
+export const DeadlyStrikes: IAwakenedSkill = {
+  name: "Deadly Strikes",
+  attr: "deadly-strikes",
+  prop: "deadlyStrikes",
+  rank: 2,
+  row: 5,
+  column: 3,
+  minLevel: 0,
+  maxLevel: 4,
+  attackType: "Close Range / Physical",
+  spirit: 52,
+  levelRequirement: [68, 68, 68, 68, 68],
+  skillRequirements: [{
+    skill: ShadowStep,
+    level: 3,
+  }],
+  values: {
+    damage: [339, 339, 339, 339, 339],
+    resistance: [300, 300, 300, 300, 300],
+  },
+  description: `
+    Fiercely slash the target <span>7</span> times.
+    <br/><br/>
+    <h3>[Primary Effects]</h3>
+    Deals <span>{damage}%</span> damage per hit and grants knockback immunity.
+    <br/><br/>
+    <h3>[Bonus Effects]</h3>
+    Increases physical and magic resistance by <span>{resistance}%</span> while Deadly Strikes is in use.
+  `,
+};
+
+export const RankOneSkills: IClassSkills = {
+  BladeDance: BladeDance,
+  CunningTactics: CunningTactics,
+  DeftCombatant: DeftCombatant,
+  DoubleSlash: DoubleSlash,
+  Haste: Haste,
+  MesoguardPlus: MesoguardPlus,
+  MindBreaker: MindBreaker,
+  MindStealer: MindStealer,
+  PoisonEdge: PoisonEdge,
+  PoisonVial: PoisonVial,
+  QuickStep: QuickStep,
+  Retaliation: Retaliation,
+  RuthlessGuile: RuthlessGuile,
+  SomersaultKick: SomersaultKick,
+  SpiritThief: SpiritThief,
+  SurpriseAttack: SurpriseAttack,
+  ViciousCuts: ViciousCuts,
+};
+
+export const RankTwoSkills: IClassSkills = {
+  Vengeance: Vengeance,
+  SavageStrikes: SavageStrikes,
+  BattlePlan: BattlePlan,
+  PoisonMaster: PoisonMaster,
+  VolatileVials: VolatileVials,
+  CriticalSlice: CriticalSlice,
+  BattleStep: BattleStep,
+  ShadowStep: ShadowStep,
+  DeadlyStrikes: DeadlyStrikes,
+};
+
+export const ThiefSkills: IClassSkills = {
+  ...RankOneSkills,
+  ...RankTwoSkills,
 };

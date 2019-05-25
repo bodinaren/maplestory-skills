@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as ArcherSkills from "../../../global/values/archer";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { ArcherSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/archer";
 
 @Component({
   tag: "ms-archer",
@@ -10,7 +10,10 @@ import * as ArcherSkills from "../../../global/values/archer";
 })
 export class ArcherComponent implements IChart {
 
+  @Element() host: HTMLMsArcherElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
@@ -31,6 +34,16 @@ export class ArcherComponent implements IChart {
   @Prop({ mutable: true }) sharpEyes: number = ArcherSkills.SharpEyes.minLevel;
   @Prop({ mutable: true }) snipe: number = ArcherSkills.Snipe.minLevel;
 
+  @Prop({ mutable: true }) improvedGliding: number = ArcherSkills.ImprovedGliding.minLevel;
+  @Prop({ mutable: true }) flameArrow: number = ArcherSkills.FlameArrow.minLevel;
+  @Prop({ mutable: true }) multiDriveShot: number = ArcherSkills.MultiDriveShot.minLevel;
+  @Prop({ mutable: true }) rangersFocus: number = ArcherSkills.RangersFocus.minLevel;
+  @Prop({ mutable: true }) hastersTeachings: number = ArcherSkills.HastersTeachings.minLevel;
+  @Prop({ mutable: true }) piercingArrow: number = ArcherSkills.PiercingArrow.minLevel;
+  @Prop({ mutable: true }) spiralArrow: number = ArcherSkills.SpiralArrow.minLevel;
+  @Prop({ mutable: true }) archersSecrets: number = ArcherSkills.ArchersSecrets.minLevel;
+  @Prop({ mutable: true }) greaterSharpEyes: number = ArcherSkills.GreaterSharpEyes.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,20 +61,23 @@ export class ArcherComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, ArcherSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
   }
 
   render() {
     return [
-      <ms-chart msClass="archer">
-        { renderLevelControls(this, ArcherSkills, this.editable, this.extras)}
-      </ms-chart>
+      <ms-chart msClass="archer" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     ];
   }
 }

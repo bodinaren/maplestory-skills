@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <title>Maplestory 2 Interactive Skill Charts</title>
     <meta name="description" content="MapleStory 2 Interactive Skill Charts let you share your build with anyone, either share a link or you can easily put them on your own website or blog. Choose any class from Archer, Assassin, Berserker, Heavy Gunner, Knight, Priest, Runeblade, Soul Binder, Striker, Thief, Wizard.">
     <meta name="keywords" content="maplestory 2 interactive skill charts,maplestory 2,maplestory 2 skills,skills,skill charts,interactive skill charts,archer,assassin,berserker,heavy gunner,knight,priest,runeblade,soul binder,striker,thief,wizard">
-    <script src="/build/maplestory-skills.js"></script>
+    <title>Maplestory 2 Interactive Skill Charts</title>
 
     <style>
       body {
@@ -29,7 +28,7 @@
       }
 
       .container { margin: auto; max-width: 1000px; }
-      .logo { display: block; margin: auto; }
+      .logo { display: block; text-align: center; }
       
       #toggles {
         text-align: center;
@@ -45,8 +44,8 @@
         overflow: hidden;
       }
       #toggles a > * { margin: 5px; }
-      #toggles a:not(.active) img.active { display: none; }
-      #toggles a.active img.inactive { display: none; }
+      #toggles a:not(.active) picture.active { display: none; }
+      #toggles a.active picture.inactive { display: none; }
       #toggles img { width: 75px; }
     
       #toggles .unavailable { color: #666; }
@@ -61,7 +60,8 @@
       }
       #toggles .active.unavailable:after { color: red; }
 
-      #editors { max-width: 815px; margin: auto; }
+      #chartHolder { height: 785px; }
+      #editors { max-width: 928px; margin: auto; }
       
       #remaining {
         margin-top: 5px;
@@ -100,20 +100,28 @@
       dl {
         padding-left: 10px;
       }
-      dl div {
+      dl > * {
         border-left: 3px solid #ccc;
         padding: 3px 0 3px 20px;
       }
-      dl div:not(:first-child) { margin-top: 15px; }
+      dl dt:not(:first-child) { margin-top: 15px; }
       dl dt {
         font-weight: bold;
-        margin-bottom: 5px;
       }
       dl dd {
         margin-left: 0;
+        margin-bottom: 5px;
       }
       dl pre {
         margin-left: 20px;
+      }
+
+      #links {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        list-style-type: none;
       }
     </style>
 
@@ -122,7 +130,15 @@
 
     <div class="container">
 
-      <img class="logo" src="assets/logo.png" />
+      <ul id="links">
+        <li><a href="https://github.com/bodinaren/maplestory-skills">GitHub</a>
+        <li><a href="https://twitter.com/htbodin">Twitter</a></li>
+      </ul>
+  
+      <picture class="logo">
+        <source srcset="assets/logo.webp" type="image/webp">
+        <img src="assets/logo.png">
+      </picture>
       
       <h1>Welcome to the MapleStory 2 Interactive Skill Charts</h1>
       
@@ -141,58 +157,124 @@
     
       <p id="toggles">
         <a href="javascript:void(0)" ms-class="archer" onclick="toggle('archer')">
-          <img class="active" src="assets/archer.png" />
-          <img class="inactive" src="assets/archer_bw.png" />
+          <picture class="active">
+            <source srcset="assets/archer.webp" type="image/webp">
+            <img src="assets/archer.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/archer_bw.webp" type="image/webp">
+            <img src="assets/archer_bw.png">
+          </picture>
           Archer
         </a>
         <a href="javascript:void(0)" ms-class="assassin" onclick="toggle('assassin')">
-          <img class="active" src="assets/assassin.png" />
-          <img class="inactive" src="assets/assassin_bw.png" />
+          <picture class="active">
+            <source srcset="assets/assassin.webp" type="image/webp">
+            <img src="assets/assassin.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/assassin_bw.webp" type="image/webp">
+            <img src="assets/assassin_bw.png">
+          </picture>
           Assassin
         </a>
         <a href="javascript:void(0)" ms-class="berserker" onclick="toggle('berserker')">
-          <img class="active" src="assets/berserker.png" />
-          <img class="inactive" src="assets/berserker_bw.png" />
+          <picture class="active">
+            <source srcset="assets/berserker.webp" type="image/webp">
+            <img src="assets/berserker.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/berserker_bw.webp" type="image/webp">
+            <img src="assets/berserker_bw.png">
+          </picture>
           Berserker
         </a>
         <a href="javascript:void(0)" ms-class="heavy-gunner" onclick="toggle('heavy-gunner')">
-          <img class="active" src="assets/heavy-gunner.png" />
-          <img class="inactive" src="assets/heavy-gunner_bw.png" />
+          <picture class="active">
+            <source srcset="assets/heavy-gunner.webp" type="image/webp">
+            <img src="assets/heavy-gunner.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/heavy-gunner_bw.webp" type="image/webp">
+            <img src="assets/heavy-gunner_bw.png">
+          </picture>
           Heavy Gunner
         </a>
         <a href="javascript:void(0)" ms-class="knight" onclick="toggle('knight')">
-          <img class="active" src="assets/knight.png" />
-          <img class="inactive" src="assets/knight_bw.png" />
+          <picture class="active">
+            <source srcset="assets/knight.webp" type="image/webp">
+            <img src="assets/knight.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/knight_bw.webp" type="image/webp">
+            <img src="assets/knight_bw.png">
+          </picture>
           Knight
         </a>
         <a href="javascript:void(0)" ms-class="priest" onclick="toggle('priest')">
-          <img class="active" src="assets/priest.png" />
-          <img class="inactive" src="assets/priest_bw.png" />
+          <picture class="active">
+            <source srcset="assets/priest.webp" type="image/webp">
+            <img src="assets/priest.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/priest_bw.webp" type="image/webp">
+            <img src="assets/priest_bw.png">
+          </picture>
           Priest
         </a>
         <a href="javascript:void(0)" ms-class="runeblade" onclick="toggle('runeblade')">
-          <img class="active" src="assets/runeblade.png" />
-          <img class="inactive" src="assets/runeblade_bw.png" />
+          <picture class="active">
+            <source srcset="assets/runeblade.webp" type="image/webp">
+            <img src="assets/runeblade.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/runeblade_bw.webp" type="image/webp">
+            <img src="assets/runeblade_bw.png">
+          </picture>
           Runeblade
         </a>
         <a href="javascript:void(0)" ms-class="soul-binder" onclick="toggle('soul-binder')">
-          <img class="active" src="assets/soul-binder.png" />
-          <img class="inactive" src="assets/soul-binder_bw.png" />
+          <picture class="active">
+            <source srcset="assets/soul-binder.webp" type="image/webp">
+            <img src="assets/soul-binder.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/soul-binder_bw.webp" type="image/webp">
+            <img src="assets/soul-binder_bw.png">
+          </picture>
           Soul Binder
         </a>
         <a href="javascript:void(0)" ms-class="striker" onclick="toggle('striker')">
-          <img class="active" src="assets/striker.png" />
-          <img class="inactive" src="assets/striker_bw.png" />
+          <picture class="active">
+            <source srcset="assets/striker.webp" type="image/webp">
+            <img src="assets/striker.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/striker_bw.webp" type="image/webp">
+            <img src="assets/striker_bw.png">
+          </picture>
           Striker
         </a>
         <a href="javascript:void(0)" ms-class="thief" onclick="toggle('thief')">
-          <img class="active" src="assets/thief.png" />
-          <img class="inactive" src="assets/thief_bw.png" />
+          <picture class="active">
+            <source srcset="assets/thief.webp" type="image/webp">
+            <img src="assets/thief.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/thief_bw.webp" type="image/webp">
+            <img src="assets/thief_bw.png">
+          </picture>
           Thief
         </a>
         <a href="javascript:void(0)" ms-class="wizard" onclick="toggle('wizard')">
-          <img class="active" src="assets/wizard.png" />
-          <img class="inactive" src="assets/wizard_bw.png" />
+          <picture class="active">
+            <source srcset="assets/wizard.webp" type="image/webp">
+            <img src="assets/wizard.png">
+          </picture>
+          <picture class="inactive">
+            <source srcset="assets/wizard_bw.webp" type="image/webp">
+            <img src="assets/wizard_bw.png">
+          </picture>
           Wizard
         </a>
       </p>
@@ -202,12 +284,13 @@
           <legend>Settings</legend>
           <p>
             <input type="checkbox" id="chkExtras" />
-            <label for="chkExtras">Add extra info (e.g. when a Runeblade's Sigil or Thief's cunning is active).</label>
+            <label for="chkExtras">Add extra info. (E.g. when a Runeblade's Sigil or Thief's cunning is active. Not yet available for Awakening.)</label>
           </p>
         </fieldset>
 
         <code class="block" id="code">
-&lt;script src="https://unpkg.com/maplestory-skills@^1/dist/maplestory-skills.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.esm.js" type="module"&gt;&lt;/script&gt;<br />
+&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.js" nomodule&gt;&lt;/script&gt;
         </code>
 
         <div id="chartHolder"></div>
@@ -229,12 +312,11 @@
 
       <h2 id="faq">FAQ</h2>
       <dl>
-        <div>
-          <dt>The skill charts are too big/small!</dt>
-          <dd>
-            The chart automatically adjust to the size of it's container,
-            but if you still wish to change the size you can do so with CSS transformations.
-            <pre>
+        <dt>The skill charts are too big/small!</dt>
+        <dd>
+          The chart automatically adjust to the size of it's container,
+          but if you still wish to change the size you can do so with CSS transformations.
+          <pre>
 ms-archer, ms-assassin, ms-berserker, ms-heavy-gunner, ms-knight,
 ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
 {
@@ -243,23 +325,18 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
   margin-bottom: calc(-770px * 0.2);  /* to remove empty space at the bottom, or */
   margin-right: calc(-815px * 0.2);   /* if you use "top left" for transform-origin */
 }</pre>
-          </dd>
-        </div>
+        </dd>
 
-        <div>
-          <dt>Can I let the user change the skills on my site too?</dt>
-          <dd>
-            Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
-          </dd>
-        </div>
+        <dt>Can I use this editor on my site too?</dt>
+        <dd>
+          Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
+        </dd>
 
-        <div>
-          <dt>Found a bug or have other questions?</dt>
-          <dd>
-            Don't hesitate to open a new issue in the
-            <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>.
-          </dd>
-        </div>
+        <dt>Found a bug or have other questions?</dt>
+        <dd>
+          Don't hesitate to open a new issue in the
+          <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>.
+        </dd>
       </dl>
     </div>
 
@@ -272,6 +349,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
           if (toggles.hasOwnProperty(prop))
             toggles[prop].classList.remove("active");
         }
+
         document.querySelector("[ms-class='" + msClass + "']").classList.add("active");
 
         var chartHolder = document.querySelector("#chartHolder");
@@ -285,6 +363,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         // create new editor for the new class.
         if (chart) chart.remove();
         chart = document.createElement("ms-" + msClass);
+        chart.rank = 2;
         chart.editable = true;
         chart.extras = chkExtras.checked;
         chartHolder.appendChild(chart);
@@ -298,23 +377,21 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         counterHolder.appendChild(document.createElement("ms-extra-counter"));
 
         if (!firstSetup) {
-          chart.componentOnReady().then(function(c) {
-            c.getData().then(function(data) {
-              location.hash = getHash(c, data.skills);
-            });
-          });
+          location.hash = "";
         }
 
         chart.addEventListener("skillchanged", function(evt) {
           location.hash = getHash(chart, evt.detail.skills);
         });
 
-        return chart;
+        return customElements.whenDefined("ms-" + msClass).then(function() {
+          return chart;
+        });
       }
 
       function getHash(chart, skills) {
         var msClass = chart.tagName.toLowerCase().replace("ms-", "");
-        var hash = [msClass]
+        var hash = [msClass, chart.rank]
                     .concat(skills.map(function(x) { return x.level; }))
                     .join(",")
 
@@ -330,28 +407,32 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var q = location.hash.replace("#", "").split(",");
 
         if (q.length > 1) {
-          var c = toggle(q[0], true);
-
-          c.componentOnReady().then(function(chart) {
-            window.scrollTo(0, chart.offsetTop - 20);
+          toggle(q[0], true).then(function(chart) {
 
             chart.getData().then(function(data) {
               var skills = data.skills;
               for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i];
-                chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+1] || skill.level), skill.maxLevel);
+                chart[skill.prop] = Math.min(Math.max(skill.minLevel, q[i+2] || skill.level), skill.maxLevel);
               }
             });
 
-            if (q[0] === "runeblade") {
-              if (q[18] !== "0") chart.extras = chkExtras.checked = true;
-              if (q[18] !== "1") chart.sigil = q[18]; // means it's the name of a sigil
-            } else {
-              chart.extras = chkExtras.checked = !!parseInt(q[18]);
+            if (q.length > 20) {
+              chart.rank = q[1];
+              if (q[0] === "runeblade") {
+                if (q[28] !== "0") chart.extras = chkExtras.checked = true;
+                if (q[28] !== "1") chart.sigil = q[28]; // means it's the name of a sigil
+              } else {
+                chart.extras = chkExtras.checked = !!parseInt(q[28]);
+              }
             }
+
+            setTimeout(function() {
+              window.scrollTo(0, chart.offsetTop - 20);
+            }, 300);
           });
         } else {
-          toggle("archer");
+          toggle("wizard");
         }
       }
 
@@ -359,9 +440,10 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         var chartHolder = document.querySelector("#chartHolder");
         chartHolder.children[0].extras = chkExtras.checked;
       });
-
-      init();
     </script>
+
+    <script type="module" src="build/maplestory-skills.esm.js" onload="init()"></script>
+    <script nomodule src="build/maplestory-skills.js" onload="init()"></script>
 
   </body>
 </html>

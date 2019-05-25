@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as BerserkerSkills from "../../../global/values/berserker";
 export class BerserkerComponent {
@@ -31,6 +32,7 @@ export class BerserkerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, BerserkerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -41,115 +43,399 @@ export class BerserkerComponent {
     }
     static get is() { return "ms-berserker"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["berserker.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["berserker.css"]
+    }; }
     static get properties() { return {
-        "adrenalineRush": {
-            "type": Number,
-            "attr": "adrenaline-rush",
-            "mutable": true
-        },
-        "bloodlust": {
-            "type": Number,
-            "attr": "bloodlust",
-            "mutable": true
-        },
-        "bloodPrice": {
-            "type": Number,
-            "attr": "blood-price",
-            "mutable": true
-        },
-        "darkAura": {
-            "type": Number,
-            "attr": "dark-aura",
-            "mutable": true
-        },
-        "darkBreaker": {
-            "type": Number,
-            "attr": "dark-breaker",
-            "mutable": true
-        },
-        "darkMight": {
-            "type": Number,
-            "attr": "dark-might",
-            "mutable": true
-        },
-        "deathSpin": {
-            "type": Number,
-            "attr": "death-spin",
-            "mutable": true
-        },
-        "deepWounds": {
-            "type": Number,
-            "attr": "deep-wounds",
-            "mutable": true
-        },
-        "earthquake": {
-            "type": Number,
-            "attr": "earthquake",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
         },
-        "getData": {
-            "method": true
+        "adrenalineRush": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "adrenaline-rush",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.AdrenalineRush.minLevel"
+        },
+        "bloodPrice": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blood-price",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.BloodPrice.minLevel"
+        },
+        "bloodlust": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "bloodlust",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.Bloodlust.minLevel"
+        },
+        "darkAura": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dark-aura",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.DarkAura.minLevel"
+        },
+        "darkBreaker": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dark-breaker",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.DarkBreaker.minLevel"
+        },
+        "darkMight": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "dark-might",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.DarkMight.minLevel"
+        },
+        "deathSpin": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "death-spin",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.DeathSpin.minLevel"
+        },
+        "deepWounds": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "deep-wounds",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.DeepWounds.minLevel"
+        },
+        "earthquake": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "earthquake",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.Earthquake.minLevel"
         },
         "greatswordMastery": {
-            "type": Number,
-            "attr": "greatsword-mastery",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "greatsword-mastery",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.GreatswordMastery.minLevel"
         },
         "groundBreaker": {
-            "type": Number,
-            "attr": "ground-breaker",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ground-breaker",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.GroundBreaker.minLevel"
         },
         "inhumanEndurance": {
-            "type": Number,
-            "attr": "inhuman-endurance",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "inhuman-endurance",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.InhumanEndurance.minLevel"
         },
         "intimidation": {
-            "type": Number,
-            "attr": "intimidation",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "intimidation",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.Intimidation.minLevel"
         },
         "ragingSlash": {
-            "type": Number,
-            "attr": "raging-slash",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "raging-slash",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.RagingSlash.minLevel"
         },
         "voidSlash": {
-            "type": Number,
-            "attr": "void-slash",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "void-slash",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.VoidSlash.minLevel"
         },
         "warriorsInstinct": {
-            "type": Number,
-            "attr": "warriors-instinct",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "warriors-instinct",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.WarriorsInstinct.minLevel"
         },
         "xSlash": {
-            "type": Number,
-            "attr": "x-slash",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "x-slash",
+            "reflect": false,
+            "defaultValue": "BerserkerSkills.XSlash.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-berserker:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get elementRef() { return "host"; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

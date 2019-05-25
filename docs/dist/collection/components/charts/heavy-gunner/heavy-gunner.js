@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
 import * as HeavyGunnerSkills from "../../../global/values/heavy-gunner";
 export class HeavyGunnerComponent {
@@ -31,6 +32,7 @@ export class HeavyGunnerComponent {
     levelChanged(skill, level) {
         this[skill.prop] = level;
         processSkills(this, HeavyGunnerSkills, skill);
+        this.host.forceUpdate();
         this.emitChangeEvent();
     }
     emitChangeEvent() {
@@ -41,115 +43,399 @@ export class HeavyGunnerComponent {
     }
     static get is() { return "ms-heavy-gunner"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["heavy-gunner.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["heavy-gunner.css"]
+    }; }
     static get properties() { return {
-        "advancedBullets": {
-            "type": Number,
-            "attr": "advanced-bullets",
-            "mutable": true
-        },
-        "advancedMissiles": {
-            "type": Number,
-            "attr": "advanced-missiles",
-            "mutable": true
-        },
-        "advancedPulseWeapons": {
-            "type": Number,
-            "attr": "advanced-pulse-weapons",
-            "mutable": true
-        },
-        "blastChargeKit": {
-            "type": Number,
-            "attr": "blast-charge-kit",
-            "mutable": true
-        },
-        "bulletSpray": {
-            "type": Number,
-            "attr": "bullet-spray",
-            "mutable": true
-        },
         "editable": {
-            "type": Boolean,
-            "attr": "editable",
-            "reflectToAttr": true
-        },
-        "electricBlast": {
-            "type": Number,
-            "attr": "electric-blast",
-            "mutable": true
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "editable",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "extras": {
-            "type": Boolean,
-            "attr": "extras",
-            "watchCallbacks": ["emitChangeEvent"]
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "advancedBullets": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "advanced-bullets",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.AdvancedBullets.minLevel"
+        },
+        "advancedMissiles": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "advanced-missiles",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.AdvancedMissiles.minLevel"
+        },
+        "advancedPulseWeapons": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "advanced-pulse-weapons",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.AdvancedPulseWeapons.minLevel"
+        },
+        "blastChargeKit": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "blast-charge-kit",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.BlastChargeKit.minLevel"
+        },
+        "bulletSpray": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "bullet-spray",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.BulletSpray.minLevel"
+        },
+        "electricBlast": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "electric-blast",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.ElectricBlast.minLevel"
         },
         "gatlingFire": {
-            "type": Number,
-            "attr": "gatling-fire",
-            "mutable": true
-        },
-        "getData": {
-            "method": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "gatling-fire",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.GatlingFire.minLevel"
         },
         "homingMissiles": {
-            "type": Number,
-            "attr": "homing-missiles",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "homing-missiles",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.HomingMissiles.minLevel"
         },
         "jetBoots": {
-            "type": Number,
-            "attr": "jet-boots",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "jet-boots",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.JetBoots.minLevel"
         },
         "lockOn": {
-            "type": Number,
-            "attr": "lock-on",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "lock-on",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.LockOn.minLevel"
         },
         "magneticBomb": {
-            "type": Number,
-            "attr": "magnetic-bomb",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "magnetic-bomb",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.MagneticBomb.minLevel"
         },
         "mBomb": {
-            "type": Number,
-            "attr": "m-bomb",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "m-bomb",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.MBomb.minLevel"
         },
         "medKit": {
-            "type": Number,
-            "attr": "med-kit",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "med-kit",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.MedKit.minLevel"
         },
         "reload": {
-            "type": Number,
-            "attr": "reload",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "reload",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.Reload.minLevel"
         },
         "rocketLauncher": {
-            "type": Number,
-            "attr": "rocket-launcher",
-            "mutable": true
-        },
-        "skills": {
-            "state": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "rocket-launcher",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.RocketLauncher.minLevel"
         },
         "stunGrenades": {
-            "type": Number,
-            "attr": "stun-grenades",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "stun-grenades",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.StunGrenades.minLevel"
         },
         "suborbitalBombardment": {
-            "type": Number,
-            "attr": "suborbital-bombardment",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "suborbital-bombardment",
+            "reflect": false,
+            "defaultValue": "HeavyGunnerSkills.SuborbitalBombardment.minLevel"
         }
     }; }
+    static get states() { return {
+        "skills": {}
+    }; }
     static get events() { return [{
-            "name": "skillchanged",
             "method": "onSkillChanged",
+            "name": "skillchanged",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:ms-heavy-gunner:**/"; }
+    static get methods() { return {
+        "getData": {
+            "complexType": {
+                "signature": "() => Promise<import(\"C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event\").ISkillChangeEvent>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    },
+                    "ISkillChangeEvent": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<ISkillChangeEvent>"
+            },
+            "docs": {
+                "text": "",
+                "tags": []
+            }
+        }
+    }; }
+    static get elementRef() { return "host"; }
+    static get watchers() { return [{
+            "propName": "extras",
+            "methodName": "emitChangeEvent"
+        }]; }
 }

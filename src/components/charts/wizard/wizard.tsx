@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as WizardSkills from "../../../global/values/wizard";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { WizardSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/wizard";
 
 @Component({
   tag: "ms-wizard",
@@ -10,7 +10,10 @@ import * as WizardSkills from "../../../global/values/wizard";
 })
 export class WizardComponent implements IChart {
 
+  @Element() host: HTMLMsWizardElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardSkills.ArcaneBlast.minLevel;
@@ -31,6 +34,16 @@ export class WizardComponent implements IChart {
   @Prop({ mutable: true }) teleport: number = WizardSkills.Teleport.minLevel;
   @Prop({ mutable: true }) thunderbolt: number = WizardSkills.Thunderbolt.minLevel;
 
+  @Prop({ mutable: true }) manaControl: number = WizardSkills.ManaControl.minLevel;
+  @Prop({ mutable: true }) dualCast: number = WizardSkills.DualCast.minLevel;
+  @Prop({ mutable: true }) iceCreamTime: number = WizardSkills.IceCreamTime.minLevel;
+  @Prop({ mutable: true }) lodestoneField: number = WizardSkills.LodestoneField.minLevel;
+  @Prop({ mutable: true }) perfectStorm: number = WizardSkills.PerfectStorm.minLevel;
+  @Prop({ mutable: true }) ember: number = WizardSkills.Ember.minLevel;
+  @Prop({ mutable: true }) barbecueParty: number = WizardSkills.BarbecueParty.minLevel;
+  @Prop({ mutable: true }) playingWithFire: number = WizardSkills.PlayingWithFire.minLevel;
+  @Prop({ mutable: true }) littleMeteor: number = WizardSkills.LittleMeteor.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,19 +61,22 @@ export class WizardComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, WizardSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="wizard">
-        { renderLevelControls(this, WizardSkills, this.editable, this.extras) }
+      <ms-chart msClass="wizard" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }

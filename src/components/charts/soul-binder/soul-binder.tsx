@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as SoulBinderSkills from "../../../global/values/soul-binder";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { SoulBinderSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/soul-binder";
 
 @Component({
   tag: "ms-soul-binder",
@@ -10,7 +10,10 @@ import * as SoulBinderSkills from "../../../global/values/soul-binder";
 })
 export class SoulBinderComponent implements IChart {
 
+  @Element() host: HTMLMsSoulBinderElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) animusFocus: number = SoulBinderSkills.AnimusFocus.minLevel;
@@ -31,6 +34,16 @@ export class SoulBinderComponent implements IChart {
   @Prop({ mutable: true }) lightBarrier: number = SoulBinderSkills.LightBarrier.minLevel;
   @Prop({ mutable: true }) fountOfRenewal: number = SoulBinderSkills.FountOfRenewal.minLevel;
 
+  @Prop({ mutable: true }) awakenedMantra: number = SoulBinderSkills.AwakenedMantra.minLevel;
+  @Prop({ mutable: true }) spiritBound: number = SoulBinderSkills.SpiritBound.minLevel;
+  @Prop({ mutable: true }) spiritCrush: number = SoulBinderSkills.SpiritCrush.minLevel;
+  @Prop({ mutable: true }) visionTorrent: number = SoulBinderSkills.VisionTorrent.minLevel;
+  @Prop({ mutable: true }) awakenedMind: number = SoulBinderSkills.AwakenedMind.minLevel;
+  @Prop({ mutable: true }) soulFlock: number = SoulBinderSkills.SoulFlock.minLevel;
+  @Prop({ mutable: true }) soulShield: number = SoulBinderSkills.SoulShield.minLevel;
+  @Prop({ mutable: true }) soulHarmony: number = SoulBinderSkills.SoulHarmony.minLevel;
+  @Prop({ mutable: true }) triuneLink: number = SoulBinderSkills.TriuneLink.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,20 +61,23 @@ export class SoulBinderComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, SoulBinderSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, SoulBinderSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="soul-binder">
-        { renderLevelControls(this, SoulBinderSkills, this.editable, this.extras) }
-      </ms-chart>
+      <ms-chart msClass="soul-binder" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+      { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+      { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
+    </ms-chart>
     );
   }
 }

@@ -1,7 +1,7 @@
-import { Component, Prop, State, Event, EventEmitter, Method, Watch } from "@stencil/core";
+import { h, Component, Prop, State, Event, EventEmitter, Method, Watch, Element } from "@stencil/core";
 import { IChart, IChartSkills, processSkills, renderLevelControls, toSkillChangeEventObject } from "../class-chart-helpers";
-import { ISkill } from "../../../global/values/_skillValues.interfaces";
-import * as StrikerSkills from "../../../global/values/striker";
+import { ISkill, Rank } from "../../../global/values/_skillValues.interfaces";
+import { StrikerSkills, RankOneSkills, RankTwoSkills } from "../../../global/values/striker";
 
 @Component({
   tag: "ms-striker",
@@ -10,7 +10,10 @@ import * as StrikerSkills from "../../../global/values/striker";
 })
 export class StrikerComponent implements IChart {
 
+  @Element() host: HTMLMsStrikerElement;
+
   @Prop({ reflectToAttr: true }) editable: boolean = false;
+  @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
 
   @Prop({ mutable: true }) beatdown: number = StrikerSkills.Beatdown.minLevel;
@@ -31,6 +34,16 @@ export class StrikerComponent implements IChart {
   @Prop({ mutable: true }) powerPuncher: number = StrikerSkills.PowerPuncher.minLevel;
   @Prop({ mutable: true }) risingKick: number = StrikerSkills.RisingKick.minLevel;
 
+  @Prop({ mutable: true }) rainingBlows: number = StrikerSkills.RainingBlows.minLevel;
+  @Prop({ mutable: true }) shockwavePunch: number = StrikerSkills.ShockwavePunch.minLevel;
+  @Prop({ mutable: true }) vulcanPunch: number = StrikerSkills.VulcanPunch.minLevel;
+  @Prop({ mutable: true }) doubleFistSmash: number = StrikerSkills.DoubleFistSmash.minLevel;
+  @Prop({ mutable: true }) meridianFlow: number = StrikerSkills.MeridianFlow.minLevel;
+  @Prop({ mutable: true }) setupKick: number = StrikerSkills.SetupKick.minLevel;
+  @Prop({ mutable: true }) spiralCannon: number = StrikerSkills.SpiralCannon.minLevel;
+  @Prop({ mutable: true }) spinKick: number = StrikerSkills.SpinKick.minLevel;
+  @Prop({ mutable: true }) tauntingFeint: number = StrikerSkills.TauntingFeint.minLevel;
+
   @State() skills: IChartSkills;
 
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
@@ -48,19 +61,22 @@ export class StrikerComponent implements IChart {
     this[skill.prop] = level;
 
     processSkills(this, StrikerSkills, skill);
+    this.host.forceUpdate();
 
     this.emitChangeEvent();
   }
 
   @Watch("extras")
+  @Watch("rank")
   emitChangeEvent(): void {
     this.onSkillChanged.emit(toSkillChangeEventObject(this, StrikerSkills));
   }
 
   render() {
     return (
-      <ms-chart msClass="striker">
-        { renderLevelControls(this, StrikerSkills, this.editable, this.extras) }
+      <ms-chart msClass="striker" rank={ this.rank } onRankChange={ ({ detail }) => this.rank = detail }>
+        { renderLevelControls(this, RankOneSkills, this.editable, this.extras, Rank.Basic) }
+        { renderLevelControls(this, RankTwoSkills, this.editable, this.extras, Rank.Awakening) }
       </ms-chart>
     );
   }
