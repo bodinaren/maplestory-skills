@@ -26,11 +26,11 @@ class ChartComponent {
         if (parent.host)
             parent = parent.host;
         let parentWidth = parent.offsetWidth;
-        let scale = parentWidth / 815;
+        let scale = parentWidth / 928;
         if (scale < 1) {
             this.host.style.transform = `scale(${scale})`;
-            this.host.style.marginBottom = `-${770 - (770 * scale)}px`;
-            this.host.style.marginRight = `-${815 - (815 * scale)}px`;
+            this.host.style.marginBottom = `-${785 - (785 * scale)}px`;
+            this.host.style.marginRight = `-${928 - (928 * scale)}px`;
         }
         else {
             this.host.style.transform = null;
