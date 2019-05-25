@@ -59,9 +59,9 @@ export class RunebladeComponent implements IChart {
   private rankTwoSkills: { [prop: string]: IAwakenedSkill } = {};
 
   componentWillLoad() {
-    Object.keys(RunebladeSkills).map((prop) => {
+    Object.keys(RunebladeSkills).map((key: string) => {
       // create copies of each skill so we can toggle the extras for skill attunes
-      this.updateSkill({ ...RunebladeSkills[prop] });
+      this.updateSkill(key, { ...RunebladeSkills[key] });
     });
 
     processSkills(this, this.runebladeSkills);
@@ -145,11 +145,11 @@ export class RunebladeComponent implements IChart {
               : this.sigil === "stormSigil" ? 2
               : -1;
 
-      Object.keys(this.runebladeSkills).forEach((prop: string) => {
-        let originalSkill: ISkillBase = RunebladeSkills[prop];
+      Object.keys(this.runebladeSkills).forEach((key: string) => {
+        let originalSkill: ISkillBase = RunebladeSkills[key];
         if (originalSkill.extras) {
           if (this.sigil) {
-            this.updateSkill({
+            this.updateSkill(key, {
               ...originalSkill,
               ...originalSkill.extras[sigilIdx],
               extras: [{
@@ -162,7 +162,7 @@ export class RunebladeComponent implements IChart {
               }],
             })
           } else {
-            this.updateSkill({
+            this.updateSkill(key, {
               ...originalSkill,
               extras: [{
                 description: "Click on a sigil to show how this skill attunes."
@@ -180,7 +180,7 @@ export class RunebladeComponent implements IChart {
             description = "After putting points in this skill, click on the icon to activate the sigil. All relevant skills will show information based on this sigil being active.";
           }
 
-          this.updateSkill({
+          this.updateSkill(key, {
             ...originalSkill,
             extras: [{
               description: description,
@@ -191,12 +191,12 @@ export class RunebladeComponent implements IChart {
     }
   }
 
-  private updateSkill(skill: ISkillBase) {
-    this.runebladeSkills[skill.prop] = skill;
+  private updateSkill(key: string, skill: ISkillBase) {
+    this.runebladeSkills[key] = skill;
     if (skill.rank === Rank.Basic) {
-      this.rankOneSkills[skill.prop] = skill as ISkill;
+      this.rankOneSkills[key] = skill as ISkill;
     } else {
-      this.rankTwoSkills[skill.prop] = skill as IAwakenedSkill;
+      this.rankTwoSkills[key] = skill as IAwakenedSkill;
     }
   }
 
