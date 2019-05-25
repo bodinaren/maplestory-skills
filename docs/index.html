@@ -28,7 +28,7 @@
       }
 
       .container { margin: auto; max-width: 1000px; }
-      .logo { display: block; margin: auto; }
+      .logo { display: block; text-align: center; }
       
       #toggles {
         text-align: center;
@@ -61,7 +61,7 @@
       #toggles .active.unavailable:after { color: red; }
 
       #chartHolder { height: 785px; }
-      #editors { max-width: 815px; margin: auto; }
+      #editors { max-width: 928px; margin: auto; }
       
       #remaining {
         margin-top: 5px;
@@ -115,6 +115,14 @@
       dl pre {
         margin-left: 20px;
       }
+
+      #links {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        list-style-type: none;
+      }
     </style>
 
   </head>
@@ -122,7 +130,15 @@
 
     <div class="container">
 
-      <img class="logo" src="assets/logo.png" />
+      <ul id="links">
+        <li><a href="https://github.com/bodinaren/maplestory-skills">GitHub</a>
+        <li><a href="https://twitter.com/htbodin">Twitter</a></li>
+      </ul>
+  
+      <picture class="logo">
+        <source srcset="assets/logo.webp" type="image/webp">
+        <img src="assets/logo.png">
+      </picture>
       
       <h1>Welcome to the MapleStory 2 Interactive Skill Charts</h1>
       
@@ -355,6 +371,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         // create new editor for the new class.
         if (chart) chart.remove();
         chart = document.createElement("ms-" + msClass);
+        chart.rank = 2;
         chart.editable = true;
         chart.extras = chkExtras.checked;
         chartHolder.appendChild(chart);
