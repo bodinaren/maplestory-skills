@@ -661,7 +661,7 @@ export const SpiralArrow: IAwakenedSkill = {
 
 export const ArchersSecrets: IAwakenedSkill = {
   name: "Archer's Secrets",
-  attr: "Archers-secrets",
+  attr: "archers-secrets",
   prop: "archersSecrets",
   rank: 2,
   row: 4,
