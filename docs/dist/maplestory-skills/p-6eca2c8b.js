@@ -1,1 +1,0 @@
-var a;!function(a){a[a.Basic=1]="Basic",a[a.Awakening=2]="Awakening"}(a||(a={}));const n=82,s=15;export{a,n as b,s as c};
