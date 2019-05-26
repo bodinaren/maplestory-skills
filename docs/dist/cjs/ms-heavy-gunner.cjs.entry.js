@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
-const __chunk_3 = require('./chunk-8c3d4e0b.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
+const __chunk_3 = require('./chunk-6418e17c.js');
 
 const Reload = {
     name: "Reload",
@@ -762,6 +762,7 @@ class HeavyGunnerComponent {
         this.editable = false;
         this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.advancedBullets = HeavyGunnerSkills.AdvancedBullets.minLevel;
         this.advancedMissiles = HeavyGunnerSkills.AdvancedMissiles.minLevel;
         this.advancedPulseWeapons = HeavyGunnerSkills.AdvancedPulseWeapons.minLevel;
@@ -791,16 +792,19 @@ class HeavyGunnerComponent {
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        __chunk_3.processSkills(this, HeavyGunnerSkills);
+        __chunk_3.processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     async getData() {
         return __chunk_3.toSkillChangeEventObject(this, HeavyGunnerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_3.processSkills(this, HeavyGunnerSkills, skill);
+        __chunk_3.processSkills(this, HeavyGunnerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        __chunk_3.processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, HeavyGunnerSkills));
@@ -810,6 +814,7 @@ class HeavyGunnerComponent {
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

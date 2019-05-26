@@ -6,6 +6,7 @@ export declare class SoulBinderComponent implements IChart {
     editable: boolean;
     rank: number;
     extras: boolean;
+    ignoreMax: boolean;
     animusFocus: number;
     concussionOrb: number;
     soaringOrb: number;
@@ -37,6 +38,7 @@ export declare class SoulBinderComponent implements IChart {
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    ignoreMaxChanged(): void;
     emitChangeEvent(): void;
     render(): any;
 }

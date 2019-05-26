@@ -15,6 +15,7 @@ export class WizardComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) arcaneBlast: number = WizardSkills.ArcaneBlast.minLevel;
   @Prop({ mutable: true }) chainLightning: number = WizardSkills.ChainLightning.minLevel;
@@ -49,7 +50,7 @@ export class WizardComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, WizardSkills);
+    processSkills(this, WizardSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class WizardComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, WizardSkills, skill);
+    processSkills(this, WizardSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, WizardSkills, this.ignoreMax);
   }
 
   @Watch("extras")

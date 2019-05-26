@@ -15,6 +15,7 @@ export class SoulBinderComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) animusFocus: number = SoulBinderSkills.AnimusFocus.minLevel;
   @Prop({ mutable: true }) concussionOrb: number = SoulBinderSkills.ConcussionOrb.minLevel;
@@ -49,7 +50,7 @@ export class SoulBinderComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, SoulBinderSkills);
+    processSkills(this, SoulBinderSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class SoulBinderComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, SoulBinderSkills, skill);
+    processSkills(this, SoulBinderSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, SoulBinderSkills, this.ignoreMax);
   }
 
   @Watch("extras")

@@ -294,6 +294,10 @@
             <input type="checkbox" id="chkExtras" />
             <label for="chkExtras">Add extra info. (E.g. when a Runeblade's Sigil or Thief's cunning is active. Not yet available for Awakening.)</label>
           </p>
+          <p>
+            <input type="checkbox" id="chkIgnoreMax" />
+            <label for="chkIgnoreMax">Unlimited points. (Shared links will be broken with negative points!)</label>
+          </p>
         </fieldset>
 
         <code class="block" id="code">
@@ -351,6 +355,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
     <script>
       var toggles = document.querySelectorAll("#toggles > a");
       var chkExtras = document.getElementById("chkExtras");
+      var chkIgnoreMax = document.getElementById("chkIgnoreMax");
 
       function toggle(msClass, firstSetup) {
         for (var prop in toggles) {
@@ -374,6 +379,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         chart.rank = 2;
         chart.editable = true;
         chart.extras = chkExtras.checked;
+        chart.ignoreMax = chkIgnoreMax.checked;
         chartHolder.appendChild(chart);
 
         // re-create the outlet so it can attach to the new editor.
@@ -447,6 +453,10 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
       chkExtras.addEventListener("change", function(val) {
         var chartHolder = document.querySelector("#chartHolder");
         chartHolder.children[0].extras = chkExtras.checked;
+      });
+      chkIgnoreMax.addEventListener("change", function(val) {
+        var chartHolder = document.querySelector("#chartHolder");
+        chartHolder.children[0].ignoreMax = chkIgnoreMax.checked;
       });
     </script>
 

@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 
 const Snipe = {
     name: "Snipe",
@@ -740,6 +740,7 @@ class ArcherComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.agileArcher = ArcherSkills.AgileArcher.minLevel;
         this.arrowBarrage = ArcherSkills.ArrowBarrage.minLevel;
         this.arrowStorm = ArcherSkills.ArrowStorm.minLevel;
@@ -769,16 +770,19 @@ class ArcherComponent {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        processSkills(this, ArcherSkills);
+        processSkills(this, ArcherSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, ArcherSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, ArcherSkills, skill);
+        processSkills(this, ArcherSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, ArcherSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, ArcherSkills));
@@ -790,6 +794,7 @@ class ArcherComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

@@ -18,6 +18,7 @@ export class RunebladeComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop({ reflectToAttr: true }) extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
   @Prop({ mutable: true, reflectToAttr: true }) sigil: Sigil = "";
 
   @Prop({ mutable: true }) bladeChasm: number = RunebladeSkills.BladeChasm.minLevel;
@@ -64,7 +65,7 @@ export class RunebladeComponent implements IChart {
       this.updateSkill(key, { ...RunebladeSkills[key] });
     });
 
-    processSkills(this, this.runebladeSkills);
+    processSkills(this, this.runebladeSkills, this.ignoreMax);
     this.updateSigil();
   }
 
@@ -76,7 +77,7 @@ export class RunebladeComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, this.runebladeSkills, skill);
+    processSkills(this, this.runebladeSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     if (skill.prop === this.sigil && level === 0) {
@@ -85,6 +86,11 @@ export class RunebladeComponent implements IChart {
       this.updateSigil();
       this.emitChangeEvent();
     }
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, this.runebladeSkills, this.ignoreMax);
   }
 
   @Watch("extras")

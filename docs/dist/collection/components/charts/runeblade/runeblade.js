@@ -15,6 +15,7 @@ export class RunebladeComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.sigil = "";
         this.bladeChasm = RunebladeSkills.BladeChasm.minLevel;
         this.bladeMastery = RunebladeSkills.BladeMastery.minLevel;
@@ -52,7 +53,7 @@ export class RunebladeComponent {
             // create copies of each skill so we can toggle the extras for skill attunes
             this.updateSkill(key, Object.assign({}, RunebladeSkills[key]));
         });
-        processSkills(this, this.runebladeSkills);
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
         this.updateSigil();
     }
     async getData() {
@@ -60,7 +61,7 @@ export class RunebladeComponent {
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, this.runebladeSkills, skill);
+        processSkills(this, this.runebladeSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
@@ -69,6 +70,9 @@ export class RunebladeComponent {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    }
+    ignoreMaxChanged() {
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
@@ -230,6 +234,24 @@ export class RunebladeComponent {
             },
             "attribute": "extras",
             "reflect": true,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
+            "reflect": false,
             "defaultValue": "false"
         },
         "sigil": {
@@ -766,6 +788,9 @@ export class RunebladeComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

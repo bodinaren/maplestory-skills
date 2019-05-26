@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 
 const SteadfastFaith = {
     name: "Steadfast Faith",
@@ -767,6 +767,7 @@ class PriestComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.heavenlyWings = PriestSkills.HeavenlyWings.minLevel;
         this.steadfastFaith = PriestSkills.SteadfastFaith.minLevel;
         this.celestialLight = PriestSkills.CelestialLight.minLevel;
@@ -796,16 +797,19 @@ class PriestComponent {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        processSkills(this, PriestSkills);
+        processSkills(this, PriestSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, PriestSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, PriestSkills, skill);
+        processSkills(this, PriestSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, PriestSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, PriestSkills));
@@ -815,6 +819,7 @@ class PriestComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

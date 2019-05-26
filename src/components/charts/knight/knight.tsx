@@ -15,6 +15,7 @@ export class KnightComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) bulwark: number = KnightSkills.Bulwark.minLevel;
   @Prop({ mutable: true }) crossCut: number = KnightSkills.CrossCut.minLevel;
@@ -49,7 +50,7 @@ export class KnightComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, KnightSkills);
+    processSkills(this, KnightSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class KnightComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, KnightSkills, skill);
+    processSkills(this, KnightSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, KnightSkills, this.ignoreMax);
   }
 
   @Watch("extras")

@@ -7,6 +7,7 @@ export class WizardComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.arcaneBlast = WizardSkills.ArcaneBlast.minLevel;
         this.chainLightning = WizardSkills.ChainLightning.minLevel;
         this.cryomancy = WizardSkills.Cryomancy.minLevel;
@@ -35,16 +36,19 @@ export class WizardComponent {
         this.littleMeteor = WizardSkills.LittleMeteor.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, WizardSkills);
+        processSkills(this, WizardSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, WizardSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, WizardSkills, skill);
+        processSkills(this, WizardSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, WizardSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
@@ -114,6 +118,24 @@ export class WizardComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class WizardComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

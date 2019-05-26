@@ -6,6 +6,7 @@ export declare class BerserkerComponent implements IChart {
     editable: boolean;
     rank: number;
     extras: boolean;
+    ignoreMax: boolean;
     adrenalineRush: number;
     bloodPrice: number;
     bloodlust: number;
@@ -37,6 +38,7 @@ export declare class BerserkerComponent implements IChart {
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    ignoreMaxChanged(): void;
     emitChangeEvent(): void;
     render(): any;
 }

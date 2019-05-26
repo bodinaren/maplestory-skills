@@ -7,6 +7,7 @@ export class BerserkerComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.adrenalineRush = BerserkerSkills.AdrenalineRush.minLevel;
         this.bloodPrice = BerserkerSkills.BloodPrice.minLevel;
         this.bloodlust = BerserkerSkills.Bloodlust.minLevel;
@@ -35,16 +36,19 @@ export class BerserkerComponent {
         this.bloodSlash = BerserkerSkills.BloodSlash.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, BerserkerSkills);
+        processSkills(this, BerserkerSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, BerserkerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, BerserkerSkills, skill);
+        processSkills(this, BerserkerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, BerserkerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
@@ -114,6 +118,24 @@ export class BerserkerComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class BerserkerComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

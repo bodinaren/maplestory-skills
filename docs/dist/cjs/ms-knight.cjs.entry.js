@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
-const __chunk_3 = require('./chunk-8c3d4e0b.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
+const __chunk_3 = require('./chunk-6418e17c.js');
 
 const IronDefense = {
     name: "Iron Defense",
@@ -734,6 +734,7 @@ class KnightComponent {
         this.editable = false;
         this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.bulwark = KnightSkills.Bulwark.minLevel;
         this.crossCut = KnightSkills.CrossCut.minLevel;
         this.defenderOfTheFaith = KnightSkills.DefenderOfTheFaith.minLevel;
@@ -763,16 +764,19 @@ class KnightComponent {
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        __chunk_3.processSkills(this, KnightSkills);
+        __chunk_3.processSkills(this, KnightSkills, this.ignoreMax);
     }
     async getData() {
         return __chunk_3.toSkillChangeEventObject(this, KnightSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_3.processSkills(this, KnightSkills, skill);
+        __chunk_3.processSkills(this, KnightSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        __chunk_3.processSkills(this, KnightSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, KnightSkills));
@@ -782,6 +786,7 @@ class KnightComponent {
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
-const __chunk_3 = require('./chunk-8c3d4e0b.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
+const __chunk_3 = require('./chunk-6418e17c.js');
 const __chunk_4 = require('./chunk-1019609e.js');
 
 const RuneBalance = {
@@ -1012,6 +1012,7 @@ class RunebladeComponent {
         this.editable = false;
         this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.sigil = "";
         this.bladeChasm = RunebladeSkills.BladeChasm.minLevel;
         this.bladeMastery = RunebladeSkills.BladeMastery.minLevel;
@@ -1050,7 +1051,7 @@ class RunebladeComponent {
             // create copies of each skill so we can toggle the extras for skill attunes
             this.updateSkill(key, Object.assign({}, RunebladeSkills[key]));
         });
-        __chunk_3.processSkills(this, this.runebladeSkills);
+        __chunk_3.processSkills(this, this.runebladeSkills, this.ignoreMax);
         this.updateSigil();
     }
     async getData() {
@@ -1058,7 +1059,7 @@ class RunebladeComponent {
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_3.processSkills(this, this.runebladeSkills, skill);
+        __chunk_3.processSkills(this, this.runebladeSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
@@ -1067,6 +1068,9 @@ class RunebladeComponent {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    }
+    ignoreMaxChanged() {
+        __chunk_3.processSkills(this, this.runebladeSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
@@ -1167,6 +1171,7 @@ class RunebladeComponent {
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

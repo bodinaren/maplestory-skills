@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-b38f5e1d.js';
 
 const RuneBalance = {
@@ -1008,6 +1008,7 @@ class RunebladeComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.sigil = "";
         this.bladeChasm = RunebladeSkills.BladeChasm.minLevel;
         this.bladeMastery = RunebladeSkills.BladeMastery.minLevel;
@@ -1046,7 +1047,7 @@ class RunebladeComponent {
             // create copies of each skill so we can toggle the extras for skill attunes
             this.updateSkill(key, Object.assign({}, RunebladeSkills[key]));
         });
-        processSkills(this, this.runebladeSkills);
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
         this.updateSigil();
     }
     async getData() {
@@ -1054,7 +1055,7 @@ class RunebladeComponent {
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, this.runebladeSkills, skill);
+        processSkills(this, this.runebladeSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
@@ -1063,6 +1064,9 @@ class RunebladeComponent {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    }
+    ignoreMaxChanged() {
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
@@ -1163,6 +1167,7 @@ class RunebladeComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

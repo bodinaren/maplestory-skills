@@ -7,6 +7,7 @@ export class KnightComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.bulwark = KnightSkills.Bulwark.minLevel;
         this.crossCut = KnightSkills.CrossCut.minLevel;
         this.defenderOfTheFaith = KnightSkills.DefenderOfTheFaith.minLevel;
@@ -35,16 +36,19 @@ export class KnightComponent {
         this.heavensJudgement = KnightSkills.HeavensJudgement.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, KnightSkills);
+        processSkills(this, KnightSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, KnightSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, KnightSkills, skill);
+        processSkills(this, KnightSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, KnightSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, KnightSkills));
@@ -114,6 +118,24 @@ export class KnightComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class KnightComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

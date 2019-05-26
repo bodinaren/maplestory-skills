@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 var ManaFont = {
     name: "Mana Font",
     attr: "mana-font",
@@ -636,6 +636,7 @@ var WizardComponent = /** @class */ (function () {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.arcaneBlast = WizardSkills.ArcaneBlast.minLevel;
         this.chainLightning = WizardSkills.ChainLightning.minLevel;
         this.cryomancy = WizardSkills.Cryomancy.minLevel;
@@ -665,7 +666,7 @@ var WizardComponent = /** @class */ (function () {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     WizardComponent.prototype.componentWillLoad = function () {
-        processSkills(this, WizardSkills);
+        processSkills(this, WizardSkills, this.ignoreMax);
     };
     WizardComponent.prototype.getData = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -676,9 +677,12 @@ var WizardComponent = /** @class */ (function () {
     };
     WizardComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
-        processSkills(this, WizardSkills, skill);
+        processSkills(this, WizardSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    };
+    WizardComponent.prototype.ignoreMaxChanged = function () {
+        processSkills(this, WizardSkills, this.ignoreMax);
     };
     WizardComponent.prototype.emitChangeEvent = function () {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, WizardSkills));
@@ -698,6 +702,7 @@ var WizardComponent = /** @class */ (function () {
     Object.defineProperty(WizardComponent, "watchers", {
         get: function () {
             return {
+                "ignoreMax": ["ignoreMaxChanged"],
                 "extras": ["emitChangeEvent"],
                 "rank": ["emitChangeEvent"]
             };

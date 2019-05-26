@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-b38f5e1d.js';
 var RuneBalance = {
     name: "Rune Balance",
@@ -748,6 +748,7 @@ var RunebladeComponent = /** @class */ (function () {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.sigil = "";
         this.bladeChasm = RunebladeSkills.BladeChasm.minLevel;
         this.bladeMastery = RunebladeSkills.BladeMastery.minLevel;
@@ -787,7 +788,7 @@ var RunebladeComponent = /** @class */ (function () {
             // create copies of each skill so we can toggle the extras for skill attunes
             _this.updateSkill(key, Object.assign({}, RunebladeSkills[key]));
         });
-        processSkills(this, this.runebladeSkills);
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
         this.updateSigil();
     };
     RunebladeComponent.prototype.getData = function () {
@@ -799,7 +800,7 @@ var RunebladeComponent = /** @class */ (function () {
     };
     RunebladeComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
-        processSkills(this, this.runebladeSkills, skill);
+        processSkills(this, this.runebladeSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         if (skill.prop === this.sigil && level === 0) {
             this.changeSigil();
@@ -808,6 +809,9 @@ var RunebladeComponent = /** @class */ (function () {
             this.updateSigil();
             this.emitChangeEvent();
         }
+    };
+    RunebladeComponent.prototype.ignoreMaxChanged = function () {
+        processSkills(this, this.runebladeSkills, this.ignoreMax);
     };
     RunebladeComponent.prototype.emitChangeEvent = function () {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, this.runebladeSkills, this.sigil && { sigil: this.sigil } || undefined));
@@ -916,6 +920,7 @@ var RunebladeComponent = /** @class */ (function () {
     Object.defineProperty(RunebladeComponent, "watchers", {
         get: function () {
             return {
+                "ignoreMax": ["ignoreMaxChanged"],
                 "extras": ["emitChangeEvent"],
                 "rank": ["emitChangeEvent"]
             };

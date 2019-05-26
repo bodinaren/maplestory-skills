@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
-const __chunk_3 = require('./chunk-8c3d4e0b.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
+const __chunk_3 = require('./chunk-6418e17c.js');
 
 const KnuckleMissile = {
     name: "Knuckle Missile",
@@ -801,6 +801,7 @@ class StrikerComponent {
         this.editable = false;
         this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.beatdown = StrikerSkills.Beatdown.minLevel;
         this.dragonKick = StrikerSkills.DragonKick.minLevel;
         this.fightingSpirit = StrikerSkills.FightingSpirit.minLevel;
@@ -830,16 +831,19 @@ class StrikerComponent {
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        __chunk_3.processSkills(this, StrikerSkills);
+        __chunk_3.processSkills(this, StrikerSkills, this.ignoreMax);
     }
     async getData() {
         return __chunk_3.toSkillChangeEventObject(this, StrikerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_3.processSkills(this, StrikerSkills, skill);
+        __chunk_3.processSkills(this, StrikerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        __chunk_3.processSkills(this, StrikerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, StrikerSkills));
@@ -849,6 +853,7 @@ class StrikerComponent {
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

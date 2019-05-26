@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 
 const ShadowChaser = {
     name: "Shadow Chaser",
@@ -766,6 +766,7 @@ class AssassinComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.darkCloak = AssassinSkills.DarkCloak.minLevel;
         this.dash = AssassinSkills.Dash.minLevel;
         this.deathSentence = AssassinSkills.DeathSentence.minLevel;
@@ -795,16 +796,19 @@ class AssassinComponent {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        processSkills(this, AssassinSkills);
+        processSkills(this, AssassinSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, AssassinSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, AssassinSkills, skill);
+        processSkills(this, AssassinSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, AssassinSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, AssassinSkills));
@@ -814,6 +818,7 @@ class AssassinComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

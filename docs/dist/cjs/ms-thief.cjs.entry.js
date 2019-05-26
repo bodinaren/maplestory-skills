@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
-const __chunk_3 = require('./chunk-8c3d4e0b.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
+const __chunk_3 = require('./chunk-6418e17c.js');
 
 const SpiritThief = {
     name: "Spirit Thief",
@@ -763,6 +763,7 @@ class ThiefComponent {
         this.editable = false;
         this.rank = __chunk_2.Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.bladeDance = ThiefSkills.BladeDance.minLevel;
         this.cunningTactics = ThiefSkills.CunningTactics.minLevel;
         this.deftCombatant = ThiefSkills.DeftCombatant.minLevel;
@@ -792,16 +793,19 @@ class ThiefComponent {
         this.onSkillChanged = __chunk_1.createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        __chunk_3.processSkills(this, ThiefSkills);
+        __chunk_3.processSkills(this, ThiefSkills, this.ignoreMax);
     }
     async getData() {
         return __chunk_3.toSkillChangeEventObject(this, ThiefSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        __chunk_3.processSkills(this, ThiefSkills, skill);
+        __chunk_3.processSkills(this, ThiefSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        __chunk_3.processSkills(this, ThiefSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(__chunk_3.toSkillChangeEventObject(this, ThiefSkills));
@@ -811,6 +815,7 @@ class ThiefComponent {
     }
     get host() { return __chunk_1.getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

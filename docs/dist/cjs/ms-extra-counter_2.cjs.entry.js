@@ -3,12 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const __chunk_1 = require('./maplestory-skills-10f6f6cf.js');
-const __chunk_2 = require('./chunk-3cd691fe.js');
+const __chunk_2 = require('./chunk-555a25f0.js');
 
 class CounterComponent {
     constructor(hostRef) {
         __chunk_1.registerInstance(this, hostRef);
-        this._pointsLeft = 0;
+        this.points = 0;
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -18,17 +18,16 @@ class CounterComponent {
         el.componentOnReady().then((editor) => {
             this._editor = editor;
             const rank = this._editor.rank;
-            this._pointsLeft = rank === __chunk_2.Rank.Awakening ? 14 : 68;
+            this.points = rank === __chunk_2.Rank.Awakening ? __chunk_2.MAX_POINTS_RANK_2 - 1 : __chunk_2.MAX_POINTS_RANK_1 - 4;
             this._editor.addEventListener("skillchanged", (evt) => {
-                console.log("skillchanged");
                 this.updatePointsLeft(evt.detail);
             });
         });
     }
     updatePointsLeft(changeEvent) {
         const rank = this._editor.rank;
-        const maxPoints = rank === __chunk_2.Rank.Awakening ? 15 : 72;
-        this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+        const maxPoints = rank === __chunk_2.Rank.Awakening ? __chunk_2.MAX_POINTS_RANK_2 : __chunk_2.MAX_POINTS_RANK_1;
+        this.points = maxPoints - changeEvent.skills.reduce((prev, current) => {
             if (current.rank === rank) {
                 return prev + current.level;
             }
@@ -38,7 +37,7 @@ class CounterComponent {
         }, 0);
     }
     render() {
-        return this._pointsLeft;
+        return this.points;
     }
 }
 

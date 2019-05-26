@@ -7,6 +7,7 @@ export declare class RunebladeComponent implements IChart {
     editable: boolean;
     rank: number;
     extras: boolean;
+    ignoreMax: boolean;
     sigil: Sigil;
     bladeChasm: number;
     bladeMastery: number;
@@ -43,6 +44,7 @@ export declare class RunebladeComponent implements IChart {
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    ignoreMaxChanged(): void;
     emitChangeEvent(): void;
     render(): any[];
     private changeSigil;

@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 
 const Reload = {
     name: "Reload",
@@ -758,6 +758,7 @@ class HeavyGunnerComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.advancedBullets = HeavyGunnerSkills.AdvancedBullets.minLevel;
         this.advancedMissiles = HeavyGunnerSkills.AdvancedMissiles.minLevel;
         this.advancedPulseWeapons = HeavyGunnerSkills.AdvancedPulseWeapons.minLevel;
@@ -787,16 +788,19 @@ class HeavyGunnerComponent {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        processSkills(this, HeavyGunnerSkills);
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, HeavyGunnerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, HeavyGunnerSkills, skill);
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
@@ -806,6 +810,7 @@ class HeavyGunnerComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

@@ -10,12 +10,12 @@ import { MAX_POINTS_RANK_1, MAX_POINTS_RANK_2 } from "../../../global/values/_ge
 export class CounterComponent {
 
   @Prop() editor?: string;
+  @Prop({ mutable: true, reflectToAttr: true }) points: number = 0;
 
   @State() _editor: ClassEditorHTMLElement;
-  @State() _pointsLeft: number = 0;
 
   componentDidLoad() {
-    let el = document.getElementById(this.editor) as HTMLMsExtraCounterElement;
+    let el = document.getElementById(this.editor) as any;
     if (!el) {
       el = document.querySelector("ms-archer,ms-assassin,ms-berserker,ms-heavy-gunner,ms-knight,ms-priest,ms-runeblade,ms-soul-binder,ms-striker,ms-thief,ms-wizard");
     }
@@ -24,10 +24,9 @@ export class CounterComponent {
       this._editor = editor;
 
       const rank = (this._editor as any).rank;
-      this._pointsLeft = rank === Rank.Awakening ? MAX_POINTS_RANK_2 - 1 : MAX_POINTS_RANK_1 - 4;
+      this.points = rank === Rank.Awakening ? MAX_POINTS_RANK_2 - 1 : MAX_POINTS_RANK_1 - 4;
 
       this._editor.addEventListener("skillchanged", (evt: any) => {
-        console.log("skillchanged");
         this.updatePointsLeft(evt.detail);
       });
     });
@@ -37,7 +36,7 @@ export class CounterComponent {
     const rank = (this._editor as any).rank;
     const maxPoints = rank === Rank.Awakening ? MAX_POINTS_RANK_2 : MAX_POINTS_RANK_1;
 
-    this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+    this.points = maxPoints - changeEvent.skills.reduce((prev, current) => {
       if (current.rank === rank) {
         return prev + current.level;
       } else {
@@ -47,7 +46,7 @@ export class CounterComponent {
   }
 
   render() {
-    return this._pointsLeft;
+    return this.points;
   }
 }
 
@@ -59,5 +58,7 @@ type ClassEditorHTMLElement =
   HTMLMsKnightElement |
   HTMLMsPriestElement |
   HTMLMsRunebladeElement |
+  HTMLMsSoulBinderElement |
+  HTMLMsStrikerElement |
   HTMLMsThiefElement |
   HTMLMsWizardElement;

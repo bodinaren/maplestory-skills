@@ -15,6 +15,7 @@ export class BerserkerComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) adrenalineRush: number = BerserkerSkills.AdrenalineRush.minLevel;
   @Prop({ mutable: true }) bloodPrice: number = BerserkerSkills.BloodPrice.minLevel;
@@ -49,7 +50,7 @@ export class BerserkerComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, BerserkerSkills);
+    processSkills(this, BerserkerSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class BerserkerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, BerserkerSkills, skill);
+    processSkills(this, BerserkerSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, BerserkerSkills, this.ignoreMax);
   }
 
   @Watch("extras")

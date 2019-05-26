@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 var SpiritThief = {
     name: "Spirit Thief",
     attr: "spirit-thief",
@@ -615,6 +615,7 @@ var ThiefComponent = /** @class */ (function () {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.bladeDance = ThiefSkills.BladeDance.minLevel;
         this.cunningTactics = ThiefSkills.CunningTactics.minLevel;
         this.deftCombatant = ThiefSkills.DeftCombatant.minLevel;
@@ -644,7 +645,7 @@ var ThiefComponent = /** @class */ (function () {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     ThiefComponent.prototype.componentWillLoad = function () {
-        processSkills(this, ThiefSkills);
+        processSkills(this, ThiefSkills, this.ignoreMax);
     };
     ThiefComponent.prototype.getData = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -655,9 +656,12 @@ var ThiefComponent = /** @class */ (function () {
     };
     ThiefComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
-        processSkills(this, ThiefSkills, skill);
+        processSkills(this, ThiefSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    };
+    ThiefComponent.prototype.ignoreMaxChanged = function () {
+        processSkills(this, ThiefSkills, this.ignoreMax);
     };
     ThiefComponent.prototype.emitChangeEvent = function () {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, ThiefSkills));
@@ -677,6 +681,7 @@ var ThiefComponent = /** @class */ (function () {
     Object.defineProperty(ThiefComponent, "watchers", {
         get: function () {
             return {
+                "ignoreMax": ["ignoreMaxChanged"],
                 "extras": ["emitChangeEvent"],
                 "rank": ["emitChangeEvent"]
             };

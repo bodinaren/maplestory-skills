@@ -6,6 +6,7 @@ export declare class KnightComponent implements IChart {
     editable: boolean;
     rank: number;
     extras: boolean;
+    ignoreMax: boolean;
     bulwark: number;
     crossCut: number;
     defenderOfTheFaith: number;
@@ -37,6 +38,7 @@ export declare class KnightComponent implements IChart {
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    ignoreMaxChanged(): void;
     emitChangeEvent(): void;
     render(): any;
 }

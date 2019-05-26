@@ -1,10 +1,10 @@
 import { e as registerInstance, d as h, h as Host } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
+import { a as Rank, c as MAX_POINTS_RANK_2, b as MAX_POINTS_RANK_1 } from './chunk-6eca2c8b.js';
 
 class CounterComponent {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this._pointsLeft = 0;
+        this.points = 0;
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -14,17 +14,16 @@ class CounterComponent {
         el.componentOnReady().then((editor) => {
             this._editor = editor;
             const rank = this._editor.rank;
-            this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
+            this.points = rank === Rank.Awakening ? MAX_POINTS_RANK_2 - 1 : MAX_POINTS_RANK_1 - 4;
             this._editor.addEventListener("skillchanged", (evt) => {
-                console.log("skillchanged");
                 this.updatePointsLeft(evt.detail);
             });
         });
     }
     updatePointsLeft(changeEvent) {
         const rank = this._editor.rank;
-        const maxPoints = rank === Rank.Awakening ? 15 : 72;
-        this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+        const maxPoints = rank === Rank.Awakening ? MAX_POINTS_RANK_2 : MAX_POINTS_RANK_1;
+        this.points = maxPoints - changeEvent.skills.reduce((prev, current) => {
             if (current.rank === rank) {
                 return prev + current.level;
             }
@@ -34,7 +33,7 @@ class CounterComponent {
         }, 0);
     }
     render() {
-        return this._pointsLeft;
+        return this.points;
     }
 }
 

@@ -15,6 +15,7 @@ export class ThiefComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) bladeDance: number = ThiefSkills.BladeDance.minLevel;
   @Prop({ mutable: true }) cunningTactics: number = ThiefSkills.CunningTactics.minLevel;
@@ -49,7 +50,7 @@ export class ThiefComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, ThiefSkills);
+    processSkills(this, ThiefSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class ThiefComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, ThiefSkills, skill);
+    processSkills(this, ThiefSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, ThiefSkills, this.ignoreMax);
   }
 
   @Watch("extras")

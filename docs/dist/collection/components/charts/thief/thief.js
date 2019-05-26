@@ -7,6 +7,7 @@ export class ThiefComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.bladeDance = ThiefSkills.BladeDance.minLevel;
         this.cunningTactics = ThiefSkills.CunningTactics.minLevel;
         this.deftCombatant = ThiefSkills.DeftCombatant.minLevel;
@@ -35,16 +36,19 @@ export class ThiefComponent {
         this.deadlyStrikes = ThiefSkills.DeadlyStrikes.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, ThiefSkills);
+        processSkills(this, ThiefSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, ThiefSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, ThiefSkills, skill);
+        processSkills(this, ThiefSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, ThiefSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, ThiefSkills));
@@ -114,6 +118,24 @@ export class ThiefComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class ThiefComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

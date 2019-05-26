@@ -9,7 +9,7 @@ import { ISkillChangeEvent } from "./skill-change-event";
  * @param classSkills All the skills for the relevant class
  * @param skillChanged Which skill has changed, if any.
  */
-export declare function processSkills(chart: IChart, classSkills: IClassSkills, skillChanged?: ISkillBase): void;
+export declare function processSkills(chart: IChart, classSkills: IClassSkills, ignoreMax: boolean, skillChanged?: ISkillBase): void;
 export declare function toggleSkillRequirements(chart: any, skill: any, setActive: boolean): void;
 export declare function renderLevelControls(chart: IChart, classSkills: IClassSkills, editable: boolean, extras?: boolean, rank?: Rank, additionalArgs?: any): any[];
 export declare function toSkillChangeEventObject(chart: any, classSkills: IClassSkills, other?: {

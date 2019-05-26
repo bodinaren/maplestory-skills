@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
 import { Rank } from "../../global/values/_skillValues.interfaces";
+import { MAX_POINTS_RANK_1, MAX_POINTS_RANK_2 } from "../../global/values/_general";
 /**
  * Verify that all distributed points are valid and correct incorrect ones.
  * * If a skill has changed, but the requirements are not met, the level of the required skills will also be added.
@@ -8,7 +9,7 @@ import { Rank } from "../../global/values/_skillValues.interfaces";
  * @param classSkills All the skills for the relevant class
  * @param skillChanged Which skill has changed, if any.
  */
-export function processSkills(chart, classSkills, skillChanged) {
+export function processSkills(chart, classSkills, ignoreMax, skillChanged) {
     let skills = {};
     let sumRank1 = 0;
     let sumRank2 = 0;
@@ -35,13 +36,15 @@ export function processSkills(chart, classSkills, skillChanged) {
             limitReached: false,
         };
     });
-    if (skillChanged && skillChanged.rank === Rank.Basic && sumRank1 > 72) {
-        // if the sum is too high, reduce the amount of points in the changedSkill to the maximum points that are available.
-        chart[skillChanged.prop] -= sumRank1 - 72;
-    }
-    if (skillChanged && skillChanged.rank === Rank.Awakening && sumRank2 > 15) {
-        // if the sum is too high, reduce the amount of points in the changedSkill to the maximum points that are available.
-        chart[skillChanged.prop] -= sumRank2 - 15;
+    if (!ignoreMax) {
+        if (skillChanged && skillChanged.rank === Rank.Basic && sumRank1 > MAX_POINTS_RANK_1) {
+            // if the sum is too high, reduce the amount of points in the changedSkill to the maximum points that are available.
+            chart[skillChanged.prop] -= sumRank1 - MAX_POINTS_RANK_1;
+        }
+        if (skillChanged && skillChanged.rank === Rank.Awakening && sumRank2 > MAX_POINTS_RANK_2) {
+            // if the sum is too high, reduce the amount of points in the changedSkill to the maximum points that are available.
+            chart[skillChanged.prop] -= sumRank2 - MAX_POINTS_RANK_2;
+        }
     }
     Object.keys(classSkills).forEach((skillKey) => {
         let skill = classSkills[skillKey];
@@ -54,22 +57,24 @@ export function processSkills(chart, classSkills, skillChanged) {
                 }
             });
         }
-        if (skill.rank === Rank.Basic) {
-            skills[skill.prop].limitReached = (sumRank1 >= 72);
-        }
-        else {
-            skills[skill.prop].limitReached = (sumRank2 >= 15);
-        }
-        if (chart[skill.prop] === 0) {
-            let requiredPoints = calculateRequiredPoints(chart, skill);
+        if (!ignoreMax) {
             if (skill.rank === Rank.Basic) {
-                if (requiredPoints + 1 > 72 - sumRank1) { // + 1, because we need to have any points left AFTER meeting the requirements
-                    skills[skill.prop].limitReached = true;
-                }
+                skills[skill.prop].limitReached = (sumRank1 >= MAX_POINTS_RANK_1);
             }
             else {
-                if (requiredPoints + 1 > 15 - sumRank2) { // + 1, because we need to have any points left AFTER meeting the requirements
-                    skills[skill.prop].limitReached = true;
+                skills[skill.prop].limitReached = (sumRank2 >= MAX_POINTS_RANK_2);
+            }
+            if (chart[skill.prop] === 0) {
+                let requiredPoints = calculateRequiredPoints(chart, skill);
+                if (skill.rank === Rank.Basic) {
+                    if (requiredPoints + 1 > MAX_POINTS_RANK_1 - sumRank1) { // + 1, because we need to have any points left AFTER meeting the requirements
+                        skills[skill.prop].limitReached = true;
+                    }
+                }
+                else {
+                    if (requiredPoints + 1 > MAX_POINTS_RANK_2 - sumRank2) { // + 1, because we need to have any points left AFTER meeting the requirements
+                        skills[skill.prop].limitReached = true;
+                    }
                 }
             }
         }

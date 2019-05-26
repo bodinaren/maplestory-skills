@@ -7,6 +7,7 @@ export class StrikerComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.beatdown = StrikerSkills.Beatdown.minLevel;
         this.dragonKick = StrikerSkills.DragonKick.minLevel;
         this.fightingSpirit = StrikerSkills.FightingSpirit.minLevel;
@@ -35,16 +36,19 @@ export class StrikerComponent {
         this.tauntingFeint = StrikerSkills.TauntingFeint.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, StrikerSkills);
+        processSkills(this, StrikerSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, StrikerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, StrikerSkills, skill);
+        processSkills(this, StrikerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, StrikerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, StrikerSkills));
@@ -114,6 +118,24 @@ export class StrikerComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class StrikerComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

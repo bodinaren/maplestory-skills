@@ -1,7 +1,8 @@
 import { Rank } from "../../../global/values/_skillValues.interfaces";
+import { MAX_POINTS_RANK_1, MAX_POINTS_RANK_2 } from "../../../global/values/_general";
 export class CounterComponent {
     constructor() {
-        this._pointsLeft = 0;
+        this.points = 0;
     }
     componentDidLoad() {
         let el = document.getElementById(this.editor);
@@ -11,17 +12,16 @@ export class CounterComponent {
         el.componentOnReady().then((editor) => {
             this._editor = editor;
             const rank = this._editor.rank;
-            this._pointsLeft = rank === Rank.Awakening ? 14 : 68;
+            this.points = rank === Rank.Awakening ? MAX_POINTS_RANK_2 - 1 : MAX_POINTS_RANK_1 - 4;
             this._editor.addEventListener("skillchanged", (evt) => {
-                console.log("skillchanged");
                 this.updatePointsLeft(evt.detail);
             });
         });
     }
     updatePointsLeft(changeEvent) {
         const rank = this._editor.rank;
-        const maxPoints = rank === Rank.Awakening ? 15 : 72;
-        this._pointsLeft = maxPoints - changeEvent.skills.reduce((prev, current) => {
+        const maxPoints = rank === Rank.Awakening ? MAX_POINTS_RANK_2 : MAX_POINTS_RANK_1;
+        this.points = maxPoints - changeEvent.skills.reduce((prev, current) => {
             if (current.rank === rank) {
                 return prev + current.level;
             }
@@ -31,7 +31,7 @@ export class CounterComponent {
         }, 0);
     }
     render() {
-        return this._pointsLeft;
+        return this.points;
     }
     static get is() { return "ms-extra-counter"; }
     static get encapsulation() { return "shadow"; }
@@ -52,10 +52,27 @@ export class CounterComponent {
             },
             "attribute": "editor",
             "reflect": false
+        },
+        "points": {
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "points",
+            "reflect": true,
+            "defaultValue": "0"
         }
     }; }
     static get states() { return {
-        "_editor": {},
-        "_pointsLeft": {}
+        "_editor": {}
     }; }
 }

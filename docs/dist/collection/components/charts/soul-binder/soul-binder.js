@@ -7,6 +7,7 @@ export class SoulBinderComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.animusFocus = SoulBinderSkills.AnimusFocus.minLevel;
         this.concussionOrb = SoulBinderSkills.ConcussionOrb.minLevel;
         this.soaringOrb = SoulBinderSkills.SoaringOrb.minLevel;
@@ -35,16 +36,19 @@ export class SoulBinderComponent {
         this.triuneLink = SoulBinderSkills.TriuneLink.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, SoulBinderSkills);
+        processSkills(this, SoulBinderSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, SoulBinderSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, SoulBinderSkills, skill);
+        processSkills(this, SoulBinderSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, SoulBinderSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, SoulBinderSkills));
@@ -114,6 +118,24 @@ export class SoulBinderComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class SoulBinderComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

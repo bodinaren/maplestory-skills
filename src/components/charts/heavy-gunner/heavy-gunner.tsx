@@ -15,6 +15,7 @@ export class HeavyGunnerComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) advancedBullets: number = HeavyGunnerSkills.AdvancedBullets.minLevel;
   @Prop({ mutable: true }) advancedMissiles: number = HeavyGunnerSkills.AdvancedMissiles.minLevel;
@@ -49,7 +50,7 @@ export class HeavyGunnerComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, HeavyGunnerSkills);
+    processSkills(this, HeavyGunnerSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class HeavyGunnerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, HeavyGunnerSkills, skill);
+    processSkills(this, HeavyGunnerSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, HeavyGunnerSkills, this.ignoreMax);
   }
 
   @Watch("extras")

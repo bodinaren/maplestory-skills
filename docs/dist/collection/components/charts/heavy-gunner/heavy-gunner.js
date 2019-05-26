@@ -7,6 +7,7 @@ export class HeavyGunnerComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.advancedBullets = HeavyGunnerSkills.AdvancedBullets.minLevel;
         this.advancedMissiles = HeavyGunnerSkills.AdvancedMissiles.minLevel;
         this.advancedPulseWeapons = HeavyGunnerSkills.AdvancedPulseWeapons.minLevel;
@@ -35,16 +36,19 @@ export class HeavyGunnerComponent {
         this.hyperGigaCannon = HeavyGunnerSkills.HyperGigaCannon.minLevel;
     }
     componentWillLoad() {
-        processSkills(this, HeavyGunnerSkills);
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, HeavyGunnerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, HeavyGunnerSkills, skill);
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, HeavyGunnerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, HeavyGunnerSkills));
@@ -114,6 +118,24 @@ export class HeavyGunnerComponent {
                 "text": ""
             },
             "attribute": "extras",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "ignoreMax": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "ignore-max",
             "reflect": false,
             "defaultValue": "false"
         },
@@ -628,6 +650,9 @@ export class HeavyGunnerComponent {
     }; }
     static get elementRef() { return "host"; }
     static get watchers() { return [{
+            "propName": "ignoreMax",
+            "methodName": "ignoreMaxChanged"
+        }, {
             "propName": "extras",
             "methodName": "emitChangeEvent"
         }, {

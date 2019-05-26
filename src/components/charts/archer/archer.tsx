@@ -15,6 +15,7 @@ export class ArcherComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) agileArcher: number = ArcherSkills.AgileArcher.minLevel;
   @Prop({ mutable: true }) arrowBarrage: number = ArcherSkills.ArrowBarrage.minLevel;
@@ -49,7 +50,7 @@ export class ArcherComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, ArcherSkills);
+    processSkills(this, ArcherSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class ArcherComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, ArcherSkills, skill);
+    processSkills(this, ArcherSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, ArcherSkills, this.ignoreMax);
   }
 
   @Watch("extras")

@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 var KnuckleMissile = {
     name: "Knuckle Missile",
     attr: "knuckle-missile",
@@ -623,6 +623,7 @@ var StrikerComponent = /** @class */ (function () {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.beatdown = StrikerSkills.Beatdown.minLevel;
         this.dragonKick = StrikerSkills.DragonKick.minLevel;
         this.fightingSpirit = StrikerSkills.FightingSpirit.minLevel;
@@ -652,7 +653,7 @@ var StrikerComponent = /** @class */ (function () {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     StrikerComponent.prototype.componentWillLoad = function () {
-        processSkills(this, StrikerSkills);
+        processSkills(this, StrikerSkills, this.ignoreMax);
     };
     StrikerComponent.prototype.getData = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -663,9 +664,12 @@ var StrikerComponent = /** @class */ (function () {
     };
     StrikerComponent.prototype.levelChanged = function (skill, level) {
         this[skill.prop] = level;
-        processSkills(this, StrikerSkills, skill);
+        processSkills(this, StrikerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    };
+    StrikerComponent.prototype.ignoreMaxChanged = function () {
+        processSkills(this, StrikerSkills, this.ignoreMax);
     };
     StrikerComponent.prototype.emitChangeEvent = function () {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, StrikerSkills));
@@ -685,6 +689,7 @@ var StrikerComponent = /** @class */ (function () {
     Object.defineProperty(StrikerComponent, "watchers", {
         get: function () {
             return {
+                "ignoreMax": ["ignoreMaxChanged"],
                 "extras": ["emitChangeEvent"],
                 "rank": ["emitChangeEvent"]
             };

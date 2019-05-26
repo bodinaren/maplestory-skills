@@ -1,6 +1,6 @@
 import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
-import { a as Rank } from './chunk-7c277b0f.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-bb329b0b.js';
+import { a as Rank } from './chunk-6eca2c8b.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-66e2b81d.js';
 
 const DarkAura = {
     name: "Dark Aura",
@@ -820,6 +820,7 @@ class BerserkerComponent {
         this.editable = false;
         this.rank = Rank.Basic;
         this.extras = false;
+        this.ignoreMax = false;
         this.adrenalineRush = BerserkerSkills.AdrenalineRush.minLevel;
         this.bloodPrice = BerserkerSkills.BloodPrice.minLevel;
         this.bloodlust = BerserkerSkills.Bloodlust.minLevel;
@@ -849,16 +850,19 @@ class BerserkerComponent {
         this.onSkillChanged = createEvent(this, "skillchanged", 7);
     }
     componentWillLoad() {
-        processSkills(this, BerserkerSkills);
+        processSkills(this, BerserkerSkills, this.ignoreMax);
     }
     async getData() {
         return toSkillChangeEventObject(this, BerserkerSkills);
     }
     levelChanged(skill, level) {
         this[skill.prop] = level;
-        processSkills(this, BerserkerSkills, skill);
+        processSkills(this, BerserkerSkills, this.ignoreMax, skill);
         this.host.forceUpdate();
         this.emitChangeEvent();
+    }
+    ignoreMaxChanged() {
+        processSkills(this, BerserkerSkills, this.ignoreMax);
     }
     emitChangeEvent() {
         this.onSkillChanged.emit(toSkillChangeEventObject(this, BerserkerSkills));
@@ -868,6 +872,7 @@ class BerserkerComponent {
     }
     get host() { return getElement(this); }
     static get watchers() { return {
+        "ignoreMax": ["ignoreMaxChanged"],
         "extras": ["emitChangeEvent"],
         "rank": ["emitChangeEvent"]
     }; }

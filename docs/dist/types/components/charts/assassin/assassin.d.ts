@@ -6,6 +6,7 @@ export declare class AssassinComponent implements IChart {
     editable: boolean;
     rank: number;
     extras: boolean;
+    ignoreMax: boolean;
     darkCloak: number;
     dash: number;
     deathSentence: number;
@@ -37,6 +38,7 @@ export declare class AssassinComponent implements IChart {
     componentWillLoad(): void;
     getData(): Promise<import("../skill-change-event").ISkillChangeEvent>;
     levelChanged(skill: ISkill, level: number): void;
+    ignoreMaxChanged(): void;
     emitChangeEvent(): void;
     render(): any;
 }

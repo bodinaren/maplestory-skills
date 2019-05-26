@@ -15,6 +15,7 @@ export class StrikerComponent implements IChart {
   @Prop({ reflectToAttr: true }) editable: boolean = false;
   @Prop({ reflectToAttr: true, mutable: true }) rank: number = Rank.Basic;
   @Prop() extras: boolean = false;
+  @Prop() ignoreMax: boolean = false;
 
   @Prop({ mutable: true }) beatdown: number = StrikerSkills.Beatdown.minLevel;
   @Prop({ mutable: true }) dragonKick: number = StrikerSkills.DragonKick.minLevel;
@@ -49,7 +50,7 @@ export class StrikerComponent implements IChart {
   @Event({ eventName: "skillchanged"}) onSkillChanged: EventEmitter;
 
   componentWillLoad() {
-    processSkills(this, StrikerSkills);
+    processSkills(this, StrikerSkills, this.ignoreMax);
   }
 
   @Method()
@@ -60,10 +61,15 @@ export class StrikerComponent implements IChart {
   levelChanged(skill: ISkill, level: number) {
     this[skill.prop] = level;
 
-    processSkills(this, StrikerSkills, skill);
+    processSkills(this, StrikerSkills, this.ignoreMax, skill);
     this.host.forceUpdate();
 
     this.emitChangeEvent();
+  }
+
+  @Watch("ignoreMax")
+  ignoreMaxChanged(): void {
+    processSkills(this, StrikerSkills, this.ignoreMax);
   }
 
   @Watch("extras")

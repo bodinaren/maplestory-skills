@@ -35,6 +35,7 @@ export namespace Components {
     'greaterSharpEyes': number;
     'hastersTeachings': number;
     'iceArrow': number;
+    'ignoreMax': boolean;
     'improvedGliding': number;
     'multiDriveShot': number;
     'piercingArrow': number;
@@ -63,6 +64,7 @@ export namespace Components {
     'fatalStrikes': number;
     'fragmentedStar': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
+    'ignoreMax': boolean;
     'luckyStars': number;
     'markOfDeath': number;
     'mirrorImageDarkBlade': number;
@@ -97,6 +99,7 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'greatswordMastery': number;
     'groundBreaker': number;
+    'ignoreMax': boolean;
     'infiniteDarkness': number;
     'inhumanEndurance': number;
     'intimidation': number;
@@ -117,6 +120,7 @@ export namespace Components {
   }
   interface MsExtraCounter {
     'editor'?: string;
+    'points': number;
   }
   interface MsExtraOutlet {
     'editor': string;
@@ -138,6 +142,7 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'homingMissiles': number;
     'hyperGigaCannon': number;
+    'ignoreMax': boolean;
     'jetBoots': number;
     'lockOn': number;
     'mBomb': number;
@@ -173,6 +178,7 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'guardiansWings': number;
     'heavensJudgement': number;
+    'ignoreMax': boolean;
     'ironDefense': number;
     'ironShield': number;
     'lightBringer': number;
@@ -209,6 +215,7 @@ export namespace Components {
     'holyBlast': number;
     'holyRelic': number;
     'holySymbol': number;
+    'ignoreMax': boolean;
     'lifesGuardian': number;
     'lightSpear': number;
     'purifyingLight': number;
@@ -239,6 +246,7 @@ export namespace Components {
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'gravityRune': number;
     'honingRunes': number;
+    'ignoreMax': boolean;
     'illusoryBlades': number;
     'impact': number;
     'phantasmSlash': number;
@@ -285,6 +293,7 @@ export namespace Components {
     'fountOfRenewal': number;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'healingBond': number;
+    'ignoreMax': boolean;
     'illusion': number;
     'lightBarrier': number;
     'mantraArray': number;
@@ -317,6 +326,7 @@ export namespace Components {
     'guardDash': number;
     'guillotine': number;
     'hurricaneCutter': number;
+    'ignoreMax': boolean;
     'kickTechnician': number;
     'knuckleMissile': number;
     'magnumBlow': number;
@@ -349,6 +359,7 @@ export namespace Components {
     'extras': boolean;
     'getData': () => Promise<import("C:/Programming/_github/maplestory-skills/src/components/charts/skill-change-event").ISkillChangeEvent>;
     'haste': number;
+    'ignoreMax': boolean;
     'mesoguardPlus': number;
     'mindBreaker': number;
     'mindStealer': number;
@@ -386,6 +397,7 @@ export namespace Components {
     'iceCreamTime': number;
     'iceSpear': number;
     'iceStorm': number;
+    'ignoreMax': boolean;
     'littleMeteor': number;
     'lodestoneField': number;
     'magicArmor': number;
@@ -422,6 +434,7 @@ declare namespace LocalJSX {
     'greaterSharpEyes'?: number;
     'hastersTeachings'?: number;
     'iceArrow'?: number;
+    'ignoreMax'?: boolean;
     'improvedGliding'?: number;
     'multiDriveShot'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
@@ -450,6 +463,7 @@ declare namespace LocalJSX {
     'extras'?: boolean;
     'fatalStrikes'?: number;
     'fragmentedStar'?: number;
+    'ignoreMax'?: boolean;
     'luckyStars'?: number;
     'markOfDeath'?: number;
     'mirrorImageDarkBlade'?: number;
@@ -484,6 +498,7 @@ declare namespace LocalJSX {
     'extras'?: boolean;
     'greatswordMastery'?: number;
     'groundBreaker'?: number;
+    'ignoreMax'?: boolean;
     'infiniteDarkness'?: number;
     'inhumanEndurance'?: number;
     'intimidation'?: number;
@@ -506,6 +521,7 @@ declare namespace LocalJSX {
   }
   interface MsExtraCounter extends JSXBase.HTMLAttributes {
     'editor'?: string;
+    'points'?: number;
   }
   interface MsExtraOutlet extends JSXBase.HTMLAttributes {
     'editor'?: string;
@@ -526,6 +542,7 @@ declare namespace LocalJSX {
     'gatlingFire'?: number;
     'homingMissiles'?: number;
     'hyperGigaCannon'?: number;
+    'ignoreMax'?: boolean;
     'jetBoots'?: number;
     'lockOn'?: number;
     'mBomb'?: number;
@@ -561,6 +578,7 @@ declare namespace LocalJSX {
     'extras'?: boolean;
     'guardiansWings'?: number;
     'heavensJudgement'?: number;
+    'ignoreMax'?: boolean;
     'ironDefense'?: number;
     'ironShield'?: number;
     'lightBringer'?: number;
@@ -597,6 +615,7 @@ declare namespace LocalJSX {
     'holyBlast'?: number;
     'holyRelic'?: number;
     'holySymbol'?: number;
+    'ignoreMax'?: boolean;
     'lifesGuardian'?: number;
     'lightSpear'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
@@ -627,6 +646,7 @@ declare namespace LocalJSX {
     'frostSigil'?: number;
     'gravityRune'?: number;
     'honingRunes'?: number;
+    'ignoreMax'?: boolean;
     'illusoryBlades'?: number;
     'impact'?: number;
     'onSkillchanged'?: (event: CustomEvent<any>) => void;
@@ -675,6 +695,7 @@ declare namespace LocalJSX {
     'flashStrike'?: number;
     'fountOfRenewal'?: number;
     'healingBond'?: number;
+    'ignoreMax'?: boolean;
     'illusion'?: number;
     'lightBarrier'?: number;
     'mantraArray'?: number;
@@ -707,6 +728,7 @@ declare namespace LocalJSX {
     'guardDash'?: number;
     'guillotine'?: number;
     'hurricaneCutter'?: number;
+    'ignoreMax'?: boolean;
     'kickTechnician'?: number;
     'knuckleMissile'?: number;
     'magnumBlow'?: number;
@@ -739,6 +761,7 @@ declare namespace LocalJSX {
     'editable'?: boolean;
     'extras'?: boolean;
     'haste'?: number;
+    'ignoreMax'?: boolean;
     'mesoguardPlus'?: number;
     'mindBreaker'?: number;
     'mindStealer'?: number;
@@ -776,6 +799,7 @@ declare namespace LocalJSX {
     'iceCreamTime'?: number;
     'iceSpear'?: number;
     'iceStorm'?: number;
+    'ignoreMax'?: boolean;
     'littleMeteor'?: number;
     'lodestoneField'?: number;
     'magicArmor'?: number;
