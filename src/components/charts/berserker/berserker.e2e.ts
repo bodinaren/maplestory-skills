@@ -6,6 +6,7 @@ describe("ms-berserker", () => {
     const page = await newSpecPage({
       components: [BerserkerComponent],
       html: `<ms-berserker></ms-berserker>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

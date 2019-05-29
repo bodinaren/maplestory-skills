@@ -6,6 +6,7 @@ describe("ms-knight", () => {
     const page = await newSpecPage({
       components: [KnightComponent],
       html: `<ms-knight></ms-knight>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

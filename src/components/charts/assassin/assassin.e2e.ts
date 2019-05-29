@@ -6,6 +6,7 @@ describe("ms-assassin", () => {
     const page = await newSpecPage({
       components: [AssassinComponent],
       html: `<ms-assassin></ms-assassin>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

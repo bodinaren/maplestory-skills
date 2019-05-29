@@ -6,6 +6,7 @@ describe("ms-footer", () => {
     const page = await newSpecPage({
       components: [FooterComponent],
       html: `<ms-footer></ms-footer>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

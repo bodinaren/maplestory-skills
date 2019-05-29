@@ -6,6 +6,7 @@ describe("ms-thief", () => {
     const page = await newSpecPage({
       components: [ThiefComponent],
       html: `<ms-thief></ms-thief>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

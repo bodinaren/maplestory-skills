@@ -6,6 +6,7 @@ describe("ms-icon", () => {
     const page = await newSpecPage({
       components: [IconComponent],
       html: `<ms-icon name="boo"></ms-icon>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

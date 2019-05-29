@@ -6,6 +6,7 @@ describe("ms-heavy-gunner", () => {
     const page = await newSpecPage({
       components: [HeavyGunnerComponent],
       html: `<ms-heavy-gunner></ms-heavy-gunner>`,
+      hydrateClientSide: true,
     });
 
     expect(page.root).toHaveClass("hydrated");
