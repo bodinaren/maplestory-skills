@@ -12,7 +12,7 @@ export class ChartComponent {
   @Element() host: HTMLMsChartElement;
 
   @Prop({ reflectToAttr: true }) msClass: string;
-  @Prop() rank: number = 1;
+  @Prop({ reflectToAttr: true }) rank: number = 1;
 
   @Event({ eventName: "rankChange" }) onRankChanged: EventEmitter<number>;
 
@@ -89,20 +89,16 @@ export class ChartComponent {
             </div>
           }
         </div>
-        { this.rank === 1 &&
-          <div class="chart rank-1">
-            <div class="class-icon">
-              <div class="chart-class">
-                <slot name="rank-1"></slot>
-              </div>
+        <div class="chart rank-1">
+          <div class="class-icon">
+            <div class="chart-class">
+              <slot name="rank-1"></slot>
             </div>
           </div>
-        }
-        { this.rank === 2 && 
-          <div class="chart rank-2">
-            <slot name="rank-2"></slot>
-          </div>
-        }
+        </div>
+        <div class="chart rank-2">
+          <slot name="rank-2"></slot>
+        </div>
       </Host>
     );
   }

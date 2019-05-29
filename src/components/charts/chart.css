@@ -15,6 +15,9 @@
 _:-ms-lang(x), :host { cursor: auto; }
 _:-ms-lang(x), :host(:active) { cursor: auto; }
 
+:host([rank="1"]) .chart.rank-2 { display: none; }
+:host([rank="2"]) .chart.rank-1 { display: none; }
+
 .chart-left {
   position: absolute;
   width: 202px;
@@ -59,6 +62,7 @@ _:-ms-lang(x), :host(:active) { cursor: auto; }
 .chart-ranks span {
   position: absolute;
   top: 95px;
+  left: 0;
   width: 100%;
   text-align: center;
   color: white;

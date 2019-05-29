@@ -197,6 +197,7 @@ function calculateRequiredPoints(chart: IChart, skill: ISkillBase): number {
 }
 
 export interface IChart {
+  rank: number;
   editable: boolean;
   extras: boolean;
   onSkillChanged: EventEmitter;
