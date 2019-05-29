@@ -1,4 +1,4 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, newE2EPage } from "@stencil/core/testing";
 import { AssassinComponent } from "./assassin";
 
 describe("ms-assassin", () => {
@@ -11,4 +11,36 @@ describe("ms-assassin", () => {
 
     expect(page.root).toHaveClass("hydrated");
   });
+
+  // describe("screenshot", () => {
+  //   it("default", async () => {
+  //     const page = await newE2EPage({
+  //       html: `<ms-assassin></ms-assassin>`,
+  //     });
+  
+  //     const results = await page.compareScreenshot("default");
+  
+  //     expect(results).toMatchScreenshot();
+  //   });
+  
+  //   it("rank 2", async () => {
+  //     const page = await newE2EPage({
+  //       html: `<ms-assassin rank="1"></ms-assassin>`,
+  //     });
+  
+  //     const results = await page.compareScreenshot("rank 1");
+  
+  //     expect(results).toMatchScreenshot();
+  //   });
+  
+  //   it("rank 2", async () => {
+  //     const page = await newE2EPage({
+  //       html: `<ms-assassin rank="2"></ms-assassin>`,
+  //     });
+  
+  //     const results = await page.compareScreenshot("rank 2");
+  
+  //     expect(results).toMatchScreenshot();
+  //   });
+  // });
 });

@@ -1,4 +1,4 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, newE2EPage } from "@stencil/core/testing";
 import { RunebladeComponent } from "./runeblade";
 import { FlameSigil } from "../../../global/values/runeblade";
 
@@ -70,5 +70,49 @@ describe("ms-runeblade", () => {
         expect(runeblade).toEqualAttribute("sigil", "");
       });
     });
+  });
+
+  describe("screenshot", () => {
+    // it("default", async () => {
+    //   const page = await newE2EPage({
+    //     html: `<ms-runeblade></ms-runeblade>`,
+    //   });
+  
+    //   const results = await page.compareScreenshot("default");
+  
+    //   expect(results).toMatchScreenshot();
+    // });
+  
+    it("flame sigil", async () => {
+      const page = await newE2EPage({
+        html: `<ms-runeblade extras flame-sigil="1" sigil="flameSigil"></ms-runeblade>`,
+      });
+      
+      const results = await page.compareScreenshot("flameSigil");
+  
+      expect(results).toMatchScreenshot();
+    });
+  
+    // it("frost sigil", async () => {
+    //   const page = await newE2EPage({
+    //     html: `<ms-runeblade extras frost-sigil="1" sigil="frostSigil"></ms-runeblade>`,
+    //   });
+    //   page.waitForChanges();
+      
+    //   const results = await page.compareScreenshot("frostSigil");
+  
+    //   expect(results).toMatchScreenshot();
+    // });
+  
+    // it("storm sigil", async () => {
+    //   const page = await newE2EPage({
+    //     html: `<ms-runeblade extras storm-sigil="1" sigil="stormSigil"></ms-runeblade>`,
+    //   });
+    //   page.waitForChanges();
+
+    //   const results = await page.compareScreenshot("stormSigil");
+  
+    //   expect(results).toMatchScreenshot();
+    // });
   });
 });
