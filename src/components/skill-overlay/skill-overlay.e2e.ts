@@ -7,7 +7,7 @@ describe("ms-skill-overlay", () => {
     const page = await newSpecPage({
       components: [SkillOverlayComponent],
       html: `<ms-skill-overlay></ms-skill-overlay>`,
-      hydrateClientSide: true,
+      includeAnnotations: true,
     });
     page.root.skill = CelestialBlessings;
 

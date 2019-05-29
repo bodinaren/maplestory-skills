@@ -6,7 +6,7 @@ describe("ms-striker", () => {
     const page = await newSpecPage({
       components: [StrikerComponent],
       html: `<ms-striker></ms-striker>`,
-      hydrateClientSide: true,
+      includeAnnotations: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

@@ -7,7 +7,7 @@ describe("ms-skill", () => {
     const page = await newSpecPage({
       components: [SkillComponent],
       html: `<ms-skill></ms-skill>`,
-      hydrateClientSide: true,
+      includeAnnotations: true,
     });
 
     page.root.skill = CelestialBlessings;

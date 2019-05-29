@@ -6,7 +6,7 @@ describe("ms-archer", () => {
     const page = await newSpecPage({
       components: [ArcherComponent],
       html: `<ms-archer></ms-archer>`,
-      hydrateClientSide: true
+      includeAnnotations: true
     });
 
     expect(page.root).toHaveClass("hydrated");

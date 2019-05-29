@@ -6,7 +6,7 @@ describe("ms-wizard", () => {
     const page = await newSpecPage({
       components: [WizardComponent],
       html: `<ms-wizard></ms-wizard>`,
-      hydrateClientSide: true,
+      includeAnnotations: true,
     });
 
     expect(page.root).toHaveClass("hydrated");

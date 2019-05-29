@@ -7,7 +7,7 @@ describe("ms-runeblade", () => {
     const page = await newSpecPage({
       components: [RunebladeComponent],
       html: `<ms-runeblade></ms-runeblade>`,
-      hydrateClientSide: true,
+      includeAnnotations: true,
     });
 
     expect(page.root).toHaveClass("hydrated");
