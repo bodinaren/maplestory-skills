@@ -73,26 +73,6 @@ describe("ms-runeblade", () => {
   });
 
   describe("screenshot", () => {
-    it("rank 1", async () => {
-      const page = await newE2EPage({
-        html: `<ms-archer rank="1"></ms-archer>`,
-      });
-
-      const results = await page.compareScreenshot("rank 1");
-
-      expect(results).toMatchScreenshot();
-    });
-
-    it("rank 2", async () => {
-      const page = await newE2EPage({
-        html: `<ms-archer rank="2"></ms-archer>`,
-      });
-
-      const results = await page.compareScreenshot("rank 2");
-
-      expect(results).toMatchScreenshot();
-    });
-
     it("flame sigil", async () => {
       const page = await newE2EPage({
         html: `<ms-runeblade extras rank="1" flame-sigil="1" sigil="flameSigil"></ms-runeblade>`,

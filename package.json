@@ -14,8 +14,9 @@
     "build.copy": "node scripts/copy.js",
     "build.docs": "node scripts/docs.js",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e --screenshot",
+    "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
+    "test.screenshot": "stencil test --spec --e2e --screenshot",
     "docs": "stencil build --docs"
   },
   "dependencies": {},
