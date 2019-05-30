@@ -1,4 +1,4 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, newE2EPage } from "@stencil/core/testing";
 import { StrikerComponent } from "./striker";
 
 describe("ms-striker", () => {
@@ -10,5 +10,27 @@ describe("ms-striker", () => {
     });
 
     expect(page.root).toHaveClass("hydrated");
+  });
+
+  describe("screenshot", () => {
+    it("rank 1", async () => {
+      const page = await newE2EPage({
+        html: `<ms-striker rank="1"></ms-striker>`,
+      });
+
+      const results = await page.compareScreenshot("rank 1");
+
+      expect(results).toMatchScreenshot();
+    });
+
+    it("rank 2", async () => {
+      const page = await newE2EPage({
+        html: `<ms-striker rank="2"></ms-striker>`,
+      });
+
+      const results = await page.compareScreenshot("rank 2");
+
+      expect(results).toMatchScreenshot();
+    });
   });
 });

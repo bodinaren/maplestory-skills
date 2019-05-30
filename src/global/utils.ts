@@ -1,7 +1,7 @@
 import { getAssetPath } from "@stencil/core";
 
 declare const window: any;
-let hasWebp;
+let hasWebp: boolean = false;
 
 _hasWebp().then((has) => hasWebp = has);
 

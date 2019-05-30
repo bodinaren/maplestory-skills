@@ -73,46 +73,56 @@ describe("ms-runeblade", () => {
   });
 
   describe("screenshot", () => {
-    // it("default", async () => {
-    //   const page = await newE2EPage({
-    //     html: `<ms-runeblade></ms-runeblade>`,
-    //   });
-  
-    //   const results = await page.compareScreenshot("default");
-  
-    //   expect(results).toMatchScreenshot();
-    // });
-  
-    it("flame sigil", async () => {
+    it("rank 1", async () => {
       const page = await newE2EPage({
-        html: `<ms-runeblade extras flame-sigil="1" sigil="flameSigil"></ms-runeblade>`,
+        html: `<ms-archer rank="1"></ms-archer>`,
       });
-      
-      const results = await page.compareScreenshot("flameSigil");
-  
+
+      const results = await page.compareScreenshot("rank 1");
+
       expect(results).toMatchScreenshot();
     });
-  
-    // it("frost sigil", async () => {
-    //   const page = await newE2EPage({
-    //     html: `<ms-runeblade extras frost-sigil="1" sigil="frostSigil"></ms-runeblade>`,
-    //   });
-    //   page.waitForChanges();
-      
-    //   const results = await page.compareScreenshot("frostSigil");
-  
-    //   expect(results).toMatchScreenshot();
-    // });
-  
-    // it("storm sigil", async () => {
-    //   const page = await newE2EPage({
-    //     html: `<ms-runeblade extras storm-sigil="1" sigil="stormSigil"></ms-runeblade>`,
-    //   });
-    //   page.waitForChanges();
 
-    //   const results = await page.compareScreenshot("stormSigil");
-  
-    //   expect(results).toMatchScreenshot();
-    // });
+    it("rank 2", async () => {
+      const page = await newE2EPage({
+        html: `<ms-archer rank="2"></ms-archer>`,
+      });
+
+      const results = await page.compareScreenshot("rank 2");
+
+      expect(results).toMatchScreenshot();
+    });
+
+    it("flame sigil", async () => {
+      const page = await newE2EPage({
+        html: `<ms-runeblade extras rank="1" flame-sigil="1" sigil="flameSigil"></ms-runeblade>`,
+      });
+
+      const results = await page.compareScreenshot("flameSigil");
+
+      expect(results).toMatchScreenshot();
+    });
+
+    it("frost sigil", async () => {
+      const page = await newE2EPage({
+        html: `<ms-runeblade extras rank="1" frost-sigil="1" sigil="frostSigil"></ms-runeblade>`,
+      });
+      page.waitForChanges();
+
+      const results = await page.compareScreenshot("frostSigil");
+
+      expect(results).toMatchScreenshot();
+    });
+
+    it("storm sigil", async () => {
+      const page = await newE2EPage({
+        html: `<ms-runeblade extras rank="1" storm-sigil="1" sigil="stormSigil"></ms-runeblade>`,
+      });
+      page.waitForChanges();
+
+      const results = await page.compareScreenshot("stormSigil");
+
+      expect(results).toMatchScreenshot();
+    });
   });
 });

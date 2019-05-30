@@ -58,7 +58,7 @@ export class ChartComponent {
             <a class={{ "active": this.rank === 1 }} onClick={ () => this.changeRank(1) } href="javascript:void(0)">
               { this.rank !== 1 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-1.png`) } /> }
               { this.rank === 1 && <img src={ getAssetPath(`assets/${ this.msClass }-rank-1-active.png`) } /> }
-              
+
               <span>Rank 1 Skills</span>
             </a>
             <a class={{ "active": this.rank === 2 }} onClick={ () => this.changeRank(2) } href="javascript:void(0)">

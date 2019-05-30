@@ -154,7 +154,7 @@ export class SkillComponent {
     }
     this.showOverlay(-1);
   }
-  
+
   private static getStyles(): string {
     return `
       ms-skill .controls { background-image: url(${ getOptimizedAssetPath(`assets/skill-bar.png`) }); }
@@ -173,6 +173,5 @@ export class SkillComponent {
       :host([required]):after { background-image: url(${ getOptimizedAssetPath(`assets/skill-overlay.png`) }); }
     `;
   }
-
 }
 
