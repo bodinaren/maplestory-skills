@@ -67,14 +67,12 @@ export class ChartComponent {
                         h("div", null, "Level 66"),
                         h("div", null, "Level 68"),
                         h("div", null, "Level 70"))),
-            this.rank === 1 &&
-                h("div", { class: "chart rank-1" },
-                    h("div", { class: "class-icon" },
-                        h("div", { class: "chart-class" },
-                            h("slot", { name: "rank-1" })))),
-            this.rank === 2 &&
-                h("div", { class: "chart rank-2" },
-                    h("slot", { name: "rank-2" }))));
+            h("div", { class: "chart rank-1" },
+                h("div", { class: "class-icon" },
+                    h("div", { class: "chart-class" },
+                        h("slot", { name: "rank-1" })))),
+            h("div", { class: "chart rank-2" },
+                h("slot", { name: "rank-2" }))));
     }
     static getStyles(msClass) {
         return `
@@ -154,7 +152,7 @@ export class ChartComponent {
                 "text": ""
             },
             "attribute": "rank",
-            "reflect": false,
+            "reflect": true,
             "defaultValue": "1"
         }
     }; }

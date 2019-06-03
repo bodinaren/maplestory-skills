@@ -33,9 +33,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
 var SpiritThief = {
     name: "Spirit Thief",
     attr: "spirit-thief",
@@ -422,8 +422,8 @@ var SavageStrikes = {
     spirit: 36,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [197, 197, 197, 197, 197],
-        cunningDamage: [335, 335, 335, 335, 335],
+        damage: [146, 146, 163, 180, 197],
+        cunningDamage: [248, 248, 277, 306, 335],
     },
     description: "\n    Brandish your daggers, slashing enemies <span>6</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes Cunning to deal <span>{cunningDamage}%</span> damage per hit.\n  ",
 };
@@ -443,8 +443,8 @@ var BattlePlan = {
             level: 3,
         }],
     values: {
-        luck: [12, 12, 12, 12, 12],
-        increase: [9, 9, 9, 9, 9],
+        luck: [4, 4, 8, 12, 16],
+        increase: [3, 3, 6, 9, 12],
     },
     description: "\n    You have a plan for every battle.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases luck by <span>{luck}%</span>.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Cunning Tactics increase physical damage by <span>{increase}%</span> for <span>6</span> sec.\n  ",
 };
@@ -464,8 +464,8 @@ var PoisonMaster = {
             level: 2,
         }],
     values: {
-        increase: [9, 9, 9, 9, 9],
-        surpriseAttackDamage: [170, 170, 170, 170, 170],
+        increase: [3, 3, 6, 9, 12],
+        surpriseAttackDamage: [60, 60, 115, 170, 225],
     },
     description: "\n    You've become the master poisoner.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increase poison damage by <span>{increase}%</span>.\n    Increase Surprise Attack damage by <span>{surpriseAttackDamage}%</span> and\n    colldown by <span>50%</span>.\n  ",
 };
@@ -490,8 +490,8 @@ var VolatileVials = {
             level: 3,
         }],
     values: {
-        aoe: [199, 199, 199, 199, 199],
-        poison: [55, 55, 55, 55, 55],
+        aoe: [148, 148, 165, 182, 199],
+        poison: [40, 40, 45, 50, 55],
     },
     description: "\n    Throws <span>2</span> vials of flammable gas and deadly poison.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{aoe}%</span> area damage and poisons struck targets.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Poisons deal <span>{poison}%</span> poison damage for <span>12</span> sec each\n    and explode when struck by Surprise Attack.\n    <br/>\n    Poison Edge and Poison Vial poison damage does not stack.\n  ",
 };
@@ -508,7 +508,7 @@ var CriticalSlice = {
     weaponRequired: "One-handed Dagger, One-handed Dagger",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [180, 180, 180, 180, 180],
+        damage: [135, 135, 150, 165, 180],
     },
     description: "\n    Slash twice to attack the enemy <span>2</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Converts to Dagger Toss while Watchful.\n  ",
 };
@@ -528,11 +528,9 @@ var BattleStep = {
             level: 3,
         }],
     values: {
-        defense: [10, 10, 10, 10, 10],
-        attack: [33, 33, 33, 33, 33],
-        movement: [10, 10, 10, 10, 10],
+        attack: [29, 29, 31, 33, 35],
     },
-    description: "\n    Tailor your strategy to any situation.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Passively grants Watchful.\n    <br/><br/>\n    When enemies are close, lose Watchful and gain Rush.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Watchful increases defense by <span>{defense}%</span>.\n    <br/>\n    Rush increases physical attack by <span>{attack}%</span> and\n    movement speed by <span>{movement}%</span> for <span>8</span> sec.\n    <br/>\n    Rush and Haste do not stack.\n  ",
+    description: "\n    Tailor your strategy to any situation.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Passively grants Watchful.\n    <br/><br/>\n    When enemies are within <span>2.5</span> m, lose Watchful and gain Rush.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Watchful increases defense by <span>10%</span>.\n    <br/>\n    Rush increases physical attack by <span>{attack}%</span> and movement speed by <span>10%</span> for <span>8</span> sec.\n    <br/>\n    Rush and Haste do not stack and have a 10 sec cooldown.\n  ",
 };
 var ShadowStep = {
     name: "Shadow Step",
@@ -552,7 +550,7 @@ var ShadowStep = {
             level: 3,
         }],
     values: {
-        damage: [1974, 1974, 1974, 1974, 1974],
+        damage: [1602, 1602, 1788, 1974, 2160],
     },
     description: "\n    Dash through the shadows.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Move to an enemy withing <span>12</span> m in front of you.\n    Move <span>4.5</span> m if there are no enemies withing <span>12</span> m.\n    <br/><br/>\n    Hold down the key to use Shadow Slash.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Shadow Slash deals <span>{damage}%</span> damage and grants Rush.\n    <br/>\n    While Rush is active, converts this skill to Finishing Step.\n  ",
 };
@@ -573,10 +571,9 @@ var DeadlyStrikes = {
             level: 3,
         }],
     values: {
-        damage: [339, 339, 339, 339, 339],
-        resistance: [300, 300, 300, 300, 300],
+        damage: [252, 252, 281, 310, 339],
     },
-    description: "\n    Fiercely slash the target <span>7</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit and grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases physical and magic resistance by <span>{resistance}%</span> while Deadly Strikes is in use.\n  ",
+    description: "\n    Fiercely slash the target <span>7</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit and grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases physical and magic resistance by <span>300%</span> while Deadly Strikes is in use.\n  ",
 };
 var RankOneSkills = {
     BladeDance: BladeDance,

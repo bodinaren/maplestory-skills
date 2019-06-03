@@ -1,4 +1,4 @@
-import { EventEmitter } from "..\..\stencil.core";
+import { EventEmitter } from "../../stencil.core";
 export declare class ChartComponent {
     host: HTMLMsChartElement;
     msClass: string;

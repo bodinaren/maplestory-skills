@@ -1,4 +1,4 @@
-import { EventEmitter } from "..\..\stencil.core";
+import { EventEmitter } from "../../stencil.core";
 import { ISkill } from "../../global/values/_skillValues.interfaces";
 export declare class SkillComponent {
     level: number;
