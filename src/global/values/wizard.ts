@@ -475,10 +475,10 @@ export const DualCast: IAwakenedSkill = {
   spirit: 15,
   levelRequirement: [60, 60, 60, 60, 60],
   values: {
-    handyLightningDamage: [90, 90, 90, 90, 90],
-    handyLightningAdditionalDamage: [315, 315, 315, 315, 315],
-    iceShotDamage: [100, 100, 100, 100, 100],
-    frostDamage: [49, 49, 49, 49, 49],
+    handyLightningDamage: [69, 69, 76, 83, 90],
+    handyLightningAdditionalDamage: [234, 234, 261, 288, 315],
+    iceShotDamage: [76, 76, 84, 92, 100],
+    frostDamage: [37, 37, 41, 49, 45],
   },
   description: `
     Cast spells of electricity and ice at the same time.
@@ -520,11 +520,10 @@ export const IceCreamTime: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [418, 418, 418, 418, 418],
-    additionalDamage: [500, 500, 500, 500, 500],
-    movement: [15, 15, 15, 15, 15],
-    dot: [150, 150, 150, 150, 150],
-    iceStormIncrease: [49, 49, 49, 49, 49],
+    damage: [298, 298, 338, 378, 418],
+    additionalDamage: [371, 371, 414, 457, 500],
+    dot: [114, 114, 126, 138, 150],
+    iceStormIncrease: [37, 37, 41, 45, 49],
   },
   description: `
     Make ice cream with ice magic to give your foes some serious brain freeze.
@@ -540,7 +539,7 @@ export const IceCreamTime: IAwakenedSkill = {
     <h3>[Bonus Effects]</h3>
     Chill decreases movement speed by <span>{movement}%</span> per stack.
     <br/>
-    Target are unable to act at <span>6</span> stacks.
+    Targets are unable to act at <span>6</span> stacks.
     <br/>
     Electric Ice Cream deals <span>{dot}%</span> damage per sec for <span>10</span> sec.
     <br/>
@@ -565,11 +564,10 @@ export const LodestoneField: IAwakenedSkill = {
     level: 2,
   }],
   values: {
-    damage: [320, 320, 320, 320, 320],
-    additionalDamage: [44, 44, 44, 44, 44],
-    stackDamage: [92, 92, 92, 92, 92],
-    evasion: [10, 10, 10, 10, 10],
-    thunderboltIncrease: [45, 45, 45, 45, 45],
+    damage: [260, 260, 290, 320, 350],
+    additionalDamage: [36, 36, 40, 44, 48],
+    stackDamage: [76, 76, 84, 92, 100],
+    thunderboltIncrease: [37, 37, 41, 45, 49],
   },
   description: `
     Fill the air with a magnetic charge to augment your attacks.
@@ -585,7 +583,7 @@ export const LodestoneField: IAwakenedSkill = {
     <br/><br/>
     <h3>[Bonus Effects]</h3>
     When Lightning Charge stacks, inflicts <span>{stackDamage}%</span> damage to nearby enemies
-    and increases evation by <span>{evasion}%</span> per stack.
+    and increases evation by <span>10%</span> per stack.
     <br/>
     Gain stacks by casting Handy Lightning or Electric Ice Cream, or by getting hit.
     <br/>
@@ -616,9 +614,9 @@ export const PerfectStorm: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [229, 229, 229, 229, 229],
-    additionalDamage: [731, 731, 731, 731, 731],
-    elementaryAttack: [24, 24, 24, 24, 24],
+    damage: [187, 187, 208, 229, 250],
+    additionalDamage: [593, 593, 662, 731, 800],
+    elementaryAttack: [8, 8, 16, 24, 32],
   },
   description: `
     Attack with a perfect blend of ice and electricity.
@@ -648,12 +646,12 @@ export const Ember: IAwakenedSkill = {
   spirit: 20,
   levelRequirement: [60, 60, 60, 60, 60],
   values: {
-    damage: [302, 302, 302, 302, 302],
-    emberDot: [39, 39, 39, 39, 39],
-    emberAoe: [366, 366, 366, 366, 366],
-    kindlingDot: [45, 45, 45, 45, 45],
-    kindlingAoe: [457, 457, 457, 457, 457],
-    spreadingDamage: [45, 45, 45, 45, 45],
+    damage: [246, 246, 274, 302, 330],
+    emberDot: [31, 31, 35, 39, 43],
+    emberAoe: [298, 298, 332, 366, 400],
+    kindlingDot: [37, 37, 41, 45, 49],
+    kindlingAoe: [371, 371, 414, 457, 500],
+    spreadingDamage: [37, 37, 41, 45, 49],
   },
   description: `
     Launch a small fireball to start a big fire.
@@ -693,9 +691,9 @@ export const BarbecueParty: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [552, 552, 552, 552, 552],
-    dot: [59, 59, 59, 59, 59],
-    aoeDamage: [548, 548, 548, 548, 548],
+    damage: [411, 411, 458, 505, 552],
+    dot: [44, 44, 49, 54, 59],
+    aoeDamage: [407, 407, 454, 501, 548],
   },
   description: `
     Grill your enemies with magical flames.
@@ -728,8 +726,8 @@ export const PlayingWithFire: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [137, 137, 137, 137, 137],
-    chance: [27, 27, 27, 27, 27],
+    damage: [111, 111, 124, 137, 150],
+    duration: [10, 10, 10, 11, 11],
   },
   description: `
     You've befriended a mischievous fire spire.
@@ -741,8 +739,8 @@ export const PlayingWithFire: IAwakenedSkill = {
     <h3>[Bonus Effects]</h3>
     Dancing Flames removes the spirit cost of Flame Wave and increases Flame Tornado damage by <span>{damage}%</span>.
     <br/><br/>
-    Flame Imp lasts for <span>11</span> sec, guaranteeing a critical when Ember hits
-    and granting a <span>{chance}%</span> chance to trigger Party Time on critical hit.
+    Flame Imp lasts for <span>{duration}</span> sec, guaranteeing a critical when Ember hits
+    and granting a <span>27%</span> chance to trigger Party Time on critical hit.
     <br/>
     Party Time resets Barbequeue Party's cooldown and allows it to be cast instantly.
   `,
@@ -768,10 +766,10 @@ export const LittleMeteor: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [2000, 2000, 2000, 2000, 2000],
-    additionalDamage: [199, 199, 199, 199, 199],
-    enlightenFirstDamage: [340, 340, 340, 340, 340],
-    enlightenSecondDamage: [350, 350, 350, 350, 350],
+    damage: [1484, 1484, 1656, 1828, 2000],
+    additionalDamage: [148, 148, 165, 182, 199],
+    enlightenFirstDamage: [253, 253, 282, 311, 340],
+    enlightenSecondDamage: [260, 260, 290, 320, 350],
   },
   description: `
     Summons a meteor to strike enemies. Sometimes summons something else by mistake.
