@@ -506,10 +506,10 @@ export const RedoubledPain: IAwakenedSkill = {
   spirit: 11,
   levelRequirement: [60, 60, 60, 60, 60],
   values: {
-    offHandDamage: [158, 158, 158, 158, 158],
-    mainDamage: [158, 158, 158, 158, 158],
-    dot: [79, 79, 79, 79, 79],
-    mainAdditionalDamage: [480, 480, 480, 480, 480],
+    offHandDamage: [128, 128, 138, 148, 158],
+    mainDamage: [128, 128, 138, 148, 158],
+    dot: [64, 64, 69, 74, 79],
+    mainAdditionalDamage: [384, 384, 416, 448, 480],
   },
   description: `
     Alternate attacks between your two weapons,
@@ -546,7 +546,7 @@ export const BindingPunishment: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    damage: [56, 56, 56, 56, 56],
+    damage: [52, 52, 56, 60, 64],
   },
   description: `
     Toss a spinning chain at the enemy, dealing damage to the target and nearby enemies.
@@ -574,7 +574,7 @@ export const ArtOfTheShuriken: IAwakenedSkill = {
     level: 2,
   }],
   values: {
-    increase: [8, 8, 8, 8, 8],
+    increase: [2, 2, 4, 6, 8],
   },
   description: `
     Your skill with thrown weapons are truly lethal.
@@ -606,9 +606,9 @@ export const AllInOne: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    t1damage: [220, 220, 220, 220, 220],
-    t2damage: [787, 787, 787, 787, 787],
-    t3damage: [272, 272, 272, 272, 272],
+    t1damage: [188, 188, 204, 220, 236],
+    t2damage: [675, 675, 731, 787, 843],
+    t3damage: [232, 232, 252, 272, 292],
   },
   description: `
     Hold down the skill key to unleash increasingly devastating attacks on the enemy, maxing out at <span>3</span> tiers.
@@ -636,8 +636,8 @@ export const DarkMire: IAwakenedSkill = {
   spirit: 40,
   levelRequirement: [60, 60, 60, 60, 60],
   values: {
-    damage: [81, 81, 81, 81, 81],
-    increase: [2, 2, 2, 2, 2],
+    damage: [81, 81, 90, 99, 108],
+    increase: [2, 2, 4, 6, 8],
   },
   description: `
     Conjure <span>4</span> dark mires that drain enemies' strength and transfers it to you.
@@ -668,8 +668,8 @@ export const ShadowStance: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    absorb: [6, 6, 6, 6, 6],
-    increase: [9, 9, 9, 9, 9],
+    absorb: [6, 6, 12, 18, 24],
+    increase: [9, 9, 18, 27, 36],
   },
   description: `
     Envelope yourself in shadows to strengthen your resolve.
@@ -699,7 +699,7 @@ export const ArtOfTheShadows: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    increase: [2, 2, 2, 2, 2],
+    increase: [2, 2, 4, 6, 8],
   },
   description: `
     Your mastery of the dark arts grows more intense.
@@ -728,9 +728,8 @@ export const AssassinsCircle: IAwakenedSkill = {
     level: 3,
   }],
   values: {
-    accuracy: [29, 29, 29, 29, 29],
-    additionalDamage: [28, 28, 28, 28, 28],
-    damage: [2436, 2436, 2436, 2436, 2436],
+    additionalDamage: [28, 28, 30, 32, 34],
+    damage: [2436, 2436, 2720, 3004, 3288],
   },
   description: `
     Conjures a <span>3</span>-tiered Assassin's Circle in front of you.
@@ -741,14 +740,14 @@ export const AssassinsCircle: IAwakenedSkill = {
     Inflicts an Assassin's Insignia every <span>0.5</span> sec.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Blade Mark reduces accuracy by <span>{accuracy}</span> and
+    Blade Mark reduces accuracy by <span>29</span> and
     has a chance to deal <span>{additionalDamage}%</span> additional damage <span>4</span> times.
     <br/>
     Assassins's Insignia deals <span>{damage}%</span> damage at <span>18</span> stacks.
     <br/>
     Cannot be used with Mirror Image: Dark Blade..
     <br/>
-    Circles created while Shadow Args is active deal additional damage.
+    Circles created while Shadow Arts is active deal additional damage.
   `,
 };
 
