@@ -1,6 +1,6 @@
 {
   "name": "maplestory-skills",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Web components to display MapleStory skill charts.",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
