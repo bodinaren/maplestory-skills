@@ -424,10 +424,10 @@ var ShockwavePunch = {
     cooldown: 3,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [457, 457, 457, 457, 457],
-        increase: [12, 12, 12, 12, 12],
+        damage: [371, 371, 414, 457, 500],
+        increase: [4, 4, 8, 12, 16],
     },
-    description: "\n    Muster up a surge of fiery energy and unleash it on your enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to the area in front of you\n    <br/><br/>\n    Grants Punching Stance.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Punching Stance enhances all punching Skills.\n    <br/>\n    Permanently upgrades Magnum Blow to Mega Blow, increasing damage by <span>{increase}%</span>.\n  ",
+    description: "\n    Muster up a surge of fiery energy and unleash it on your enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to the area in front of you.\n    <br/><br/>\n    Grants Punching Stance.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Punching Stance enhances all punching Skills.\n    <br/>\n    Permanently upgrades Magnum Blow to Mega Blow, increasing damage by <span>{increase}%</span>.\n  ",
 };
 var VulcanPunch = {
     name: "Vulcan Punch",
@@ -445,9 +445,9 @@ var VulcanPunch = {
             level: 3,
         }],
     values: {
-        damage: [91, 91, 91, 91, 91],
+        damage: [70, 70, 77, 84, 91],
     },
-    description: "\n    Batter enemies with a rapid barrage of jabs.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies in front of you <span>12</span> times.\n    <br/>\n    Grants knockback immunity.\n    <br/><br/>\n    Enhanced by Punching Stance.\n  ",
+    description: "\n    Batter enemies with a rapid barrage of jabs.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies in front of you <span>12</span> times.\n    Grants knockback immunity.\n    <br/><br/>\n    Enhanced by Punching Stance.\n  ",
 };
 var DoubleFistSmash = {
     name: "Double-Fist Smash",
@@ -466,7 +466,7 @@ var DoubleFistSmash = {
             level: 2,
         }],
     values: {
-        damage: [560, 560, 560, 560, 560],
+        damage: [416, 416, 464, 512, 560],
     },
     description: "\n    Leap into the air and strike the ground.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage in an area.\n    <br/><br/>\n    Grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Enhanced by Punching Stance.\n  ",
 };
@@ -490,11 +490,9 @@ var MeridianFlow = {
             level: 3,
         }],
     values: {
-        attack: [12, 12, 12, 12, 12],
-        speed: [10, 10, 10, 10, 10],
-        resistance: [75, 75, 75, 75, 75],
+        attack: [6, 6, 9, 12, 15],
     },
-    description: "\n    Open the pressure points within your body to amplify your physical abilities.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical attack by <span>{attack}%</span>,\n    attack speed by <span>{speed}%</span>,\n    and physical and magic resistance by <span>{resistance}</span> for <span>30</span> sec.\n    <br/>\n    Restores <span>2</span> spirit per sec.\n    <br/><br/>\n    Can use Meridian Flow II while this is active. Grants knockback immunity.\n    <br/><br/>\n    Can cancel other skills.\n    <br/><br/>\n    Inflicts Balance Disrupted when this skill expires naturally.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Balance Disrupted prevents the use of Meridian Flow, Overcome, Pattern Break and Fighting Spirit for <span>30</span> sec.\n  ",
+    description: "\n    Open the pressure points within your body to amplify your physical abilities.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical attack by <span>{attack}%</span>,\n    attack speed by <span>10%</span>,\n    and physical and magic resistance by <span>75</span> for <span>30</span> sec.\n    Restores <span>2</span> spirit per sec.\n    <br/><br/>\n    Can use Meridian Flow II while this is active. Grants knockback immunity.\n    <br/><br/>\n    Can cancel other skills.\n    <br/><br/>\n    Inflicts Balance Disrupted when this skill expires naturally.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Balance Disrupted prevents the use of Meridian Flow, Overcome, Pattern Break and Fighting Spirit for <span>30</span> sec.\n  ",
 };
 var SetupKick = {
     name: "Setup Kick",
@@ -511,8 +509,8 @@ var SetupKick = {
     cooldown: 3,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [375, 375, 375, 375, 375],
-        increase: [4, 4, 4, 4, 4],
+        damage: [375, 375, 418, 461, 504],
+        increase: [4, 4, 8, 12, 16],
     },
     description: "\n    Deliver a rising kick to the enemy.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Grants Kicking Stance.\n    <br/><br/>\n    Hold down the skill key to move forward <span>1.5</span> m.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Kicking Stance upgrades some kick-based skills.\n    Permanently upgrades Dragon Kick to Dragon Fury, increasing damage by <span>{increase}%</span>.\n  ",
 };
@@ -534,7 +532,7 @@ var SpiralCannon = {
             level: 3,
         }],
     values: {
-        damage: [126, 126, 126, 126, 126],
+        damage: [108, 108, 117, 126, 135],
     },
     description: "\n    Launch a spinning kick at the enemy.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>8</span> times in front of you.\n    <br/><br/>\n    Grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Enhanced by Kicking Stance.\n  ",
 };
@@ -557,10 +555,10 @@ var SpinKick = {
             level: 3,
         }],
     values: {
-        damage: [162, 162, 162, 162, 162],
-        additionalDamage: [431, 431, 431, 431, 431],
+        damage: [162, 162, 193, 224, 255],
+        additionalDamage: [431, 431, 478, 525, 572],
     },
-    description: "\n    Spin in the air and drive your leg into the enemy as you drop down.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    First deals <span>{damage}%</span> damage, then <span>{additionalDamage}%</span> damage.\n    <br/><br/>\n    Press a directional key to move <span>2</span> m.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Enhanced by Kicking Stance.\n  ",
+    description: "\n    Spin in the air and drive your leg into the enemy as you drop down.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage, then <span>{additionalDamage}%</span> damage.\n    <br/><br/>\n    Press a directional key to move <span>2</span> m.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Enhanced by Kicking Stance.\n  ",
 };
 var TauntingFeint = {
     name: "Taunting Feint",
@@ -580,11 +578,11 @@ var TauntingFeint = {
             level: 3,
         }],
     values: {
-        melee: [240, 240, 240, 240, 240],
-        range: [480, 480, 480, 480, 480],
-        resistance: [1200, 1200, 1200, 1200, 1200],
+        melee: [240, 240, 260, 280, 300],
+        range: [480, 480, 520, 560, 600],
+        increase: [3, 3, 6, 9, 12],
     },
-    description: "\n    Momentarily take a counterattacking stance.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    If struck in melee, deals <span>{melee}%</span> damage <span>2</span> times.\n    <br/><br/>\n    If struck in range, deals <span>{range}%</span> damage.\n    <br/><br/>\n    Increases physical and magic resistance by <span>{resistance}</span> and grants counterattack immunity.\n    <br/><br/>\n    Permanently increases kick skill damage by <span>3%</span> per skill level.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    After a successful counterattack, gain Confidence, increasing attack speed by <span>10%</span> and\n    physical attack by <span>10%</span>.\n    <br/>\n    Kick skills include Setup Kick, Spin kick, Spin Kick EX,\n    Spiral Cannon, Spiral Cannon EX, Melee Fade, and Ranged Fade.\n  ",
+    description: "\n    Momentarily take a counterattacking stance.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    If struck in melee, deals <span>{melee}%</span> damage <span>2</span> times.\n    <br/><br/>\n    If struck in range, deals <span>{range}%</span> damage.\n    <br/><br/>\n    Increases physical and magic resistance by <span>1200</span> and grants counterattack immunity.\n    <br/><br/>\n    Permanently increases kick skill damage by <span>{increase}%</span> per skill level.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    After a successful counterattack, gain Confidence, increasing attack speed by <span>10%</span> and\n    physical attack by <span>10%</span>.\n    <br/>\n    Kick skills include Setup Kick, Spin Kick, Spin Kick EX,\n    Spiral Cannon, Spiral Cannon EX, Melee Fade, and Ranged Fade.\n  ",
 };
 var RankOneSkills = {
     Beatdown: Beatdown,

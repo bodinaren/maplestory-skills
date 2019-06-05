@@ -422,10 +422,10 @@ var RedoubledPain = {
     spirit: 11,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        offHandDamage: [158, 158, 158, 158, 158],
-        mainDamage: [158, 158, 158, 158, 158],
-        dot: [79, 79, 79, 79, 79],
-        mainAdditionalDamage: [480, 480, 480, 480, 480],
+        offHandDamage: [128, 128, 138, 148, 158],
+        mainDamage: [128, 128, 138, 148, 158],
+        dot: [64, 64, 69, 74, 79],
+        mainAdditionalDamage: [384, 384, 416, 448, 480],
     },
     description: "\n    Alternate attacks between your two weapons,\n    poisoning enemies with your off-hand and then detonating the poison with your main hand.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Off-hand attacks deal <span>{offHandDamage}%</span> damage per hit and\n    inflict Dark Poison for <span>10</span> sec.\n    Main hand attacks deal <span>{mainDamage}%</span> damage per hit.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Dark Poison deals <span>{dot}%</span> damage per sec.\n    <br/>\n    Main hand attacks consume Dark Poison to deal an additional <span>{mainAdditionalDamage}%</span> damage.\n  ",
 };
@@ -448,7 +448,7 @@ var BindingPunishment = {
             level: 3,
         }],
     values: {
-        damage: [56, 56, 56, 56, 56],
+        damage: [52, 52, 56, 60, 64],
     },
     description: "\n    Toss a spinning chain at the enemy, dealing damage to the target and nearby enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    The chain spins around the target for <span>10</span> sec,\n    dealing <span>{damage}%</span> damage per sec to nearby enemies.\n  ",
 };
@@ -469,7 +469,7 @@ var ArtOfTheShuriken = {
             level: 2,
         }],
     values: {
-        increase: [8, 8, 8, 8, 8],
+        increase: [2, 2, 4, 6, 8],
     },
     description: "\n    Your skill with thrown weapons are truly lethal.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Redoubled Pain, Binding Punishment, and All-in-One by <span>{increase}%</span>.\n  ",
 };
@@ -495,9 +495,9 @@ var AllInOne = {
             level: 3,
         }],
     values: {
-        t1damage: [220, 220, 220, 220, 220],
-        t2damage: [787, 787, 787, 787, 787],
-        t3damage: [272, 272, 272, 272, 272],
+        t1damage: [188, 188, 204, 220, 236],
+        t2damage: [675, 675, 731, 787, 843],
+        t3damage: [232, 232, 252, 272, 292],
     },
     description: "\n    Hold down the skill key to unleash increasingly devastating attacks on the enemy, maxing out at <span>3</span> tiers.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Tier 1: Attacks <span>3</span> times, dealing <span>{t1damage}%</span> damage per hit.\n    <br/><br/>\n    Tier 2: Deals <span>{t2damage}%</span> damage.\n    <br/><br/>\n    Tier 3: Attacks <span>5</span> times, dealing <span>{t3damage}%</span> damage per hit.\n  ",
 };
@@ -515,8 +515,8 @@ var DarkMire = {
     spirit: 40,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [81, 81, 81, 81, 81],
-        increase: [2, 2, 2, 2, 2],
+        damage: [81, 81, 90, 99, 108],
+        increase: [2, 2, 4, 6, 8],
     },
     description: "\n    Conjure <span>4</span> dark mires that drain enemies' strength and transfers it to you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit for <span>5</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases caster's dark damage by <span>{increase}%</span> for <span>5</span> sec when an enemy is hit.\n    <br/>\n    Consumes <span>0</span> spirit when using Secret Arts.\n  ",
 };
@@ -536,8 +536,8 @@ var ShadowStance = {
             level: 3,
         }],
     values: {
-        absorb: [6, 6, 6, 6, 6],
-        increase: [9, 9, 9, 9, 9],
+        absorb: [6, 6, 12, 18, 24],
+        increase: [9, 9, 18, 27, 36],
     },
     description: "\n    Envelope yourself in shadows to strengthen your resolve.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Absorb damage equal to <span>{absorb}%</span> of your max health for <span>12</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases dark damage by <span>{increase}%</span> while the shadow lasts.\n  ",
 };
@@ -558,7 +558,7 @@ var ArtOfTheShadows = {
             level: 3,
         }],
     values: {
-        increase: [2, 2, 2, 2, 2],
+        increase: [2, 2, 4, 6, 8],
     },
     description: "\n    Your mastery of the dark arts grows more intense.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Dark Mire and Assassin's Circle by <span>{increase}%</span>.\n  ",
 };
@@ -581,11 +581,10 @@ var AssassinsCircle = {
             level: 3,
         }],
     values: {
-        accuracy: [29, 29, 29, 29, 29],
-        additionalDamage: [28, 28, 28, 28, 28],
-        damage: [2436, 2436, 2436, 2436, 2436],
+        additionalDamage: [28, 28, 30, 32, 34],
+        damage: [2436, 2436, 2720, 3004, 3288],
     },
-    description: "\n    Conjures a <span>3</span>-tiered Assassin's Circle in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    The Assassin's Circle lasts for <span>10</span> sec and places a Blade Mark on enemies for <span>10</span> sec.\n    <br/><br/>\n    Inflicts an Assassin's Insignia every <span>0.5</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Blade Mark reduces accuracy by <span>{accuracy}</span> and\n    has a chance to deal <span>{additionalDamage}%</span> additional damage <span>4</span> times.\n    <br/>\n    Assassins's Insignia deals <span>{damage}%</span> damage at <span>18</span> stacks.\n    <br/>\n    Cannot be used with Mirror Image: Dark Blade..\n    <br/>\n    Circles created while Shadow Args is active deal additional damage.\n  ",
+    description: "\n    Conjures a <span>3</span>-tiered Assassin's Circle in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    The Assassin's Circle lasts for <span>10</span> sec and places a Blade Mark on enemies for <span>10</span> sec.\n    <br/><br/>\n    Inflicts an Assassin's Insignia every <span>0.5</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Blade Mark reduces accuracy by <span>29</span> and\n    has a chance to deal <span>{additionalDamage}%</span> additional damage <span>4</span> times.\n    <br/>\n    Assassins's Insignia deals <span>{damage}%</span> damage at <span>18</span> stacks.\n    <br/>\n    Cannot be used with Mirror Image: Dark Blade..\n    <br/>\n    Circles created while Shadow Arts is active deal additional damage.\n  ",
 };
 var RankOneSkills = {
     DarkCloak: DarkCloak,

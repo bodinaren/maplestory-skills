@@ -427,7 +427,7 @@ var FocusedFire = {
     weaponRequired: "Two-handed Cannon",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [138, 138, 138, 138, 138],
+        damage: [102, 102, 114, 126, 138],
     },
     description: "\n    Unleash focused mortar fire on enemies in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Can keep firing until ammo is depleted.\n    Grants knockback immunity.\n  ",
 };
@@ -450,9 +450,9 @@ var FireBomber = {
             level: 3,
         }],
     values: {
-        damage: [487, 487, 487, 487, 487],
-        additionalDamage: [497, 497, 497, 497, 497],
-        fireDamage: [90, 90, 90, 90, 90],
+        damage: [398, 398, 441, 487, 533],
+        additionalDamage: [403, 403, 450, 497, 544],
+        fireDamage: [74, 74, 82, 90, 98],
     },
     description: "\n    Launch explosive fire missiles to engulf targets in fiery doom.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Deals <span>{additionalDamage}%</span> damage and burns targets who are enveloped in flames.\n    Can keep firing until missiles are depleted.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Burn deals <span>{fireDamage}%</span> fire damage per sec for <span>10</span> sec.\n  ",
 };
@@ -473,9 +473,9 @@ var MissileSupercharger = {
             level: 2,
         }],
     values: {
-        increase: [8, 8, 8, 8, 8],
+        increase: [2, 2, 4, 6, 8],
     },
-    description: "\n    Upgrade your ammo chamgers to improve certain skills.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Focused Fire, Fire Bomber, and Demolition Cannon damage by <span>{increase}%</span>.\n  ",
+    description: "\n    Upgrade your ammo chambers to improve certain skills.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Focused Fire, Fire Bomber, and Demolition Cannon damage by <span>{increase}%</span>.\n  ",
 };
 var DemolitionCannon = {
     name: "Demolition Cannon",
@@ -497,8 +497,8 @@ var DemolitionCannon = {
             level: 3,
         }],
     values: {
-        damage: [539, 539, 539, 539, 539],
-        firstSecondDamage: [658, 658, 658, 658, 658],
+        damage: [437, 437, 488, 539, 590],
+        firstSecondDamage: [534, 534, 596, 658, 720],
     },
     description: "\n    Modify your satellite to fire high-powered, explosive missiles.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    First and second explosions deal <span>{firstSecondDamage}%</span> damage each.\n    Can keep firing until ammo is depleted.\n    Grants knockback immunity.\n  ",
 };
@@ -517,8 +517,8 @@ var PlasmaChain = {
     spirit: 5,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [123, 123, 123, 123, 123],
-        electricDamage: [348, 348, 348, 348, 348],
+        damage: [93, 93, 103, 113, 123],
+        electricDamage: [258, 258, 288, 318, 348],
     },
     description: "\n    Route power from your jet boots to rain superheated plasma on your enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Repeatedly deals <span>{damage}%</span> damage to <span>7</span> enemies within <span>9</span> m.\n    <br/><br/>\n    Triggers an explosion after damaging a target <span>5</span> times.\n    <br/><br/>\n    Able to move while skill is active.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Explosion deals <span>{electricDamage}%</span> electric damage.\n  ",
 };
@@ -540,10 +540,9 @@ var SkyHunter = {
             level: 3,
         }],
     values: {
-        damage: [697, 697, 697, 697, 697],
-        absorb: [30, 30, 30, 30, 30],
+        damage: [565, 565, 631, 697, 763],
     },
-    description: "\n    Remotely control a high-intensity laser fired from one of your heavy weapons satellites.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> electric damage.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Grants a Deflector Shield that absorbs damage\n    equal to <span>{absorb}%</span> of your max health.\n  ",
+    description: "\n    Remotely control a high-intensity laser fired from one of your heavy weapons satellites.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> electric damage.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Grants a Deflector Shield that absorbs damage equal to <span>30%</span> of your max health.\n  ",
 };
 var PlasmaSupercharger = {
     name: "Plasma Supercharger",
@@ -563,9 +562,9 @@ var PlasmaSupercharger = {
             level: 3,
         }],
     values: {
-        damage: [2, 2, 2, 2, 2],
+        damage: [2, 2, 4, 6, 8],
     },
-    description: "\n    Upgrade the plasma reactor in your cannon for increased firepower.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Plasma Chain, Sky Hunger, and Hyper Giga Launcher damage by <span>{damage}%</span>.\n  ",
+    description: "\n    Upgrade the plasma reactor in your cannon for increased firepower.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Plasma Chain, Sky Hunter, and Hyper Giga Launcher damage by <span>{damage}%</span>.\n  ",
 };
 var HyperGigaCannon = {
     name: "Hyper Giga Cannon",
@@ -586,7 +585,7 @@ var HyperGigaCannon = {
             level: 3,
         }],
     values: {
-        damage: [256, 256, 256, 256, 256],
+        damage: [190, 190, 212, 234, 256],
     },
     description: "\n    Patch your jet boot power into your cannon,\n    firing a powerful laser while you fly around.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>4</span> times.\n    Can keep firing until battery is depleted.\n    <br/><br/>\n    Able to move while skill is active.\n  ",
 };

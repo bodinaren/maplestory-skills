@@ -409,10 +409,10 @@ var DualCast = {
     spirit: 15,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        handyLightningDamage: [90, 90, 90, 90, 90],
-        handyLightningAdditionalDamage: [315, 315, 315, 315, 315],
-        iceShotDamage: [100, 100, 100, 100, 100],
-        frostDamage: [49, 49, 49, 49, 49],
+        handyLightningDamage: [69, 69, 76, 83, 90],
+        handyLightningAdditionalDamage: [234, 234, 261, 288, 315],
+        iceShotDamage: [76, 76, 84, 92, 100],
+        frostDamage: [37, 37, 41, 49, 45],
     },
     description: "\n    Cast spells of electricity and ice at the same time.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Cast Handy Lightning and Ice Shot at the same time.\n    <br/><br/>\n    Handy Lightning deals <span>{handyLightningDamage}%</span> damage and places a status effect on the target.\n    At <span>5</span> stacks, the Handy lightning effect detonates,\n    dealing an additional <span>{handyLightningAdditionalDamage}%</span> damage.\n    <br/><br/>\n    Ice Shot deals <span>{iceShotDamage}%</span>.\n    <br/><br/>\n    Permanently enhances Ice Spear.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Ice Spear costs no spirit and inflicts Frost.\n    Enemies suffering from Frost take an additional <span>{frostDamage}%</span> damage from Handy Lightning.\n  ",
 };
@@ -436,13 +436,12 @@ var IceCreamTime = {
             level: 3,
         }],
     values: {
-        damage: [418, 418, 418, 418, 418],
-        additionalDamage: [500, 500, 500, 500, 500],
-        movement: [15, 15, 15, 15, 15],
-        dot: [150, 150, 150, 150, 150],
-        iceStormIncrease: [49, 49, 49, 49, 49],
+        damage: [298, 298, 338, 378, 418],
+        additionalDamage: [371, 371, 414, 457, 500],
+        dot: [114, 114, 126, 138, 150],
+        iceStormIncrease: [37, 37, 41, 45, 49],
     },
-    description: "\n    Make ice cream with ice magic to give your foes some serious brain freeze.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Inflicts a stack of Chill every second.\n    Hit affected enemies with Thunderbolt to trigger Electric Ice Cream.\n    Deals <span>{additionalDamage}%</span> damage when the skill is used again or the duration ends.\n    <br/><br/>\n    Permanently enhances Ice Storm.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Chill decreases movement speed by <span>{movement}%</span> per stack.\n    <br/>\n    Target are unable to act at <span>6</span> stacks.\n    <br/>\n    Electric Ice Cream deals <span>{dot}%</span> damage per sec for <span>10</span> sec.\n    <br/>\n    Increases Ice Storm damage by <span>{iceStormIncrease}%</span>.\n  ",
+    description: "\n    Make ice cream with ice magic to give your foes some serious brain freeze.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Inflicts a stack of Chill every second.\n    Hit affected enemies with Thunderbolt to trigger Electric Ice Cream.\n    Deals <span>{additionalDamage}%</span> damage when the skill is used again or the duration ends.\n    <br/><br/>\n    Permanently enhances Ice Storm.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Chill decreases movement speed by <span>{movement}%</span> per stack.\n    <br/>\n    Targets are unable to act at <span>6</span> stacks.\n    <br/>\n    Electric Ice Cream deals <span>{dot}%</span> damage per sec for <span>10</span> sec.\n    <br/>\n    Increases Ice Storm damage by <span>{iceStormIncrease}%</span>.\n  ",
 };
 var LodestoneField = {
     name: "Lodestone Field",
@@ -461,13 +460,12 @@ var LodestoneField = {
             level: 2,
         }],
     values: {
-        damage: [320, 320, 320, 320, 320],
-        additionalDamage: [44, 44, 44, 44, 44],
-        stackDamage: [92, 92, 92, 92, 92],
-        evasion: [10, 10, 10, 10, 10],
-        thunderboltIncrease: [45, 45, 45, 45, 45],
+        damage: [260, 260, 290, 320, 350],
+        additionalDamage: [36, 36, 40, 44, 48],
+        stackDamage: [76, 76, 84, 92, 100],
+        thunderboltIncrease: [37, 37, 41, 45, 49],
     },
-    description: "\n    Fill the air with a magnetic charge to augment your attacks.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Grants a stack of Lightning Charge.\n    <br/><br/>\n    If you already have Lightning Charge, consume all stacks and cast Call Lightning instead,\n    dealing <span>{damage}%</span> damage,\n    plus an additional <span>{additionalDamage}%</span> per stack.\n    <br/><br/>\n    Permanently enhances Thunderbolt.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    When Lightning Charge stacks, inflicts <span>{stackDamage}%</span> damage to nearby enemies\n    and increases evation by <span>{evasion}%</span> per stack.\n    <br/>\n    Gain stacks by casting Handy Lightning or Electric Ice Cream, or by getting hit.\n    <br/>\n    Increases Thunderbolt damage by <span>{thunderboltIncrease}%</span>.\n  ",
+    description: "\n    Fill the air with a magnetic charge to augment your attacks.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Grants a stack of Lightning Charge.\n    <br/><br/>\n    If you already have Lightning Charge, consume all stacks and cast Call Lightning instead,\n    dealing <span>{damage}%</span> damage,\n    plus an additional <span>{additionalDamage}%</span> per stack.\n    <br/><br/>\n    Permanently enhances Thunderbolt.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    When Lightning Charge stacks, inflicts <span>{stackDamage}%</span> damage to nearby enemies\n    and increases evation by <span>10%</span> per stack.\n    <br/>\n    Gain stacks by casting Handy Lightning or Electric Ice Cream, or by getting hit.\n    <br/>\n    Increases Thunderbolt damage by <span>{thunderboltIncrease}%</span>.\n  ",
 };
 var PerfectStorm = {
     name: "Perfect Storm",
@@ -492,9 +490,9 @@ var PerfectStorm = {
             level: 3,
         }],
     values: {
-        damage: [229, 229, 229, 229, 229],
-        additionalDamage: [731, 731, 731, 731, 731],
-        elementaryAttack: [24, 24, 24, 24, 24],
+        damage: [187, 187, 208, 229, 250],
+        additionalDamage: [593, 593, 662, 731, 800],
+        elementaryAttack: [8, 8, 16, 24, 32],
     },
     description: "\n    Attack with a perfect blend of ice and electricity.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Summon a bolt of ice and a bolt of electricity, each dealing <span>{damage}%</span> damage.\n    Hold down the skill key to unleash a fused attack that deals <span>{additionalDamage}%</span> damage.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    After casting Perfect Storm, temporarily increase electric and ice attack\n    by <span>{elementaryAttack}%</span> and reset the cooldowns for Thunderbolt and Ice Storm.\n  ",
 };
@@ -513,12 +511,12 @@ var Ember = {
     spirit: 20,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [302, 302, 302, 302, 302],
-        emberDot: [39, 39, 39, 39, 39],
-        emberAoe: [366, 366, 366, 366, 366],
-        kindlingDot: [45, 45, 45, 45, 45],
-        kindlingAoe: [457, 457, 457, 457, 457],
-        spreadingDamage: [45, 45, 45, 45, 45],
+        damage: [246, 246, 274, 302, 330],
+        emberDot: [31, 31, 35, 39, 43],
+        emberAoe: [298, 298, 332, 366, 400],
+        kindlingDot: [37, 37, 41, 45, 49],
+        kindlingAoe: [371, 371, 414, 457, 500],
+        spreadingDamage: [37, 37, 41, 45, 49],
     },
     description: "\n    Launch a small fireball to start a big fire.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage and inflicts Ember.\n    Prioritizes enemies already suffering from Ember or Kindling.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Ember deals <span>{emberDot}%</span> per sec.\n    When a new stack is added, deals <span>{emberAoe}%</span> area damage and inflicts Spreading Embers and Kindling.\n    <br/>\n    Kindling deals <span>{kindlingDot}%</span> per sec.\n    When Ember is inflicted, deals <span>{kindlingAoe}%</span> area damage and inflicts Spreading Embers.\n    <br/>\n    Spreading Embers deals and additional <span>{spreadingDamage}%</span> damage when hit by Flame Wave.\n  ",
 };
@@ -542,9 +540,9 @@ var BarbecueParty = {
             level: 3,
         }],
     values: {
-        damage: [552, 552, 552, 552, 552],
-        dot: [59, 59, 59, 59, 59],
-        aoeDamage: [548, 548, 548, 548, 548],
+        damage: [411, 411, 458, 505, 552],
+        dot: [44, 44, 49, 54, 59],
+        aoeDamage: [407, 407, 454, 501, 548],
     },
     description: "\n    Grill your enemies with magical flames.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>3</span> times and inflicts Deep Fried.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Deep Fried deals <span>{dot}%</span> damage per sec and\n    deals <span>{aoeDamage}</span> area damage when Arcane Blast hits.\n  ",
 };
@@ -567,10 +565,10 @@ var PlayingWithFire = {
             level: 3,
         }],
     values: {
-        damage: [137, 137, 137, 137, 137],
-        chance: [27, 27, 27, 27, 27],
+        damage: [111, 111, 124, 137, 150],
+        duration: [10, 10, 10, 11, 11],
     },
-    description: "\n    You've befriended a mischievous fire spire.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Permanently grants Dancing Flames.\n    Casting Flame Tornado temporarily grants Flame Imp.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Dancing Flames removes the spirit cost of Flame Wave and increases Flame Tornado damage by <span>{damage}%</span>.\n    <br/><br/>\n    Flame Imp lasts for <span>11</span> sec, guaranteeing a critical when Ember hits\n    and granting a <span>{chance}%</span> chance to trigger Party Time on critical hit.\n    <br/>\n    Party Time resets Barbequeue Party's cooldown and allows it to be cast instantly.\n  ",
+    description: "\n    You've befriended a mischievous fire spire.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Permanently grants Dancing Flames.\n    Casting Flame Tornado temporarily grants Flame Imp.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Dancing Flames removes the spirit cost of Flame Wave and increases Flame Tornado damage by <span>{damage}%</span>.\n    <br/><br/>\n    Flame Imp lasts for <span>{duration}</span> sec, guaranteeing a critical when Ember hits\n    and granting a <span>27%</span> chance to trigger Party Time on critical hit.\n    <br/>\n    Party Time resets Barbequeue Party's cooldown and allows it to be cast instantly.\n  ",
 };
 var LittleMeteor = {
     name: "Little Meteor",
@@ -592,10 +590,10 @@ var LittleMeteor = {
             level: 3,
         }],
     values: {
-        damage: [2000, 2000, 2000, 2000, 2000],
-        additionalDamage: [199, 199, 199, 199, 199],
-        enlightenFirstDamage: [340, 340, 340, 340, 340],
-        enlightenSecondDamage: [350, 350, 350, 350, 350],
+        damage: [1484, 1484, 1656, 1828, 2000],
+        additionalDamage: [148, 148, 165, 182, 199],
+        enlightenFirstDamage: [253, 253, 282, 311, 340],
+        enlightenSecondDamage: [260, 260, 290, 320, 350],
     },
     description: "\n    Summons a meteor to strike enemies. Sometimes summons something else by mistake.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage and grants Enlightenment.\n    Deals an additional <span>{additionalDamage}%</span> damage to targets hit with Flame Tornado.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Enlightenment causes Ember to strike twice, dealing <span>{enlightenFirstDamage}%</span> damage\n    and then <span>{enlightenSecondDamage}%</span> damage at no spirit cost.\n  ",
 };

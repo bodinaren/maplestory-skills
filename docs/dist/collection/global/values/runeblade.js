@@ -654,13 +654,15 @@ export const QuintupleCut = {
     weaponRequired: "Two-handed Blade",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [204, 204, 204, 204, 204],
+        damage: [46, 46, 50, 54, 58],
     },
     description: `
-    Unleash <span>5</span> wild, flashy attacks with your frost-infused blade.
+    Unleash <span>5</span> wild, flashy attacks with your blade.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage per hit.
+    <br/><br/>
+    This skill attunes with your Flame, Frost and Storm Sigil skills.
   `,
 };
 export const BladeWhip = {
@@ -681,10 +683,10 @@ export const BladeWhip = {
             level: 3,
         }],
     values: {
-        damage: [57, 57, 57, 57, 57],
+        damage: [49, 49, 53, 57, 61],
     },
     description: `
-    Turn your blade into a whipe, striking <span>2</span> times.
+    Turn your blade into a whip, striking <span>2</span> times.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage per hit.
@@ -708,10 +710,10 @@ export const BladeExpert = {
             level: 2,
         }],
     values: {
-        increase: [8, 8, 8, 8, 8],
+        increase: [2, 2, 4, 6, 8],
     },
     description: `
-    You've honed your swordplay through careful study of the Twin Args.
+    You've honed your swordplay through careful study of the Twin Arts.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Increases the damage of Quintuple Cut, Blade Whip, and Phantasm Slash by <span>{increase}%</span>.
@@ -738,9 +740,9 @@ export const PhantasmSlash = {
             level: 3,
         }],
     values: {
-        damage: [1096, 1096, 1096, 1096, 1096],
-        additionalDamage: [547, 547, 547, 547, 547],
-        spellSplitterDamage: [746, 746, 746, 746, 746],
+        damage: [890, 890, 993, 1096, 1199],
+        additionalDamage: [445, 445, 496, 547, 598],
+        spellSplitterDamage: [640, 640, 693, 746, 799],
     },
     description: `
     Create a circle of rune magic, then use your blade to lash the magic at enemies.
@@ -771,14 +773,14 @@ export const RuneTrigger = {
     attackType: "Long Range / Magic",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [128, 128, 128, 128, 128],
+        damage: [110, 110, 119, 128, 137],
     },
     description: `
     Cast focused rune magic at an enemy in front of you.
     The magic explodes from within the target.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Deals <span>{damage}%</span> damage to enemies within the explosion
+    Deals <span>{damage}%</span> damage to enemies within the explosion.
     <br/><br/>
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
   `,
@@ -801,7 +803,7 @@ export const DimensionBlade = {
             level: 3,
         }],
     values: {
-        damage: [58, 58, 58, 58, 58],
+        damage: [58, 58, 86, 115, 143],
     },
     description: `
     Conjure a globe of chaotic blade magic.
@@ -811,52 +813,6 @@ export const DimensionBlade = {
     <br/><br/>
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
   `,
-    extras: [{
-            name: "Dimension Flame",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: `
-      Conjure a globe of freezing blade magic.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage.
-      <br/><br/>
-      <h3>[Bonus Effects]</h3>
-      Decreases movement speed and jump power by <span>{movement}%</span> per.
-    `,
-        }, {
-            name: "Dimension Frost",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: `
-      Conjure a globe of freezing blade magic.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage.
-      <br/><br/>
-      <h3>[Bonus Effects]</h3>
-      Decreases movement speed and jump power by <span>{movement}%</span> per.
-    `,
-        }, {
-            name: "Dimension Storm",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: `
-      Conjure a globe of freezing blade magic.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage.
-      <br/><br/>
-      <h3>[Bonus Effects]</h3>
-      Decreases movement speed and jump power by <span>{movement}%</span> per.
-    `,
-        }]
 };
 export const RuneExpert = {
     name: "Rune Expert",
@@ -874,10 +830,10 @@ export const RuneExpert = {
             level: 3,
         }],
     values: {
-        increase: [2, 2, 2, 2, 2],
+        increase: [2, 2, 4, 6, 8],
     },
     description: `
-    You've honed your runecraft through careful study of the Twin Args.
+    You've honed your runecraft through careful study of the Twin Arts.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Increases the damage of Rune Trigger, Dimension Blade and Rune Ignition by <span>{increase}%</span>.
@@ -902,7 +858,7 @@ export const RuneIgnition = {
             level: 3,
         }],
     values: {
-        damage: [300, 300, 300, 300, 300],
+        damage: [300, 300, 315, 330, 345],
     },
     description: `
     Plunge your blade into the ground to send forth <span>4</span> shockwaves.
@@ -914,46 +870,6 @@ export const RuneIgnition = {
     <br/><br/>
     This skill attunes with your Flame, Frost, and Storm Sigil skills.
   `,
-    extras: [{
-            name: "Flame Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: `
-      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage per shockwave.
-      <br/><br/>
-      Grants knockback immunity.
-    `,
-        }, {
-            name: "Frost Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: `
-      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage per shockwave.
-      <br/><br/>
-      Grants knockback immunity.
-    `,
-        }, {
-            name: "Storm Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: `
-      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.
-      <br/><br/>
-      <h3>[Primary Effects]</h3>
-      Deals <span>{damage}%</span> damage per shockwave.
-      <br/><br/>
-      Grants knockback immunity.
-    `,
-        }]
 };
 export const RankOneSkills = {
     BladeChasm: BladeChasm,

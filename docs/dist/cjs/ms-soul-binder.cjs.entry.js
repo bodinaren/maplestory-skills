@@ -499,8 +499,8 @@ const SpiritBound = {
     weaponRequired: "Two-handed Orb",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [189, 189, 189, 189, 189],
-        thirdDamage: [414, 414, 414, 414, 414],
+        damage: [163, 163, 176, 189, 202],
+        thirdDamage: [356, 356, 385, 414, 443],
     },
     description: `
     Launch a spirit orb at enemies.
@@ -535,10 +535,10 @@ const SpiritCrush = {
             level: 3,
         }],
     values: {
-        damage: [1239, 1239, 1239, 1239, 1239],
+        damage: [918, 918, 1025, 1132, 1239],
     },
     description: `
-    Project spectral blades through enemeis in front of you.
+    Project spectral blades through enemies in front of you.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage.
@@ -565,7 +565,7 @@ const VisionTorrent = {
             level: 2,
         }],
     values: {
-        damage: [8, 8, 8, 8, 8],
+        damage: [4, 4, 6, 8, 10],
     },
     description: `
     Manifest your bond with Vision in the physical world.
@@ -598,7 +598,8 @@ const AwakenedMind = {
             level: 3,
         }],
     values: {
-        increase: [12, 12, 12, 12, 12],
+        increase: [3, 3, 6, 9, 12],
+        movement: [5, 5, 10, 15, 20],
     },
     description: `
     Vision strengthens your mental fortitude, enhancing certain skills.
@@ -607,7 +608,7 @@ const AwakenedMind = {
     Increases the damage of Spirit Bound, Spirit Crush, and Vision Strike by <span>{increase}%</span>.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Increases movement speed by <span>20%</span> after using Vision Strike.
+    Increases movement speed by <span>{movement}%</span> after using Vision Strike.
   `,
 };
 const SoulFlock = {
@@ -623,9 +624,9 @@ const SoulFlock = {
     weaponRequired: "Two-handed Orb",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [205, 205, 205, 205, 205],
-        defense: [1.2, 1.2, 1.2, 1.2, 1.2],
-        movement: [1.2, 1.2, 1.2, 1.2, 1.2],
+        damage: [205, 205, 222, 239, 256],
+        defense: [1.2, 1.2, 1.8, 2.4, 3.0],
+        movement: [1.2, 1.2, 1.8, 2.4, 3.0],
     },
     description: `
     Summon a flock of soul birds to attack.
@@ -660,11 +661,11 @@ const SoulShield = {
             level: 3,
         }],
     values: {
-        damage: [80, 80, 80, 80, 80],
-        absorbs: [20, 20, 20, 20, 20],
+        damage: [80, 80, 87, 94, 101],
+        absorbs: [20, 20, 40, 60, 80],
     },
     description: `
-    Summons an animus cube that damages enemies and shields allies.
+    Summons an animus cube that damages enemies and shield allies.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage to enemies.
@@ -696,13 +697,13 @@ const SoulHarmony = {
             level: 3,
         }],
     values: {
-        health: [145, 145, 145, 145, 145],
+        health: [145, 145, 157, 169, 181],
     },
     description: `
     Draw animus from your soul to heal nearby allies.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.
+    Heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.
     Hold down the skill key to channel.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
@@ -725,8 +726,10 @@ const TriuneLink = {
             level: 3,
         }],
     values: {
-        increase: [3, 3, 3, 3, 3],
-        soulHarmony: [5, 5, 5, 5, 5],
+        increase: [3, 3, 6, 9, 12],
+        soulHarmony: [5, 5, 10, 15, 20],
+        critEvasion: [10, 10, 20, 30, 40],
+        evasion: [1, 1, 2, 3, 4],
     },
     description: `
     Strengthens the bond between the Soul Binder, Vision, and Narubashan.
@@ -737,7 +740,7 @@ const TriuneLink = {
     <h3>[Bonus Effects]</h3>
     Increases the healing of Soul Harmony by <span>{soulHarmony}%</span>.
     <br/>
-    Soul Clash reduces an additional <span>10</span> critical evasion and <span>1</span> evasion.
+    Soul Clash reduces an additional <span>{critEvasion}</span> critical evasion and <span>{evasion}</span> evasion.
   `,
 };
 const RankOneSkills = {

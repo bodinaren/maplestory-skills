@@ -476,13 +476,6 @@ const InfiniteDarkness = {
     weaponRequired: "Two-handed Greatsword",
     passive: true,
     levelRequirement: [60, 60, 60, 60, 60],
-    values: {
-        damage: [418, 418, 418, 418, 418],
-        additionalDamage: [500, 500, 500, 500, 500],
-        movement: [15, 15, 15, 15, 15],
-        dot: [150, 150, 150, 150, 150],
-        iceStormIncrease: [49, 49, 49, 49, 49],
-    },
     description: `
     A thick darkness engulfs your body.
     <br/><br/>
@@ -509,9 +502,9 @@ const SkullSplitter = {
     spirit: 10,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [453, 453, 453, 453, 453],
-        thirdDamage: [647, 647, 647, 647, 647],
-        fourthDamage: [1040, 1040, 1040, 1040, 1040],
+        damage: [369, 369, 411, 453, 495],
+        thirdDamage: [525, 525, 586, 647, 708],
+        fourthDamage: [844, 844, 942, 1040, 1138],
     },
     description: `
     Unleash a wild 3-hit combo.
@@ -540,8 +533,8 @@ const BloodFury = {
             level: 3,
         }],
     values: {
-        attack: [6, 6, 6, 6, 6],
-        bloodlustDamage: [166, 166, 166, 166, 166],
+        attack: [4, 4, 6, 8, 10],
+        bloodlustDamage: [149, 149, 166, 183, 200],
     },
     description: `
     Your blows gain strength as your enemies draw close to death.
@@ -575,10 +568,10 @@ const ParryTheMoon = {
             level: 2,
         }],
     values: {
-        damage: [1369, 1369, 1369, 1369, 1369],
-        shockwaveDamage: [267, 267, 267, 267, 267],
-        dot: [201, 201, 201, 201, 201],
-        attack: [4.5, 4.5, 4.5, 4.5, 4.5],
+        damage: [1111, 1111, 1240, 1369, 1498],
+        shockwaveDamage: [217, 217, 242, 267, 292],
+        dot: [163, 163, 182, 201, 220],
+        attack: [1.5, 1.5, 3.0, 4.5, 6.0],
     },
     description: `
     Parry enemy attacks with a great swing, creating a shockwave.
@@ -589,7 +582,7 @@ const ParryTheMoon = {
     and <span>{dot}%</span> damage per sec.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    If used while udner attack, grants perfect guard and <span>10</span> Dark Aura stacks.
+    If used while under attack, grants perfect guard and <span>10</span> Dark Aura stacks.
     <br/>
     Permanently increases physical attack by <span>{attack}%</span>.
   `,
@@ -615,9 +608,9 @@ const AerialSmash = {
             level: 3,
         }],
     values: {
-        firstDamage: [400, 400, 400, 400, 400],
-        secondDamage: [1100, 1100, 1100, 1100, 1100],
-        thirdDamage: [2200, 2200, 2200, 2200, 2200],
+        firstDamage: [298, 298, 332, 366, 400],
+        secondDamage: [812, 812, 908, 1004, 1100],
+        thirdDamage: [1630, 1630, 1820, 2010, 2200],
     },
     description: `
     Jump into the air and launch a series of attacks.
@@ -646,27 +639,27 @@ const Squall = {
     spirit: 6,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [119, 119, 119, 119, 119],
-        speed: [4, 4, 4, 4, 4],
-        additionalDamage: [46, 46, 46, 46, 46],
+        damage: [96, 96, 107, 119, 130],
+        decrease: [56, 56, 62, 69, 75],
+        additionalDamage: [38, 38, 42, 46, 50],
     },
     description: `
     Becoming a spinning vortex of death.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deal <span>{damage}%</span> damage per hit.
-    Stand still to gain stacks of Gale; at <span>3</span> stacks, gain Whirlwind.
+    Stand still to gain stacks of Gale, at <span>3</span> stacks, gain Whirlwind.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Gale increases attack speed by <span>{speed}%</span> per stack.
+    Gale increases attack speed by <span>4%</span> per stack.
     <br/>
     While Whirlwind is active, hold down the skill key to increase spin speed and hit count,
     decrease movement speed to <span>30</span>,
-    decrease damage to <span>69%</span>,
+    decrease damage to <span>{decrease}%</span>,
     gain knockback immunity,
-    and deal an additional <span>{additionalDamage}%</span> to enemies with Heavy Bleeding.
+    and deal an additional <span>{additionalDamage}%</span> damage to enemies with Heavy Bleeding.
     <br/>
-    When Dark might is active, Whirlwind does not decrease movement speed.
+    When Dark Might is active, Whirlwind does not decrease movement speed.
   `,
 };
 const RendWound = {
@@ -686,8 +679,8 @@ const RendWound = {
             level: 3,
         }],
     values: {
-        deepWoundDamage: [92, 92, 92, 92, 92],
-        heavyBleedingDamage: [64, 64, 64, 64, 64],
+        deepWoundDamage: [76, 76, 84, 92, 100],
+        heavyBleedingDamage: [52, 52, 58, 64, 70],
     },
     description: `
     You attacks inflicts grievous injury.
@@ -718,20 +711,18 @@ const RagingSoul = {
             level: 3,
         }],
     values: {
-        speed: [30, 30, 30, 30, 30],
-        attack: [5, 5, 5, 5, 5],
-        darkAttack: [5, 5, 5, 5, 5],
-        health: [42, 42, 42, 42, 42],
-        iceStormIncrease: [49, 49, 49, 49, 49],
+        attack: [5, 5, 10, 15, 20],
+        darkAttack: [5, 5, 10, 15, 20],
+        health: [42, 42, 44, 46, 48],
     },
     description: `
     Embrace the darkness within you and draw on its power.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Temporarily increases attack speed by <span>{speed}%</span>,
-    physical attack by <span>{attack}%</span>,
+    Temporarily increases attack speed by <span>30%</span>,
+    increases physical attack by <span>{attack}%</span>,
     increases dark attack by <span>{darkAttack}%</span>,
-    triples Improved intimidation's attack,
+    triples Improved Intimidation's attack,
     and prevents death.
     Restores <span>{health}%</span> health upon ending.
     <br/><br/>
@@ -760,11 +751,11 @@ const BloodSlash = {
             level: 3,
         }],
     values: {
-        damage: [259, 259, 259, 259, 259],
-        health: [1.5, 1.5, 1.5, 1.5, 1.5],
-        additionalDamage: [50, 50, 50, 50, 50],
-        gougeDamage: [636, 636, 636, 636, 636],
-        darkBloodSlashDamage: [207, 207, 207, 207, 207]
+        damage: [259, 259, 289, 319, 350],
+        health: [1.5, 1.5, 3.0, 4.5, 6.0],
+        gougeMin: [100, 100, 111, 122, 133],
+        gougeMax: [636, 636, 709, 782, 855],
+        darkBloodSlashDamage: [207, 207, 231, 255, 280],
     },
     description: `
     Use dark power to shred your enemies.
@@ -772,12 +763,12 @@ const BloodSlash = {
     <h3>[Primary Effects]</h3>
     Consumes <span>10</span> stacks of Dark Aura.
     Each strike deals <span>{damage}%</span> damage and restores <span>{health}%</span> health.
-    Final hit deals an additional <span>{additionalDamage}%</span> damage.
+    Final hit deals an additional <span>50%</span> damage.
     Grants knockback immunity.
     Inflicts Gouge on enemies afflicted with Heavy Bleeding.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Gouge deals between <span>100%</span> and <span>{gougeDamage}%</span> damage
+    Gouge deals between <span>{gougeMin}%</span> and <span>{gougeMax}%</span> damage
     depending on the number of Heavy Bleeding stacks.
     <br/>
     Becomes Dark Blood Slash while Raging Soul is active.

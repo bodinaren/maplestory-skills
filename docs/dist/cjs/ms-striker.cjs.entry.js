@@ -502,14 +502,14 @@ const ShockwavePunch = {
     cooldown: 3,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [457, 457, 457, 457, 457],
-        increase: [12, 12, 12, 12, 12],
+        damage: [371, 371, 414, 457, 500],
+        increase: [4, 4, 8, 12, 16],
     },
     description: `
     Muster up a surge of fiery energy and unleash it on your enemies.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Deals <span>{damage}%</span> damage to the area in front of you
+    Deals <span>{damage}%</span> damage to the area in front of you.
     <br/><br/>
     Grants Punching Stance.
     <br/><br/>
@@ -535,14 +535,13 @@ const VulcanPunch = {
             level: 3,
         }],
     values: {
-        damage: [91, 91, 91, 91, 91],
+        damage: [70, 70, 77, 84, 91],
     },
     description: `
     Batter enemies with a rapid barrage of jabs.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage to enemies in front of you <span>12</span> times.
-    <br/>
     Grants knockback immunity.
     <br/><br/>
     Enhanced by Punching Stance.
@@ -565,7 +564,7 @@ const DoubleFistSmash = {
             level: 2,
         }],
     values: {
-        damage: [560, 560, 560, 560, 560],
+        damage: [416, 416, 464, 512, 560],
     },
     description: `
     Leap into the air and strike the ground.
@@ -599,18 +598,15 @@ const MeridianFlow = {
             level: 3,
         }],
     values: {
-        attack: [12, 12, 12, 12, 12],
-        speed: [10, 10, 10, 10, 10],
-        resistance: [75, 75, 75, 75, 75],
+        attack: [6, 6, 9, 12, 15],
     },
     description: `
     Open the pressure points within your body to amplify your physical abilities.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Increases physical attack by <span>{attack}%</span>,
-    attack speed by <span>{speed}%</span>,
-    and physical and magic resistance by <span>{resistance}</span> for <span>30</span> sec.
-    <br/>
+    attack speed by <span>10%</span>,
+    and physical and magic resistance by <span>75</span> for <span>30</span> sec.
     Restores <span>2</span> spirit per sec.
     <br/><br/>
     Can use Meridian Flow II while this is active. Grants knockback immunity.
@@ -638,8 +634,8 @@ const SetupKick = {
     cooldown: 3,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [375, 375, 375, 375, 375],
-        increase: [4, 4, 4, 4, 4],
+        damage: [375, 375, 418, 461, 504],
+        increase: [4, 4, 8, 12, 16],
     },
     description: `
     Deliver a rising kick to the enemy.
@@ -673,7 +669,7 @@ const SpiralCannon = {
             level: 3,
         }],
     values: {
-        damage: [126, 126, 126, 126, 126],
+        damage: [108, 108, 117, 126, 135],
     },
     description: `
     Launch a spinning kick at the enemy.
@@ -706,14 +702,14 @@ const SpinKick = {
             level: 3,
         }],
     values: {
-        damage: [162, 162, 162, 162, 162],
-        additionalDamage: [431, 431, 431, 431, 431],
+        damage: [162, 162, 193, 224, 255],
+        additionalDamage: [431, 431, 478, 525, 572],
     },
     description: `
     Spin in the air and drive your leg into the enemy as you drop down.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    First deals <span>{damage}%</span> damage, then <span>{additionalDamage}%</span> damage.
+    Deals <span>{damage}%</span> damage, then <span>{additionalDamage}%</span> damage.
     <br/><br/>
     Press a directional key to move <span>2</span> m.
     <br/><br/>
@@ -739,9 +735,9 @@ const TauntingFeint = {
             level: 3,
         }],
     values: {
-        melee: [240, 240, 240, 240, 240],
-        range: [480, 480, 480, 480, 480],
-        resistance: [1200, 1200, 1200, 1200, 1200],
+        melee: [240, 240, 260, 280, 300],
+        range: [480, 480, 520, 560, 600],
+        increase: [3, 3, 6, 9, 12],
     },
     description: `
     Momentarily take a counterattacking stance.
@@ -751,15 +747,15 @@ const TauntingFeint = {
     <br/><br/>
     If struck in range, deals <span>{range}%</span> damage.
     <br/><br/>
-    Increases physical and magic resistance by <span>{resistance}</span> and grants counterattack immunity.
+    Increases physical and magic resistance by <span>1200</span> and grants counterattack immunity.
     <br/><br/>
-    Permanently increases kick skill damage by <span>3%</span> per skill level.
+    Permanently increases kick skill damage by <span>{increase}%</span> per skill level.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
     After a successful counterattack, gain Confidence, increasing attack speed by <span>10%</span> and
     physical attack by <span>10%</span>.
     <br/>
-    Kick skills include Setup Kick, Spin kick, Spin Kick EX,
+    Kick skills include Setup Kick, Spin Kick, Spin Kick EX,
     Spiral Cannon, Spiral Cannon EX, Melee Fade, and Ranged Fade.
   `,
 };

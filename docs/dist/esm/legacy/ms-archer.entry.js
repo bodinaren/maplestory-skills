@@ -401,8 +401,8 @@ var FlameArrow = {
     spirit: 8,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        firstDamage: [237, 237, 237, 237, 237],
-        secondDamage: [104, 104, 104, 104, 104],
+        firstDamage: [201, 201, 219, 237, 255],
+        secondDamage: [88, 88, 96, 104, 112],
     },
     description: "\n    Lose <span>3</span> flaming arrows at enemies in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{firstDamage}%</span> damage <span>1</span> time\n    and <span>{secondDamage}%</span> damage <span>2</span> times.\n    <br/><br/>\n    Grants <span>1</span> stack of Burning Arrow.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    When Burning Arrow is at <span>10</span> stacks, use Multi-Drive Shot to enable Flame Arrow II.</span>\n  ",
 };
@@ -425,10 +425,10 @@ var MultiDriveShot = {
             level: 3,
         }],
     values: {
-        damage: [212, 212, 212, 212, 212],
-        explosionDamage: [51, 51, 51, 51, 51],
+        damage: [273, 212, 283, 294, 304],
+        explosionDamage: [22, 22, 24, 26, 28],
     },
-    description: "\n    Lose <span>6</span> guided fire arrows at the enemy.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>6</span> times and explodes.\n    <br/><br/>\n    When you have Burning Arrow III, this skill becomes Multi-Drive Shot III.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    The explosion deals <span>{explosionDamage}%</span> per <span>6</span> times to nearby enemies.\n    <br/>\n    Use this skill when Burning Arrow II is at <span>10</span> stacks to enable Flame Arrow III.\n  ",
+    description: "\n    Lose <span>3</span> guided fire arrows at the enemy.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>3</span> times and explodes.\n    <br/><br/>\n    When you have Burning Arrow II, this skill becomes Multi-Drive Shot II.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    The explosion deals <span>{explosionDamage}%</span> per <span>3</span> times to nearby enemies.\n    <br/>\n    Use this skill when Burning Arrow is at <span>10</span> stacks to enable Flame Arrow II.\n  ",
 };
 var RangersFocus = {
     name: "Rangers Focus",
@@ -446,9 +446,9 @@ var RangersFocus = {
             level: 2,
         }],
     values: {
-        attack: [9, 9, 9, 9, 9],
+        attack: [3, 3, 6, 9, 12],
     },
-    description: "\n    Focus your senses to gain explosive power.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical attack by <span>{attack}%</span> and grants unlimited spirit for 15 sec\n    <br/><br/>\n    Enables Flame Arrow IV. When Ranger's Focus ends, enables Flame Arrow III.\n  ",
+    description: "\n    Focus your senses to gain explosive power.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical attack by <span>{attack}%</span> and grants unlimited spirit for 15 sec.\n    <br/><br/>\n    Enables Flame Arrow IV. When Ranger's Focus ends, enables Flame Arrow III.\n  ",
 };
 var HastersTeachings = {
     name: "Haster's Teachings",
@@ -469,7 +469,7 @@ var HastersTeachings = {
             level: 3,
         }],
     values: {
-        increase: [6, 6, 6, 6, 6],
+        increase: [2, 2, 4, 6, 8],
     },
     description: "\n    Haster's tips and tricks have sharpened your abilities.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Multi-Drive Shot and Flame arrow by <span>{increase}%</span>.\n    Reduces the spirit cost of Flame Arrow III by <span>20%</span>.\n    These damage bonuses also affects the enhanced forms of abilities.\n  ",
 };
@@ -487,7 +487,7 @@ var PiercingArrow = {
     spirit: 10,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [417, 417, 417, 417, 417],
+        damage: [417, 417, 465, 513, 561],
     },
     description: "\n    Launch an arrow propelled by the power of the wind.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Press the skill key again to perform a quick follow-up shot.\n  ",
 };
@@ -510,11 +510,11 @@ var SpiralArrow = {
             level: 3,
         }],
     values: {
-        damage: [42, 42, 42, 42, 42],
-        cooldown: [12, 12, 12, 12, 12],
-        movement: [15, 15, 15, 15, 15],
+        damage: [42, 42, 47, 52, 57],
+        cooldownReset: [12, 12, 12, 12, 12],
+        whirlwindDamage: [177, 177, 198, 219, 240],
     },
-    description: "\n    Arc an arrow into the air and use the power of the wind to guide it.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage and creates a whirlwind.\n    <br/><br/>\n    After using Piercing Arrow or Spiral Arrow, there is a <span>{cooldown}%</span> chance to reset cooldown.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    The whirlwind deals <span>{movement}%</span> damage <span>5</span> times.\n    <br/>\n    Enhanced by Archer's Secrets.\n  ",
+    description: "\n    Arc an arrow into the air and use the power of the wind to guide it.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage and creates a whirlwind.\n    <br/><br/>\n    After using Piercing Arrow or Spiral Arrow, there is a <span>12%</span> chance to reset cooldown.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    The whirlwind deals <span>{whirlwindDamage}%</span> damage <span>5</span> times.\n    <br/>\n    Enhanced by Archer's Secrets.\n  ",
 };
 var ArchersSecrets = {
     name: "Archer's Secrets",
@@ -532,8 +532,8 @@ var ArchersSecrets = {
             level: 3,
         }],
     values: {
-        piercing: [4, 4, 4, 4, 4],
-        accuracy: [4, 4, 4, 4, 4],
+        piercing: [1, 1, 2, 3, 4],
+        accuracy: [1, 1, 2, 3, 4],
     },
     description: "\n    Master the secrets of archery to unlock hidden skills and strengthen physical ability.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Available while Full Wind Draw is active.\n    Increases piercing by <span>{piercing}%</span> and\n    accuracy by <span>{accuracy}%</span> for <span>20</span> sec.\n    Enables use of Enhanced Spiral Arrow and Twirling Wind Arrow.\n    Once learned, unlocks Wind Draw and Full Wind Draw.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Hit enemies with Piercing Arrow and Spiral Arrow to gain Wind Draw,\n    which lasts for <span>15</span> sec and stack up to <span>15</span> times.\n    At max stacks, gain Full Wind Draw.\n    <br/>\n    Full Wind Draw enables for <span>30</span> sec.\n  ",
 };
@@ -556,9 +556,9 @@ var GreaterSharpEyes = {
             level: 3,
         }],
     values: {
-        attack: [3, 3, 3, 3, 3],
+        attack: [3, 3, 6, 9, 12],
     },
-    description: "\n    Master the secrets of archery to draw out the true power of Sharp Eyes.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Enhanced Sharp Eyes grants a <span>{attack}%</span> physical attack bonus to the caster.\n  ",
+    description: "\n    Master the secrets of archery to draw out the true power of Sharp Eyes.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Sharp Eyes becomes Enhanced Sharp Eyes.\n    <br/><br/>\n    Enhanced Sharp Eyes grants a <span>{attack}%</span> physical attack bonus to the caster.\n  ",
 };
 var RankOneSkills = {
     AgileArcher: AgileArcher,
