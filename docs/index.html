@@ -146,22 +146,15 @@
         MapleStory 2 Interactive Skill Charts is a set of web components which, with very little effort,
         let you add an interactive skill chart to your website or blog.
         This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives.
-        So much better than just a screenshot!
       </p>
-
       <p>
-        Select a class and the skills you want to show and then copy the code above the skill chart into your site or blog.
+        If you prefer, you can also just post a link back. As you edit the skills below, the URL will change accordingly.
+        Just copy it and share as much as you like!
+      </p>
+      <p>
+        Select a class and the skills you want to show and then copy the code below the skill chart into your site or blog.
       </p>
       
-      <blockquote style="color: red;">
-        Awakening is upon us.
-        The charts are ready, but I still don't know the damage and other values of each individual skill level.
-        If you know these values and want to help, please contact me via 
-        <a href="https://www.github.com/bodinaren/maplestory-skills/issues">GitHub</a>,
-        <a href="https://twitter.com/htbodin">Twitter</a> or on the offical Discord (Bodin#9832).
-        Thank you, and enjoy!
-      </blockquote>
-
       <br />
     
       <p id="toggles">
@@ -289,6 +282,19 @@
       </p>
 
       <div id="editors">
+        <div id="chartHolder"></div>
+
+        <div id="remaining">
+          <span>Remaining Skill Points:</span>
+          <span class="points"></span>
+        </div>
+
+        <h3>Copy this code into your website or blog</h3>
+        <code class="block" id="code">
+&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.esm.js" type="module"&gt;&lt;/script&gt;<br />
+&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.js" nomodule&gt;&lt;/script&gt;
+        </code>
+
         <fieldset>
           <legend>Settings</legend>
           <p>
@@ -299,28 +305,16 @@
             <input type="checkbox" id="chkIgnoreMax" />
             <label for="chkIgnoreMax">Unlimited points. (Shared links will be broken with negative points!)</label>
           </p>
+          <p>
+            <input type="checkbox" id="chkDisableEditor" />
+            <label for="chkDisableEditor">
+              Disable editor.
+              (This is how your users will see it. Please note this will not reflect on your site, the editor will always be disabled!
+              Visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information on how to enable the editor.)
+            </label>
+          </p>
         </fieldset>
 
-        <code class="block" id="code">
-&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.esm.js" type="module"&gt;&lt;/script&gt;<br />
-&lt;script src="https://unpkg.com/maplestory-skills@^2/dist/maplestory-skills/maplestory-skills.js" nomodule&gt;&lt;/script&gt;
-        </code>
-
-        <div id="chartHolder"></div>
-
-        <div id="remaining">
-          <span>Remaining Skill Points:</span>
-          <span class="points"></span>
-        </div>
-
-        <p><i>
-          What you see above is the editor mode.
-          When you the code above the skills will no longer be editable,
-          and you won't see the Remaining Skill Points.
-          For information on how to add these features please visit
-          the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a>.
-        </i></p>
-  
       </div>
 
       <h2 id="faq">FAQ</h2>
@@ -340,7 +334,7 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
 }</pre>
         </dd>
 
-        <dt>Can I use this editor on my site too?</dt>
+        <dt>Can I also use this as an editor on my site?</dt>
         <dd>
           Yes, you can. Please visit the <a href="https://github.com/bodinaren/maplestory-skills">GitHub repository</a> for more information.
         </dd>
@@ -348,7 +342,9 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
         <dt>Found a bug or have other questions?</dt>
         <dd>
           Don't hesitate to open a new issue in the
-          <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>.
+          <a href="https://www.github.com/bodinaren/maplestory-skills/issues">Issue Tracker</a>,
+          or you can contact me directly on <a href="https://twitter.com/htbodin">Twitter</a>
+          or on the offical MapleStory 2 Discord (Bodin#9832).
         </dd>
       </dl>
     </div>
@@ -458,6 +454,10 @@ ms-priest, ms-runeblade, ms-striker, ms-thief, ms-wizard
       chkIgnoreMax.addEventListener("change", function(val) {
         var chartHolder = document.querySelector("#chartHolder");
         chartHolder.children[0].ignoreMax = chkIgnoreMax.checked;
+      });
+      chkDisableEditor.addEventListener("change", function(val) {
+        var chartHolder = document.querySelector("#chartHolder");
+        chartHolder.children[0].editable = !chkDisableEditor.checked;
       });
     </script>
 
