@@ -18,6 +18,8 @@ export class ChartComponent {
 
   @ConstructibleStyle({ cacheKeyProperty: "msClass" }) styles = ChartComponent.getStyles.bind(this, this.msClass);
 
+  componentWillLoad() {} // required for stencil-constructible-style https://github.com/bodinaren/stencil-constructible-style#why-is-componentwillload-required
+
   componentDidLoad() {
     this.resize();
   }
