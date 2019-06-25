@@ -1,4 +1,4 @@
-import { EventEmitter } from "..\..\stencil.core";
+import { EventEmitter } from "../../stencil.core";
 import { IClassSkills, ISkillBase, Rank } from "../../global/values/_skillValues.interfaces";
 import { ISkillChangeEvent } from "./skill-change-event";
 /**
@@ -16,6 +16,7 @@ export declare function toSkillChangeEventObject(chart: any, classSkills: IClass
     [key: string]: string;
 }): ISkillChangeEvent;
 export interface IChart {
+    rank: number;
     editable: boolean;
     extras: boolean;
     onSkillChanged: EventEmitter;

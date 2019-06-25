@@ -33,9 +33,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
 var IronDefense = {
     name: "Iron Defense",
     attr: "iron-defense",
@@ -420,7 +420,7 @@ var ConvictionStrike = {
     spirit: 20,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [989, 989, 989, 989, 989],
+        damage: [734, 734, 819, 904, 989],
     },
     description: "\n    Focus your strength into a precise word thrust.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage. Grants knockback immunity.\n  ",
 };
@@ -442,10 +442,9 @@ var DivineRetribution = {
             level: 3,
         }],
     values: {
-        attack: [15, 15, 15, 15, 15],
-        defense: [30, 30, 30, 30, 30],
+        attack: [5, 5, 10, 15, 20],
     },
-    description: "\n    Channel divine fury through your sword, gaining offensive power at the expense of defense.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical and magic attack by <span>{attack}%</span>, but decreases defense by <span>{defense}%</span>.\n    Disables all shield skills except for Shield Charge.\n  ",
+    description: "\n    Channel divine fury through your sword, gaining offensive power at the expense of defense.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases physical and magic attack by <span>{attack}%</span>, but decreases defense by <span>30%</span>.\n    Disables all shield skills except for Shield Charge.\n  ",
 };
 var SwordDiscipline = {
     name: "Sword Discipline",
@@ -463,7 +462,7 @@ var SwordDiscipline = {
             level: 2,
         }],
     values: {
-        increase: [9, 9, 9, 9, 9],
+        increase: [3, 3, 6, 9, 12],
     },
     description: "\n    You have devoted yourself to the mastery of the sword.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Conviction Strike and Light Bringer damage by <span>{increase}%</span>.\n  ",
 };
@@ -489,7 +488,7 @@ var LightBringer = {
             level: 3,
         }],
     values: {
-        damage: [1912, 1912, 1912, 1912, 1912],
+        damage: [1417, 1417, 1582, 1747, 1912],
     },
     description: "\n    Summon holy swords to damage enemies in a large area before you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit. Grants knockback immunity.\n  ",
 };
@@ -507,13 +506,12 @@ var GuardiansWings = {
     spirit: 8,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [227, 227, 227, 227, 227],
-        reduction: [30, 30, 30, 30, 30],
-        perfectGuard: [9, 9, 9, 9, 9],
-        additionalDamage: [505, 505, 505, 505, 505],
-        pierces: [8, 8, 8, 8, 8],
+        damage: [185, 185, 206, 227, 248],
+        reduction: [10, 10, 20, 30, 40],
+        perfectGuard: [3, 3, 6, 9, 12],
+        additionalDamage: [411, 411, 458, 505, 552],
     },
-    description: "\n    Spread wings of light to create a curtain of divine energy.\n    Hold down the skill key to project a Guardian Shield in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Reduces incoming damage by <span>{reduction}%</span>.\n    Increases perfect guard by <span>{perfectGuard}%</span>.\n    Able to move while this is active.\n    Grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Guardian Shield deals <span>{additionalDamage}%</span> damage and pierces targets <span>{pierces}</span> times.\n  ",
+    description: "\n    Spread wings of light to create a curtain of divine energy.\n    Hold down the skill key to project a Guardian Shield in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Reduces incoming damage by <span>{reduction}%</span>.\n    Increases perfect guard by <span>{perfectGuard}%</span>.\n    Able to move while this is active.\n    Grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Guardian Shield deals <span>{additionalDamage}%</span> damage and pierces targets <span>8</span> times.\n  ",
 };
 var CycloneShield = {
     name: "Cyclone Shield",
@@ -534,11 +532,10 @@ var CycloneShield = {
             level: 3,
         }],
     values: {
-        damage: [274, 274, 274, 274, 274],
-        interval: [0.2, 0.2, 0.2, 0.2, 0.2],
-        reduction: [6, 6, 6, 6, 6],
+        damage: [222, 222, 248, 274, 300],
+        reduction: [2, 2, 4, 6, 8],
     },
-    description: "\n    Toss your shield like a boomerang to create a whirlwind.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage every <span>{interval}</span> sec.\n    Decreases enemy defence by <span>{reduction}%</span>.\n    This does not stack with Shield Toss.\n  ",
+    description: "\n    Toss your shield like a boomerang to create a whirlwind.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage every <span>0.2</span> sec.\n    Decreases enemy defence by <span>{reduction}%</span>.\n    This does not stack with Shield Toss.\n  ",
 };
 var ShieldTraining = {
     name: "Shield Training",
@@ -556,7 +553,7 @@ var ShieldTraining = {
             level: 3,
         }],
     values: {
-        damage: [3, 3, 3, 3, 3],
+        damage: [3, 3, 6, 9, 12],
     },
     description: "\n    You have dedicated yourself to the mastery of the shield.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases Cyclone Shield and Heaven's Judgement damage by <span>{damage}%</span>.\n  ",
 };
@@ -579,7 +576,7 @@ var HeavensJudgement = {
             level: 3,
         }],
     values: {
-        damage: [1125, 1125, 1125, 1125, 1125],
+        damage: [1125, 1125, 1256, 1387, 1518],
     },
     description: "\n    Gather divine energy in your shield, then release it to smite your enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    Grants knockback immunity.\n  ",
 };

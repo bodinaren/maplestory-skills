@@ -414,442 +414,7 @@ export namespace Components {
   }
 }
 
-declare namespace LocalJSX {
-  interface MsArcher extends JSXBase.HTMLAttributes {
-    'agileArcher'?: number;
-    'archersSecrets'?: number;
-    'arrowBarrage'?: number;
-    'arrowStorm'?: number;
-    'arrowStream'?: number;
-    'bowSwing'?: number;
-    'bronzeEagle'?: number;
-    'conditioning'?: number;
-    'eagleClaw'?: number;
-    'eagleGlide'?: number;
-    'eaglesMajesty'?: number;
-    'editable'?: boolean;
-    'evasiveSalvo'?: number;
-    'extras'?: boolean;
-    'flameArrow'?: number;
-    'greaterSharpEyes'?: number;
-    'hastersTeachings'?: number;
-    'iceArrow'?: number;
-    'ignoreMax'?: boolean;
-    'improvedGliding'?: number;
-    'multiDriveShot'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'piercingArrow'?: number;
-    'precisionShooter'?: number;
-    'rangersFocus'?: number;
-    'rank'?: number;
-    'rapidShot'?: number;
-    'screwdriverShot'?: number;
-    'sharpEyes'?: number;
-    'snipe'?: number;
-    'spiralArrow'?: number;
-  }
-  interface MsAssassin extends JSXBase.HTMLAttributes {
-    'allInOne'?: number;
-    'artOfTheShadows'?: number;
-    'artOfTheShuriken'?: number;
-    'assassinsCircle'?: number;
-    'bindingPunishment'?: number;
-    'darkCloak'?: number;
-    'darkMire'?: number;
-    'darkPunisher'?: number;
-    'dash'?: number;
-    'deathSentence'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'fatalStrikes'?: number;
-    'fragmentedStar'?: number;
-    'ignoreMax'?: boolean;
-    'luckyStars'?: number;
-    'markOfDeath'?: number;
-    'mirrorImageDarkBlade'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'rank'?: number;
-    'redoubledPain'?: number;
-    'shadowArts'?: number;
-    'shadowBurst'?: number;
-    'shadowChaser'?: number;
-    'shadowCutter'?: number;
-    'shadowStance'?: number;
-    'shadowWeb'?: number;
-    'soulGrind'?: number;
-    'starChaser'?: number;
-    'starFlurry'?: number;
-    'thrownWeaponMastery'?: number;
-  }
-  interface MsBerserker extends JSXBase.HTMLAttributes {
-    'adrenalineRush'?: number;
-    'aerialSmash'?: number;
-    'bloodFury'?: number;
-    'bloodPrice'?: number;
-    'bloodSlash'?: number;
-    'bloodlust'?: number;
-    'darkAura'?: number;
-    'darkBreaker'?: number;
-    'darkMight'?: number;
-    'deathSpin'?: number;
-    'deepWounds'?: number;
-    'earthquake'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'greatswordMastery'?: number;
-    'groundBreaker'?: number;
-    'ignoreMax'?: boolean;
-    'infiniteDarkness'?: number;
-    'inhumanEndurance'?: number;
-    'intimidation'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'parryTheMoon'?: number;
-    'ragingSlash'?: number;
-    'ragingSoul'?: number;
-    'rank'?: number;
-    'rendWound'?: number;
-    'skullSplitter'?: number;
-    'squall'?: number;
-    'voidSlash'?: number;
-    'warriorsInstinct'?: number;
-    'xSlash'?: number;
-  }
-  interface MsChart extends JSXBase.HTMLAttributes {
-    'msClass'?: string;
-    'onRankChange'?: (event: CustomEvent<number>) => void;
-    'rank'?: number;
-  }
-  interface MsExtraCounter extends JSXBase.HTMLAttributes {
-    'editor'?: string;
-    'points'?: number;
-  }
-  interface MsExtraOutlet extends JSXBase.HTMLAttributes {
-    'editor'?: string;
-  }
-  interface MsFooter extends JSXBase.HTMLAttributes {}
-  interface MsHeavyGunner extends JSXBase.HTMLAttributes {
-    'advancedBullets'?: number;
-    'advancedMissiles'?: number;
-    'advancedPulseWeapons'?: number;
-    'blastChargeKit'?: number;
-    'bulletSpray'?: number;
-    'demolitionCannon'?: number;
-    'editable'?: boolean;
-    'electricBlast'?: number;
-    'extras'?: boolean;
-    'fireBomber'?: number;
-    'focusedFire'?: number;
-    'gatlingFire'?: number;
-    'homingMissiles'?: number;
-    'hyperGigaCannon'?: number;
-    'ignoreMax'?: boolean;
-    'jetBoots'?: number;
-    'lockOn'?: number;
-    'mBomb'?: number;
-    'magneticBomb'?: number;
-    'medKit'?: number;
-    'missileSupercharger'?: number;
-    'mobileArmory'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'plasmaChain'?: number;
-    'plasmaSupercharger'?: number;
-    'rank'?: number;
-    'reload'?: number;
-    'rocketLauncher'?: number;
-    'skyHunter'?: number;
-    'stunGrenades'?: number;
-    'suborbitalBombardment'?: number;
-  }
-  interface MsIcon extends JSXBase.HTMLAttributes {
-    'name'?: string;
-    'sp'?: boolean;
-  }
-  interface MsKnight extends JSXBase.HTMLAttributes {
-    'bulwark'?: number;
-    'convictionStrike'?: number;
-    'crossCut'?: number;
-    'cycloneShield'?: number;
-    'defenderOfTheFaith'?: number;
-    'divineRetribution'?: number;
-    'divineStrike'?: number;
-    'drillThrust'?: number;
-    'dualTactics'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'guardiansWings'?: number;
-    'heavensJudgement'?: number;
-    'ignoreMax'?: boolean;
-    'ironDefense'?: number;
-    'ironShield'?: number;
-    'lightBringer'?: number;
-    'longswordMastery'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'rank'?: number;
-    'shieldBooster'?: number;
-    'shieldCharge'?: number;
-    'shieldMastery'?: number;
-    'shieldToss'?: number;
-    'shieldTraining'?: number;
-    'shieldWall'?: number;
-    'stingingFlurry'?: number;
-    'swordDiscipline'?: number;
-    'tornadoSlash'?: number;
-    'typhoonSlash'?: number;
-    'warhorn'?: number;
-  }
-  interface MsPriest extends JSXBase.HTMLAttributes {
-    'angelicRay'?: number;
-    'celestialBlessings'?: number;
-    'celestialGuardian'?: number;
-    'celestialLight'?: number;
-    'clarity'?: number;
-    'disciple'?: number;
-    'divineWave'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'greaterHealing'?: number;
-    'healingMastery'?: number;
-    'healingPrayer'?: number;
-    'heavenlyWings'?: number;
-    'heavensWrath'?: number;
-    'holyBlast'?: number;
-    'holyRelic'?: number;
-    'holySymbol'?: number;
-    'ignoreMax'?: boolean;
-    'lifesGuardian'?: number;
-    'lightSpear'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'purifyingLight'?: number;
-    'rank'?: number;
-    'sanctuary'?: number;
-    'scathingLight'?: number;
-    'scepterMastery'?: number;
-    'scourgingWave'?: number;
-    'shieldOfTheArchon'?: number;
-    'smitingAura'?: number;
-    'steadfastFaith'?: number;
-    'vitality'?: number;
-  }
-  interface MsRuneblade extends JSXBase.HTMLAttributes {
-    'bladeChasm'?: number;
-    'bladeExpert'?: number;
-    'bladeMastery'?: number;
-    'bladeWhip'?: number;
-    'blink'?: number;
-    'dimensionBlade'?: number;
-    'echoingBlade'?: number;
-    'editable'?: boolean;
-    'elementalPotency'?: number;
-    'extras'?: boolean;
-    'flameSigil'?: number;
-    'flurry'?: number;
-    'frostSigil'?: number;
-    'gravityRune'?: number;
-    'honingRunes'?: number;
-    'ignoreMax'?: boolean;
-    'illusoryBlades'?: number;
-    'impact'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'phantasmSlash'?: number;
-    'physicalBoost'?: number;
-    'quintupleCut'?: number;
-    'rank'?: number;
-    'runeBalance'?: number;
-    'runeExpert'?: number;
-    'runeFocus'?: number;
-    'runeIgnition'?: number;
-    'runeTrigger'?: number;
-    'sigil'?: Sigil;
-    'stormSigil'?: number;
-    'wardingRune'?: number;
-    'whirlingBlades'?: number;
-  }
-  interface MsSkill extends JSXBase.HTMLAttributes {
-    'column'?: number;
-    'disabled'?: boolean;
-    'extras'?: boolean;
-    'level'?: number;
-    'limitReached'?: boolean;
-    'locked'?: boolean;
-    'loop'?: boolean;
-    'onLevelchanged'?: (event: CustomEvent<number>) => void;
-    'onSkillclicked'?: (event: CustomEvent<ISkill>) => void;
-    'required'?: string;
-    'row'?: number;
-    'skill'?: ISkill;
-  }
-  interface MsSkillOverlay extends JSXBase.HTMLAttributes {
-    'extras'?: boolean;
-    'level'?: number;
-    'skill'?: ISkill;
-  }
-  interface MsSoulBinder extends JSXBase.HTMLAttributes {
-    'animusFocus'?: number;
-    'awakenedMantra'?: number;
-    'awakenedMind'?: number;
-    'concussionOrb'?: number;
-    'editable'?: boolean;
-    'energySurge'?: number;
-    'expansionBlast'?: number;
-    'extras'?: boolean;
-    'flashStrike'?: number;
-    'fountOfRenewal'?: number;
-    'healingBond'?: number;
-    'ignoreMax'?: boolean;
-    'illusion'?: number;
-    'lightBarrier'?: number;
-    'mantraArray'?: number;
-    'narubashanUnleashed'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'orbMastery'?: number;
-    'radiantSalvo'?: number;
-    'ragingTempest'?: number;
-    'rank'?: number;
-    'shootingStar'?: number;
-    'soaringOrb'?: number;
-    'soulFlock'?: number;
-    'soulHarmony'?: number;
-    'soulShield'?: number;
-    'spiritBound'?: number;
-    'spiritCrush'?: number;
-    'staticFlash'?: number;
-    'triuneLink'?: number;
-    'visionTorrent'?: number;
-  }
-  interface MsStriker extends JSXBase.HTMLAttributes {
-    'beatdown'?: number;
-    'doubleFistSmash'?: number;
-    'dragonKick'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'fightingSpirit'?: number;
-    'fistsOfFury'?: number;
-    'giganticBurst'?: number;
-    'guardDash'?: number;
-    'guillotine'?: number;
-    'hurricaneCutter'?: number;
-    'ignoreMax'?: boolean;
-    'kickTechnician'?: number;
-    'knuckleMissile'?: number;
-    'magnumBlow'?: number;
-    'maharPunch'?: number;
-    'meridianFlow'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'overcome'?: number;
-    'paceControl'?: number;
-    'patternBreak'?: number;
-    'powerPuncher'?: number;
-    'rainingBlows'?: number;
-    'rank'?: number;
-    'risingKick'?: number;
-    'setupKick'?: number;
-    'shockwavePunch'?: number;
-    'spinKick'?: number;
-    'spiralCannon'?: number;
-    'tauntingFeint'?: number;
-    'vulcanPunch'?: number;
-  }
-  interface MsThief extends JSXBase.HTMLAttributes {
-    'battlePlan'?: number;
-    'battleStep'?: number;
-    'bladeDance'?: number;
-    'criticalSlice'?: number;
-    'cunningTactics'?: number;
-    'deadlyStrikes'?: number;
-    'deftCombatant'?: number;
-    'doubleSlash'?: number;
-    'editable'?: boolean;
-    'extras'?: boolean;
-    'haste'?: number;
-    'ignoreMax'?: boolean;
-    'mesoguardPlus'?: number;
-    'mindBreaker'?: number;
-    'mindStealer'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'poisonEdge'?: number;
-    'poisonMaster'?: number;
-    'poisonVial'?: number;
-    'quickStep'?: number;
-    'rank'?: number;
-    'retaliation'?: number;
-    'ruthlessGuile'?: number;
-    'savageStrikes'?: number;
-    'shadowStep'?: number;
-    'somersaultKick'?: number;
-    'spiritThief'?: number;
-    'surpriseAttack'?: number;
-    'vengeance'?: number;
-    'viciousCuts'?: number;
-    'volatileVials'?: number;
-  }
-  interface MsWizard extends JSXBase.HTMLAttributes {
-    'arcaneBlast'?: number;
-    'barbecueParty'?: number;
-    'chainLightning'?: number;
-    'cryomancy'?: number;
-    'dualCast'?: number;
-    'editable'?: boolean;
-    'electromancy'?: number;
-    'elementalMaster'?: number;
-    'ember'?: number;
-    'extras'?: boolean;
-    'flameTornado'?: number;
-    'flameWave'?: number;
-    'focusSeal'?: number;
-    'iceCreamTime'?: number;
-    'iceSpear'?: number;
-    'iceStorm'?: number;
-    'ignoreMax'?: boolean;
-    'littleMeteor'?: number;
-    'lodestoneField'?: number;
-    'magicArmor'?: number;
-    'manaClaw'?: number;
-    'manaControl'?: number;
-    'manaFont'?: number;
-    'onSkillchanged'?: (event: CustomEvent<any>) => void;
-    'perfectStorm'?: number;
-    'phantomClaw'?: number;
-    'playingWithFire'?: number;
-    'pyromancy'?: number;
-    'rank'?: number;
-    'teleport'?: number;
-    'thunderbolt'?: number;
-  }
-
-  interface IntrinsicElements {
-    'ms-archer': MsArcher;
-    'ms-assassin': MsAssassin;
-    'ms-berserker': MsBerserker;
-    'ms-chart': MsChart;
-    'ms-extra-counter': MsExtraCounter;
-    'ms-extra-outlet': MsExtraOutlet;
-    'ms-footer': MsFooter;
-    'ms-heavy-gunner': MsHeavyGunner;
-    'ms-icon': MsIcon;
-    'ms-knight': MsKnight;
-    'ms-priest': MsPriest;
-    'ms-runeblade': MsRuneblade;
-    'ms-skill': MsSkill;
-    'ms-skill-overlay': MsSkillOverlay;
-    'ms-soul-binder': MsSoulBinder;
-    'ms-striker': MsStriker;
-    'ms-thief': MsThief;
-    'ms-wizard': MsWizard;
-  }
-}
-
-export { LocalJSX as JSX };
-
-
-declare module "@stencil/core" {
-  export namespace JSX {
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
-  }
-}
-
-
 declare global {
-
 
 
   interface HTMLMsArcherElement extends Components.MsArcher, HTMLStencilElement {}
@@ -959,7 +524,6 @@ declare global {
     prototype: HTMLMsWizardElement;
     new (): HTMLMsWizardElement;
   };
-
   interface HTMLElementTagNameMap {
     'ms-archer': HTMLMsArcherElement;
     'ms-assassin': HTMLMsAssassinElement;
@@ -980,7 +544,439 @@ declare global {
     'ms-thief': HTMLMsThiefElement;
     'ms-wizard': HTMLMsWizardElement;
   }
-
-  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
+
+declare namespace LocalJSX {
+  interface MsArcher extends JSXBase.HTMLAttributes<HTMLMsArcherElement> {
+    'agileArcher'?: number;
+    'archersSecrets'?: number;
+    'arrowBarrage'?: number;
+    'arrowStorm'?: number;
+    'arrowStream'?: number;
+    'bowSwing'?: number;
+    'bronzeEagle'?: number;
+    'conditioning'?: number;
+    'eagleClaw'?: number;
+    'eagleGlide'?: number;
+    'eaglesMajesty'?: number;
+    'editable'?: boolean;
+    'evasiveSalvo'?: number;
+    'extras'?: boolean;
+    'flameArrow'?: number;
+    'greaterSharpEyes'?: number;
+    'hastersTeachings'?: number;
+    'iceArrow'?: number;
+    'ignoreMax'?: boolean;
+    'improvedGliding'?: number;
+    'multiDriveShot'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'piercingArrow'?: number;
+    'precisionShooter'?: number;
+    'rangersFocus'?: number;
+    'rank'?: number;
+    'rapidShot'?: number;
+    'screwdriverShot'?: number;
+    'sharpEyes'?: number;
+    'snipe'?: number;
+    'spiralArrow'?: number;
+  }
+  interface MsAssassin extends JSXBase.HTMLAttributes<HTMLMsAssassinElement> {
+    'allInOne'?: number;
+    'artOfTheShadows'?: number;
+    'artOfTheShuriken'?: number;
+    'assassinsCircle'?: number;
+    'bindingPunishment'?: number;
+    'darkCloak'?: number;
+    'darkMire'?: number;
+    'darkPunisher'?: number;
+    'dash'?: number;
+    'deathSentence'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'fatalStrikes'?: number;
+    'fragmentedStar'?: number;
+    'ignoreMax'?: boolean;
+    'luckyStars'?: number;
+    'markOfDeath'?: number;
+    'mirrorImageDarkBlade'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
+    'redoubledPain'?: number;
+    'shadowArts'?: number;
+    'shadowBurst'?: number;
+    'shadowChaser'?: number;
+    'shadowCutter'?: number;
+    'shadowStance'?: number;
+    'shadowWeb'?: number;
+    'soulGrind'?: number;
+    'starChaser'?: number;
+    'starFlurry'?: number;
+    'thrownWeaponMastery'?: number;
+  }
+  interface MsBerserker extends JSXBase.HTMLAttributes<HTMLMsBerserkerElement> {
+    'adrenalineRush'?: number;
+    'aerialSmash'?: number;
+    'bloodFury'?: number;
+    'bloodPrice'?: number;
+    'bloodSlash'?: number;
+    'bloodlust'?: number;
+    'darkAura'?: number;
+    'darkBreaker'?: number;
+    'darkMight'?: number;
+    'deathSpin'?: number;
+    'deepWounds'?: number;
+    'earthquake'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'greatswordMastery'?: number;
+    'groundBreaker'?: number;
+    'ignoreMax'?: boolean;
+    'infiniteDarkness'?: number;
+    'inhumanEndurance'?: number;
+    'intimidation'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'parryTheMoon'?: number;
+    'ragingSlash'?: number;
+    'ragingSoul'?: number;
+    'rank'?: number;
+    'rendWound'?: number;
+    'skullSplitter'?: number;
+    'squall'?: number;
+    'voidSlash'?: number;
+    'warriorsInstinct'?: number;
+    'xSlash'?: number;
+  }
+  interface MsChart extends JSXBase.HTMLAttributes<HTMLMsChartElement> {
+    'msClass'?: string;
+    'onRankChange'?: (event: CustomEvent<number>) => void;
+    'rank'?: number;
+  }
+  interface MsExtraCounter extends JSXBase.HTMLAttributes<HTMLMsExtraCounterElement> {
+    'editor'?: string;
+    'points'?: number;
+  }
+  interface MsExtraOutlet extends JSXBase.HTMLAttributes<HTMLMsExtraOutletElement> {
+    'editor'?: string;
+  }
+  interface MsFooter extends JSXBase.HTMLAttributes<HTMLMsFooterElement> {}
+  interface MsHeavyGunner extends JSXBase.HTMLAttributes<HTMLMsHeavyGunnerElement> {
+    'advancedBullets'?: number;
+    'advancedMissiles'?: number;
+    'advancedPulseWeapons'?: number;
+    'blastChargeKit'?: number;
+    'bulletSpray'?: number;
+    'demolitionCannon'?: number;
+    'editable'?: boolean;
+    'electricBlast'?: number;
+    'extras'?: boolean;
+    'fireBomber'?: number;
+    'focusedFire'?: number;
+    'gatlingFire'?: number;
+    'homingMissiles'?: number;
+    'hyperGigaCannon'?: number;
+    'ignoreMax'?: boolean;
+    'jetBoots'?: number;
+    'lockOn'?: number;
+    'mBomb'?: number;
+    'magneticBomb'?: number;
+    'medKit'?: number;
+    'missileSupercharger'?: number;
+    'mobileArmory'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'plasmaChain'?: number;
+    'plasmaSupercharger'?: number;
+    'rank'?: number;
+    'reload'?: number;
+    'rocketLauncher'?: number;
+    'skyHunter'?: number;
+    'stunGrenades'?: number;
+    'suborbitalBombardment'?: number;
+  }
+  interface MsIcon extends JSXBase.HTMLAttributes<HTMLMsIconElement> {
+    'name'?: string;
+    'sp'?: boolean;
+  }
+  interface MsKnight extends JSXBase.HTMLAttributes<HTMLMsKnightElement> {
+    'bulwark'?: number;
+    'convictionStrike'?: number;
+    'crossCut'?: number;
+    'cycloneShield'?: number;
+    'defenderOfTheFaith'?: number;
+    'divineRetribution'?: number;
+    'divineStrike'?: number;
+    'drillThrust'?: number;
+    'dualTactics'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'guardiansWings'?: number;
+    'heavensJudgement'?: number;
+    'ignoreMax'?: boolean;
+    'ironDefense'?: number;
+    'ironShield'?: number;
+    'lightBringer'?: number;
+    'longswordMastery'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'rank'?: number;
+    'shieldBooster'?: number;
+    'shieldCharge'?: number;
+    'shieldMastery'?: number;
+    'shieldToss'?: number;
+    'shieldTraining'?: number;
+    'shieldWall'?: number;
+    'stingingFlurry'?: number;
+    'swordDiscipline'?: number;
+    'tornadoSlash'?: number;
+    'typhoonSlash'?: number;
+    'warhorn'?: number;
+  }
+  interface MsPriest extends JSXBase.HTMLAttributes<HTMLMsPriestElement> {
+    'angelicRay'?: number;
+    'celestialBlessings'?: number;
+    'celestialGuardian'?: number;
+    'celestialLight'?: number;
+    'clarity'?: number;
+    'disciple'?: number;
+    'divineWave'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'greaterHealing'?: number;
+    'healingMastery'?: number;
+    'healingPrayer'?: number;
+    'heavenlyWings'?: number;
+    'heavensWrath'?: number;
+    'holyBlast'?: number;
+    'holyRelic'?: number;
+    'holySymbol'?: number;
+    'ignoreMax'?: boolean;
+    'lifesGuardian'?: number;
+    'lightSpear'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'purifyingLight'?: number;
+    'rank'?: number;
+    'sanctuary'?: number;
+    'scathingLight'?: number;
+    'scepterMastery'?: number;
+    'scourgingWave'?: number;
+    'shieldOfTheArchon'?: number;
+    'smitingAura'?: number;
+    'steadfastFaith'?: number;
+    'vitality'?: number;
+  }
+  interface MsRuneblade extends JSXBase.HTMLAttributes<HTMLMsRunebladeElement> {
+    'bladeChasm'?: number;
+    'bladeExpert'?: number;
+    'bladeMastery'?: number;
+    'bladeWhip'?: number;
+    'blink'?: number;
+    'dimensionBlade'?: number;
+    'echoingBlade'?: number;
+    'editable'?: boolean;
+    'elementalPotency'?: number;
+    'extras'?: boolean;
+    'flameSigil'?: number;
+    'flurry'?: number;
+    'frostSigil'?: number;
+    'gravityRune'?: number;
+    'honingRunes'?: number;
+    'ignoreMax'?: boolean;
+    'illusoryBlades'?: number;
+    'impact'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'phantasmSlash'?: number;
+    'physicalBoost'?: number;
+    'quintupleCut'?: number;
+    'rank'?: number;
+    'runeBalance'?: number;
+    'runeExpert'?: number;
+    'runeFocus'?: number;
+    'runeIgnition'?: number;
+    'runeTrigger'?: number;
+    'sigil'?: Sigil;
+    'stormSigil'?: number;
+    'wardingRune'?: number;
+    'whirlingBlades'?: number;
+  }
+  interface MsSkill extends JSXBase.HTMLAttributes<HTMLMsSkillElement> {
+    'column'?: number;
+    'disabled'?: boolean;
+    'extras'?: boolean;
+    'level'?: number;
+    'limitReached'?: boolean;
+    'locked'?: boolean;
+    'loop'?: boolean;
+    'onLevelchanged'?: (event: CustomEvent<number>) => void;
+    'onSkillclicked'?: (event: CustomEvent<ISkill>) => void;
+    'required'?: string;
+    'row'?: number;
+    'skill'?: ISkill;
+  }
+  interface MsSkillOverlay extends JSXBase.HTMLAttributes<HTMLMsSkillOverlayElement> {
+    'extras'?: boolean;
+    'level'?: number;
+    'skill'?: ISkill;
+  }
+  interface MsSoulBinder extends JSXBase.HTMLAttributes<HTMLMsSoulBinderElement> {
+    'animusFocus'?: number;
+    'awakenedMantra'?: number;
+    'awakenedMind'?: number;
+    'concussionOrb'?: number;
+    'editable'?: boolean;
+    'energySurge'?: number;
+    'expansionBlast'?: number;
+    'extras'?: boolean;
+    'flashStrike'?: number;
+    'fountOfRenewal'?: number;
+    'healingBond'?: number;
+    'ignoreMax'?: boolean;
+    'illusion'?: number;
+    'lightBarrier'?: number;
+    'mantraArray'?: number;
+    'narubashanUnleashed'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'orbMastery'?: number;
+    'radiantSalvo'?: number;
+    'ragingTempest'?: number;
+    'rank'?: number;
+    'shootingStar'?: number;
+    'soaringOrb'?: number;
+    'soulFlock'?: number;
+    'soulHarmony'?: number;
+    'soulShield'?: number;
+    'spiritBound'?: number;
+    'spiritCrush'?: number;
+    'staticFlash'?: number;
+    'triuneLink'?: number;
+    'visionTorrent'?: number;
+  }
+  interface MsStriker extends JSXBase.HTMLAttributes<HTMLMsStrikerElement> {
+    'beatdown'?: number;
+    'doubleFistSmash'?: number;
+    'dragonKick'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'fightingSpirit'?: number;
+    'fistsOfFury'?: number;
+    'giganticBurst'?: number;
+    'guardDash'?: number;
+    'guillotine'?: number;
+    'hurricaneCutter'?: number;
+    'ignoreMax'?: boolean;
+    'kickTechnician'?: number;
+    'knuckleMissile'?: number;
+    'magnumBlow'?: number;
+    'maharPunch'?: number;
+    'meridianFlow'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'overcome'?: number;
+    'paceControl'?: number;
+    'patternBreak'?: number;
+    'powerPuncher'?: number;
+    'rainingBlows'?: number;
+    'rank'?: number;
+    'risingKick'?: number;
+    'setupKick'?: number;
+    'shockwavePunch'?: number;
+    'spinKick'?: number;
+    'spiralCannon'?: number;
+    'tauntingFeint'?: number;
+    'vulcanPunch'?: number;
+  }
+  interface MsThief extends JSXBase.HTMLAttributes<HTMLMsThiefElement> {
+    'battlePlan'?: number;
+    'battleStep'?: number;
+    'bladeDance'?: number;
+    'criticalSlice'?: number;
+    'cunningTactics'?: number;
+    'deadlyStrikes'?: number;
+    'deftCombatant'?: number;
+    'doubleSlash'?: number;
+    'editable'?: boolean;
+    'extras'?: boolean;
+    'haste'?: number;
+    'ignoreMax'?: boolean;
+    'mesoguardPlus'?: number;
+    'mindBreaker'?: number;
+    'mindStealer'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'poisonEdge'?: number;
+    'poisonMaster'?: number;
+    'poisonVial'?: number;
+    'quickStep'?: number;
+    'rank'?: number;
+    'retaliation'?: number;
+    'ruthlessGuile'?: number;
+    'savageStrikes'?: number;
+    'shadowStep'?: number;
+    'somersaultKick'?: number;
+    'spiritThief'?: number;
+    'surpriseAttack'?: number;
+    'vengeance'?: number;
+    'viciousCuts'?: number;
+    'volatileVials'?: number;
+  }
+  interface MsWizard extends JSXBase.HTMLAttributes<HTMLMsWizardElement> {
+    'arcaneBlast'?: number;
+    'barbecueParty'?: number;
+    'chainLightning'?: number;
+    'cryomancy'?: number;
+    'dualCast'?: number;
+    'editable'?: boolean;
+    'electromancy'?: number;
+    'elementalMaster'?: number;
+    'ember'?: number;
+    'extras'?: boolean;
+    'flameTornado'?: number;
+    'flameWave'?: number;
+    'focusSeal'?: number;
+    'iceCreamTime'?: number;
+    'iceSpear'?: number;
+    'iceStorm'?: number;
+    'ignoreMax'?: boolean;
+    'littleMeteor'?: number;
+    'lodestoneField'?: number;
+    'magicArmor'?: number;
+    'manaClaw'?: number;
+    'manaControl'?: number;
+    'manaFont'?: number;
+    'onSkillchanged'?: (event: CustomEvent<any>) => void;
+    'perfectStorm'?: number;
+    'phantomClaw'?: number;
+    'playingWithFire'?: number;
+    'pyromancy'?: number;
+    'rank'?: number;
+    'teleport'?: number;
+    'thunderbolt'?: number;
+  }
+
+  interface IntrinsicElements {
+    'ms-archer': MsArcher;
+    'ms-assassin': MsAssassin;
+    'ms-berserker': MsBerserker;
+    'ms-chart': MsChart;
+    'ms-extra-counter': MsExtraCounter;
+    'ms-extra-outlet': MsExtraOutlet;
+    'ms-footer': MsFooter;
+    'ms-heavy-gunner': MsHeavyGunner;
+    'ms-icon': MsIcon;
+    'ms-knight': MsKnight;
+    'ms-priest': MsPriest;
+    'ms-runeblade': MsRuneblade;
+    'ms-skill': MsSkill;
+    'ms-skill-overlay': MsSkillOverlay;
+    'ms-soul-binder': MsSoulBinder;
+    'ms-striker': MsStriker;
+    'ms-thief': MsThief;
+    'ms-wizard': MsWizard;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
 

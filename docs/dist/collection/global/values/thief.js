@@ -483,8 +483,8 @@ export const SavageStrikes = {
     spirit: 36,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [197, 197, 197, 197, 197],
-        cunningDamage: [335, 335, 335, 335, 335],
+        damage: [146, 146, 163, 180, 197],
+        cunningDamage: [248, 248, 277, 306, 335],
     },
     description: `
     Brandish your daggers, slashing enemies <span>6</span> times.
@@ -512,8 +512,8 @@ export const BattlePlan = {
             level: 3,
         }],
     values: {
-        luck: [12, 12, 12, 12, 12],
-        increase: [9, 9, 9, 9, 9],
+        luck: [4, 4, 8, 12, 16],
+        increase: [3, 3, 6, 9, 12],
     },
     description: `
     You have a plan for every battle.
@@ -541,8 +541,8 @@ export const PoisonMaster = {
             level: 2,
         }],
     values: {
-        increase: [9, 9, 9, 9, 9],
-        surpriseAttackDamage: [170, 170, 170, 170, 170],
+        increase: [3, 3, 6, 9, 12],
+        surpriseAttackDamage: [60, 60, 115, 170, 225],
     },
     description: `
     You've become the master poisoner.
@@ -574,8 +574,8 @@ export const VolatileVials = {
             level: 3,
         }],
     values: {
-        aoe: [199, 199, 199, 199, 199],
-        poison: [55, 55, 55, 55, 55],
+        aoe: [148, 148, 165, 182, 199],
+        poison: [40, 40, 45, 50, 55],
     },
     description: `
     Throws <span>2</span> vials of flammable gas and deadly poison.
@@ -603,7 +603,7 @@ export const CriticalSlice = {
     weaponRequired: "One-handed Dagger, One-handed Dagger",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [180, 180, 180, 180, 180],
+        damage: [135, 135, 150, 165, 180],
     },
     description: `
     Slash twice to attack the enemy <span>2</span> times.
@@ -631,9 +631,7 @@ export const BattleStep = {
             level: 3,
         }],
     values: {
-        defense: [10, 10, 10, 10, 10],
-        attack: [33, 33, 33, 33, 33],
-        movement: [10, 10, 10, 10, 10],
+        attack: [29, 29, 31, 33, 35],
     },
     description: `
     Tailor your strategy to any situation.
@@ -641,15 +639,14 @@ export const BattleStep = {
     <h3>[Primary Effects]</h3>
     Passively grants Watchful.
     <br/><br/>
-    When enemies are close, lose Watchful and gain Rush.
+    When enemies are within <span>2.5</span> m, lose Watchful and gain Rush.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Watchful increases defense by <span>{defense}%</span>.
+    Watchful increases defense by <span>10%</span>.
     <br/>
-    Rush increases physical attack by <span>{attack}%</span> and
-    movement speed by <span>{movement}%</span> for <span>8</span> sec.
+    Rush increases physical attack by <span>{attack}%</span> and movement speed by <span>10%</span> for <span>8</span> sec.
     <br/>
-    Rush and Haste do not stack.
+    Rush and Haste do not stack and have a 10 sec cooldown.
   `,
 };
 export const ShadowStep = {
@@ -670,7 +667,7 @@ export const ShadowStep = {
             level: 3,
         }],
     values: {
-        damage: [1974, 1974, 1974, 1974, 1974],
+        damage: [1602, 1602, 1788, 1974, 2160],
     },
     description: `
     Dash through the shadows.
@@ -704,8 +701,7 @@ export const DeadlyStrikes = {
             level: 3,
         }],
     values: {
-        damage: [339, 339, 339, 339, 339],
-        resistance: [300, 300, 300, 300, 300],
+        damage: [252, 252, 281, 310, 339],
     },
     description: `
     Fiercely slash the target <span>7</span> times.
@@ -714,7 +710,7 @@ export const DeadlyStrikes = {
     Deals <span>{damage}%</span> damage per hit and grants knockback immunity.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Increases physical and magic resistance by <span>{resistance}%</span> while Deadly Strikes is in use.
+    Increases physical and magic resistance by <span>300%</span> while Deadly Strikes is in use.
   `,
 };
 export const RankOneSkills = {

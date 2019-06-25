@@ -9,20 +9,20 @@
     "components\\skill\\skill.js",
     "components\\charts\\archer\\archer.js",
     "components\\charts\\assassin\\assassin.js",
-    "components\\charts\\berserker\\berserker.js",
-    "components\\charts\\knight\\knight.js",
     "components\\charts\\heavy-gunner\\heavy-gunner.js",
-    "components\\charts\\priest\\priest.js",
-    "components\\charts\\wizard\\wizard.js",
     "components\\charts\\striker\\striker.js",
     "components\\charts\\soul-binder\\soul-binder.js",
+    "components\\charts\\berserker\\berserker.js",
+    "components\\charts\\knight\\knight.js",
+    "components\\charts\\priest\\priest.js",
+    "components\\charts\\wizard\\wizard.js",
     "components\\charts\\thief\\thief.js",
     "components\\charts\\runeblade\\runeblade.js"
   ],
   "compiler": {
     "name": "@stencil/core",
-    "version": "1.0.0-beta.5",
-    "typescriptVersion": "3.4.5"
+    "version": "1.0.0",
+    "typescriptVersion": "3.5.1"
   },
   "collections": [],
   "bundles": [

@@ -1,6 +1,6 @@
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
 
 const Snipe = {
     name: "Snipe",
@@ -467,8 +467,8 @@ const FlameArrow = {
     spirit: 8,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        firstDamage: [237, 237, 237, 237, 237],
-        secondDamage: [104, 104, 104, 104, 104],
+        firstDamage: [201, 201, 219, 237, 255],
+        secondDamage: [88, 88, 96, 104, 112],
     },
     description: `
     Lose <span>3</span> flaming arrows at enemies in front of you.
@@ -502,21 +502,21 @@ const MultiDriveShot = {
             level: 3,
         }],
     values: {
-        damage: [212, 212, 212, 212, 212],
-        explosionDamage: [51, 51, 51, 51, 51],
+        damage: [273, 212, 283, 294, 304],
+        explosionDamage: [22, 22, 24, 26, 28],
     },
     description: `
-    Lose <span>6</span> guided fire arrows at the enemy.
+    Lose <span>3</span> guided fire arrows at the enemy.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Deals <span>{damage}%</span> damage <span>6</span> times and explodes.
+    Deals <span>{damage}%</span> damage <span>3</span> times and explodes.
     <br/><br/>
-    When you have Burning Arrow III, this skill becomes Multi-Drive Shot III.
+    When you have Burning Arrow II, this skill becomes Multi-Drive Shot II.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    The explosion deals <span>{explosionDamage}%</span> per <span>6</span> times to nearby enemies.
+    The explosion deals <span>{explosionDamage}%</span> per <span>3</span> times to nearby enemies.
     <br/>
-    Use this skill when Burning Arrow II is at <span>10</span> stacks to enable Flame Arrow III.
+    Use this skill when Burning Arrow is at <span>10</span> stacks to enable Flame Arrow II.
   `,
 };
 const RangersFocus = {
@@ -535,13 +535,13 @@ const RangersFocus = {
             level: 2,
         }],
     values: {
-        attack: [9, 9, 9, 9, 9],
+        attack: [3, 3, 6, 9, 12],
     },
     description: `
     Focus your senses to gain explosive power.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Increases physical attack by <span>{attack}%</span> and grants unlimited spirit for 15 sec
+    Increases physical attack by <span>{attack}%</span> and grants unlimited spirit for 15 sec.
     <br/><br/>
     Enables Flame Arrow IV. When Ranger's Focus ends, enables Flame Arrow III.
   `,
@@ -565,7 +565,7 @@ const HastersTeachings = {
             level: 3,
         }],
     values: {
-        increase: [6, 6, 6, 6, 6],
+        increase: [2, 2, 4, 6, 8],
     },
     description: `
     Haster's tips and tricks have sharpened your abilities.
@@ -590,7 +590,7 @@ const PiercingArrow = {
     spirit: 10,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [417, 417, 417, 417, 417],
+        damage: [417, 417, 465, 513, 561],
     },
     description: `
     Launch an arrow propelled by the power of the wind.
@@ -619,9 +619,9 @@ const SpiralArrow = {
             level: 3,
         }],
     values: {
-        damage: [42, 42, 42, 42, 42],
-        cooldown: [12, 12, 12, 12, 12],
-        movement: [15, 15, 15, 15, 15],
+        damage: [42, 42, 47, 52, 57],
+        cooldownReset: [12, 12, 12, 12, 12],
+        whirlwindDamage: [177, 177, 198, 219, 240],
     },
     description: `
     Arc an arrow into the air and use the power of the wind to guide it.
@@ -629,10 +629,10 @@ const SpiralArrow = {
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage and creates a whirlwind.
     <br/><br/>
-    After using Piercing Arrow or Spiral Arrow, there is a <span>{cooldown}%</span> chance to reset cooldown.
+    After using Piercing Arrow or Spiral Arrow, there is a <span>12%</span> chance to reset cooldown.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    The whirlwind deals <span>{movement}%</span> damage <span>5</span> times.
+    The whirlwind deals <span>{whirlwindDamage}%</span> damage <span>5</span> times.
     <br/>
     Enhanced by Archer's Secrets.
   `,
@@ -653,8 +653,8 @@ const ArchersSecrets = {
             level: 3,
         }],
     values: {
-        piercing: [4, 4, 4, 4, 4],
-        accuracy: [4, 4, 4, 4, 4],
+        piercing: [1, 1, 2, 3, 4],
+        accuracy: [1, 1, 2, 3, 4],
     },
     description: `
     Master the secrets of archery to unlock hidden skills and strengthen physical ability.
@@ -693,12 +693,14 @@ const GreaterSharpEyes = {
             level: 3,
         }],
     values: {
-        attack: [3, 3, 3, 3, 3],
+        attack: [3, 3, 6, 9, 12],
     },
     description: `
     Master the secrets of archery to draw out the true power of Sharp Eyes.
     <br/><br/>
     <h3>[Primary Effects]</h3>
+    Sharp Eyes becomes Enhanced Sharp Eyes.
+    <br/><br/>
     Enhanced Sharp Eyes grants a <span>{attack}%</span> physical attack bonus to the caster.
   `,
 };

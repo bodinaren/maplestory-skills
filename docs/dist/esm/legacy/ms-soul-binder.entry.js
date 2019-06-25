@@ -33,9 +33,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
 var MantraArray = {
     name: "Mantra Array",
     attr: "mantra-array",
@@ -413,8 +413,8 @@ var SpiritBound = {
     weaponRequired: "Two-handed Orb",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [189, 189, 189, 189, 189],
-        thirdDamage: [414, 414, 414, 414, 414],
+        damage: [163, 163, 176, 189, 202],
+        thirdDamage: [356, 356, 385, 414, 443],
     },
     description: "\n    Launch a spirit orb at enemies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    <br/>\n    Deals <span>{thirdDamage}%</span> damage on every third cast.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    The orb bounces from enemy to enemy up to <span>3</span> times.\n    <br/>\n    Skill changes if there is only <span>1</span> enemy in range.\n  ",
 };
@@ -437,9 +437,9 @@ var SpiritCrush = {
             level: 3,
         }],
     values: {
-        damage: [1239, 1239, 1239, 1239, 1239],
+        damage: [918, 918, 1025, 1132, 1239],
     },
-    description: "\n    Project spectral blades through enemeis in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra to become Spirit Gouge.\n    <br/>\n    Use Vision Torrent to turn this skill into Vision Crush.\n  ",
+    description: "\n    Project spectral blades through enemies in front of you.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra to become Spirit Gouge.\n    <br/>\n    Use Vision Torrent to turn this skill into Vision Crush.\n  ",
 };
 var VisionTorrent = {
     name: "Vision Torrent",
@@ -457,7 +457,7 @@ var VisionTorrent = {
             level: 2,
         }],
     values: {
-        damage: [8, 8, 8, 8, 8],
+        damage: [4, 4, 6, 8, 10],
     },
     description: "\n    Manifest your bond with Vision in the physical world.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases magic attack by <span>{damage}%</span> for <span>20</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Spirit Crush becomes Vision Crush.\n    <br/>\n    Flash Strike becomes Vision Strike.\n  ",
 };
@@ -480,9 +480,10 @@ var AwakenedMind = {
             level: 3,
         }],
     values: {
-        increase: [12, 12, 12, 12, 12],
+        increase: [3, 3, 6, 9, 12],
+        movement: [5, 5, 10, 15, 20],
     },
-    description: "\n    Vision strengthens your mental fortitude, enhancing certain skills.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Spirit Bound, Spirit Crush, and Vision Strike by <span>{increase}%</span>.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases movement speed by <span>20%</span> after using Vision Strike.\n  ",
+    description: "\n    Vision strengthens your mental fortitude, enhancing certain skills.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Spirit Bound, Spirit Crush, and Vision Strike by <span>{increase}%</span>.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases movement speed by <span>{movement}%</span> after using Vision Strike.\n  ",
 };
 var SoulFlock = {
     name: "Soul Flock",
@@ -497,9 +498,9 @@ var SoulFlock = {
     weaponRequired: "Two-handed Orb",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [205, 205, 205, 205, 205],
-        defense: [1.2, 1.2, 1.2, 1.2, 1.2],
-        movement: [1.2, 1.2, 1.2, 1.2, 1.2],
+        damage: [205, 205, 222, 239, 256],
+        defense: [1.2, 1.2, 1.8, 2.4, 3.0],
+        movement: [1.2, 1.2, 1.8, 2.4, 3.0],
     },
     description: "\n    Summon a flock of soul birds to attack.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage <span>3</span> times and inflicts Lethargy.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Lethargy decreases defense by <span>{defense}%</span> and\n    movement speed by <span>{movement}%</span> for <span>20</span> sec,\n    stacking up to <span>5</span> times.\n    <br/>\n    Lethargy does not stack with Static Flash.\n  ",
 };
@@ -522,10 +523,10 @@ var SoulShield = {
             level: 3,
         }],
     values: {
-        damage: [80, 80, 80, 80, 80],
-        absorbs: [20, 20, 20, 20, 20],
+        damage: [80, 80, 87, 94, 101],
+        absorbs: [20, 20, 40, 60, 80],
     },
-    description: "\n    Summons an animus cube that damages enemies and shields allies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies.\n    <br/><br/>\n    Allies receive a shield that absorbs damage equal to <span>{absorbs}%</span> of their max health\n    and lasts for <span>30</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra Core to becomes Awakened Soul Shield.\n    <br/>\n    Shields do not trigger in arenas.\n  ",
+    description: "\n    Summons an animus cube that damages enemies and shield allies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies.\n    <br/><br/>\n    Allies receive a shield that absorbs damage equal to <span>{absorbs}%</span> of their max health\n    and lasts for <span>30</span> sec.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra Core to becomes Awakened Soul Shield.\n    <br/>\n    Shields do not trigger in arenas.\n  ",
 };
 var SoulHarmony = {
     name: "Soul Harmony",
@@ -545,9 +546,9 @@ var SoulHarmony = {
             level: 3,
         }],
     values: {
-        health: [145, 145, 145, 145, 145],
+        health: [145, 145, 157, 169, 181],
     },
-    description: "\n    Draw animus from your soul to heal nearby allies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.\n    Hold down the skill key to channel.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra Core to become Soul Dissonance.\n  ",
+    description: "\n    Draw animus from your soul to heal nearby allies.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Heals <span>4</span> nearby allies by <span>{health}%</span> of magic attack per tick.\n    Hold down the skill key to channel.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Consumes <span>1</span> Awakened Mantra Core to become Soul Dissonance.\n  ",
 };
 var TriuneLink = {
     name: "Triune Link",
@@ -565,10 +566,12 @@ var TriuneLink = {
             level: 3,
         }],
     values: {
-        increase: [3, 3, 3, 3, 3],
-        soulHarmony: [5, 5, 5, 5, 5],
+        increase: [3, 3, 6, 9, 12],
+        soulHarmony: [5, 5, 10, 15, 20],
+        critEvasion: [10, 10, 20, 30, 40],
+        evasion: [1, 1, 2, 3, 4],
     },
-    description: "\n    Strengthens the bond between the Soul Binder, Vision, and Narubashan.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Soul Flock, Soul Shield, and Soul Dissonance by <span>{increase}%</span>.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases the healing of Soul Harmony by <span>{soulHarmony}%</span>.\n    <br/>\n    Soul Clash reduces an additional <span>10</span> critical evasion and <span>1</span> evasion.\n  ",
+    description: "\n    Strengthens the bond between the Soul Binder, Vision, and Narubashan.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Soul Flock, Soul Shield, and Soul Dissonance by <span>{increase}%</span>.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Increases the healing of Soul Harmony by <span>{soulHarmony}%</span>.\n    <br/>\n    Soul Clash reduces an additional <span>{critEvasion}</span> critical evasion and <span>{evasion}</span> evasion.\n  ",
 };
 var RankOneSkills = {
     AnimusFocus: AnimusFocus,

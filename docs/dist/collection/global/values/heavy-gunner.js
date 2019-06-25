@@ -488,7 +488,7 @@ export const FocusedFire = {
     weaponRequired: "Two-handed Cannon",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [138, 138, 138, 138, 138],
+        damage: [102, 102, 114, 126, 138],
     },
     description: `
     Unleash focused mortar fire on enemies in front of you.
@@ -518,9 +518,9 @@ export const FireBomber = {
             level: 3,
         }],
     values: {
-        damage: [487, 487, 487, 487, 487],
-        additionalDamage: [497, 497, 497, 497, 497],
-        fireDamage: [90, 90, 90, 90, 90],
+        damage: [398, 398, 441, 487, 533],
+        additionalDamage: [403, 403, 450, 497, 544],
+        fireDamage: [74, 74, 82, 90, 98],
     },
     description: `
     Launch explosive fire missiles to engulf targets in fiery doom.
@@ -551,10 +551,10 @@ export const MissileSupercharger = {
             level: 2,
         }],
     values: {
-        increase: [8, 8, 8, 8, 8],
+        increase: [2, 2, 4, 6, 8],
     },
     description: `
-    Upgrade your ammo chamgers to improve certain skills.
+    Upgrade your ammo chambers to improve certain skills.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Increases Focused Fire, Fire Bomber, and Demolition Cannon damage by <span>{increase}%</span>.
@@ -580,8 +580,8 @@ export const DemolitionCannon = {
             level: 3,
         }],
     values: {
-        damage: [539, 539, 539, 539, 539],
-        firstSecondDamage: [658, 658, 658, 658, 658],
+        damage: [437, 437, 488, 539, 590],
+        firstSecondDamage: [534, 534, 596, 658, 720],
     },
     description: `
     Modify your satellite to fire high-powered, explosive missiles.
@@ -608,8 +608,8 @@ export const PlasmaChain = {
     spirit: 5,
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [123, 123, 123, 123, 123],
-        electricDamage: [348, 348, 348, 348, 348],
+        damage: [93, 93, 103, 113, 123],
+        electricDamage: [258, 258, 288, 318, 348],
     },
     description: `
     Route power from your jet boots to rain superheated plasma on your enemies.
@@ -643,8 +643,7 @@ export const SkyHunter = {
             level: 3,
         }],
     values: {
-        damage: [697, 697, 697, 697, 697],
-        absorb: [30, 30, 30, 30, 30],
+        damage: [565, 565, 631, 697, 763],
     },
     description: `
     Remotely control a high-intensity laser fired from one of your heavy weapons satellites.
@@ -653,8 +652,7 @@ export const SkyHunter = {
     Deals <span>{damage}%</span> electric damage.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Grants a Deflector Shield that absorbs damage
-    equal to <span>{absorb}%</span> of your max health.
+    Grants a Deflector Shield that absorbs damage equal to <span>30%</span> of your max health.
   `,
 };
 export const PlasmaSupercharger = {
@@ -675,13 +673,13 @@ export const PlasmaSupercharger = {
             level: 3,
         }],
     values: {
-        damage: [2, 2, 2, 2, 2],
+        damage: [2, 2, 4, 6, 8],
     },
     description: `
     Upgrade the plasma reactor in your cannon for increased firepower.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Increases Plasma Chain, Sky Hunger, and Hyper Giga Launcher damage by <span>{damage}%</span>.
+    Increases Plasma Chain, Sky Hunter, and Hyper Giga Launcher damage by <span>{damage}%</span>.
   `,
 };
 export const HyperGigaCannon = {
@@ -703,7 +701,7 @@ export const HyperGigaCannon = {
             level: 3,
         }],
     values: {
-        damage: [256, 256, 256, 256, 256],
+        damage: [190, 190, 212, 234, 256],
     },
     description: `
     Patch your jet boot power into your cannon,

@@ -33,10 +33,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
-import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-b38f5e1d.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
+import { a as getOptimizedAssetPath, b as ConstructibleStyle } from './chunk-ebf2270d.js';
 var RuneBalance = {
     name: "Rune Balance",
     attr: "rune-balance",
@@ -506,9 +506,9 @@ var QuintupleCut = {
     weaponRequired: "Two-handed Blade",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [204, 204, 204, 204, 204],
+        damage: [46, 46, 50, 54, 58],
     },
-    description: "\n    Unleash <span>5</span> wild, flashy attacks with your frost-infused blade.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n  ",
+    description: "\n    Unleash <span>5</span> wild, flashy attacks with your blade.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n    <br/><br/>\n    This skill attunes with your Flame, Frost and Storm Sigil skills.\n  ",
 };
 var BladeWhip = {
     name: "Blade Whip",
@@ -528,9 +528,9 @@ var BladeWhip = {
             level: 3,
         }],
     values: {
-        damage: [57, 57, 57, 57, 57],
+        damage: [49, 49, 53, 57, 61],
     },
-    description: "\n    Turn your blade into a whipe, striking <span>2</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n    <br/><br/>\n    This skill attunes with your Flame, Frost and Storm Sigil skills.\n  ",
+    description: "\n    Turn your blade into a whip, striking <span>2</span> times.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per hit.\n    <br/><br/>\n    This skill attunes with your Flame, Frost and Storm Sigil skills.\n  ",
 };
 var BladeExpert = {
     name: "Blade Expert",
@@ -548,9 +548,9 @@ var BladeExpert = {
             level: 2,
         }],
     values: {
-        increase: [8, 8, 8, 8, 8],
+        increase: [2, 2, 4, 6, 8],
     },
-    description: "\n    You've honed your swordplay through careful study of the Twin Args.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Quintuple Cut, Blade Whip, and Phantasm Slash by <span>{increase}%</span>.\n  ",
+    description: "\n    You've honed your swordplay through careful study of the Twin Arts.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Quintuple Cut, Blade Whip, and Phantasm Slash by <span>{increase}%</span>.\n  ",
 };
 var PhantasmSlash = {
     name: "Phantasm Slash",
@@ -573,9 +573,9 @@ var PhantasmSlash = {
             level: 3,
         }],
     values: {
-        damage: [1096, 1096, 1096, 1096, 1096],
-        additionalDamage: [547, 547, 547, 547, 547],
-        spellSplitterDamage: [746, 746, 746, 746, 746],
+        damage: [890, 890, 993, 1096, 1199],
+        additionalDamage: [445, 445, 496, 547, 598],
+        spellSplitterDamage: [640, 640, 693, 746, 799],
     },
     description: "\n    Create a circle of rune magic, then use your blade to lash the magic at enemies.\n    Reactivate the skill after the initial strike to use Spell Splitter.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage,\n    then make multiple blade strikes that deal <span>{additionalDamage}%</span> damage each.\n    <br/><br/>\n    Use the skill again after the initial strike to use Spell Splitter.\n    <br/><br/>\n    Grants knockback immunity.\n    <br/><br/>\n    <h3>[Bonus Effects]</h3>\n    Spell Splitter deals <span>{spellSplitterDamage}%</span> damage <span>10</span> times\n    and refreshes the damage area every <span>0.1</span> sec.\n  ",
 };
@@ -591,9 +591,9 @@ var RuneTrigger = {
     attackType: "Long Range / Magic",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [128, 128, 128, 128, 128],
+        damage: [110, 110, 119, 128, 137],
     },
-    description: "\n    Cast focused rune magic at an enemy in front of you.\n    The magic explodes from within the target.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies within the explosion\n    <br/><br/>\n    This skill attunes with your Flame, Frost, and Storm Sigil skills.\n  ",
+    description: "\n    Cast focused rune magic at an enemy in front of you.\n    The magic explodes from within the target.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage to enemies within the explosion.\n    <br/><br/>\n    This skill attunes with your Flame, Frost, and Storm Sigil skills.\n  ",
 };
 var DimensionBlade = {
     name: "Dimension Blade",
@@ -613,31 +613,9 @@ var DimensionBlade = {
             level: 3,
         }],
     values: {
-        damage: [58, 58, 58, 58, 58],
+        damage: [58, 58, 86, 115, 143],
     },
     description: "\n    Conjure a globe of chaotic blade magic.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage.\n    <br/><br/>\n    This skill attunes with your Flame, Frost, and Storm Sigil skills.\n  ",
-    extras: [{
-            name: "Dimension Flame",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: "\n      Conjure a globe of freezing blade magic.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage.\n      <br/><br/>\n      <h3>[Bonus Effects]</h3>\n      Decreases movement speed and jump power by <span>{movement}%</span> per.\n    ",
-        }, {
-            name: "Dimension Frost",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: "\n      Conjure a globe of freezing blade magic.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage.\n      <br/><br/>\n      <h3>[Bonus Effects]</h3>\n      Decreases movement speed and jump power by <span>{movement}%</span> per.\n    ",
-        }, {
-            name: "Dimension Storm",
-            values: {
-                damage: [58, 58, 58, 58, 58],
-                movement: [30, 30, 30, 30, 30],
-            },
-            description: "\n      Conjure a globe of freezing blade magic.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage.\n      <br/><br/>\n      <h3>[Bonus Effects]</h3>\n      Decreases movement speed and jump power by <span>{movement}%</span> per.\n    ",
-        }]
 };
 var RuneExpert = {
     name: "Rune Expert",
@@ -655,9 +633,9 @@ var RuneExpert = {
             level: 3,
         }],
     values: {
-        increase: [2, 2, 2, 2, 2],
+        increase: [2, 2, 4, 6, 8],
     },
-    description: "\n    You've honed your runecraft through careful study of the Twin Args.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Rune Trigger, Dimension Blade and Rune Ignition by <span>{increase}%</span>.\n  ",
+    description: "\n    You've honed your runecraft through careful study of the Twin Arts.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Increases the damage of Rune Trigger, Dimension Blade and Rune Ignition by <span>{increase}%</span>.\n  ",
 };
 var RuneIgnition = {
     name: "Rune Ignition",
@@ -678,28 +656,9 @@ var RuneIgnition = {
             level: 3,
         }],
     values: {
-        damage: [300, 300, 300, 300, 300],
+        damage: [300, 300, 315, 330, 345],
     },
     description: "\n    Plunge your blade into the ground to send forth <span>4</span> shockwaves.\n    <br/><br/>\n    <h3>[Primary Effects]</h3>\n    Deals <span>{damage}%</span> damage per shockwave.\n    <br/><br/>\n    Grants knockback immunity.\n    <br/><br/>\n    This skill attunes with your Flame, Frost, and Storm Sigil skills.\n  ",
-    extras: [{
-            name: "Flame Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: "\n      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage per shockwave.\n      <br/><br/>\n      Grants knockback immunity.\n    ",
-        }, {
-            name: "Frost Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: "\n      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage per shockwave.\n      <br/><br/>\n      Grants knockback immunity.\n    ",
-        }, {
-            name: "Storm Ignition",
-            values: {
-                damage: [998, 998, 998, 998, 998],
-            },
-            description: "\n      Plunge your blade into the ground to send forth <span>7</span> ice shockwaves.\n      <br/><br/>\n      <h3>[Primary Effects]</h3>\n      Deals <span>{damage}%</span> damage per shockwave.\n      <br/><br/>\n      Grants knockback immunity.\n    ",
-        }]
 };
 var RankOneSkills = {
     BladeChasm: BladeChasm,

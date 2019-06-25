@@ -1,6 +1,6 @@
-import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-fe8c7252.js';
+import { e as registerInstance, f as createEvent, d as h, g as getElement } from './maplestory-skills-f2cfe95b.js';
 import { a as Rank } from './chunk-e93b9111.js';
-import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-5930baea.js';
+import { a as processSkills, b as toSkillChangeEventObject, c as renderLevelControls } from './chunk-feaa5013.js';
 
 const SteadfastFaith = {
     name: "Steadfast Faith",
@@ -481,8 +481,7 @@ const ScathingLight = {
     weaponRequired: "Main Hand Scepter",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [390, 390, 390, 390, 390],
-        holyDamage: [4, 4, 4, 4, 4],
+        damage: [291, 291, 324, 357, 390],
     },
     description: `
     Smite enemies with holy light.
@@ -491,7 +490,7 @@ const ScathingLight = {
     Deals <span>{damage}%</span> damage <span>2</span> times and inflicts Celestial Light.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Celestial Light deals <span>{holyDamage}%</span> holy damage per sec for <span>8</span> sec.
+    Celestial Light deals <span>4%</span> holy damage per sec for <span>8</span> sec.
   `,
 };
 const LightSpear = {
@@ -513,8 +512,8 @@ const LightSpear = {
             level: 3,
         }],
     values: {
-        damage: [166, 166, 166, 166, 166],
-        additionalDamage: [841, 841, 841, 841, 841],
+        damage: [136, 136, 151, 166, 181],
+        additionalDamage: [683, 683, 762, 841, 920],
     },
     description: `
     Damage enemies with a burst of holy light, then summon a spear of light to deal additional damage.
@@ -543,9 +542,9 @@ const Clarity = {
             level: 2,
         }],
     values: {
-        attack: [5, 5, 5, 5, 5],
-        accuracy: [4, 4, 4, 4, 4],
-        critical: [28, 28, 28, 28, 28],
+        attack: [2, 2, 3, 4, 5],
+        accuracy: [1, 1, 2, 3, 4],
+        critical: [7, 7, 14, 21, 28],
     },
     description: `
     Commune with the divine to strengthen your resolve.
@@ -578,12 +577,12 @@ const HeavensWrath = {
             level: 3,
         }],
     values: {
-        firstDamage: [729, 729, 729, 729, 729],
-        secondDamage: [1361, 1361, 1361, 1361, 1361],
-        thirdDamage: [2191, 2191, 2191, 2191, 2191],
-        stamina: [30, 30, 30, 30, 30],
-        health: [15, 15, 15, 15, 15],
-        movement: [24, 24, 24, 24, 24],
+        firstDamage: [591, 591, 660, 729, 798],
+        secondDamage: [1105, 1105, 1233, 1361, 1489],
+        thirdDamage: [1777, 1777, 1984, 2191, 2398],
+        stamina: [10, 10, 20, 30, 40],
+        health: [5, 5, 10, 15, 20],
+        movement: [8, 8, 16, 24, 32],
     },
     description: `
     Bless a circle of land before you to damage foes and empower yourself.
@@ -594,7 +593,7 @@ const HeavensWrath = {
     The circle presists for <span>20</span> sec, empowering you while you stand within in.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    While standing within the circle, increases stamina recover speed by <span>{stamina}%</span>,
+    While standing within the circle, increases stamina recovery speed by <span>{stamina}%</span>,
     health by <span>{health}%</span>, and movement speed by <span>{movement}%</span>.
     Light Spear becomes Light Sword while you are within the circle.
   `,
@@ -613,8 +612,8 @@ const PurifyingLight = {
     weaponRequired: "Main Hand Scepter",
     levelRequirement: [60, 60, 60, 60, 60],
     values: {
-        damage: [131, 131, 131, 131, 131],
-        reduction: [1.5, 1.5, 1.5, 1.5, 1.5],
+        damage: [131, 131, 146, 161, 176],
+        reduction: [1.5, 1.5, 3.0, 4.5, 6.0],
     },
     description: `
     Loose holy arrows to damage enemies and reduce their defense.
@@ -647,19 +646,18 @@ const DivineWave = {
             level: 3,
         }],
     values: {
-        damage: [405, 405, 405, 405, 405],
-        additionalDamage: [161, 161, 161, 161, 161],
-        chance: [12, 12, 12, 12, 12],
-        healing: [120, 120, 120, 120, 120],
+        damage: [405, 405, 452, 499, 546],
+        additionalDamage: [161, 161, 179, 197, 215],
+        healing: [120, 120, 130, 140, 150],
     },
     description: `
-    Challen holy energy for dealing damage with a chance to heal nearby ally.
+    Channel holy energy for dealing damage with a chance to heal a nearby ally.
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Deals <span>{damage}%</span> damage to <span>5</span> enemies.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    <span>{chance}%</span> chance to deal an additional <span>{additionalDamage}%</span> damage
+    <span>12%</span> chance to deal an additional <span>{additionalDamage}%</span> damage
     and heal the ally with the lowest health by <span>{healing}%</span> of your magic attack.
   `,
 };
@@ -682,19 +680,19 @@ const GreaterHealing = {
             level: 3,
         }],
     values: {
-        healing: [56, 56, 56, 56, 56],
-        instantHealing: [240, 240, 240, 240, 240],
-        increase: [9, 9, 9, 9, 9],
+        healing: [56, 56, 60, 64, 68],
+        instantHealing: [240, 240, 260, 280, 300],
+        increase: [9, 9, 16, 23, 30],
     },
     description: `
     Draw celestial power from the heavens to heal allies and increase your damage.
     <br/><br/>
     <h3>[Primary Effects]</h3>
-    Heal <span>10%</span> allies every <span>0.5</span> sec for <span>6</span> sec
+    Heal <span>10</span> allies every <span>0.5</span> sec for <span>6</span> sec
     by <span>{healing}%</span> of your magic attack.
     <br/><br/>
     <h3>[Bonus Effects]</h3>
-    Instantly heal the 2 allies with the lowest health by <span>{instantHealing}%</span> of your magic attack.
+    Instantly heal the <span>2</span> allies with the lowest health by <span>{instantHealing}%</span> of your magic attack.
     Increases your damage by <span>{increase}%</span> for <span>5</span> sec.
   `,
 };
@@ -715,8 +713,7 @@ const Vitality = {
             level: 3,
         }],
     values: {
-        attack: [7, 7, 7, 7, 7],
-        increase: [1, 1, 1, 1, 1],
+        increase: [1, 1, 2, 3, 4],
     },
     description: `
     Increases the offense of allies healed by Divine Wave or Greater Healing.
@@ -724,7 +721,7 @@ const Vitality = {
     <br/><br/>
     <h3>[Primary Effects]</h3>
     Allies healed by Divine Wave or Greater Healing have their physical and magic attack increased
-    by <span>{attack}%</span> for <span>30</span> sec.
+    by <span>7%</span> for <span>30</span> sec.
     Increases Purifying Light and Divine Wave damage by <span>{increase}%</span>.
     This physical and magic attack increase doesn't stack with Celestial Blessing.
   `,
