@@ -13,7 +13,6 @@ import {
   ISkill,
 } from './global/values/_skillValues.interfaces';
 
-
 export namespace Components {
   interface MsArcher {
     'agileArcher': number;

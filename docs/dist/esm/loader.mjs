@@ -1,4 +1,4 @@
-import { c as patchEsm, b as bootstrapLazy } from './maplestory-skills-f2cfe95b.js';
+import { a as patchEsm, b as bootstrapLazy } from './chunk-b3f221a8.js';
 
 const defineCustomElements = (win, options) => {
   return patchEsm().then(() => {

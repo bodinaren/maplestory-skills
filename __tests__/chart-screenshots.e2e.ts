@@ -59,18 +59,18 @@ describe("screenshots", () => {
         });
       });
 
-      Object.keys(msClass.skills).forEach((key) => {
-        const skill: ISkillBase = msClass.skills[key];
+      // Object.keys(msClass.skills).forEach((key) => {
+      //   const skill: ISkillBase = msClass.skills[key];
 
-        it(skill.name, async () => {
-          const skillElement = await pages[skill.rank].find(`${ msClass.tag } >>> ms-skill.${ skill.prop }`);
-          await skillElement.hover();
+      //   it(skill.name, async () => {
+      //     const skillElement = await pages[skill.rank].find(`${ msClass.tag } >>> ms-skill.${ skill.prop }`);
+      //     await skillElement.hover();
 
-          const results = await pages[skill.rank].compareScreenshot(skill.name);
+      //     const results = await pages[skill.rank].compareScreenshot(skill.name);
 
-          expect(results).toMatchScreenshot();
-        });
-      });
+      //     expect(results).toMatchScreenshot();
+      //   });
+      // });
     });
   });
 });
