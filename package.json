@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/bodinaren/maplestory-skills/issues"
   },
-  "homepage": "https://github.com/bodinaren/maplestory-skills",
+  "homepage": "https://bodinaren.github.io/maplestory-skills/",
   "devDependencies": {
     "@stencil/core": "1.0.0",
     "@types/jest": "23.3.14",
