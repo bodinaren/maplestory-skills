@@ -2,6 +2,8 @@
 
 # MapleStory 2 Interactive Skill Charts
 
+>Since MapleStory 2 has been shut down this project is now archived. 
+
 MapleStory 2 Interactive Skill Charts is a set of web components which, with very little effort, let you add an interactive skill chart to your website or blog. This way your viewers can interact with the chart and see exactly what bonuses your chosen skill gives. So much better than just a screenshot!
 
 [Try it out!](http://bodinaren.github.io/maplestory-skills)
